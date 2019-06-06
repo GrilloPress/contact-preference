@@ -1,0 +1,39 @@
+{% set PROTOTYPEURL = "register-as-a-data-donor/v1" %}
+{% set serviceName = "Register as a data donor" %}
+{% set contentTitle = "We've updated your contact preference" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ contentTitle }}</h1>
+
+      <p>We will contact you by <strong>{{ data['contactPreference'] }}</strong>.</p>
+
+      <p>You can change your contact preference at any time.</p>
+
+
+            {{ backLink({
+              "href": "/register-as-a-data-donor/v1/your-profile/your-data-donor-profile",
+              "text": "Back to your data donor profile"
+            }) }}
+
+    </div>
+  </div>
+{% endblock %}

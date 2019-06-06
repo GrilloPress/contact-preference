@@ -1,0 +1,54 @@
+{% set PROTOTYPEURL = "see-how-data-is-shared/v1" %}
+{% set serviceName = "See how data from your health records has helped research and planning" %}
+{% set contentTitle = "v1" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+{% extends 'layouts/layout-nhsuk.html' %}
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "#",
+  text: "Your health records"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        {{ serviceName }}
+      </h1>
+
+      <p>Use this service to: </p>
+      <ul>
+        <li>see how data from your health records has helped the NHS </li>
+        <li>see which organisations have used data from your health records </li>
+      </ul>
+      <p>This service only shows you how data has been used in the health and care system in England.</p>
+
+      <h2 id="before-you-start">To use this service</h2>
+      <p>You'll need to:</p>
+      <ul>
+        <li>be 13 or older</li>
+        <li>have an NHS login - if you do not have one, we'll help you set one up</li>
+      </ul>
+
+      <form class="" action="/{{PROTOTYPEURL}}/login/before" method="get">
+        <input class="nhsuk-button" type="submit" value="Start now" aria-label="Start the online '{{ serviceName }}' service">
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

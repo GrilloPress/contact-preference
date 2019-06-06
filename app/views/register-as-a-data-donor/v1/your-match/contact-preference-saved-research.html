@@ -1,0 +1,52 @@
+{% set PROTOTYPEURL = "register-as-a-data-donor/v1" %}
+{% set serviceName = "Register as a data donor" %}
+{% set contentTitle = "We'll send you updates about this research study" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        {% if data['researchContactPreference'] == 'week' %}
+          {{ contentTitle }} every week
+        {% elif data['researchContactPreference'] == 'month' %}
+          {{ contentTitle }} every month
+        {% else %}
+          We'll send you an update about this research study when it's finished
+        {% endif %}</h1>
+
+        <p>
+          {% if data['contactPreference'] == 'email' %}
+            We'll update you by email.
+          {% elif data['contactPreference'] == 'text' %}
+            We'll update you by text.
+          {% else %}
+              We'll update you by email.
+          {% endif %}</p>
+
+        <p>You can change this at any time on your data donor profile.</p>
+
+
+      {{ backLink({
+        "href": "/register-as-a-data-donor/v1/your-profile/your-data-donor-profile",
+        "text": "Back to your data donor profile"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

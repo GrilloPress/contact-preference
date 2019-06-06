@@ -1,0 +1,56 @@
+{% set PROTOTYPEURL = "register-as-a-data-donor/v3" %}
+{% set serviceName = "Register as a data donor" %}
+{% set contentTitle = "We've added you to the data donor register" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ contentTitle }}</h1>
+
+      <form action="" method="post">
+        {{ radios({
+          "idPrefix": "nhs",
+          "name": "confirmationChannel",
+          "fieldset": {
+            "legend": {
+              "text": "Where should we send you confirmation?",
+              "classes": "nhsuk-fieldset__legend--m"
+            }
+          },
+          "items": [
+            {
+              "value": "email",
+              "text": "By email to jane.doe@gmail.com"
+            },
+            {
+              "value": "text",
+              "text": "By text to 00789101173"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

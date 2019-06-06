@@ -1,0 +1,40 @@
+.app-list-cards {
+
+  a {
+
+    text-decoration: none;
+    color: $color_nhsuk-black;
+    display: block;
+
+    &:hover {
+
+      background-color: $nhsuk-link-hover-background-color;
+
+    }
+  }
+
+}
+
+.app-list-cards__item {
+
+  @include nhsuk-responsive-margin(5, 'bottom');
+
+}
+
+.app-list-cards__heading {
+
+  color: $color_nhsuk-blue;
+  @include nhsuk-responsive-margin(2, 'bottom');
+}
+
+.app-list-cards__heading--no-link {
+
+  color: $color_nhsuk-black;
+  @include nhsuk-responsive-margin(2, 'bottom');
+}
+
+.app-list--unstyled {
+
+  list-style-type: none;
+  padding-left: 0;
+}

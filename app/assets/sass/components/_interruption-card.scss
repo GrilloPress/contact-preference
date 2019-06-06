@@ -1,0 +1,43 @@
+$color_app-interruption-blue: #05538e;
+
+.app-interruption {
+  margin-bottom: nhsuk-spacing(5) + $nhsuk-box-shadow-link; /* [1] */
+  width: 100%;
+  color: $color_nhsuk-white;
+}
+
+.app-interruption__wrapper {
+  background-color: $color_app-interruption-blue;
+  box-shadow: 0 $nhsuk-box-shadow-link 0 0 darken($color_app-interruption-blue, 8%); /* [2] */
+  display: block;
+  height: 100%; /* [3] */
+  position: relative; /* [4] */
+  text-decoration: none; /* [5] */
+
+  .nhsuk-button {
+
+    margin-bottom: 0;
+  }
+
+}
+
+.app-interruption__img {
+  @include print-hide();
+  border-bottom: 1px solid $color_nhsuk-grey-5; /* [8] */
+  display: block;
+  width: 100%;
+
+}
+
+.app-interruption__heading {
+  margin-bottom: nhsuk-spacing(3);
+}
+
+.app-interruption__content {
+  @include top-and-bottom();
+  @include nhsuk-responsive-padding(5);
+}
+
+.app-interruption__description {
+  color: $color_nhsuk-white;
+}

@@ -1,0 +1,159 @@
+{% set PROTOTYPEURL = "see-how-data-is-shared/v1" %}
+{% set serviceName = "See how data from your health records has helped research and planning" %}
+
+{% block pageScripts %}
+{% endblock %}
+
+{% set study =
+  {
+    id: "1",
+    category: "planning",
+    title: "Health and social care services in Leeds",
+    dateFirstRelease: "01 January 2019",
+    dateLatestRelease: "01 May 2019",
+    dateFinished: "",
+    timesDataShared: "19",
+    organisation: "NHS Leeds Clinical Commissioning Group",
+    organisationExplainer: "A Clinical Commissioning Group is an NHS organisation that helps plan which services an area needs. Including care services like GP surgeries and sexual health clinics",
+    phrase: "understand"
+
+  }
+%}
+
+{% set dataSets = [
+  {
+    id: "1",
+    category: "planning",
+    title: "Health and social care services in Leeds",
+    dateFirstRelease: "01 January 2019",
+    dateLatestRelease: "01 May 2019",
+    dateFinished: "",
+    timesDataShared: "19",
+    organisation: "NHS Leeds Clinical Commissioning Group"
+
+  }
+  ]
+%}
+{% set contentTitle = "How data from your health records was used for " + study.title %}
+{% set benefitsTitle = "How your data has been used by " + study.organisation %}
+{% set title = contentTitle + " - " + serviceName %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<section class="nhsuk-breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item">How your data has been used from <a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">1 January 2019 </a></li>
+    </ol>
+  </div>
+</section>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+        "href": "/" + PROTOTYPEURL + "/summary/index",
+        "text": "Back to the previous page"
+      }) }}
+
+      <div class="nhsuk-u-margin-bottom-6">
+        <h1 class="">
+           {{ contentTitle }}
+        </h1>
+      </div>
+
+      <h2>What data was shared</h2>
+      <p>Data from your health records was shared. Information such as:</p>
+      <ul>
+        <li>what treatments you had</li>
+        <li>where you recieved care</li>
+        <li>your age but not your date of birth</li>
+      </ul>
+      <h2>Who used this data</h2>
+      <p>{{ study.organisation }} used this data.</p>
+      <p>{{ study.organisationExplainer}}</p>
+      <h2>How your data has been used</h2>
+      <p>Data from your health records has been shared to {{ study.phrase }}:</p>
+      <ul>
+        <li>how many people get a disease</li>
+        <li>risks to public health</li>
+        <li>how many people need certain treatments</li>
+        <li>variations in health outcomes between groups in the population</li>
+        <li>what causes some areas to have better health</li>
+      </ul>
+      <h2>When your data was shared</h2>
+      <p>From {{study.dateFirstRelease }} your data was shared {{study.timesDataShared}} times to {{study.organisation }}.</p>
+
+      {% set dataSets = [
+        {
+          id: "1",
+          times: "3",
+          date: "January 2019",
+          dataIncluded: "included appointments and details about your care",
+          content: "was not personally identifiable, but included your age"
+
+        },
+        {
+          id: "2",
+          times: "4",
+          date: "Feburary 2019",
+          dataIncluded: "included appointments and details about your care",
+          content: "was not personally identifiable, but included your age"
+
+        },
+        {
+          id: "3",
+          times: "4",
+          date: "March 2019",
+          dataIncluded: "included appointments and details about your care",
+          content: "was not personally identifiable, but included your age"
+
+        },
+        {
+          id: "4",
+          times: "4",
+          date: "April 2019",
+          dataIncluded: "included appointments and details about your care",
+          content: "was not personally identifiable, but included your age"
+
+        },
+        {
+          id: "4",
+          times: "4",
+          date: "May 2019",
+          dataIncluded: "included appointments and details about your care",
+          content: "was not personally identifiable, but included your age"
+
+        }
+        ]
+      %}
+
+              <ol class="timeline">
+                {% for s in dataSets %}
+                <li class="timeline__entry">
+                  <h3 class="timeline__title">{{ s.date }}</h3>
+                  <p class="nhsuk-body-s timeline__info nhsuk-u-margin-bottom-0">
+                    Data released:
+                  </p>
+                  <ul>
+                    <li class="">{{ s.content }}</li>
+                    <li class="">{{ s.dataIncluded }}</li>
+                  </ul>
+                </li>
+                {% endfor %}
+              </ol>
+
+
+    </div>
+  </div>
+{% endblock %}

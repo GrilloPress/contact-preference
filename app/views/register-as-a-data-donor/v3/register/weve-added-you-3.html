@@ -1,0 +1,36 @@
+{% set PROTOTYPEURL = "register-as-a-data-donor/v3" %}
+{% set serviceName = "Register as a data donor" %}
+{% set contentTitle = "We've added you to the data donor register" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ contentTitle }}</h1>
+
+      <p>We've emailed you confirmation that we've added you to the data donor register.</p>
+
+      <p>You now have a data donor profile.</p>
+
+      <p><a href="#">Go to your data donor profile</a></p>
+
+
+    </div>
+  </div>
+{% endblock %}

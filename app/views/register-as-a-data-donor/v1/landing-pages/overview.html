@@ -1,0 +1,74 @@
+{% set PROTOTYPEURL = "register-as-a-data-donor/v1" %}
+{% set serviceName = "Register as a data donor" %}
+{% set contentTitle = "Register as a data donor" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+{% extends 'layouts/layout-nhsuk.html' %}
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: "/" + PROTOTYPEURL,
+        text: "Home"
+      }
+    ],
+    href: "/" + PROTOTYPEURL + "/landing-pages/overview",
+    text: "Your health records"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        {{ serviceName}}
+      </h1>
+
+      {{ contentsList({
+        items: [
+          {
+            href: "/" + PROTOTYPEURL + "/overview",
+            text: "Overview",
+            current: "true"
+          },
+          {
+            href: "/" + PROTOTYPEURL + "/landing-pages/start",
+            text: "Register"
+
+          }
+        ]
+      }) }}
+
+      <p>Data from your health records can be used for research and planning in the NHS.</p>
+      <p>Data helps the NHS to:</p>
+      <ul>
+        <li>plan and improve health and care services</li>
+        <li>research and develop cures for serious illnesses</li>
+      </ul>
+
+      <h2>Becoming a data donor</h2>
+      <p>You can choose to help the NHS by joining the data donor list and taking part in new research studies.</p>
+      <p>If you do become a donor we'll match you with research studies and ask you if you're happy to take part.</p>
+      <p>If you agree to take part we will then share your details and data with the organisation running the study.</p>
+      <p>Joining the register will not change your individual care.</p>
+      <p>
+        <a href="{{ "/" + PROTOTYPEURL + "/landing-pages/start" }}">Register as a data donor</a>
+      </p>
+
+      {{ pagination({
+        "nextUrl": "/" + PROTOTYPEURL + "/landing-pages/start",
+        "nextPage": "Register"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

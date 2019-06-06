@@ -1,0 +1,160 @@
+{% set PROTOTYPEURL = "see-how-data-is-shared/v1" %}
+{% set serviceName = "See how data from your health records has helped research and planning" %}
+{% set contentTitle = "5 studies" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<section class="nhsuk-breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item">How your data has been used from <a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">1 January 2019 </a></li>
+    </ol>
+  </div>
+</section>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="nhsuk-u-margin-bottom-6">
+        <h1 class="">
+          <span class="nhsuk-caption-m nhsuk-caption--top">Data from your health records has been shared as part of</span>
+          {{ contentTitle }}
+        </h1>
+      </div>
+
+
+      <div class="nhsuk-grid-row nhsuk-u-margin-top-6">
+        <div class="nhsuk-grid-column-full">
+          <h2>Your data has been shared</h2>
+        </div>
+        <div class="nhsuk-grid-column-full">
+          <p><strong>3</strong> times as part of a research study</p>
+        </div>
+        <div class="nhsuk-grid-column-full">
+          <p><strong>26</strong> times to help plan regional NHS services</p>
+        </div>
+        <div class="nhsuk-grid-column-full">
+          <p><strong>2</strong> times to help understand national health issues</p>
+        </div>
+      </div>
+
+      <h2 class="nhsuk-heading-l nhsuk-u-margin-top-6">Recent studies</h2>
+      <div class="app-study">
+        <div class="">
+
+          {% set studies = [
+            {
+              id: "1",
+              category: "planning",
+              title: "Health and social care services in Leeds",
+              dateFirstRelease: "01 January 2019",
+              dateLatestRelease: "01 May 2019",
+              dateFinished: "",
+              timesDataShared: "19",
+              organisation: "NHS Leeds Clinical Commissioning Group"
+
+            },
+            {
+              id: "2",
+              category: "planning",
+              title: "Mental health services in Yorkshire",
+              dateFirstRelease: "01 January 2019",
+              dateLatestRelease: "01 May 2019",
+              dateFinished: "",
+              timesDataShared: "5",
+              organisation: "Methods Analytics Ltd"
+
+            },
+            {
+              id: "3",
+              category: "research",
+              title: "Impact of community based social prescribing",
+              dateFirstRelease: "14 March 2019",
+              dateLatestRelease: "",
+              dateFinished: "",
+              timesDataShared: "1",
+              organisation: "Newcastle University"
+
+            }
+
+
+            ] %}
+
+          <ol class="app-study__list">
+
+            {% for s in studies %}
+            <li class="app-study__list-item">
+              <div class="app-study__list-item-container">
+                <a href="/{{ PROTOTYPEURL }}/studies/{{s.id}}">
+                  <span class="nhsuk-caption-m nhsuk-caption--top">{{s.category | capitalize}}</span>
+                  <h3 class="app-study__list-item-heading">{{s.title}}</h3>
+
+                  <div class="app-study__list-item-row">
+                    <span class="app-study-list-card__key">Organisation</span>
+                    <span class="app-study-list-card__value">{{ s.organisation }}</span>
+                  </div>
+
+                  {% if s.timesDataShared == 1 %}
+                  <div class="app-study__list-item-row">
+                    <span class="app-study-list-card__key">When your data was shared </span>
+                    <span class="app-study-list-card__value">{{s.dateFirstRelease}}</span>
+                  </div>
+                  {% endif %}
+
+                  {% if s.timesDataShared > 1 %}
+                  <div class="app-study__list-item-row">
+                    <span class="app-study-list-card__key">When your data was shared</span>
+                    <span class="app-study-list-card__value">From {{s.dateFirstRelease }} to {{s.dateLatestRelease}}</span>
+                  </div>
+                  {% endif %}
+
+                  {% if s.timesDataShared >= 1 %}
+                  <div class="app-study__list-item-row">
+                    <span class="app-study-list-card__key">Number of times shared</span>
+                    <span class="app-study-list-card__value">{{s.timesDataShared}}</span>
+                  </div>
+                  {% endif %}
+
+                  {% if s.dateFinished %}
+                  <div class="app-study__list-item-row">
+                    <span class="app-study-list-card__key">Date data stopped being shared</span>
+                    <span class="app-study-list-card__value">{{s.dateFinished}}</span>
+                  </div>
+                  {% endif %}
+
+
+                  <div class="app-study__list-item-row nhsuk-u-margin-top-2">
+                    <span class="app-study-list-card__link">Find out more</span>
+                  </div>
+                </a>
+              </div>
+            </li>
+            {% endfor %}
+          </ol>
+
+
+
+        </div>
+      </div>
+
+      <p>
+        <a href="#">See all studies</a>
+      </p>
+
+
+    </div>
+  </div>
+{% endblock %}

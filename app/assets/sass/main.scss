@@ -1,0 +1,54 @@
+// Import NHS.UK frontend library
+@import 'node_modules/nhsuk-frontend/packages/nhsuk';
+
+// Components that are not in the NHS.UK frontend library
+@import 'components/panel-confirmation';
+@import 'components/related-nav';
+
+@import 'components/interruption-card';
+@import 'components/card';
+
+a:visited {
+
+  color: $color_nhsuk-blue;
+}
+
+@import 'prototype/list';
+@import 'prototype/email';
+@import 'prototype/study-card';
+@import 'prototype/timeline';
+@import 'prototype/summary-card';
+///////////////////////////////////////////
+// Add your custom CSS/Sass styles below...
+///////////////////////////////////////////
+
+li ul {
+  margin-bottom: 0;
+
+  &::before {
+    content: "";
+    display: block;
+    @include nhsuk-responsive-margin(2, 'bottom');  // or $whateverTheRightVariableIsMate
+
+  }
+}
+
+.loader {
+    border: 16px solid transparent;
+    border-top: 16px solid $color_nhsuk-blue;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin: auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader_text {
+
+  text-align: center;
+}

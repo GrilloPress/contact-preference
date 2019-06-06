@@ -1,0 +1,51 @@
+{% set PROTOTYPEURL = "register-as-a-data-donor/v3" %}
+{% set serviceName = "Register as a data donor" %}
+{% set contentTitle = "Do you want to register as a data donor?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="#" method="get">
+        {{ checkboxes({
+          "idPrefix": "yes",
+          "name": "yes",
+          "fieldset": {
+            "legend": {
+              "text": contentTitle,
+              "classes": "nhsuk-fieldset__legend--xl",
+              "isPageHeading": true
+            }
+          },
+          "items": [
+            {
+              "value": "Yes",
+              "text": "Yes"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% set PROTOTYPEURL = "register-as-a-data-donor/v1" %}
+{% set serviceName = "Register as a data donor" %}
+{% set contentTitle = "Register" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+{% extends 'layouts/layout-nhsuk.html' %}
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    },
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Your health records"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/overview",
+  text: serviceName
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        {{ contentTitle }}
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom ">
+          {{ serviceName}}
+        </span>
+      </h1>
+
+      {{ contentsList({
+        items: [
+          {
+            href: "/" + PROTOTYPEURL + "/landing-pages/overview",
+            text: "Overview"
+          },
+          {
+            href: "/" + PROTOTYPEURL + "/start",
+            text: "Register",
+            current: "true"
+          }
+        ]
+      }) }}
+
+      <p>Use this service to: </p>
+      <ul>
+        <li>register as a data donor </li>
+        <li>check if you're able to donate your data to the NHS </li>
+      </ul>
+
+        <h2 id="before-you-start">To use this service</h2>
+        <p>You'll need to:</p>
+        <ul>
+          <li>be 13 or older</li>
+          <li>have an NHS login - if you do not have one, we'll help you set one up</li>
+        </ul>
+
+        <form class="" action="/{{PROTOTYPEURL}}/eligibility/before-you-start" method="get">
+          <input class="nhsuk-button" type="submit" value="Start now" aria-label="Start the online '{{ serviceName }}' service">
+        </form>
+
+        {{ pagination({
+        "previousUrl": "/" + PROTOTYPEURL + "/landing-pages/overview",
+        "previousPage": "Overview"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

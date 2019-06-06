@@ -1,0 +1,109 @@
+.app-study {
+
+  @include nhsuk-font($size: 19);
+  margin: 0;
+  @include nhsuk-responsive-margin(4, 'bottom');
+
+  a {
+
+    text-decoration: none;
+    color: inherit;
+    display: block;
+
+    &:hover {
+
+      background-color: $nhsuk-link-hover-background-color;
+
+    }
+  }
+
+}
+
+.app-study__list-item {
+
+  @include nhsuk-responsive-padding(4, 'bottom');
+  @include nhsuk-responsive-padding(2, 'top');
+  border-bottom: 1px solid $nhsuk-border-color;
+
+}
+
+.app-study__list-item:last-child {
+  border-bottom: none;
+}
+
+.app-study__list-item-heading {
+
+  @include nhsuk-responsive-margin(3, 'bottom');
+  color: $color_nhsuk-blue;
+}
+.app-study__list-item-row {
+
+  @include nhsuk-font($size: 16);
+}
+
+.app-study-list-card__key {
+
+  @include nhsuk-font($size: 16);
+  font-weight: 600; //sure there is a better way of doing font and weight
+  display: block;
+  @include mq($from: tablet) {
+    display: inline-block;
+    width: 40%;
+  }
+
+}
+
+.app-study-list-card__value {
+
+  @include nhsuk-font($size: 16);
+  display: block;
+  @include mq($from: tablet) {
+    display: inline-block;
+  }
+}
+
+.app-study-list-card__link {
+
+  @include nhsuk-font($size: 16);
+  color: $color_nhsuk-blue;
+}
+
+
+
+
+.app-study__list {
+
+  list-style-type: none;
+  padding: 0;
+  border-bottom: 1px solid $nhsuk-border-color;
+}
+
+.app-study-card__content {
+
+  border-bottom: 1px solid $nhsuk-border-color;
+  padding-top: nhsuk-spacing(3);
+
+}
+
+.app-study-card__list {
+
+  margin: 0;
+
+}
+
+.app-study-card__list-item {
+
+  margin: 0;
+
+}
+
+.app-study-card__key {
+
+  display: inline-block;
+}
+
+.app-study-card__value {
+
+  display: inline-block;
+
+}

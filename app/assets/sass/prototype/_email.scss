@@ -1,0 +1,59 @@
+.app-width-container--email {
+
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.app-header--email {
+
+  max-width: 680px;
+  margin: 0 auto;
+
+  @include mq($from: tablet) {
+    @include nhsuk-responsive-margin(4, "top");
+  }
+}
+
+.app-width--email {
+
+  padding: 0 nhsuk-spacing(3);
+  margin: 0 auto;
+  background-color: $color_nhsuk-grey-5;
+
+  @include mq($from: tablet) {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+.app-width__footer--email {
+
+  background-color: $color_nhsuk-grey-4;
+  padding: nhsuk-spacing(3);
+  border: none;
+
+}
+
+.app-header__container--email {
+
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.app-email {
+
+  max-width: 600px;
+  margin: 0 auto;
+
+  .nhsuk-width-container {
+
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.app-email__body {
+
+  background-color: #fdfdfd;
+}

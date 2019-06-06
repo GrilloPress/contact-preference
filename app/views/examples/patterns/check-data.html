@@ -1,0 +1,82 @@
+{% set PROTOTYPEURL = "examples" %}
+{% set serviceName = "Secondary uses of data" %}
+{% set contentTitle = "Check this data" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ contentTitle }}</h1>
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "Sarah Philips"
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: "5 January 1978"
+            }
+          }
+        ]
+      }) }}
+
+      <form action="#" method="get">
+        {{ radios({
+          "idPrefix": "gov",
+          "name": "gov",
+          "fieldset": {
+            "legend": {
+              "text": "Is this really the person you are after?",
+              "classes": "nhsuk-fieldset__legend--m"
+            }
+          },
+          "items": [
+            {
+              "value": "yes",
+              "text": "Yes, it is"
+            },
+            {
+              "value": "no",
+              "text": "No, it's not"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+      {{ backLink({
+        "href": "../index",
+        "text": "Back to list"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

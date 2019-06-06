@@ -1,0 +1,54 @@
+{% set PROTOTYPEURL = "see-how-data-is-shared/v1" %}
+{% set serviceName = "See how data from your health records has helped research and planning" %}
+
+{% set report  %}
+  {% if data['report'] == 'text' %}
+    mobile number
+  {% elif data['report'] == 'email' %}
+    email address
+  {% else %}
+    email address
+  {% endif %}
+{% endset %}
+{% set contentTitle = "What " + report + " would you like us to use to contact you? " %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ PROTOTYPEURL }}/contact-choices/2-update-preference" method="post">
+
+        {{ input({
+          "label": {
+            "text": contentTitle,
+            "isPageHeading": true,
+            "classes": "nhsuk-label--xl"
+          },
+          "id": "inputreportnewdetails",
+          "name": "reportnewdetails",
+          "autocomplete": "off",
+          "classes": "nhsuk-input--width-20"
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

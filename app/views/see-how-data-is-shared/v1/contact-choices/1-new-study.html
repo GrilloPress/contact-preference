@@ -1,0 +1,57 @@
+{% set PROTOTYPEURL = "see-how-data-is-shared/v1" %}
+{% set serviceName = "See how data from your health records has helped research and planning" %}
+{% set contentTitle = "Would you like us to contact you when we share your data for a new study?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <div class="nhsuk-u-reading-width">
+          <div class="nhsuk-u-margin-bottom-6">
+            <form action="" method="post">
+              {{ radios({
+                "idPrefix": "nhs-study",
+                "name": "study",
+                "fieldset": {
+                  "legend": {
+                    "text": contentTitle,
+                    "isPageHeading": true,
+                    "classes": "nhsuk-fieldset__legend--xl"
+                  }
+                },
+                "items": [
+                  {
+                    "value": "yes",
+                    "text": "Yes, I would like a message when my data is shared"
+                  },
+                  {
+                    "value": "no",
+                    "text": "No"
+                  }
+                ]
+              }) }}
+
+              <input type="submit" class="nhsuk-button" value="Continue">
+              </input>
+
+            </form>
+          </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

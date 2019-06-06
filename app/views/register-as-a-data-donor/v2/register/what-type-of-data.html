@@ -1,0 +1,55 @@
+{% set PROTOTYPEURL = "register-as-a-data-donor/v2" %}
+{% set serviceName = "Register as a data donor" %}
+{% set contentTitle = "What data would you like to donate?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+<h1>{{ contentTitle }}</h1>
+
+<form action="/{{ PROTOTYPEURL }}/register/share-for-research" method="get">
+  {{ radios({
+    "idPrefix": "nhs",
+    "name": "dataType",
+    "fieldset": {
+      "legend": {
+        "classes": "nhsuk-fieldset__legend--m"
+      }
+    },
+    "items": [
+      {
+        "value": "all",
+        "text": "All my data that could include information like my name and postcode"
+      },
+      {
+        "value": "anon",
+        "text": "Only data that does not include information like my name and postcode"
+      }
+    ]
+  }) }}
+
+
+  <input type="submit" class="nhsuk-button" value="Continue">
+  </input>
+
+</form>
+
+    </div>
+  </div>
+{% endblock %}

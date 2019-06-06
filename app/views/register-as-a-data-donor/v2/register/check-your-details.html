@@ -1,0 +1,86 @@
+{% set PROTOTYPEURL = "register-as-a-data-donor/v2" %}
+{% set serviceName = "Register as a data donor" %}
+{% set contentTitle = "Check your details" %}
+{% set question = "Confirm you want to register as a data donor" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+<h1>{{ contentTitle }}</h1>
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "Jane Doe"
+      }
+    },
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        text: "31 March 1980"
+      }
+    },
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        html: "200 East Parade<br>Lincoln<br>LN4 7TS"
+      }
+    }
+  ]
+}) }}
+
+<form action="/{{ PROTOTYPEURL }}/register/how-your-profile-works" method="post">
+  {{ radios({
+    "idPrefix": "nhs",
+    "name": "checkDetails",
+    "fieldset": {
+      "legend": {
+        "text": "Are these details correct?",
+        "classes": "nhsuk-fieldset__legend--m"
+      }
+    },
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes"
+      },
+      {
+        "value": "no",
+        "text": "No"
+      }
+    ]
+  }) }}
+
+  <input type="submit" class="nhsuk-button" value="Continue">
+  </input>
+
+</form>
+
+
+    </div>
+  </div>
+{% endblock %}

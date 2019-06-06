@@ -1,0 +1,36 @@
+.app-card {
+  margin-bottom: nhsuk-spacing(5) + $nhsuk-box-shadow-link; /* [1] */
+  width: 100%;
+}
+
+.app-card__wrapper {
+  background-color: $color_nhsuk-white;
+  box-shadow: 0 $nhsuk-box-shadow-link 0 0 $color_nhsuk-grey-4; /* [2] */
+  display: block;
+  height: 100%; /* [3] */
+  position: relative; /* [4] */
+  text-decoration: none; /* [5] */
+
+}
+
+.app-card__img {
+  @include print-hide();
+
+  border-bottom: 1px solid $color_nhsuk-grey-5; /* [8] */
+  display: block;
+  width: 100%;
+
+}
+
+.app-card__heading {
+  margin-bottom: nhsuk-spacing(3);
+}
+
+.app-card__content {
+  @include top-and-bottom();
+  @include nhsuk-responsive-padding(5);
+}
+
+.app-card__description {
+  color: $nhsuk-secondary-text-color;
+}

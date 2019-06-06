@@ -1,0 +1,31 @@
+{% set PROTOTYPEURL = "register-as-a-data-donor/v1" %}
+{% set serviceName = "Register as a data donor" %}
+{% set contentTitle = "You're not be able to donate your data right now  " %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="app-card__heading nhsuk-heading-l">{{ contentTitle }}</h1>
+      <p>
+      This is because you have to be aged 13 or older
+      </p>
+
+    </div>
+  </div>
+{% endblock %}

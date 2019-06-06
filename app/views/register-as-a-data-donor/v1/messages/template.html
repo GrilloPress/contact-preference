@@ -1,0 +1,263 @@
+{% set PROTOTYPEURL = "register-as-a-data-donor/v1" %}
+{% set serviceName = "Register as a data donor" %}
+{% set contentTitle = "If you register as a data donor we'll add you to a list of donors" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% set previewContent = "This is content you use to summarise a message. It is automatically included in some email clients" %}
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;margin-top:0 !important;margin-bottom:0 !important;margin-right:auto !important;margin-left:auto !important;padding-top:0 !important;padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !important;height:100% !important;width:100% !important;" >
+
+<head style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" >
+  <meta charset="utf-8" style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" >
+  <!-- utf-8 works for most cases -->
+  <meta name="viewport" content="width=device-width" style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" >
+  <!-- Forcing initial-scale shouldn't be necessary -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" >
+  <!-- Use the latest (edge) version of IE rendering engine -->
+  <meta name="x-apple-disable-message-reformatting" style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" >
+  <!-- Disable auto-scale in iOS 10 Mail entirely -->
+  <title style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;">{{ title }}</title>
+  <!-- The title tag shows in email notifications, like Android 4.4. -->
+  <!-- CSS Reset : BEGIN -->
+
+  <style style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" >
+
+    html,
+    body {
+      margin: 0 auto !important;
+      padding: 0 !important;
+      height: 100% !important;
+      width: 100% !important;
+    }
+
+
+    * {
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+
+
+    div[style*="margin: 16px 0"] {
+      margin: 0 !important;
+    }
+
+
+    table,
+    td {
+      mso-table-lspace: 0pt !important;
+      mso-table-rspace: 0pt !important;
+    }
+
+
+    table {
+      border-spacing: 0 !important;
+      border-collapse: collapse !important;
+      table-layout: fixed !important;
+      margin: 0 auto !important;
+    }
+
+    table table table {
+      table-layout: auto;
+    }
+
+
+    img {
+      -ms-interpolation-mode: bicubic;
+    }
+
+
+    *[x-apple-data-detectors],
+
+
+    .x-gmail-data-detectors,
+
+
+    .x-gmail-data-detectors *,
+    .aBn {
+      border-bottom: 0 !important;
+      cursor: default !important;
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }
+
+
+    .a6S {
+      display: none !important;
+      opacity: 0.01 !important;
+    }
+
+
+    img.g-img+div {
+      display: none !important;
+    }
+
+
+    .button-link {
+      text-decoration: none !important;
+    }
+
+
+
+
+    @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+
+      .email-container {
+        min-width: 375px !important;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+
+      div>u~div .gmail {
+        min-width: 100vw;
+      }
+    }
+  </style>
+  <!-- CSS Reset : END -->
+
+  <!-- Progressive Enhancements : BEGIN -->
+  <style style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" >
+
+
+    .button-td,
+    .button-a {
+      transition: all 100ms ease-in;
+    }
+
+    .button-td:hover,
+    .button-a:hover {
+      background: #006747 !important;
+      border-color: #006747 !important;
+    }
+
+
+    @media screen and (max-width: 600px) {
+
+      .email-container {
+        width: 100% !important;
+        margin: auto !important;
+      }
+
+
+      .fluid {
+        max-width: 100% !important;
+        height: auto !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
+
+      .stack-column,
+      .stack-column-center {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        direction: ltr !important;
+      }
+
+      .stack-column-center {
+        text-align: left !important;
+      }
+
+
+      .center-on-narrow {
+        text-align: left !important;
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        float: none !important;
+      }
+      table.center-on-narrow {
+        display: inline-block !important;
+      }
+
+
+      .email-container p {
+        font-size: 17px !important;
+      }
+    }
+  </style>
+  <!-- Progressive Enhancements : END -->
+
+  <!-- What it does: Makes background images in 72ppi Outlook render at correct size. -->
+  <!--[if gte mso 9]>
+    <xml style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" >
+        <o:OfficeDocumentSettings style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" >
+            <o:AllowPNG style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" />
+            <o:PixelsPerInch style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" >96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+
+</head>
+
+<body width="100%" bgcolor="#fff" style="background-color: #fff; -ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;margin-top:0 !important;margin-bottom:0 !important;margin-right:auto !important;margin-left:auto !important;mso-line-height-rule:exactly;padding-top:0 !important;padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !important;height:100% !important;width:100% !important;" >
+  <center style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;width:100%;background-color:#e8edee;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;text-align:left;" >
+
+    <!-- Visually Hidden Preheader Text : BEGIN -->
+
+    <!-- Visually Hidden Preheader Text : END -->
+    <table  role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="600"  class="email-container" style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;margin-top:0 !important;margin-bottom:0 !important;margin-right:auto !important;margin-left:auto !important;mso-table-lspace:0pt !important;mso-table-rspace:0pt !important;border-spacing:0 !important;border-collapse:collapse !important;table-layout:fixed !important;" >
+      <tr style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" >
+        <td style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;height:16px;mso-table-lspace:0pt !important;mso-table-rspace:0pt !important;" >
+          <div style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family:sans-serif;" >
+            {{ previewContent }}
+          </div>
+        </td>
+      </tr>
+    </table>
+    <table  role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="600"  class="email-container" style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;margin-top:0 !important;margin-bottom:0 !important;margin-right:auto !important;margin-left:auto !important;mso-table-lspace:0pt !important;mso-table-rspace:0pt !important;border-spacing:0 !important;border-collapse:collapse !important;table-layout:fixed !important;background-color: #005eb8;" >
+      <tr style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" >
+        <td style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;padding-top:16px;padding-bottom:16px;padding-right:16px;padding-left:16px;text-align:left;width:80px;mso-table-lspace:0pt !important;mso-table-rspace:0pt !important;" >
+          <img align="left" src="/images/nhs-logo.png"
+            width="80px;" alt="nhs_logo" border="0" style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;height:auto;font-family:sans-serif;font-size:15px;line-height:140%;color:#ffffff;-ms-interpolation-mode:bicubic;" >
+        </td>
+        <td>
+          <p style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;padding-top:16px;padding-bottom:16px;padding-right:16px;padding-left:0;font-family:sans-serif;font-size:16px;line-height:1.5;color:#FFFFFF;font-weight:normal;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;" >{{ serviceName }}</p>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Email Body : BEGIN -->
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="600"  class="email-container" style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;margin-top:0 !important;margin-bottom:0 !important;margin-right:auto !important;margin-left:auto !important;mso-table-lspace:0pt !important;mso-table-rspace:0pt !important;border-spacing:0 !important;border-collapse:collapse !important;table-layout:fixed !important;" >
+
+      <!-- 1 Column Text + Button : BEGIN -->
+      <tr style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" >
+        <td bgcolor="#ffffff" style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;padding-top:0;padding-bottom:16px;padding-right:16px;padding-left:16px;font-family:sans-serif;font-size:18px;line-height:140%;color:#555555;text-align:left;mso-table-lspace:0pt !important;mso-table-rspace:0pt !important;" >
+
+          <h1 style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;margin-top:16px;margin-bottom:16px;margin-right:0;margin-left:0;font-family:sans-serif;font-size:28px;line-height:150%;color:#333333;font-weight:800;" >618618</h1>
+
+          <p style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;">Your security code is:</p>
+          <h2 style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;font-family:sans-serif;font-size:20px;line-height:125%;color:#333333;font-weight:800;" >618618</h2>
+          <p style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" >After 30 minutes your security code will not work.</p>
+          <p style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" >
+            NHS<br style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" />
+            <a href="/{{ PROTOTYPEURL }}" style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" >www.nhs.uk/register-as-a-data-donor</a>
+          </p>
+        </td>
+      </tr>
+
+      <!-- 1 Column Text + Button : END -->
+    </table>
+    <!-- Email Body : END -->
+
+    <!-- Email Footer : BEGIN -->
+    <table role="presentation" cellspacing="0" cellpadding="20" border="0" align="center" width="600" style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;font-family:sans-serif;color:#888888;font-size:12px;line-height:140%;border-top-width:1px;border-top-style:solid;border-top-color:#efefef;mso-table-lspace:0pt !important;mso-table-rspace:0pt !important;border-spacing:0 !important;border-collapse:collapse !important;table-layout:fixed !important;margin-top:0 !important;margin-bottom:0 !important;margin-right:auto !important;margin-left:auto !important;" >
+      <tr style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;" >
+        <td  class="x-gmail-data-detectors" style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;padding-top:16px;padding-bottom:16px;padding-right:16px;padding-left:16px;font-family:inherit !important;font-size:inherit !important;line-height:inherit !important;color:inherit !important;mso-table-lspace:0pt !important;mso-table-rspace:0pt !important;border-bottom-width:0 !important;cursor:default !important;text-decoration:none !important;font-weight:inherit !important;" >
+          NHS Digital<br style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;border-bottom-width:0 !important;cursor:default !important;color:inherit !important;text-decoration:none !important;font-size:inherit !important;font-family:inherit !important;font-weight:inherit !important;line-height:inherit !important;" >1 Trevelyan Square, Boar Lane<br style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;border-bottom-width:0 !important;cursor:default !important;color:inherit !important;text-decoration:none !important;font-size:inherit !important;font-family:inherit !important;font-weight:inherit !important;line-height:inherit !important;" />Leeds, West Yorkshire<br style="-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;border-bottom-width:0 !important;cursor:default !important;color:inherit !important;text-decoration:none !important;font-size:inherit !important;font-family:inherit !important;font-weight:inherit !important;line-height:inherit !important;" >0300 303 5678
+        </td>
+
+      </tr>
+    </table>
+    <!-- Email Footer : END -->
+
+  </center>
+</body>
+
+</html>

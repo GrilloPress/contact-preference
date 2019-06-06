@@ -1,0 +1,110 @@
+{% set PROTOTYPEURL = "see-how-data-is-shared/v1" %}
+{% set serviceName = "See how data from your health records has helped research and planning" %}
+{% set contentTitle = "Check your" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+{% set report %}
+  {% if data['report'] == 'text' %}
+    mobile number
+  {% elif data['report'] == 'email' %}
+    email address
+  {% else %}
+    email address
+  {% endif %}
+{% endset %}
+
+{% set questionFiller %}
+  {% if data['report'] == 'text' %}
+    Yes, 00789101173 is my mobile phone number
+  {% elif data['report'] == 'email' %}
+    Yes, jane.doe@gmail.com is my email address
+  {% else %}
+    Yes, jane.doe@gmail.com is my email address
+  {% endif %}
+{% endset %}
+
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ contentTitle }} {{ report }}</h1>
+
+
+            {% if data['report'] == 'text' %}
+
+              <dl class="nhsuk-summary-list">
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Mobile phone
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    00789101173
+                  </dd>
+
+                </div>
+              </dl>
+
+               {% else %}
+
+               <dl class="nhsuk-summary-list">
+                 <div class="nhsuk-summary-list__row">
+                   <dt class="nhsuk-summary-list__key">
+                     Email
+                   </dt>
+                   <dd class="nhsuk-summary-list__value">
+                     jane.doe@gmail.com
+                   </dd>
+
+                 </div>
+               </dl>
+
+
+               {% endif %}
+
+      <form action="/{{ PROTOTYPEURL }}/contact-choices/confirm-details-report" method="post">
+        {{ radios({
+          "idPrefix": "gov",
+          "name": "reportDetails",
+          "fieldset": {
+            "legend": {
+              "text": "Is this your current " + report | trim + "?",
+              "classes": "nhsuk-fieldset__legend--m"
+            }
+          },
+          "items": [
+            {
+              "value": "yes",
+              "text": questionFiller
+            },
+            {
+              "value": "no",
+              "text": "No"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

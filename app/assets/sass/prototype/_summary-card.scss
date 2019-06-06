@@ -1,0 +1,10 @@
+.app-promo-group--thin {
+
+  .nhsuk-promo__content {
+
+    @include top-and-bottom();
+    @include nhsuk-responsive-padding(4);
+
+  }
+
+}

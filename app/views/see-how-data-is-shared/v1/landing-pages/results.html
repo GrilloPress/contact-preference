@@ -1,0 +1,74 @@
+{% set PROTOTYPEURL = "see-how-data-is-shared/v1" %}
+{% set serviceName = "See how data from your health records has helped research and planning" %}
+{% set contentTitle = "Your search results" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+{% extends 'layouts/layout-nhsuk.html' %}
+
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "#",
+  text: "Search"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-xl nhsuk-caption--top"> Looking for "NHS data"</span>
+        {{ contentTitle }}
+      </h1>
+
+      <ul class="app-list--unstyled app-list-cards">
+        <li class="app-list-cards__item">
+          <a href="/{{ PROTOTYPEURL }}/landing-pages/start">
+            <h2 class="app-list-cards__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ serviceName }}</h2>
+          </a>
+        </li>
+
+        <li class="app-list-cards__item">
+          <a href="#">
+            <h2 class="app-list-cards__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">Choose if data from your health records is shared for research and planning</h2>
+          </a>
+        </li>
+
+        <li class="app-list-cards__item">
+          <a href="#">
+            <h2 class="app-list-cards__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">Benefits of data sharing in the NHS</h2>
+          </a>
+        </li>
+
+        <li class="app-list-cards__item">
+          <a href="#">
+            <h2 class="app-list-cards__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">How to look at your health records</h2>
+          </a>
+        </li>
+
+        <li class="app-list-cards__item">
+          <a href="#">
+            <h2 class="app-list-cards__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">How your data is kept secure</h2>
+          </a>
+        </li>
+      </ul>
+
+      <h2>Search for a different thing</h2>
+      <p>
+        If you've not found what you're looking for you can <a href="#">search for a different thing</a>
+      </p>
+
+    </div>
+  </div>
+{% endblock %}

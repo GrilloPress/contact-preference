@@ -1,0 +1,113 @@
+{% set PROTOTYPEURL = "see-how-data-is-shared/v1" %}
+{% set serviceName = "See how data from your health records has helped research and planning" %}
+
+{% block pageScripts %}
+{% endblock %}
+
+{% set study =
+  {
+    id: "2",
+    category: "planning",
+    title: "Mental health services in Yorkshire",
+    dateFirstRelease: "March 2019",
+    dateLatestRelease: "May 2019",
+    dateFinished: "",
+    timesDataShared: "5",
+    organisation: "Methods Analytics Ltd",
+    organisationExplainer: "Methods Analytics Ltd is a private organisation that provides services to the NHS",
+    phrase: "understand"
+
+  }
+%}
+
+{% set dataSets = [
+  {
+    id: "1",
+    category: "planning",
+    title: "Health and social care services in Leeds",
+    dateFirstRelease: "01 January 2019",
+    dateLatestRelease: "01 May 2019",
+    dateFinished: "",
+    timesDataShared: "19",
+    organisation: "NHS Leeds Clinical Commissioning Group"
+
+  },
+  {
+    id: "2",
+    category: "planning",
+    title: "Mental health services in Yorkshire",
+    dateFirstRelease: "March 2019",
+    dateLatestRelease: "May 2019",
+    dateFinished: "",
+    timesDataShared: "5",
+    organisation: "Methods Analytics Ltd"
+  }
+
+  ]
+%}
+{% set contentTitle = "How data from your health records was used for " + study.title %}
+{% set benefitsTitle = "How your data has been used by " + study.organisation %}
+{% set title = contentTitle + " - " + serviceName %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<section class="nhsuk-breadcrumb">
+  <div class="nhsuk-width-container">
+    <span class="nhsuk-caption-m nhsuk-caption--top">
+      Data from <a href="#">1 January 2019</a>
+    </span>
+  </div>
+</section>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="nhsuk-u-margin-bottom-6">
+        <h1 class="">
+           {{ contentTitle }}
+        </h1>
+      </div>
+
+      <h2>What data was shared</h2>
+      <p>Data from your health records was shared. Information such as:</p>
+      <ul>
+        <li>what you were diagnosed with</li>
+        <li>the type of care you've had</li>
+        <li>where you recieved care</li>
+        <li>the location of your care</li>
+        <li>the consultant who provided you care</li>
+        <li>name of the organisation which is responsible for planning the NHS service you used (the commissioner)</li>
+        <li>when you were discharged</li>
+        <li>any diagnotic tests you had</li>
+      </ul>
+      <h2>Who used this data</h2>
+      <p>{{ study.organisation }} used this data.</p>
+      <p>{{ study.organisationExplainer}}</p>
+
+      <h2>How your data has been used</h2>
+      <p>The primary output is an online intelligence platform available to users containing over 500 benchmarked metrics on NHS activity. This is designed to be visually attractive to users but convey rich statistical intelligence.</p>
+      <p>The platform includes domain dashboards, filtered views with users able to explore areas of interest and shape metric views to their requirements, users are able to create bespoke reports containing information relevant to them. Stethoscope™ contains alert reporting, algorithmically surfacing to users metrics and organisations that are outliers and might require consideration, for action</p>
+      <p>Views include graphs, maps and data tables representing national, peer group and regional organisations performance compared to each other for any metric or filtered metric.</p>
+      <p>All Stethoscope output is suppressed as per NHS Digital disclosure rules and uses the sensitive consultant ID field to enable personal scorecard creation to inform reflective practice and appraisal.</p>
+      <h2>When your data was shared</h2>
+      <p>From {{study.dateFirstRelease }} data from your health records was shared to {{study.organisation }}.</p>
+      <p>Your data was shared monthly until {{ study.dateLatestRelease }}.</p>
+
+      {{ backLink({
+        "href": "javascript:history.back()",
+        "text": "Back to the previous page"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

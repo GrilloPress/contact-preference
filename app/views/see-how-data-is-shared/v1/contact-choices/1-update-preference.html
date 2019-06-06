@@ -1,0 +1,59 @@
+{% set PROTOTYPEURL = "see-how-data-is-shared/v1" %}
+{% set serviceName = "See how data from your health records has helped research and planning" %}
+{% set contentTitle = "We've updated your preference" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+{% set study  %}
+  {% if data['study'] == 'text' %}
+    mobile number
+  {% elif data['study'] == 'email' %}
+    email address
+  {% else %}
+    email address
+  {% endif %}
+{% endset %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1> {{ contentTitle }} </h1>
+
+      {% if data['study'] == 'text' %}
+
+         <p>We'll contact you by text to {{ data['studynewdetails'] }} when we share your data for a new study.</p>
+
+
+         {% else %}
+
+
+         <p>We'll contact you by email to {{ data['studynewdetails'] }} when we share your data for a new study.</p>
+
+
+         {% endif %}
+
+
+
+    <form action="/{{ PROTOTYPEURL }}/contact-choices/2-would-you-like-a-report" method="get">
+    <input type="submit" class="nhsuk-button" value="Continue">
+    </input>
+
+  </form>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,169 @@
+{% set PROTOTYPEURL = "register-as-a-data-donor/v1" %}
+{% set serviceName = "Register as a data donor" %}
+{% set contentTitle = "V1" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      {{ backLink({
+        "href": "../index",
+        "text": "Back to prototype list"
+      }) }}
+
+      <h1>
+        {{ contentTitle }}
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom"> {{ serviceName }}</span>
+      </h1>
+      <p>
+        A prototype to explore:
+      </p>
+      <ul>
+        <li>whether people would be happy to share data proactively with the NHS</li>
+        <li>what things about a study make people willing to share their data with it</li>
+      </ul>
+
+      <h2>Landing pages</h2>
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/landing-pages/overview">Overview</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/landing-pages/start">Start page</a>
+        </li>
+      </ul>
+
+      <h2>Eligibility</h2>
+      <ul>
+        <li>
+          <a href="/{{PROTOTYPEURL}}/eligibility/before-you-start">Before you start</a>
+        </li>
+        <li>
+          <a href="/{{PROTOTYPEURL}}/eligibility/are-you-13-or-above">Are you aged 13 or above?</a>
+        </li>
+        <li>
+          <a href="/{{PROTOTYPEURL}}/eligibility/where-do-you-live">Which country do you live in?</a>
+          <ul>
+            <li><a href="/{{PROTOTYPEURL}}/eligibility/is-your-GP-in-england">Is your GP in England? (Scotland, Wales)</a></li>
+            <li><a href="/{{PROTOTYPEURL}}/eligibility/is-your-GP-in-scotland-or-wales">Is your GP in Scotland or Wales? (England)</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/{{PROTOTYPEURL}}/eligibility/outcome/1">Outcome (England, no)</a>
+        </li>
+        <li>
+          <a href="/{{PROTOTYPEURL}}/eligibility/outcome/2">Outcome (England, yes)</a>
+        </li>
+        <li>
+          <a href="/{{PROTOTYPEURL}}/eligibility/outcome/2">Outcome (Scotland/Wales, yes)</a>
+        </li>
+        <li>
+          <a href="/{{PROTOTYPEURL}}/eligibility/outcome/3">Outcome (Scotland/Wales, no)</a>
+        </li>
+        <li>
+          <a href="/{{PROTOTYPEURL}}/eligibility/outcome/3">Outcome (Northern Ireland)</a>
+        </li>
+      </ul>
+
+      <h2>Login</h2>
+
+      <h2>Joining the register</h2>
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/register/check-your-details">Check your details</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/register/how-your-profile-works">How your profile works</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/register/do-you-want-to-register-3">Do you want to register</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/register/weve-added-you-3">We've added you to the register</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/register/contact-nhs-login">Incorrect details - couldn't add user to the register</a>
+        </li>
+      </ul>
+
+      <h2>Set your contact preferences</h2>
+      <ul>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/contact-preference/your-current-preference">User's current contact preference</a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/contact-preference/change-contact-preference-2">Change contact preference</a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/contact-preference/contact-preference-updated">Contact preference updated</a>
+      </li>
+    </ul>
+
+    <h2>Your donor profile</h2>
+    <ul>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/your-profile/your-data-donor-profile">Your data donor profile</a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/your-profile/see-how-your-data-has-been-shared">See how your data has been shared</a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/your-profile/stop-sharing-your-data">Stop sharing your data</a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/your-profile/stop-sharing-confirmed">Stop sharing confirmed</a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/your-profile/still-sharing-confirmed">User still sharing their data</a>
+      </li>
+    </ul>
+
+      <h2>Get a match</h2>
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/your-match/we-matched-you-email-2">Data donation request email</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/your-match/UK-biobank-study-2">UK Biobank study</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/your-match/we-wont-share-your-data">User selects no to sharing their data</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/your-match/we-will-share-your-data">User selects yes and chooses if they want updates</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/your-match/we-will-share-your-data-updates">User chooses how frequently they want updates</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/your-match/no-updates">User selects no updates</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/your-match/contact-preference-saved-research">Research study contact preference saved</a>
+        </li>
+      </ul>
+
+      <h2>See how your data has been used</h2>
+
+      <h2>Other</h2>
+      <h3>Messages</h3>
+      <h3>Errors</h3>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% set PROTOTYPEURL = "see-how-data-is-shared/v1" %}
+{% set serviceName = "See how data from your health records has helped research and planning" %}
+{% set contentTitle = "Your preferences" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+{% set study  %}
+  {% if data['study'] == 'text' %}
+    We'll contact you by text when we share your data for a new study.
+  {% elif data['study'] == 'email' %}
+    We'll contact you by email when we share your data for a new study.
+  {% else %}
+    We will not contact you when we share your data for a new study.
+  {% endif %}
+{% endset %}
+
+{% set report %}
+  {% if data['report'] == 'text' %}
+    We'll send you a report by text about how your data has helped research and planning.
+  {% elif data['report'] == 'email' %}
+    We'll send you an email report of how your data has helped research and planning.
+  {% else %}
+  We will not send you a report
+  {% endif %}
+{% endset %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>{{contentTitle}}</h1>
+
+    <p>{{ study }}</p>
+
+    <p>{{ report }}</p>
+
+    <form action="/{{PROTOTYPEURL}}/summary/spinner" method="post">
+      <input type="submit" class="nhsuk-button" value="Back to summary page">
+      </input>
+    </form>
+
+    </div>
+  </div>
+{% endblock %}

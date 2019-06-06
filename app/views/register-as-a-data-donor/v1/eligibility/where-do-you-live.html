@@ -1,0 +1,62 @@
+{% set PROTOTYPEURL = "register-as-a-data-donor/v1" %}
+{% set serviceName = "Register as a data donor" %}
+{% set contentTitle = "Which country do you live in?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="" method="post">
+        {{ radios({
+          "idPrefix": "gov",
+          "name": "live",
+          "fieldset": {
+            "legend": {
+              "text": contentTitle,
+              "isPageHeading": true,
+              "classes": "nhsuk-fieldset__legend--xl"
+            }
+          },
+          "items": [
+            {
+              "value": "england",
+              "text": "England"
+            },
+            {
+              "value": "scotland",
+              "text": "Scotland"
+            },
+            {
+              "value": "wales",
+              "text": "Wales"
+            },
+            {
+              "value": "northernIreland",
+              "text": "Northern Ireland"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

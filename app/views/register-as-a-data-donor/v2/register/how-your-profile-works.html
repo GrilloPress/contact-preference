@@ -1,0 +1,39 @@
+{% set PROTOTYPEURL = "register-as-a-data-donor/v2" %}
+{% set serviceName = "Register as a data donor" %}
+{% set contentTitle = "How a data donor profile works" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ contentTitle }}</h1>
+
+      <p>We'll contact you to ask if you want to share your data with an organisation for a research study.</p>
+
+      <p>We'll only share your data if you've confirmed you're happy for us to.</p>
+
+      <form action="/{{ PROTOTYPEURL }}/register/do-you-want-to-register-3" method="get">
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

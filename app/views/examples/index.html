@@ -1,0 +1,115 @@
+{% set PROTOTYPEURL = "examples" %}
+{% set serviceName = "Secondary uses of data" %}
+{% set contentTitle = "Examples" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        {{ contentTitle }}
+      </h1>
+
+      <p>Ready made examples to copy</p>
+
+      <h2>Patterns</h2>
+      <ul class="app-list--unstyled app-list-cards">
+        <li class="app-list-cards__item">
+          <a href="/{{ PROTOTYPEURL }}/patterns/interruption-card">
+            <h3 class="app-list-cards__heading nhsuk-heading-m">Help users understand an important thing before continuing</h3>
+            <p>Stop a flowing journey to explain an important thing (interruption card)</p>
+          </a>
+        </li>
+        <li class="app-list-cards__item">
+          <a href="/{{ PROTOTYPEURL }}/patterns/check-data">
+            <h3 class="app-list-cards__heading nhsuk-heading-m">Help users confirm data is right</h3>
+            <p>Display some data and ask whether it is right</p>
+          </a>
+        </li>
+        <li class="app-list-cards__item">
+          <a href="/{{ PROTOTYPEURL }}/patterns/check-data-summary">
+            <h3 class="app-list-cards__heading nhsuk-heading-m">Let users check the details they gave is correct</h3>
+            <p>Display the details a user gave you before submission</p>
+          </a>
+        </li>
+      </ul>
+
+      <h2>Pages</h2>
+      <ul class="app-list--unstyled app-list-cards">
+        <li class="app-list-cards__item">
+          <a href="/{{ PROTOTYPEURL }}/pages/card">
+            <h3 class="app-list-cards__heading nhsuk-heading-m">Card</h3>
+            <p>In-service content card</p>
+          </a>
+        </li>
+        <li class="app-list-cards__item">
+          <a href="/{{ PROTOTYPEURL }}/pages/login">
+            <h3 class="app-list-cards__heading nhsuk-heading-m">Log in</h3>
+            <p>Ask users for their log in details</p>
+          </a>
+        </li>
+        <li class="app-list-cards__item">
+          <a href="/{{ PROTOTYPEURL }}/pages/email">
+            <h3 class="app-list-cards__heading nhsuk-heading-m">Email</h3>
+            <p>Prototype page for emails (not production email code, an example to mock emails)</p>
+          </a>
+        </li>
+      </ul>
+
+      <h2>Elements</h2>
+      <ul class="app-list--unstyled app-list-cards">
+        <li class="app-list-cards__item">
+          <a href="/{{ PROTOTYPEURL }}/elements/checkboxes">
+            <h3 class="app-list-cards__heading nhsuk-heading-m">Checkboxes</h3>
+            <p>Let users choose more than one item</p>
+          </a>
+        </li>
+        <li class="app-list-cards__item">
+          <a href="/{{ PROTOTYPEURL }}/elements/date">
+            <h3 class="app-list-cards__heading nhsuk-heading-m">Date input</h3>
+            <p>Ask for a date or birth or similar date</p>
+          </a>
+        </li>
+        <li class="app-list-cards__item">
+          <a href="/{{ PROTOTYPEURL }}/elements/input">
+            <h3 class="app-list-cards__heading nhsuk-heading-m">Text input</h3>
+            <p>Let users tell us what they need to say</p>
+          </a>
+        </li>
+        <li class="app-list-cards__item">
+          <a href="/{{ PROTOTYPEURL }}/elements/multiple-input">
+            <h3 class="app-list-cards__heading nhsuk-heading-m">Multiple inputs</h3>
+            <p>Capture several different items of information</p>
+          </a>
+        </li>
+        <li class="app-list-cards__item">
+          <a href="/{{ PROTOTYPEURL }}/elements/radio">
+            <h3 class="app-list-cards__heading nhsuk-heading-m">Radio buttons</h3>
+            <p>Ask users to make a choice</p>
+          </a>
+        </li>
+      </ul>
+
+      {{ backLink({
+        "href": "/",
+        "text": "Back to home"
+      }) }}
+    </div>
+  </div>
+{% endblock %}

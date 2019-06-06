@@ -1,0 +1,61 @@
+{% set PROTOTYPEURL = "register-as-a-data-donor/v1" %}
+{% set serviceName = "Register as a data donor" %}
+{% set contentTitle = "Is your GP surgery in England?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="" method="post">
+        {{ radios({
+          "idPrefix": "gov",
+          "name": "gpBorderEngland",
+          "fieldset": {
+            "legend": {
+              "text": contentTitle,
+              "isPageHeading": true,
+              "classes": "nhsuk-fieldset__legend--xl"
+            }
+          },
+          "hint": {
+            "text": "If you live near the border with Scotland or Wales, you could be registered with a GP who is not in England."
+          },
+          "items": [
+            {
+              "value": "yes",
+              "text": "Yes, my GP surgery is in England"
+            },
+            {
+              "value": "no",
+              "text": "No"
+            },
+            {
+              "value": "unsure",
+              "text": "I'm not sure"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% set PROTOTYPEURL = "register-as-a-data-donor/v1" %}
+{% set serviceName = "Register as a data donor" %}
+{% set contentTitle = "You now need to log in or create an NHS login to register as a data donor" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="app-card">
+        <div class="app-card__wrapper">
+          <div class="app-card__content">
+            <h1 class="app-card__heading nhsuk-heading-l">{{ contentTitle }}</h1>
+            <p>
+            We’ll use your NHS login to:
+            </p>
+            <ul>
+              <li>check who you are</li>
+              <li>use your login details to register you </li>
+            </ul>
+            <p>Read our <a href="#">privacy notice</a> for more information.</p>
+            <form action="/{{ PROTOTYPEURL}}/login/do-you-have-an-nhs-login" method="get">
+              <input type="submit" class="nhsuk-button" value="Continue">
+              </input>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

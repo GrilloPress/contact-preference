@@ -1,0 +1,46 @@
+.timeline {
+  border-left: 3px solid $color_nhsuk-grey-1;
+  list-style-type:  none;
+  padding: 0;
+}
+
+.timeline__entry {
+  margin: 2em 0;
+  padding-left: 1em;
+  position: relative;
+
+  &::before {
+    background-color: $color_nhsuk-grey-1;
+    content: ' ';
+    height: 3px;
+    left: 0;
+    position: absolute;
+    top: 12px;
+    width: 10px;
+  }
+
+  .timeline__title {
+    display: block;
+    font-weight: 700;
+  }
+
+  .timeline__author,
+  .timeline__date {
+    color: $nhsuk-secondary-text-color;
+    display: block;
+  }
+
+  .timeline__info {
+    margin-top: 0;
+  }
+
+  .timeline__body {
+    display: block;
+    @include nhsuk-font($size: 14);
+  }
+
+  .timeline__break {
+
+    display: block;
+  }
+}
