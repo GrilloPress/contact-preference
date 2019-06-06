@@ -5,7 +5,7 @@ module.exports = {
   serviceName: 'NHS.UK prototype kit',
 
   // Port to run nodemon on locally
-  port: 2000,
+  port: 2001,
 
   // Automatically stores form data, and send to all views
   useAutoStoreData: 'true',
