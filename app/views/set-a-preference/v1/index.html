@@ -1,0 +1,40 @@
+{% set PROTOTYPEURL = "set-a-preference/v1" %}
+{% set serviceName = "Tell the NHS how you'd like to be contacted" %}
+{% set contentTitle = "v1" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        {{ contentTitle }}
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom"> {{ serviceName }}</span>
+      </h1>
+
+      <form action="/{{ PROTOTYPEURL}}/tell-us" method="get">
+        <input type="submit" class="nhsuk-button" value="Start prototype">
+        </input>
+      </form>
+
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
