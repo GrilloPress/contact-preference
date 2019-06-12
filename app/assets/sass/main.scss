@@ -52,3 +52,10 @@ li ul {
 
   text-align: center;
 }
+
+.app-heading-xl {
+
+  @include mq($from: desktop) {
+    font-size: 2.7em;
+  }
+}
