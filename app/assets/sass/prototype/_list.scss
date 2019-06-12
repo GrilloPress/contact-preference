@@ -38,3 +38,10 @@
   list-style-type: none;
   padding-left: 0;
 }
+
+
+.nhsuk-summary-list__value {
+  @include mq($until: tablet) {
+    margin-bottom: nhsuk-spacing(2);
+  }
+}
