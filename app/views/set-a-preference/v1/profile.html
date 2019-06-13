@@ -1,0 +1,262 @@
+{% set PROTOTYPEURL = "set-a-preference/v1" %}
+{% set serviceName = "Tell the NHS how you'd like to be contacted" %}
+{% set contentTitle = "Your profile" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+{% set info = {
+    name: "Sally Wash",
+    dob: "5/5/1948",
+    gender: "Female",
+    placeOfBirth: "Skegness",
+    email: "test@example.com",
+    telephone: "01132111165",
+    mobile: "00798326289",
+    NHSNumber: "485 777 3456",
+    address: "<address>Grand Parade <br />
+                      Great George Street <br />
+                      Skegness <br />
+                      Lincolnshire <br />
+                      PE25 2UE</address>"
+}
+%}
+
+{% if data['appointments'] %}
+  {% if data['appointments'] === "none" %}
+    {% set appointmentsPreference = "No preference" %}
+  {% else %}
+    {% set appointmentsPreference = "By " + data['appointments'] %}
+  {% endif %}
+{% else %}
+  {% set appointmentsPreference = "By email" %}
+{% endif %}
+
+{% if data['reminders'] %}
+  {% if data['reminders'] === "none" %}
+    {% set remindersPreference = "No preference" %}
+  {% else %}
+    {% set remindersPreference = "By " + data['reminders'] %}
+  {% endif %}
+{% else %}
+  {% set remindersPreference = "By text" %}
+{% endif %}
+
+{% if data['screening'] %}
+  {% if data['screening'] === "none" %}
+    {% set screeningPreference = "No preference" %}
+  {% else %}
+    {% set screeningPreference = "By " + data['screening'] %}
+  {% endif %}
+{% else %}
+  {% set screeningPreference = "By letter" %}
+{% endif %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="app-heading-xl">
+        {{ contentTitle }}
+      </h1>
+
+      <h2>Your details</h2>
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: info.name
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  html: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date of birth"
+            },
+            value: {
+              text: info.dob
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  html: ""
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "NHS number"
+            },
+            value: {
+              text: info.NHSNumber
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  html: ""
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2>Your contact details</h2>
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Landline"
+            },
+            value: {
+              text: info.telephone
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "your landline phone number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Mobile"
+            },
+            value: {
+              text: info.mobile
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "your mobile phone number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Email"
+            },
+            value: {
+              text: info.email
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "your email address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Address"
+            },
+            value: {
+              html: info.address | safe
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "your postal address"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2>Your contact preferences</h2>
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "For appointments"
+            },
+            value: {
+              text: appointmentsPreference
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "your appointment preference"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "For reminders"
+            },
+            value: {
+              text: remindersPreference
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "your preference for reminders"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "For screening invitations"
+            },
+            value: {
+              text: screeningPreference
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "your screening preference"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

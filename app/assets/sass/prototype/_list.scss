@@ -45,3 +45,9 @@
     margin-bottom: nhsuk-spacing(2);
   }
 }
+
+.nhsuk-summary-list__value--full-width {
+  @include mq($from: tablet) {
+    width: 70%;
+  }
+}
