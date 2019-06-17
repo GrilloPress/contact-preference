@@ -7,7 +7,7 @@
 
 {% set info = {
     name: "Sally Wash",
-    dob: "5/5/1948",
+    dob: "5 5 1948",
     gender: "Female",
     placeOfBirth: "Skegness",
     email: "test@example.com",
@@ -156,7 +156,7 @@
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "/" + PROTOTYPEURL + "/change/mobile",
                   text: "Change",
                   visuallyHiddenText: "your mobile phone number"
                 }
@@ -205,7 +205,7 @@
         rows: [
           {
             key: {
-              text: "For appointments"
+              text: "Appointments"
             },
             value: {
               text: appointmentsPreference
@@ -222,7 +222,7 @@
           },
           {
             key: {
-              text: "For reminders"
+              text: "Reminders"
             },
             value: {
               text: remindersPreference
@@ -239,7 +239,7 @@
           },
           {
             key: {
-              text: "For screening invitations"
+              text: "Screening invitations"
             },
             value: {
               text: screeningPreference

@@ -59,3 +59,10 @@ li ul {
     font-size: 2.7em;
   }
 }
+
+.app-label-xl {
+
+  @include mq($from: desktop) {
+    font-size: .9em;
+  }
+}

@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "set-a-preference/v1" %}
 {% set serviceName = "Tell the NHS how you'd like to be contacted" %}
-{% set contentTitle = "We've saved your preferences" %}
+{% set contentTitle = "We've saved your new mobile number" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -26,13 +26,9 @@
           {{ contentTitle }}
         </h1>
 
-        <p>We've sent you an email with confirmation of your choices.</p>
+        <p>We will tell other NHS services that you've a new mobile number and that you've confirmed it is correct.</p>
 
-        <h2 class="nhsuk-heading-m">What happens next</h2>
-
-        <p>We will tell other NHS services how you prefer to get contacted.</p>
-
-        <p>You can use this service to change your preferences at any time.</p>
+        <p>You can use this service to update your contact details at any time.</p>
 
         <p>
           <a href="/{{ PROTOTYPEURL }}/profile">Go to your profile</a>
