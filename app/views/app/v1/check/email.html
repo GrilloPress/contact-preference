@@ -1,0 +1,61 @@
+{% set PROTOTYPEURL = "app/v1" %}
+{% set serviceName = "Your preferences" %}
+{% if data['email'] %}
+    {% set email = data['email'] %}
+  {% else %}
+    {% set email = "test@example.com" %}
+  {% endif %}
+{% set contentTitle = "Is " + email + " your current email?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="#" method="get">
+        {{ radios({
+          "idPrefix": "nhs",
+          "name": "checkEmail",
+          "fieldset": {
+            "legend": {
+              "text": contentTitle,
+              "isPageHeading": true,
+              "classes": "nhsuk-fieldset__legend--xl app-heading-xl"
+            }
+          },
+          "items": [
+            {
+              "value": "yes",
+              "text": "Yes, " + email + " is still my email"
+            },
+            {
+              "value": "no",
+              "text": "No, I want to use a different email"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+
+    </div>
+  </div>
+{% endblock %}

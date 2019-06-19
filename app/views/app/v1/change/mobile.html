@@ -1,0 +1,50 @@
+{% set PROTOTYPEURL = "app/v1" %}
+{% set serviceName = "Your preferences" %}
+{% set contentTitle = "What is your mobile phone number?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/{{ PROTOTYPEURL }}/change/get-code-mobile" method="get">
+        {{ input({
+          "label": {
+            "text": contentTitle,
+            "isPageHeading": true,
+            "classes": "nhsuk-label--xl app-label-xl"
+          },
+          "hint": {
+            "text": "For example, 07700900999"
+          },
+          "id": "inputMobile",
+          "name": "mobile",
+          "classes": "nhsuk-input--width-10"
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+        {{ backLink({
+          "href": "/" + PROTOTYPEURL + "/profile",
+          "text": "Back to previous page"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

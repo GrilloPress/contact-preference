@@ -1,0 +1,124 @@
+{% set PROTOTYPEURL = "app/v1" %}
+{% set serviceName = "Your preferences" %}
+{% set contentTitle = "Check your preferences" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+{% if data['appointments'] %}
+  {% if data['appointments'] === "none" %}
+    {% set appointmentsPreference = "No preference" %}
+  {% else %}
+    {% set appointmentsPreference = "By " + data['appointments'] %}
+  {% endif %}
+{% else %}
+  {% set appointmentsPreference = "By email" %}
+{% endif %}
+
+{% if data['reminders'] %}
+  {% if data['reminders'] === "none" %}
+    {% set remindersPreference = "No preference" %}
+  {% else %}
+    {% set remindersPreference = "By " + data['reminders'] %}
+  {% endif %}
+{% else %}
+  {% set remindersPreference = "By text" %}
+{% endif %}
+
+{% if data['screening'] %}
+  {% if data['screening'] === "none" %}
+    {% set screeningPreference = "No preference" %}
+  {% else %}
+    {% set screeningPreference = "By " + data['screening'] %}
+  {% endif %}
+{% else %}
+  {% set screeningPreference = "By letter" %}
+{% endif %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="app-heading-xl">{{ contentTitle }}</h1>
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Appointments"
+            },
+            value: {
+              text: appointmentsPreference
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "your appointment preference"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Reminders"
+            },
+            value: {
+              text: remindersPreference
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "your preference for reminders"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Screening invitations"
+            },
+            value: {
+              text: screeningPreference
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "your screening preference"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <form action="/{{ PROTOTYPEURL }}/confirmation" method="get">
+          <p>
+            By continuing you agree that we can:
+          </p>
+          <ul>
+            <li>save your preferences</li>
+            <li>let other NHS services know how you prefer to be contacted</li>
+          </ul>
+          <input type="Submit" class="nhsuk-button" id="submit-details" value="Agree and submit">
+        </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% set PROTOTYPEURL = "app/v1" %}
+{% set serviceName = "Your preferences" %}
+{% set contentTitle = "We've saved your preferences" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="nhsuk-u-reading-width">
+        <h1 class="nhsuk-heading-xl app-heading-xl">
+          {{ contentTitle }}
+        </h1>
+
+        <p>We've sent you an email with confirmation of your choices.</p>
+
+        <h2 class="nhsuk-heading-m">What happens next</h2>
+
+        <p>We will tell other NHS services how you prefer to get contacted.</p>
+
+        <p>You can use this service to change your preferences at any time.</p>
+
+        <p>
+          <a href="/{{ PROTOTYPEURL }}/profile">Go to your profile</a>
+        </p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
