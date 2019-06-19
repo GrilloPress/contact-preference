@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/v1" %}
 {% set serviceName = "Your preferences" %}
-{% set contentTitle = "We've saved your preferences" %}
+{% set contentTitle = "We've saved your choices" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -26,16 +26,12 @@
           {{ contentTitle }}
         </h1>
 
-        <p>We've sent you an email with confirmation of your choices.</p>
-
-        <h2 class="nhsuk-heading-m">What happens next</h2>
-
         <p>We will tell other NHS services how you prefer to get contacted.</p>
 
-        <p>You can use this service to change your preferences at any time.</p>
+        <p>You can change your preferences at any time.</p>
 
         <p>
-          <a href="/{{ PROTOTYPEURL }}/profile">Go to your profile</a>
+          <a href="/{{ PROTOTYPEURL }}/profile">Go to your choices</a>
         </p>
       </div>
     </div>

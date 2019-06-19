@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/v1" %}
-{% set serviceName = "Your preferences" %}
-{% set contentTitle = "Your profile" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Your contact choices" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -26,27 +26,27 @@
   {% if data['appointments'] === "none" %}
     {% set appointmentsPreference = "No preference" %}
   {% else %}
-    {% set appointmentsPreference = "By " + data['appointments'] %}
+    {% set appointmentsPreference = "By " + data['appointments'] + " to " + info.mobile  %}
   {% endif %}
 {% else %}
-  {% set appointmentsPreference = "By email" %}
+  {% set appointmentsPreference = "By email" + " to " + info.email %}
 {% endif %}
 
 {% if data['reminders'] %}
   {% if data['reminders'] === "none" %}
     {% set remindersPreference = "No preference" %}
   {% else %}
-    {% set remindersPreference = "By " + data['reminders'] %}
+    {% set remindersPreference = "By " + data['reminders'] + " to " + info.email %}
   {% endif %}
 {% else %}
-  {% set remindersPreference = "By text" %}
+  {% set remindersPreference = "By text" + " to " + info.mobile %}
 {% endif %}
 
 {% if data['screening'] %}
   {% if data['screening'] === "none" %}
     {% set screeningPreference = "No preference" %}
   {% else %}
-    {% set screeningPreference = "By " + data['screening'] %}
+    {% set screeningPreference = "By " + data['screening'] + " to " + info.email %}
   {% endif %}
 {% else %}
   {% set screeningPreference = "By letter" %}
@@ -71,136 +71,8 @@
       <h1 class="app-heading-xl">
         {{ contentTitle }}
       </h1>
+      <p>We'll use these choices to tell NHS services how to contact you</p>
 
-      <h2>Your details</h2>
-      {{ summaryList({
-        rows: [
-          {
-            key: {
-              text: "Name"
-            },
-            value: {
-              text: info.name
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  html: ""
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Date of birth"
-            },
-            value: {
-              text: info.dob
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  html: ""
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "NHS number"
-            },
-            value: {
-              text: info.NHSNumber
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  html: ""
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
-
-      <h2>Your contact details</h2>
-      {{ summaryList({
-        rows: [
-          {
-            key: {
-              text: "Landline"
-            },
-            value: {
-              text: info.telephone
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "your landline phone number"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Mobile"
-            },
-            value: {
-              text: info.mobile
-            },
-            actions: {
-              items: [
-                {
-                  href: "/" + PROTOTYPEURL + "/change/mobile",
-                  text: "Change",
-                  visuallyHiddenText: "your mobile phone number"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Email"
-            },
-            value: {
-              text: info.email
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "your email address"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Address"
-            },
-            value: {
-              html: info.address | safe
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "your postal address"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
-
-      <h2>Your contact preferences</h2>
       {{ summaryList({
         rows: [
           {

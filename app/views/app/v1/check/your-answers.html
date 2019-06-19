@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/v1" %}
 {% set serviceName = "Your preferences" %}
-{% set contentTitle = "Check your preferences" %}
+{% set contentTitle = "Check your answers" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -110,14 +110,8 @@
       }) }}
 
       <form action="/{{ PROTOTYPEURL }}/confirmation" method="get">
-          <p>
-            By continuing you agree that we can:
-          </p>
-          <ul>
-            <li>save your preferences</li>
-            <li>let other NHS services know how you prefer to be contacted</li>
-          </ul>
-          <input type="Submit" class="nhsuk-button" id="submit-details" value="Agree and submit">
+
+          <input type="Submit" class="nhsuk-button" id="submit-details" value="Agree and save">
         </form>
     </div>
   </div>
