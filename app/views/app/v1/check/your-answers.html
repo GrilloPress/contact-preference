@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/v1" %}
 {% set serviceName = "Your preferences" %}
-{% set contentTitle = "Check your answers" %}
+{% set contentTitle = "Check your choices" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -112,7 +112,7 @@
 
       <form action="/{{ PROTOTYPEURL }}/confirmation" method="get">
 
-          <input type="Submit" class="nhsuk-button" id="submit-details" value="Agree and save">
+          <input type="Submit" class="nhsuk-button" id="submit-details" value="Save choices">
         </form>
     </div>
   </div>
