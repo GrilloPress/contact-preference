@@ -1,0 +1,61 @@
+{% set PROTOTYPEURL = "app/v1" %}
+{% set serviceName = "Your preferences" %}
+{% if data['email'] %}
+    {% set email = data['email'] %}
+  {% else %}
+    {% set email = "test@example.com" %}
+  {% endif %}
+{% set contentTitle = "Do you also want appointment reminders sent through this app?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="" method="post">
+        {{ radios({
+          "idPrefix": "nhs",
+          "name": "appointReminders",
+          "fieldset": {
+            "legend": {
+              "text": contentTitle,
+              "isPageHeading": true,
+              "classes": "nhsuk-fieldset__legend--xl app-heading-xl"
+            }
+          },
+          "items": [
+            {
+              "value": "pushNotification",
+              "text": "Yes, I want reminders sent through this app "
+            },
+            {
+              "value": "no",
+              "text": "No, I want to use a different way to get reminders"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+
+    </div>
+  </div>
+{% endblock %}

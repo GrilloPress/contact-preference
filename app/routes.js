@@ -36,7 +36,57 @@ router.post('/app/v2/prefer-to-be-contacted', function (req, res) {
   }
 });
 
+// // // //
+// PUSH
+// // // //
 
+router.post('/app/v2/push/reminders', function (req, res) {
+  let answer = req.body.appointReminders;
+
+  if (answer === 'pushNotification') {
+
+    res.redirect('/app/v2/push/your-answers')
+
+  } else {
+    res.redirect('/app/v2/push/reminders/choose')
+  }
+});
+
+router.post('/app/v2/push/reminders/choose', function (req, res) {
+  let answer = req.body.appointReminders;
+
+  if (answer === 'text') {
+
+    res.redirect('/app/v2/push/reminders/text/')
+
+  } else {
+    res.redirect('/app/v2/push/reminders/email')
+  }
+});
+
+router.post('/app/v2/push/reminders/email/', function (req, res) {
+  let answer = req.body.checkEmail;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/v2/push/your-answers')
+
+  } else {
+    res.redirect('/app/v2/push/reminders/email/email')
+  }
+});
+
+router.post('/app/v2/push/reminders/text/', function (req, res) {
+  let answer = req.body.checkMobile;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/v2/push/your-answers')
+
+  } else {
+    res.redirect('/app/v2/push/reminders/text/mobile')
+  }
+});
 
 // // // //
 // EMAIL
