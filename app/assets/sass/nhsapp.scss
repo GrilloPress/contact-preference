@@ -1793,3 +1793,33 @@ header.nhs-app-no-title {
     margin-bottom: 20px;
     font-size: 1.8em;
 }
+
+.nhs-app-main .app-label-xl {
+
+    margin-bottom: 20px;
+    font-size: .9em;
+}
+
+.app-icon-close {
+
+  fill: $color_nhsuk-grey-1;
+  margin-left: -8px;
+  margin-top: 8px;
+  height: 42px;
+  width: 42px;
+}
+
+main.nhs-app-main--interruption {
+
+  padding-bottom: .5em;
+}
+
+.app-interruption-header {
+
+  margin-bottom: -4em;
+}
+
+b, strong, label {
+
+  color: $color_nhsuk-black;
+}

@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/v2" %}
 {% set serviceName = "Your preferences" %}
-{% set contentTitle = "How would you prefer to be contacted" %}
+{% set contentTitle = "How would you prefer to be contacted for appointment reminders?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -25,7 +25,7 @@
             <form action="" method="post">
               {{ radios({
                 "idPrefix": "nhsApp",
-                "name": "contactPreference",
+                "name": "appointReminders",
                 "fieldset": {
                   "legend": {
                     "text": contentTitle,
@@ -34,14 +34,6 @@
                   }
                 },
                 "items": [
-                  {
-                    "value": "letter",
-                    "text": "Letter"
-                  },
-                  {
-                    "value": "phonecall",
-                    "text": "Phone call"
-                  },
                   {
                     "value": "email",
                     "text": "Email"
@@ -53,17 +45,6 @@
                   {
                     "value": "pushNotification",
                     "text": "Through this app"
-                  },
-                  {
-                    "value": "other",
-                    "text": "By another way"
-                  },
-                  {
-                    "divider": "or"
-                  },
-                  {
-                    "value": "none",
-                    "text": "I have no preference"
                   }
                 ]
               }) }}
