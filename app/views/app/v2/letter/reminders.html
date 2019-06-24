@@ -1,11 +1,6 @@
-{% set PROTOTYPEURL = "app/v1" %}
+{% set PROTOTYPEURL = "app/v2" %}
 {% set serviceName = "Your preferences" %}
-{% if data['Email'] %}
-    {% set email = data['Email'] %}
-  {% else %}
-    {% set email = "test@example.com" %}
-  {% endif %}
-{% set contentTitle = "Is " + email + " your current email?" %}
+{% set contentTitle = "How should we send appointment reminders?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -27,10 +22,10 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="#" method="get">
+      <form action="" method="post">
         {{ radios({
           "idPrefix": "nhs",
-          "name": "checkEmail",
+          "name": "appointReminders",
           "fieldset": {
             "legend": {
               "text": contentTitle,
@@ -40,12 +35,16 @@
           },
           "items": [
             {
-              "value": "yes",
-              "text": "Yes, " + email + " is still my email"
+              "value": "text",
+              "text": "By text message"
             },
             {
-              "value": "no",
-              "text": "No, I want to use a different email"
+              "value": "email",
+              "text": "By email"
+            },
+            {
+              "value": "pushNotification",
+              "text": "Through this app"
             }
           ]
         }) }}

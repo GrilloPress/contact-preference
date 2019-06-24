@@ -37,6 +37,63 @@ router.post('/app/v2/prefer-to-be-contacted', function (req, res) {
 });
 
 // // // //
+// POSTAL ADDRESS
+// // // //
+
+router.post('/app/v2/letter/', function (req, res) {
+  let answer = req.body.checkAddress;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/v2/letter/reminders')
+
+  } else {
+    res.redirect('/app/v2/letter/address/')
+  }
+});
+
+router.post('/app/v2/letter/reminders', function (req, res) {
+  let answer = req.body.appointReminders;
+
+  if (answer === 'text') {
+
+    res.redirect('/app/v2/letter/reminders/text')
+
+  } else if (answer === 'email') {
+
+    res.redirect('/app/v2/letter/reminders/email')
+
+  } else {
+
+    res.redirect('/app/v2/letter/reminders/push/allow')
+  }
+});
+
+router.post('/app/v2/letter/reminders/email/', function (req, res) {
+  let answer = req.body.checkEmail;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/v2/letter/your-answers')
+
+  } else {
+    res.redirect('/app/v2/letter/reminders/email/email')
+  }
+});
+
+router.post('/app/v2/letter/reminders/text/', function (req, res) {
+  let answer = req.body.checkMobile;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/v2/letter/your-answers')
+
+  } else {
+    res.redirect('/app/v2/letter/reminders/text/mobile')
+  }
+});
+
+// // // //
 // TEXT MESSAGE
 // // // //
 

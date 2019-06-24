@@ -1,0 +1,42 @@
+{% set PROTOTYPEURL = "app/v2" %}
+{% set serviceName = "Your preferences" %}
+{% set contentTitle = "Allow notifications on your device" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+            <h1 class="nhsuk-heading-xl app-heading-xl">
+              {{ contentTitle }}
+            </h1>
+            <p>To get notifications through this app you must have "push" notifications turned on.</p>
+            <p>If you continue, and you haven't allowed push notifications your device will ask if you want to allow them.</p>
+
+            <form action="/{{ PROTOTYPEURL}}/letter/your-answers" method="post">
+              <input type="submit" class="nhsuk-button" value="Continue">
+              </input>
+            </form>
+
+            {{ backLink({
+              "href": "../index",
+              "text": "Back to previous page"
+            }) }}
+
+    </div>
+  </div>
+{% endblock %}

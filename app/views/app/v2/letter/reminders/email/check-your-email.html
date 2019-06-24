@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/v2" %}
 {% set serviceName = "Your preferences" %}
-{% set contentTitle = "We've saved your new email address" %}
+{% set contentTitle = "Check your email account for your code " %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -28,13 +28,28 @@
       <div class="nhsuk-u-reading-width">
         <h1 class="app-heading-xl">{{ contentTitle }}</h1>
 
-        <p>We'll use {{ email }} to send your appointment reminders.</p>
+        <form action="/{{ PROTOTYPEURL}}/letter/reminders/email/confirmed" method="get">
 
-        <form action="/{{ PROTOTYPEURL}}/other/your-answers?appointReminders=email" method="get">
-          <input type="submit" class="nhsuk-button" value="Continue">
+          {{ input({
+            "label": {
+              "text": "Enter the code we sent to " + email,
+              "isPageHeading": false,
+              "classes": "nhsuk-label--s nhsuk-u-margin-bottom-2"
+            },
+            "id": "inputMobile",
+            "name": "verificationCode",
+            "classes": "nhsuk-input--width-10",
+            "autocomplete": "off"
+          }) }}
+
+          <input type="submit" class="nhsuk-button" value="Submit">
           </input>
+
         </form>
 
+        <p>
+          If you do not get a code after 15 minutes, <a href="#">get another code</a>
+        </p>
       </div>
     </div>
   </div>

@@ -4,8 +4,8 @@
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
-{% if data['email'] %}
-    {% set email = data['email'] %}
+{% if data['Email'] %}
+    {% set email = data['Email'] %}
   {% else %}
     {% set email = "test@example.com" %}
   {% endif %}

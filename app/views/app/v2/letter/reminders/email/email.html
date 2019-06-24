@@ -1,14 +1,10 @@
 {% set PROTOTYPEURL = "app/v2" %}
 {% set serviceName = "Your preferences" %}
-{% set contentTitle = "We've saved your new email address" %}
+{% set contentTitle = "What is the email address you want to use?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
-{% if data['Email'] %}
-    {% set email = data['Email'] %}
-  {% else %}
-    {% set email = "test@example.com" %}
-  {% endif %}
+
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app.html' %}
@@ -25,17 +21,23 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <div class="nhsuk-u-reading-width">
-        <h1 class="app-heading-xl">{{ contentTitle }}</h1>
+      <form action="/{{ PROTOTYPEURL }}/letter/reminders/email/get-code-email" method="get">
+        {{ input({
+          "label": {
+            "text": contentTitle,
+            "isPageHeading": true,
+            "classes": "nhsuk-label--xl app-label-xl"
+          },
+          "id": "inputEmail",
+          "name": "Email",
+          "autocomplete": "off"
+        }) }}
 
-        <p>We'll use {{ email }} to send your appointment reminders.</p>
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
 
-        <form action="/{{ PROTOTYPEURL}}/other/your-answers?appointReminders=email" method="get">
-          <input type="submit" class="nhsuk-button" value="Continue">
-          </input>
-        </form>
+      </form>
 
-      </div>
     </div>
   </div>
 {% endblock %}
