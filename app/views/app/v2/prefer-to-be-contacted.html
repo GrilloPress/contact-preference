@@ -1,0 +1,72 @@
+{% set PROTOTYPEURL = "app/v2" %}
+{% set serviceName = "Your preferences" %}
+{% set contentTitle = "How would you prefer to be contacted" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+            <form action="/{{ PROTOTYPEURL}}/appointments" method="get">
+              {{ radios({
+                "idPrefix": "nhsApp",
+                "name": "contactPreference",
+                "fieldset": {
+                  "legend": {
+                    "text": contentTitle,
+                    "isPageHeading": true,
+                    "classes": "nhsuk-fieldset__legend--xl app-heading-xl"
+                  }
+                },
+                "items": [
+                  {
+                    "value": "letter",
+                    "text": "Letter"
+                  },
+                  {
+                    "value": "phonecall",
+                    "text": "Phone call"
+                  },
+                  {
+                    "value": "email",
+                    "text": "Email"
+                  },
+                  {
+                    "value": "text",
+                    "text": "Text message"
+                  },
+                  {
+                    "value": "pushNotification",
+                    "text": "Through this app"
+                  },
+                  {
+                    "divider": "or"
+                  },
+                  {
+                    "value": "none",
+                    "text": "I have no preference"
+                  }
+                ]
+              }) }}
+              <input type="submit" class="nhsuk-button" value="Continue">
+              </input>
+            </form>
+
+    </div>
+  </div>
+{% endblock %}

@@ -66,3 +66,22 @@ li ul {
     font-size: .9em;
   }
 }
+
+.app-icon-close {
+
+  fill: $color_nhsuk-grey-1;
+  margin-left: -8px;
+  margin-top: 8px;
+  height: 42px;
+  width: 42px;
+}
+
+main.nhs-app-main--interruption {
+
+  padding-bottom: .5em;
+}
+
+.app-interruption-header {
+
+  margin-bottom: -4em;
+}
