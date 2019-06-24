@@ -1,11 +1,11 @@
 {% set PROTOTYPEURL = "app/v2" %}
 {% set serviceName = "Your preferences" %}
-{% if data['email'] %}
-    {% set email = data['email'] %}
+{% if data['mobile'] %}
+    {% set mobile = data['mobile'] %}
   {% else %}
-    {% set email = "test@example.com" %}
+    {% set mobile = "00798326289" %}
   {% endif %}
-{% set contentTitle = "Do you want appointment reminders sent by email?" %}
+{% set contentTitle = "Do you want appointment reminders sent by text message?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -40,8 +40,8 @@
           },
           "items": [
             {
-              "value": "yes",
-              "text": "Yes, I want reminders sent to " + email
+              "value": "text message",
+              "text": "Yes, I want reminders sent to " + mobile
             },
             {
               "value": "no",

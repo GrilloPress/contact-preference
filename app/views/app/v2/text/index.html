@@ -1,11 +1,12 @@
 {% set PROTOTYPEURL = "app/v2" %}
 {% set serviceName = "Your preferences" %}
-{% if data['email'] %}
-    {% set email = data['email'] %}
+{% if data['mobile'] %}
+    {% set mobile = data['mobile'] %}
   {% else %}
-    {% set email = "test@example.com" %}
-  {% endif %}
-{% set contentTitle = "Do you want appointment reminders sent by email?" %}
+    {% set mobile = "00798326289" %}
+{% endif %}
+{% set contentTitle = "Is " + mobile + " the mobile phone number you want to use?" %}
+
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -27,10 +28,10 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="" method="post">
+      <form action="#" method="post">
         {{ radios({
           "idPrefix": "nhs",
-          "name": "appointReminders",
+          "name": "checkMobile",
           "fieldset": {
             "legend": {
               "text": contentTitle,
@@ -41,11 +42,11 @@
           "items": [
             {
               "value": "yes",
-              "text": "Yes, I want reminders sent to " + email
+              "text": "Yes, " + mobile + " is still my mobile phone number"
             },
             {
               "value": "no",
-              "text": "No, I want to use a different way to get reminders"
+              "text": "No, I want to use a different number for appointment reminders"
             }
           ]
         }) }}

@@ -37,6 +37,58 @@ router.post('/app/v2/prefer-to-be-contacted', function (req, res) {
 });
 
 // // // //
+// TEXT MESSAGE
+// // // //
+
+router.post('/app/v2/text/', function (req, res) {
+  let answer = req.body.checkMobile;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/v2/text/reminders')
+
+  } else {
+    res.redirect('/app/v2/text/mobile')
+  }
+});
+
+router.post('/app/v2/text/reminders/', function (req, res) {
+  let answer = req.body.appointReminders;
+
+  if (answer === 'text message') {
+
+    res.redirect('/app/v2/text/your-answers')
+
+  } else {
+    res.redirect('/app/v2/text/reminders/choose')
+  }
+});
+
+router.post('/app/v2/text/reminders/choose', function (req, res) {
+  let answer = req.body.appointReminders;
+
+  if (answer === 'email') {
+
+    res.redirect('/app/v2/text/reminders/email/')
+
+  } else {
+    res.redirect('/app/v2/text/reminders/push/allow')
+  }
+});
+
+router.post('/app/v2/text/reminders/email/', function (req, res) {
+  let answer = req.body.checkEmail;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/v2/text/your-answers')
+
+  } else {
+    res.redirect('/app/v2/text/reminders/email/email')
+  }
+});
+
+// // // //
 // PUSH
 // // // //
 
