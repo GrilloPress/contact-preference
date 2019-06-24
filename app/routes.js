@@ -36,8 +36,51 @@ router.post('/app/v2/prefer-to-be-contacted', function (req, res) {
   }
 });
 
-// OTHER
+// NO PREFERENCE
 
+router.post('/app/v2/no-preference/', function (req, res) {
+  let answer = req.body.appointReminders;
+
+  if (answer === 'email') {
+
+    res.redirect('/app/v2/no-preference/email')
+
+  } else if (answer === 'text') {
+
+    res.redirect('/app/v2/no-preference/text')
+
+  } else {
+    res.redirect('/app/v2/no-preference/push/allow')
+  }
+});
+
+router.post('/app/v2/no-preference/text/', function (req, res) {
+  let answer = req.body.checkMobile;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/v2/no-preference/your-answers')
+
+  } else {
+    res.redirect('/app/v2/no-preference/text/mobile')
+  }
+});
+
+router.post('/app/v2/no-preference/email/', function (req, res) {
+  let answer = req.body.checkEmail;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/v2/no-preference/your-answers')
+
+  } else {
+    res.redirect('/app/v2/no-preference/email/email')
+  }
+});
+
+// // // // //
+// OTHER
+// // // // //
 router.post('/app/v2/other/reminder-preference', function (req, res) {
   let answer = req.body.appointReminders;
 
