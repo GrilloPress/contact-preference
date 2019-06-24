@@ -8,6 +8,8 @@
 {% if data['appointReminders'] %}
   {% if data['appointReminders'] === "pushNotification" %}
     {% set remindersPreference = "Through this app (push notifications)" %}
+  {% elif data['appointReminders'] === "no" %}
+      {% set remindersPreference = "No preference" %}
   {% else %}
     {% set remindersPreference = "By " + data['appointReminders'] %}
   {% endif %}

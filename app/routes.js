@@ -41,6 +41,18 @@ router.post('/app/v2/prefer-to-be-contacted', function (req, res) {
 router.post('/app/v2/no-preference/', function (req, res) {
   let answer = req.body.appointReminders;
 
+  if (answer === 'yes') {
+
+    res.redirect('/app/v2/no-preference/appointment-reminders')
+
+  } else {
+    res.redirect('/app/v2/no-preference/your-answers')
+  }
+});
+
+router.post('/app/v2/no-preference/appointment-reminders', function (req, res) {
+  let answer = req.body.appointReminders;
+
   if (answer === 'email') {
 
     res.redirect('/app/v2/no-preference/email')

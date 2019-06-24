@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/v2" %}
 {% set serviceName = "Your preferences" %}
-{% set contentTitle = "Do you want to choose how you are contacted for appointment reminders?" %}
+{% set contentTitle = "How would you prefer to be contacted for appointment reminders?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -35,12 +35,16 @@
                 },
                 "items": [
                   {
-                    "value": "yes",
-                    "text": "Yes, I'd like to choose how I am sent appointment reminders"
+                    "value": "email",
+                    "text": "Email"
                   },
                   {
-                    "value": "no",
-                    "text": "No, I do not mind how I am contacted about appointment reminders"
+                    "value": "text",
+                    "text": "Text message"
+                  },
+                  {
+                    "value": "pushNotification",
+                    "text": "Through this app"
                   }
                 ]
               }) }}
