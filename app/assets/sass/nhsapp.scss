@@ -71,6 +71,9 @@ a.button {
   button.button.green,
   a.button.green {
     background-color: #007F3B;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 600;
     box-shadow: 0em 0.125em 0em 0em #005326; }
   button.button.grey,
   a.button.grey {
@@ -1730,6 +1733,124 @@ main.content {
 .emis .tpp {
   display: none; }
 
+  header.home-header {
+  background: radial-gradient(#0072DF 0%, #0053A3 100%);
+  min-height: 26em;
+  box-sizing: border-box;
+  text-align: center;
+  box-shadow: inset 0em -0.375em 0.5em rgba(0, 0, 0, 0.15);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; }
+  header.home-header .nhso_logo {
+    margin: auto;
+    box-sizing: border-box; }
+  header.home-header h1 {
+    display: block;
+    font-family: "FrutigerLTW01-55Roman", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 2em;
+    line-height: 2em;
+    color: #ffffff; }
+    @supports (-webkit-overflow-scrolling: touch) {
+      header.home-header h1 {
+        letter-spacing: -0.063em; } }
+  header.home-header .help-link {
+    position: fixed;
+    right: 0;
+    top: 0;
+    cursor: pointer; }
+    header.home-header .help-link svg.help {
+      margin: 0.8em 1em;
+      display: inline-block;
+      height: 1.575em; }
+  header.home-header .symptom_banner {
+    text-align: center;
+    width: 100%;
+    vertical-align: bottom;
+    box-sizing: border-box;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-top: 0.063em rgba(255, 255, 255, 0.4) solid; }
+    header.home-header .symptom_banner h2 {
+      display: block;
+      font-family: "FrutigerLTW01-55Roman", Arial, sans-serif;
+      font-weight: 700;
+      font-size: 1.250em;
+      line-height: 1.250em;
+      color: #ffffff;
+      margin-bottom: 1em; }
+      @supports (-webkit-overflow-scrolling: touch) {
+        header.home-header .symptom_banner h2 {
+          letter-spacing: -0.063em; } }
+    header.home-header .symptom_banner button.button {
+      margin-bottom: 0.313em; }
+
+header.logged {
+  bottom: 9em; }
+
+section.home-main {
+  height: 9em;
+  padding: 1em;
+  box-sizing: border-box; }
+  section.home-main h2 {
+    font-family: "FrutigerLTW01-65Bold", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.375em;
+    line-height: 1.375em;
+    color: #425563;
+    margin-bottom: 0.750em;
+    font-size: 1.2em;
+    text-align: center;
+    padding-left: 0.3em;
+    padding-right: 0.3em; }
+    @supports (-webkit-overflow-scrolling: touch) {
+      main.home-main h2 {
+        letter-spacing: -0.063em; } }
+  section.home-main a {
+    display: block;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.5em;
+    color: #212B32;
+    color: #005EB8;
+    width: 100%;
+    text-align: center; }
+  section.home-main p.version {
+    display: block;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.5em;
+    color: #212B32;
+    font-size: 0.7em;
+    color: #637683;
+    display: block;
+    padding-bottom: 0.5em;
+    text-align: center; }
+
+main.logged {
+  height: 9em;
+  overflow: auto; }
+
+.error-timeout {
+  background: #ffed00;
+  display: block;
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 1.5em;
+  color: #212B32;
+  color: #000;
+  font-size: 1.125em;
+  text-align: center;
+  height: 2.5em;
+  line-height: 2.5em;
+  width: 100%; }
+
+
 /** APP */
 body {
   padding: 0em;
@@ -1823,4 +1944,30 @@ main.nhs-app-main--interruption {
 b, strong, label {
 
   color: $color_nhsuk-black;
+}
+
+main.nhs-app-main-login {
+
+  padding: 0;
+}
+
+.loader {
+    border: 3px solid darken(#f0f4f5, 5%);
+    border-top: 3px solid $color_nhsuk-blue;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    margin: auto;
+    margin-top: 64px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.container--loader {
+
+  text-align: center;
 }

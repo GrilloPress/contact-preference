@@ -8,6 +8,8 @@
 
 {% if appHeading %}
   {% set mainClasses = 'nhs-app-main' %}
+{% elif appLogin %}
+  {% set mainClasses = 'nhs-app-main nhs-app-main-login' %}
 {% else %}
   {% set mainClasses = 'nhs-app-main nhs-app-main--no-header' %}
 {% endif %}
