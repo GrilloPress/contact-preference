@@ -1,0 +1,73 @@
+{% set PROTOTYPEURL = "app/v2" %}
+{% set serviceName = "Your preferences" %}
+{% if data['mobile'] %}
+    {% set mobile = data['mobile'] %}
+  {% else %}
+    {% set mobile = "00798326289" %}
+{% endif %}
+{% set landline = "01134960000" %}
+{% set contentTitle = "Choose which phone number you want to use" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl app-heading-xl">
+        {{ contentTitle }}
+      </h1>
+      <p>We've found two numbers for you.</p>
+
+      <form action="#" method="post">
+        {{ radios({
+          "idPrefix": "nhs",
+          "name": "checkPhone",
+          "fieldset": {
+            "legend": {
+              "text": "Which number do you prefer us to use?",
+              "isPageHeading": false,
+              "classes": "nhsuk-fieldset__legend--m"
+            }
+          },
+          "items": [
+            {
+              "value": "landline",
+              "text": landline
+            },
+            {
+              "value": "mobile",
+              "text": mobile
+            },
+            {
+              "divider": "or"
+            },
+            {
+              "value": "new",
+              "text": "I want to use a different phone number"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+
+    </div>
+  </div>
+{% endblock %}

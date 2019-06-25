@@ -37,6 +37,67 @@ router.post('/app/v2/prefer-to-be-contacted', function (req, res) {
 });
 
 // // // //
+// PHONE
+// // // //
+
+router.post('/app/v2/phone/', function (req, res) {
+  let answer = req.body.checkPhone;
+
+  if (answer === 'landline') {
+
+    res.redirect('/app/v2/phone/reminders')
+
+  } else if (answer === 'mobile') {
+
+    res.redirect('/app/v2/phone/reminders')
+
+  } else {
+    res.redirect('/app/v2/phone/new/')
+  }
+});
+
+router.post('/app/v2/phone/reminders', function (req, res) {
+  let answer = req.body.appointReminders;
+
+  if (answer === 'text') {
+
+    res.redirect('/app/v2/phone/reminders/text')
+
+  } else if (answer === 'email') {
+
+    res.redirect('/app/v2/phone/reminders/email')
+
+  } else {
+
+    res.redirect('/app/v2/phone/reminders/push/allow')
+  }
+});
+
+router.post('/app/v2/phone/reminders/email/', function (req, res) {
+  let answer = req.body.checkEmail;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/v2/phone/your-answers')
+
+  } else {
+    res.redirect('/app/v2/phone/reminders/email/email')
+  }
+});
+
+router.post('/app/v2/phone/reminders/text/', function (req, res) {
+  let answer = req.body.checkMobile;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/v2/phone/your-answers')
+
+  } else {
+    res.redirect('/app/v2/phone/reminders/text/mobile')
+  }
+});
+
+// // // //
 // POSTAL ADDRESS
 // // // //
 
