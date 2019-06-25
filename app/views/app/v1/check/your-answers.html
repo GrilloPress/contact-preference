@@ -110,6 +110,14 @@
         ]
       }) }}
 
+      {{ data }}
+
+      {% for item in data %}
+        <li>{{ item }}</li>
+      {% else %}
+        <li>This would display if the 'item' collection were empty</li>
+      {% endfor %}
+
       <form action="/{{ PROTOTYPEURL }}/confirmation" method="get">
 
           <input type="Submit" class="nhsuk-button" id="submit-details" value="Save choices">
