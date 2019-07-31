@@ -1941,6 +1941,22 @@ main.nhs-app-main--interruption {
   border-top: 8px solid $color_nhsuk-blue;
 }
 
+.app-interruption-header--alt {
+
+  margin-bottom: -3em;
+  border: none;
+  background-color: $color_nhsuk-blue;
+
+  .nhsuk-icon__close, .nhsuk-icon__chevron-left {
+    fill: $color_nhsuk-white;
+    margin-left: -8px;
+    margin-top: 8px;
+    height: 42px;
+    width: 42px;
+  }
+
+}
+
 b, strong, label {
 
   color: $color_nhsuk-black;
@@ -1970,4 +1986,20 @@ main.nhs-app-main-login {
 .container--loader {
 
   text-align: center;
+}
+
+
+// dirt
+
+a.app-lozenge-center {
+    text-align: center;
+    display: inline-block;
+    margin-left: 6.5em;
+    margin-top: 0em;
+}
+
+a.app-lozenge-center svg {
+    height: 25px;
+    width: auto;
+    margin-bottom: .5em;
 }
