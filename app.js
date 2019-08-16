@@ -156,7 +156,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/nhsuk-frontend', express.static(path.join(__dirname, 'node_modules/nhsuk-frontend/packages')));
 app.use('/nhsuk-frontend', express.static(path.join(__dirname, 'node_modules/nhsuk-frontend/dist')));
 
-
 // Check if the app is documentation only
 if(onlyDocumentation == 'true') {
   app.get('/', function(req, res) {
@@ -164,6 +163,11 @@ if(onlyDocumentation == 'true') {
     res.redirect('/docs');
   });
 }
+
+app.get('*',function(req,res,next){
+    res.header("Service-Worker-Allowed", "/");
+    next(); // http://expressjs.com/guide.html#passing-route control
+});
 
 // Use custom application routes
 app.use('/', routes);
