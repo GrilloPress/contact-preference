@@ -164,9 +164,11 @@ if(onlyDocumentation == 'true') {
   });
 }
 
-app.get('*',function(req,res,next){
-    res.header("Service-Worker-Allowed", "/");
-    next(); // http://expressjs.com/guide.html#passing-route control
+app.use((req, res, next) => {
+  res.setHeader(
+    "Service-Worker-Allowed", "/"
+  );
+  next();
 });
 
 // Use custom application routes
