@@ -151,6 +151,20 @@ app.use(locals(config));
 app.set('view engine', 'html');
 documentationApp.set('view engine', 'html');
 
+app.use(function(req, res, next) {
+
+  const env = (process.env.NODE_ENV || 'development').toLowerCase();
+  if (env === 'production' || env === 'staging') {
+    if (req.secure){
+        return next();
+    }
+    res.redirect("https://" + req.headers.host + req.url);
+  } else {
+    return next();
+  }
+
+});
+
 var options = {
   setHeaders: function (res, path, stat) {
     res.set("Service-Worker-Allowed", "/")
