@@ -4,27 +4,32 @@
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 <script type="text/javascript">
-var deferredPrompt = null;
-window.addEventListener("beforeinstallprompt", function(e) {
-  // Prevent Chrome 67 and earlier from automatically showing the prompt
-  e.preventDefault(); // Stash the event so it can be triggered later.
+let deferredPrompt = null;
 
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
   deferredPrompt = e;
 });
 
 async function install() {
   if (deferredPrompt) {
     deferredPrompt.prompt();
-    console.log(deferredPrompt);
-    deferredPrompt.userChoice.then(function(choiceResult) {
-      if (choiceResult.outcome === "accepted") {
-        console.log("Your PWA has been installed");
-      } else {
-        console.log("User chose to not install your PWA");
-      }
+    console.log(deferredPrompt)
+    deferredPrompt.userChoice.then(function(choiceResult){
 
-      deferredPrompt = null;
+      if (choiceResult.outcome === 'accepted') {
+      console.log('Your PWA has been installed');
+    } else {
+      console.log('User chose to not install your PWA');
+    }
+
+    deferredPrompt = null;
+
     });
+
+
   }
 }
 
@@ -52,10 +57,6 @@ async function install() {
         {{ contentTitle }}
         <span class="nhsuk-caption-xl nhsuk-caption--bottom"> {{ serviceName }}</span>
       </h1>
-
-      <button onclick="install()">
-        Install
-      </button>
 
       <form action="/app/start" method="get">
         <input type="submit" class="nhsuk-button" value="Start prototype">
