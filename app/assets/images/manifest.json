@@ -4,13 +4,7 @@
   "icons": [
     {
       "src": "/images/nhs-logo.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "/images/nhs-logo.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "type": "image/png"
     }
   ],
   "start_url": "/app/v2/index",

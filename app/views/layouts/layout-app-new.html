@@ -11,7 +11,7 @@
 {% elif appLogin %}
   {% set mainClasses = 'nhs-app-main nhs-app-main-login' %}
 {% else %}
-  {% set mainClasses = 'nhs-app-main nhs-app-main--no-header' %}
+  {% set mainClasses = 'nhs-app-thin' %}
 {% endif %}
 {% set html_style = 'background-color: #f0f4f5;' %}
 {% block headCSS %}
@@ -38,7 +38,35 @@
 <!-- Header goes inside this block -->
 {% block header %}
 
-  <header class="pull-header logged {% if appHeading %}{% else %}nhs-app-no-title{% endif %}">
+<header class="nhsuk-header nhsuk-header--transactional nhs-app-header--app" role="banner">
+  <div class="nhsuk-width-container">
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-one-third nhs-app-u-one-third-mobile" style="padding: 0 0 0 16px !important">
+        <a href=""><img src="/images/home.svg" alt=""></a>
+
+      </div>
+      <div class="nhsuk-grid-column-one-third nhs-app-u-one-third-mobile" style="padding: 0 8px !important">
+        <div class="nhs-app-logo">
+          <a class="" href="/" aria-label="NHS homepage">
+            <svg class="" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 40 16">
+              <path fill="#fff" d="M0 0h40v16H0z"></path>
+              <path fill="#005eb8" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
+              <image src="https://assets.nhs.uk/images/nhs-logo.png" xlink:href=""></image>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="nhsuk-grid-column-one-third nhs-app-u-one-third-mobile" style="padding: 0 16px 0 0 !important">
+        <a class="nhs-app-header__icon" href="#"><img src="/images/help.svg" alt=""></a>
+        <a class="nhs-app-header__icon" href="#"><img src="/images/message.svg" alt=""></a>
+        <a class="nhs-app-header__icon nhs-app-header__icon--right" href="/app/settings"><img src="/images/settings.svg" alt=""></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <header style="display:none" class="pull-header logged {% if appHeading %}{% else %}nhs-app-no-title{% endif %}">
     <div class="">
       <span class="logged nhs-app-header-link" style="">
         <a href="/{{PROTOTYPEURL}}">
