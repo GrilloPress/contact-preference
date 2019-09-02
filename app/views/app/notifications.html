@@ -35,6 +35,20 @@
       <p>You can choose whether to allow notifications on your device.</p>
       <p>If you share this device with other people, they may be able to see your notifications.</p>
 
+      <div class="nhs-app-card">
+        <div class="nhs-app-card__inner">
+    			<div>
+            <label for="notifications">Allow notifications</label>
+            <input class="toggle" type="checkbox" id="notifications" name="notifications" value="">
+    			</div>
+        </div>
+      </div>
+
+      {{ actionLink({
+        "text": "Manage how notifications appear on your device",
+        "href": "#"
+      }) }}
+
     </div>
   </div>
 {% endblock %}

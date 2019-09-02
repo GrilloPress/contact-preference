@@ -1381,7 +1381,7 @@ div.record-content {
 .toggle {
   -webkit-appearance: none;
   appearance: none;
-  width: 62px;
+  width: 5em;
   height: 32px;
   display: inline-block;
   position: absolute;
@@ -1392,10 +1392,10 @@ div.record-content {
   outline: none;
   border: none;
   cursor: pointer;
-  background-color: #707070;
+  background-color: #768692;
   transition: background-color ease 0.3s; }
   .toggle:before {
-    content: "on off";
+    content: "";
     display: block;
     position: absolute;
     z-index: 2;
@@ -1418,7 +1418,7 @@ div.record-content {
   .toggle:checked {
     background-color: #11A918; }
   .toggle:checked:before {
-    left: 32px; }
+    left: 2.5em; }
 
 /** Links */
 .nhsuk-icon__arrow-right-circle {
@@ -2077,4 +2077,39 @@ ul.list-menu {
 
     font-weight: 600;
   }
+}
+
+.nhs-app-card {
+
+  border-top: 1px #D8DDE0 solid;
+  @include mq($until: desktop) {
+    margin: 0 -1em 1em;
+  }
+  @include mq($from: desktop) {
+    border-left: 1px #D8DDE0 solid;
+    border-right: 1px #D8DDE0 solid;
+  }
+}
+
+.nhs-app-card__inner {
+
+  position: relative;
+  margin-left: 0em;
+  border-bottom: 1px #D8DDE0 solid;
+  background-color: white;
+  padding: 0.5em 1em;
+  margin-bottom: .2em;
+  @include mq($from: desktop) {
+    margin-bottom: 1em;
+  }
+}
+
+.toggle {
+
+  top: 4px;
+}
+
+.toggle:focus {
+
+  box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-color;
 }
