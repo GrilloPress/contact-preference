@@ -413,6 +413,21 @@ router.post('/app/v2/other/email/', function (req, res) {
 });
 
 
+// NHS App AJAX routes
+
+router.post('/app/notifications', function (req, res) {
+  let answer = req.body.notifications;
+
+  if (answer) {
+
+    // do fuck all
+
+  } else {
+    res.redirect('/app/notifications-error')
+  }
+});
+
+
 // Add your routes here - above the module.exports line
 
 module.exports = router;

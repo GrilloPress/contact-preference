@@ -3,6 +3,14 @@
 {% set contentTitle = "Prototypes" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
+<script type="javacript">
+$( ".nhs-app-card__inner" ).click(function() {
+  console.log("hi");
+  console.log($('.toggle').is(':checked'));
+  jQuery.post( "/app/notifications", { notifications: "on" } );
+  console.log("hi");
+});
+</script>
 {% endblock %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -35,14 +43,17 @@
       <p>You can choose whether to allow notifications on your device.</p>
       <p>If you share this device with other people, they may be able to see your notifications.</p>
 
-      <div class="nhs-app-card">
-        <div class="nhs-app-card__inner">
-    			<div>
-            <label for="notifications">Allow notifications</label>
-            <input class="toggle" type="checkbox" id="notifications" name="notifications" value="" {{ "checked" if data["notifications"] }}>
-    			</div>
+      <form action="" method="post">
+        <div class="nhs-app-card">
+          <div class="nhs-app-card__inner">
+            <div>
+              <label for="notifications">Allow notifications</label>
+              <input class="toggle" type="checkbox" id="notifications" name="notifications" value="on" {{ "checked" if data["notifications"] }}>
+              <input class="nhsuk-u-visually-hidden" type="submit" value="Submit">
+      			</div>
+          </div>
         </div>
-      </div>
+      </form>
 
       {{ actionLink({
         "text": "Manage how notifications appear on your device",
