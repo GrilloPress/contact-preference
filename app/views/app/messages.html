@@ -1,0 +1,53 @@
+{% set PROTOTYPEURL = "app" %}
+{% set serviceName = "Home" %}
+{% set contentTitle = "Messages" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+      <p>You have two unread messages</p>
+
+      <ul class="list-menu nhs-app-message">
+      	<li class="nhs-app-message__item nhs-app-message__item--unread">
+      		<a class="nhs-app-message__link" href="message">
+            <h2 class="nhsuk-heading-s">Woodrow Practice <span class="nhs-app-message__date">Today</span><span class="nhs-app-message__unread">Unread</span></h2>
+            <p>Your test results are ready</p>
+          </a>
+      	</li>
+        <li class="nhs-app-message__item nhs-app-message__item--unread">
+      		<a class="nhs-app-message__link" href="message-with-two-messages#unread">
+            <h2 class="nhsuk-heading-s">NHS App <span class="nhs-app-message__date">Yesterday</span><span class="nhs-app-message__unread">Unread</span></h2>
+            <p>We've updared our terms and conditions</p>
+          </a>
+      	</li>
+        <li class="nhs-app-message__item nhs-app-message__item--read">
+      		<a class="nhs-app-message__link" href="message-with-reply">
+            <h2 class="nhsuk-heading-s">Manage your referral <span class="nhs-app-message__date">last year</span></h2>
+            <p>You: Thanks for the update</p>
+          </a>
+      	</li>
+
+      </ul>
+
+      <button class="nhsuk-button nhs-app-u-button-full" id="btn_logout">
+      	Send a new message
+      </button>
+  </div>
+{% endblock %}

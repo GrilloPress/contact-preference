@@ -1,0 +1,66 @@
+{% set PROTOTYPEURL = "app" %}
+{% set serviceName = "Home" %}
+{% set sender = "Manage your referral" %}
+{% set contentTitle = "Messages from " + sender %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/messages",
+  text: "Messages"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+      <div class="nhs-app-chat">
+        <ul class="nhs-app-chat__thread">
+          <li class="nhs-app-chat__item">
+            <div class="nhs-app-chat__sender">
+              {{ sender }}
+            </div>
+            <div class="nhs-app-chat__container">
+              <h2 class="nhs-app-chat__header">We've updated our terms and conditions</h2>
+              <p class="nhs-app-chat__body">This is some other words about that!</p>
+            </div>
+            <div class="nhs-app-chat__date">
+              4:55PM, 23 August 2019
+            </div>
+          </li>
+          <li class="nhs-app-chat__item nhs-app-chat__item--reply">
+            <div class="nhs-app-chat__sender nhs-app-chat__sender--reply">
+              <span>You</span>
+            </div>
+            <div class="nhs-app-chat__container nhs-app-chat__container--reply">
+              <h2 class="nhs-app-chat__header nhs-app-chat__header--reply">Thanks for the update</h2>
+            </div>
+            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
+              4:55PM, 23 August 2019
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}

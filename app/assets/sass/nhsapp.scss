@@ -1052,26 +1052,27 @@ ul.list-menu {
   list-style: none;
   padding-left: 0;
 }
-  ul.list-menu li {
+  .list-menu li {
     box-sizing: border-box;
-    background: #f0f4f5 url(/images/icon_arrow_left.svg) no-repeat center right;
+    background: #f0f4f5 url(/images/icon_arrow_left.png) no-repeat center right;
+    background-image: url('../images/icon-arrow-right.png');
     background-position: right 1em center;
     position: relative;
     margin-bottom: 0em;
     margin-left: 0em;
     padding: 0.5em 0em 0.5em 0;
     border-bottom: 1px #D8DDE0 solid; }
-    ul.list-menu li a {
+    .list-menu li a {
       font-size: 1em;
       display: block;
       padding: 0;
       text-decoration: none;
     }
-      ul.list-menu li a h2 {
+      .list-menu li a h2 {
         margin: 0em;
         padding-right: 3em;
       }
-    ul.list-menu li p {
+    .list-menu li p {
       margin-bottom: 0;
       padding-right: 3em;
       color: $nhsuk-text-color;
@@ -2027,7 +2028,7 @@ a.app-lozenge-center svg {
 .nhs-app-header--app {
 
   padding: 13px 0;
-  position: absolute;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 1;
@@ -2048,17 +2049,12 @@ a.app-lozenge-center svg {
   float: right;
 }
 
-.nhs-app-breadcrumb {
-
-  margin-top: 54px;
-}
-
 main.nhs-app-thin {
 
-  padding: 1em 0;
+  padding: 1em 0 5em;
 }
 
-ul.list-menu {
+.list-menu {
 
   @include mq($until: desktop) {
     margin: 0 -1em 1em;
@@ -2069,13 +2065,14 @@ ul.list-menu {
   li {
 
     background-color: white;
-    padding: 0.5em 1em;
+    padding: 0;
     margin-bottom: .2em;
   }
 
   li a {
 
     font-weight: 600;
+    padding: 0.5em 1em;
   }
 }
 
@@ -2112,4 +2109,162 @@ ul.list-menu {
 .toggle:focus {
 
   box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-color;
+}
+
+nav.nhs-app-breadcrumb {
+
+  box-shadow: 0 2px 0 0 #d8dde0;
+  padding: 8px 0;
+
+  @include mq($until: desktop) {
+    position: sticky;
+    top: 54px;
+  }
+}
+
+// MESSAAGING
+.nhs-app-message {
+  .nhs-app-message__item {
+
+    background-position-y: 65%;
+  }
+}
+
+.nhs-app-message__date {
+
+  font-size: 14px;
+  color: $nhsuk-text-color;
+  margin-left: .5em;
+}
+
+.nhs-app-message__unread {
+
+  float: right;
+  font-size: 14px;
+  font-weight: 400;
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  color: $nhsuk-secondary-text-color;
+}
+
+.nhs-app-message__item--read {
+
+  background-color: $color_nhsuk-grey-5 !important;
+  border-top: 1px solid #D8DDE0;
+}
+
+.nhs-app-chat {}
+
+.nhs-app-chat__thread {
+
+  list-style-type: none;
+  padding: 0;
+}
+
+.nhs-app-chat__item {
+  padding-right: 20%;
+  @include clearfix;
+}
+
+.nhs-app-chat__item--reply {
+  padding-right: 0;
+  padding-left: 20%;
+
+}
+
+.nhs-app-chat__container {
+
+  background-color: $color_nhsuk-white;
+  padding: 8px 8px 0;
+  border-radius: 4px;
+  border: 1px solid $color_nhsuk-grey-4;
+  margin-bottom: 4px;
+}
+
+.nhs-app-chat__container--reply {
+
+  @include clearfix;
+  float: right;
+  background-color: #eceeef;
+  border-color: #d2d7d8;
+}
+
+.nhs-app-chat__header {
+
+  @extend .nhsuk-body-m;
+  font-weight: 500;
+}
+
+.nhs-app-chat__body {}
+
+.nhs-app-chat__date {
+
+  @include nhsuk-typography-responsive(14);
+  display: block;
+  margin-top: 0;
+  @include nhsuk-responsive-margin(4, 'bottom');
+
+}
+
+.nhs-app-chat__sender {
+
+  @include nhsuk-typography-responsive(16);
+  display: block;
+  margin-top: 0;
+  @include nhsuk-responsive-margin(1, 'bottom');
+  font-weight: 600;
+  color: $nhsuk-secondary-text-color;
+}
+
+.nhs-app-chat__sender--reply {
+  span {
+    float: right;
+  }
+  @include clearfix;
+}
+
+.nhs-app-chat__date--reply {
+  float: right;
+}
+
+.nhs-app-chat__read-indicator {
+  text-align: center;
+  position: relative;
+  margin-bottom: 1em;
+
+  &:before {
+
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-top: 1px solid $color_nhsuk-grey-4;
+    width: 28%;
+    top: 11px;
+    left: 0;
+  }
+
+  &:after{
+
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-top: 1px solid $color_nhsuk-grey-4;
+    width: 28%;
+    top: 11px;
+    right: 0;
+  }
+}
+
+.nhs-app-chat__read-indicator-container {
+
+}
+
+// utility classes
+
+.nhs-app-u-button-full {
+
+  @include mq($until: desktop) {
+    width: 100%;
+  }
 }
