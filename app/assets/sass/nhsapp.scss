@@ -2292,6 +2292,14 @@ nav.nhs-app-breadcrumb {
 
 }
 
+.menu {
+  .nhsuk-width-container {
+    @include mq($until: tablet) {
+     margin: 0;
+    }
+  }
+}
+
 // utility classes
 
 .nhs-app-u-button-full {
