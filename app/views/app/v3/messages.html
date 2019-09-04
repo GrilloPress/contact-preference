@@ -1,4 +1,4 @@
-{% set PROTOTYPEURL = "app" %}
+{% set PROTOTYPEURL = "app/v3" %}
 {% set serviceName = "Home" %}
 {% set contentTitle = "Messages" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -27,20 +27,31 @@
       <ul class="list-menu nhs-app-message">
       	<li class="nhs-app-message__item nhs-app-message__item--unread">
       		<a class="nhs-app-message__link" href="message">
-            <h2 class="nhsuk-heading-s">Woodrow Practice <span class="nhs-app-message__date">Today</span><span class="nhs-app-message__unread">Unread</span></h2>
-            <p>Your test results are ready</p>
+            <h2 class="nhsuk-heading-s">Woodrow Practice <span class="nhs-app-message__date">Today</span></h2>
+            <p class="nhs-app-message__subject-line">Your test results are ready
+              <span class="nhs-app-message__meta">
+                <span class="nhs-app-message__count">1</span>
+                <span class="nhs-app-message__unread"></span>
+              </span>
+            </p>
           </a>
       	</li>
         <li class="nhs-app-message__item nhs-app-message__item--unread">
       		<a class="nhs-app-message__link" href="message-with-two-messages#unread">
-            <h2 class="nhsuk-heading-s">NHS App <span class="nhs-app-message__date">Yesterday</span><span class="nhs-app-message__unread">Unread</span></h2>
-            <p>We've updared our terms and conditions</p>
+            <h2 class="nhsuk-heading-s">NHS App <span class="nhs-app-message__date">Yesterday</span></h2>
+            <p class="nhs-app-message__subject-line">
+              We've updared our terms and conditions
+              <span class="nhs-app-message__meta">
+                <span class="nhs-app-message__count">2</span>
+                <span class="nhs-app-message__unread"></span>
+              </span>
+            </p>
           </a>
       	</li>
         <li class="nhs-app-message__item nhs-app-message__item--read">
       		<a class="nhs-app-message__link" href="message-with-reply">
             <h2 class="nhsuk-heading-s">Manage your referral <span class="nhs-app-message__date">last year</span></h2>
-            <p>You: Thanks for the update</p>
+            <p class="nhs-app-message__subject-line">You: Thanks for the update</p>
           </a>
       	</li>
 

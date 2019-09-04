@@ -2127,25 +2127,57 @@ nav.nhs-app-breadcrumb {
   .nhs-app-message__item {
 
     background-position-y: 65%;
+    background-image: none;
+  }
+
+  h2, h3 {
+    position: relative;
   }
 }
 
-.nhs-app-message__date {
+.nhs-app-message__unread {
 
   font-size: 14px;
-  color: $nhsuk-text-color;
-  margin-left: .5em;
+  color: $nhsuk-secondary-text-color;
 }
 
-.nhs-app-message__unread {
+.nhs-app-message__meta {
+
+  float: right;
+  position: absolute;
+  right: 16px;
+}
+
+.nhs-app-message__subject-line {
+
+  @include mq($until: tablet) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+}
+
+.nhs-app-message__date {
 
   float: right;
   font-size: 14px;
   font-weight: 400;
   position: absolute;
-  right: 16px;
-  top: 12px;
+  right: 0;
+  top: 4px;
   color: $nhsuk-secondary-text-color;
+}
+
+.nhs-app-message__count {
+
+  font-size: 12px;
+  background-color: #330072;
+  border-radius: 50%;
+  padding: 4px 8px;
+  color: white;
+
 }
 
 .nhs-app-message__item--read {
