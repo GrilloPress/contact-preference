@@ -10,6 +10,7 @@ $( ".nhs-app-card__inner" ).click(function() {
   jQuery.post( "/app/notifications", { notifications: "on" } );
   console.log("hi");
 });
+
 </script>
 {% endblock %}
 
@@ -43,12 +44,20 @@ $( ".nhs-app-card__inner" ).click(function() {
       <p>You can choose whether to allow notifications on your device.</p>
       <p>If you share this device with other people, they may be able to see your notifications.</p>
 
+      {% set checked %}
+        {% if data['notifications'] == "True" %}
+          Checked
+        {% else %}
+          nope
+        {% endif %}
+      {% endset %}
+
       <form action="" method="post">
         <div class="nhs-app-card">
-          <div class="nhs-app-card__inner">
+          <div class="nhs-app-card__inner" onclick="clickToggle()">
             <div>
               <label for="notifications">Allow notifications</label>
-              <input class="toggle" type="checkbox" id="notifications" name="notifications" value="on" {{ "checked" if data["notifications"] }}>
+              <input class="toggle" type="checkbox" id="notifications" name="notifications" value="on" {{ checked }}>
               <input class="nhsuk-u-visually-hidden" type="submit" value="Submit">
       			</div>
           </div>

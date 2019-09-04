@@ -417,14 +417,22 @@ router.post('/app/v2/other/email/', function (req, res) {
 
 router.post('/app/notifications', function (req, res) {
   let answer = req.body.notifications;
-
-  if (answer) {
-
-    // do fuck all
-
+  if (answer == "on") {
+    req.session.data.notifications = "True";
   } else {
-    res.redirect('/app/notifications-error')
+    req.session.data.notifications = "False";
   }
+  res.redirect('/app/notifications')
+});
+
+router.post('/app/password', function (req, res) {
+  let answer = req.body.touchID;
+  if (answer == "on") {
+    req.session.data.touchID = "True";
+  } else {
+    req.session.data.touchID = "False";
+  }
+  res.redirect('/app/password')
 });
 
 

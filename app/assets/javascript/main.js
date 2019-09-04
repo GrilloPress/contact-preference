@@ -22,3 +22,29 @@ UpUp.start({
   'assets': [ '/css/nhsapp.css', '/css/main.css'],
   'service-worker-url': '/js/sw.js'
 });
+
+
+function clickToggle (){
+
+  if ($('input.toggle').is(":checked")) {
+    $.post( "/app/notifications", { notifications: "on" } );
+  } else {
+    $.post( "/app/notifications", { notifications: "off" } );
+  }
+
+}
+
+function passwordToggle (){
+
+  // input
+  // where to post
+  // true value
+  // false value
+
+  if ($('input.toggle').is(":checked")) {
+    $.post( "/app/password", { touchID: "on" } );
+  } else {
+    $.post( "/app/password", { touchID: "off" } );
+  }
+
+}
