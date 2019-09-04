@@ -1419,7 +1419,7 @@ div.record-content {
   .toggle:checked {
     background-color: #11A918; }
   .toggle:checked:before {
-    left: 2.5em; }
+    left: 46%; }
 
 /** Links */
 .nhsuk-icon__arrow-right-circle {
@@ -2072,7 +2072,7 @@ main.nhs-app-thin {
   li a {
 
     font-weight: 600;
-    padding: 0.5em 1em;
+    padding: 0.8em 1em;
   }
 }
 
@@ -2094,7 +2094,7 @@ main.nhs-app-thin {
   margin-left: 0em;
   border-bottom: 1px #D8DDE0 solid;
   background-color: white;
-  padding: 0.5em 1em;
+  padding: 0.8em 1em;
   margin-bottom: .2em;
   @include mq($from: desktop) {
     margin-bottom: 1em;
@@ -2103,7 +2103,7 @@ main.nhs-app-thin {
 
 .toggle {
 
-  top: 4px;
+  top: 6px;
 }
 
 .toggle:focus {
