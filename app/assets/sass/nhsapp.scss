@@ -2051,7 +2051,10 @@ a.app-lozenge-center svg {
 
 main.nhs-app-thin {
 
-  padding: 1em 0 5em;
+  padding: 1.5em 0 5em;
+  @include mq($until: desktop) {
+    padding: 2em 0 5em;
+  }
 }
 
 .list-menu {
@@ -2073,6 +2076,16 @@ main.nhs-app-thin {
 
     font-weight: 600;
     padding: 0.8em 1em;
+  }
+}
+
+.list-menu li a:focus, .list-menu li a:hover {
+
+  background-color: transparent;
+  box-shadow: inset 0 0 0 4px #ffcd60;
+
+  h2, h3 {
+    text-decoration: underline;
   }
 }
 
@@ -2184,6 +2197,10 @@ nav.nhs-app-breadcrumb {
 
   background-color: $color_nhsuk-grey-5 !important;
   border-top: 1px solid #D8DDE0;
+
+  h2, h3 {
+    color: $nhsuk-secondary-text-color;
+  }
 }
 
 .nhs-app-chat {}
