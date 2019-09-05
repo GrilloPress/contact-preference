@@ -2195,12 +2195,15 @@ nav.nhs-app-breadcrumb {
 
 .nhs-app-message__item--read {
 
-  background-color: $color_nhsuk-grey-5 !important;
-  border-top: 1px solid #D8DDE0;
-
   h2, h3 {
     color: $nhsuk-secondary-text-color;
   }
+}
+
+.nhs-app-message__date--unread {
+
+  font-weight: 600;
+  color: $color_nhsuk-purple;
 }
 
 .nhs-app-chat {}
