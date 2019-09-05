@@ -2145,13 +2145,13 @@ nav.nhs-app-breadcrumb {
 
   h2, h3 {
     position: relative;
+    color: $nhsuk-text-color;
   }
 }
 
 .nhs-app-message__unread {
 
   font-size: 14px;
-  color: $nhsuk-secondary-text-color;
 }
 
 .nhs-app-message__meta {
