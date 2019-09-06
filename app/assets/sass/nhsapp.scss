@@ -2052,9 +2052,6 @@ a.app-lozenge-center svg {
 main.nhs-app-thin {
 
   padding: 1.5em 0 5em;
-  @include mq($until: desktop) {
-    padding: 2em 0 5em;
-  }
 }
 
 .list-menu {
@@ -2139,13 +2136,22 @@ nav.nhs-app-breadcrumb {
 .nhs-app-message {
   .nhs-app-message__item {
 
-    background-position-y: 65%;
-    background-image: none;
+    //background-position-y: 65%;
+    // background-image: none;
+
+    margin-bottom: 0;
   }
 
   h2, h3 {
     position: relative;
     color: $nhsuk-text-color;
+  }
+
+  li p {
+
+    padding-top: 0;
+    padding-bottom: 0;
+    color: $nhsuk-secondary-text-color;
   }
 }
 
@@ -2158,16 +2164,18 @@ nav.nhs-app-breadcrumb {
 
   float: right;
   position: absolute;
-  right: 16px;
+  right: 42px;
 }
 
 .nhs-app-message__subject-line {
+
+  @extend .nhsuk-body-s;
 
   @include mq($until: tablet) {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 100%;
+    max-width: 90%;
   }
 
 }
@@ -2178,7 +2186,7 @@ nav.nhs-app-breadcrumb {
   font-size: 14px;
   font-weight: 400;
   position: absolute;
-  right: 0;
+  right: 24px;
   top: 4px;
   color: $nhsuk-secondary-text-color;
 }
