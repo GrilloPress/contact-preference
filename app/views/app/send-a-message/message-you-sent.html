@@ -1,0 +1,62 @@
+{% set PROTOTYPEURL = "app/v3" %}
+{% set serviceName = "Home" %}
+{% set sender = data["to"] %}
+{% set contentTitle = "Messages from " + sender %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/messages",
+  text: "Messages"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        <span class="nhsuk-caption-m nhsuk-caption--top">Conversation with: </span>
+        {{ sender }}
+      </h1>
+      <div class="nhs-app-chat">
+        <ul class="nhs-app-chat__thread">
+          <li class="nhs-app-chat__item nhs-app-chat__item--reply">
+            <div class="nhs-app-chat__sender nhs-app-chat__sender--reply">
+              <span>You</span>
+            </div>
+            <div class="nhs-app-chat__container nhs-app-chat__container--reply">
+              <p class="nhs-app-chat__body">{{ data["yourMessage"] }}</p>
+
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
+              4:55PM, 23 August 2019
+            </div>
+
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

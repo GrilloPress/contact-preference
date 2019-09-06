@@ -412,6 +412,14 @@ router.post('/app/v2/other/email/', function (req, res) {
   }
 });
 
+router.get('/app/send-a-message/query', function (req, res) {
+
+  console.log(req.query.name);
+  let answer = req.query.name;
+  req.session.data.to = answer;
+  res.redirect('/app/send-a-message/your-message')
+
+});
 
 // NHS App AJAX routes
 
