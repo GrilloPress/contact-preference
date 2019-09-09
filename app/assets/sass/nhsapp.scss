@@ -2144,12 +2144,12 @@ nav.nhs-app-breadcrumb {
 
   h2, h3 {
     position: relative;
-    color: $nhsuk-text-color;
+    // color: $nhsuk-text-color;
   }
 
   li p {
 
-    padding-top: 0;
+    padding-top: 2px;
     padding-bottom: 0;
     color: $nhsuk-secondary-text-color;
   }
@@ -2194,11 +2194,19 @@ nav.nhs-app-breadcrumb {
 .nhs-app-message__count {
 
   font-size: 12px;
-  background-color: #330072;
+  font-weight: 600;
+  background-color: #FFC107;
   border-radius: 50%;
   padding: 4px 8px;
-  color: white;
+  color: $nhsuk-text-color;
 
+
+}
+
+// for messages over two digits. For example, 11
+.nhs-app-message__count--long {
+
+  padding: 4px 6px;
 }
 
 .nhs-app-message__item--read {
@@ -2208,7 +2216,7 @@ nav.nhs-app-breadcrumb {
 .nhs-app-message__date--unread {
 
   font-weight: 600;
-  color: $color_nhsuk-purple;
+  color: $nhsuk-text-color;
 }
 
 .nhs-app-chat {}
