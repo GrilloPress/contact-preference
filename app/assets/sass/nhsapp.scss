@@ -485,12 +485,12 @@ body.web {
       margin: 0;
       padding-left: 0; }
       body.web main.content .list-menu li a {
-        background: #f0f4f5 url(images/icon_arrow_left.svg) no-repeat center right;
+        background: #f0f4f5 url('../images/icon_arrow_left.svg') no-repeat center right;
         background-position: right 1em center;
         border: none;
         box-shadow: none; }
         body.web main.content .list-menu li a:hover {
-          background: #f0f4f5 url(../img/icon_arrow_left.svg) no-repeat center right;
+          background: #f0f4f5 url('../images/icon_arrow_left.svg') no-repeat center right;
           background-position: right 1em center;
           border: none;
           box-shadow: none; }
@@ -679,13 +679,13 @@ body.web {
           font-family: "FrutigerLTW01-55Roman", Arial, sans-serif;
           color: #005EB8;
           padding: 1em;
-          background: #ffffff url(../img/icon_arrow_left.svg) no-repeat center right;
+          background: #ffffff url('../images/icon_arrow_left.svg') no-repeat center right;
           background-position: right 1em center; }
           body.web nav.menu-web-content-mini > ul li a:hover {
             box-shadow: none;
             color: #ffffff;
             text-decoration: underline;
-            background: #005EB8 url(../img/icon_arrow_white_left.svg) no-repeat center right;
+            background: #005EB8 url('../images/icon_arrow_left.svg') no-repeat center right;
             background-position: right 1em center; }
           body.web nav.menu-web-content-mini > ul li a:visited {
             color: #005EB8; }
@@ -699,7 +699,7 @@ body.web {
             color: #212B32;
             font-weight: 400; }
             body.web nav.menu-web-content-mini > ul li a.menu-web-close:hover {
-              background: #ffffff url(../img/close-menu-hover.svg) no-repeat center right;
+              background: #ffffff url('../images/icon_arrow_left.svg') no-repeat center right;
               background-position: right 1em center;
               box-shadow: none;
               color: #212B32;
@@ -1054,8 +1054,8 @@ ul.list-menu {
 }
   .list-menu li {
     box-sizing: border-box;
-    background: #f0f4f5 url(/images/icon_arrow_left.png) no-repeat center right;
-    background-image: url('../images/icon-arrow-right.png');
+    background: #f0f4f5 url('../images/icon_arrow_left.svg') no-repeat center right;
+    // background-image: url('../images/icon-arrow-right.png');
     background-position: right 1em center;
     position: relative;
     margin-bottom: 0em;
@@ -1250,7 +1250,7 @@ h2.record-title {
   padding: 1em;
   padding-right: 1.875em;
   box-sizing: border-box;
-  background: transparent url(../img/icon_arrow_left.svg) no-repeat center right;
+  background: transparent url('../images/icon_arrow_left.svg') no-repeat center right;
   background-position: right 1em center;
   transition: background ease 0.5s;
   border-bottom: 0.125em solid #ffffff;
@@ -2199,7 +2199,7 @@ nav.nhs-app-breadcrumb {
   border-radius: 50%;
   padding: 4px 8px;
   color: $nhsuk-text-color;
-
+  border: 1px solid #B58F1C; // for object accessibility issues
 
 }
 
