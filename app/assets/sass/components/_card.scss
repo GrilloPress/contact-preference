@@ -13,6 +13,11 @@
 
 }
 
+.app-card--with-border {
+
+  border: 1px solid $color_nhsuk-grey-4;
+}
+
 .app-card__img {
   @include print-hide();
 
