@@ -1,10 +1,9 @@
 {% set PROTOTYPEURL = "app/ical" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Your appointment has been successfully booked for Friday 25 July" %}
+{% set contentTitle = "Your appointments" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
-
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -33,16 +32,21 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-l">
-        <span class="nhsuk-caption-m nhsuk-caption--top">Book an appointment</span>
         {{ contentTitle }}
       </h1>
 
-      <h2 class="nhsuk-heading-m">Your appointment details</h2>
+      <form action="#" method="get">
+        <input type="submit" class="nhsuk-button" value="Book a new appointment">
+        </input>
+      </form>
 
-      <div class="app-card app-card--with-border nhsuk-u-margin-bottom-4">
+      <h2 class="nhsuk-heading-m">Upcoming appointments</h2>
+      <div class="app-card app-card--with-border">
         <div class="app-card__wrapper">
           <div class="app-card__content">
-            <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">Friday 25 July</h3>
+            <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
+              Friday 25 July
+            </h3>
             <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">10:00am</p>
             {{ summaryList({
               classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
@@ -70,13 +74,46 @@
               <a class="" href="/images/event-1991731225.ics">Add appointment to your device's calendar (ICS, 10KB)</a>
             </div>
 
+            <div class="nhs-app-card-delete">
+              <a class="nhs-app-card-delete__link" href="#">Cancel this appointment</a>
+            </div>
           </div>
         </div>
       </div>
 
+      <h2 class="nhsuk-heading-m">Previous appointments</h2>
 
-
-
+      <div class="app-card app-card--with-border nhsuk-u-margin-bottom-4">
+        <div class="app-card__wrapper">
+          <div class="app-card__content">
+            <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
+              Friday 25 July
+            </h3>
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">10:00am</p>
+            {{ summaryList({
+              classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
+              rows: [
+                {
+                  key: {
+                    text: "Appointment type"
+                  },
+                  value: {
+                    html: "<p>In person</p><p>Dr John Smith (Male)</p>"
+                  }
+                },
+                {
+                  key: {
+                    text: "Location"
+                  },
+                  value: {
+                    text: "Gledhow Practice"
+                  }
+                }
+              ]
+            }) }}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 {% endblock %}

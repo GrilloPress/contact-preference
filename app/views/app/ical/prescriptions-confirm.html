@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/ical" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Your appointment has been successfully booked for Friday 25 July" %}
+{% set contentTitle = "Your prescription for Omeprazole 40mg gastro-resistant capsules has been ordered" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -33,42 +33,40 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-l">
-        <span class="nhsuk-caption-m nhsuk-caption--top">Book an appointment</span>
+        <span class="nhsuk-caption-m nhsuk-caption--top">Order a repeat prescription</span>
         {{ contentTitle }}
       </h1>
 
-      <h2 class="nhsuk-heading-m">Your appointment details</h2>
+      <p>
+        It will now be reviewed by your GP.
+      </p>
+
+      <h2 class="nhsuk-heading-m">Your prescription details</h2>
 
       <div class="app-card app-card--with-border nhsuk-u-margin-bottom-4">
         <div class="app-card__wrapper">
           <div class="app-card__content">
-            <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">Friday 25 July</h3>
-            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">10:00am</p>
             {{ summaryList({
               classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
               rows: [
                 {
                   key: {
-                    text: "Appointment type"
+                    text: "Omeprazole 40mg gastro-resistant capsules"
                   },
                   value: {
-                    html: "<p>In person</p><p>Dr John Smith (Male)</p>"
+                    html: "One to be taken each day - 28 tablet"
                   }
                 },
                 {
                   key: {
-                    text: "Location"
+                    text: "Special request relating to this order"
                   },
                   value: {
-                    text: "Gledhow Practice"
+                    text: "None"
                   }
                 }
               ]
             }) }}
-
-            <div class="">
-              <a class="" href="/images/event-1991731225.ics">Add appointment to your device's calendar (ICS, 10KB)</a>
-            </div>
 
           </div>
         </div>

@@ -2102,6 +2102,7 @@ nav.nhs-app-breadcrumb {
   @include mq($until: desktop) {
     position: sticky;
     top: 54px;
+    z-index: 2;
   }
 }
 
@@ -2323,3 +2324,4 @@ a:visited {
 @import "nhs-app/card";
 @import "nhs-app/calendar";
 @import "nhs-app/breadcrumb";
+@import "nhs-app/appointments";

@@ -1,0 +1,18 @@
+.nhs-app-card-delete {
+
+  margin-top: nhsuk-spacing(3);
+  border-top: 1px solid #d8dde0;
+  padding-top: nhsuk-spacing(3);
+
+}
+
+.nhs-app-card-delete__link {
+
+  display: block;
+  color: $color_nhsuk-red !important;
+
+  &:hover, &:focus {
+
+    color: #9a140a !important;
+  }
+}

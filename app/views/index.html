@@ -54,8 +54,8 @@ async function install() {
     <div class="nhsuk-grid-column-two-thirds">
 
       <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
         {{ contentTitle }}
-        <span class="nhsuk-caption-xl nhsuk-caption--bottom"> {{ serviceName }}</span>
       </h1>
 
       <form action="/app/start" method="get">
@@ -63,23 +63,35 @@ async function install() {
         </input>
       </form>
 
+      <h2>NHS App</h2>
+
+      <ul class="app-list--unstyled app-list-cards">
+        <li class="app-list-cards__item">
+          <a href="app/ical/index">
+            <h3 class="app-list-cards__heading nhsuk-heading-m">Reminders in the NHS App</h3>
+            <p>iCal reminders exploration</p>
+          </a>
+        </li>
+      </ul>
+
+      <h2>Contact preferences</h2>
 
       <ul class="app-list--unstyled app-list-cards">
         <li class="app-list-cards__item">
           <a href="/set-a-preference/index">
-            <h2 class="app-list-cards__heading nhsuk-heading-m">Set a preference</h2>
+            <h3 class="app-list-cards__heading nhsuk-heading-m">Set a preference</h3>
             <p>Exploring how we could ask people if they had a preference</p>
           </a>
         </li>
         <li class="app-list-cards__item">
           <a href="/app/start">
-            <h2 class="app-list-cards__heading nhsuk-heading-m">NHS app exploration</h2>
+            <h3 class="app-list-cards__heading nhsuk-heading-m">NHS app exploration</h3>
             <p>Exploring how we could ask people if they had a preference in the NHS app</p>
           </a>
         </li>
         <li class="app-list-cards__item">
           <a href="/examples/index">
-            <h2 class="app-list-cards__heading nhsuk-heading-m">Example components</h2>
+            <h3 class="app-list-cards__heading nhsuk-heading-m">Example components</h3>
             <p>Ready made examples to copy</p>
           </a>
         </li>
