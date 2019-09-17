@@ -1,0 +1,91 @@
+{% set PROTOTYPEURL = "app/messaging" %}
+{% set serviceName = "Home" %}
+{% set contentTitle = "Messages" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+
+      <ul class="list-menu nhs-app-message">
+      	<li class="nhs-app-message__item nhs-app-message__item--unread">
+      		<a class="nhs-app-message__link" href="message">
+            <h2 class="nhsuk-heading-xs">
+              <span class="nhsuk-u-visually-hidden">Messages from:</span>
+              Woodrow Practice
+              <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+              <span class="nhs-app-message__date nhs-app-message__date--unread">Today</span>
+            </h2>
+            <p class="nhs-app-message__subject-line">
+              <span class="nhs-app-message__meta">
+                <span class="nhsuk-u-visually-hidden">You have </span>
+                <span class="nhs-app-message__count">1</span>
+                <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                  unread messages from Woodrow Practice
+                </span>
+              </span>
+              <span class="nhsuk-u-visually-hidden">Latest message subject: </span>
+              Your test results are ready
+            </p>
+          </a>
+      	</li>
+        <li class="nhs-app-message__item nhs-app-message__item--unread">
+      		<a class="nhs-app-message__link" href="message-with-two-messages#unread">
+            <h2 class="nhsuk-heading-xs">
+              <span class="nhsuk-u-visually-hidden">Messages from:</span>
+              NHS App
+              <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+              <span class="nhs-app-message__date nhs-app-message__date--unread">22 August</span>
+            </h2>
+            <p class="nhs-app-message__subject-line">
+              <span class="nhs-app-message__meta">
+                <span class="nhsuk-u-visually-hidden">You have </span>
+                <span class="nhs-app-message__count">1</span>
+                <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                  unread messages from NHS App
+                </span>
+              </span>
+              <span class="nhsuk-u-visually-hidden">Latest message subject: </span>
+              We've updated our terms and conditions
+            </p>
+          </a>
+      	</li>
+        <li class="nhs-app-message__item nhs-app-message__item--read">
+      		<a class="nhs-app-message__link" href="message-with-reply">
+              <h2 class="nhsuk-heading-xs">
+                <span class="nhsuk-u-visually-hidden">Messages from:</span>
+                Manage your referral
+                <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+                <span class="nhs-app-message__date">last year</span>
+              </h2>
+              <p class="nhs-app-message__subject-line">
+                <span class="nhsuk-u-visually-hidden">Latest message sent: </span>
+                You: Thanks for the update
+              </p>
+          </a>
+      	</li>
+
+      </ul>
+
+      <form class="" action="../send-a-message/who" method="post">
+        <input class="nhsuk-button nhs-app-u-button-full" type="submit" value="Start new conversation">
+      </form>
+
+  </div>
+{% endblock %}

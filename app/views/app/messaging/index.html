@@ -1,0 +1,64 @@
+{% set PROTOTYPEURL = "app/messaging" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Messaging prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+      <p>
+        Prototypes to explore MVP messaging system inside the NHS App.
+      </p>
+
+      <h2>Current prototypes</h2>
+      <h3>Team C MVP</h3>
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/all-messages">All messages in one thread</a>
+        </li>
+      </ul>
+
+      <h3>Latest</h3>
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/messages">
+            Current all messages grouped by sender
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/message">
+            Single unread message
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/message-with-two-messages">
+            Thread with two messages, one unread
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/message-with-reply">
+            Message with reply
+          </a>
+        </li>
+    </div>
+  </div>
+{% endblock %}
