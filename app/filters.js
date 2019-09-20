@@ -7,6 +7,14 @@ module.exports = function (env) {
    */
   var filters = {}
 
+  var nunjucksDate = require('nunjucks-date');
+  var moment = require('moment');
+
+  filters.today = function(name) {
+      return moment().format("Do MMMM YYYY");
+  }
+
+
   /* ------------------------------------------------------------------
     add your methods to the filters obj below this comment block:
     @example:
