@@ -1,0 +1,70 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Confirm prescription" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "#",
+      text: "Home"
+    }
+  ],
+  href: "#",
+  text: "Your appointments"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
+
+      <p>
+        Check your prescription details before ordering
+      </p>
+
+      <div class="app-card app-card--with-border">
+        <div class="app-card__wrapper">
+          <div class="app-card__content">
+            <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+            <p>One to be taken each day - 28 tablet</p>
+
+            <div class="nhs-app-card-delete">
+
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Special request relating to this order</h3>
+              <p class="nhsuk-u-margin-bottom-0">{{ data["more-detail"] or "None" }}</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form action="/app/prescriptions/save" method="post">
+        <input type="submit" class="nhsuk-button" value="Confirm and order prescription">
+        </input>
+      </form>
+
+      <form action="select-medicine-to-renew" method="get">
+        <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Change this prescription">
+        </input>
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

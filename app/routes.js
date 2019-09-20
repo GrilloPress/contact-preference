@@ -421,6 +421,15 @@ router.get('/app/send-a-message/query', function (req, res) {
 
 });
 
+router.post('/app/prescriptions/save', function (req, res) {
+
+  // add what is saved later!
+
+  req.session.data.prescriptionConfirmed = "True";
+  res.redirect('/app/prescriptions/v1/confirmed')
+
+});
+
 // NHS App AJAX routes
 
 router.post('/app/notifications', function (req, res) {
