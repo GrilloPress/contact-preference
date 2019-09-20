@@ -1,0 +1,21 @@
+.nhs-app-status {
+
+  position: relative;
+}
+
+.nhs-app-status-body {
+
+  font-weight: 600;
+  padding-left: 24px;
+}
+
+.nhs-app-status-body--approved {
+
+  color: $color_nhsuk-green;
+
+}
+
+.nhs-app-status-svg {
+  position: absolute;
+  top: 3px;
+}

@@ -1,6 +1,6 @@
-{% set PROTOTYPEURL = "app/ical" %}
+{% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "iCal and Reminders prototypes" %}
+{% set contentTitle = "Prescriptions prototypes" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -28,28 +28,14 @@
       </h1>
 
       <h2>Current prototypes</h2>
-      <h3>Download on appointment confirmation</h3>
+      <h3>v1</h3>
       <ul>
         <li>
-          <a href="/{{ PROTOTYPEURL }}/appointment-confirm">Current (v4)</a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/appointment-confirm-v3">v3</a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/appointment-confirm-v2">v2</a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/appointment-confirm-v1">v1</a>
+          <a href="/{{ PROTOTYPEURL }}/v1">Your prescriptions</a>
         </li>
       </ul>
 
-      <h3>Download on all appointments</h3>
-      <ul>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/appointments">Current (v1)</a>
-        </li>
-      </ul>
+
     </div>
   </div>
 {% endblock %}
