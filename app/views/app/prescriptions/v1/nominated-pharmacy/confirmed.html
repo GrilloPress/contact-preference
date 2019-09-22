@@ -1,5 +1,6 @@
 {% set PROTOTYPEURL = "app/prescriptions/v1/nominated-pharmacy" %}
 {% set serviceName = "Change your nominated pharmacy" %}
+{% set prescriptionsActive = "active" %}
 {% set contentTitle = "We’ve updated your new nominated pharmacy to Medichem Leeds" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -44,68 +45,10 @@
         0113 260 7736
       </p>
 
-      {{ actionLink({
-        "text": "Map and directions",
-        openInNewWindow: "true",
-        "href": "https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/abbreviations/"
-      }) }}
-
-      <div class="nhsuk-expander-group nhsuk-u-margin-bottom-4">
-        {{ details({
-          "classes": "nhsuk-expander",
-          "text": "Opening times",
-          "HTML": "
-          <table>
-            <tbody>
-              <tr>
-                <th><strong>Day of the week</strong></th>
-                <th><strong>Opening hours</strong></th>
-              </tr>
-              <tr>
-                <th>Monday</th>
-                <td>9am to 6pm</td>
-              </tr>
-              <tr>
-                <th>Tuesday</th>
-                <td>9am to 6pm</td>
-              </tr>
-              <tr>
-                <th>Wednesday</th>
-                <td>9am to 6pm</td>
-              </tr>
-              <tr>
-                <th>Thursday</th>
-                <td>9am to 6pm</td>
-              </tr>
-              <tr>
-                <th>Friday</th>
-                <td>9am to 6pm</td>
-              </tr>
-              <tr>
-                <th>Saturday</th>
-                <td>9am to 1pm</td>
-              </tr>
-              <tr>
-                <th>Sunday</th>
-                <td>Closed</td>
-              </tr>
-            </tbody>
-          </table>"
-        }) }}
-        {{ details({
-          "classes": "nhsuk-expander",
-          "text": "Services available",
-          "HTML": "
-          <p>Try to check your blood:</p>
-          <ul>
-            <li>before meals</li>
-            <li>2 to 3 hours after meals</li>
-            <li>before, during (take a break) and after exercise</li>
-          </ul>
-          <p>This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
-          "
-        }) }}
-      </div>
+      <form action="/{{ PROTOTYPEURL }}/index" method="get">
+        <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Back to your prescriptions">
+        </input>
+      </form>
 
     </div>
   </div>

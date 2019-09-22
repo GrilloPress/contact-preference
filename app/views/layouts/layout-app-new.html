@@ -204,7 +204,7 @@
           <div class="nhsuk-grid-row">
             <div class="nhsuk-grid-column-full">
       <ul>
-        <li id="btn_symptoms">
+        <li class="{{ symptomsActive }}" id="btn_symptoms">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.39 110.39">
             <defs>
             <style>
@@ -229,7 +229,7 @@
           </svg>
           <b>Symptoms</b>
         </li>
-        <li id="btn_appointments">
+        <li class="{{ appointmentsActive }}" id="btn_appointments">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.39 110.39">
             <defs>
             </defs>
@@ -254,7 +254,8 @@
           </svg>
           <b>Appointments</b>
         </li>
-        <li id="btn_prescriptions">
+        <li class="{{ prescriptionsActive }}" id="btn_prescriptions">
+          <a href="/app/prescriptions/v1/">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.39 110.39">
             <defs>
             </defs>
@@ -272,8 +273,9 @@
             </g>
           </svg>
           <b>Prescriptions</b>
+          </a>
         </li>
-        <li id="btn_record">
+        <li class="{{ recordActive }}" id="btn_record">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.39 110.39">
             <defs>
             </defs>
@@ -293,7 +295,7 @@
           </svg>
           <b>My record</b>
         </li>
-        <li id="btn_more">
+        <li class="{{ moreActive }}" id="btn_more">
           <a href="/{{ PROTOTYPEURL}}/more">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.39 110.39">
               <defs>
