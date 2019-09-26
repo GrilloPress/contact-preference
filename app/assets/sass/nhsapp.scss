@@ -236,7 +236,7 @@ nav.menu {
   bottom: 0em;
   left: 0em;
   right: 0em;
-  height: 4.375em;
+  height: 60px;
   box-shadow: 0 -2px 0 0 $color_nhsuk-grey-4; /* [2] */
   z-index: 4; }
   nav.menu.web {
@@ -258,6 +258,7 @@ nav.menu {
       align-self: stretch;
       justify-content: space-around;
       display: flex;
+      width: 20%;
       flex-direction: column; }
       nav.menu ul li svg {
         display: block;
@@ -267,7 +268,7 @@ nav.menu {
       nav.menu ul li b {
         display: block;
         font-weight: 500;
-        font-size: 12px;
+        font-size: 10px;
         line-height: 1.563em;
         color: #425563;
         display: block;
