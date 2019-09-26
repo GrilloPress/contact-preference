@@ -1,0 +1,48 @@
+{% set PROTOTYPEURL = "app/records/v1" %}
+{% set serviceName = "NHS App" %}
+{% set recordActive = "active" %}
+{% set contentTitle = "Your GP records" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
+
+      {{ warningCallout({
+        "heading": "Important",
+        "classes": "nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-5",
+        "HTML": "<p>Your record may contain sensitive information. If someone is pressuring you for this information, contact your GP Surgery immediately.</p>"
+      }) }}
+
+      <p>Your record shows personal data, such as your details, allergies and medications.</p>
+      <p>Depending on what your GP surgery shares, you may also see:</p>
+      <ul>
+        <li>your medical history, including problems and consultation notes</li>
+        <li>test results that you may not have discussed with your doctor</li>
+      </ul>
+
+      <form action="/{{ PROTOTYPEURL}}/your-record" method="get">
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
