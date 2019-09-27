@@ -279,7 +279,6 @@ nav.menu {
     nav.menu ul li.active b {
       display: block;
       font-weight: 500;
-      font-size: 0.75em;
       line-height: 1.563em;
       color: #005EB8; }
 
@@ -2328,3 +2327,11 @@ a:visited {
 @import "nhs-app/breadcrumb";
 @import "nhs-app/appointments";
 @import "nhs-app/prescriptions";
+
+.login {
+
+  main.nhs-app-thin {
+
+    padding: 0 !important;
+  }
+}
