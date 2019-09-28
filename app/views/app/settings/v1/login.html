@@ -4,6 +4,12 @@
 {% set title = contentTitle + " - " + serviceName %}
 {% set bodyClasses = "login" %}
 {% block pageScripts %}
+<script>
+$('#loginFrame').on("load", function () {
+    console.log('iframe loaded completely'); //replace with code to hide loader
+    $( ".container--loader" ).hide();
+});
+</script>
 {% endblock %}
 
 
@@ -28,7 +34,11 @@
   href: "/" + PROTOTYPEURL + "/",
   text: "Settings"
 }) }}
-<iframe frameBorder="0" src="https://manage-nhs-login.herokuapp.com/account/v5-app" width="100%" height="1000px"></iframe>
+<div class="container--loader">
+      <div id="waitingForData" class="loader mobile">
+      </div>
+    </div>
+<iframe id="loginFrame" frameBorder="0" src="https://manage-nhs-login.herokuapp.com/account/v5-app" width="100%" height="1000px"></iframe>
 {% endblock %}
 
 {% block content %}
