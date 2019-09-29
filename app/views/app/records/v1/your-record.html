@@ -25,6 +25,62 @@
         {{ contentTitle }}
       </h1>
 
+      <h2 class="nhsuk-heading-m">Bernard Doyle</h2>
+
+      {{ summaryList({
+        classes: 'nhsuk-summary-list--no-border nhsuk-u-margin-bottom-3',
+          rows: [
+            {
+              key: {
+                text: "Date of birth"
+              },
+              value: {
+                text: "20 January 1982"
+              }
+            },
+            {
+              key: {
+                text: "NHS Number"
+              },
+              value: {
+                text: "123 456 7890"
+              }
+            },
+            {
+              key: {
+                text: "Address"
+              },
+              value: {
+                html: "72 Guild Street, London, SE23 6FH"
+              }
+            }
+          ]
+        }) }}
+
+        <ul class="list-menu">
+        	<li>
+        		<a href="items/allergies">Allergies and adverse reactions</a>
+        	</li>
+          <li>
+        		<a href="#">Medicine</a>
+        	</li>
+          <li>
+        		<a href="#">Immunisations</a>
+        	</li>
+          <li>
+        		<a href="#">Health conditions</a>
+        	</li>
+          <li>
+        		<a href="#">Test results</a>
+        	</li>
+          <li>
+        		<a href="#">Consultations and events</a>
+        	</li>
+          <li>
+        		<a href="#">Documents</a>
+        	</li>
+        </ul>
+
       <p>You may see medical abbreviations that you aren't familiar with.</p>
 
       {{ actionLink({

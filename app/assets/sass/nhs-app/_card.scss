@@ -2,3 +2,20 @@
 
   margin-bottom: nhsuk-spacing(2);
 }
+
+.app-card--no-shadow {
+
+  .app-card__wrapper {
+    box-shadow: none;
+  }
+
+}
+
+.app-card--xs {
+
+  .app-card__content {
+
+    padding: 16px;
+  }
+
+}
