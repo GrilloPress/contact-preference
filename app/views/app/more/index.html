@@ -1,6 +1,6 @@
-{% set PROTOTYPEURL = "app/v3" %}
-{% set serviceName = "Home" %}
-{% set contentTitle = "Prototypes" %}
+{% set PROTOTYPEURL = "app/more" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Other services prototypes" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -19,29 +19,23 @@
 {% endblock %}
 
 {% block content %}
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">Other services</h1>
-      <ul class="list-menu">
-        <li>
-      		<a href="#" id="btn_organdonation">
-      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Send your GP surgery a message</h2>
-      			<p>Ask an non-urgent medical question to your GP or GP surgery.</p>
-      		</a>
-      	</li>
-        <li>
-      		<a href="#" id="btn_organdonation">
-      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Become an organ donor</h2>
-      			<p>Help save thousands of lives in the UK every year by signing up to become a donor.</p>
-      		</a>
-      	</li>
-      	<li>
-      		<a href="#" id="btn_datasharing">
-      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Choose how the NHS uses your data</h2>
-      			<p>Find out how the NHS uses data from your health records and choose whether or not it can be used for research and planning.</p>
-      		</a>
-      	</li>
-      </ul>
-    </div>
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>
+      <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+      {{ contentTitle }}
+    </h1>
+
+    <h2>Current prototypes</h2>
+    <h3>v1</h3>
+    <ul>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v1/">More</a>
+      </li>
+    </ul>
+
+
   </div>
+</div>
 {% endblock %}
