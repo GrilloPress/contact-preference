@@ -430,6 +430,41 @@ router.post('/app/prescriptions/save', function (req, res) {
 
 });
 
+
+var moment = require('moment');
+
+router.post('/app/send-a-message/v1/message-you-sent', function (req, res) {
+
+  // get
+
+  req.session.data.msgTrue = "True";
+  req.session.data.msgDate = "today";
+  req.session.data.msgTime = moment().format("h:mm");
+  req.session.data.msgBody = req.body.msgBody;
+  req.session.data.msgFrom = req.session.data.msgTo;
+  // req.session.data.msgTo = "True";
+  // id
+  // from
+  // req.body.checkMobile
+
+  // then build query string for messaging/v1/message
+  // /{{ PROTOTYPEURL }}/your-message?msgTo=Woodrow GP Practice
+  // message?id=1&from=Leanna Leveille&sent=Yesterday&time=4.55pm&body=Please arrange for an appointment with a nurse for a blood test
+  var query = "/app/messaging/v1/message?id=2&"
+              + "from=" + req.session.data.msgFrom + "&"
+              + "sent=" + req.session.data.msgDate + "&"
+              + "time=" + req.session.data.msgTime + "&"
+              + "body=" + req.session.data.msgBody + "&"
+              + "to=" + "True" + "&"
+              + "messageRead2=" + "read" + "&"
+  res.redirect(query)
+
+});
+
+
+
+
+
 // NHS App AJAX routes
 
 router.post('/app/notifications', function (req, res) {
