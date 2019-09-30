@@ -22,3 +22,10 @@
 
   padding: nhsuk-spacing(2) 16px;
 }
+
+.nhs-app-select {
+
+  @include mq($until: tablet) {
+    width: 100%;
+  }
+}

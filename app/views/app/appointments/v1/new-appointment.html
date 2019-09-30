@@ -1,0 +1,148 @@
+{% set PROTOTYPEURL = "app/appointments/v1" %}
+{% set serviceName = "Book new GP appointment" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "Search for an appointment" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "#",
+      text: "Home"
+    }
+  ],
+  href: "index",
+  text: "Your appointments"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        <span class="nhsuk-caption-m nhsuk-caption--top"> {{ serviceName}}</span>
+        {{ contentTitle }}
+      </h1>
+
+      <h1 class="nhsuk-heading-l">
+
+      </h1>
+
+      <form action="/{{ PROTOTYPEURL}}/results" method="get">
+
+      {{ select({
+        "id": "appointmentType",
+        "name": "appointmentType",
+        "classes": "nhs-app-select",
+        "label": {
+          "text": "Appointment type"
+        },
+        "items": [
+          {
+            "value": "",
+            "text": "-- Select appointment type --",
+            "selected": true,
+            "disabled": true
+          },
+          {
+            "value": "gp",
+            "text": "General appointment in person"
+          },
+          {
+            "value": "phone",
+            "text": "Telephone appointment"
+          },
+          {
+            "value": "nurse",
+            "text": "Nurse appointment"
+          }
+        ]
+      }) }}
+
+      {{ select({
+        "id": "appointmentLocation",
+        "name": "appointmentLocation",
+        "classes": "nhs-app-select",
+        "label": {
+          "text": "Location"
+        },
+        "items": [
+          {
+            "value": "",
+            "text": "-- Select location --",
+            "disabled": true
+          },
+          {
+            "value": "gledhow",
+            "selected": true,
+            "text": "Gledhow GP Practice"
+          }
+        ]
+      }) }}
+
+      {{ select({
+        "id": "appointmentMember",
+        "name": "appointmentMember",
+        "classes": "nhs-app-select",
+        "label": {
+          "text": "Practice member"
+        },
+        "items": [
+          {
+            "value": "no",
+            "text": "No preference",
+            "selected": true
+          },
+          {
+            "value": "nurse",
+            "text": "Leanna Leveille (Female)"
+          }
+        ]
+      }) }}
+
+      {{ select({
+        "id": "appointmentTimeframe",
+        "name": "appointmentTimeframe",
+        "classes": "nhs-app-select",
+        "label": {
+          "text": "Filter available appointments"
+        },
+        "items": [
+          {
+            "value": "no",
+            "text": "No preference",
+            "selected": true
+          },
+          {
+            "value": "week",
+            "text": "This week"
+          },
+          {
+            "value": "nextWeek",
+            "text": "Next Week"
+          }
+        ]
+      }) }}
+
+        <input type="submit" class="nhsuk-button" value="Search">
+        </input>
+      </form>
+
+
+
+    </div>
+  </div>
+{% endblock %}

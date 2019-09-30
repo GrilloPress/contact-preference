@@ -1,0 +1,77 @@
+{% set PROTOTYPEURL = "app/appointments/v1" %}
+{% set serviceName = "Book new GP appointment" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "Available appointments" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "#",
+      text: "Home"
+    }
+  ],
+  href: "new-appointment",
+  text: "Search for an appointment"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        <span class="nhsuk-caption-m nhsuk-caption--top"> {{ serviceName}}</span>
+        {{ contentTitle }}
+      </h1>
+
+      <p class="nhsuk-body-l">Thursday 5 October 2019</p>
+
+      <ul class="list-menu list-menu__results">
+        <li>
+      		<a href="/{{ PROTOTYPEURL }}/confirm-appointment?date=Thursday 5 October 2019&time=10.50am&type=Nurse appointment" id="btn_organdonation">
+      			<h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9:50am</h2>
+      			<p>Nurse appointment</p>
+      		</a>
+      	</li>
+        <li>
+      		<a href="/{{ PROTOTYPEURL }}/confirm-appointment?date=Thursday 5 October 2019&time=10.50am&type=Nurse appointment" id="btn_organdonation">
+      			<h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10:50am</h2>
+      			<p>Nurse appointment</p>
+      		</a>
+      	</li>
+      </ul>
+
+      <p class="nhsuk-body-l">Thursday 12 October 2019</p>
+
+      <ul class="list-menu list-menu__results">
+        <li>
+      		<a href="/{{ PROTOTYPEURL }}/confirm-appointment?date=Thursday 12 October 2019&time=9.50am&type=Nurse appointment" id="btn_organdonation">
+      			<h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9:50am</h2>
+      			<p>Nurse appointment</p>
+      		</a>
+      	</li>
+        <li>
+      		<a href="/{{ PROTOTYPEURL }}/confirm-appointment?date=Thursday 12 October 2019&time=10.50am&type=Nurse appointment" id="btn_organdonation">
+      			<h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10:50am</h2>
+      			<p>Nurse appointment</p>
+      		</a>
+      	</li>
+      </ul>
+
+
+    </div>
+  </div>
+{% endblock %}
