@@ -4,6 +4,16 @@
 {% set contentTitle = "Confirm your appointment" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
+<script>
+// dirty hack to make the menu disappear when a textarea is being used
+$("textarea").focus(function(){
+  $(".menu").hide();
+});
+
+$("textarea").focusout(function(){
+  $(".menu").show();
+});
+</script>
 {% endblock %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
