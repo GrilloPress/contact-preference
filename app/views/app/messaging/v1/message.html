@@ -39,7 +39,13 @@ $( document ).ready(function() {
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-l">
-        <span class="nhsuk-caption-m nhsuk-caption--top">Messages from: </span>
+        <span class="nhsuk-caption-m nhsuk-caption--top">Messages
+          {% if data['id'] == "2" %}
+            to:
+          {% else %}
+            from:
+          {% endif %}
+         </span>
         {{ data["from"] }}
       </h1>
       <div class="nhs-app-chat">
