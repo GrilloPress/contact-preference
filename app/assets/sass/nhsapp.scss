@@ -2018,6 +2018,20 @@ a.app-lozenge-center svg {
 
 }
 
+.nhs-app-header__icon--unread::after {
+
+  content: '';
+    height: 10px;
+    width: 10px;
+    background: #ffe609;
+    border-radius: 50%;
+    position: absolute;
+    border: .5px solid $nhsuk-text-color;
+    top: 12px;
+    transform: translateX(-40%);
+
+}
+
 .nhs-app-header__icon--right {
 
   float: right;
@@ -2334,4 +2348,14 @@ a:visited {
 
     padding: 0 !important;
   }
+}
+
+.nhs-app-list-menu__count {
+
+  @include nhsuk-typography-responsive(16);
+  // @include nhsuk-responsive-margin(1, 'bottom');
+  color: $nhsuk-secondary-text-color;
+  font-weight: 400;
+  float: right;
+  padding-right: 2em;
 }

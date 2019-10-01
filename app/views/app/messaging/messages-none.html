@@ -1,0 +1,34 @@
+{% set PROTOTYPEURL = "app/messaging" %}
+{% set serviceName = "Home" %}
+{% set contentTitle = "Messages" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+
+      <p>You have no new messages.</p>
+
+
+      <form class="" action="../send-a-message/who" method="post">
+        <input class="nhsuk-button nhs-app-u-button-full" type="submit" value="Start new conversation">
+      </form>
+
+  </div>
+{% endblock %}

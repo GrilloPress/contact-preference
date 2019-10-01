@@ -430,6 +430,13 @@ router.post('/app/prescriptions/save', function (req, res) {
 
 });
 
+router.post('/app/settings/v1/logout', function (req, res) {
+
+  req.session.data = {}
+  res.redirect('/app/v3/')
+
+});
+
 
 var moment = require('moment');
 

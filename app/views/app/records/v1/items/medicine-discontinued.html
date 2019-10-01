@@ -1,10 +1,10 @@
-{% set PROTOTYPEURL = "app/v3" %}
+{% set PROTOTYPEURL = "app/records/v1" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Home" %}
+{% set recordActive = "active" %}
+{% set contentTitle = "Repeat medicine: discontinued" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
-
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -16,23 +16,28 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "#",
+      text: "Home"
+    }
+  ],
+  href: "medicine",
+  text: "Medicine"
+}) }}
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-1">{{ contentTitle }}</h1>
-      <p class="nhsuk-body-l">Welcome, Bernard Doyle</p>
-      <div class="">
-      	<p class="nhsuk-body-l nhsuk-u-margin-bottom-2">
-          <strong>Date of birth</strong><br>
-          20 January 1982
-        </p>
-        <p class="nhsuk-body-l nhsuk-u-margin-bottom-2">
-          <strong>NHS number</strong><br>
-          123 456 7890
-        </p>
-      </div>
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
+
+      <p>No information recorded.</p>
+
     </div>
   </div>
 {% endblock %}
