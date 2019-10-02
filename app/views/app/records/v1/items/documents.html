@@ -1,0 +1,66 @@
+{% set PROTOTYPEURL = "app/records/v1" %}
+{% set serviceName = "NHS App" %}
+{% set recordActive = "active" %}
+{% set contentTitle = "Documents" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "#",
+      text: "Home"
+    }
+  ],
+  href: "../your-record",
+  text: "Your GP record"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
+
+      <ul class="list-menu nhs-app-record-document-list">
+        <li>
+          <a href="#">
+            9 March 2018 <span class="nhs-app-record-document-list__filesize">(PDF, 3MB)</span>
+            <p>Seen in neurology clinic</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            12 December 2017 <span class="nhs-app-record-document-list__filesize">(PDF, 1MB)</span>
+            <p>Discharge summary</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            6 May 2004 <span class="nhs-app-record-document-list__filesize">(PDF, 1MB)</span>
+            <p>NHS 111 report received</p>
+          </a>
+        </li>
+      </ul>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

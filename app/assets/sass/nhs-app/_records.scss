@@ -1,0 +1,14 @@
+.nhs-app-record-document-list__filesize {
+
+  font-size: 80%;
+}
+
+.nhs-app-list-menu__count {
+
+  @include nhsuk-typography-responsive(16);
+  // @include nhsuk-responsive-margin(1, 'bottom');
+  color: $nhsuk-secondary-text-color;
+  font-weight: 400;
+  float: right;
+  padding-right: 2em;
+}

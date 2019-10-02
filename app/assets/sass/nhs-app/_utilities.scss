@@ -1,0 +1,21 @@
+.login {
+
+  main.nhs-app-thin {
+
+    padding: 0 !important;
+  }
+}
+
+// utility classes
+
+.nhs-app-u-button-full {
+
+  @include mq($until: desktop) {
+    width: 100%;
+  }
+}
+
+a:visited {
+
+  color: $color_nhsuk-blue;
+}

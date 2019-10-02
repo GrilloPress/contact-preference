@@ -2322,40 +2322,12 @@ nav.nhs-app-breadcrumb {
   }
 }
 
-// utility classes
 
-.nhs-app-u-button-full {
-
-  @include mq($until: desktop) {
-    width: 100%;
-  }
-}
-
-a:visited {
-
-  color: $color_nhsuk-blue;
-}
 
 @import "nhs-app/card";
 @import "nhs-app/calendar";
 @import "nhs-app/breadcrumb";
 @import "nhs-app/appointments";
 @import "nhs-app/prescriptions";
-
-.login {
-
-  main.nhs-app-thin {
-
-    padding: 0 !important;
-  }
-}
-
-.nhs-app-list-menu__count {
-
-  @include nhsuk-typography-responsive(16);
-  // @include nhsuk-responsive-margin(1, 'bottom');
-  color: $nhsuk-secondary-text-color;
-  font-weight: 400;
-  float: right;
-  padding-right: 2em;
-}
+@import "nhs-app/records";
+@import "nhs-app/utilities";
