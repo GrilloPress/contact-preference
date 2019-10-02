@@ -37,39 +37,54 @@
         {{ contentTitle }}
       </h1>
 
-      <p class="nhsuk-body-l">Thursday 5 October 2019</p>
+    {% set thisweek %}
+    <h2 class="nhsuk-heading-m nhs-app-heading--slim">Thursday 5 October 2019</h2>
+    <ul class="list-menu list-menu__results">
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/confirm-appointment?date=Thursday 5 October 2019&time=10.50am&type=Nurse appointment" id="btn_organdonation">
+          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9:50am</h2>
+          <p class="list-menu__results-person">Nurse appointment</p>
+        </a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/confirm-appointment?date=Thursday 5 October 2019&time=10.50am&type=Nurse appointment" id="btn_organdonation">
+          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10:50am</h2>
+          <p class="list-menu__results-person">Nurse appointment</p>
+        </a>
+      </li>
+    </ul>
+    {% endset %}
 
-      <ul class="list-menu list-menu__results">
-        <li>
-      		<a href="/{{ PROTOTYPEURL }}/confirm-appointment?date=Thursday 5 October 2019&time=10.50am&type=Nurse appointment" id="btn_organdonation">
-      			<h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9:50am</h2>
-      			<p>Nurse appointment</p>
-      		</a>
-      	</li>
-        <li>
-      		<a href="/{{ PROTOTYPEURL }}/confirm-appointment?date=Thursday 5 October 2019&time=10.50am&type=Nurse appointment" id="btn_organdonation">
-      			<h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10:50am</h2>
-      			<p>Nurse appointment</p>
-      		</a>
-      	</li>
-      </ul>
+    {% set nextweek %}
+    <h2 class="nhsuk-heading-m nhs-app-heading--slim">Thursday 12 October 2019</h2>
+    <ul class="list-menu list-menu__results">
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/confirm-appointment?date=Thursday 12 October 2019&time=9.50am&type=Nurse appointment" id="btn_organdonation">
+          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9:50am</h2>
+          <p class="list-menu__results-person">Nurse appointment</p>
+        </a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/confirm-appointment?date=Thursday 12 October 2019&time=10.50am&type=Nurse appointment" id="btn_organdonation">
+          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10:50am</h2>
+          <p class="list-menu__results-person">Nurse appointment</p>
+        </a>
+      </li>
+    </ul>
+    {% endset %}
 
-      <p class="nhsuk-body-l">Thursday 12 October 2019</p>
+    {% if data.appointmentTimeframe == 'week' %}
+      {{ thisweek | safe }}
+    {% elif data.appointmentTimeframe == 'nextWeek' %}
+      {{ nextweek | safe }}
+    {% else %}
+      {{ thisweek | safe }}
+      {{ nextweek | safe }}
+    {% endif %}
 
-      <ul class="list-menu list-menu__results">
-        <li>
-      		<a href="/{{ PROTOTYPEURL }}/confirm-appointment?date=Thursday 12 October 2019&time=9.50am&type=Nurse appointment" id="btn_organdonation">
-      			<h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9:50am</h2>
-      			<p>Nurse appointment</p>
-      		</a>
-      	</li>
-        <li>
-      		<a href="/{{ PROTOTYPEURL }}/confirm-appointment?date=Thursday 12 October 2019&time=10.50am&type=Nurse appointment" id="btn_organdonation">
-      			<h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10:50am</h2>
-      			<p>Nurse appointment</p>
-      		</a>
-      	</li>
-      </ul>
+
+
+
 
 
     </div>

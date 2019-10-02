@@ -37,10 +37,6 @@
         {{ contentTitle }}
       </h1>
 
-      <h1 class="nhsuk-heading-l">
-
-      </h1>
-
       <form action="/{{ PROTOTYPEURL}}/results" method="get">
 
       {{ select({
@@ -122,17 +118,17 @@
         },
         "items": [
           {
-            "value": "no",
-            "text": "No preference",
-            "selected": true
-          },
-          {
             "value": "week",
             "text": "This week"
           },
           {
             "value": "nextWeek",
-            "text": "Next Week"
+            "text": "Next week"
+          },
+          {
+            "value": "nextFourWeeks",
+            "text": "Next four weeks",
+            "selected": true
           }
         ]
       }) }}
@@ -140,8 +136,6 @@
         <input type="submit" class="nhsuk-button" value="Search">
         </input>
       </form>
-
-
 
     </div>
   </div>
