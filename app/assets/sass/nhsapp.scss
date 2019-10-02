@@ -2003,6 +2003,7 @@ a.app-lozenge-center svg {
 
   padding: 13px 0;
   position: sticky;
+  position: -webkit-sticky;
   top: 0;
   width: 100%;
   z-index: 1;
@@ -2116,6 +2117,7 @@ nav.nhs-app-breadcrumb {
 
   @include mq($until: desktop) {
     position: sticky;
+    position: -webkit-sticky;
     top: 54px;
     z-index: 2;
   }
