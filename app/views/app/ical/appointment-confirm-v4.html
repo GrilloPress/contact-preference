@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/ical" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Your appointment is booked" %}
+{% set contentTitle = "Your appointment has been successfully booked for Friday 25 July" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -37,7 +37,7 @@
         {{ contentTitle }}
       </h1>
 
-      <h2 class="nhsuk-heading-m">Appointment details</h2>
+      <h2 class="nhsuk-heading-m">Your appointment details</h2>
 
       <div class="app-card app-card--with-border nhsuk-u-margin-bottom-4">
         <div class="app-card__wrapper">
@@ -67,11 +67,7 @@
             }) }}
 
             <div class="">
-              <a class="" href="/images/event-1991731225.ics">Add to your calendar</a>
-            </div>
-
-            <div class="nhs-app-card-delete">
-              <a class="nhs-app-card-delete__link" href="#">Cancel this appointment</a>
+              <a class="" href="/images/event-1991731225.ics">Add appointment to your device's calendar (ICS, 10KB)</a>
             </div>
 
           </div>
