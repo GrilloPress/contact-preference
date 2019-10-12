@@ -1,0 +1,58 @@
+{% set PROTOTYPEURL = "send-a-patient-a-message" %}
+{% set serviceName = "Send a patient a notification or message" %}
+{% set contentTitle = "What do you want to send?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="notification-template" method="get">
+        {{ checkboxes({
+          "idPrefix": "nationality",
+          "name": "nationality",
+          "fieldset": {
+            "legend": {
+              "text": contentTitle,
+              "classes": "nhsuk-fieldset__legend--xl app-legend-xl",
+              "isPageHeading": true
+            }
+          },
+          "hint": {
+          "text": "Select all that apply"
+        },
+          "items": [
+            {
+              "value": "notification",
+              "text": "Push notification"
+            },
+            {
+              "value": "message",
+              "text": "Message"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

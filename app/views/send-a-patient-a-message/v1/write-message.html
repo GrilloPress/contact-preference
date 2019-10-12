@@ -1,0 +1,46 @@
+{% set PROTOTYPEURL = "send-a-patient-a-message" %}
+{% set serviceName = "Send a patient a notification or message" %}
+{% set contentTitle = "Write your push notification" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="check-your-message" method="get">
+
+        {{ textarea({
+          "name": "more-detail",
+          "id": "more-detail",
+          "classes": "nhsuk-u-margin-bottom-0",
+          "rows": "3",
+          "label": {
+            "text": contentTitle,
+            "isPageHeading": true,
+            "classes": "nhsuk-label--xl app-label-xl"
+          }
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

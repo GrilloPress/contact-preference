@@ -1,0 +1,69 @@
+{% set PROTOTYPEURL = "send-a-patient-a-message" %}
+{% set serviceName = "Send a patient a notification or message" %}
+{% set contentTitle = "Where should the push message link your user to?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="message-template" method="get">
+
+
+          {{ radios({
+            "idPrefix": "pushMessageLink",
+            "name": "pushMessageLink",
+            "fieldset": {
+              "legend": {
+                "text": contentTitle,
+                "isPageHeading": true,
+                "classes": "nhsuk-fieldset__legend--xl app-heading-xl"
+              }
+            },
+            "items": [
+              {
+                "value": "message",
+                "text": "A message in their inbox"
+              },
+              {
+                "value": "yes",
+                "text": "Their appointments"
+              },
+              {
+                "value": "no",
+                "text": "Their repeat prescriptions"
+              },
+              {
+                "value": "recs",
+                "text": "Their health records"
+              },
+              {
+                "value": "unsure",
+                "text": "Their inbox"
+              }
+            ]
+          }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
