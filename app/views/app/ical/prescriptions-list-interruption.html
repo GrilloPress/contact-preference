@@ -1,0 +1,47 @@
+{% set PROTOTYPEURL = "app/ical" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Add a reminder to order Omeprazole 40mg gastro-resistant capsules to your calendar" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "#",
+      text: "Home"
+    }
+  ],
+  href: "#",
+  text: "Your repeat prescriptions"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
+
+      <p>You should remove your calendar reminder if you have ordered a new prescription or no longer need it.</p>
+
+      <button type="button" name="button" class="nhsuk-button">Add to calendar</button>
+
+
+
+    </div>
+  </div>
+{% endblock %}
