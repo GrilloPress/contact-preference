@@ -1,5 +1,6 @@
 {% set PROTOTYPEURL = "app/ical" %}
 {% set serviceName = "NHS App" %}
+{% set prescriptionsActive = "active" %}
 {% set contentTitle = "Your prescription for Omeprazole 40mg gastro-resistant capsules has been ordered" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -25,7 +26,7 @@
     }
   ],
   href: "#",
-  text: "Your appointments"
+  text: "Your repeat prescriptions"
 }) }}
 {% endblock %}
 
@@ -67,6 +68,8 @@
                 }
               ]
             }) }}
+
+            <a href="#">Add a reminder to order a repeat prescription</a>
 
           </div>
         </div>
