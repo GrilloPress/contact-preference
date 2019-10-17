@@ -1,0 +1,83 @@
+{% set PROTOTYPEURL = "send-a-patient-a-message/v2" %}
+{% set serviceName = "NHS App Campaign manager" %}
+{% set taskName = "Who the message will be sent from" %}
+{% set contentTitle = "Which organisation or service should the message be sent from?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% set questionTitle %}
+<span class="nhsuk-caption-m nhsuk-caption--top">{{ taskName }}</span>{{ contentTitle }}
+{% endset %}
+{% block pageScripts %}
+<script src="/js/accessible-autocomplete.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+const ods = [
+  'WOODROW GP PRACTICE (00001)',
+  'PUBLIC HEALTH ENGLAND (XXX)',
+  'NHS DIGITAL (RYT)',
+  'NHS App',
+  'NHS login'
+]
+  accessibleAutocomplete({
+    element: document.querySelector('#ODS-container'),
+    id: 'ODS', // To match it to the existing <label>.
+    name: 'ODS',
+    source: ods,
+    defaultValue: '{{ data['ODS'] }}',
+    showAllValues: false,
+    showNoOptionsFound: false,
+    displayMenu: 'overlay',
+  })
+
+</script>
+
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+      <form action="from" method="get">
+
+        <div class="nhsuk-u-margin-bottom-4">
+
+              {{ label({
+                "html": questionTitle,
+                "classes": "nhsuk-label--l",
+                "isPageHeading": true,
+                "for": "ODS",
+                "id": "ODS"
+              }) }}
+
+              {{ hint({
+                "text": "Search by name or ODS code"
+              }) }}
+
+              <div id="ODS-container">
+              </div>
+            </div>
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+      <p>
+        <a href="#">I cannot find the organisation I am looking for</a>
+      </p>
+
+    </div>
+  </div>
+{% endblock %}

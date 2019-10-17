@@ -15,6 +15,97 @@ module.exports = function (env) {
   }
 
 
+  // Filter to print placeholder data if data doesn't exist.
+  // Useful for prototypes that may also be used as documentation
+  //
+  // Accepts numbers, strings, data[] and variables
+  // If empty prints nothing unless you give it a placeholder which it will print out
+  //
+  // Usage in your templates:
+  //
+  // {{ data['role'] | placeholder('Captain of the ship') }}
+
+  filters.placeholder = function(data,placeholder) {
+    if (data) {
+      return data
+    } else if (placeholder) {
+      return placeholder
+    } else {
+      return
+    }
+  }
+
+  filters.stringOrNot = function(obj) {
+    return typeof obj == 'string';
+  }
+
+  // Started
+  // Complete
+  //
+  // else
+  // Not started
+
+  filters.tagClasses = function(status) {
+    var css = {
+      "Started":'tag-started',
+      "Complete":'tag-completed_blue'
+    }
+
+    if (status) {
+
+      return css[status]
+
+    } else {
+      return "tag-not-started"
+    }
+
+  }
+
+
+  // Filter to change a number, like 1 "12" or 04, to a month in words
+  //
+  // Accepts numbers, strings, data[] and variables
+  // If empty prints nothing unless you give it a placeholder which it will print out
+  //
+  // Usage in your templates:
+  //
+  // With number with filer
+  //                    {{ 1 | monthToWord }}
+  // With data from previous input
+  //                    {{ data['dob-month'] | monthToWord }}
+  // With data that's empty with alternative placeholder
+  //                    {{ data['dob-month'] | monthToWord('January') }}
+
+  filters.monthToWord = function(month,placeholder) {
+    var months = {
+      "1":'January',
+      "2":'February',
+      "3":'March',
+      "4":'April',
+      "5":'May',
+      "6":'June',
+      "7":'July',
+      "8":'August',
+      "9":'September',
+      "10":'October',
+      "11":'November',
+      "12":'December'
+    }
+
+    if (month) {
+
+      month.toString().replace(/^0+(?=\d)/, '')
+      return months[month]
+
+    } else if (placeholder) {
+      return placeholder
+    } else {
+      return
+    }
+
+  }
+
+
   /* ------------------------------------------------------------------
     add your methods to the filters obj below this comment block:
     @example:

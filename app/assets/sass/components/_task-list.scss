@@ -1,0 +1,169 @@
+// Task list pattern
+
+.app-task-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+
+  @include mq($from: tablet) {
+    min-width: 550px;
+  }
+}
+
+.app-task-list__section {
+  display: table;
+  padding-top: 24px;
+}
+
+.app-task-list__section-number {
+  display: table-cell;
+
+  @include mq($from: tablet) {
+    min-width: nhsuk-spacing(6);
+    padding-right: 0;
+  }
+
+}
+
+.app-task-list__items {
+  @include nhsuk-font(19);
+  @include nhsuk-responsive-margin(6, 'bottom');
+  list-style: none;
+  padding-left: 0;
+  @include mq($from: tablet) {
+    padding-left: nhsuk-spacing(6);
+  }
+}
+
+.app-task-list__items--no-padding {
+  padding-left: 0;
+}
+
+.app-task-list__item {
+  border-bottom: 1px solid $nhsuk-border-color;
+  margin-bottom: 0 !important;
+  padding-top: nhsuk-spacing(2);
+  padding-bottom: nhsuk-spacing(2);
+  @include clearfix();
+  list-style-type: none;
+}
+
+.app-task-list__item:first-child {
+  border-top: 1px solid $nhsuk-border-color;
+}
+
+.app-task-list__task-name {
+  text-decoration: none;
+  max-width: 50%;
+  display: inline-block;
+  @include mq($from: tablet) {
+    float: left;
+    max-width: unset;
+    width: 75%;
+  }
+}
+
+
+.app-task-list__task-completed {
+  margin-top: nhsuk-spacing(2);
+  margin-bottom: nhsuk-spacing(1);
+
+  @include mq($from: tablet) {
+    float: right;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+}
+
+.tag-completed {
+  padding: 2px 8px;
+  border: 2px solid;
+  float: right;
+  outline-offset: -2px;
+  font-size: 16px;
+  min-width: 112px;
+  text-align: center;
+}
+
+.tag-completed_blue {
+  padding: 2px 8px;
+  border: 2px solid;
+  border-color: #005eb8;
+  float: right;
+  outline-offset: -2px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #005eb8;
+  min-width: 112px;
+  text-align: center;
+}
+
+.tag-completed_black {
+  padding: 2px 8px;
+  border: 2px solid;
+  float: right;
+  outline-offset: -2px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #212b32;
+  min-width: 112px;
+  text-align: center;
+}
+
+.tag-not-started {
+  padding: 2px 8px;
+  float: right;
+  outline-offset: -2px;
+  font-size: 16px;
+  min-width: 112px;
+  text-align: center;
+}
+
+.tag-started {
+  padding: 2px 8px;
+  border: 2px solid;
+  float: right;
+  outline-offset: -2px;
+  font-size: 16px;
+  color: #212b32;
+  background-color: #FFFFFF;
+  min-width: 112px;
+  text-align: center;
+}
+
+.tag-ready-submit_orange {
+  padding: 2px 8px;
+  border: 2px solid;
+  float: right;
+  outline-offset: -2px;
+  font-size: 16px;
+  color: #212b32;
+  background-color: #ffb81c;
+  border-color: #212b32;
+  min-width: 112px;
+  text-align: center;
+}
+
+.tag-updated_orange {
+  padding: 2px 8px;
+  border: 2px solid;
+  float: right;
+  outline-offset: -2px;
+  font-size: 16px;
+  color: #212b32;
+  background-color: #ffb81c;
+  border-color: #ffb81c;
+  min-width: 112px;
+  text-align: center;
+}
+
+.surgeryname {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.practicename {
+  text-decoration: none;
+  font-weight: 600;
+}

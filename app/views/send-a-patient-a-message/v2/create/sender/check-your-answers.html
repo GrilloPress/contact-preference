@@ -1,0 +1,96 @@
+{% set PROTOTYPEURL = "send-a-patient-a-message/v2" %}
+{% set serviceName = "NHS App Campaign manager" %}
+{% set taskName = "Who the message will be sent from" %}
+{% set contentTitle = "Check your answers" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% set questionTitle %}
+<span class="nhsuk-caption-m nhsuk-caption--top">{{ taskName }}</span>{{ contentTitle }}
+{% endset %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="app-heading-xl">
+        <span class="nhsuk-caption-m nhsuk-caption--top">{{ taskName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Organisation or service"
+            },
+            value: {
+              text: data['ODS'] or "Woodrow GP Practice"
+            },
+            actions: {
+              items: [
+                {
+                  href: "find-org",
+                  text: "Change",
+                  visuallyHiddenText: "which organisation will be sending the message"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: 'Should "' + data['senderDisplayName'] | placeholder("Woodrow GP Practice") + '" appear as the sender in the NHS App?'
+            },
+            value: {
+              text: data['senderFrom'] | capitalize | placeholder("Yes")
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "how the sender will appear to users"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "How the sender will appear to users"
+            },
+            value: {
+              text: data['senderDisplayName'] or "Woodrow GP Practice"
+            },
+            actions: {
+              items: [
+                {
+                  href: "new-sender-name",
+                  text: "Change",
+                  visuallyHiddenText: "how the sender will appear to users"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <form action="/{{ PROTOTYPEURL }}/create?sender=Complete" method="post">
+          <input type="Submit" class="nhsuk-button" id="submit-details" value="Save and continue">
+        </form>
+
+    </div>
+  </div>
+{% endblock %}

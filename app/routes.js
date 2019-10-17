@@ -497,4 +497,23 @@ router.post('/app/password', function (req, res) {
 
 // Add your routes here - above the module.exports line
 
+
+
+// SEND A PATIENT ROUTES
+
+router.post('/send-a-patient-a-message/v2/create/sender/from', function (req, res) {
+  let answer = req.body.senderFrom;
+  if (answer == "yes") {
+    // set senderFrom to senderDisplayName
+    req.session.data.senderDisplayName = req.session.data.ODS;
+    res.redirect('/send-a-patient-a-message/v2/create/sender/check-your-answers')
+    // redirect to check your answers
+  } else {
+    // redirect to new sender name
+    res.redirect('/send-a-patient-a-message/v2/create/sender/new-sender-name')
+  }
+});
+
+
+
 module.exports = router;
