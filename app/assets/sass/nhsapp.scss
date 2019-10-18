@@ -2324,3 +2324,12 @@ nav.nhs-app-breadcrumb {
 @import "nhs-app/records";
 @import "nhs-app/messages";
 @import "nhs-app/utilities";
+
+.app-button--small {
+
+  padding: 8px 16px;
+  
+  @include mq($until: tablet) {
+   padding: 6px 16px;
+  }
+}

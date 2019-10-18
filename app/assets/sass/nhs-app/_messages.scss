@@ -1,3 +1,54 @@
 .nhs-app-navicon-messages--active {
   fill: $color_nhsuk-white;
 }
+
+
+.app-icon__plus {
+
+  fill: transparent;
+  float: left;
+}
+
+
+.app-link-button {
+  @include nhsuk-font(22);
+
+  display: inline-block; /* [1] */
+  font-weight: $nhsuk-font-bold;
+  position: relative; /* [3] */
+  text-decoration: none; /* [4] */
+
+  span {
+
+    display: inline-block;
+padding-top: 4px;
+  }
+
+  @include mq($media-type: print) {
+    color: $nhsuk-print-text-color;
+
+    &:visited {
+      color: $nhsuk-print-text-color;
+    }
+  }
+
+
+  &:focus {
+    box-shadow: 0 0 0 8px $nhsuk-link-focus-background-color; /* [5] */
+
+    .nhsuk-action-link__text {
+      text-decoration: underline;
+    }
+
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 8px $nhsuk-link-hover-background-color; /* [5] */
+
+    .nhsuk-action-link__text {
+      text-decoration: underline; /* [6] */
+    }
+
+  }
+
+}
