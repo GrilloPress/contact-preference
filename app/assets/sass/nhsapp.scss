@@ -2328,8 +2328,19 @@ nav.nhs-app-breadcrumb {
 .app-button--small {
 
   padding: 8px 16px;
-  
+
   @include mq($until: tablet) {
    padding: 6px 16px;
+  }
+}
+
+.app-radios--inline {
+
+  .nhsuk-radios__item {
+
+    clear: none;
+    float: left;
+    margin-right: 24px;
+
   }
 }
