@@ -1,0 +1,10 @@
+.nhs-app-error-panel {
+
+  margin-top: 32px;
+  border-top: 4px solid $color_nhsuk-red;
+
+  .nhsuk-panel-with-label__label {
+    background-color: $color_nhsuk-red;
+    top: -16px;
+  }
+}

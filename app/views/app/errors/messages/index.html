@@ -1,0 +1,106 @@
+{% set PROTOTYPEURL = "app/errors/messages" %}
+{% set serviceName = "NHS App Errors" %}
+{% set contentTitle = "Messaging error prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+      <h2>In current design</h2>
+
+      <p>These are in the designs that are close to what is live. Messages are inside the red error box.</p>
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/current/native-failure">User tries to allow notifications in the app but fails because they have notifications turned off on their device</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/current/notifications-wont-load">User tries to access the notifications page and the page won't load </a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/current/messages-cant-get-all">We can't load a user's list of messages</a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/current/messages-cant-get-message">We can't load an individual message</a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/current/message-not-found">Message not found (404)</a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/current/internet-connection">No internet connection (SC05b)</a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/current/generic-error">Generic error</a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/current/page-not-found">Page not found (404)</a>
+        </li>
+
+      </ul>
+
+
+      <h2>Future</h2>
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/future/native-failure">User tries to allow notifications in the app but fails because they have notifications turned off on their device</a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/future/notifications-wont-load">User tries to access the notifications page and the page won't load </a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/future/messages-cant-get-all">We can't load a user's list of messages</a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/future/messages-cant-get-message">We can't load an individual message</a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/future/message-not-found">Message not found (404)</a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/future/internet-connection">No internet connection (SC05b)</a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/future/generic-error">Generic error</a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/future/page-not-found">Page not found (404)</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}

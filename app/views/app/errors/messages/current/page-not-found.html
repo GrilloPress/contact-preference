@@ -1,0 +1,34 @@
+{% set PROTOTYPEURL = "app/errors/messages/current" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="nhsuk-panel-with-label nhs-app-error-panel">
+        <div class="nhsuk-panel-with-label__label">Error</div>
+        <h1 class="nhsuk-heading-l">Page not found</h1>
+        <p>If you entered a web address, check it was correct.</p>
+        <p>
+          You can go directly to <a href="#">book an appointment</a> or <a href="#">order a repeat prescription</a>, or use the menu buttons to find the service you need. For urgent medical advice, call <a href="#">111</a>.
+        </p>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

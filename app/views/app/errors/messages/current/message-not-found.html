@@ -1,0 +1,36 @@
+{% set PROTOTYPEURL = "app/errors/messages/current" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="nhsuk-panel-with-label nhs-app-error-panel">
+        <div class="nhsuk-panel-with-label__label">Error</div>
+        <h1 class="nhsuk-heading-l">Sorry, we cannot find the message you are looking for</h1>
+        <p>
+          <a href="#">Go to your messages</a>
+        </p>
+      </div>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

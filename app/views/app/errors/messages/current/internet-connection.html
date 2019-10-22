@@ -1,0 +1,40 @@
+{% set PROTOTYPEURL = "app/errors/messages/current" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="nhsuk-panel-with-label nhs-app-error-panel">
+        <div class="nhsuk-panel-with-label__label">Error</div>
+        <h1 class="nhsuk-heading-l">Internet connection error</h1>
+        <p>There is a problem with your internet connection.</p>
+        <p>Check your connection and try again.</p>
+        <p>If the problem continues and you need to book an appointment or get a prescription now, contact your GP surgery directly. For urgent medical advice, call <a href="#">111</a>.</p>
+        <button type="button" name="button" class="nhsuk-button nhsuk-button--secondary">Try again</button>
+
+      </div>
+
+
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

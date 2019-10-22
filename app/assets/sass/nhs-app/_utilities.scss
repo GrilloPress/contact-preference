@@ -24,3 +24,22 @@ a:visited {
 
   font-weight: 500;
 }
+
+.nhs-app-desktop--hide {
+
+  @include mq($from: desktop) {
+    display: none;
+  }
+
+}
+
+.nhs-app-desktop--show {
+
+  display: none;
+
+  @include mq($from: desktop) {
+    display: block;
+  }
+
+
+}
