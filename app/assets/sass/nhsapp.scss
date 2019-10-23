@@ -108,8 +108,6 @@ a.button {
   box-shadow: 0em -0.1em 0.2em rgba(0, 0, 0, 0.1); }
 
 /** APP */
-footer {
-  display: none; }
 
 /** HEADER */
 header.logged {
@@ -2323,6 +2321,7 @@ nav.nhs-app-breadcrumb {
 @import "nhs-app/prescriptions";
 @import "nhs-app/records";
 @import "nhs-app/messages";
+@import "nhs-app/organ-donation";
 @import "nhs-app/errors";
 @import "nhs-app/utilities";
 

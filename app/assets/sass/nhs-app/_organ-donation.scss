@@ -1,0 +1,85 @@
+.nhs-app-panel-group {
+
+  @include mq($until: tablet) {
+
+    padding: 0 12px;
+
+
+   .nhsuk-panel-group__item {
+
+     padding: 0;
+     flex: 0 0 50%;
+     padding: 0 4px;
+     align-self: stretch;
+     margin-bottom: 0;
+   }
+  }
+}
+
+.nhs-app-organ-donation--no {
+  color: $color_nhsuk-red;
+  text-decoration: none;
+
+  &:focus {
+
+    background-color: $color_nhsuk-white;
+    color: $color_nhsuk-red;
+  }
+
+  &:visited {
+    color: $color_nhsuk-red;
+  }
+
+  p {
+    font-weight: 600;
+  }
+}
+
+.nhs-app-organ-donation--yes {
+  color: $color_nhsuk-green;
+  text-decoration: none;
+
+  &:focus {
+
+    background-color: $color_nhsuk-white;
+    color: $color_nhsuk-green;
+  }
+
+  &:visited {
+    color: $color_nhsuk-green;
+  }
+
+  p {
+    font-weight: 600;
+  }
+}
+
+.nhs-app-decision__icon {
+
+  float: left;
+}
+
+.nhs-app-decision__text {
+
+  padding-left: 4em;
+
+}
+
+.nhs-app-decision__text--yes {
+
+  color: $color_nhsuk-green;
+
+}
+
+.nhs-app-decision__text--no {
+
+  color: $color_nhsuk-red;
+
+}
+
+.nhs-app-decision__text--withdrawal {
+
+  color: $color_nhsuk-purple;
+  padding-left: 0 !important; 
+
+}
