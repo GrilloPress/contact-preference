@@ -1,0 +1,50 @@
+{% set PROTOTYPEURL = "app/send-a-message" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Send a message prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+      <h2>v3 (EMIS specific)</h2>
+
+      <h2>v2</h2>
+
+      <h2>v1</h2>
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/index">Select who to message</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/your-message?msgTo=Dr Sanjit Praneskear">Your message</a>
+        </li>
+        <li>
+          <a href="/app/messaging/v1/message?id=2&from=Dr%20Sanjit%20Praneskear&sent=today&time=7:33&body=An example message&to=True&messageRead2=read&">Message sent</a>
+        </li>
+      </ul>
+
+
+    </div>
+  </div>
+{% endblock %}
