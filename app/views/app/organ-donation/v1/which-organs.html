@@ -1,0 +1,240 @@
+{% set PROTOTYPEURL = "app/v3" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "My organ donation decision" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "#",
+      text: "Back to Organ Donation"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-1">{{ contentTitle }}</h1>
+
+      <h2 class="nhsuk-heading-m">Your choice</h2>
+
+      <div>
+      {{ actionLink({
+        "text": "Find out more about organs and tissues",
+        "href": ""
+      }) }}
+    </div>
+
+    <hr>
+
+      <h3 class="nhsuk-heading-s">Please select which organs and tissue you would like to donate:</h3>
+
+
+        {{ radios({
+  "idPrefix": "example",
+  "name": "example",
+  "fieldset": {
+    "legend": {
+      "text": "Heart",
+      "isPageHeading": true
+    }
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes"
+    },
+    {
+      "value": "no",
+      "text": "No"
+    }
+  ]
+}) }}
+
+{{ radios({
+"idPrefix": "example",
+"name": "example",
+"fieldset": {
+"legend": {
+"text": "Lungs",
+"isPageHeading": true
+}
+},
+"items": [
+{
+"value": "yes",
+"text": "Yes"
+},
+{
+"value": "no",
+"text": "No"
+}
+]
+}) }}
+
+{{ radios({
+"idPrefix": "example",
+"name": "example",
+"fieldset": {
+"legend": {
+"text": "Kidney",
+"isPageHeading": true
+}
+},
+"items": [
+{
+"value": "yes",
+"text": "Yes"
+},
+{
+"value": "no",
+"text": "No"
+}
+]
+}) }}
+
+
+{{ radios({
+"idPrefix": "example",
+"name": "example",
+"fieldset": {
+"legend": {
+"text": "Liver",
+"isPageHeading": true
+}
+},
+"items": [
+{
+"value": "yes",
+"text": "Yes"
+},
+{
+"value": "no",
+"text": "No"
+}
+]
+}) }}
+
+
+{{ radios({
+"idPrefix": "example",
+"name": "example",
+"fieldset": {
+"legend": {
+"text": "Corneas",
+"isPageHeading": true
+}
+},
+"items": [
+{
+"value": "yes",
+"text": "Yes"
+},
+{
+"value": "no",
+"text": "No"
+}
+]
+}) }}
+
+
+
+{{ radios({
+"idPrefix": "example",
+"name": "example",
+"fieldset": {
+"legend": {
+"text": "Pancreas",
+"isPageHeading": true
+}
+},
+"items": [
+{
+"value": "yes",
+"text": "Yes"
+},
+{
+"value": "no",
+"text": "No"
+}
+]
+}) }}
+
+
+{{ radios({
+"idPrefix": "example",
+"name": "example",
+"fieldset": {
+"legend": {
+"text": "Tissue",
+"isPageHeading": true
+}
+},
+"items": [
+{
+"value": "yes",
+"text": "Yes"
+},
+{
+"value": "no",
+"text": "No"
+}
+]
+}) }}
+
+
+{{ radios({
+"idPrefix": "example",
+"name": "example",
+"fieldset": {
+"legend": {
+"text": "Small bowel",
+"isPageHeading": true
+}
+},
+"items": [
+{
+"value": "yes",
+"text": "Yes"
+},
+{
+"value": "no",
+"text": "No"
+}
+]
+}) }}
+
+
+<div>
+{{ button({
+  "text": "Continue",
+  "classes": "nhsuk-button--primary"
+}) }}
+</div>
+
+<div>
+      {{ button({
+        "text": "Back",
+        "classes": "nhsuk-button--secondary"
+      }) }}
+</div>
+
+    </div>
+  </div>
+{% endblock %}
