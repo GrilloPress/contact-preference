@@ -1,0 +1,99 @@
+{% set PROTOTYPEURL = "app/messaging/v3" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Messages" %}
+{% set messagingActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+      <form class="" action="/app/send-a-message/v3/send-a-message-radio" method="get">
+        <input class="nhsuk-button" type="submit" value="Send a message">
+      </form>
+
+        <h2 class="nhsuk-heading-m">Your messages</h2>
+
+      <ul class="list-menu nhs-app-message">
+
+        {% if data['msgTrue'] %}
+          {% set queryFor2 %}
+          {{- "/app/messaging/v1/message?id=2&"
+                      + "from=" + data.msgFrom + "&"
+                      + "sent=" + data.msgDate + "&"
+                      + "time=" + data.msgTime + "&"
+                      + "body=" + data.msgBody + "&"
+                      + "to=" + "True" + "&"
+                      + "messageRead2=" + "read" + "&" | safe -}}
+          {% endset %}
+
+          <li id="messageID2" class="nhs-app-message__item {{ 'nhs-app-message__item--unread' if data['messageRead2'] !== 'read' }}">
+        		<a class="nhs-app-message__link" href="{{- queryFor2 | safe -}}">
+              <h2 class="nhsuk-heading-xs">
+                <span class="nhsuk-u-visually-hidden">Messages from:</span>
+                {{ data['msgFrom']}}
+                <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+                <span class="nhs-app-message__date {{ 'nhs-app-message__date--unread' if data['messageRead2'] !== 'read' }} ">{{ data.msgDate | capitalize }}</span>
+              </h2>
+              <p class="nhs-app-message__subject-line">
+                {% if data['messageRead2'] !== 'read' %}
+                <span class="nhs-app-message__meta">
+                  <span class="nhsuk-u-visually-hidden">You have </span>
+                  <span class="nhs-app-message__count">1</span>
+                  <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                    unread messages from {{ data['msgFrom']}}
+                  </span>
+                </span>
+                {% endif %}
+                <span class="nhsuk-u-visually-hidden">Latest message sent: </span>
+                 You: {{ data['msgBody']}}
+              </p>
+            </a>
+        	</li>
+
+        {% endif %}
+
+        <li id="messageID1" class="nhs-app-message__item {{ 'nhs-app-message__item--unread' if data['messageRead1'] !== 'read' }}">
+      		<a class="nhs-app-message__link" href="message?id=1&from=Sister Leanna Leveille&sent=Yesterday&time=4.55pm&body=Please arrange for an appointment with a nurse for a blood test">
+            <h2 class="nhsuk-heading-xs">
+              <span class="nhsuk-u-visually-hidden">Messages from:</span>
+              Sister Leanna Leveille
+              <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+              <span class="nhs-app-message__date {{ 'nhs-app-message__date--unread' if data['messageRead1'] !== 'read' }} ">Yesterday</span>
+            </h2>
+            <p class="nhs-app-message__subject-line">
+              {% if data['messageRead1'] !== 'read' %}
+              <span class="nhs-app-message__meta">
+                <span class="nhsuk-u-visually-hidden">You have </span>
+                <span class="nhs-app-message__count">1</span>
+                <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                  unread messages from Leanna Leveille
+                </span>
+              </span>
+              {% endif %}
+              <span class="nhsuk-u-visually-hidden">Latest message subject: </span>
+              Please arrange for an appointment with a nurse for a blood test
+            </p>
+          </a>
+      	</li>
+      </ul>
+
+
+
+  </div>
+{% endblock %}

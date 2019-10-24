@@ -1,0 +1,46 @@
+{% set PROTOTYPEURL = "app/send-a-message/v3" %}
+{% set serviceName = "Send a message" %}
+{% set contentTitle = "Contact your GP surgery or NHS 111" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/app/send-a-message/v3/send-a-message-radio",
+  text: "previous page"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle}}
+      </h1>
+
+      <p>For urgent medical advice, visit <a href="#">111.nhs.uk</a> or <a href="#">call 111</a></p>
+
+      <p>In an emergency call 999</p>
+
+    </div>
+  </div>
+{% endblock %}
