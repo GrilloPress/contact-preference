@@ -1,4 +1,4 @@
-{% set PROTOTYPEURL = "app/send-a-message/v1" %}
+{% set PROTOTYPEURL = "app/send-a-message/v2" %}
 {% set serviceName = "Send a message" %}
 {% set contentTitle = "Your message to " + data["msgTo"] or "Dr Sanjit Praneskear" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -34,8 +34,8 @@ $("textarea").focusout(function(){
       text: "Home"
     }
   ],
-  href: "/app/messaging/v1/",
-  text: "Messages"
+  href: "/app/send-a-message/v2/select-who",
+  text: "Select who to message"
 }) }}
 {% endblock %}
 
@@ -52,17 +52,12 @@ $("textarea").focusout(function(){
             "classes": "nhsuk-label--l"
           },
           "hint": {
-            "text": "If you need urgent medical help, contact your GP Surgery by phone or call 111"
+            "text": "For urgent medical advice, contact your GP Surgery directly, visit 111.nhs.uk or call 111"
           }
         }) }}
 
         <input class="nhsuk-button" type="submit" value="Send message">
       </form>
-
-      {{ backLink({
-        "href": "index",
-        "text": "Choose another person to message"
-      }) }}
 
     </div>
   </div>

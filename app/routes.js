@@ -468,7 +468,45 @@ router.post('/app/send-a-message/v1/message-you-sent', function (req, res) {
 
 });
 
+router.post('/app/send-a-message/v2/message-you-sent', function (req, res) {
 
+  // get
+
+  req.session.data.msgTrue = "True";
+  req.session.data.msgDate = "today";
+  req.session.data.msgTime = moment().format("h:mma");
+  req.session.data.msgBody = req.body.msgBody;
+  req.session.data.msgFrom = req.session.data.msgTo;
+  // req.session.data.msgTo = "True";
+  // id
+  // from
+  // req.body.checkMobile
+
+  // then build query string for messaging/v1/message
+  // /{{ PROTOTYPEURL }}/your-message?msgTo=Woodrow GP Practice
+  // message?id=1&from=Leanna Leveille&sent=Yesterday&time=4.55pm&body=Please arrange for an appointment with a nurse for a blood test
+  var query = "/app/send-a-message/v2/message?id=2&"
+              + "from=" + req.session.data.msgFrom + "&"
+              + "sent=" + req.session.data.msgDate + "&"
+              + "time=" + req.session.data.msgTime + "&"
+              + "body=" + req.session.data.msgBody + "&"
+              + "to=" + "True" + "&"
+              + "messageRead2=" + "read" + "&"
+  res.redirect(query)
+
+});
+
+router.post('/app/send-a-message/v2/send-a-message-radio', function (req, res) {
+  let answer = req.body.urgentAdvice;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/send-a-message/v2/contact-your-gp')
+
+  } else {
+    res.redirect('/app/send-a-message/v2/select-who')
+  }
+});
 
 
 

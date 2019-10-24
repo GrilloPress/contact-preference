@@ -1,6 +1,7 @@
-{% set PROTOTYPEURL = "app/send-a-message/v1" %}
-{% set serviceName = "Send a message" %}
-{% set contentTitle = "Select who to message" %}
+{% set PROTOTYPEURL = "app/messaging/v2" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Messages" %}
+{% set messagingActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -16,57 +17,83 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-{{ breadcrumb({
-  classes: "nhs-app-breadcrumb",
-  items: [
-    {
-      href: "/" + PROTOTYPEURL,
-      text: "Home"
-    }
-  ],
-  href: "/app/messaging/v1/",
-  text: "Messages"
-}) }}
 {% endblock %}
-
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">{{ contentTitle}}</h1>
-      <ul class="list-menu">
-        <li>
-      		<a href="/{{ PROTOTYPEURL }}/your-message?msgTo=Woodrow GP Practice" id="btn_organdonation">
-      			<h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Woodrow GP Practice</h2>
-      		</a>
-      	</li>
-      	<li>
-      		<a href="/{{ PROTOTYPEURL }}/your-message?msgTo=Dr Sanjit Praneskear" id="btn_datasharing">
-      			<h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Dr Sanjit Praneskear</h2>
-      		</a>
-      	</li>
-        <li>
-      		<a href="/{{ PROTOTYPEURL }}/your-message?msgTo=Dr Anjanette Peppard" id="btn_datasharing">
-      			<h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Dr Anjanette Peppard</h2>
-      		</a>
-      	</li>
-        <li>
-      		<a href="/{{ PROTOTYPEURL }}/your-message?msgTo=Dr Abbie Thetford" id="btn_datasharing">
-      			<h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Dr Abbie Thetford</h2>
-      		</a>
-      	</li>
-        <li>
-      		<a href="/{{ PROTOTYPEURL }}/your-message?msgTo=Mr Tyson Ensey" id="btn_datasharing">
-      			<h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Mr Tyson Ensey</h2>
-      		</a>
-      	</li>
-        <li>
-      		<a href="/{{ PROTOTYPEURL }}/your-message?msgTo=Sister Leanna Leveille" id="btn_datasharing">
-      			<h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Sister Leanna Leveille</h2>
-      		</a>
+      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+      <form class="" action="/app/send-a-message/v2/send-a-message-radio" method="get">
+        <input class="nhsuk-button" type="submit" value="Send a message">
+      </form>
+
+        <h2 class="nhsuk-heading-m">Your messages</h2>
+
+      <ul class="list-menu nhs-app-message">
+
+        {% if data['msgTrue'] %}
+          {% set queryFor2 %}
+          {{- "/app/messaging/v1/message?id=2&"
+                      + "from=" + data.msgFrom + "&"
+                      + "sent=" + data.msgDate + "&"
+                      + "time=" + data.msgTime + "&"
+                      + "body=" + data.msgBody + "&"
+                      + "to=" + "True" + "&"
+                      + "messageRead2=" + "read" + "&" | safe -}}
+          {% endset %}
+
+          <li id="messageID2" class="nhs-app-message__item {{ 'nhs-app-message__item--unread' if data['messageRead2'] !== 'read' }}">
+        		<a class="nhs-app-message__link" href="{{- queryFor2 | safe -}}">
+              <h2 class="nhsuk-heading-xs">
+                <span class="nhsuk-u-visually-hidden">Messages from:</span>
+                {{ data['msgFrom']}}
+                <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+                <span class="nhs-app-message__date {{ 'nhs-app-message__date--unread' if data['messageRead2'] !== 'read' }} ">{{ data.msgDate | capitalize }}</span>
+              </h2>
+              <p class="nhs-app-message__subject-line">
+                {% if data['messageRead2'] !== 'read' %}
+                <span class="nhs-app-message__meta">
+                  <span class="nhsuk-u-visually-hidden">You have </span>
+                  <span class="nhs-app-message__count">1</span>
+                  <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                    unread messages from {{ data['msgFrom']}}
+                  </span>
+                </span>
+                {% endif %}
+                <span class="nhsuk-u-visually-hidden">Latest message sent: </span>
+                 You: {{ data['msgBody']}}
+              </p>
+            </a>
+        	</li>
+
+        {% endif %}
+
+        <li id="messageID1" class="nhs-app-message__item {{ 'nhs-app-message__item--unread' if data['messageRead1'] !== 'read' }}">
+      		<a class="nhs-app-message__link" href="message?id=1&from=Sister Leanna Leveille&sent=Yesterday&time=4.55pm&body=Please arrange for an appointment with a nurse for a blood test">
+            <h2 class="nhsuk-heading-xs">
+              <span class="nhsuk-u-visually-hidden">Messages from:</span>
+              Sister Leanna Leveille
+              <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+              <span class="nhs-app-message__date {{ 'nhs-app-message__date--unread' if data['messageRead1'] !== 'read' }} ">Yesterday</span>
+            </h2>
+            <p class="nhs-app-message__subject-line">
+              {% if data['messageRead1'] !== 'read' %}
+              <span class="nhs-app-message__meta">
+                <span class="nhsuk-u-visually-hidden">You have </span>
+                <span class="nhs-app-message__count">1</span>
+                <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                  unread messages from Leanna Leveille
+                </span>
+              </span>
+              {% endif %}
+              <span class="nhsuk-u-visually-hidden">Latest message subject: </span>
+              Please arrange for an appointment with a nurse for a blood test
+            </p>
+          </a>
       	</li>
       </ul>
 
-    </div>
+
+
   </div>
 {% endblock %}
