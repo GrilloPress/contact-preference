@@ -10,6 +10,8 @@
     Yes - this is applicable to me
   {% elif data['faithBeliefs'] == 'no' %}
     No - this is not applicable to me
+  {% elif data['faithBeliefs'] == 'prefer' %}
+    Prefer not to say
   {% else %}
     Prefer not to say
   {% endif %}
@@ -39,6 +41,83 @@
   {% else %}
   {% endif %}
 {% endset %}
+
+{% set ethnicity %}
+  {% if data['selectEthnicity'] == 'blackOther' %}
+    Black or Black British - Other
+  {% elif data['selectEthnicity'] == 'mixed' %}
+    Mixed - White and Black African
+  {% elif data['selectEthnicity'] == 'whiteBritish' %}
+    White British
+  {% elif data['selectEthnicity'] == 'asianIndian' %}
+    Asian or Asian British - Indian
+  {% elif data['selectEthnicity'] == 'chinese' %}
+    Chinese
+  {% elif data['selectEthnicity'] == 'blackCaribbean' %}
+    Black or Black British - Caribbean
+  {% elif data['selectEthnicity'] == 'whiteOther' %}
+    White - Other
+  {% elif data['selectEthnicity'] == 'other' %}
+    Other
+  {% elif data['selectEthnicity'] == 'whiteIrish' %}
+    White - Irish
+  {% elif data['selectEthnicity'] == 'asianOther' %}
+    Asian or Asian British - Other
+  {% elif data['selectEthnicity'] == 'asianBangladeshi' %}
+    Asian or Asian British - Bangladeshi
+  {% elif data['selectEthnicity'] == 'notStated' %}
+    Not stated
+  {% elif data['selectEthnicity'] == 'mixedWhiteAsian' %}
+    Mixed - White and Asian
+  {% elif data['selectEthnicity'] == 'blackAfrican' %}
+    Black or Black British - African
+  {% elif data['selectEthnicity'] == 'asianPakistani' %}
+    Asian or Asian British - Pakistani
+  {% elif data['selectEthnicity'] == 'whiteBlackCaribbean' %}
+    Mixed - White and Black Caribbean
+  {% elif data['selectEthnicity'] == 'mixedOther' %}
+    Mixed - Other
+  {% elif data['selectEthnicity'] == 'gypsy' %}
+    Gypsy or Irish Traveller
+  {% elif data['selectEthnicity'] == 'arab' %}
+    Arab
+  {% elif data['selectEthnicity'] == '' %}
+    You did not answer
+  {% else %}
+    You did not answer
+  {% endif %}
+{% endset %}
+
+{% set religion %}
+  {% if data['selectReligion'] == 'buddhist' %}
+    Buddhist
+  {% elif data['selectReligion'] == 'christianCatholic' %}
+    Christian - Catholic
+  {% elif data['selectReligion'] == 'christianOther' %}
+    Christian - other
+  {% elif data['selectReligion'] == 'christianProtestant' %}
+    Christian - Protestant
+  {% elif data['selectReligion'] == 'hindu' %}
+    Hindu
+  {% elif data['selectReligion'] == 'jewish' %}
+    Jewish
+  {% elif data['selectReligion'] == 'muslim' %}
+    Muslim
+  {% elif data['selectReligion'] == 'noReligion' %}
+    No religion
+  {% elif data['selectReligion'] == 'notStated' %}
+    Not stated
+  {% elif data['selectReligion'] == 'other' %}
+    Other
+  {% elif data['selectReligion'] == 'sikh' %}
+    Sikh
+  {% elif data['selectReligion'] == '' %}
+    You did not answer
+  {% else %}
+    You did not answer
+  {% endif %}
+{% endset %}
+
 
 
 
@@ -144,26 +223,27 @@
 
                   <p>We will only contact you about your organ donation registration.</p>
 
-                        {{ summaryList({
-                          rows: [
-                            {
-                              key: {
-                                text: "Ethnicity"
-                              },
-                              value: {
-                                text: "You did not answer"
-                              }
-                            },
-                            {
-                              key: {
-                                text: "Religion"
-                              },
-                              value: {
-                                text: "You did not answer"
-                              }
-                            }
-                          ]
-                        }) }}
+
+                                          {{ summaryList({
+                                            rows: [
+                                              {
+                                                key: {
+                                                  text: "Ethnicity"
+                                                },
+                                                value: {
+                                                  text: ethnicity
+                                                }
+                                              },
+                                              {
+                                                key: {
+                                                  text: "Religion"
+                                                },
+                                                value: {
+                                                  html: religion
+                                                }
+                                              }
+                                            ]
+                                          }) }}
 
                         <p>This optional information is only used by the NHS to understand the make up of the NHS Organ Donor Register and is not stored against your registration.</p>
 
@@ -172,7 +252,7 @@
 
                         <h2 class="nhsuk-heading-m">Your decision</h2>
 
-                        {% if data[''] == "yes" %}
+
                         <div class="nhs-app-decision">
                           <div class="nhs-app-decision__icon">
                             <svg xmlns="http://www.w3.org/2000/svg" id="register-icon-green" data-name="Layer 1" viewBox="-20 -20 162.8 162.8" width="50" height="50" x="14118">
@@ -192,7 +272,7 @@
                             <h3>Yes I want to donate some or all of my organs</h3>
                           </div>
                         </div>
-                        {% else %}
+
                         <div class="nhs-app-decision">
                           <div class="nhs-app-decision__icon">
                             <svg xmlns="http://www.w3.org/2000/svg" id="do-not-register-icon-red" data-name="Layer 1" viewBox="-20 -20 162.6 162.6" width="50" height="50" x="5683">
@@ -212,8 +292,6 @@
                             <h3>No, I do not want to donate my organs</h3>
                           </div>
                         </div>
-
-                        {% endif %}
 
 
 
@@ -240,14 +318,14 @@
                           ]
                         }) }}
 
-
-                        <h2 class="nhsuk-heading-m">Confirmation</h2>
-
+                        <form action="/{{ PROTOTYPEURL }}/v1/decision-recorded" method="post">
                         {{ checkboxes({
                           "idPrefix": "organ",
                           "name": "confirm",
                           "fieldset": {
                             "legend": {
+                              "text": "Confirmation",
+                              "classes": "nhsuk-fieldset__legend--m",
                               "isPageHeading": true
                             }
                           },
@@ -258,18 +336,16 @@
                             },
                             {
                               "value": "privacy",
-                              "text": "I have read the privacy statement and give consent for the use of my information in accordance with the terms"
+                              "html": 'I have read the <span class="privacy-link">privacy statement</span> and give consent for the use of my information in accordance with the terms'
                             }
                           ]
                         }) }}
 
 
-                        <div>
-                        {{ button({
-                          "text": "Submit my decision",
-                          "classes": "nhsuk-button--primary"
-                        }) }}
-                        </div>
+                          <input type="submit" class="nhsuk-button" value="Submit my decision">
+                          </input>
+                        </form>
+
 
                         <div>
                               {{ button({

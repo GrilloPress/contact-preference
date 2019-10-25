@@ -37,7 +37,7 @@
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/v1/about-you-no" method="post">
+      <form action="/{{ PROTOTYPEURL }}/v1/about-you" method="post">
 
   {% call fieldset({
     "legend": {
@@ -48,7 +48,7 @@
   }) %}
 
   {{ hint({
-    "text": "This optional information is only used by the NHS to understand the make up of the NHS Organ Donor Register"
+    "text": "This optional information is only used by the NHS to understand the make up of the NHS Organ Donor Register and is not stored against your registration."
   }) }}
 
   {{ select({

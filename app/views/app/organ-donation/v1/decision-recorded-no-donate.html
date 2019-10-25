@@ -80,27 +80,7 @@
 
       <h2 class="nhsuk-heading-m">Your decision</h2>
 
-      {% if data[''] == "yes" %}
-      <div class="nhs-app-decision">
-        <div class="nhs-app-decision__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" id="register-icon-green" data-name="Layer 1" viewBox="-20 -20 162.8 162.8" width="50" height="50" x="14118">
-            <defs>
-              <style>.hfcls-1{fill:#006b54}</style>
-            </defs>
-            <title>register-icon-green</title>
-            <g id="hfGroup_3786" data-name="Group 3786">
-              <path id="hfPath_448" data-name="Path 448" class="hfcls-1" d="M101.26 42.49L47.34 96.31 27 76l-3.93-4 10.17-10.13L47.34 76l43.75-43.77z" transform="translate(-.33 -.18)"/>
-              <g id="hfGroup_3785" data-name="Group 3785">
-                <path id="hfPath_449" data-name="Path 449" class="hfcls-1" d="M61.73 5a56.6 56.6 0 1 1-56.6 56.6A56.6 56.6 0 0 1 61.73 5m0-4.8a61.4 61.4 0 1 0 61.4 61.4A61.46 61.46 0 0 0 61.73.18z" transform="translate(-.33 -.18)"/>
-              </g>
-            </g>
-          </svg>
-        </div>
-        <div class="nhs-app-decision__text nhs-app-decision__text--yes">
-          <h3>Yes I want to donate some or all of my organs</h3>
-        </div>
-      </div>
-      {% else %}
+
       <div class="nhs-app-decision">
         <div class="nhs-app-decision__icon">
           <svg xmlns="http://www.w3.org/2000/svg" id="do-not-register-icon-red" data-name="Layer 1" viewBox="-20 -20 162.6 162.6" width="50" height="50" x="5683">
@@ -121,25 +101,15 @@
         </div>
       </div>
 
-      {% endif %}
-
-
-      <h3 class="nhsuk-heading-s">Decision details</h3>
-
-
-
-      <p>{{ decisionDetails }}</p>
 
       <hr>
-
-      <p>When I die, I do not want NHS staff to speak with my family (and anyone else appropriate) about how organ donation can go ahead in line with my faith and beliefs.</p>
 
 
       <h3 class="nhsuk-heading-s">Is this still your decision?</h3>
 
       <p>Keeping your registration up to date will help your family, should organ donation be possible.</p>
 
-      <p><a href="/{{ PROTOTYPEURL }}/">I want to change my decision</a></p>
+      <p><a href="/{{ PROTOTYPEURL }}/v1/change-decision">I want to change my decision</a></p>
 
 
       <h2 class="nhsuk-heading-m">Next steps</h2>

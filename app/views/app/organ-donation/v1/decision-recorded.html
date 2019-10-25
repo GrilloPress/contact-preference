@@ -3,6 +3,28 @@
 {% set contentTitle = "My organ donation decision" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
+<script type="text/javascript">
+  $( "input[name='wheelchair']" ).on( "click", function() {
+  if ( $( "input[name='wheelchair']:checked" ).val() === "yes") {
+    console.log( "closed" );
+    $( ".app-opening-time__container" ).addClass("app-u-display--none ")
+    $('.app-opening-time__container' ).find('input, textarea, button, select').attr('disabled', true);
+  } else {
+    console.log( "open" );
+    $( ".app-opening-time__container" ).removeClass("app-u-display--none ")
+
+    // Find inputs that are now visible and make them disabled.
+    $('.app-opening-time__container' ).find('input:visible, textarea:visible, button:visible, select:visible').attr('disabled', false);
+  }
+});
+
+// This kills any row that is empty
+$('div.nhsuk-summary-list__row').each(function() {
+         if ($(this).text().trim() === "") {
+                   $(this).css('display','none');
+         }
+});
+</script>
 {% endblock %}
 
 {% set faith %}
@@ -151,13 +173,16 @@
       			<p>Use our message templates and conversation guides to tell your family and friends you are a donor.</p>
       		</a>
       	</li>
+
         <li>
       		<a href="#" id="btn_organdonation">
       			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Share that you are a donor</h2>
       			<p>Help promote organ donation on social media by telling people you are a donor.</p>
       		</a>
       	</li>
+
       </ul>
+
 
       <h2 class="nhsuk-heading-m">Other things you can do</h2>
 

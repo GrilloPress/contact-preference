@@ -44,6 +44,8 @@
     Gypsy or Irish Traveller
   {% elif data['selectEthnicity'] == 'arab' %}
     Arab
+  {% elif data['selectEthnicity'] == '' %}
+    You did not answer
   {% else %}
     You did not answer
   {% endif %}
@@ -72,6 +74,8 @@
     Other
   {% elif data['selectReligion'] == 'sikh' %}
     Sikh
+  {% elif data['selectReligion'] == '' %}
+    You did not answer
   {% else %}
     You did not answer
   {% endif %}
@@ -250,7 +254,7 @@
                             },
                             {
                               "value": "privacy",
-                              "text": "I have read the privacy statement and give consent for the use of my information in accordance with the terms"
+                              "html": 'I have read the <span class="privacy-link">privacy statement</span> and give consent for the use of my information in accordance with the terms'
                             }
                           ]
                         }) }}
@@ -259,7 +263,8 @@
                         <div>
                         {{ button({
                           "text": "Submit my decision",
-                          "classes": "nhsuk-button--primary"
+                          "classes": "nhsuk-button--primary",
+                          "href": "/" + PROTOTYPEURL + "/v1/decision-recorded-no-donate"
                         }) }}
                         </div>
 
