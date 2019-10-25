@@ -13,6 +13,7 @@ $("textarea").focusout(function(){
   $(".menu").show();
 });
 </script>
+<script type="text/javascript" src="/js/character-count.js" ></script>
 {% endblock %}
 
 
@@ -43,9 +44,11 @@ $("textarea").focusout(function(){
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <form class="" action="message-you-sent" method="post">
+        <div class="govuk-character-count">
         {{ textarea({
           "name": "msgBody",
           "id": "msgBody",
+          "classes": "nhsuk-u-margin-bottom-0",
           "label": {
             "text": contentTitle,
             "isPageHeading": true,
@@ -55,6 +58,8 @@ $("textarea").focusout(function(){
             "text": "For urgent medical advice, contact your GP Surgery directly, visit 111.nhs.uk or call 111"
           }
         }) }}
+        <div id="textarea_feedback" class="nhsuk-hint"></div>
+      </div>
 
         <input class="nhsuk-button" type="submit" value="Send message">
       </form>
