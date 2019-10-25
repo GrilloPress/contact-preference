@@ -1,9 +1,14 @@
-{% set PROTOTYPEURL = "app/v3" %}
+{% set PROTOTYPEURL = "app/organ-donation" %}
 {% set serviceName = "NHS App" %}
 {% set contentTitle = "My organ donation decision" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
+
+
+
+
+
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -30,7 +35,7 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-1">{{ contentTitle }}</h1>
+      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
 
       <h2 class="nhsuk-heading-m">Your choice</h2>
 
@@ -47,8 +52,8 @@
 
 
         {{ radios({
-  "idPrefix": "example",
-  "name": "example",
+  "idPrefix": "organ",
+  "name": "heart",
   "fieldset": {
     "legend": {
       "text": "Heart",
@@ -68,8 +73,8 @@
 }) }}
 
 {{ radios({
-"idPrefix": "example",
-"name": "example",
+  "idPrefix": "organ",
+"name": "lungs",
 "fieldset": {
 "legend": {
 "text": "Lungs",
@@ -89,8 +94,8 @@
 }) }}
 
 {{ radios({
-"idPrefix": "example",
-"name": "example",
+  "idPrefix": "organ",
+"name": "kidney",
 "fieldset": {
 "legend": {
 "text": "Kidney",
@@ -111,8 +116,8 @@
 
 
 {{ radios({
-"idPrefix": "example",
-"name": "example",
+  "idPrefix": "organ",
+"name": "liver",
 "fieldset": {
 "legend": {
 "text": "Liver",
@@ -133,8 +138,8 @@
 
 
 {{ radios({
-"idPrefix": "example",
-"name": "example",
+  "idPrefix": "organ",
+"name": "corneas",
 "fieldset": {
 "legend": {
 "text": "Corneas",
@@ -156,8 +161,8 @@
 
 
 {{ radios({
-"idPrefix": "example",
-"name": "example",
+  "idPrefix": "organ",
+"name": "pancreas",
 "fieldset": {
 "legend": {
 "text": "Pancreas",
@@ -178,8 +183,8 @@
 
 
 {{ radios({
-"idPrefix": "example",
-"name": "example",
+  "idPrefix": "organ",
+"name": "tissue",
 "fieldset": {
 "legend": {
 "text": "Tissue",
@@ -200,8 +205,8 @@
 
 
 {{ radios({
-"idPrefix": "example",
-"name": "example",
+  "idPrefix": "organ",
+"name": "smallBowel",
 "fieldset": {
 "legend": {
 "text": "Small bowel",
@@ -224,7 +229,8 @@
 <div>
 {{ button({
   "text": "Continue",
-  "classes": "nhsuk-button--primary"
+  "classes": "nhsuk-button--primary",
+  "href": "/" + PROTOTYPEURL + "/v1/faith-beliefs"
 }) }}
 </div>
 

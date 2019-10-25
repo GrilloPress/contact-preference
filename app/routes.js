@@ -515,5 +515,19 @@ router.post('/send-a-patient-a-message/v2/create/sender/from', function (req, re
 });
 
 
+// Organ donation routing
+
+router.post('/app/organ-donation/v1/your-choice', function (req, res) {
+  let answer = req.body.yourChoice;
+
+  if (answer === 'all') {
+
+    res.redirect('/app/organ-donation/v1/faith-beliefs')
+
+  } else {
+    res.redirect('/app/organ-donation/v1/which-organs')
+  }
+});
+
 
 module.exports = router;

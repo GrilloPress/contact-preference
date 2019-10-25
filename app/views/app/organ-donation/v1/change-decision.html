@@ -24,16 +24,17 @@
       text: "Home"
     }
   ],
-  href: "/" + PROTOTYPEURL + "/v1/home",
-  text: "More"
+  href: "/" + PROTOTYPEURL + "/v1/your-choice",
+  text: "Organ Donation"
 }) }}
 {% endblock %}
+
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
-      <p class="nhsuk-body-l">Register your organ donation decision</p>
+      <p class="nhsuk-body-l">Change your organ donation decision</p>
 
       <div class="nhsuk-grid-row nhsuk-panel-group nhs-app-panel-group">
         <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item nhs-app-text-align--center">
@@ -76,12 +77,17 @@
 
       <ul class="list-menu">
       	<li>
-      		<a href="javascript: redirectTo('SY01');">Think you have registered already?</a>
-      	</li>
-      	<li>
       		<a href="javascript: redirectTo('AB02');">Find out more about organ donation</a>
       	</li>
       </ul>
+
+      <div>
+            {{ button({
+              "text": "Back",
+              "classes": "nhsuk-button--secondary"
+            }) }}
+      </div>
+
     </div>
   </div>
 {% endblock %}
