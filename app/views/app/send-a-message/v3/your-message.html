@@ -1,4 +1,4 @@
-{% set PROTOTYPEURL = "app/send-a-message/v2" %}
+{% set PROTOTYPEURL = "app/send-a-message/v3" %}
 {% set serviceName = "Send a message" %}
 {% set contentTitle = "Your message to " + data["msgTo"] or "Dr Sanjit Praneskear" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -34,7 +34,7 @@ $("textarea").focusout(function(){
       text: "Home"
     }
   ],
-  href: "/app/send-a-message/v2/select-who",
+  href: "/app/send-a-message/v3/select-who",
   text: "Select who to message"
 }) }}
 {% endblock %}

@@ -11,6 +11,9 @@
     "prewatch": "gulp build",
     "watch": "gulp"
   },
+  "engines": {
+    "node": "8.x"
+  },
   "author": "https://github.com/nhsuk/",
   "license": "MIT",
   "dependencies": {

@@ -1,6 +1,6 @@
-{% set PROTOTYPEURL = "app/send-a-message/v2" %}
+{% set PROTOTYPEURL = "app/send-a-message/v3" %}
 {% set serviceName = "Send a message" %}
-{% set contentTitle = "Your message to " + data["msgTo"] or "Dr Sanjit Praneskear" %}
+{% set contentTitle = "What is your message about?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 <script>
@@ -34,7 +34,7 @@ $("textarea").focusout(function(){
       text: "Home"
     }
   ],
-  href: "/app/send-a-message/v2/select-who",
+  href: "/app/send-a-message/v3/select-who",
   text: "Select who to message"
 }) }}
 {% endblock %}
@@ -42,21 +42,19 @@ $("textarea").focusout(function(){
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <form class="" action="message-you-sent" method="post">
-        {{ textarea({
-          "name": "msgBody",
-          "id": "msgBody",
+      <form class="" action="your-message" method="post">
+        {{ input({
           "label": {
             "text": contentTitle,
             "isPageHeading": true,
             "classes": "nhsuk-label--l"
           },
-          "hint": {
-            "text": "For urgent medical advice, contact your GP Surgery directly, visit 111.nhs.uk or call 111"
-          }
+          "id": "subject",
+          "name": "subject",
+          "classes": "nhsuk-input--width-30"
         }) }}
 
-        <input class="nhsuk-button" type="submit" value="Send message">
+        <input class="nhsuk-button" type="submit" value="Continue">
       </form>
 
     </div>

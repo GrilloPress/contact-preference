@@ -1,0 +1,75 @@
+{% set PROTOTYPEURL = "app/send-a-message/v3" %}
+{% set serviceName = "Send a message" %}
+{% set contentTitle = "Select who to message" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/app/send-a-message/v3/send-a-message-radio",
+  text: "previous page"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        <span class="nhsuk-caption-m nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle}}
+      </h1>
+      <ul class="list-menu">
+        <li>
+      		<a href="/{{ PROTOTYPEURL }}/message-subject?msgTo=Woodrow GP Practice" id="btn_organdonation">
+      			<h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Woodrow GP Practice</h2>
+      		</a>
+      	</li>
+      	<li>
+      		<a href="/{{ PROTOTYPEURL }}/message-subject?msgTo=Dr Sanjit Praneskear" id="btn_datasharing">
+      			<h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Dr Sanjit Praneskear</h2>
+      		</a>
+      	</li>
+        <li>
+      		<a href="/{{ PROTOTYPEURL }}/message-subject?msgTo=Dr Anjanette Peppard" id="btn_datasharing">
+      			<h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Dr Anjanette Peppard</h2>
+      		</a>
+      	</li>
+        <li>
+      		<a href="/{{ PROTOTYPEURL }}/message-subject?msgTo=Dr Abbie Thetford" id="btn_datasharing">
+      			<h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Dr Abbie Thetford</h2>
+      		</a>
+      	</li>
+        <li>
+      		<a href="/{{ PROTOTYPEURL }}/message-subject?msgTo=Mr Tyson Ensey" id="btn_datasharing">
+      			<h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Mr Tyson Ensey</h2>
+      		</a>
+      	</li>
+        <li>
+      		<a href="/{{ PROTOTYPEURL }}/message-subject?msgTo=Sister Leanna Leveille" id="btn_datasharing">
+      			<h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Sister Leanna Leveille</h2>
+      		</a>
+      	</li>
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}

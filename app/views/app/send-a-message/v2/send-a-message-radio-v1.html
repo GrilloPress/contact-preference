@@ -1,0 +1,71 @@
+{% set PROTOTYPEURL = "app/send-a-message/v2" %}
+{% set serviceName = "Send a message" %}
+{% set contentTitle = "Messages are for non-urgent questions or informations" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/app/send-a-message/v2/index",
+  text: "Messages"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        <span class="nhsuk-caption-m nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle}}
+      </h1>
+
+      <p>
+        If you need a reply straight away, phone or visit your GP surgery
+      </p>
+
+      <form class="" action="select-who" method="post">
+        {{ radios({
+          "idPrefix": "gov",
+          "name": "gov",
+          "fieldset": {
+            "legend": {
+              "text": "Is your message urgent?",
+              "isPageHeading": false
+            }
+          },
+          "items": [
+            {
+              "value": "yes",
+              "text": "Yes"
+            },
+            {
+              "value": "no",
+              "text": "No"
+            }
+          ]
+        }) }}
+        <input class="nhsuk-button" type="submit" value="Continue">
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
