@@ -17,8 +17,6 @@
   {% endif %}
 {% endset %}
 
-
-
 {% set decisionDetails %}
   {% if data['yourChoice'] == 'all' %}
     I want to donate all my organs and tissue.
@@ -27,76 +25,13 @@
   {% endif %}
 {% endset %}
 
+{% if (data['heart'] == "yes") or (data['lungs'] == "yes") %}
+  {% set organDonationChooseAnyYes = true %}
+{% endif %}
 
-
-  {% if data['heart'] == 'yes' %}
-    Heart
-  {% endif %}
-
-  {% if data['lungs'] == 'yes' %}
-    Lungs
-  {% endif %}
-
-  {% if data['kidney'] == 'yes' %}
-    Kidney
-  {% endif %}
-
-  {% if data['liver'] == 'yes' %}
-    Liver
-  {% endif %}
-
-  {% if data['corneas'] == 'yes' %}
-    Corneas
-  {% endif %}
-
-  {% if data['pancreas'] == 'yes' %}
-    Pancreas
-  {% endif %}
-
-  {% if data['tissue'] == 'yes' %}
-    Tissue
-  {% endif %}
-
-  {% if data['smallBowel'] == 'yes' %}
-    Small bowel
-  {% endif %}
-
-
-
-  {% if data['heart'] == 'no' %}
-    Heart
-  {% endif %}
-
-  {% if data['lungs'] == 'no' %}
-    Lungs
-  {% endif %}
-
-  {% if data['kidney'] == 'no' %}
-    Kidney
-  {% endif %}
-
-  {% if data['liver'] == 'no' %}
-    Liver
-  {% endif %}
-
-  {% if data['corneas'] == 'no' %}
-    Corneas
-  {% endif %}
-
-  {% if data['pancreas'] == 'no' %}
-    Pancreas
-  {% endif %}
-
-  {% if data['tissue'] == 'no' %}
-    Tissue
-  {% endif %}
-
-  {% if data['smallBowel'] == 'no' %}
-    Small bowel
-  {% endif %}
-
-
-
+{% if (data['heart'] == "no") or (data['lungs'] == "no") %}
+  {% set organDonationChooseAnyNos = true %}
+{% endif %}
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -280,28 +215,89 @@
 
                         <p>{{ decisionDetails }}</p>
 
-                        {% else %}
                         {% endif %}
 
                         <hr>
 
+                        {% if data["yourChoice"] == "some" %}
 
-                        {% if data['?'] == "?" %}
+                          {% if organDonationChooseAnyYes %}
+                          <h4 class="nhsuk-heading-xs">You have chosen to donate:</h4>
+                            <ul>
+                              {% if data['heart'] == 'yes' %}
+                              <li>Heart</li>
+                              {% endif %}
 
+                              {% if data['lungs'] == 'yes' %}
+                                <li>Lungs</li>
+                              {% endif %}
 
-                        <h4 class="nhsuk-heading-xs">You have chosen to donate:</h4>
+                              {% if data['kidney'] == 'yes' %}
+                                <li>Kidney</li>
+                              {% endif %}
 
-                        <p>{{ ? }}</p>
+                              {% if data['liver'] == 'yes' %}
+                                <li>Liver</li>
+                              {% endif %}
 
+                              {% if data['corneas'] == 'yes' %}
+                                <li>Corneas</li>
+                              {% endif %}
+
+                              {% if data['pancreas'] == 'yes' %}
+                                <li>Pancreas</li>
+                              {% endif %}
+
+                              {% if data['tissue'] == 'yes' %}
+                                <li>Tissue</li>
+                              {% endif %}
+
+                              {% if data['smallBowel'] == 'yes' %}
+                                <li>Small bowel</li>
+                              {% endif %}
+                            </ul>
+                            {% endif %}
+
+                          {% if organDonationChooseAnyNos %}
+                          <h4 class="nhsuk-heading-xs">You have chosen not to donate:</h4>
+                          <ul>
+                            {% if data['heart'] == 'no' %}
+                            <li>Heart</li>
+                            {% endif %}
+
+                            {% if data['lungs'] == 'no' %}
+                              <li>Lungs</li>
+                            {% endif %}
+
+                            {% if data['kidney'] == 'no' %}
+                              <li>Kidney</li>
+                            {% endif %}
+
+                            {% if data['liver'] == 'no' %}
+                              <li>Liver</li>
+                            {% endif %}
+
+                            {% if data['corneas'] == 'no' %}
+                              <li>Corneas</li>
+                            {% endif %}
+
+                            {% if data['pancreas'] == 'no' %}
+                              <li>Pancreas</li>
+                            {% endif %}
+
+                            {% if data['tissue'] == 'no' %}
+                              <li>Tissue</li>
+                            {% endif %}
+
+                            {% if data['smallBowel'] == 'no' %}
+                              <li>Small bowel</li>
+                            {% endif %}
+                          </ul>
+                          {% endif %}
 
                         {% endif %}
 
-                        {% if data['donationDecision'] == "yes" %}
 
-                        <h4 class="nhsuk-heading-xs">You have chosen not to donate:</h4>
-
-
-                        {% endif %}
 
 
 
