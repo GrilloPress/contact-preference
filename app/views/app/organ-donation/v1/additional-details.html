@@ -18,7 +18,10 @@
 {% endblock %}
 
 <!-- Breadcrumb goes inside this block -->
+
+
 {% block beforeContent %}
+{% if data['donationDecision'] == 'yes' %}
 {{ breadcrumb({
   classes: "nhs-app-breadcrumb",
   items: [
@@ -30,7 +33,25 @@
   href: "/" + PROTOTYPEURL + "/v1/faith-beliefs",
   text: "Organ Donation"
 }) }}
+{% endif %}
+
+{% if data['donationDecision'] == 'no' %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/v1/register-decision",
+  text: "Organ Donation"
+}) }}
+{% endif %}
 {% endblock %}
+
+
+
 
 {% block content %}
   <div class="nhsuk-grid-row">
