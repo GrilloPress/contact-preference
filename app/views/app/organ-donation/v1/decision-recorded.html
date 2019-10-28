@@ -5,15 +5,6 @@
 {% block pageScripts %}
 {% endblock %}
 
-{% set faith %}
-  {% if data['faithBeliefs'] == 'yes' %}
-    Yes - this is applicable to me
-  {% elif data['faithBeliefs'] == 'no' %}
-    No - this is not applicable to me
-  {% else %}
-    Prefer not to say
-  {% endif %}
-{% endset %}
 
 {% set decisionDetails %}
   {% if data['yourChoice'] == 'all' %}
@@ -23,21 +14,27 @@
   {% endif %}
 {% endset %}
 
+{% if (data['heart'] == "yes") or (data['lungs'] == "yes") or (data['kidney'] == "yes") or (data['liver'] == "yes")
+or (data['corneas'] == "yes") or (data['pancreas'] == "yes") or (data['tissue'] == "yes") or (data['smallBowel'] == "yes") %}
+  {% set organDonationChooseAnyYes = true %}
+{% endif %}
 
 
-{% set heartDonate %}
-  {% if data['heart'] == 'yes' %}
-    Heart
-  {% else %}
-  {% endif %}
-{% endset %}
+{% if (data['heart'] == "no") or (data['lungs'] == "no") or (data['kidney'] == "no") or (data['liver'] == "no")
+or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] == "no") or (data['smallBowel'] == "no") %}
+  {% set organDonationChooseAnyNos = true %}
+{% endif %}
 
 
-{% set heartNotDonate %}
-  {% if data['heart'] == 'no' %}
-    Heart
-  {% else %}
-  {% endif %}
+
+{% set faithDecision %}
+{% if data['faithBeliefs'] == 'yes' %}
+  I would like NHS staff to speak to my family and anyone else appropriate about how organ donation can go ahead in line with my faith / beliefs.
+{% elif data['faithBeliefs'] == 'no' %}
+  When I die, I do not want NHS staff to speak with my family (and anyone else appropriate) about how organ donation can go ahead in line with my faith and beliefs.
+{% elif data['faithBeliefs'] == 'prefer' %}
+  I prefer not to say whether I want NHS staff to speak with my family (and anyone else appropriate) about how organ donation can go ahead in line with my faith and beliefs.
+{% endif %}
 {% endset %}
 
 
@@ -130,13 +127,92 @@
 
       <p>{{ decisionDetails }}</p>
 
-      {% else %}
       {% endif %}
+
+      {% if data["yourChoice"] == "some" %}
+
+        {% if organDonationChooseAnyYes %}
+        <h4 class="nhsuk-heading-xs">You have chosen to donate:</h4>
+          <ul style="list-style-type:none;">
+            {% if data['heart'] == 'yes' %}
+            <li>Heart</li>
+            {% endif %}
+
+            {% if data['lungs'] == 'yes' %}
+              <li>Lungs</li>
+            {% endif %}
+
+            {% if data['kidney'] == 'yes' %}
+              <li>Kidney</li>
+            {% endif %}
+
+            {% if data['liver'] == 'yes' %}
+              <li>Liver</li>
+            {% endif %}
+
+            {% if data['corneas'] == 'yes' %}
+              <li>Corneas</li>
+            {% endif %}
+
+            {% if data['pancreas'] == 'yes' %}
+              <li>Pancreas</li>
+            {% endif %}
+
+            {% if data['tissue'] == 'yes' %}
+              <li>Tissue</li>
+            {% endif %}
+
+            {% if data['smallBowel'] == 'yes' %}
+              <li>Small bowel</li>
+            {% endif %}
+          </ul>
+          {% endif %}
+
+        {% if organDonationChooseAnyNos %}
+        <h4 class="nhsuk-heading-xs">You have chosen not to donate:</h4>
+        <ul style="list-style-type:none;">
+          {% if data['heart'] == 'no' %}
+          <li>Heart</li>
+          {% endif %}
+
+          {% if data['lungs'] == 'no' %}
+            <li>Lungs</li>
+          {% endif %}
+
+          {% if data['kidney'] == 'no' %}
+            <li>Kidney</li>
+          {% endif %}
+
+          {% if data['liver'] == 'no' %}
+            <li>Liver</li>
+          {% endif %}
+
+          {% if data['corneas'] == 'no' %}
+            <li>Corneas</li>
+          {% endif %}
+
+          {% if data['pancreas'] == 'no' %}
+            <li>Pancreas</li>
+          {% endif %}
+
+          {% if data['tissue'] == 'no' %}
+            <li>Tissue</li>
+          {% endif %}
+
+          {% if data['smallBowel'] == 'no' %}
+            <li>Small bowel</li>
+          {% endif %}
+        </ul>
+        {% endif %}
+
+      {% endif %}
+
+
 
 
       <hr>
 
-      <p>When I die, I do not want NHS staff to speak with my family (and anyone else appropriate) about how organ donation can go ahead in line with my faith and beliefs.</p>
+      <p>{{ faithDecision }}</p>
 
 
       <h3 class="nhsuk-heading-s">Is this still your decision?</h3>

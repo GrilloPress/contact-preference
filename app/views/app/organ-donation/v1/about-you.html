@@ -5,6 +5,83 @@
 {% block pageScripts %}
 {% endblock %}
 
+{% set ethnicity %}
+  {% if data['selectEthnicity'] == 'blackOther' %}
+    Black or Black British - Other
+  {% elif data['selectEthnicity'] == 'mixed' %}
+    Mixed - White and Black African
+  {% elif data['selectEthnicity'] == 'whiteBritish' %}
+    White British
+  {% elif data['selectEthnicity'] == 'asianIndian' %}
+    Asian or Asian British - Indian
+  {% elif data['selectEthnicity'] == 'chinese' %}
+    Chinese
+  {% elif data['selectEthnicity'] == 'blackCaribbean' %}
+    Black or Black British - Caribbean
+  {% elif data['selectEthnicity'] == 'whiteOther' %}
+    White - Other
+  {% elif data['selectEthnicity'] == 'other' %}
+    Other
+  {% elif data['selectEthnicity'] == 'whiteIrish' %}
+    White - Irish
+  {% elif data['selectEthnicity'] == 'asianOther' %}
+    Asian or Asian British - Other
+  {% elif data['selectEthnicity'] == 'asianBangladeshi' %}
+    Asian or Asian British - Bangladeshi
+  {% elif data['selectEthnicity'] == 'notStated' %}
+    Not stated
+  {% elif data['selectEthnicity'] == 'mixedWhiteAsian' %}
+    Mixed - White and Asian
+  {% elif data['selectEthnicity'] == 'blackAfrican' %}
+    Black or Black British - African
+  {% elif data['selectEthnicity'] == 'asianPakistani' %}
+    Asian or Asian British - Pakistani
+  {% elif data['selectEthnicity'] == 'whiteBlackCaribbean' %}
+    Mixed - White and Black Caribbean
+  {% elif data['selectEthnicity'] == 'mixedOther' %}
+    Mixed - Other
+  {% elif data['selectEthnicity'] == 'gypsy' %}
+    Gypsy or Irish Traveller
+  {% elif data['selectEthnicity'] == 'arab' %}
+    Arab
+  {% elif data['selectEthnicity'] == '' %}
+    You did not answer
+  {% else %}
+    You did not answer
+  {% endif %}
+{% endset %}
+
+{% set religion %}
+  {% if data['selectReligion'] == 'buddhist' %}
+    Buddhist
+  {% elif data['selectReligion'] == 'christianCatholic' %}
+    Christian - Catholic
+  {% elif data['selectReligion'] == 'christianOther' %}
+    Christian - other
+  {% elif data['selectReligion'] == 'christianProtestant' %}
+    Christian - Protestant
+  {% elif data['selectReligion'] == 'hindu' %}
+    Hindu
+  {% elif data['selectReligion'] == 'jewish' %}
+    Jewish
+  {% elif data['selectReligion'] == 'muslim' %}
+    Muslim
+  {% elif data['selectReligion'] == 'noReligion' %}
+    No religion
+  {% elif data['selectReligion'] == 'notStated' %}
+    Not stated
+  {% elif data['selectReligion'] == 'other' %}
+    Other
+  {% elif data['selectReligion'] == 'sikh' %}
+    Sikh
+  {% elif data['selectReligion'] == '' %}
+    You did not answer
+  {% else %}
+    You did not answer
+  {% endif %}
+{% endset %}
+
+
 {% set faith %}
   {% if data['faithBeliefs'] == 'yes' %}
     Yes - this is applicable to me
@@ -17,6 +94,9 @@
   {% endif %}
 {% endset %}
 
+
+
+
 {% set decisionDetails %}
   {% if data['yourChoice'] == 'all' %}
     I want to donate all my organs and tissue.
@@ -25,11 +105,16 @@
   {% endif %}
 {% endset %}
 
-{% if (data['heart'] == "yes") or (data['lungs'] == "yes") %}
+
+
+{% if (data['heart'] == "yes") or (data['lungs'] == "yes") or (data['kidney'] == "yes") or (data['liver'] == "yes")
+or (data['corneas'] == "yes") or (data['pancreas'] == "yes") or (data['tissue'] == "yes") or (data['smallBowel'] == "yes") %}
   {% set organDonationChooseAnyYes = true %}
 {% endif %}
 
-{% if (data['heart'] == "no") or (data['lungs'] == "no") %}
+
+{% if (data['heart'] == "no") or (data['lungs'] == "no") or (data['kidney'] == "no") or (data['liver'] == "no")
+or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] == "no") or (data['smallBowel'] == "no") %}
   {% set organDonationChooseAnyNos = true %}
 {% endif %}
 
@@ -217,13 +302,12 @@
 
                         {% endif %}
 
-                        <hr>
 
                         {% if data["yourChoice"] == "some" %}
 
                           {% if organDonationChooseAnyYes %}
                           <h4 class="nhsuk-heading-xs">You have chosen to donate:</h4>
-                            <ul>
+                            <ul style="list-style-type:none;">
                               {% if data['heart'] == 'yes' %}
                               <li>Heart</li>
                               {% endif %}
@@ -260,7 +344,7 @@
 
                           {% if organDonationChooseAnyNos %}
                           <h4 class="nhsuk-heading-xs">You have chosen not to donate:</h4>
-                          <ul>
+                          <ul style="list-style-type:none;">
                             {% if data['heart'] == 'no' %}
                             <li>Heart</li>
                             {% endif %}
