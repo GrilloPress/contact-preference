@@ -62,7 +62,7 @@
       text: "Home"
     }
   ],
-  href: "/" + PROTOTYPEURL + "/v1/your-choice",
+  href: "/" + PROTOTYPEURL + "/v1/decision-recorded",
   text: "Organ Donation"
 }) }}
 {% endblock %}
@@ -162,15 +162,16 @@
 
 
 
-
-                        <h2 class="nhsuk-heading-m">Confirmation</h2>
+                        <form action="/{{ PROTOTYPEURL }}/v1/decision-withdrawn" method="post">
 
                         {{ checkboxes({
                           "idPrefix": "organ",
                           "name": "confirm",
                           "fieldset": {
                             "legend": {
-                              "isPageHeading": true
+                              "text": "Confirmation",
+                              "isPageHeading": true,
+                              "classes": "nhsuk-fieldset__legend--s"
                             }
                           },
                           "items": [
@@ -185,20 +186,17 @@
                           ]
                         }) }}
 
+                        <input type="submit" class="nhsuk-button" value="Submit my decision">
+                        </input>
 
-                        <div>
-                        {{ button({
-                          "text": "Submit my decision",
-                          "classes": "nhsuk-button--primary"
-                        }) }}
-                        </div>
+                      </form>
 
-                        <div>
+
+
                               {{ button({
                                 "text": "Back",
                                 "classes": "nhsuk-button--secondary"
                               }) }}
-                        </div>
     </div>
   </div>
 {% endblock %}

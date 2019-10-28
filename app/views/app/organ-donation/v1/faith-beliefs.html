@@ -19,6 +19,21 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
+{% if data['yourChoice'] == 'some' %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/v1/which-organs",
+  text: "Organ Donation"
+}) }}
+{% endif %}
+
+{% if data['yourChoice'] == 'all' %}
 {{ breadcrumb({
   classes: "nhs-app-breadcrumb",
   items: [
@@ -30,7 +45,9 @@
   href: "/" + PROTOTYPEURL + "/v1/your-choice",
   text: "Organ Donation"
 }) }}
+{% endif %}
 {% endblock %}
+
 
 {% block content %}
   <div class="nhsuk-grid-row">

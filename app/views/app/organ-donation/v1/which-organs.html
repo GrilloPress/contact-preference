@@ -25,10 +25,12 @@
   classes: "nhs-app-breadcrumb",
   items: [
     {
-      href: "#",
-      text: "Back to Organ Donation"
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
     }
-  ]
+  ],
+  href: "/" + PROTOTYPEURL + "/v1/your-choice",
+  text: "Organ Donation"
 }) }}
 {% endblock %}
 
@@ -39,16 +41,26 @@
 
       <h2 class="nhsuk-heading-m">Your choice</h2>
 
-      <div>
+
       {{ actionLink({
         "text": "Find out more about organs and tissues",
         "href": ""
       }) }}
-    </div>
+
 
     <hr>
 
-      <h3 class="nhsuk-heading-s">Please select which organs and tissue you would like to donate:</h3>
+
+    <form action="/{{ PROTOTYPEURL }}/v1/faith-beliefs" method="post">
+
+{% call fieldset({
+  "legend": {
+    "text": "Please select which organs and tissue you would like to donate:",
+    "classes": "nhsuk-fieldset__legend--s",
+    "name": "organsToDonate",
+    "isPageHeading": false
+  }
+}) %}
 
 
         {{ radios({
@@ -225,14 +237,13 @@
 ]
 }) }}
 
+{% endcall %}
 
-<div>
-{{ button({
-  "text": "Continue",
-  "classes": "nhsuk-button--primary",
-  "href": "/" + PROTOTYPEURL + "/v1/faith-beliefs"
-}) }}
-</div>
+<input type="submit" class="nhsuk-button" value="Continue">
+</input>
+
+</form>
+
 
 <div>
       {{ button({

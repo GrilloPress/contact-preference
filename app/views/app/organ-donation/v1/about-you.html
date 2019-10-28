@@ -17,6 +17,8 @@
   {% endif %}
 {% endset %}
 
+
+
 {% set decisionDetails %}
   {% if data['yourChoice'] == 'all' %}
     I want to donate all my organs and tissue.
@@ -27,97 +29,71 @@
 
 
 
-{% set heartDonate %}
   {% if data['heart'] == 'yes' %}
     Heart
-  {% else %}
   {% endif %}
-{% endset %}
+
+  {% if data['lungs'] == 'yes' %}
+    Lungs
+  {% endif %}
+
+  {% if data['kidney'] == 'yes' %}
+    Kidney
+  {% endif %}
+
+  {% if data['liver'] == 'yes' %}
+    Liver
+  {% endif %}
+
+  {% if data['corneas'] == 'yes' %}
+    Corneas
+  {% endif %}
+
+  {% if data['pancreas'] == 'yes' %}
+    Pancreas
+  {% endif %}
+
+  {% if data['tissue'] == 'yes' %}
+    Tissue
+  {% endif %}
+
+  {% if data['smallBowel'] == 'yes' %}
+    Small bowel
+  {% endif %}
 
 
-{% set heartNotDonate %}
+
   {% if data['heart'] == 'no' %}
     Heart
-  {% else %}
   {% endif %}
-{% endset %}
 
-{% set ethnicity %}
-  {% if data['selectEthnicity'] == 'blackOther' %}
-    Black or Black British - Other
-  {% elif data['selectEthnicity'] == 'mixed' %}
-    Mixed - White and Black African
-  {% elif data['selectEthnicity'] == 'whiteBritish' %}
-    White British
-  {% elif data['selectEthnicity'] == 'asianIndian' %}
-    Asian or Asian British - Indian
-  {% elif data['selectEthnicity'] == 'chinese' %}
-    Chinese
-  {% elif data['selectEthnicity'] == 'blackCaribbean' %}
-    Black or Black British - Caribbean
-  {% elif data['selectEthnicity'] == 'whiteOther' %}
-    White - Other
-  {% elif data['selectEthnicity'] == 'other' %}
-    Other
-  {% elif data['selectEthnicity'] == 'whiteIrish' %}
-    White - Irish
-  {% elif data['selectEthnicity'] == 'asianOther' %}
-    Asian or Asian British - Other
-  {% elif data['selectEthnicity'] == 'asianBangladeshi' %}
-    Asian or Asian British - Bangladeshi
-  {% elif data['selectEthnicity'] == 'notStated' %}
-    Not stated
-  {% elif data['selectEthnicity'] == 'mixedWhiteAsian' %}
-    Mixed - White and Asian
-  {% elif data['selectEthnicity'] == 'blackAfrican' %}
-    Black or Black British - African
-  {% elif data['selectEthnicity'] == 'asianPakistani' %}
-    Asian or Asian British - Pakistani
-  {% elif data['selectEthnicity'] == 'whiteBlackCaribbean' %}
-    Mixed - White and Black Caribbean
-  {% elif data['selectEthnicity'] == 'mixedOther' %}
-    Mixed - Other
-  {% elif data['selectEthnicity'] == 'gypsy' %}
-    Gypsy or Irish Traveller
-  {% elif data['selectEthnicity'] == 'arab' %}
-    Arab
-  {% elif data['selectEthnicity'] == '' %}
-    You did not answer
-  {% else %}
-    You did not answer
+  {% if data['lungs'] == 'no' %}
+    Lungs
   {% endif %}
-{% endset %}
 
-{% set religion %}
-  {% if data['selectReligion'] == 'buddhist' %}
-    Buddhist
-  {% elif data['selectReligion'] == 'christianCatholic' %}
-    Christian - Catholic
-  {% elif data['selectReligion'] == 'christianOther' %}
-    Christian - other
-  {% elif data['selectReligion'] == 'christianProtestant' %}
-    Christian - Protestant
-  {% elif data['selectReligion'] == 'hindu' %}
-    Hindu
-  {% elif data['selectReligion'] == 'jewish' %}
-    Jewish
-  {% elif data['selectReligion'] == 'muslim' %}
-    Muslim
-  {% elif data['selectReligion'] == 'noReligion' %}
-    No religion
-  {% elif data['selectReligion'] == 'notStated' %}
-    Not stated
-  {% elif data['selectReligion'] == 'other' %}
-    Other
-  {% elif data['selectReligion'] == 'sikh' %}
-    Sikh
-  {% elif data['selectReligion'] == '' %}
-    You did not answer
-  {% else %}
-    You did not answer
+  {% if data['kidney'] == 'no' %}
+    Kidney
   {% endif %}
-{% endset %}
 
+  {% if data['liver'] == 'no' %}
+    Liver
+  {% endif %}
+
+  {% if data['corneas'] == 'no' %}
+    Corneas
+  {% endif %}
+
+  {% if data['pancreas'] == 'no' %}
+    Pancreas
+  {% endif %}
+
+  {% if data['tissue'] == 'no' %}
+    Tissue
+  {% endif %}
+
+  {% if data['smallBowel'] == 'no' %}
+    Small bowel
+  {% endif %}
 
 
 
@@ -141,7 +117,7 @@
       text: "Home"
     }
   ],
-  href: "/" + PROTOTYPEURL + "/v1/your-choice",
+  href: "/" + PROTOTYPEURL + "/v1/additional-details",
   text: "Organ Donation"
 }) }}
 {% endblock %}
@@ -218,10 +194,9 @@
 
                   <hr>
 
+
                   <h3 class="nhsuk-heading-s">Additional information</h3>
 
-
-                  <p>We will only contact you about your organ donation registration.</p>
 
 
                                           {{ summaryList({
@@ -248,6 +223,7 @@
                         <p>This optional information is only used by the NHS to understand the make up of the NHS Organ Donor Register and is not stored against your registration.</p>
 
                         <hr>
+
 
 
                         <h2 class="nhsuk-heading-m">Your decision</h2>
@@ -290,20 +266,46 @@
                             </svg>
                           </div>
                           <div class="nhs-app-decision__text nhs-app-decision__text--yes">
-                            <h3>Yes I want to donate some or all of my organs</h3>
+                            <h3>Yes I want to donate my organs</h3>
                           </div>
                         </div>
 
                         {% endif %}
 
 
+
+                        {% if data['donationDecision'] == "yes" %}
+
                         <h3 class="nhsuk-heading-s">Decision details</h3>
-
-
 
                         <p>{{ decisionDetails }}</p>
 
+                        {% else %}
+                        {% endif %}
+
                         <hr>
+
+
+                        {% if data['?'] == "?" %}
+
+
+                        <h4 class="nhsuk-heading-xs">You have chosen to donate:</h4>
+
+                        <p>{{ ? }}</p>
+
+
+                        {% endif %}
+
+                        {% if data['donationDecision'] == "yes" %}
+
+                        <h4 class="nhsuk-heading-xs">You have chosen not to donate:</h4>
+
+
+                        {% endif %}
+
+
+
+                        {% if data['donationDecision'] == "yes" %}
 
                         <h2 class="nhsuk-heading-m">Faith / beliefs details</h2>
 
@@ -319,6 +321,8 @@
                             }
                           ]
                         }) }}
+
+                        {% endif %}
 
                         <form action="/{{ PROTOTYPEURL }}/v1/decision-recorded" method="post">
                         {{ checkboxes({
