@@ -1,0 +1,84 @@
+{% set PROTOTYPEURL = "app/errors/send-a-message" %}
+{% set serviceName = "NHS App Errors" %}
+{% set contentTitle = "Practice to patient messaging error prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+      <h2>MVP</h2>
+
+      <h3>Message service errors</h3>
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/messages-cant-get-all">We can't load a user's list of messages</a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/messages-cant-get-message">We can't load an individual message</a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/message-not-found">Message not found (404)</a>
+        </li>
+
+      </ul>
+
+      <h3>Send a message</h3>
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/send-a-message-no-option-selected">No option selected</a>
+        </li>
+      </ul>
+
+      <h3>What is your message about?</h3>
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/what-is-your-message-about-no-option">No option selected</a>
+        </li>
+      </ul>
+
+      <h3>Your message</h3>
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/what-is-your-message-about-no-option">No message or subject</a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/what-is-your-message-about-no-option">No subject</a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/what-is-your-message-about-no-option">No message</a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/what-is-your-message-about-no-option">Message is too long</a>
+        </li>
+      </ul>
+
+
+    </div>
+  </div>
+{% endblock %}

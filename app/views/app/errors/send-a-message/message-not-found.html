@@ -1,4 +1,4 @@
-{% set PROTOTYPEURL = "app/errors/messages/current" %}
+{% set PROTOTYPEURL = "app/errors/send-a-message" %}
 {% set serviceName = "NHS App" %}
 {% set contentTitle = "Prototypes" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -22,16 +22,14 @@
     <div class="nhsuk-grid-column-two-thirds">
       <div class="nhsuk-panel-with-label nhs-app-error-panel">
         <div class="nhsuk-panel-with-label__label">Error</div>
-        <h1 class="nhsuk-heading-l">There is a problem getting your messages from [sender name]</h1>
-        <p>Try again later.</p>
-
-        <p>If the problem continues and you need this information now, contact [sender name] directly.</p>
-
+        <h1 class="nhsuk-heading-l">Sorry, we cannot find the message you are looking for</h1>
+        <p>
+          <a href="#">Go to your messages</a>
+        </p>
       </div>
 
-      <p>
-        <a class="nhs-app-desktop--show" href="#">Back</a>
-      </p>
+
+
 
     </div>
   </div>
