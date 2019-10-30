@@ -60,14 +60,16 @@
          This is how NHS staff will find out about any end of life wishes you might have.</p>
 
          {{ details({
-  "classes": "nhsuk-expander",
-  "text": "Examples of end of life wishes",
-  "HTML": '<p>Requesting a faith representative for your family<p>
-           <p>When to say prayers<p>
-           <p>Rituals or traditions regarding washing and dressing</p>
-           <p>Being buried within a certain time period</p>'
-}) }}
-
+           "text": "Examples of end of life wishes",
+           "HTML": "
+           <ul>
+             <li>Requesting a faith representative for your family</li>
+             <li>When to say prayers</li>
+             <li>Rituals or traditions regarding washing and dressing</li>
+             <li>Being buried within a certain time period</li>
+           </ul>
+           "
+         }) }}
       <p>Record here whether you want our specialist nurses to discuss your faith or beliefs with your family when you die, at the same time they approach them about organ donation.</p>
 
       <form action="/{{ PROTOTYPEURL }}/v1/additional-details" method="post">
