@@ -1,0 +1,115 @@
+{% set PROTOTYPEURL = "app/organ-donation" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "My organ donation decision" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% if data['yourChoice'] == 'some' %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/v1/which-organs",
+  text: "Organ Donation"
+}) }}
+{% endif %}
+
+{% if data['yourChoice'] == 'all' %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/v1/your-choice",
+  text: "Organ Donation"
+}) }}
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+
+      <h2 class="nhsuk-heading-m">Faith / beliefs</h2>
+
+      <p>When you die, NHS staff can ask your family (and anyone else appropriate) about your faith and beliefs.
+         This is how NHS staff will find out about any end of life wishes you might have.</p>
+
+         {{ details({
+           "classes": "nhsuk-expander",
+           "text": "Examples of end of life wishes",
+           "HTML": "
+           <ul>
+             <li>Requesting a faith representative for your family</li>
+             <li>When to say prayers</li>
+             <li>Rituals or traditions regarding washing and dressing</li>
+             <li>Being buried within a certain time period</li>
+           </ul>
+           "
+         }) }}
+      <p>Record here whether you want our specialist nurses to discuss your faith or beliefs with your family when you die, at the same time they approach them about organ donation.</p>
+
+      <form action="/{{ PROTOTYPEURL }}/v1/additional-details" method="post">
+        {{ radios({
+          "idPrefix": "gov",
+          "name": "faithBeliefs",
+          "fieldset": {
+            "legend": {
+              "text": "I would like NHS staff to speak to my family and anyone else appropriate about how organ donation can go ahead in line with my faith or beliefs.",
+              "isPageHeading": true,
+              "classes": "nhsuk-fieldset__legend--s"
+            }
+          },
+          "items": [
+            {
+              "value": "yes",
+              "text": "Yes - this is applicable to me"
+            },
+            {
+              "value": "no",
+              "text": "No - this is not applicable to me"
+            },
+            {
+              "value": "prefer",
+              "text": "Prefer not to say"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+      {{ button({
+        "text": "Back",
+        "classes": "nhsuk-button--secondary"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}
