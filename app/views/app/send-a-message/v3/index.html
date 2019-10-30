@@ -33,7 +33,7 @@
 
         {% if data['msgTrue'] %}
           {% set queryFor2 %}
-          {{- "/app/messaging/v1/message?id=2&"
+          {{- "message?id=2&"
                       + "from=" + data.msgFrom + "&"
                       + "sent=" + data.msgDate + "&"
                       + "time=" + data.msgTime + "&"

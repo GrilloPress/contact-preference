@@ -1,0 +1,65 @@
+{% set PROTOTYPEURL = "app/v4" %}
+{% set serviceName = "Home" %}
+{% set contentTitle = "Prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/settings",
+  text: "Settings"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">Notifications</h1>
+      <p>You can choose whether to allow notifications on your device.</p>
+      <p>If you share this device with other people, they may be able to see your notifications.</p>
+
+      {% set checked %}
+        {% if data['notifications'] == "True" %}
+          Checked
+        {% else %}
+          nope
+        {% endif %}
+      {% endset %}
+
+      <form action="" method="post">
+        <div class="nhs-app-card">
+          <div class="nhs-app-card__inner" onclick="clickToggle()">
+            <div>
+              <label for="notifications">Allow notifications</label>
+              <input class="toggle" type="checkbox" id="notifications" name="notifications" value="on" {{ checked }}>
+              <input class="nhsuk-u-visually-hidden" type="submit" value="Submit">
+      			</div>
+          </div>
+        </div>
+      </form>
+
+      {{ actionLink({
+        "text": "Manage how notifications appear on your device",
+        "href": "#"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

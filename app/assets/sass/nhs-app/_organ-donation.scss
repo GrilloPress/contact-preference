@@ -26,6 +26,11 @@
     color: $color_nhsuk-red;
   }
 
+  &:hover {
+
+    background-color: $color_nhsuk-white;
+  }
+
   &:visited {
     color: $color_nhsuk-red;
   }
@@ -42,12 +47,18 @@
   &:focus {
 
     background-color: $color_nhsuk-white;
-    color: $color_nhsuk-green;
+    color: $color_nhsuk-green
+  }
+
+  &:hover {
+
+    background-color: $color_nhsuk-white;
   }
 
   &:visited {
     color: $color_nhsuk-green;
   }
+
 
   p {
     font-weight: 600;

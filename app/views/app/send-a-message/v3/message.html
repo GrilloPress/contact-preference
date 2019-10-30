@@ -76,6 +76,9 @@ $( document ).ready(function() {
             </div>
             <div class="nhsuk-u-clear">
             </div>
+            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
+              <a href="delete">Delete message</a>
+            </div>
           </li>
 
           {% else %}
@@ -93,21 +96,13 @@ $( document ).ready(function() {
               Sent {{ data['sent']}} at {{ data['time'] }}
             </div>
           </li>
+
           {% endif %}
 
 
         </ul>
       </div>
 
-    </div>
-    <div class="nhsuk-grid-column-one-third">
-      <hr>
-      <h2 class="nhsuk-heading-s">Message actions</h2>
-      <ul class="">
-        <li>
-          <a href="#">Delete message</a>
-        </li>
-      </ul>
     </div>
   </div>
 {% endblock %}

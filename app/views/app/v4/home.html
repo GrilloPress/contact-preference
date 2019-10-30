@@ -1,0 +1,50 @@
+{% set PROTOTYPEURL = "app/v4" %}
+{% set serviceName = "Home" %}
+{% set contentTitle = "Prototypes" %}
+{% set appHeading = true %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">Welcome, Bernard Doyle</h1>
+      <div class="">
+      	<p class="nhsuk-u-margin-bottom-0"><strong>Date of birth:</strong>&nbsp;&nbsp;20 Jan 1982</p>
+      	<p class="nhsuk-u-margin-bottom-0"><strong>NHS number: </strong>&nbsp;&nbsp;123 456 7890</p>
+      	<p class=""><strong>Last login:</strong>&nbsp;&nbsp;10 October 2018, 14:32</p>
+      </div>
+      <ul class="list-menu">
+      	<li>
+      		<a href="javascript: redirectTo('SY01');">Check my symptoms</a>
+      	</li>
+      	<li>
+      		<a href="javascript: redirectTo('AB02');">Book and manage appointments</a>
+      	</li>
+      	<li>
+      		<a href="javascript: redirectTo('RP02');">Order a repeat prescription</a>
+      	</li>
+      	<li>
+      		<a href="javascript: redirectTo('PR02');">View my medical record</a>
+      	</li>
+        <li>
+      		<a href="/{{ PROTOTYPEURL }}/tell-us">Manage your contact preferences</a>
+      	</li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
