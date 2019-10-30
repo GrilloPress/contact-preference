@@ -29,6 +29,7 @@
   &:hover {
 
     background-color: $color_nhsuk-white;
+    color: $color_nhsuk-red;
   }
 
   &:visited {
@@ -37,6 +38,7 @@
 
   p {
     font-weight: 600;
+    color: $color_nhsuk-red;
   }
 }
 
@@ -53,6 +55,7 @@
   &:hover {
 
     background-color: $color_nhsuk-white;
+    color: $color_nhsuk-green
   }
 
   &:visited {
@@ -62,6 +65,7 @@
 
   p {
     font-weight: 600;
+    color: $color_nhsuk-green
   }
 }
 
