@@ -1,0 +1,249 @@
+{% set PROTOTYPEURL = "app/organ-donation" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Which organs and tissue would you like to donate?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/v2/your-choice",
+  text: "Organ Donation"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+
+
+    <form action="/{{ PROTOTYPEURL }}/v2/faith-beliefs" method="post">
+
+{% call fieldset({
+  "legend": {
+    "html": '<h1 class="nhsuk-fieldset__heading"><span class="nhsuk-caption-l nhsuk-caption--top">Organ donation
+    </span>' + contentTitle + '</h1>',
+    "classes": "nhsuk-fieldset__legend--l",
+    "name": "organsToDonate",
+    "isPageHeading": false
+  }
+}) %}
+
+
+
+
+
+        {{ radios({
+  "idPrefix": "organ",
+  "classes": "nhsuk-radios--inline app-radios--inline",
+  "name": "heart",
+  "fieldset": {
+    "legend": {
+      "text": "Heart",
+      "isPageHeading": true
+    }
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes"
+    },
+    {
+      "value": "no",
+      "text": "No"
+    }
+  ]
+}) }}
+
+{{ radios({
+  "idPrefix": "organ",
+  "classes": "nhsuk-radios--inline app-radios--inline",
+"name": "lungs",
+"fieldset": {
+"legend": {
+"text": "Lungs",
+"isPageHeading": true
+}
+},
+"items": [
+{
+"value": "yes",
+"text": "Yes"
+},
+{
+"value": "no",
+"text": "No"
+}
+]
+}) }}
+
+{{ radios({
+  "idPrefix": "organ",
+  "classes": "nhsuk-radios--inline app-radios--inline",
+"name": "kidney",
+"fieldset": {
+"legend": {
+"text": "Kidney",
+"isPageHeading": true
+}
+},
+"items": [
+{
+"value": "yes",
+"text": "Yes"
+},
+{
+"value": "no",
+"text": "No"
+}
+]
+}) }}
+
+
+{{ radios({
+  "idPrefix": "organ",
+  "classes": "nhsuk-radios--inline app-radios--inline",
+"name": "liver",
+"fieldset": {
+"legend": {
+"text": "Liver",
+"isPageHeading": true
+}
+},
+"items": [
+{
+"value": "yes",
+"text": "Yes"
+},
+{
+"value": "no",
+"text": "No"
+}
+]
+}) }}
+
+
+{{ radios({
+  "idPrefix": "organ",
+  "classes": "nhsuk-radios--inline app-radios--inline",
+"name": "corneas",
+"fieldset": {
+"legend": {
+"text": "Corneas",
+"isPageHeading": true
+}
+},
+"items": [
+{
+"value": "yes",
+"text": "Yes"
+},
+{
+"value": "no",
+"text": "No"
+}
+]
+}) }}
+
+
+
+{{ radios({
+  "idPrefix": "organ",
+  "classes": "nhsuk-radios--inline app-radios--inline",
+"name": "pancreas",
+"fieldset": {
+"legend": {
+"text": "Pancreas",
+"isPageHeading": true
+}
+},
+"items": [
+{
+"value": "yes",
+"text": "Yes"
+},
+{
+"value": "no",
+"text": "No"
+}
+]
+}) }}
+
+
+{{ radios({
+  "idPrefix": "organ",
+  "classes": "nhsuk-radios--inline app-radios--inline",
+"name": "tissue",
+"fieldset": {
+"legend": {
+"text": "Tissue",
+"isPageHeading": true
+}
+},
+"items": [
+{
+"value": "yes",
+"text": "Yes"
+},
+{
+"value": "no",
+"text": "No"
+}
+]
+}) }}
+
+
+{{ radios({
+  "idPrefix": "organ",
+  "classes": "nhsuk-radios--inline app-radios--inline",
+"name": "smallBowel",
+"fieldset": {
+"legend": {
+"text": "Small bowel",
+"isPageHeading": true
+}
+},
+"items": [
+{
+"value": "yes",
+"text": "Yes"
+},
+{
+"value": "no",
+"text": "No"
+}
+]
+}) }}
+
+{% endcall %}
+
+<input type="submit" class="nhsuk-button" value="Continue">
+</input>
+
+</form>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

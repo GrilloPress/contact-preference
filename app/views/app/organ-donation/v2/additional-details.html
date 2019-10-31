@@ -1,0 +1,240 @@
+{% set PROTOTYPEURL = "app/organ-donation" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Your additional details" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+
+
+{% block beforeContent %}
+{% if data['donationDecision'] == 'yes' %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/v2/faith-beliefs",
+  text: "Organ Donation"
+}) }}
+{% endif %}
+
+{% if data['donationDecision'] == 'no' %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/v2/register-decision",
+  text: "Organ Donation"
+}) }}
+{% endif %}
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l nhsuk-caption--top">Organ donation
+</span>{{ contentTitle }}</h1>
+
+      <form action="/{{ PROTOTYPEURL }}/v2/about-you" method="post">
+
+  {% call fieldset({
+    "legend": {
+      "classes": "nhsuk-fieldset__legend--m",
+      "isPageHeading": false
+    }
+  }) %}
+
+  {{ hint({
+    "text": "This optional information is only used by the NHS to understand the make up of the NHS Organ Donor Register and is not stored against your registration."
+  }) }}
+
+  {{ select({
+    "id": "selectEthnicity",
+    "name": "selectEthnicity",
+    "classes": "nhs-app-select",
+    "label": {
+      "text": "Ethnicity (optional)"
+    },
+    "items": [
+      {
+        "value": "",
+        "text": "Please select",
+        "selected": true,
+        "disabled": true
+      },
+      {
+        "value": "blackOther",
+        "text": "Black or Black British - Other"
+      },
+      {
+        "value": "mixed",
+        "text": "Mixed - White and Black African"
+      },
+      {
+        "value": "whiteBritish",
+        "text": "White British"
+      },
+      {
+        "value": "asianIndian",
+        "text": "Asian or Asian British - Indian"
+      },
+      {
+        "value": "chinese",
+        "text": "Chinese"
+      },
+      {
+        "value": "blackCaribbean",
+        "text": "Black or Black British - Caribbean"
+      },
+      {
+        "value": "whiteOther",
+        "text": "White - Other"
+      },
+      {
+        "value": "other",
+        "text": "Other"
+      },
+      {
+        "value": "whiteIrish",
+        "text": "White - Irish"
+      },
+      {
+        "value": "asianOther",
+        "text": "Asian or Asian British - Other"
+      },
+      {
+        "value": "asianBangladeshi",
+        "text": "Asian or Asian British - Bangladeshi"
+      },
+      {
+        "value": "notStated",
+        "text": "Not stated"
+      },
+      {
+        "value": "mixedWhiteAsian",
+        "text": "Mixed - White and Asian"
+      },
+      {
+        "value": "blackAfrican",
+        "text": "Black or Black British - African "
+      },
+      {
+        "value": "asianPakistani",
+        "text": "Asian or Asian British - Pakistani"
+      },
+      {
+        "value": "whiteBlackCaribbean",
+        "text": "Mixed - White and Black Caribbean"
+      },
+      {
+        "value": "mixedOther",
+        "text": "Mixed - Other"
+      },
+      {
+        "value": "gypsy",
+        "text": "Gypsy or Irish Traveller"
+      },
+      {
+        "value": "arab",
+        "text": "Arab"
+      }
+    ]
+  }) }}
+
+  {{ select({
+    "id": "selectReligion",
+    "name": "selectReligion",
+    "classes": "nhs-app-select",
+    "label": {
+      "text": "Religion (optional)"
+    },
+    "items": [
+      {
+        "value": "",
+        "text": "Please select",
+        "selected": true,
+        "disabled": true
+      },
+      {
+        "value": "buddhist",
+        "text": "Buddhist"
+      },
+      {
+        "value": "christianCatholic",
+        "text": "Christian - Catholic"
+      },
+      {
+        "value": "christianOther",
+        "text": "Christian - other"
+      },
+      {
+        "value": "christianProtestant",
+        "text": "Christian - Protestant"
+      },
+      {
+        "value": "hindu",
+        "text": "Hindu"
+      },
+      {
+        "value": "jewish",
+        "text": "Jewish"
+      },
+      {
+        "value": "muslim",
+        "text": "Muslim"
+      },
+      {
+        "value": "noReligion",
+        "text": "No religion"
+      },
+      {
+        "value": "notStated",
+        "text": "Not stated"
+      },
+      {
+        "value": "other",
+        "text": "Other"
+      },
+      {
+        "value": "sikh",
+        "text": "Sikh"
+      }
+    ]
+  }) }}
+
+  {% endcall %}
+
+  <input type="submit" class="nhsuk-button" value="Continue">
+  </input>
+
+</form>
+
+
+
+    </div>
+  </div>
+{% endblock %}

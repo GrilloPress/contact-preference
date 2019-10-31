@@ -1,0 +1,199 @@
+{% set PROTOTYPEURL = "app/organ-donation" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Check your details and submit your decision" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+{% set faith %}
+  {% if data['faithBeliefs'] == 'yes' %}
+    Yes - this is applicable to me
+  {% elif data['faithBeliefs'] == 'no' %}
+    No - this is not applicable to me
+  {% else %}
+    Prefer not to say
+  {% endif %}
+{% endset %}
+
+{% set decisionDetails %}
+  {% if data['yourChoice'] == 'all' %}
+    I want to donate all my organs and tissue.
+  {% else %}
+    I want to donate some organs and tissue.
+  {% endif %}
+{% endset %}
+
+
+
+{% set heartDonate %}
+  {% if data['heart'] == 'yes' %}
+    Heart
+  {% else %}
+  {% endif %}
+{% endset %}
+
+
+{% set heartNotDonate %}
+  {% if data['heart'] == 'no' %}
+    Heart
+  {% else %}
+  {% endif %}
+{% endset %}
+
+
+
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/v2/decision-recorded",
+  text: "Organ Donation"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l nhsuk-caption--top">Organ donation
+</span>{{ contentTitle }}</h1>
+
+      <h2 class="nhsuk-heading-m">About you</h2>
+      <h3 class="nhsuk-heading-s">Personal details</h3>
+
+
+
+            {{ summaryList({
+              rows: [
+                {
+                  key: {
+                    text: "Name"
+                  },
+                  value: {
+                    text: "Mr Jack Jackson"
+                  }
+                },
+                {
+                  key: {
+                    text: "Date of birth"
+                  },
+                  value: {
+                    text: "7 November 1984"
+                  }
+                },
+                {
+                  key: {
+                    text: "Gender"
+                  },
+                  value: {
+                    html: "Male"
+                  }
+                },
+                {
+                  key: {
+                    text: "NHS number"
+                  },
+                  value: {
+                    html: "974 436 6753"
+                  }
+                }
+              ]
+            }) }}
+
+            <p>Contact your GP surgery to amend your personal details.</p>
+
+            <hr>
+
+            <h3 class="nhsuk-heading-s">Contact details</h3>
+
+
+            <p>We will only contact you about your organ donation registration.</p>
+
+                  {{ summaryList({
+                    rows: [
+                      {
+                        key: {
+                          text: "Postal address"
+                        },
+                        value: {
+                          text: "58 Grange Road, Richmond Hill, Bradford, West Yorkshire, BT71 5LL"
+                        }
+                      }
+                    ]
+                  }) }}
+
+                  <p>Contact your GP surgery to amend your postal address.</p>
+
+                  <hr>
+
+
+
+
+                        <h2 class="nhsuk-heading-m">Your decision</h2>
+
+
+                              <div class="nhs-app-decision">
+                                <div class="nhs-app-decision__text nhs-app-decision__text--withdrawal">
+                                  <h3>Withdraw my decision from the register</h3>
+                                </div>
+                              </div>
+
+
+                        <h3 class="nhsuk-heading-s">What this means</h3>
+
+
+
+                        <p>Your family will be asked to make a decision for you, when you die.</p>
+
+                        <hr>
+
+
+
+                        <form action="/{{ PROTOTYPEURL }}/v2/decision-withdrawn" method="post">
+
+                        {{ checkboxes({
+                          "idPrefix": "organ",
+                          "name": "confirm",
+                          "fieldset": {
+                            "legend": {
+                              "text": "Confirmation",
+                              "isPageHeading": true,
+                              "classes": "nhsuk-fieldset__legend--s"
+                            }
+                          },
+                          "items": [
+                            {
+                              "value": "infoGiven",
+                              "text": "I confirm that the information given in this form is true, complete and accurate"
+                            },
+                            {
+                              "value": "privacy",
+                              "html": 'I have read the <span class="privacy-link">privacy statement</span> and give consent for the use of my information in accordance with the terms'
+                            }
+                          ]
+                        }) }}
+
+                        <input type="submit" class="nhsuk-button" value="Submit my decision">
+                        </input>
+
+                      </form>
+
+
+    </div>
+  </div>
+{% endblock %}
