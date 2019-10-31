@@ -105,10 +105,35 @@
 
       </form>
 
+      {% if data['yourChoice'] == 'some' %}
+
       {{ button({
+        "href": "/" + PROTOTYPEURL + "/v1/which-organs",
         "text": "Back",
         "classes": "nhsuk-button--secondary"
       }) }}
+
+
+      {% elif data['yourChoice'] == 'all' %}
+
+
+            {{ button({
+              "href": "/" + PROTOTYPEURL + "/v1/your-choice",
+              "text": "Back",
+              "classes": "nhsuk-button--secondary"
+            }) }}
+
+            {% else %}
+
+
+                        {{ button({
+                          "href": "/" + PROTOTYPEURL + "/v1/your-choice",
+                          "text": "Back",
+                          "classes": "nhsuk-button--secondary"
+                        }) }}
+
+
+      {% endif %}
 
     </div>
   </div>

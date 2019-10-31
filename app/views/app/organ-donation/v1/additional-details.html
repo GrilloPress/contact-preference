@@ -233,12 +233,40 @@
 
 </form>
 
-                        <div>
-                              {{ button({
-                                "text": "Back",
-                                "classes": "nhsuk-button--secondary"
-                              }) }}
-                        </div>
+
+
+{% if data['donationDecision'] == 'yes' %}
+
+          {{ button({
+            "href": "/" + PROTOTYPEURL + "/v1/faith-beliefs",
+            "text": "Back",
+            "classes": "nhsuk-button--secondary"
+          }) }}
+
+
+  {% elif data['donationDecision'] == 'no' %}
+
+  {{ button({
+    "href": "/" + PROTOTYPEURL + "/v1/register-decision",
+    "text": "Back",
+    "classes": "nhsuk-button--secondary"
+  }) }}
+
+  {% else %}
+
+  {{ button({
+    "href": "/" + PROTOTYPEURL + "/v1/register-decision",
+    "text": "Back",
+    "classes": "nhsuk-button--secondary"
+  }) }}
+
+  {% endif %}
+
+
+
+
+
+
     </div>
   </div>
 {% endblock %}
