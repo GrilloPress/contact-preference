@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/send-a-message/v3" %}
 {% set serviceName = "Send a message" %}
-{% set contentTitle = "Delete message" %}
+{% set contentTitle = "Are you sure you want to delete your message to " + data['from'] | placeholder("Woodrow GP Practice") + "?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -33,7 +33,8 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
-      <form>
+      <p>Your message will still be in your GP health record.</p>
+      <form action="delete-confirm">
         <input class="nhsuk-button" type="submit" value="Delete message">
       </form>
       <p class=""><a class="" href="javascript:window.history.back();">Cancel </a></p>
