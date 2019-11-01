@@ -1,4 +1,4 @@
-{% set PROTOTYPEURL = "app/send-a-message/v3" %}
+{% set PROTOTYPEURL = "app/send-a-message/v4" %}
 {% set serviceName = "Home" %}
 {% set sender = "Woodrow Practice" %}
 {% set messagingActive = "active" %}
@@ -46,8 +46,16 @@ $( document ).ready(function() {
         {{ data["from"] }}
       </h1>
 
+      <h2 class="nhsuk-heading-m">{{ data["subject"] or "My prescription" }}</h2>
       <div class="nhs-app-chat">
         <ul class="nhs-app-chat__thread">
+
+          {% set read = 'messageRead' + data['id'] %}
+          {% if data[read] !== "read"  %}
+            <div class="nhs-app-chat__read-indicator" id="unread">
+              <span class="nhs-app-chat__read-indicator-container">Unread message</span>
+            </div>
+          {% endif %}
 
           {% if data['id'] == "2" %}
           <li class="nhs-app-chat__item nhs-app-chat__item--reply">
@@ -56,7 +64,6 @@ $( document ).ready(function() {
 
             </div>
             <div class="nhs-app-chat__container nhs-app-chat__container--reply">
-              <h2 class="nhs-app-chat__header nhs-app-chat__header--reply">{{ data["subject"] or "Painkillers" }}</h2>
               <p class="nhs-app-chat__body nhs-app-chat__header--reply">
                 {{ data['body'] | nl2br | safe }}
               </p>
@@ -75,37 +82,6 @@ $( document ).ready(function() {
           </li>
 
           {% else %}
-          <li class="nhs-app-chat__item nhs-app-chat__item--reply">
-            <div class="nhs-app-chat__sender nhs-app-chat__sender--reply">
-              <span>You</span>
-
-            </div>
-            <div class="nhs-app-chat__container nhs-app-chat__container--reply">
-              <h2 class="nhs-app-chat__header nhs-app-chat__header--reply">Blood test</h2>
-              <p class="nhs-app-chat__body nhs-app-chat__header--reply">
-                I wasn't able to go to the phlebotomy clinic at the hospital last week. What should I do?
-              </p>
-
-            </div>
-            <div class="nhsuk-u-clear">
-            </div>
-            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
-              Sent 30 October 2019 at 9.40am
-            </div>
-            <div class="nhsuk-u-clear">
-            </div>
-            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
-              <a href="delete">Delete message</a>
-            </div>
-          </li>
-
-          {% set read = 'messageRead' + data['id'] %}
-          {% if data[read] !== "read"  %}
-            <div class="nhs-app-chat__read-indicator" id="unread">
-              <span class="nhs-app-chat__read-indicator-container">Unread message</span>
-            </div>
-          {% endif %}
-
           <li class="nhs-app-chat__item">
             <div class="nhs-app-chat__sender">
               {{ data["from"] }}

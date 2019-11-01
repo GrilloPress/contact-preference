@@ -1,4 +1,4 @@
-{% set PROTOTYPEURL = "app/send-a-message/v3" %}
+{% set PROTOTYPEURL = "app/send-a-message/v4" %}
 {% set serviceName = "Send a message" %}
 {% set contentTitle = "What is your message about?" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -29,10 +29,10 @@ $("textarea").focusout(function(){
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3/select-who">Messages</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v4">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v4/select-who">Messages</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/send-a-message/v3/select-who">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/send-a-message/v4/select-who">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -40,7 +40,7 @@ $("textarea").focusout(function(){
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <form class="" action="send-a-message-radio" method="post">
+      <form class="" action="" method="post">
 
         {{ radios({
           "idPrefix": "subject",
@@ -70,20 +70,16 @@ $("textarea").focusout(function(){
               "text": "A referral"
             }
             ,{
-              "value": "Non-medical request",
-              "text": "Non-medical request, like a sick note"
-            }
-            ,{
-              "value": "Non-medical question",
-              "text": "Non-medical question"
+              "value": "Non-medical request or question",
+              "text": "Non-medical question or request, like a sick note"
             },
             {
               "value": "Medical question",
               "text": "Medical question"
             }
             ,{
-              "value": "Feedback",
-              "text": "Feedback"
+              "value": "Other",
+              "text": "Something else"
             }
           ]
         }) }}
