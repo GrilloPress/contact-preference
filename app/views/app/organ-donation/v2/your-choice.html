@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/organ-donation" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "My organ donation decision" %}
+{% set contentTitle = "Do you want to donate some, or all, of your organs and tissue?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -24,7 +24,7 @@
       text: "Home"
     }
   ],
-  href: "/" + PROTOTYPEURL + "/v1/register-decision",
+  href: "/" + PROTOTYPEURL + "/v2/register-decision",
   text: "Organ Donation"
 }) }}
 {% endblock %}
@@ -33,21 +33,20 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/v1/your-choice" method="post">
+
+
+      <form action="/{{ PROTOTYPEURL }}/v2/your-choice" method="post">
         {{ radios({
           "idPrefix": "organ",
           "name": "yourChoice",
           "fieldset": {
             "legend": {
-              "text": "Your choice",
+              "html": '<h1 class="nhsuk-fieldset__heading"><span class="nhsuk-caption-l nhsuk-caption--top">Organ donation
+              </span>' + contentTitle + '</h1>',
               "isPageHeading": true,
-              "classes": "nhsuk-fieldset__legend--m"
+              "classes": "nhsuk-fieldset__legend--l"
             }
-          },
-          "hint": {
-            "text": "You can choose to donate some, or all, of your organs and tissue."
           },
           "items": [
             {
@@ -66,12 +65,6 @@
         </input>
 
       </form>
-
-      {{ button({
-        "href": "/" + PROTOTYPEURL + "/v1/register-decision",
-        "text": "Back",
-        "classes": "nhsuk-button--secondary"
-      }) }}
 
     </div>
   </div>

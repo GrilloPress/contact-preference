@@ -1,0 +1,50 @@
+{% set PROTOTYPEURL = "app/organ-donation" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Home" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+      <p class="nhsuk-body-l">Welcome, Bernard Doyle</p>
+      <div class="">
+        <p class="nhsuk-u-margin-bottom-0"><strong>Date of birth:</strong>20 Jan 1982</p>
+        <p><strong>NHS number: </strong>123 456 7890</p>
+      </div>
+
+      <ul class="list-menu">
+      	<li>
+      		<a href="javascript: redirectTo('SY01');">Check my symptoms</a>
+      	</li>
+      	<li>
+      		<a href="javascript: redirectTo('AB02');">Book and manage appointments</a>
+      	</li>
+      	<li>
+      		<a href="javascript: redirectTo('RP02');">Order a repeat prescription</a>
+      	</li>
+      	<li>
+      		<a href="javascript: redirectTo('PR02');">View my GP medical record</a>
+      	</li>
+        <li>
+      		<a href="/{{ PROTOTYPEURL }}/v2/donates-some">Manage organ donation decision</a>
+      	</li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}

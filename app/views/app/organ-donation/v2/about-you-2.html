@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/organ-donation" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "My organ donation decision" %}
+{% set contentTitle = "Check your details and submit your decision" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -137,7 +137,7 @@ or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] ==
       text: "Home"
     }
   ],
-  href: "/" + PROTOTYPEURL + "/v1/additional-details",
+  href: "/" + PROTOTYPEURL + "/v2/additional-details",
   text: "Organ Donation"
 }) }}
 {% endblock %}
@@ -145,7 +145,9 @@ or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] ==
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+      <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l nhsuk-caption--top">Organ donation
+</span>{{ contentTitle }}</h1>
+
       <h2 class="nhsuk-heading-m">About you</h2>
       <h3 class="nhsuk-heading-s">Personal details</h3>
 
@@ -246,7 +248,7 @@ or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] ==
 
 
 
-                        <h2 class="nhsuk-heading-m">Your decision</h2>
+                        <h2 class="nhsuk-heading-m">Submit your decision</h2>
 
                         {% if data['donationDecision'] == "no" %}
                         <div class="nhs-app-decision">
@@ -404,42 +406,20 @@ or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] ==
 
                         {% endif %}
 
-                        <form action="/{{ PROTOTYPEURL }}/v1/decision-recorded" method="post">
-                        {{ checkboxes({
-                          "idPrefix": "organ",
-                          "name": "confirm",
-                          "fieldset": {
-                            "legend": {
-                              "text": "Confirmation",
-                              "classes": "nhsuk-fieldset__legend--m",
-                              "isPageHeading": true
-                            }
-                          },
-                          "items": [
-                            {
-                              "value": "infoGiven",
-                              "text": "I confirm that the information given in this form is true, complete and accurate"
-                            },
-                            {
-                              "value": "privacy",
-                              "html": 'I have read the <a href="https://www.organdonation.nhs.uk/app/app-privacy/"><span class="privacy-link">privacy statement</span></a> and give consent for the use of my information in accordance with the terms'
-                            }
-                          ]
-                        }) }}
+                        <form action="/{{ PROTOTYPEURL }}/v2/decision-recorded" method="post">
 
+                          <p>By continuing you agree that:<p>
 
-                          <input type="submit" class="nhsuk-button" value="Submit my decision">
+                          <ul>
+                            <li>the information you have given in this form is true, complete and accurate</li>
+                            <li>you have read the <a href="https://www.organdonation.nhs.uk/app/app-privacy/">privacy statement</a> and give consent for the use of your information as set out in the privacy statement</li>
+                          </ul>
+
+                          <input type="submit" class="nhsuk-button" value="Agree and submit">
                           </input>
                         </form>
 
 
-                        <div>
-                              {{ button({
-                                "href": "/" + PROTOTYPEURL + "/v1/additional-details",
-                                "text": "Back",
-                                "classes": "nhsuk-button--secondary"
-                              }) }}
-                        </div>
     </div>
   </div>
 {% endblock %}

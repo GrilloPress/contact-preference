@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/organ-donation" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "My organ donation decision" %}
+{% set contentTitle = "Check your details and submit your decision" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -62,7 +62,7 @@
       text: "Home"
     }
   ],
-  href: "/" + PROTOTYPEURL + "/v1/decision-recorded",
+  href: "/" + PROTOTYPEURL + "/v2/decision-recorded",
   text: "Organ Donation"
 }) }}
 {% endblock %}
@@ -70,7 +70,9 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+      <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l nhsuk-caption--top">Organ donation
+</span>{{ contentTitle }}</h1>
+
       <h2 class="nhsuk-heading-m">About you</h2>
       <h3 class="nhsuk-heading-s">Personal details</h3>
 
@@ -162,7 +164,7 @@
 
 
 
-                        <form action="/{{ PROTOTYPEURL }}/v1/decision-withdrawn" method="post">
+                        <form action="/{{ PROTOTYPEURL }}/v2/decision-withdrawn" method="post">
 
                         {{ checkboxes({
                           "idPrefix": "organ",
@@ -192,12 +194,6 @@
                       </form>
 
 
-
-                              {{ button({
-                                "href": "/" + PROTOTYPEURL + "/v1/decision-recorded",
-                                "text": "Back",
-                                "classes": "nhsuk-button--secondary"
-                              }) }}
     </div>
   </div>
 {% endblock %}

@@ -77,12 +77,13 @@
 
       <ul class="list-menu">
       	<li>
-      		<a href="javascript: redirectTo('AB02');">Find out more about organ donation</a>
+      		<a href="https://www.organdonation.nhs.uk/app/app-donation">Find out more about organ donation</a>
       	</li>
       </ul>
 
       <div>
             {{ button({
+              "href": "/" + PROTOTYPEURL + "/v1/decision-recorded",
               "text": "Back",
               "classes": "nhsuk-button--secondary"
             }) }}

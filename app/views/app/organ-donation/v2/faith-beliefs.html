@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/organ-donation" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "My organ donation decision" %}
+{% set contentTitle = "Your faith and beliefs" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -28,7 +28,7 @@
       text: "Home"
     }
   ],
-  href: "/" + PROTOTYPEURL + "/v1/which-organs",
+  href: "/" + PROTOTYPEURL + "/v2/which-organs",
   text: "Organ Donation"
 }) }}
 {% endif %}
@@ -42,7 +42,7 @@
       text: "Home"
     }
   ],
-  href: "/" + PROTOTYPEURL + "/v1/your-choice",
+  href: "/" + PROTOTYPEURL + "/v2/your-choice",
   text: "Organ Donation"
 }) }}
 {% endif %}
@@ -52,9 +52,9 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+      <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l nhsuk-caption--top">Organ donation
+</span>{{ contentTitle }}</h1>
 
-      <h2 class="nhsuk-heading-m">Faith / beliefs</h2>
 
       <p>When you die, NHS staff can ask your family (and anyone else appropriate) about your faith and beliefs.
          This is how NHS staff will find out about any end of life wishes you might have.</p>
@@ -72,7 +72,7 @@
          }) }}
       <p>Record here whether you want our specialist nurses to discuss your faith or beliefs with your family when you die, at the same time they approach them about organ donation.</p>
 
-      <form action="/{{ PROTOTYPEURL }}/v1/additional-details" method="post">
+      <form action="/{{ PROTOTYPEURL }}/v2/additional-details" method="post">
         {{ radios({
           "idPrefix": "gov",
           "name": "faithBeliefs",
@@ -80,7 +80,7 @@
             "legend": {
               "text": "I would like NHS staff to speak to my family and anyone else appropriate about how organ donation can go ahead in line with my faith or beliefs.",
               "isPageHeading": true,
-              "classes": "nhsuk-fieldset__legend--s"
+              "classes": "nhsuk-fieldset__legend--m"
             }
           },
           "items": [
@@ -104,34 +104,6 @@
 
       </form>
 
-      {% if data['yourChoice'] == 'some' %}
-
-      {{ button({
-        "href": "/" + PROTOTYPEURL + "/v1/which-organs",
-        "text": "Back",
-        "classes": "nhsuk-button--secondary"
-      }) }}
-
-
-      {% elif data['yourChoice'] == 'all' %}
-
-
-            {{ button({
-              "href": "/" + PROTOTYPEURL + "/v1/your-choice",
-              "text": "Back",
-              "classes": "nhsuk-button--secondary"
-            }) }}
-
-            {% else %}
-
-
-                        {{ button({
-                          "href": "/" + PROTOTYPEURL + "/v1/your-choice",
-                          "text": "Back",
-                          "classes": "nhsuk-button--secondary"
-                        }) }}
-
-      {% endif %}
 
     </div>
   </div>

@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/organ-donation" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "My organ donation decision" %}
+{% set contentTitle = "Your additional details" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -30,7 +30,7 @@
       text: "Home"
     }
   ],
-  href: "/" + PROTOTYPEURL + "/v1/faith-beliefs",
+  href: "/" + PROTOTYPEURL + "/v2/faith-beliefs",
   text: "Organ Donation"
 }) }}
 {% endif %}
@@ -44,7 +44,7 @@
       text: "Home"
     }
   ],
-  href: "/" + PROTOTYPEURL + "/v1/register-decision",
+  href: "/" + PROTOTYPEURL + "/v2/register-decision",
   text: "Organ Donation"
 }) }}
 {% endif %}
@@ -56,13 +56,13 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+      <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l nhsuk-caption--top">Organ donation
+</span>{{ contentTitle }}</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/v1/about-you" method="post">
+      <form action="/{{ PROTOTYPEURL }}/v2/about-you" method="post">
 
   {% call fieldset({
     "legend": {
-      "text": "Additional details",
       "classes": "nhsuk-fieldset__legend--m",
       "isPageHeading": false
     }
@@ -232,38 +232,6 @@
   </input>
 
 </form>
-
-
-
-{% if data['donationDecision'] == 'yes' %}
-
-          {{ button({
-            "href": "/" + PROTOTYPEURL + "/v1/faith-beliefs",
-            "text": "Back",
-            "classes": "nhsuk-button--secondary"
-          }) }}
-
-
-  {% elif data['donationDecision'] == 'no' %}
-
-  {{ button({
-    "href": "/" + PROTOTYPEURL + "/v1/register-decision",
-    "text": "Back",
-    "classes": "nhsuk-button--secondary"
-  }) }}
-
-  {% else %}
-
-  {{ button({
-    "href": "/" + PROTOTYPEURL + "/v1/register-decision",
-    "text": "Back",
-    "classes": "nhsuk-button--secondary"
-  }) }}
-
-  {% endif %}
-
-
-
 
 
 

@@ -1,14 +1,9 @@
 {% set PROTOTYPEURL = "app/organ-donation" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "My organ donation decision" %}
+{% set contentTitle = "You can choose which organs and tissue you would like to donate" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
-
-
-
-
-
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -29,7 +24,7 @@
       text: "Home"
     }
   ],
-  href: "/" + PROTOTYPEURL + "/v1/your-choice",
+  href: "/" + PROTOTYPEURL + "/v2/your-choice",
   text: "Organ Donation"
 }) }}
 {% endblock %}
@@ -37,30 +32,24 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
 
-      <h2 class="nhsuk-heading-m">Your choice</h2>
-
-
-      {{ actionLink({
-        "text": "Find out more about organs and tissues",
-        "href": "/" + PROTOTYPEURL + "/v1/about-organs"
-      }) }}
+      <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l nhsuk-caption--top">Organ donation
+</span>{{ contentTitle }}</h1>
 
 
-    <hr>
+<p>You can <a href="/{{ PROTOTYPEURL }}/v2/about-organs">find out more about organs and tissue</a> before you decide.</p>
 
-
-    <form action="/{{ PROTOTYPEURL }}/v1/faith-beliefs" method="post">
+    <form action="/{{ PROTOTYPEURL }}/v2/faith-beliefs" method="post">
 
 {% call fieldset({
   "legend": {
-    "text": "Please select which organs and tissue you would like to donate:",
-    "classes": "nhsuk-fieldset__legend--s",
+    "text": "Which organs and tissue would you like to donate?",
+    "classes": "nhsuk-fieldset__legend--m",
     "name": "organsToDonate",
     "isPageHeading": false
   }
 }) %}
+
 
 
         {{ radios({
@@ -252,14 +241,6 @@
 
 </form>
 
-
-<div>
-      {{ button({
-        "href": "/" + PROTOTYPEURL + "/v1/your-choice",
-        "text": "Back",
-        "classes": "nhsuk-button--secondary"
-      }) }}
-</div>
 
     </div>
   </div>
