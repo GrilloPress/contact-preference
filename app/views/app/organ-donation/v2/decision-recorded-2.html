@@ -1,0 +1,260 @@
+{% set PROTOTYPEURL = "app/organ-donation" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "We have recorded your organ donation decision" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+{% set decisionDetails %}
+  {% if data['yourChoice'] == 'all' %}
+    I want to donate all my organs and tissue.
+  {% else %}
+    I want to donate some organs and tissue.
+  {% endif %}
+{% endset %}
+
+{% if (data['heart'] == "yes") or (data['lungs'] == "yes") or (data['kidney'] == "yes") or (data['liver'] == "yes")
+or (data['corneas'] == "yes") or (data['pancreas'] == "yes") or (data['tissue'] == "yes") or (data['smallBowel'] == "yes") %}
+  {% set organDonationChooseAnyYes = true %}
+{% endif %}
+
+
+{% if (data['heart'] == "no") or (data['lungs'] == "no") or (data['kidney'] == "no") or (data['liver'] == "no")
+or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] == "no") or (data['smallBowel'] == "no") %}
+  {% set organDonationChooseAnyNos = true %}
+{% endif %}
+
+
+
+{% set faithDecision %}
+{% if data['faithBeliefs'] == 'yes' %}
+  I would like NHS staff to speak to my family and anyone else appropriate about how organ donation can go ahead in line with my faith / beliefs.
+{% elif data['faithBeliefs'] == 'no' %}
+  When I die, I do not want NHS staff to speak with my family (and anyone else appropriate) about how organ donation can go ahead in line with my faith and beliefs.
+{% elif data['faithBeliefs'] == 'prefer' %}
+  I prefer not to say whether I want NHS staff to speak with my family (and anyone else appropriate) about how organ donation can go ahead in line with my faith and beliefs.
+{% endif %}
+{% endset %}
+
+
+
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/v2/home",
+  text: "More"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l nhsuk-caption--top">Organ donation
+</span>{{ contentTitle }}</h1>
+
+
+      <h2 class="nhsuk-heading-m">Your decision</h2>
+
+      {% if data['donationDecision'] == "no" %}
+      <div class="nhs-app-decision">
+        <div class="nhs-app-decision__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" id="do-not-register-icon-red" data-name="Layer 1" viewBox="-20 -20 162.6 162.6" width="50" height="50" x="5683">
+            <defs>
+              <style>.cwcls-1{fill:#d81e05}</style>
+            </defs>
+            <title>do-not-register-icon-red</title>
+            <g id="cwSymbol_20_1" data-name="Symbol 20 1">
+              <g id="cwGroup_3788" data-name="Group 3788">
+                <path id="cwPath_450" data-name="Path 450" class="cwcls-1" d="M86.72 25.71l10.17 10.17L71.47 61.3 61.3 71.47 35.88 96.89 25.71 86.72 51.13 61.3 61.3 51.13z"/></g><g id="cwGroup_3789" data-name="Group 3789">
+                <path id="cwPath_451" data-name="Path 451" class="cwcls-1" d="M61.3 4.8A56.51 56.51 0 1 1 4.8 61.31 56.54 56.54 0 0 1 61.3 4.8m0-4.8a61.3 61.3 0 1 0 61.3 61.3A61.29 61.29 0 0 0 61.32 0z"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="nhs-app-decision__text nhs-app-decision__text--no">
+          <h3>No, I do not want to donate my organs</h3>
+        </div>
+      </div>
+
+      {% else %}
+      <div class="nhs-app-decision">
+        <div class="nhs-app-decision__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" id="register-icon-green" data-name="Layer 1" viewBox="-20 -20 162.8 162.8" width="50" height="50" x="14118">
+            <defs>
+              <style>.hfcls-1{fill:#006b54}</style>
+            </defs>
+            <title>register-icon-green</title>
+            <g id="hfGroup_3786" data-name="Group 3786">
+              <path id="hfPath_448" data-name="Path 448" class="hfcls-1" d="M101.26 42.49L47.34 96.31 27 76l-3.93-4 10.17-10.13L47.34 76l43.75-43.77z" transform="translate(-.33 -.18)"/>
+              <g id="hfGroup_3785" data-name="Group 3785">
+                <path id="hfPath_449" data-name="Path 449" class="hfcls-1" d="M61.73 5a56.6 56.6 0 1 1-56.6 56.6A56.6 56.6 0 0 1 61.73 5m0-4.8a61.4 61.4 0 1 0 61.4 61.4A61.46 61.46 0 0 0 61.73.18z" transform="translate(-.33 -.18)"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="nhs-app-decision__text nhs-app-decision__text--yes">
+          <h3>Yes I want to donate my organs</h3>
+        </div>
+      </div>
+
+      {% endif %}
+
+      {% if data['donationDecision'] == "yes" %}
+
+      <h3 class="nhsuk-heading-s">Decision details</h3>
+
+      <p>{{ decisionDetails }}</p>
+
+      {% endif %}
+
+      {% if data["yourChoice"] == "some" %}
+
+        {% if organDonationChooseAnyYes %}
+        <h4 class="nhsuk-heading-xs">You have chosen to donate:</h4>
+          <ul style="list-style-type:none;">
+            {% if data['heart'] == 'yes' %}
+            <li>Heart</li>
+            {% endif %}
+
+            {% if data['lungs'] == 'yes' %}
+              <li>Lungs</li>
+            {% endif %}
+
+            {% if data['kidney'] == 'yes' %}
+              <li>Kidney</li>
+            {% endif %}
+
+            {% if data['liver'] == 'yes' %}
+              <li>Liver</li>
+            {% endif %}
+
+            {% if data['corneas'] == 'yes' %}
+              <li>Corneas</li>
+            {% endif %}
+
+            {% if data['pancreas'] == 'yes' %}
+              <li>Pancreas</li>
+            {% endif %}
+
+            {% if data['tissue'] == 'yes' %}
+              <li>Tissue</li>
+            {% endif %}
+
+            {% if data['smallBowel'] == 'yes' %}
+              <li>Small bowel</li>
+            {% endif %}
+          </ul>
+          {% endif %}
+
+        {% if organDonationChooseAnyNos %}
+        <h4 class="nhsuk-heading-xs">You have chosen not to donate:</h4>
+        <ul style="list-style-type:none;">
+          {% if data['heart'] == 'no' %}
+          <li>Heart</li>
+          {% endif %}
+
+          {% if data['lungs'] == 'no' %}
+            <li>Lungs</li>
+          {% endif %}
+
+          {% if data['kidney'] == 'no' %}
+            <li>Kidney</li>
+          {% endif %}
+
+          {% if data['liver'] == 'no' %}
+            <li>Liver</li>
+          {% endif %}
+
+          {% if data['corneas'] == 'no' %}
+            <li>Corneas</li>
+          {% endif %}
+
+          {% if data['pancreas'] == 'no' %}
+            <li>Pancreas</li>
+          {% endif %}
+
+          {% if data['tissue'] == 'no' %}
+            <li>Tissue</li>
+          {% endif %}
+
+          {% if data['smallBowel'] == 'no' %}
+            <li>Small bowel</li>
+          {% endif %}
+        </ul>
+        {% endif %}
+
+      {% endif %}
+
+
+
+
+      <hr>
+
+      <p>{{ faithDecision }}</p>
+
+
+      <h3 class="nhsuk-heading-s">Is this still your decision?</h3>
+
+      <p>Keeping your registration up to date will help your family, should organ donation be possible.</p>
+
+      <p><a href="/{{ PROTOTYPEURL }}/v2/change-decision">I want to change my decision</a></p>
+
+
+      <h2 class="nhsuk-heading-m">Next steps</h2>
+
+      <ul class="list-menu">
+        <li>
+          <a href="https://www.organdonation.nhs.uk/tell-your-family-and-friends/" id="btn_organdonation">
+      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Tell your family and friends</h2>
+      			<p>Use our message templates and conversation guides to tell your family and friends you are a donor.</p>
+      		</a>
+      	</li>
+        {% if data['donationDecision'] == "yes" %}
+        <li>
+      		<a href="https://www.organdonation.nhs.uk/app/app-share/" id="btn_organdonation">
+      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Share that you are a donor</h2>
+      			<p>Help promote organ donation on social media by telling people you are a donor.</p>
+      		</a>
+      	</li>
+        {% endif %}
+      </ul>
+
+
+      <h2 class="nhsuk-heading-m">Other things you can do</h2>
+
+      <ul class="list-menu">
+        <li>
+      		<a href="/app/organ-donation/v2/withdraw-decision" id="btn_organdonation">
+      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Withdraw my decision</h2>
+      			<p>Remove an existing registration from the Organ Donor Register. There will be no recorded decision for you about organ donation.</p>
+      		</a>
+      	</li>
+        <li>
+      		<a href="https://www.blood.co.uk/" id="btn_organdonation">
+      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Register to be a blood donor</h2>
+      			<p>You could save lives by giving blood. It's simple. You can find your local centre and book an apointment via the app.</p>
+      		</a>
+      	</li>
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}
