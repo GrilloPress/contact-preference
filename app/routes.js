@@ -607,5 +607,17 @@ router.post('/app/organ-donation/v1/your-choice', function (req, res) {
   }
 });
 
+router.post('/app/organ-donation/v2/your-choice', function (req, res) {
+  let answer = req.body.yourChoice;
+
+  if (answer === 'all') {
+
+    res.redirect('/app/organ-donation/v2/faith-beliefs')
+
+  } else {
+    res.redirect('/app/organ-donation/v2/which-organs')
+  }
+});
+
 
 module.exports = router;

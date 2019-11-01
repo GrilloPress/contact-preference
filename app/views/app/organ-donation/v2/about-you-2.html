@@ -248,7 +248,7 @@ or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] ==
 
 
 
-                        <h2 class="nhsuk-heading-m">Your decision</h2>
+                        <h2 class="nhsuk-heading-m">Submit your decision</h2>
 
                         {% if data['donationDecision'] == "no" %}
                         <div class="nhs-app-decision">
@@ -407,30 +407,15 @@ or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] ==
                         {% endif %}
 
                         <form action="/{{ PROTOTYPEURL }}/v2/decision-recorded" method="post">
-                        {{ checkboxes({
-                          "idPrefix": "organ",
-                          "name": "confirm",
-                          "fieldset": {
-                            "legend": {
-                              "text": "Confirmation",
-                              "classes": "nhsuk-fieldset__legend--m",
-                              "isPageHeading": true
-                            }
-                          },
-                          "items": [
-                            {
-                              "value": "infoGiven",
-                              "text": "I confirm that the information given in this form is true, complete and accurate"
-                            },
-                            {
-                              "value": "privacy",
-                              "html": 'I have read the <a href="https://www.organdonation.nhs.uk/app/app-privacy/"><span class="privacy-link">privacy statement</span></a> and give consent for the use of my information in accordance with the terms'
-                            }
-                          ]
-                        }) }}
 
+                          <p>By continuing you agree that:<p>
 
-                          <input type="submit" class="nhsuk-button" value="Submit my decision">
+                          <ul>
+                            <li>the information you have given in this form is true, complete and accurate</li>
+                            <li>you have read the privacy statement and give consent for the use of your information as set out in the privacy statement</li>
+                          </ul>
+
+                          <input type="submit" class="nhsuk-button" value="Agree and submit">
                           </input>
                         </form>
 
