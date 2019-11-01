@@ -248,7 +248,7 @@ or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] ==
 
 
 
-                        <h2 class="nhsuk-heading-m">Submit your decision</h2>
+                        <h2 class="nhsuk-heading-m">Your decision</h2>
 
                         {% if data['donationDecision'] == "no" %}
                         <div class="nhs-app-decision">
@@ -406,7 +406,12 @@ or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] ==
 
                         {% endif %}
 
+                        <h2 class="nhsuk-heading-m">Submit your decision</h2>
+
+
                         <form action="/{{ PROTOTYPEURL }}/v2/decision-recorded" method="post">
+
+
 
                           <p>By continuing you agree that:<p>
 

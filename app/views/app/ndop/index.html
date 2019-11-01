@@ -1,0 +1,71 @@
+{% set PROTOTYPEURL = "app/ndop" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "NDOP prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+
+
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+          <p>The content for DSO1, DS02, DS03 and DS04 is maintained in the app's codebase.</p>
+          <p>The service content (shown after selecting the "Start now" button on DS04) is maintained by the NDOP team.</p>
+      </div>
+
+
+      <h2>Current prototypes</h2>
+
+      <h3>v2</h3>
+
+
+
+      <h3>v1 - in live</h3>
+
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/home">Home</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/more">More</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/overview">Overview (DS01)</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/where-used">Where used (DS02)</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/where-used">Where your choice does not apply (DS03)</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/where-used">Make your choice (DS04)</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}
