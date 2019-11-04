@@ -1,0 +1,120 @@
+{% set PROTOTYPEURL = "app/organ-donation" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Withdraw your decision" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/v2/withdraw-decision",
+  text: "Organ Donation"
+}) }}
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l nhsuk-caption--top">Organ donation
+</span>{{ contentTitle }}</h1>
+
+
+      <p>Withdrawing your decision means there will be no recorded decision for you, and without this your family will be asked to decide for you, when you die.</p>
+
+      <p>If you are certain you do not want to donate your organs or tissue, you need to register a ‘no’ decision.</p>
+
+      <p>Whatever you decide, please make sure your family know your decision.</p>
+
+      <form action="/{{ PROTOTYPEURL }}/v1/decision-withdrawn" method="post">
+
+  {% call fieldset({
+    "legend": {
+      "text": "Reason for withdrawing",
+      "classes": "nhsuk-fieldset__legend--s",
+      "isPageHeading": false
+    }
+  }) %}
+
+
+  {{ select({
+    "id": "selectReason",
+    "name": "selectReason",
+    "classes": "nhs-app-select",
+    "label": {
+    },
+    "items": [
+      {
+        "value": "",
+        "text": "Select reason",
+        "selected": true,
+        "disabled": true
+      },
+      {
+        "value": "other",
+        "text": "Other"
+      },
+      {
+        "value": "leavingUK",
+        "text": "Leaving the UK"
+      },
+      {
+        "value": "religiousGrounds",
+        "text": "Religious grounds"
+      },
+      {
+        "value": "error",
+        "text": "I registered in error"
+      },
+      {
+        "value": "changedMind",
+        "text": "I've changed my mind"
+      },
+      {
+        "value": "familyDisagree",
+        "text": "My family do not agree"
+      }
+    ]
+  }) }}
+
+
+
+  {% endcall %}
+
+  <input type="submit" class="nhsuk-button" value="Continue">
+  </input>
+
+</form>
+
+
+
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
