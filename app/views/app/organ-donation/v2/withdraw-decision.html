@@ -164,33 +164,22 @@
 
 
 
-                        <form action="/{{ PROTOTYPEURL }}/v2/decision-withdrawn-2" method="post">
+                      <h2 class="nhsuk-heading-m">Submit your decision</h2>
 
-                        {{ checkboxes({
-                          "idPrefix": "organ",
-                          "name": "confirm",
-                          "fieldset": {
-                            "legend": {
-                              "text": "Confirmation",
-                              "isPageHeading": true,
-                              "classes": "nhsuk-fieldset__legend--s"
-                            }
-                          },
-                          "items": [
-                            {
-                              "value": "infoGiven",
-                              "text": "I confirm that the information given in this form is true, complete and accurate"
-                            },
-                            {
-                              "value": "privacy",
-                              "html": 'I have read the <span class="privacy-link">privacy statement</span> and give consent for the use of my information in accordance with the terms'
-                            }
-                          ]
-                        }) }}
 
-                        <input type="submit" class="nhsuk-button" value="Submit my decision">
+                      <form action="/{{ PROTOTYPEURL }}/v2/decision-withdrawn-2" method="post">
+
+
+
+                        <p>By continuing you agree that:<p>
+
+                        <ul>
+                          <li>the information you have given in this form is true, complete and accurate</li>
+                          <li>you have read the <a href="https://www.organdonation.nhs.uk/app/app-privacy/">privacy statement</a> and give consent for the use of your information as set out in the privacy statement</li>
+                        </ul>
+
+                        <input type="submit" class="nhsuk-button" value="Agree and submit">
                         </input>
-
                       </form>
 
 

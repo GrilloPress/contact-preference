@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/organ-donation" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "My organ donation decision" %}
+{% set contentTitle = "Your decision" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -34,13 +34,9 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+      <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l nhsuk-caption--top">Organ donation
+</span>{{ contentTitle }}</h1>
 
-
-
-
-
-                        <h2 class="nhsuk-heading-m">Your decision</h2>
 
                         <div class="nhs-app-decision">
                           <div class="nhs-app-decision__icon">
