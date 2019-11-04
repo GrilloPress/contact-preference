@@ -1,0 +1,116 @@
+{% set PROTOTYPEURL = "app/ndop" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Find out why your data matters" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/v1/more",
+  text: "More"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+
+      <h2 class="nhsuk-heading-m">Choose if data from your health records is shared for research and planning</h2>
+
+
+      <ul class="list-menu">
+      	<li>
+      		<a href="">Overview</a>
+      	</li>
+      	<li>
+      		<a href="">Where confidential patient information is used</a>
+      	</li>
+        <li>
+          <a href="">Where your choice does not apply</a>
+        </li>
+        <li>
+          <a href="">Make your choice</a>
+        </li>
+      </ul>
+
+
+      <h2 class="nhsuk-heading-m">Where confidential patient information is used</h2>
+
+
+      <p>The NHS collects confidential patient information from all NHS organisations, trusts and local authorities. Confidential patient information is also collected from private organisations, such as private hospitals providing NHS funded care. Research bodies and organisations can request access to this information.</p>
+
+      <p>Research bodies and organisations include:</p>
+
+      <ul>
+      <li>university researchers</li>
+      <li>hospital researchers</li>
+      <li>medical royal colleges</li>
+      <li>pharmaceutical companies researching new treatments</li>
+      </ul>
+
+      <h2 class="nhsuk-heading-m">Who cannot use confidential patient information</h2>
+
+      <p>Access to confidential patient information will <strong>not</strong> be given for:</p>
+
+      <ul>
+      <li>marketing purposes</li>
+      <li>insurance purposes</li>
+      </ul>
+
+      <p>(unless you specifically request this)</p>
+
+      <h2 class="nhsuk-heading-m">How confidential patient information is protected</h2>
+
+      <p>Protection of your confidential patient information is taken very seriously and it is looked after in accordance with good practice and the law. There are very strict rules on how any of your data can and cannot be used, and you have clear legal rights.</p>
+
+      <p>Every organisation that provides health and care services must take every step to:</p>
+
+      <ul>
+      <li>ensure all data remains secure</li>
+      <li>use data that does not identify you whenever possible</li>
+      <li>use confidential patient information to benefit health and care only</li>
+      <li>not use confidential patient information for marketing or insurance purposes (unless you specifically request this)</li>
+      <li>make it clear why and how data is being used</li>
+      <li>respect your decision if you decide to opt out</li>
+      <li>only use information about you where allowed by the law</li>
+      </ul>
+
+      <p>All NHS organisations must provide information on the type of data they collect and how it is used. Data release registers are published by NHS Digital and Public Health England, showing records of the data they have shared with other organisations.</p>
+
+
+            <div>
+            {{ button({
+              "text": "Next"
+            }) }}
+          </div>
+
+            <div>
+            {{ button({
+              "text": "Previous",
+              "classes": "nhsuk-button--secondary"
+            }) }}
+          </div>
+
+
+    </div>
+  </div>
+{% endblock %}

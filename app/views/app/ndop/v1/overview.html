@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/ndop" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Choose if data from your health records is shared for research and planning" %}
+{% set contentTitle = "Find out why your data matters" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -34,6 +34,8 @@
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
 
+      <h2 class="nhsuk-heading-m">Choose if data from your health records is shared for research and planning</h2>
+
 
       <ul class="list-menu">
       	<li>
@@ -50,7 +52,7 @@
         </li>
       </ul>
 
-      <h2>Overview</h2>
+      <h2 class="nhsuk-heading-m">Overview</h2>
 
       <p>Your health records contain confidential patient information, which can be used to help with research and planning. If you would like this to stop, you can opt out of this. Your choice will only apply to the health and care system in England. This does not apply to health or care services accessed in Scotland, Wales or Northern Ireland.</p>
 
@@ -62,7 +64,7 @@
             </div>
 
 
-        <h2>What confidential patient information is</h2>
+        <h2 class="nhsuk-heading-m">What confidential patient information is</h2>
 
         <p>Two types of information join together to become confidential patient information. This is information that:
 
@@ -73,13 +75,13 @@
 
             <p>One example can include your name and address (identifies you) along with what medicine you take (health care or treatment). Identifiable information on its own is used by health and care services to contact patients and this is not confidential patient information.</p>
 
-            <h2>How we use your confidential patient information</h2>
+            <h2 class="nhsuk-heading-m">How we use your confidential patient information</h2>
 
-            <h3>Your individual care</h3>
+            <h3 class="nhsuk-heading-s">Your individual care</h3>
 
             <p>Health and care staff may use your confidential patient information to help with your treatment and care. For example, when you visit your GP, they may look at your records for important information about your health.</p>
 
-            <h3>Research and planning</h3>
+            <h3 class="nhsuk-heading-s">Research and planning</h3>
 
             <p>Confidential patient information is also used to:</p>
 
@@ -88,13 +90,18 @@
               <li>research and develop cures for serious illnesses</li>
             </ul>
 
-            <h2>Where you have a choice</h2>
+            <h2 class="nhsuk-heading-m">Where you have a choice</h2>
 
             <p>You can stop your confidential patient information being used for research and planning. Your confidential patient information will still be used for your individual care. Any choice you make will not change this.</p>
 
-            <h2>More options</h2>
+            <h2 class="nhsuk-heading-m">More options</h2>
 
             <p><a href="https://www.nhs.uk/your-nhs-data-matters/">Visit the NHS.UK website</a> for more information or to read our privacy notice. You can also find out how to manage a choice on behalf of another person. For example, if you are a parent or guardian of a child under the age of 13.</p>
+
+
+            {{ button({
+              "text": "Next"
+            }) }}
 
 
     </div>

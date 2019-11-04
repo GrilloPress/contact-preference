@@ -1,0 +1,104 @@
+{% set PROTOTYPEURL = "app/ndop" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Find out why your data matters" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/v1/more",
+  text: "More"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+
+      <h2 class="nhsuk-heading-m">Choose if data from your health records is shared for research and planning</h2>
+
+
+      <ul class="list-menu">
+      	<li>
+      		<a href="">Overview</a>
+      	</li>
+      	<li>
+      		<a href="">Where confidential patient information is used</a>
+      	</li>
+        <li>
+          <a href="">Where your choice does not apply</a>
+        </li>
+        <li>
+          <a href="">Make your choice</a>
+        </li>
+      </ul>
+
+
+      <h2 class="nhsuk-heading-m">Where your choice does not apply</h2>
+
+
+      <p>If you choose not to allow your confidential patient information to be used for research and planning, your data may still be used in some situations.</p>
+
+
+      <h2 class="nhsuk-heading-m">When required by law</h2>
+
+      <p>Your confidential patient information may still be used when there is a legal requirement to provide it, such as a court order.</p>
+
+
+      <h2 class="nhsuk-heading-m">When you have given consent</h2>
+
+      <p>	Your confidential patient information may still be used when you have given your consent. Such as, for a medical research study.</p>
+
+      <h2 class="nhsuk-heading-m">Where there is overriding public interest</h2>
+
+      <p>Your confidential patient information may still be used in an emergency or in situations where there is an overriding benefit to others. For example, to help manage contagious diseases and stop them spreading, like meningitis. In these situations, the safety of others is most important.</p>
+
+      <h2 class="nhsuk-heading-m">When information that can identify you is removed</h2>
+
+      <p>Information about your health care or treatment may still be used in research and planning if the information that can identify you is removed first.</p>
+
+
+      <h2 class="nhsuk-heading-m">Where there is a specific exclusion</h2>
+
+      <p>Your choice does not apply to a small number of specific exclusions. In these cases, your confidential patient information may still be used at any time. For example, when information is used to collect official national statistics, like the Population Census.</p>
+
+
+
+
+            <div>
+            {{ button({
+              "text": "Next",
+              "classes": "nhsuk-button--blue"
+            }) }}
+          </div>
+
+            <div>
+            {{ button({
+              "text": "Previous",
+              "classes": "nhsuk-button--secondary"
+            }) }}
+          </div>
+
+
+    </div>
+  </div>
+{% endblock %}
