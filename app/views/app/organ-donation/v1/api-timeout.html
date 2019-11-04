@@ -1,0 +1,85 @@
+{% set PROTOTYPEURL = "app/organ-donation" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Decision being processed" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+{% set faith %}
+  {% if data['faithBeliefs'] == 'yes' %}
+    Yes - this is applicable to me
+  {% elif data['faithBeliefs'] == 'no' %}
+    No - this is not applicable to me
+  {% else %}
+    Prefer not to say
+  {% endif %}
+{% endset %}
+
+{% set decisionDetails %}
+  {% if data['yourChoice'] == 'all' %}
+    I want to donate all my organs and tissue.
+  {% else %}
+    I want to donate some organs and tissue.
+  {% endif %}
+{% endset %}
+
+
+
+{% set heartDonate %}
+  {% if data['heart'] == 'yes' %}
+    Heart
+  {% else %}
+  {% endif %}
+{% endset %}
+
+
+{% set heartNotDonate %}
+  {% if data['heart'] == 'no' %}
+    Heart
+  {% else %}
+  {% endif %}
+{% endset %}
+
+
+
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "#",
+  text: "More"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+
+      <div class="nhs-app-error-panel">
+        <h3 class="nhsuk-panel-with-label__label">{{ contentTitle }}</h3>
+          <p>Check back later to confirm that your decision has been registered.</p>
+      </div>
+
+
+
+    </div>
+  </div>
+{% endblock %}
