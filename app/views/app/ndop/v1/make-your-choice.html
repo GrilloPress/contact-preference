@@ -39,16 +39,16 @@
 
       <ul class="list-menu">
       	<li>
-      		<a href="">Overview</a>
+      		<a href="/{{ PROTOTYPEURL }}/v1/overview">Overview</a>
       	</li>
       	<li>
-      		<a href="">Where confidential patient information is used</a>
+      		<a href="/{{ PROTOTYPEURL }}/v1/where-used">Where confidential patient information is used</a>
       	</li>
         <li>
-          <a href="">Where your choice does not apply</a>
+          <a href="/{{ PROTOTYPEURL }}/v1/does-not-apply">Where your choice does not apply</a>
         </li>
         <li>
-          <a href="">Make your choice</a>
+          <a href="/{{ PROTOTYPEURL }}/v1/make-your-choice">Make your choice</a>
         </li>
       </ul>
 
@@ -79,6 +79,7 @@
 
             <div>
             {{ button({
+              "href": "/" + PROTOTYPEURL + "/v1/does-not-apply",
               "text": "Previous",
               "classes": "nhsuk-button--secondary"
             }) }}
