@@ -1,0 +1,95 @@
+{% set PROTOTYPEURL = "app/nominated-pharmacy" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Nominated pharmacy prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+      <h2>Current prototypes</h2>
+
+      <h3>v1</h3>
+
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/your-prescriptions">Your prescriptions</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/your-nominated-pharmacy">Your nominated pharmacy</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/change">Interruption card</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/type-of-pharmacy">Choose a type of pharmacy</a>
+        </li>
+      </ul>
+
+      <h4>User chooses online pharmacy</h4>
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/name-of-pharmacy">Do you know the name of pharmacy</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/name-of-pharmacy">What is the name of the pharmacy?</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/partial match">Partial match</a>
+        </li>
+      </ul>
+
+      <h4>User chooses community pharmacy</h4>
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/find-community-pharmacy">Find a community pharmacy</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/community-results">Find a community pharmacy</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/pharmacy-1">Pharmacy page</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/confirmed">Confirmed - user has changed their nominated pharmacy</a>
+        </li>
+      </ul>
+
+      <h3>Search results exploration</h3>
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/choose-az">A-Z list</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/online-results">Randomized list</a>
+        </li>
+      </ul>
+
+
+    </div>
+  </div>
+{% endblock %}
