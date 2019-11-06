@@ -1,0 +1,143 @@
+{% set PROTOTYPEURL = "app/nominated-pharmacy" %}
+{% set serviceName = "NHS App" %}
+{% set prescriptionsActive = "active" %}
+{% set contentTitle = "Choose an online pharmacy" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "#",
+      text: "Home"
+    }
+  ],
+  href: "#",
+  text: "Your nominated pharmacy"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+        <form action="/{{ PROTOTYPEURL }}/v1/" method="post">
+
+          <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Your nominated pharmacy
+    </span>{{ contentTitle }}</h1>
+
+
+          {{ hint({
+            "text": "Search by first letter of online pharmacy"
+          }) }}
+
+          {{ azNav({
+            "items": [
+              {
+                "label": "A"
+              },
+              {
+                "disable": "true",
+                "label": "B"
+              },
+              {
+                "label": "C"
+              },
+              {
+                "label": "D"
+              },
+              {
+                "label": "E"
+              },
+              {
+                "label": "F"
+              },
+              {
+                "label": "G"
+              },
+              {
+                "label": "H"
+              },
+              {
+                "label": "I"
+              },
+              {
+                "label": "J"
+              },
+              {
+                "label": "K"
+              },
+              {
+                "label": "L"
+              },
+              {
+                "label": "M"
+              },
+              {
+                "label": "N"
+              },
+              {
+                "label": "O"
+              },
+              {
+                "label": "P"
+              },
+              {
+                "label": "Q"
+              },
+              {
+                "label": "R"
+              },
+              {
+                "label": "S"
+              },
+              {
+                "label": "T"
+              },
+              {
+                "label": "U"
+              },
+              {
+                "label": "V"
+              },
+              {
+                "label": "W"
+              },
+              {
+                "label": "X"
+              },
+              {
+                "label": "Y"
+              },
+              {
+                "label": "Z"
+              }
+            ]
+          }) }}
+
+
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

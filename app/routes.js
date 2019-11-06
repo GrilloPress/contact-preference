@@ -674,4 +674,33 @@ router.post('/app/organ-donation/v2/your-choice', function (req, res) {
 });
 
 
+// Nominated pharmacy routing
+
+
+router.post('/app/nominated-pharmacy/v1/type-of-pharmacy', function (req, res) {
+  let answer = req.body.pharmacyType;
+
+  if (answer === 'community') {
+
+    res.redirect('/app/nominated-pharmacy/v1/find-community-pharmacy')
+
+  } else {
+    res.redirect('/app/nominated-pharmacy/v1/name-of-pharmacy')
+  }
+});
+
+router.post('/app/nominated-pharmacy/v1/name-of-pharmacy', function (req, res) {
+  let answer = req.body.pharmacyName;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/nominated-pharmacy/v1/search-name')
+
+  } else {
+    res.redirect('/app/nominated-pharmacy/v1/online-results')
+  }
+});
+
+
+
 module.exports = router;

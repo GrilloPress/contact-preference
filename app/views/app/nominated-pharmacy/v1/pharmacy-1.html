@@ -1,0 +1,119 @@
+{% set PROTOTYPEURL = "app/nominated-pharmacy" %}
+{% set serviceName = "Change your nominated pharmacy" %}
+{% set contentTitle = "Confirm Medichem Leeds as your nominated pharmacy" %}
+{% set prescriptionsActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "#",
+      text: "Home"
+    }
+  ],
+  href: "index",
+  text: "Your nominated pharmacy"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Change your nominated pharmacy
+  </span>{{ contentTitle }}</h1>
+
+
+
+      <p>This is the pharmacy where your repeat prescriptions will be sent in future.</p>
+
+      <h2 class="nhsuk-heading-s">Medichem Leeds</h2>
+      <p>
+        40-42 Harrogate Road, Leeds, <br>
+        LS7 4LA <br>
+        0113 260 7736
+      </p>
+
+      {{ actionLink({
+        "text": "Map and directions",
+        openInNewWindow: "true",
+        "href": "https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/abbreviations/"
+      }) }}
+
+      <div class="nhsuk-expander-group nhsuk-u-margin-bottom-4">
+        {{ details({
+          "classes": "nhsuk-expander",
+          "text": "Opening times",
+          "HTML": "
+          <table>
+            <tbody>
+              <tr>
+                <th><strong>Day of the week</strong></th>
+                <th><strong>Opening hours</strong></th>
+              </tr>
+              <tr>
+                <th>Monday</th>
+                <td>9am to 6pm</td>
+              </tr>
+              <tr>
+                <th>Tuesday</th>
+                <td>9am to 6pm</td>
+              </tr>
+              <tr>
+                <th>Wednesday</th>
+                <td>9am to 6pm</td>
+              </tr>
+              <tr>
+                <th>Thursday</th>
+                <td>9am to 6pm</td>
+              </tr>
+              <tr>
+                <th>Friday</th>
+                <td>9am to 6pm</td>
+              </tr>
+              <tr>
+                <th>Saturday</th>
+                <td>9am to 1pm</td>
+              </tr>
+              <tr>
+                <th>Sunday</th>
+                <td>Closed</td>
+              </tr>
+            </tbody>
+          </table>"
+        }) }}
+        {{ details({
+          "classes": "nhsuk-expander",
+          "text": "Services available",
+          "HTML": "
+          <p>Try to check your blood:</p>
+          <ul>
+            <li>before meals</li>
+            <li>2 to 3 hours after meals</li>
+            <li>before, during (take a break) and after exercise</li>
+          </ul>
+          <p>This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
+          "
+        }) }}
+      </div>
+
+      <form action="/{{ PROTOTYPEURL }}/v1/confirmed" method="get">
+        <input type="submit" class="nhsuk-button" value="Confirm">
+        </input>
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
