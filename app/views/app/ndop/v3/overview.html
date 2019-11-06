@@ -36,20 +36,28 @@
 </span>{{ contentTitle }}</h1>
 
 
-      <ul class="list-menu">
-      	<li>
-      		<a href="/{{ PROTOTYPEURL }}/v2/overview">Overview</a>
-      	</li>
-      	<li>
-      		<a href="/{{ PROTOTYPEURL }}/v2/where-used">How confidential patient information is used</a>
-      	</li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/v2/does-not-apply">When your choice does not apply</a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/v2/make-your-choice">Make your choice</a>
-        </li>
-      </ul>
+      {{ contentsList({
+  items: [
+    {
+      href: "/" + PROTOTYPEURL + "/v3/overview",
+      text: "Overview",
+      current: "true"
+    },
+    {
+      href: "/" + PROTOTYPEURL + "/v3/where-used",
+      text: "How confidential patient information is used"
+    },
+    {
+      href: "/" + PROTOTYPEURL + "/v3/does-not-apply",
+      text: "When your choice does not apply"
+    }
+    ,
+    {
+      href: "/" + PROTOTYPEURL + "/v3/make-your-choice",
+      text: "Make your choice"
+    }
+  ]
+}) }}
 
       <p>Your health records contain a type of data called confidential patient information. This data can be used to help with research and planning. You can choose to stop your confidential patient information being used for research and planning.</p>
 
