@@ -1,0 +1,105 @@
+{% set PROTOTYPEURL = "app/ndop" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Make your choice" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/overview">Choose if data from your health records is shared for research and planning</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/where-used">How confidential patient information is used</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/does-not-apply">When your choice does not apply</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v2/does-not-apply">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl"><span class="nhsuk-caption-m nhsuk-caption--top">Choose if data from your health records is shared for research and planning
+      </span>{{ contentTitle }}</h1>
+
+
+      {{ contentsList({
+      items: [
+      {
+      href: "/" + PROTOTYPEURL + "/v3/overview",
+      text: "Overview"
+      },
+      {
+      href: "/" + PROTOTYPEURL + "/v3/where-used",
+      text: "How confidential patient information is used"
+      },
+      {
+      href: "/" + PROTOTYPEURL + "/v3/does-not-apply",
+      text: "When your choice does not apply"
+      }
+      ,
+      {
+      href: "/" + PROTOTYPEURL + "/v3/make-your-choice",
+      text: "Make your choice",
+      current: "true"
+      }
+      ]
+      }) }}
+
+      <p>Use this service to:</p>
+
+      <ul>
+        <li>choose if your confidential patient information is used for research and planning</li>
+        <li>change or check your current choice</li>
+      </ul>
+
+
+      <p>If you want to make a choice for someone else, find out how to on the <a href="https://www.nhs.uk/your-nhs-data-matters/manage-your-choice/other-ways-to-manage-your-choice/">NHS website</a>.</p>
+
+
+      <p>Your choice will be applied by:</p>
+
+      <ul>
+        <li>NHS Digital and Public Health England</li>
+        <li>all other health and care organisations by March 2020</li>
+      </ul>
+
+      <p>Any choice you make will not impact your individual care.</p>
+
+
+                  <div class="nhsuk-inset-text">
+                    <span class="nhsuk-u-visually-hidden">Information: </span>
+                      <p>You're choosing if data from your health records is used across the health and care system in England.</p>
+                      <p>You're not choosing if the NHS App uses your data.</p>
+                  </div>
+
+
+
+            {{ button({
+              "text": "Start now"
+            }) }}
+
+          {{ pagination({
+            "previousUrl": "/" + PROTOTYPEURL + "/v2/does-not-apply",
+            "previousPage": "When your choice does not apply"
+          }) }}
+
+
+
+    </div>
+  </div>
+{% endblock %}

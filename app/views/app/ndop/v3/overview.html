@@ -1,0 +1,135 @@
+{% set PROTOTYPEURL = "app/ndop" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Overview" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/more/v3">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+      <h1 class="nhsuk-heading-xl"><span class="nhsuk-caption-m nhsuk-caption--top">Choose if data from your health records is shared for research and planning
+</span>{{ contentTitle }}</h1>
+
+
+      {{ contentsList({
+  items: [
+    {
+      href: "/" + PROTOTYPEURL + "/v3/overview",
+      text: "Overview",
+      current: "true"
+    },
+    {
+      href: "/" + PROTOTYPEURL + "/v3/where-used",
+      text: "How confidential patient information is used"
+    },
+    {
+      href: "/" + PROTOTYPEURL + "/v3/does-not-apply",
+      text: "When your choice does not apply"
+    }
+    ,
+    {
+      href: "/" + PROTOTYPEURL + "/v3/make-your-choice",
+      text: "Make your choice"
+    }
+  ]
+}) }}
+
+      <p>Your health records contain a type of data called confidential patient information. This data can be used to help with research and planning. You can choose to stop your confidential patient information being used for research and planning.</p>
+
+      <p>Your choice will only apply to the health and care system in England. This does not apply to health or care services accessed in Scotland, Wales or Northern Ireland.</p>
+
+            <div class="nhsuk-inset-text">
+              <span class="nhsuk-u-visually-hidden">Information: </span>
+                <p>You're choosing if data from your health records is used across the health and care system in England.</p>
+                <p>You're not choosing if the NHS App uses your data.</p>
+            </div>
+
+
+        <h2 class="nhsuk-heading-m">What is confidential patient information</h2>
+
+        <p>Confidential patient information is when 2 types of information from your health records are joined together.</p>
+
+        <p>The 2 types of information are:</p>
+
+        <ul>
+          <li>something that can identify you</li>
+          <li>something about your health care or treatment</li>
+        </ul>
+
+        <p>For example, your name joined with what medicine you take.</p>
+
+
+        <p>Identifiable information on its own is used by health and care services to contact patients and this is not confidential patient information.</p>
+
+
+
+
+
+
+
+            <h2 class="nhsuk-heading-m">How we use your confidential patient information</h2>
+
+            <h3 class="nhsuk-heading-s">Your individual care</h3>
+
+            <p>Health and care staff may use your confidential patient information to help with your treatment and care. For example, when you visit your GP, they may look at your records for important information about your health.</p>
+
+            <h3 class="nhsuk-heading-s">Research and planning</h3>
+
+
+            <p>Confidential patient information might also be used to:</p>
+
+            <ul>
+              <li>plan and improve health and care services</li>
+              <li>research and develop cures for serious illnesses</li>
+            </ul>
+
+            <h2 class="nhsuk-heading-m">Your choice</h2>
+
+            <p>You can stop your confidential patient information being used for research and planning.</p>
+
+            <p>If you’re happy with your confidential patient information being used for research and planning you do not need to do anything.</p>
+
+            <p>Any choice you make will not impact your individual care.</p>
+
+            <h2 class="nhsuk-heading-m">More options</h2>
+
+
+            <p><a href="https://www.nhs.uk/your-nhs-data-matters/">Visit the NHS website</a> for more information or to read our privacy notice. You can also find out how to make a choice for someone else. For example, if you’re a parent or guardian of a child under the age of 13.</p>
+
+
+            {{ pagination({
+              "previousUrl": "/app/more/v3",
+              "previousPage": "More",
+              "nextUrl": "/" + PROTOTYPEURL + "/v2/where-used",
+              "nextPage": "How confidential patient information is used"
+            }) }}
+
+
+    </div>
+  </div>
+{% endblock %}
