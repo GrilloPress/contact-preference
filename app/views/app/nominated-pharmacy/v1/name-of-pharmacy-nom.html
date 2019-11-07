@@ -34,14 +34,14 @@
     <div class="nhsuk-grid-column-two-thirds">
 
 
-        <form action="/{{ PROTOTYPEURL }}/v1/name-of-pharmacy" method="post">
+        <form action="/{{ PROTOTYPEURL }}/v1/name-of-pharmacy-nom" method="post">
 
         {{ radios({
           "idPrefix": "nhs",
-          "name": "pharmacyName",
+          "name": "pharmacyNameNom",
           "fieldset": {
             "legend": {
-              "html": '<h1 class="nhsuk-fieldset__heading"><span class="nhsuk-caption-m nhsuk-caption--top">Change your nominated pharmacy
+              "html": '<h1 class="nhsuk-fieldset__heading"><span class="nhsuk-caption-m nhsuk-caption--top">Nominate a pharmacy
               </span>' + contentTitle + '</h1>',
               "classes": "nhsuk-fieldset__legend--l",
               "isPageHeading": true

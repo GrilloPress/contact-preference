@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "NHS App" %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "What is the name of the online-only pharmacy?" %}
+{% set contentTitle = "Find a community pharmacy" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -33,25 +33,31 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
+      <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Nominate a pharmacy
+</span>{{ contentTitle }}</h1>
 
 
-      <form action="/{{ PROTOTYPEURL }}/v1/partial-match" method="get">
+
+      <form action="/{{ PROTOTYPEURL }}/v1/community-results" method="get">
 
         {{ input({
           "label": {
-            "html": '<h1 class="nhsuk-fieldset__legend--l"><span class="nhsuk-caption-m nhsuk-caption--top">Change your nominated pharmacy
-            </span>' + contentTitle + '</h1>'
-              },
-          "id": "input-width-20",
-          "name": "test-width-20",
-          "classes": "nhsuk-input--width-20"
+            "text": 'Enter a name or postcode',
+            "isPageHeading": false,
+            "classes": ""
+          },
+          "hint": {
+            "text": 'For example, LS1 or Leeds Pharmacy'
+          },
+          "id": "inputpharmacyPostcode",
+          "name": "pharmacyPostcode",
+          "classes": "nhsuk-input--width-10"
         }) }}
 
         <input type="submit" class="nhsuk-button" value="Search">
         </input>
 
       </form>
-
 
     </div>
   </div>
