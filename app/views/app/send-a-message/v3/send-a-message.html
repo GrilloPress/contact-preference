@@ -1,5 +1,6 @@
 {% set PROTOTYPEURL = "app/send-a-message/v3" %}
 {% set serviceName = "Send a message" %}
+{% set messagingActive = "active" %}
 {% set contentTitle = "Messages are for non-urgent questions or information" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -25,7 +26,7 @@
     }
   ],
   href: "/app/send-a-message/v3/index",
-  text: "Messages"
+  text: mMessages"
 }) }}
 {% endblock %}
 
