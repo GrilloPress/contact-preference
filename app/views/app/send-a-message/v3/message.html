@@ -41,7 +41,12 @@ $( document ).ready(function() {
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-l">
         <span class="nhsuk-caption-m nhsuk-caption--top">
-          Message to:
+          {% if data['id'] == 1 %}
+            Conversation with:
+          {% else %}
+            Message to:
+          {% endif %}
+
          </span>
         {{ data["from"] }}
       </h1>
@@ -95,7 +100,7 @@ $( document ).ready(function() {
             <div class="nhsuk-u-clear">
             </div>
             <div class="nhs-app-chat__date nhs-app-chat__date--reply">
-              <a href="delete?conversation=false">Delete message</a>
+              <a href="delete?conversation=true">Delete message</a>
             </div>
           </li>
 

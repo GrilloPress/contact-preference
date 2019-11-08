@@ -51,17 +51,36 @@
       </ul>
 
       <h3>Delete message flow</h3>
+      <h4>Message with no replies</h4>
       <ul>
         <li>
-          <a href="/{{ PROTOTYPEURL }}/v3/message?id=2&from=Dr%20Sanjit%20Praneskear&sent=today&time=7:33&subject=repeat prescription&body=An example message&to=True&messageRead2=read&">Message sent</a>
+          <a href="/{{ PROTOTYPEURL }}/v3/message?id=2&from=Dr%20Sanjit%20Praneskear&sent=today&time=7:33&subject=repeat prescription&body=An example message&to=True&messageRead2=read&conversation=false">Message sent (no replies)</a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v3/delete?id=2&from=Dr%20Sanjit%20Praneskear&sent=today&time=7:33&subject=repeat prescription&body=An example message&to=True&messageRead2=read&conversation=false">Delete your message to [Person] (Are you sure interruption)</a>
         </li>
         <li>
-          <a href="/{{ PROTOTYPEURL }}/v3/delete?id=2&from=Dr%20Sanjit%20Praneskear&sent=today&time=7:33&subject=repeat prescription&body=An example message&to=True&messageRead2=read&">Delete your message to [Person] (Are you sure interruption)</a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/v3/delete-confirm?id=2&from=Dr%20Sanjit%20Praneskear&sent=today&time=7:33&subject=repeat prescription&body=An example message&to=True&messageRead2=read&">Your message to [Person] is deleted (Confirmation of delete page)</a>
+          <a href="/{{ PROTOTYPEURL }}/v3/delete-confirm?id=2&from=Dr%20Sanjit%20Praneskear&sent=today&time=7:33&subject=repeat prescription&body=An example message&to=True&messageRead2=read&conversation=false">Your message to [Person] is deleted (Confirmation of delete page)</a>
         </li>
       </ul>
+      <h4>Message with replies</h4>
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v3/message?id=1&from=Sister%20Leanna%20Leveille&sent=Yesterday&time=4.55pm&body=Please%20arrange%20for%20an%20appointment%20with%20a%20nurse%20for%20a%20blood%20test">Message sent (with reply)</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v3/delete?id=1&from=Sister%20Leanna%20Leveille&sent=Yesterday&time=4.55pm&body=Please%20arrange%20for%20an%20appointment%20with%20a%20nurse%20for%20a%20blood%20test&conversation=true">Delete your message to [Person] (Are you sure interruption)</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v3/delete-confirm?id=1&from=Sister%20Leanna%20Leveille&sent=Yesterday&time=4.55pm&body=Please%20arrange%20for%20an%20appointment%20with%20a%20nurse%20for%20a%20blood%20test&conversation=true">Your conversation with [Person] is deleted (Confirmation of delete page)</a>
+        </li>
+
+
+
+      </ul>
+
+      <hr>
 
       <h2>v2</h2>
       <ul>
@@ -81,6 +100,8 @@
           <a href="/app/messaging/v1/message?id=2&from=Dr%20Sanjit%20Praneskear&sent=today&time=7:33&body=An example message&to=True&messageRead2=read&">Message sent</a>
         </li>
       </ul>
+
+      <hr>
 
       <h2>v1</h2>
       <ul>

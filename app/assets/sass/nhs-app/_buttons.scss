@@ -1,0 +1,22 @@
+.nhs-app-button--delete {
+
+  background-color: darken($color_nhsuk-red, 8%);
+  box-shadow: 0 $button-shadow-size 0 darken($color_nhsuk-red, 38%); // s0
+
+
+  &:hover {
+    background-color: darken($color_nhsuk-red, 16%);
+    cursor: default;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: darken($color_nhsuk-red, 16%);
+  }
+
+  &:active {
+    box-shadow: 0 $button-shadow-size 0 darken($color_nhsuk-red, 20%); // s0
+    top: 0;
+  }
+
+}
