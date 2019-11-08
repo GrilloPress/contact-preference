@@ -28,12 +28,16 @@
       </h1>
 
       <h2>v3 (EMIS specific)</h2>
+      <h3>Main user flow</h3>
       <ul>
         <li>
           <a href="/{{ PROTOTYPEURL }}/v3/index">Messages</a>
         </li>
         <li>
           <a href="/{{ PROTOTYPEURL }}/v3/send-a-message">Send a message (interruption)</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v3/contact-your-gp">Contact your GP (if need urgent reply)</a>
         </li>
         <li>
           <a href="/{{ PROTOTYPEURL }}/v3/select-who">Select who to message</a>
@@ -43,6 +47,19 @@
         </li>
         <li>
           <a href="/{{ PROTOTYPEURL }}/v3/message?id=2&from=Dr%20Sanjit%20Praneskear&sent=today&time=7:33&subject=repeat prescription&body=An example message&to=True&messageRead2=read&">Message sent</a>
+        </li>
+      </ul>
+
+      <h3>Delete message flow</h3>
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v3/message?id=2&from=Dr%20Sanjit%20Praneskear&sent=today&time=7:33&subject=repeat prescription&body=An example message&to=True&messageRead2=read&">Message sent</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v3/delete?id=2&from=Dr%20Sanjit%20Praneskear&sent=today&time=7:33&subject=repeat prescription&body=An example message&to=True&messageRead2=read&">Delete your message to [Person] (Are you sure interruption)</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v3/delete-confirm?id=2&from=Dr%20Sanjit%20Praneskear&sent=today&time=7:33&subject=repeat prescription&body=An example message&to=True&messageRead2=read&">Your message to [Person] is deleted (Confirmation of delete page)</a>
         </li>
       </ul>
 
