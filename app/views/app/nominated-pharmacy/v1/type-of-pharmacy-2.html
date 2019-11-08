@@ -1,0 +1,93 @@
+{% set PROTOTYPEURL = "app/nominated-pharmacy" %}
+{% set serviceName = "NHS App" %}
+{% set prescriptionsActive = "active" %}
+{% set contentTitle = "Choose a type of pharmacy to search for" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "#",
+      text: "Home"
+    }
+  ],
+  href: "#",
+  text: "Your nominated pharmacy"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+{% set communityHint %}
+{{ hint({
+  "text": "What's that mean?"
+}) }}
+{% endset %}
+
+{% set onlineHint %}
+{{ hint({
+  "text": "What's that mean?"
+}) }}
+{% endset %}
+
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ PROTOTYPEURL }}/v1/type-of-pharmacy" method="post">
+        {{ conditionalRadios({
+          "idPrefix": "nhs",
+          "name": "pharmacyType",
+          "fieldset": {
+            "legend": {
+              "html": '<h1 class="nhsuk-fieldset__heading"><span class="nhsuk-caption-m nhsuk-caption--top">Change your nominated pharmacy
+              </span>' + contentTitle + '</h1>',
+              "classes": "nhsuk-fieldset__legend--l",
+              "isPageHeading": true
+            }
+          },
+          "items": [
+            {
+              "value": "community",
+              "text": "Community pharmacies",
+              "conditional": {
+                "html": communityHint
+              }
+            },
+            {
+              "value": "online",
+              "text": "Online-only pharmacies",
+              "conditional": {
+                "html": onlineHint
+              }
+            }
+          ]
+        }) }}
+
+
+
+
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+
+
+    </div>
+  </div>
+{% endblock %}

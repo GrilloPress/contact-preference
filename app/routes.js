@@ -702,5 +702,30 @@ router.post('/app/nominated-pharmacy/v1/name-of-pharmacy', function (req, res) {
 });
 
 
+router.post('/app/nominated-pharmacy/v1/nominate-a-pharmacy', function (req, res) {
+  let answer = req.body.nominatePharmacy;
+
+  if (answer === 'community') {
+
+    res.redirect('/app/nominated-pharmacy/v1/find-community-pharmacy-nom')
+
+  } else {
+    res.redirect('/app/nominated-pharmacy/v1/name-of-pharmacy-nom')
+  }
+});
+
+router.post('/app/nominated-pharmacy/v1/name-of-pharmacy-nom', function (req, res) {
+  let answer = req.body.pharmacyNameNom;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/nominated-pharmacy/v1/search-name-nom')
+
+  } else {
+    res.redirect('/app/nominated-pharmacy/v1/online-results-nom')
+  }
+});
+
+
 
 module.exports = router;
