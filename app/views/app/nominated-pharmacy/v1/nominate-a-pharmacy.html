@@ -1,0 +1,78 @@
+{% set PROTOTYPEURL = "app/nominated-pharmacy" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Choose a type of pharmacy to search for" %}
+{% set prescriptionsActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "#",
+      text: "Home"
+    }
+  ],
+  href: "#",
+  text: "Your repeat prescriptions"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+              <form action="/{{ PROTOTYPEURL }}/v1/nominate-a-pharmacy" method="post">
+
+              {{ radios({
+                "idPrefix": "nhs",
+                "name": "nominatePharmacy",
+                "fieldset": {
+                  "legend": {
+                    "html": '<h1 class="nhsuk-fieldset__heading"><span class="nhsuk-caption-m nhsuk-caption--top">Nominate a pharmacy
+                    </span>' + contentTitle + '</h1>',
+                    "classes": "nhsuk-fieldset__legend--l",
+                    "isPageHeading": true
+                  }
+                },
+                "items": [
+                  {
+                    "value": "community",
+                    "text": "Community pharmacies",
+                    "hint": {
+                      "text": "You'll have a user ID if you've registered for the NHS app."
+                    }
+                  },
+                  {
+                    "value": "online",
+                    "text": "Online-only pharmacies",
+                    "hint": {
+                      "text": "You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity."
+                    }
+                  }
+                ]
+              }) }}
+
+
+
+
+              <input type="submit" class="nhsuk-button" value="Continue">
+              </input>
+
+            </form>
+
+
+    </div>
+  </div>
+{% endblock %}

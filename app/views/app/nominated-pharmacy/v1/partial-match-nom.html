@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
-{% set serviceName = "NHS App" %}
+{% set serviceName = "Change your nominated pharmacy" %}
+{% set contentTitle = "Did you mean Pharmacy 2 U?" %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "What is the name of the online-only pharmacy?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -32,25 +32,28 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Nominate a pharmacy
+</span>{{ contentTitle }}</h1>
 
 
+      <ul class="list-menu">
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/pharmacy-1">
+            <h2 class="nhsuk-heading-s">Ma Manning (Pharmacy) Ltd</h2>
+            <p>
+              97 Lidgett Lane,
+              Leeds,
+              West Yorkshire, <br>
+              LS8 1QR <br>
+              0113 266 1786 
+            </p>
+            <p>0.4 miles away</p>
+          </a>
+        </li>
 
-      <form action="/{{ PROTOTYPEURL }}/v1/partial-match" method="get">
+      </ul>
 
-        {{ input({
-          "label": {
-            "html": '<h1 class="nhsuk-fieldset__legend--l"><span class="nhsuk-caption-m nhsuk-caption--top">Change your nominated pharmacy
-            </span>' + contentTitle + '</h1>'
-              },
-          "id": "input-width-20",
-          "name": "test-width-20",
-          "classes": "nhsuk-input--width-20"
-        }) }}
-
-        <input type="submit" class="nhsuk-button" value="Search">
-        </input>
-
-      </form>
+      <p><a href="/{{ PROTOTYPEURL }}/v1/search-name">Search again</a></p>
 
 
     </div>
