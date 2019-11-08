@@ -53,8 +53,6 @@ function passwordToggle (){
 
 function pharmSelect(pharm, url){
 
-
-
   var details;
   if (pharm === "Ma Manning (Pharmacy) Ltd") {
     details = "<p>97 Lidgett Lane, Leeds, West Yorkshire, <br> LS8 1QR <br>0113 266 1786 </p>"
@@ -66,10 +64,6 @@ function pharmSelect(pharm, url){
     details = "210-212 Chapeltown Road, Leeds, <br> LS7 4JA<br> 0113 262 3944"
   }
 
-
-
-
-
   $.post( "", { pharmName: pharm, pharmDetails: details } );
   if (url) {
     window.location.href = url
@@ -79,10 +73,7 @@ function pharmSelect(pharm, url){
 
 }
 
-
-
 function onlineSelect(online, url){
-
 
   var info;
   if (online === "Echo") {
@@ -94,10 +85,6 @@ function onlineSelect(online, url){
   } else {
     info = ""
   }
-
-
-
-
 
   $.post( "", { onlineName: online, onlineInfo: info } );
   if (url) {
