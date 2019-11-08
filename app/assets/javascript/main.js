@@ -48,3 +48,62 @@ function passwordToggle (){
   }
 
 }
+
+
+
+function pharmSelect(pharm, url){
+
+
+
+  var details;
+  if (pharm === "Ma Manning (Pharmacy) Ltd") {
+    details = "<p>97 Lidgett Lane, Leeds, West Yorkshire, <br> LS8 1QR <br>0113 266 1786 </p>"
+  } else if (pharm === "Medichem (Leeds) Ltd") {
+    details = "40-42 Harrogate Road, Leeds, <br> LS7 4LA <br> 0113 262 2684"
+  } else if (pharm === "Knights Chapel Allerton Pharmacy") {
+    details = "6 Stainbeck Lane, Leeds, <br> LS7 3QY<br> 0113 268 1163"
+  } else {
+    details = "210-212 Chapeltown Road, Leeds, <br> LS7 4JA<br> 0113 262 3944"
+  }
+
+
+
+
+
+  $.post( "", { pharmName: pharm, pharmDetails: details } );
+  if (url) {
+    window.location.href = url
+  } else {
+    window.location.href = ""
+  }
+
+}
+
+
+
+function onlineSelect(online, url){
+
+
+  var info;
+  if (online === "Echo") {
+    info = "<p>www.echo.co.uk</p><p>020 8068 8067</p>"
+  } else if (online === "Medichem (Leeds) Ltd") {
+    info = ""
+  } else if (online === "Knights Chapel Allerton Pharmacy") {
+    info = ""
+  } else {
+    info = ""
+  }
+
+
+
+
+
+  $.post( "", { onlineName: online, onlineInfo: info } );
+  if (url) {
+    window.location.href = url
+  } else {
+    window.location.href = ""
+  }
+
+}

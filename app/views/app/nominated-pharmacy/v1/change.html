@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "NHS App" %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "The new pharmacy you choose is where your repeat prescriptions will be sent in future" %}
+{% set contentTitle = "Any outstanding prescriptions may still arrive at your current nominated pharmacy" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -16,17 +16,15 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-{{ breadcrumb({
-  classes: "nhs-app-breadcrumb",
-  items: [
-    {
-      href: "#",
-      text: "Home"
-    }
-  ],
-  href: "#",
-  text: "Your nominated pharmacy"
-}) }}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/your-nominated-pharmacy">Back</a></p>
+  </div>
+</nav>
 {% endblock %}
 
 {% block content %}
@@ -38,9 +36,9 @@
         <div class="app-card__wrapper">
           <div class="app-card__content">
             <h1 class="app-card__heading nhsuk-heading-l">{{ contentTitle }}</h1>
-            <p>Any outstanding repeat prescriptions may still arrive at your current nominated pharmacy.</p>
+            <p>The new pharmacy you choose is where your repeat prescriptions will be sent in future.</p>
             <p>
-              Your new nominated pharmacy can help to check this for you.
+              Your new pharmacy can help to check on any outstanding repeat prescriptions for you.
             </p>
             <form action="/{{ PROTOTYPEURL }}/v1/type-of-pharmacy" method="get">
 

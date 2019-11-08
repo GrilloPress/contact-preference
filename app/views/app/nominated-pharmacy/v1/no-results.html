@@ -1,7 +1,8 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "Change your nominated pharmacy" %}
+{% set nameOfPharmacy %}{% if data['inputPharmacyName'] %}{{ data['inputPharmacyName'] }}{% else %}Meadow Pharm{% endif %}{% endset %}
+{% set contentTitle = "No results found for " + '"' + nameOfPharmacy + '"' %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "We’ve updated your new nominated pharmacy to Medichem Leeds" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -24,31 +25,37 @@
       text: "Home"
     }
   ],
-  href: "../index",
-  text: "Your repeat prescriptions"
+  href: "#",
+  text: "Your nominated pharmacy"
 }) }}
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      
       <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Change your nominated pharmacy
 </span>{{ contentTitle }}</h1>
 
-      <p>Your new repeat prescriptions will be sent to:</p>
+<p>We couldn’t find any results for "{{nameOfPharmacy}}". Make sure you enter the pharmacy name correctly.</p>
 
-      <h2 class="nhsuk-heading-s">Medichem Leeds</h2>
-      <p>
-        40-42 Harrogate Road, Leeds, <br>
-        LS7 4LA <br>
-        0113 260 7736
-      </p>
 
-      <form action="/{{ PROTOTYPEURL }}/v1/your-nominated-pharmacy" method="get">
-        <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Back to your prescriptions">
-        </input>
-      </form>
+  <form action="/{{ PROTOTYPEURL }}/v1/exact-match" method="get">
+
+    {{ input({
+      "label": {
+        "html": '<h2 class="nhsuk-heading-m">Search again</h2>'
+          },
+      "id": "input-width-20",
+      "name": "inputPharmacyName",
+      "value": nameOfPharmacy,
+      "classes": "nhsuk-input--width-20"
+    }) }}
+
+    <input type="submit" class="nhsuk-button" value="Search">
+    </input>
+
+  </form>
+
 
     </div>
   </div>

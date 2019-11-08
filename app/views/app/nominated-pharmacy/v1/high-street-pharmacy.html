@@ -1,13 +1,15 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
-{% set serviceName = "NHS App" %}
+{% set serviceName = "Change your nominated pharmacy" %}
+{% if data['pharmName'] %}
+    {% set pharmName = data['pharmName'] %}
+  {% else %}
+    {% set pharmName = "Ma Manning (Pharmacy) Ltd" %}
+{% endif %}
+{% set contentTitle = "Confirm " + pharmName + " as your nominated pharmacy" %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "Find a high street pharmacy" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
-
-
-
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -25,7 +27,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/type-of-pharmacy">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/community-results">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -33,31 +35,19 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
-      <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Change your nominated pharmacy
-</span>{{ contentTitle }}</h1>
-
+        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Change your nominated pharmacy
+  </span>{{ contentTitle }}</h1>
 
 
-      <form action="/{{ PROTOTYPEURL }}/v1/community-results" method="get">
 
-        {{ input({
-          "label": {
-            "text": 'Enter a postcode',
-            "isPageHeading": false,
-            "classes": ""
-          },
-          "hint": {
-            "text": 'For example, LS1'
-          },
-          "id": "inputpharmacyPostcode",
-          "name": "pharmacyPostcode",
-          "classes": "nhsuk-input--width-10"
-        }) }}
+      <p>This is the pharmacy where your repeat prescriptions will be sent in future.</p>
 
-        <input type="submit" class="nhsuk-button" value="Search">
+      <h2 class="nhsuk-heading-s">{{ pharmName }}</h2>
+      <p>{{ data['pharmDetails'] | safe }}</p>
+
+      <form action="/{{ PROTOTYPEURL }}/v1/confirmed-community" method="get">
+        <input type="submit" class="nhsuk-button" value="Confirm">
         </input>
-
       </form>
 
     </div>

@@ -1,5 +1,10 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "NHS App" %}
+{% if data['pharmName'] %}
+    {% set pharmName = data['pharmName'] %}
+  {% else %}
+    {% set pharmName = "Ma Manning (Pharmacy) Ltd" %}
+{% endif %}
 {% set prescriptionsActive = "active" %}
 {% set contentTitle = "Your prescriptions" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -34,7 +39,7 @@
       	<li>
       		<a href="/{{ PROTOTYPEURL }}/v1/your-nominated-pharmacy">
             <h2 class="nhsuk-heading-s">Your nominated pharmacy</h2>
-            <p>Gledhow Local Pharmacy</p>
+            <p>{{ pharmName }}</p>
           </a>
       	</li>
       </ul>

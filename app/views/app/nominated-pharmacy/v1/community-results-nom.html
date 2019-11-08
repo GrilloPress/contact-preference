@@ -1,10 +1,19 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "Change your nominated pharmacy" %}
-{% set contentTitle = "Choose an online-only pharmacy" %}
+{% set input %}
+  {% if data['pharmacyPostcode'] %}
+     “{{ data['pharmacyPostcode'] }}”
+{% else %}
+    “LS7 4LA”
+  {% endif %}
+{% endset %}
+{% set contentTitle = "High street pharmacies near " + input %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
+
+
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -22,7 +31,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/name-of-pharmacy">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/find-community-pharmacy-nom">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -33,59 +42,34 @@
       <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Change your nominated pharmacy
 </span>{{ contentTitle }}</h1>
 
-  <p>This is a selection of online-only pharmacies.</p>
 
       <ul class="list-menu">
-
         <li>
-          <a onclick="onlineSelect('Echo')" href="/{{ PROTOTYPEURL }}/v1/online-pharmacy">
-            <h2 class="nhsuk-heading-s">Echo</h2>
+          <a href="/{{ PROTOTYPEURL }}/v1/high-street-pharmacy-nom">
+            <h2 class="nhsuk-heading-s">Ma Manning (Pharmacy) Ltd</h2>
             <p>
-              www.echo.co.uk
+              97 Lidgett Lane,
+              Leeds,
+              West Yorkshire, <br>
+              LS8 1QR <br>
+              0113 266 1786 
             </p>
-            <p> 020 8068 8067</p>
+            <p>0.4 miles away</p>
           </a>
         </li>
 
         <li>
-          <a onclick="onlineSelect('')" href="/{{ PROTOTYPEURL }}/v1/online-pharmacy">
+          <a href="/{{ PROTOTYPEURL }}/v1/high-street-pharmacy-nom">
             <h2 class="nhsuk-heading-s">Medichem Leeds</h2>
             <p>
-              URL
+              40-42 Harrogate Road, Leeds, <br>
+              LS7 4LA <br>
+              0113 260 7736
             </p>
-            <p> Phone number</p>
+            <p> 0.9 miles away</p>
           </a>
         </li>
 
-        <li>
-          <a onclick="onlineSelect('')" href="/{{ PROTOTYPEURL }}/v1/online-pharmacy">
-            <h2 class="nhsuk-heading-s">Medichem Leeds</h2>
-            <p>
-              URL
-            </p>
-            <p> Phone number</p>
-          </a>
-        </li>
-
-        <li>
-          <a onclick="onlineSelect('')" href="/{{ PROTOTYPEURL }}/v1/online-pharmacy">
-            <h2 class="nhsuk-heading-s">Medichem Leeds</h2>
-            <p>
-              URL
-            </p>
-            <p> Phone number</p>
-          </a>
-        </li>
-
-        <li>
-          <a onclick="onlineSelect('')" href="/{{ PROTOTYPEURL }}/v1/online-pharmacy">
-            <h2 class="nhsuk-heading-s">Medichem Leeds</h2>
-            <p>
-              URL
-            </p>
-            <p> Phone number</p>
-          </a>
-        </li>
 
       </ul>
 

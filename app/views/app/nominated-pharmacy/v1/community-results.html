@@ -1,10 +1,19 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "Change your nominated pharmacy" %}
-{% set contentTitle = "Pharmacies near “LS7 4LA”" %}
+{% set input %}
+  {% if data['pharmacyPostcode'] %}
+     “{{ data['pharmacyPostcode'] }}”
+{% else %}
+    “LS7 4LA”
+  {% endif %}
+{% endset %}
+{% set contentTitle = "High street pharmacies near " + input %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
+
+
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -16,17 +25,15 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-{{ breadcrumb({
-  classes: "nhs-app-breadcrumb",
-  items: [
-    {
-      href: "#",
-      text: "Home"
-    }
-  ],
-  href: "#",
-  text: "Your nominated pharmacy"
-}) }}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/find-community-pharmacy">Back</a></p>
+  </div>
+</nav>
 {% endblock %}
 
 {% block content %}
@@ -35,10 +42,12 @@
       <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Change your nominated pharmacy
 </span>{{ contentTitle }}</h1>
 
+<p>Distances given are in a straight line but travel routes may be longer.</p>
+
 
       <ul class="list-menu">
         <li>
-          <a href="/{{ PROTOTYPEURL }}/v1/pharmacy-1">
+          <a onclick="pharmSelect('Ma Manning (Pharmacy) Ltd')" href="/{{ PROTOTYPEURL }}/v1/high-street-pharmacy">
             <h2 class="nhsuk-heading-s">Ma Manning (Pharmacy) Ltd</h2>
             <p>
               97 Lidgett Lane,
@@ -51,15 +60,41 @@
           </a>
         </li>
 
+
+
         <li>
-          <a href="/{{ PROTOTYPEURL }}/v1/pharmacy-2">
-            <h2 class="nhsuk-heading-s">Medichem Leeds</h2>
+          <a onclick="pharmSelect('Medichem (Leeds) Ltd')" href="/{{ PROTOTYPEURL }}/v1/high-street-pharmacy">
+            <h2 class="nhsuk-heading-s">Medichem (Leeds) Ltd</h2>
             <p>
               40-42 Harrogate Road, Leeds, <br>
               LS7 4LA <br>
-              0113 260 7736
+              0113 262 2684
             </p>
-            <p> 0.9 miles away</p>
+            <p> 0.5 miles away</p>
+          </a>
+        </li>
+
+        <li>
+          <a onclick="pharmSelect('Knights Chapel Allerton Pharmacy')" href="/{{ PROTOTYPEURL }}/v1/high-street-pharmacy">
+            <h2 class="nhsuk-heading-s">Knights Chapel Allerton Pharmacy</h2>
+            <p>
+              6 Stainbeck Lane, Leeds, <br>
+              LS7 3QY<br>
+              0113 268 1163
+            </p>
+            <p> 0.5 miles away</p>
+          </a>
+        </li>
+
+        <li>
+          <a onclick="pharmSelect('Medichem (Leeds) Ltd')" href="/{{ PROTOTYPEURL }}/v1/high-street-pharmacy">
+            <h2 class="nhsuk-heading-s">Medichem (Leeds) Ltd</h2>
+            <p>
+              210-212 Chapeltown Road, Leeds, <br>
+              LS7 4JA<br>
+              0113 262 3944
+            </p>
+            <p> 0.8 miles away</p>
           </a>
         </li>
 

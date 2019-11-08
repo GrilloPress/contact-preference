@@ -16,17 +16,15 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-{{ breadcrumb({
-  classes: "nhs-app-breadcrumb",
-  items: [
-    {
-      href: "#",
-      text: "Home"
-    }
-  ],
-  href: "#",
-  text: "Your nominated pharmacy"
-}) }}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/card">Back</a></p>
+  </div>
+</nav>
 {% endblock %}
 
 {% block content %}
@@ -50,16 +48,16 @@
           "items": [
             {
               "value": "community",
-              "text": "Community pharmacies",
+              "text": "High street pharmacies",
               "hint": {
-                "text": "You'll have a user ID if you've registered for the NHS app."
+                "text": "You can collect your prescriptions in person at a high street pharmacy local to you. They may also deliver."
               }
             },
             {
               "value": "online",
               "text": "Online-only pharmacies",
               "hint": {
-                "text": "You'll have an account if you've already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity."
+                "text": "Internet-based pharmacies send your prescriptions to you in the post."
               }
             }
           ]

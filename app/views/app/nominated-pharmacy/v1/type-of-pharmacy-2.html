@@ -16,30 +16,28 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-{{ breadcrumb({
-  classes: "nhs-app-breadcrumb",
-  items: [
-    {
-      href: "#",
-      text: "Home"
-    }
-  ],
-  href: "#",
-  text: "Your nominated pharmacy"
-}) }}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/card">Back</a></p>
+  </div>
+</nav>
 {% endblock %}
 
 {% block content %}
 
 {% set communityHint %}
 {{ hint({
-  "text": "What's that mean?"
+  "text": "You can collect your prescriptions in person at a high street pharmacy local to you. They may also deliver."
 }) }}
 {% endset %}
 
 {% set onlineHint %}
 {{ hint({
-  "text": "What's that mean?"
+  "text": "Internet-based pharmacies send your prescriptions to you in the post."
 }) }}
 {% endset %}
 
@@ -62,7 +60,7 @@
           "items": [
             {
               "value": "community",
-              "text": "Community pharmacies",
+              "text": "High street pharmacies",
               "conditional": {
                 "html": communityHint
               }

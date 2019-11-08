@@ -1,13 +1,11 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
-{% set serviceName = "NHS App" %}
+{% set serviceName = "Change your nominated pharmacy" %}
+{% set exact %}{% if data['inputPharmacyName'] %}{{ data['inputPharmacyName'] }}{% else %}Echo{% endif %}{% endset %}
+{% set contentTitle = "You searched " + '"' + exact + '"' %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "Find a high street pharmacy" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
-
-
-
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -25,7 +23,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/type-of-pharmacy">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/search-name">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -33,32 +31,25 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
       <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Change your nominated pharmacy
 </span>{{ contentTitle }}</h1>
 
 
+      <ul class="list-menu">
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/online-pharmacy">
+            <h2 class="nhsuk-heading-s">{{ exact }}</h2>
+            <p>
+              www.{{ exact }}.com
+            </p>
+            <p>Phone number</p>
+          </a>
+        </li>
 
-      <form action="/{{ PROTOTYPEURL }}/v1/community-results" method="get">
+      </ul>
 
-        {{ input({
-          "label": {
-            "text": 'Enter a postcode',
-            "isPageHeading": false,
-            "classes": ""
-          },
-          "hint": {
-            "text": 'For example, LS1'
-          },
-          "id": "inputpharmacyPostcode",
-          "name": "pharmacyPostcode",
-          "classes": "nhsuk-input--width-10"
-        }) }}
+      <p><a href="/{{ PROTOTYPEURL }}/v1/search-name">Search again</a></p>
 
-        <input type="submit" class="nhsuk-button" value="Search">
-        </input>
-
-      </form>
 
     </div>
   </div>

@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "Change your nominated pharmacy" %}
-{% set contentTitle = "Your search results" %}
+{% set contentTitle = "Choose an online-only pharmacy" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -16,17 +16,15 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-{{ breadcrumb({
-  classes: "nhs-app-breadcrumb",
-  items: [
-    {
-      href: "#",
-      text: "Home"
-    }
-  ],
-  href: "#",
-  text: "Your nominated pharmacy"
-}) }}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/name-of-pharmacy-nom">Back</a></p>
+  </div>
+</nav>
 {% endblock %}
 
 {% block content %}
@@ -35,11 +33,12 @@
       <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Nominate a pharmacy
 </span>{{ contentTitle }}</h1>
 
+<p>This is a selection of online-only pharmacies.</p>
 
       <ul class="list-menu">
 
         <li>
-          <a href="/{{ PROTOTYPEURL }}/v1/pharmacy-1">
+          <a href="/{{ PROTOTYPEURL }}/v1/online-pharmacy-nom">
             <h2 class="nhsuk-heading-s">Medichem Leeds</h2>
             <p>
               40-42 Harrogate Road, Leeds, <br>
@@ -51,7 +50,7 @@
         </li>
 
         <li>
-          <a href="/{{ PROTOTYPEURL }}/v1/pharmacy-2">
+          <a href="/{{ PROTOTYPEURL }}/v1/online-pharmacy-nom">
             <h2 class="nhsuk-heading-s">Medichem Leeds</h2>
             <p>
               40-42 Harrogate Road, Leeds, <br>
@@ -63,7 +62,7 @@
         </li>
 
         <li>
-          <a href="/{{ PROTOTYPEURL }}/v1/pharmacy-2">
+          <a href="/{{ PROTOTYPEURL }}/v1/online-pharmacy-nom">
             <h2 class="nhsuk-heading-s">Medichem Leeds</h2>
             <p>
               40-42 Harrogate Road, Leeds, <br>
@@ -75,7 +74,7 @@
         </li>
 
         <li>
-          <a href="/{{ PROTOTYPEURL }}/v1/pharmacy-2">
+          <a href="/{{ PROTOTYPEURL }}/v1/online-pharmacy-nom">
             <h2 class="nhsuk-heading-s">Medichem Leeds</h2>
             <p>
               40-42 Harrogate Road, Leeds, <br>
@@ -87,7 +86,7 @@
         </li>
 
         <li>
-          <a href="/{{ PROTOTYPEURL }}/v1/pharmacy-2">
+          <a href="/{{ PROTOTYPEURL }}/v1/online-pharmacy-nom">
             <h2 class="nhsuk-heading-s">Medichem Leeds</h2>
             <p>
               40-42 Harrogate Road, Leeds, <br>
