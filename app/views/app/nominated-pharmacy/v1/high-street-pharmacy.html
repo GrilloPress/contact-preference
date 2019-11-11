@@ -5,6 +5,11 @@
   {% else %}
     {% set pharmName = "Ma Manning (Pharmacy) Ltd" %}
 {% endif %}
+{% if data['pharmDetails'] %}
+    {% set pharmDetails = data['pharmDetails'] %}
+  {% else %}
+    {% set pharmDetails = '97 Lidgett Lane, Leeds, West Yorkshire, <br> LS8 1QR <br> Telephone: 0113 266 1786' %}
+{% endif %}
 {% set contentTitle = "Confirm " + pharmName + " as your nominated pharmacy" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -43,9 +48,9 @@
       <p>This is the pharmacy where your repeat prescriptions will be sent in future.</p>
 
       <h2 class="nhsuk-heading-s">{{ pharmName }}</h2>
-      <p>{{ data['pharmDetails'] | safe }}</p>
+      <p>{{ pharmDetails | safe }}</p>
 
-      <form action="/{{ PROTOTYPEURL }}/v1/confirmed-community" method="get">
+      <form action="/{{ PROTOTYPEURL }}/v1/confirmed" method="get">
         <input type="submit" class="nhsuk-button" value="Confirm">
         </input>
       </form>

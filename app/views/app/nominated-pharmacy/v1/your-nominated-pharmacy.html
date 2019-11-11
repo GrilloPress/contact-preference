@@ -1,9 +1,17 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "NHS App" %}
+{% set exact %}{% if data['inputPharmacyName'] %}{{ data['inputPharmacyName'] }}{% endif %}{% endset %}
 {% if data['pharmName'] %}
     {% set pharmName = data['pharmName'] %}
-  {% else %}
-    {% set pharmName = "Ma Manning (Pharmacy) Ltd" %}
+{% endif %}
+{% if data['pharmDetails'] %}
+    {% set pharmDetails = data['pharmDetails'] %}
+{% endif %}
+{% if data['onlineName'] %}
+    {% set onlineName = data['onlineName'] %}
+{% endif %}
+{% if data['onlineInfo'] %}
+    {% set onlineInfo = data['onlineInfo'] %}
 {% endif %}
 {% set contentTitle = "Your nominated pharmacy" %}
 {% set prescriptionsActive = "active" %}
@@ -44,8 +52,30 @@
       </p>
 
 
-            <h2 class="nhsuk-heading-s">{{ pharmName }}</h2>
-            <p>{{ data['pharmDetails'] | safe | placeholder('<p>97 Lidgett Lane, Leeds, West Yorkshire, <br> LS8 1QR <br> 0113 266 1786 </p>') }}</p> 
+
+
+            {% if data['pharmName'] %}
+              <h2 class="nhsuk-heading-s">{{ pharmName }}</h2>
+            {% elif data['onlineName'] %}
+              <h2 class="nhsuk-heading-s">{{ onlineName }}</h2>
+            {% elif data['inputPharmacyName'] %}
+              <h2 class="nhsuk-heading-s">{{ data['inputPharmacyName'] }}</h2>
+            {% else %}
+              <h2 class="nhsuk-heading-s">Ma Manning (Pharmacy) Ltd</h2>
+            {% endif %}
+
+            {% if data['pharmDetails'] %}
+              <p>{{ pharmDetails | safe }}</p>
+            {% elif data['onlineInfo'] %}
+              <p>{{ onlineInfo | safe }}</p>
+            {% elif data['inputPharmacyName'] %}
+                <p>
+                  <a href="">www.{{ exact | lower }}.com</a>
+                </p>
+                <p>Telephone: 03069 990735</p>
+            {% else %}
+              <p>97 Lidgett Lane, Leeds, West Yorkshire, <br> LS8 1QR <br> Telephone: 0113 266 1786 </p>
+            {% endif %}
 
 
       <div class="nhsuk-expander-group nhsuk-u-margin-bottom-4">
@@ -94,14 +124,21 @@
           "classes": "nhsuk-expander",
           "text": "Services available",
           "HTML": "
-          <p>Try to check your blood:</p>
-          <ul>
-            <li>before meals</li>
-            <li>2 to 3 hours after meals</li>
-            <li>before, during (take a break) and after exercise</li>
-          </ul>
-          <p>This helps you understand your blood glucose levels and how they’re affected by meals and exercise. It should help you have more stable blood glucose levels.</p>
-          "
+              <p>Pharmacy Services (NHS):</p>
+              <ul>
+                <li>Appliance dispensing</li>
+                <li>Chlamydia screening and treatment</li>
+                <li>Domiciliary support service</li>
+                <li>Medicines use review (MUR) service</li>
+                <li>Emergency contraception</li>
+                <li>Gluten-free food service</li>
+                <li>Inhaler technique service</li>
+                <li>Medication review service</li>
+                <li>Minor ailment service</li>
+                <li>Post-discharge support</li>
+                <li>Supervised consumption of medicines</li>
+                <li>Vaccination service</li>
+              </ul>"
         }) }}
       </div>
 

@@ -2,8 +2,9 @@
 {% set serviceName = "NHS App" %}
 {% if data['pharmName'] %}
     {% set pharmName = data['pharmName'] %}
-  {% else %}
-    {% set pharmName = "Ma Manning (Pharmacy) Ltd" %}
+{% endif %}
+{% if data['onlineName'] %}
+    {% set onlineName = data['onlineName'] %}
 {% endif %}
 {% set prescriptionsActive = "active" %}
 {% set contentTitle = "Your prescriptions" %}
@@ -39,7 +40,15 @@
       	<li>
       		<a href="/{{ PROTOTYPEURL }}/v1/your-nominated-pharmacy">
             <h2 class="nhsuk-heading-s">Your nominated pharmacy</h2>
-            <p>{{ pharmName }}</p>
+            {% if data['pharmName'] %}
+              <p>{{ pharmName }}</p>
+            {% elif data['onlineName'] %}
+              <p>{{ onlineName }}</p>
+            {% elif data['inputPharmacyName'] %}
+              <p>{{ data['inputPharmacyName'] }}</p>
+            {% else %}
+              <p>Ma Manning (Pharmacy) Ltd</p>
+            {% endif %}
           </a>
       	</li>
       </ul>

@@ -39,40 +39,67 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Change your nominated pharmacy
+      <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Nominate a pharmacy
 </span>{{ contentTitle }}</h1>
+
+<p>Distances given are in a straight line but travel routes may be longer.</p>
 
 
       <ul class="list-menu">
         <li>
-          <a href="/{{ PROTOTYPEURL }}/v1/high-street-pharmacy-nom">
+          <a onclick="pharmSelect('Ma Manning (Pharmacy) Ltd')" href="/{{ PROTOTYPEURL }}/v1/high-street-pharmacy-nom">
             <h2 class="nhsuk-heading-s">Ma Manning (Pharmacy) Ltd</h2>
             <p>
               97 Lidgett Lane,
               Leeds,
               West Yorkshire, <br>
               LS8 1QR <br>
-              0113 266 1786 
+              Telephone: 0113 266 1786 
             </p>
             <p>0.4 miles away</p>
           </a>
         </li>
 
+
+
         <li>
-          <a href="/{{ PROTOTYPEURL }}/v1/high-street-pharmacy-nom">
-            <h2 class="nhsuk-heading-s">Medichem Leeds</h2>
+          <a onclick="pharmSelect('Medichem (Leeds) Ltd')" href="/{{ PROTOTYPEURL }}/v1/high-street-pharmacy-nom">
+            <h2 class="nhsuk-heading-s">Medichem (Leeds) Ltd</h2>
             <p>
               40-42 Harrogate Road, Leeds, <br>
               LS7 4LA <br>
-              0113 260 7736
+              Telephone: 0113 262 2684
             </p>
-            <p> 0.9 miles away</p>
+            <p> 0.5 miles away</p>
+          </a>
+        </li>
+
+        <li>
+          <a onclick="pharmSelect('Knights Chapel Allerton Pharmacy')" href="/{{ PROTOTYPEURL }}/v1/high-street-pharmacy-nom">
+            <h2 class="nhsuk-heading-s">Knights Chapel Allerton Pharmacy</h2>
+            <p>
+              6 Stainbeck Lane, Leeds, <br>
+              LS7 3QY<br>
+              Telephone: 0113 268 1163
+            </p>
+            <p> 0.5 miles away</p>
+          </a>
+        </li>
+
+        <li>
+          <a onclick="pharmSelect('St Martins Pharmacy')" href="/{{ PROTOTYPEURL }}/v1/high-street-pharmacy">
+            <h2 class="nhsuk-heading-s">St Martins Pharmacy</h2>
+            <p>
+              643 Roundhay Road, Leeds, <br>
+              LS8 4BA<br>
+              Telephone: 0113 240 3315
+            </p>
+            <p> 0.8 miles away</p>
           </a>
         </li>
 
 
       </ul>
-
     </div>
   </div>
 {% endblock %}
