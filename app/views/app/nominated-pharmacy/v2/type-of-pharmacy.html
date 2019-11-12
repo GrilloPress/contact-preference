@@ -22,7 +22,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/change">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" onClick='window.history.go(-1)'>Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -32,15 +32,14 @@
     <div class="nhsuk-grid-column-two-thirds">
 
 
-        <form action="/{{ PROTOTYPEURL }}/v1/type-of-pharmacy" method="post">
+        <form action="/{{ PROTOTYPEURL }}/v2/type-of-pharmacy" method="post">
 
         {{ radios({
           "idPrefix": "nhs",
           "name": "pharmacyType",
           "fieldset": {
             "legend": {
-              "html": '<h1 class="nhsuk-fieldset__heading"><span class="nhsuk-caption-m nhsuk-caption--top">Change your nominated pharmacy
-              </span>' + contentTitle + '</h1>',
+              "html": '<h1 class="nhsuk-fieldset__heading">' + contentTitle + '</h1>',
               "classes": "nhsuk-fieldset__legend--l",
               "isPageHeading": true
             }
