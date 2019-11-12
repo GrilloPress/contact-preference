@@ -15,7 +15,7 @@
 {% else %}
     {% set onlineInfo = '<p><a href="https://www.echo.co.uk">www.echo.co.uk</a></p> Telephone: 020 80688067' %}
 {% endif %}
-{% set contentTitle = "Confirm " + onlineName + " as your nominated pharmacy" %}
+{% set contentTitle = "Confirm " + onlineName + " as your new nominated pharmacy" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -54,18 +54,18 @@
       <p>This is the pharmacy where your repeat prescriptions will be sent in future.</p>
 
 
-            <h2 class="nhsuk-heading-s">{{ onlineName }}</h2>
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ onlineName }}</h2>
 
 
             {% if data['onlineInfo'] %}
-              <p>{{ onlineInfo | safe }}</p>
+              <p class="nhsuk-u-margin-bottom-1">{{ onlineInfo | safe }}</p>
             {% elif data['inputPharmacyName'] %}
-              <p>
-                <a href="">www.{{ exact | lower | safe }}.com</a>
+              <p class="nhsuk-u-margin-bottom-1">
+                <a href="" class="nhsuk-u-margin-bottom-1">www.{{ exact | lower | safe }}.com</a>
               </p>
               <p>Telephone: 03069 990735</p>
             {% else %}
-              <p><a href="https://www.echo.co.uk">www.echo.co.uk</a></p> Telephone: 020 80688067 </p>
+              <p class="nhsuk-u-margin-bottom-1"><a href="https://www.echo.co.uk" class="nhsuk-u-margin-bottom-0">www.echo.co.uk</a></p><p> Telephone: 020 80688067 </p>
             {% endif %}
 
 
