@@ -99,8 +99,10 @@ function onlineSelect(online, url){
   }
 
   $.post( "", { onlineName: online, onlineInfo: info } );
+  console.log(info);
   if (url) {
     window.location.href = url
   } else {
-    window.location.href = ""
+    window.location.href = "app/nominated-pharmacy/v1/online-pharmacy"
   }
+}

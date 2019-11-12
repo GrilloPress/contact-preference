@@ -697,7 +697,23 @@ router.post('/app/nominated-pharmacy/v1/name-of-pharmacy', function (req, res) {
     res.redirect('/app/nominated-pharmacy/v1/search-name')
 
   } else {
-    res.redirect('/app/nominated-pharmacy/v1/online-results')
+
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    }
+
+    theRoll = getRandomInt(2);
+
+      if (theRoll == 0) {
+
+        res.redirect('/app/nominated-pharmacy/v1/online-results')
+
+      } else {
+
+        res.redirect('/app/nominated-pharmacy/v1/online-results-2')
+
+      }
+
   }
 });
 
