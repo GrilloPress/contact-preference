@@ -6,8 +6,8 @@
     {% set pharmName = data['pharmName'] %}
 {% elif data['onlineName'] %}
     {% set onlineName = data['onlineName'] %}
-{% elif data['inputPharmacyName'] %}
-    {% set onlineName = data['inputPharmacyName'] %}
+  {% elif data['inputPharmacyName'] %}
+    {% set onlineInfo = '<p><a href="">www.{{ exact | lower }}.com</a></p><p>Telephone: 03069 990735</p>' %}
 {% else %}
     {% set onlineName = "Echo" %}
 {% endif %}
@@ -72,7 +72,7 @@
         <p>{{ onlineInfo | safe }}</p>
       {% elif data['inputPharmacyName'] %}
         <p>
-          <a href="">www.{{ exact | lower }}.com</a>
+          <a href="">www.{{ exact | lower | safe }}.com</a>
         </p>
         <p>Telephone: 03069 990735</p>
       {% else %}

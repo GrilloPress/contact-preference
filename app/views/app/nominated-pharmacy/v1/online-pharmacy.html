@@ -62,7 +62,7 @@
               <p>{{ onlineInfo | safe }}</p>
             {% elif data['inputPharmacyName'] %}
               <p>
-                <a href="">www.{{ exact | lower }}.com</a>
+                <a href="">www.{{ exact | lower | safe }}.com</a>
               </p>
               <p>Telephone: 03069 990735</p>
             {% else %}
