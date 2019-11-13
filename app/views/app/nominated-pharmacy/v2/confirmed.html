@@ -57,27 +57,28 @@
 
 
       {% if data['pharmName'] %}
-        <h2 class="nhsuk-heading-s">{{ pharmName }}</h2>
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ pharmName }}</h2>
       {% elif data['onlineName'] %}
-        <h2 class="nhsuk-heading-s">{{ onlineName }}</h2>
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ onlineName }}</h2>
       {% elif data['inputPharmacyName'] %}
-        <h2 class="nhsuk-heading-s">{{ data['inputPharmacyName'] }}</h2>
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ data['inputPharmacyName'] }}</h2>
       {% else %}
-        <h2 class="nhsuk-heading-s">Ma Manning (Pharmacy) Ltd</h2>
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Ma Manning (Pharmacy) Ltd</h2>
       {% endif %}
 
       {% if data['pharmDetails'] %}
-        <p>{{ pharmDetails | safe }}</p>
+        <p class="nhsuk-u-margin-bottom-1">{{ pharmDetails | safe }}</p>
       {% elif data['onlineInfo'] %}
-        <p>{{ onlineInfo | safe }}</p>
+        <p class="nhsuk-u-margin-bottom-1">{{ onlineInfo | safe }}</p>
       {% elif data['inputPharmacyName'] %}
-        <p>
-          <a href="">www.{{ exact | lower | safe }}.com</a>
+        <p class="nhsuk-u-margin-bottom-1">
+          <a href="" class="nhsuk-u-margin-bottom-1">www.{{ exact | lower | safe }}.com</a>
         </p>
         <p>Telephone: 03069 990735</p>
       {% else %}
         <p>97 Lidgett Lane, Leeds, West Yorkshire, <br> LS8 1QR <br> Telephone: 0113 266 1786 </p>
       {% endif %}
+
 
 
 

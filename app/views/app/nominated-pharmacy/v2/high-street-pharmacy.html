@@ -46,8 +46,74 @@
 
       <p>This is the pharmacy where your repeat prescriptions will be sent in future.</p>
 
-      <h2 class="nhsuk-heading-s">{{ pharmName }}</h2>
-      <p>{{ pharmDetails | safe }}</p>
+      <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ pharmName }}</h2>
+      <p class="nhsuk-u-margin-bottom-1">{{ pharmDetails | safe }}</p>
+
+      <p><a href="">Map and directions</a></p>
+
+      <div class="nhsuk-expander-group nhsuk-u-margin-bottom-4">
+        {{ details({
+          "classes": "nhsuk-expander",
+          "text": "Opening times",
+          "HTML": "
+          <table>
+            <tbody>
+              <tr>
+                <th><strong>Day of the week</strong></th>
+                <th><strong>Opening hours</strong></th>
+              </tr>
+              <tr>
+                <th>Monday</th>
+                <td>9am to 6pm</td>
+              </tr>
+              <tr>
+                <th>Tuesday</th>
+                <td>9am to 6pm</td>
+              </tr>
+              <tr>
+                <th>Wednesday</th>
+                <td>9am to 6pm</td>
+              </tr>
+              <tr>
+                <th>Thursday</th>
+                <td>9am to 6pm</td>
+              </tr>
+              <tr>
+                <th>Friday</th>
+                <td>9am to 6pm</td>
+              </tr>
+              <tr>
+                <th>Saturday</th>
+                <td>9am to 1pm</td>
+              </tr>
+              <tr>
+                <th>Sunday</th>
+                <td>Closed</td>
+              </tr>
+            </tbody>
+          </table>"
+        }) }}
+        {{ details({
+          "classes": "nhsuk-expander",
+          "text": "Services available",
+          "HTML": "
+              <p>Pharmacy Services (NHS):</p>
+              <ul>
+                <li>Appliance dispensing</li>
+                <li>Chlamydia screening and treatment</li>
+                <li>Domiciliary support service</li>
+                <li>Medicines use review (MUR) service</li>
+                <li>Emergency contraception</li>
+                <li>Gluten-free food service</li>
+                <li>Inhaler technique service</li>
+                <li>Medication review service</li>
+                <li>Minor ailment service</li>
+                <li>Post-discharge support</li>
+                <li>Supervised consumption of medicines</li>
+                <li>Vaccination service</li>
+              </ul>"
+        }) }}
+      </div>
 
       <form action="/{{ PROTOTYPEURL }}/v2/confirmed" method="get">
         <input type="submit" class="nhsuk-button" value="Confirm">

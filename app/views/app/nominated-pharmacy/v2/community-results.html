@@ -1,13 +1,7 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "Change your nominated pharmacy" %}
-{% set input %}
-  {% if data['pharmacyPostcode'] %}
-     “{{ data['pharmacyPostcode'] }}”
-{% else %}
-    “LS7 4LA”
-  {% endif %}
-{% endset %}
-{% set contentTitle = "High street pharmacies near " + input %}
+{% set input %}{% if data['pharmacyPostcode'] %}{{ data['pharmacyPostcode'] | upper }}{% else %}LS7 4LA{% endif %}{% endset %}
+{% set contentTitle = "High street pharmacies near " + '"' + input + '"' %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}

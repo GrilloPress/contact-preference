@@ -77,25 +77,25 @@ function onlineSelect(online, url){
 
   var info;
   if (online === "Echo") {
-    info = '<p><a href="https://www.echo.co.uk">www.echo.co.uk</a></p> Telephone: 020 80688067'
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.echo.co.uk" class="nhsuk-u-margin-bottom-1">www.echo.co.uk</a></p> Telephone: 020 80688067'
   } else if (online === "Quantum Pharmacy") {
-    info = '<p><a href="https://www.prescriptioncareservices.co.uk">www.prescriptioncareservices.co.uk</a></p> Telephone: 0121 7072786'
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.prescriptioncareservices.co.uk" class="nhsuk-u-margin-bottom-1">www.prescriptioncareservices.co.uk</a></p> Telephone: 0121 7072786'
   } else if (online === "Stockport Pharmacy") {
-    info = '<p><a href="https://www.stockport-pharmacy.co.uk">www.stockport-pharmacy.co.uk</a></p> Telephone: 0161 2223505'
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.stockport-pharmacy.co.uk" class="nhsuk-u-margin-bottom-1">www.stockport-pharmacy.co.uk</a></p> Telephone: 0161 2223505'
   } else if (online === "Care2homes") {
-    info = '<p><a href="https://care2homes.co.uk">care2homes.co.uk</a></p>Telephone: 01707 326151'
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://care2homes.co.uk" class="nhsuk-u-margin-bottom-1">care2homes.co.uk</a></p>Telephone: 01707 326151'
   } else if (online === "Akhtars Pharmacy") {
-    info = '<p><a href="https://www.akhtarspharmacy.co.uk">www.akhtarspharmacy.co.uk</a></p> Telephone: 01254 278515'
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.akhtarspharmacy.co.uk" class="nhsuk-u-margin-bottom-1">www.akhtarspharmacy.co.uk</a></p> Telephone: 01254 278515'
   } else if (online === "Airedale Pharmacy") {
-    info = '<p><a href="https://www.airedalepharmacy.com">www.airedalepharmacy.com</a></p> Telephone: 01535 957171'
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.airedalepharmacy.com" class="nhsuk-u-margin-bottom-1">www.airedalepharmacy.com</a></p> Telephone: 01535 957171'
   } else if (online === "Konnect Pharmacy") {
-    info = '<p><a href="https://www.konnectpharmacy.co.uk">www.konnectpharmacy.co.uk</a></p> Telephone: 0121 7093555'
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.konnectpharmacy.co.uk" class="nhsuk-u-margin-bottom-1">www.konnectpharmacy.co.uk</a></p> Telephone: 0121 7093555'
   } else if (online === "Trojan Pharmacy") {
-    info = '<p><a href="https://www.trojanpharmacy.co.uk">www.trojanpharmacy.co.uk</a></p> Telephone: 024 76582000'
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.trojanpharmacy.co.uk" class="nhsuk-u-margin-bottom-1">www.trojanpharmacy.co.uk</a></p> Telephone: 024 76582000'
   } else if (online === "Essex Pharmacy Online") {
-    info = '<p><a href="https://www.essexpharmacyonline.co.uk">www.essexpharmacyonline.co.uk</a></p> Telephone: 01375 768282'
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.essexpharmacyonline.co.uk" class="nhsuk-u-margin-bottom-1">www.essexpharmacyonline.co.uk</a></p> Telephone: 01375 768282'
   } else {
-    info = '<p><a href="https://www.nightingale-pharmacy.co.uk">www.nightingale-pharmacy.co.uk</a></p> Telephone: 0113 3452424'
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.nightingale-pharmacy.co.uk" class="nhsuk-u-margin-bottom-1">www.nightingale-pharmacy.co.uk</a></p> Telephone: 0113 3452424'
   }
 
   $.post( "", { onlineName: online, onlineInfo: info } );

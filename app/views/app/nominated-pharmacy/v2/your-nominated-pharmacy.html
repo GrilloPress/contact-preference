@@ -55,27 +55,31 @@
 
 
             {% if data['pharmName'] %}
-              <h2 class="nhsuk-heading-s">{{ pharmName }}</h2>
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ pharmName }}</h2>
             {% elif data['onlineName'] %}
-              <h2 class="nhsuk-heading-s">{{ onlineName }}</h2>
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ onlineName }}</h2>
             {% elif data['inputPharmacyName'] %}
-              <h2 class="nhsuk-heading-s">{{ data['inputPharmacyName'] }}</h2>
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ data['inputPharmacyName'] }}</h2>
             {% else %}
-              <h2 class="nhsuk-heading-s">Ma Manning (Pharmacy) Ltd</h2>
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Ma Manning (Pharmacy) Ltd</h2>
             {% endif %}
 
             {% if data['pharmDetails'] %}
-              <p>{{ pharmDetails | safe }}</p>
+              <p class="nhsuk-u-margin-bottom-1">{{ pharmDetails | safe }}</p>
             {% elif data['onlineInfo'] %}
-              <p>{{ onlineInfo | safe }}</p>
+              <p class="nhsuk-u-margin-bottom-1">{{ onlineInfo | safe }}</p>
             {% elif data['inputPharmacyName'] %}
-                <p>
-                  <a href="">www.{{ exact | lower | safe }}.com</a>
+                <p class="nhsuk-u-margin-bottom-1">
+                  <a href="" class="nhsuk-u-margin-bottom-1">www.{{ exact | lower | safe }}.com</a>
                 </p>
                 <p>Telephone: 03069 990735</p>
             {% else %}
               <p>97 Lidgett Lane, Leeds, West Yorkshire, <br> LS8 1QR <br> Telephone: 0113 266 1786 </p>
             {% endif %}
+
+            {% if data['pharmacyType'] === "community" %}
+
+            <p><a href="">Map and directions</a></p>
 
 
       <div class="nhsuk-expander-group nhsuk-u-margin-bottom-4">
@@ -141,6 +145,85 @@
               </ul>"
         }) }}
       </div>
+
+
+      {% elif data['pharmacyType'] === "online" %}
+
+
+
+      {% else %}
+
+
+      <p><a href="">Map and directions</a></p>
+
+
+<div class="nhsuk-expander-group nhsuk-u-margin-bottom-4">
+  {{ details({
+    "classes": "nhsuk-expander",
+    "text": "Opening times",
+    "HTML": "
+    <table>
+      <tbody>
+        <tr>
+          <th><strong>Day of the week</strong></th>
+          <th><strong>Opening hours</strong></th>
+        </tr>
+        <tr>
+          <th>Monday</th>
+          <td>9am to 6pm</td>
+        </tr>
+        <tr>
+          <th>Tuesday</th>
+          <td>9am to 6pm</td>
+        </tr>
+        <tr>
+          <th>Wednesday</th>
+          <td>9am to 6pm</td>
+        </tr>
+        <tr>
+          <th>Thursday</th>
+          <td>9am to 6pm</td>
+        </tr>
+        <tr>
+          <th>Friday</th>
+          <td>9am to 6pm</td>
+        </tr>
+        <tr>
+          <th>Saturday</th>
+          <td>9am to 1pm</td>
+        </tr>
+        <tr>
+          <th>Sunday</th>
+          <td>Closed</td>
+        </tr>
+      </tbody>
+    </table>"
+  }) }}
+  {{ details({
+    "classes": "nhsuk-expander",
+    "text": "Services available",
+    "HTML": "
+        <p>Pharmacy Services (NHS):</p>
+        <ul>
+          <li>Appliance dispensing</li>
+          <li>Chlamydia screening and treatment</li>
+          <li>Domiciliary support service</li>
+          <li>Medicines use review (MUR) service</li>
+          <li>Emergency contraception</li>
+          <li>Gluten-free food service</li>
+          <li>Inhaler technique service</li>
+          <li>Medication review service</li>
+          <li>Minor ailment service</li>
+          <li>Post-discharge support</li>
+          <li>Supervised consumption of medicines</li>
+          <li>Vaccination service</li>
+        </ul>"
+  }) }}
+</div>
+
+
+      {% endif %}
+
 
       <form action="/{{ PROTOTYPEURL }}/v2/change" method="get">
         <input type="submit" class="nhsuk-button" value="Change your nominated pharmacy">
