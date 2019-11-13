@@ -16,17 +16,7 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-{{ breadcrumb({
-  classes: "nhs-app-breadcrumb",
-  items: [
-    {
-      href: "#",
-      text: "Home"
-    }
-  ],
-  href: "#",
-  text: "Your appointments"
-}) }}
+
 {% endblock %}
 
 {% block content %}
@@ -40,10 +30,8 @@
         The order status will be updated once it's been reviewed by your GP.
       </p>
 
-      <form action="index" method="get">
-        <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Back to your prescriptions">
-        </input>
-      </form>
+      <p><a href="/app/nominated-pharmacy/v2/your-prescriptions-2">Go to your prescriptions</a></p>
+
 
     </div>
   </div>

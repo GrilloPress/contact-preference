@@ -124,26 +124,7 @@
             </tbody>
           </table>"
         }) }}
-        {{ details({
-          "classes": "nhsuk-expander",
-          "text": "Services available",
-          "HTML": "
-              <p>Pharmacy Services (NHS):</p>
-              <ul>
-                <li>Appliance dispensing</li>
-                <li>Chlamydia screening and treatment</li>
-                <li>Domiciliary support service</li>
-                <li>Medicines use review (MUR) service</li>
-                <li>Emergency contraception</li>
-                <li>Gluten-free food service</li>
-                <li>Inhaler technique service</li>
-                <li>Medication review service</li>
-                <li>Minor ailment service</li>
-                <li>Post-discharge support</li>
-                <li>Supervised consumption of medicines</li>
-                <li>Vaccination service</li>
-              </ul>"
-        }) }}
+
       </div>
 
 
@@ -199,33 +180,14 @@
       </tbody>
     </table>"
   }) }}
-  {{ details({
-    "classes": "nhsuk-expander",
-    "text": "Services available",
-    "HTML": "
-        <p>Pharmacy Services (NHS):</p>
-        <ul>
-          <li>Appliance dispensing</li>
-          <li>Chlamydia screening and treatment</li>
-          <li>Domiciliary support service</li>
-          <li>Medicines use review (MUR) service</li>
-          <li>Emergency contraception</li>
-          <li>Gluten-free food service</li>
-          <li>Inhaler technique service</li>
-          <li>Medication review service</li>
-          <li>Minor ailment service</li>
-          <li>Post-discharge support</li>
-          <li>Supervised consumption of medicines</li>
-          <li>Vaccination service</li>
-        </ul>"
-  }) }}
+
 </div>
 
 
       {% endif %}
 
 
-      <form action="/{{ PROTOTYPEURL }}/v2/change" method="get">
+      <form action="/{{ PROTOTYPEURL }}/v2/change-2" method="get">
         <input type="submit" class="nhsuk-button" value="Change your nominated pharmacy">
         </input>
       </form>

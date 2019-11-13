@@ -94,9 +94,34 @@ function onlineSelect(online, url){
     info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.trojanpharmacy.co.uk" class="nhsuk-u-margin-bottom-1">www.trojanpharmacy.co.uk</a></p> Telephone: 024 76582000'
   } else if (online === "Essex Pharmacy Online") {
     info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.essexpharmacyonline.co.uk" class="nhsuk-u-margin-bottom-1">www.essexpharmacyonline.co.uk</a></p> Telephone: 01375 768282'
-  } else {
+  } else if (online === "Nightingale Pharmacy") {
     info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.nightingale-pharmacy.co.uk" class="nhsuk-u-margin-bottom-1">www.nightingale-pharmacy.co.uk</a></p> Telephone: 0113 3452424'
+  } else if (online === "Fastheal Pharmacy") {
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.fasthealpharmacy.com" class="nhsuk-u-margin-bottom-1">www.fasthealpharmacy.com</a></p> Telephone: 07868 039834'
+  } else if (online === "Medico2u") {
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.medico2u.co.uk" class="nhsuk-u-margin-bottom-1">www.medico2u.co.uk</a></p> Telephone: 020 89044848'
+  } else if (online === "Biomed Care Services") {
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.biomedcareservices.com" class="nhsuk-u-margin-bottom-1">www.biomedcareservices.com</a></p> Telephone: 0800 9994888'
+  } else if (online === "Waterfoot Pharmacy") {
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.waterfootpharmacy.co.uk" class="nhsuk-u-margin-bottom-1">www.waterfootpharmacy.co.uk</a></p> Telephone: 01706 214588'
+  } else if (online === "Drugs4delivery") {
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.drugs4delivery.com" class="nhsuk-u-margin-bottom-1">www.drugs4delivery.com</a></p> Telephone: 01472 241990'
+  } else if (online === "Ryans Pharmacy") {
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.ryanspharmacy.co.uk" class="nhsuk-u-margin-bottom-1">www.ryanspharmacy.co.uk</a></p> Telephone: 01422 253510'
+  } else if (online === "Jardines Direct") {
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.jardinespharmacy.co.uk" class="nhsuk-u-margin-bottom-1">www.jardinespharmacy.co.uk</a></p> Telephone: 01908 508387'
+  } else if (online === "Hot Chemist") {
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.hotchemist.co.uk" class="nhsuk-u-margin-bottom-1">www.hotchemist.co.uk</a></p> Telephone: 01908 803499'
+  } else if (online === "Village Pharmacy Hub") {
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.prescriptionportal.co.uk" class="nhsuk-u-margin-bottom-1">www.prescriptionportal.co.uk</a></p> Telephone: 0116 2745411'
+  } else if (online === "Olive Pharmacy Online") {
+    info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.olivepharmacy.co.uk" class="nhsuk-u-margin-bottom-1">www.olivepharmacy.co.uk</a></p> Telephone: 01756 701208'
   }
+
+
+
+
+
 
   $.post( "", { onlineName: online, onlineInfo: info } );
   console.log(info);

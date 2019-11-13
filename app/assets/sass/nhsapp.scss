@@ -79,7 +79,14 @@ a.button {
   a.button.grey {
     background-color: #637683;
     box-shadow: 0em 0.125em 0em 0em #425563; }
-  button.button.white,
+    button.button.blue,
+    a.button.blue {
+      background-color: #005EB8;
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0em 0.125em 0em 0em #005326; }
+      button.button.white,
   a.button.white {
     background-color: #ffffff;
     box-shadow: 0em 0.125em 0em 0em #637683;
