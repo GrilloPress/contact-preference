@@ -31,7 +31,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/find-community-pharmacy-nom">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v2/find-community-pharmacy">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -39,15 +39,14 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Nominate a pharmacy
-</span>{{ contentTitle }}</h1>
+      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
 
 <p>Distances given are in a straight line but travel routes may be longer.</p>
 
 
       <ul class="list-menu">
         <li>
-          <a onclick="pharmSelect('Ma Manning (Pharmacy) Ltd')" href="/{{ PROTOTYPEURL }}/v1/high-street-pharmacy-nom">
+          <a onclick="pharmSelect('Ma Manning (Pharmacy) Ltd')" href="/{{ PROTOTYPEURL }}/v2/high-street-pharmacy">
             <h2 class="nhsuk-heading-s">Ma Manning (Pharmacy) Ltd</h2>
             <p>
               97 Lidgett Lane,
@@ -63,7 +62,7 @@
 
 
         <li>
-          <a onclick="pharmSelect('Medichem (Leeds) Ltd')" href="/{{ PROTOTYPEURL }}/v1/high-street-pharmacy-nom">
+          <a onclick="pharmSelect('Medichem (Leeds) Ltd')" href="/{{ PROTOTYPEURL }}/v2/high-street-pharmacy">
             <h2 class="nhsuk-heading-s">Medichem (Leeds) Ltd</h2>
             <p>
               40-42 Harrogate Road, Leeds, <br>
@@ -75,7 +74,7 @@
         </li>
 
         <li>
-          <a onclick="pharmSelect('Knights Chapel Allerton Pharmacy')" href="/{{ PROTOTYPEURL }}/v1/high-street-pharmacy-nom">
+          <a onclick="pharmSelect('Knights Chapel Allerton Pharmacy')" href="/{{ PROTOTYPEURL }}/v2/high-street-pharmacy">
             <h2 class="nhsuk-heading-s">Knights Chapel Allerton Pharmacy</h2>
             <p>
               6 Stainbeck Lane, Leeds, <br>
@@ -87,7 +86,7 @@
         </li>
 
         <li>
-          <a onclick="pharmSelect('St Martins Pharmacy')" href="/{{ PROTOTYPEURL }}/v1/high-street-pharmacy">
+          <a onclick="pharmSelect('St Martins Pharmacy')" href="/{{ PROTOTYPEURL }}/v2/high-street-pharmacy">
             <h2 class="nhsuk-heading-s">St Martins Pharmacy</h2>
             <p>
               643 Roundhay Road, Leeds, <br>
@@ -98,8 +97,8 @@
           </a>
         </li>
 
-
       </ul>
+
     </div>
   </div>
 {% endblock %}

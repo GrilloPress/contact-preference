@@ -1,21 +1,30 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "Change your nominated pharmacy" %}
 {% set prescriptionsActive = "active" %}
+{% set exact %}{% if data['inputPharmacyName'] %}{{ data['inputPharmacyName'] }}{% endif %}{% endset %}
 {% if data['pharmName'] %}
     {% set pharmName = data['pharmName'] %}
 {% elif data['onlineName'] %}
     {% set onlineName = data['onlineName'] %}
+  {% elif data['inputPharmacyName'] %}
+    {% set onlineInfo = '<p><a href="">www.{{ exact | lower }}.com</a></p><p>Telephone: 03069 990735</p>' %}
+{% else %}
+    {% set onlineName = "Echo" %}
 {% endif %}
 {% if data['pharmDetails'] %}
     {% set pharmDetails = data['pharmDetails'] %}
 {% endif %}
 {% if data['onlineInfo'] %}
     {% set onlineInfo = data['onlineInfo'] %}
+{% else %}
+    {% set onlineInfo = '<p><a href="https://www.echo.co.uk">www.echo.co.uk</a></p> Telephone: 020 80688067' %}
 {% endif %}
 {% if data['pharmName'] %}
 {% set contentTitle = "We’ve updated your new nominated pharmacy to " + pharmName %}
 {% elif data['onlineName'] %}
 {% set contentTitle = "We’ve updated your new nominated pharmacy to " + onlineName %}
+{% elif data['inputPharmacyName'] %}
+{% set contentTitle = "We’ve updated your new nominated pharmacy to " + data['inputPharmacyName'] %}
 {% else %}
 {% set contentTitle = "We’ve updated your new nominated pharmacy to Ma Manning (Pharmacy) Ltd" %}
 {% endif %}
@@ -46,10 +55,13 @@
       <p>Your new repeat prescriptions will be sent to:</p>
 
 
+
       {% if data['pharmName'] %}
         <h2 class="nhsuk-heading-s">{{ pharmName }}</h2>
       {% elif data['onlineName'] %}
         <h2 class="nhsuk-heading-s">{{ onlineName }}</h2>
+      {% elif data['inputPharmacyName'] %}
+        <h2 class="nhsuk-heading-s">{{ data['inputPharmacyName'] }}</h2>
       {% else %}
         <h2 class="nhsuk-heading-s">Ma Manning (Pharmacy) Ltd</h2>
       {% endif %}
@@ -58,10 +70,14 @@
         <p>{{ pharmDetails | safe }}</p>
       {% elif data['onlineInfo'] %}
         <p>{{ onlineInfo | safe }}</p>
+      {% elif data['inputPharmacyName'] %}
+        <p>
+          <a href="">www.{{ exact | lower | safe }}.com</a>
+        </p>
+        <p>Telephone: 03069 990735</p>
       {% else %}
         <p>97 Lidgett Lane, Leeds, West Yorkshire, <br> LS8 1QR <br> Telephone: 0113 266 1786 </p>
       {% endif %}
-
 
 
       <form action="/{{ PROTOTYPEURL }}/v1/your-prescriptions" method="get">

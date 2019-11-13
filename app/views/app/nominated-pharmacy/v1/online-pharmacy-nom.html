@@ -1,6 +1,21 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "Change your nominated pharmacy" %}
-{% set contentTitle = "Confirm Medichem Leeds as your nominated pharmacy" %}
+{% set exact %}{% if data['inputPharmacyName'] %}{{ data['inputPharmacyName'] }}{% endif %}{% endset %}
+{% if data['onlineName'] %}
+    {% set onlineName = data['onlineName'] %}
+{% elif data['inputPharmacyName'] %}
+{% set onlineName = data['inputPharmacyName'] %}
+{% else %}
+    {% set onlineName = "Echo" %}
+{% endif %}
+{% if data['onlineInfo'] %}
+    {% set onlineInfo = data['onlineInfo'] %}
+{% elif data['inputPharmacyName'] %}
+{% set onlineInfo = '<p><a href="">www.{{ exact | lower }}.com</a></p><p>Telephone: 03069 990735</p>' %}
+{% else %}
+    {% set onlineInfo = '<p><a href="https://www.echo.co.uk">www.echo.co.uk</a></p> Telephone: 020 80688067' %}
+{% endif %}
+{% set contentTitle = "Confirm " + onlineName + " as your nominated pharmacy" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -30,19 +45,17 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Change your nominated pharmacy
+        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Nominate a pharmacy
   </span>{{ contentTitle }}</h1>
 
 
+  <p>This is the pharmacy where your repeat prescriptions will be sent in future.</p>
 
-      <p>This is the pharmacy where your repeat prescriptions will be sent in future.</p>
+  <h2 class="nhsuk-heading-s">{{ onlineName }}</h2>
 
-      <h2 class="nhsuk-heading-s">Leeds Pharmacy</h2>
-      <p>
-        40-42 Harrogate Road, Leeds, <br>
-        LS7 4LA <br>
-        0113 260 7736
-      </p>
+    <p>{{ onlineInfo | safe }}</p>
+
+    
 
       <form action="/{{ PROTOTYPEURL }}/v1/confirmed-nom" method="get">
         <input type="submit" class="nhsuk-button" value="Confirm">

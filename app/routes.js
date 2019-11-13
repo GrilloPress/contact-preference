@@ -697,7 +697,23 @@ router.post('/app/nominated-pharmacy/v1/name-of-pharmacy', function (req, res) {
     res.redirect('/app/nominated-pharmacy/v1/search-name')
 
   } else {
-    res.redirect('/app/nominated-pharmacy/v1/online-results')
+
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    }
+
+    theRoll = getRandomInt(2);
+
+      if (theRoll == 0) {
+
+        res.redirect('/app/nominated-pharmacy/v1/online-results')
+
+      } else {
+
+        res.redirect('/app/nominated-pharmacy/v1/online-results-2')
+
+      }
+
   }
 });
 
@@ -725,6 +741,49 @@ router.post('/app/nominated-pharmacy/v1/name-of-pharmacy-nom', function (req, re
     res.redirect('/app/nominated-pharmacy/v1/online-results-nom')
   }
 });
+
+
+router.post('/app/nominated-pharmacy/v2/type-of-pharmacy', function (req, res) {
+  let answer = req.body.pharmacyType;
+
+  if (answer === 'community') {
+
+    res.redirect('/app/nominated-pharmacy/v2/find-community-pharmacy')
+
+  } else {
+    res.redirect('/app/nominated-pharmacy/v2/name-of-pharmacy')
+  }
+});
+
+router.post('/app/nominated-pharmacy/v2/name-of-pharmacy', function (req, res) {
+  let answer = req.body.pharmacyName;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/nominated-pharmacy/v2/search-name')
+
+  } else {
+
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    }
+
+    theRoll = getRandomInt(2);
+
+      if (theRoll == 0) {
+
+        res.redirect('/app/nominated-pharmacy/v2/online-results')
+
+      } else {
+
+        res.redirect('/app/nominated-pharmacy/v2/online-results-2')
+
+      }
+
+  }
+});
+
+
 
 
 

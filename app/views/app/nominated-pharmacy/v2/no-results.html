@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "Change your nominated pharmacy" %}
-{% set exact %}{% if data['inputPharmacyName'] %}{{ data['inputPharmacyName'] }}{% else %}Echo{% endif %}{% endset %}
-{% set contentTitle = "You searched " + '"' + exact + '"' %}
+{% set nameOfPharmacy %}{% if data['inputPharmacyName'] %}{{ data['inputPharmacyName'] }}{% else %}Meadow Pharm{% endif %}{% endset %}
+{% set contentTitle = "No results found for " + '"' + nameOfPharmacy + '"' %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -23,7 +23,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/search-name">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v2/search-name">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -31,24 +31,29 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Change your nominated pharmacy
-</span>{{ contentTitle | safe }}</h1>
+
+      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
 
 
-      <ul class="list-menu">
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/v1/online-pharmacy">
-            <h2 class="nhsuk-heading-s">{{ exact | safe }}</h2>
-            <p>
-              www.{{ exact | lower | safe }}.com
-            </p>
-            <p>Telephone: 03069 990735</p>
-          </a>
-        </li>
+<p>We could not find any results for "{{nameOfPharmacy}}". Make sure you enter the pharmacy name correctly.</p>
 
-      </ul>
 
-      <p><a href="/{{ PROTOTYPEURL }}/v1/search-name">Search again</a></p>
+  <form action="/{{ PROTOTYPEURL }}/v2/exact-match" method="get">
+
+    {{ input({
+      "label": {
+        "html": '<h2 class="nhsuk-heading-m">Search again</h2>'
+          },
+      "id": "input-width-20",
+      "name": "inputPharmacyName",
+      "value": nameOfPharmacy,
+      "classes": "nhsuk-input--width-20"
+    }) }}
+
+    <input type="submit" class="nhsuk-button" value="Search">
+    </input>
+
+  </form>
 
 
     </div>

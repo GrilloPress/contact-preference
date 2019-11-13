@@ -55,13 +55,13 @@ function pharmSelect(pharm, url){
 
   var details;
   if (pharm === "Ma Manning (Pharmacy) Ltd") {
-    details = "<p>97 Lidgett Lane, Leeds, West Yorkshire, <br> LS8 1QR <br>0113 266 1786 </p>"
+    details = "97 Lidgett Lane, Leeds, West Yorkshire, <br> LS8 1QR <br> Telephone: 0113 266 1786 "
   } else if (pharm === "Medichem (Leeds) Ltd") {
-    details = "40-42 Harrogate Road, Leeds, <br> LS7 4LA <br> 0113 262 2684"
+    details = "40-42 Harrogate Road, Leeds, <br> LS7 4LA <br> Telephone: 0113 262 2684"
   } else if (pharm === "Knights Chapel Allerton Pharmacy") {
-    details = "6 Stainbeck Lane, Leeds, <br> LS7 3QY<br> 0113 268 1163"
+    details = "6 Stainbeck Lane, Leeds, <br> LS7 3QY<br> Telephone: 0113 268 1163"
   } else {
-    details = "210-212 Chapeltown Road, Leeds, <br> LS7 4JA<br> 0113 262 3944"
+    details = "643 Roundhay Road, Leeds, <br> LS8 4BA <br> Telephone: 0113 240 3315"
   }
 
   $.post( "", { pharmName: pharm, pharmDetails: details } );
@@ -77,20 +77,32 @@ function onlineSelect(online, url){
 
   var info;
   if (online === "Echo") {
-    info = "<p>www.echo.co.uk</p><p>020 8068 8067</p>"
-  } else if (online === "Medichem (Leeds) Ltd") {
-    info = ""
-  } else if (online === "Knights Chapel Allerton Pharmacy") {
-    info = ""
+    info = '<p><a href="https://www.echo.co.uk">www.echo.co.uk</a></p> Telephone: 020 80688067'
+  } else if (online === "Quantum Pharmacy") {
+    info = '<p><a href="https://www.prescriptioncareservices.co.uk">www.prescriptioncareservices.co.uk</a></p> Telephone: 0121 7072786'
+  } else if (online === "Stockport Pharmacy") {
+    info = '<p><a href="https://www.stockport-pharmacy.co.uk">www.stockport-pharmacy.co.uk</a></p> Telephone: 0161 2223505'
+  } else if (online === "Care2homes") {
+    info = '<p><a href="https://care2homes.co.uk">care2homes.co.uk</a></p>Telephone: 01707 326151'
+  } else if (online === "Akhtars Pharmacy") {
+    info = '<p><a href="https://www.akhtarspharmacy.co.uk">www.akhtarspharmacy.co.uk</a></p> Telephone: 01254 278515'
+  } else if (online === "Airedale Pharmacy") {
+    info = '<p><a href="https://www.airedalepharmacy.com">www.airedalepharmacy.com</a></p> Telephone: 01535 957171'
+  } else if (online === "Konnect Pharmacy") {
+    info = '<p><a href="https://www.konnectpharmacy.co.uk">www.konnectpharmacy.co.uk</a></p> Telephone: 0121 7093555'
+  } else if (online === "Trojan Pharmacy") {
+    info = '<p><a href="https://www.trojanpharmacy.co.uk">www.trojanpharmacy.co.uk</a></p> Telephone: 024 76582000'
+  } else if (online === "Essex Pharmacy Online") {
+    info = '<p><a href="https://www.essexpharmacyonline.co.uk">www.essexpharmacyonline.co.uk</a></p> Telephone: 01375 768282'
   } else {
-    info = ""
+    info = '<p><a href="https://www.nightingale-pharmacy.co.uk">www.nightingale-pharmacy.co.uk</a></p> Telephone: 0113 3452424'
   }
 
   $.post( "", { onlineName: online, onlineInfo: info } );
+  console.log(info);
   if (url) {
     window.location.href = url
   } else {
-    window.location.href = ""
+    window.location.href = "app/nominated-pharmacy/v1/online-pharmacy"
   }
-
 }

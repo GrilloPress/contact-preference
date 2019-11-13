@@ -1,11 +1,5 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "NHS App" %}
-{% if data['pharmName'] %}
-    {% set pharmName = data['pharmName'] %}
-{% endif %}
-{% if data['onlineName'] %}
-    {% set onlineName = data['onlineName'] %}
-{% endif %}
 {% set prescriptionsActive = "active" %}
 {% set contentTitle = "Your prescriptions" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -31,24 +25,16 @@
         {{ contentTitle }}
       </h1>
 
-      <form action="/{{ PROTOTYPEURL}}/select-medicine-to-renew" method="get">
+      <form action="/{{ PROTOTYPEURL}}/" method="get">
         <input type="submit" class="nhsuk-button" value="Order a repeat prescription">
         </input>
       </form>
 
       <ul class="list-menu">
       	<li>
-      		<a href="/{{ PROTOTYPEURL }}/v1/your-nominated-pharmacy">
+      		<a href="/{{ PROTOTYPEURL }}/v2/card-nom-pharmacy">
             <h2 class="nhsuk-heading-s">Your nominated pharmacy</h2>
-            {% if data['pharmName'] %}
-              <p>{{ pharmName }}</p>
-            {% elif data['onlineName'] %}
-              <p>{{ onlineName }}</p>
-            {% elif data['inputPharmacyName'] %}
-              <p>{{ data['inputPharmacyName'] }}</p>
-            {% else %}
-              <p>Ma Manning (Pharmacy) Ltd</p>
-            {% endif %}
+            <p>You do not have a nominated pharmacy</p>
           </a>
       	</li>
       </ul>

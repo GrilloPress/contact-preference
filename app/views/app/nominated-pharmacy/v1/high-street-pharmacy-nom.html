@@ -1,6 +1,16 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "Change your nominated pharmacy" %}
-{% set contentTitle = "Confirm Medichem Leeds as your nominated pharmacy" %}
+{% if data['pharmName'] %}
+    {% set pharmName = data['pharmName'] %}
+  {% else %}
+    {% set pharmName = "Ma Manning (Pharmacy) Ltd" %}
+{% endif %}
+{% if data['pharmDetails'] %}
+    {% set pharmDetails = data['pharmDetails'] %}
+  {% else %}
+    {% set pharmDetails = '97 Lidgett Lane, Leeds, West Yorkshire, <br> LS8 1QR <br> Telephone: 0113 266 1786' %}
+{% endif %}
+{% set contentTitle = "Confirm " + pharmName + " as your nominated pharmacy" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -30,19 +40,16 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Change your nominated pharmacy
+        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Nominate a pharmacy
   </span>{{ contentTitle }}</h1>
 
 
 
-      <p>This is the pharmacy where your repeat prescriptions will be sent in future.</p>
 
-      <h2 class="nhsuk-heading-s">Leeds Pharmacy</h2>
-      <p>
-        40-42 Harrogate Road, Leeds, <br>
-        LS7 4LA <br>
-        0113 260 7736
-      </p>
+        <p>This is the pharmacy where your repeat prescriptions will be sent in future.</p>
+
+        <h2 class="nhsuk-heading-s">{{ pharmName }}</h2>
+        <p>{{ pharmDetails | safe }}</p>
 
       <form action="/{{ PROTOTYPEURL }}/v1/confirmed-nom" method="get">
         <input type="submit" class="nhsuk-button" value="Confirm">
