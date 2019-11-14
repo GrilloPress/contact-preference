@@ -1,0 +1,118 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% if data['pharmName'] %}
+    {% set pharmName = data['pharmName'] %}
+{% endif %}
+{% if data['onlineName'] %}
+    {% set onlineName = data['onlineName'] %}
+{% endif %}
+{% set prescriptionsActive = "active" %}
+{% set contentTitle = "Your repeat prescriptions" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v2/your-prescriptions-2">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
+
+      <p>You have 2 repeat prescriptions.</p>
+
+
+
+      {% if data['prescriptionConfirmed'] %}
+
+      <div class="app-card app-card--with-border">
+        <div class="app-card__wrapper">
+          <div class="app-card__content">
+
+            <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
+              Omeprazole
+            </h3>
+            <p class="nhsuk-body-m nhsuk-u-margin-bottom-3">40mg gastro-resistant capsules</p>
+
+            <p class="nhsuk-body-m">Last ordered: 20 November 2019</p>
+
+            <p><strong>Prescription pending GP approval</strong></p>
+
+          </div>
+        </div>
+      </div>
+
+      {% else %}
+
+
+      <div class="app-card app-card--with-border">
+        <div class="app-card__wrapper">
+          <div class="app-card__content">
+
+            <form action="/{{ PROTOTYPEURL }}/v2/order-prescription" method="get">
+
+            <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
+              Omeprazole
+            </h3>
+            <p class="nhsuk-body-m nhsuk-u-margin-bottom-3">40mg gastro-resistant capsules</p>
+
+            <p class="nhsuk-body-m">Last issued: 1 October 2019</p>
+
+
+                    <input type="submit" class="nhsuk-button nhsuk-u-margin-bottom-4" value="Order repeat prescription">
+                    </input>
+
+                  </form>
+
+          </div>
+        </div>
+      </div>
+
+
+            {% endif %}
+
+
+      <div class="app-card app-card--with-border">
+        <div class="app-card__wrapper">
+          <div class="app-card__content">
+
+            <form action="/{{ PROTOTYPEURL }}/v2/exact-match" method="get">
+
+            <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
+              Alogliptin
+            </h3>
+            <p class="nhsuk-body-m nhsuk-u-margin-bottom-3">25mg tablets</p>
+
+            <p class="nhsuk-body-m">Last issued: 26 October 2019</p>
+
+            <p><strong>You cannot order a new repeat prescription until 27 November 2019</strong></p>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+{% endblock %}
