@@ -36,7 +36,7 @@
       <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
       <p>Deleting your message will remove {{ "this conversation" if data["conversation"] == "true" else "it" }} from your list of messages.</p>
       <p>{{ "Your conversation" if data["conversation"] == "true" else "Your message" }} will still be saved in your GP health record.</p>
-      <form action="delete-confirm">
+      <form action="delete-confirm?deleteID={{ data['id'] or '1' }}" method="post">
         <input class="nhsuk-button nhs-app-button--delete" type="submit" value="Delete message">
       </form>
       <p class=""><a class="" href="javascript:window.history.back();">Cancel </a></p>
