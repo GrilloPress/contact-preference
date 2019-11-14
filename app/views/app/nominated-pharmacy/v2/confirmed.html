@@ -20,13 +20,13 @@
     {% set onlineInfo = '<p><a href="https://www.echo.co.uk">www.echo.co.uk</a></p> Telephone: 020 80688067' %}
 {% endif %}
 {% if data['pharmName'] %}
-{% set contentTitle = "We’ve updated your new nominated pharmacy to " + pharmName %}
+{% set contentTitle = "Your nominated pharmacy is " + pharmName %}
 {% elif data['onlineName'] %}
-{% set contentTitle = "We’ve updated your new nominated pharmacy to " + onlineName %}
+{% set contentTitle = "Your nominated pharmacy is " + onlineName %}
 {% elif data['inputPharmacyName'] %}
-{% set contentTitle = "We’ve updated your new nominated pharmacy to " + data['inputPharmacyName'] %}
+{% set contentTitle = "Your nominated pharmacy is " + data['inputPharmacyName'] %}
 {% else %}
-{% set contentTitle = "We’ve updated your new nominated pharmacy to Ma Manning (Pharmacy) Ltd" %}
+{% set contentTitle = "Your nominated pharmacy is Ma Manning (Pharmacy) Ltd" %}
 {% endif %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -52,7 +52,7 @@
       <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
 
 
-      <p>Your new repeat prescriptions will be sent to:</p>
+      <p>Your repeat prescriptions will now be sent to:</p>
 
 
 
@@ -79,7 +79,7 @@
         <p>97 Lidgett Lane, Leeds, West Yorkshire, <br> LS8 1QR <br> Telephone: 0113 266 1786 </p>
       {% endif %}
 
-      <p><a href="/app/prescriptions/v2/your-repeat-prescriptions">Go to your repeat prescriptions</a></p>
+      <p class="nhsuk-u-margin-top-4"><a href="/app/prescriptions/v2/your-repeat-prescriptions">Go to your repeat prescriptions</a></p>
 
 
     </div>
