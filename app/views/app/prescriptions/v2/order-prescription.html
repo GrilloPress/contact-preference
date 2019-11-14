@@ -3,6 +3,13 @@
 {% set contentTitle = "Order Omeprazole" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
+
+
+{% set requestDetails %}{% if data['specialRequest'] %}{{ data['specialRequest'] }}{% else %}{% endif %}{% endset %}
+
+
+
+
 {% block pageScripts %}
 <script>
 // dirty hack to make the menu disappear when a textarea is being used
@@ -72,6 +79,7 @@ $("textarea").focusout(function(){
           "name": "specialRequest",
           "id": "msgBody",
           "classes": "nhsuk-u-margin-bottom-0",
+          "value": requestDetails,
           "label": {
             "text": "Add requests relating to your order (optional)",
             "isPageHeading": false,
