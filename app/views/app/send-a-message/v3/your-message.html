@@ -65,7 +65,7 @@ $("textarea").focusout(function(){
           "label": {
             "text": "Subject",
             "isPageHeading": false,
-            "classes": "nhsuk-label--s"
+            "classes": "nhsuk-label--s nhsuk-u-margin-bottom-2"
           },
           "id": "subject",
           "name": "subject",
@@ -76,13 +76,15 @@ $("textarea").focusout(function(){
           "name": "msgBody",
           "id": "msgBody",
           "classes": "nhsuk-u-margin-bottom-0",
+          "hint": {
+              "html": '<div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1"></div>'
+            },
           "label": {
             "text": "Message",
             "isPageHeading": false,
-            "classes": "nhsuk-label--s"
+            "classes": "nhsuk-label--s nhsuk-u-margin-bottom-2"
           }
         }) }}
-        <div id="textarea_feedback" class="nhsuk-hint"></div>
       </div>
 
 
