@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/appointments" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Appointments prototypes" %}
+{% set contentTitle = "Appointment prototypes" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -29,6 +29,9 @@
 
     <h2>Current prototypes</h2>
     <h3>v2</h3>
+    <p>
+      Tested as part of October for appointments redesign (NHSO-7575). Recreated from an invision prototype.
+    </p>
     <ul>
       <li>
         <a href="/{{ PROTOTYPEURL }}/v2/">Your appointments</a>
@@ -36,9 +39,33 @@
       <li>
         <a href="/{{ PROTOTYPEURL }}/v2/appointment-interruption">Things to try before you book an appointment (interruption)</a>
       </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v2/select-type-of-appointment">Select type of appointment</a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v2/select-practice-member">Select a member of staff</a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v2/select-available-appointment">Select a member of staff</a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v2/confirm-appointment?date={{ 'today' |returnDate }}&time=10.50am&type=General%20appointment%20in%20person&staffName=Dr%20Sanjit%20Praneskear%20(Male)">Confirm your appointment details</a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v2/select-available-appointment">Your appointment is booked</a>
+      </li>
+
+
+
+
+
+
     </ul>
 
     <h3>v1</h3>
+    <p>
+      Tested as part of October for Notifications work
+    </p>
     <ul>
       <li>
         <a href="/{{ PROTOTYPEURL }}/v1/">Your appointments</a>
@@ -46,6 +73,20 @@
       <li>
         <a href="/{{ PROTOTYPEURL }}/v1/appointment-interruption">Things to try before you book an appointment (interruption)</a>
       </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v1/new-appointment">Search for an appointment</a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v1/results?appointmentType=nurse&appointmentLocation=gledhow&appointmentMember=no&appointmentTimeframe=nextFourWeeks">Available appointments</a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v1/results?confirm-appointment?date=Thursday%205%20October%202019&time=10.50am&type=Nurse%20appointment">Confirm your appointment</a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v1/?confirmed=true">Appointment booked (on index page)</a>
+      </li>
+
+
     </ul>
 
 

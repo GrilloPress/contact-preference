@@ -4,6 +4,13 @@
 {% set contentTitle = "Your appointments" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
+{% if data["confirmed"] %}
+<script type="text/javascript">
+$( document ).ready(function() {
+    jQuery.post( "/app/password", { confirmed: "seen" } );
+  });
+</script>
+{% endif %}
 {% endblock %}
 
 {% set showAppointmentType %}
