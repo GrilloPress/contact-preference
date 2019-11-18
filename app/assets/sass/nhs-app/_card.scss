@@ -18,6 +18,11 @@
     padding: 16px;
   }
 
+  .nhsuk-summary-list__row:last-of-type {
+
+    margin-bottom: 0;
+  }
+
 }
 
 
@@ -28,5 +33,5 @@
 }
 
 .nhs-app-list-card__item {
-  
+
 }

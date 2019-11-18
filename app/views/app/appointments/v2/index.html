@@ -1,0 +1,127 @@
+{% set PROTOTYPEURL = "app/appointments/v2" %}
+{% set serviceName = "NHS App" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "Your appointments" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+{% set showAppointmentType %}
+{% if data["appointmentType"] == "Telephone appointment" %}
+  {{ data["appointmentType"] }} <br> Telephone <br> {{data["staffName"] or "Dr Sanjit Praneskear (Male)"}}
+{% elif data["appointmentType"] %}
+  {{ data["appointmentType"] }} <br> Face to face <br> {{data["staffName"] or "Sister Leanna Leveille (Female)"}}
+{% else %}
+  General appointment in person <br> Face to face <br> {{data["staffName"] or "Dr Sanjit Praneskear (Male)"}}
+{% endif %}
+{% endset %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
+
+      <form action="/{{ PROTOTYPEURL}}/appointment-interruption" method="get">
+        <input type="submit" class="nhsuk-button" value="Book an appointment">
+        </input>
+      </form>
+
+      <h2 class="nhsuk-heading-m">Upcoming appointments</h2>
+      {% if data["confirmed"] %}
+      <div class="app-card app-card--with-border">
+        <div class="app-card__wrapper">
+          <div class="app-card__content">
+            <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
+              {{ data["date"] or "5" | returnDate }}
+            </h3>
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ data["time"] or "10.50am" }}</p>
+            {{ summaryList({
+              classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
+              rows: [
+                {
+                  key: {
+                    text: "Appointment type"
+                  },
+                  value: {
+                    html: showAppointmentType,
+                    classes: "nhsuk-u-margin-bottom-0"
+                  }
+                },
+                {
+                  key: {
+                    text: "Location"
+                  },
+                  value: {
+                    text: "Gledhow Practice"
+                  }
+                }
+              ]
+            }) }}
+
+            <div class="">
+              <a class="" href="/images/event-1991731225.ics">Add to your calendar</a>
+            </div>
+
+            <div class="nhs-app-card-delete">
+              <a class="nhs-app-card-delete__link" href="#">Cancel this appointment</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% else %}
+        <p>If you have an upcoming appoint that is not shown here, contact your GP surgery for more information.</p>
+      {% endif %}
+
+
+      <h2 class="nhsuk-heading-m">Previous appointments</h2>
+
+      <div class="app-card app-card--with-border">
+        <div class="app-card__wrapper">
+          <div class="app-card__content">
+            <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
+              {{ "21" | returnPastDate }}
+            </h3>
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">1:45pm</p>
+            {{ summaryList({
+              classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
+              rows: [
+                {
+                  key: {
+                    text: "Appointment type"
+                  },
+                  value: {
+                    html: "<p>In person</p><p>Dr John Smith (Male)</p>"
+                  }
+                },
+                {
+                  key: {
+                    text: "Location"
+                  },
+                  value: {
+                    text: "Gledhow Practice"
+                  }
+                }
+              ]
+            }) }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}
