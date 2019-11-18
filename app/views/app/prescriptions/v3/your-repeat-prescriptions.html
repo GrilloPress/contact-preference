@@ -7,7 +7,7 @@
     {% set onlineName = data['onlineName'] %}
 {% endif %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "Your repeat prescriptions" %}
+{% set contentTitle = "Your repeat prescription order history" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -28,7 +28,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v2/your-prescriptions-2">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v3/your-prescriptions-3">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -40,57 +40,30 @@
         {{ contentTitle }}
       </h1>
 
-      <p>You have 2 repeat prescriptions.</p>
 
-
-
-      {% if data['prescriptionConfirmed'] %}
-
-      <div class="app-card app-card--with-border">
-        <div class="app-card__wrapper">
-          <div class="app-card__content">
-
-            <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
-              Omeprazole
-            </h3>
-            <p class="nhsuk-body-m nhsuk-u-margin-bottom-3">40mg gastro-resistant capsules</p>
-
-            <p class="nhsuk-body-m">Last ordered: 20 November 2019</p>
-
-            <p><strong>Prescription pending GP approval</strong></p>
-
-          </div>
-        </div>
-      </div>
-
-      {% else %}
 
 
       <div class="app-card app-card--with-border">
         <div class="app-card__wrapper">
           <div class="app-card__content">
 
-            <form action="/{{ PROTOTYPEURL }}/v2/order-prescription" method="get">
 
             <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
               Omeprazole
             </h3>
             <p class="nhsuk-body-m nhsuk-u-margin-bottom-3">40mg gastro-resistant capsules</p>
 
-            <p class="nhsuk-body-m">Last issued: 23 October 2019</p>
+            <p class="nhsuk-body-m">Order date: 19 November 2019</p>
+            <p class="nhsuk-body-m"><strong>Prescription pending GP approval</strong></p>
 
-
-                    <input type="submit" class="nhsuk-button nhsuk-u-margin-bottom-4" value="Order repeat prescription">
-                    </input>
-
-                  </form>
 
           </div>
         </div>
       </div>
 
 
-            {% endif %}
+
+
 
 
       <div class="app-card app-card--with-border">
@@ -103,14 +76,32 @@
             </h3>
             <p class="nhsuk-body-m nhsuk-u-margin-bottom-3">25mg tablets</p>
 
-            <p class="nhsuk-body-m">Last issued: 26 October 2019</p>
+            <p class="nhsuk-body-m">Order date: 17 October 2019</p>
+            <p class="nhsuk-body-m"><strong>Prescription approved by GP</strong></p>
 
-            <p><strong>You cannot order a new repeat prescription until 27 November 2019</strong></p>
 
           </div>
         </div>
       </div>
 
+
+      <div class="app-card app-card--with-border">
+        <div class="app-card__wrapper">
+          <div class="app-card__content">
+
+
+            <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
+              Omeprazole
+            </h3>
+            <p class="nhsuk-body-m nhsuk-u-margin-bottom-3">40mg gastro-resistant capsules</p>
+
+            <p class="nhsuk-body-m">Order date: 17 October 2019</p>
+            <p class="nhsuk-body-m"><strong>Prescription approved by GP</strong></p>
+
+
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
