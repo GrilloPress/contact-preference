@@ -42,14 +42,27 @@ function passwordToggle (){
   // false value
 
   if ($('input.toggle').is(":checked")) {
-    $.post( "/app/password", { touchID: "on" } );
+
+    if (confirm('Turn on Touch ID for "NHS App"' )) {
+      $.post( "/app/password", { touchID: "on" } );
+    } else {
+      window.location.replace("/app/settings/v1/password");
+    }
+
   } else {
     $.post( "/app/password", { touchID: "off" } );
   }
 
 }
 
+function popup(text, yesOption, noOption){
 
+  if (confirm(text)) {
+    yesOption
+  } else {
+    noOption
+  }
+}
 
 function pharmSelect(pharm, url){
 
