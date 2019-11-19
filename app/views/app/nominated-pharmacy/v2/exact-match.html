@@ -37,7 +37,7 @@
 
       <ul class="list-menu">
         <li>
-          <a href="/{{ PROTOTYPEURL }}/v2/online-pharmacy">
+          <a href="/{{ PROTOTYPEURL }}/v2/online-pharmacy?onlineInfo=&onlineName={{ data['inputPharmacyName'] if data['inputPharmacyName'] else 'Echo'  }}">
             <h2 class="nhsuk-heading-s">{{ exact | safe }}</h2>
             <p>
               www.{{ exact | lower | safe }}.com
