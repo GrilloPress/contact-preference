@@ -48,8 +48,6 @@ module.exports = function (env) {
 
   }
 
-
-
   // Filter to print placeholder data if data doesn't exist.
   // Useful for prototypes that may also be used as documentation
   //

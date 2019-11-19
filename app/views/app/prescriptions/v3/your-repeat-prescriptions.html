@@ -40,30 +40,50 @@
         {{ contentTitle }}
       </h1>
 
+      {% if data['prescriptionConfirmed'] %}
+
+        {% if 'omeprazole' in data['choosePrescription'] %}
+          <div class="app-card app-card--with-border">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
 
 
+                <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
+                  Omeprazole
+                </h3>
+                <p class="nhsuk-body-m nhsuk-u-margin-bottom-3">40mg gastro-resistant capsules</p>
 
+                <p class="nhsuk-body-m">Order date: {{ "today" | returnDate }}</p>
+                <p class="nhsuk-body-m"><strong>Prescription pending GP approval</strong></p>
+
+
+              </div>
+            </div>
+          </div>
+      {% endif %}
+
+      {% if 'alogliptin' in data['choosePrescription'] %}
       <div class="app-card app-card--with-border">
         <div class="app-card__wrapper">
           <div class="app-card__content">
 
 
             <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
-              Omeprazole
+              Alogliptin
             </h3>
-            <p class="nhsuk-body-m nhsuk-u-margin-bottom-3">40mg gastro-resistant capsules</p>
+            <p class="nhsuk-body-m nhsuk-u-margin-bottom-3">25mg tablets</p>
 
-            <p class="nhsuk-body-m">Order date: 19 November 2019</p>
+            <p class="nhsuk-body-m">Order date: {{ "today" | returnDate }}</p>
             <p class="nhsuk-body-m"><strong>Prescription pending GP approval</strong></p>
 
 
           </div>
         </div>
       </div>
+      {% endif %}
 
 
-
-
+      {% endif %}
 
 
       <div class="app-card app-card--with-border">
@@ -76,7 +96,7 @@
             </h3>
             <p class="nhsuk-body-m nhsuk-u-margin-bottom-3">25mg tablets</p>
 
-            <p class="nhsuk-body-m">Order date: 17 October 2019</p>
+            <p class="nhsuk-body-m">Order date: {{ 27 | returnPastDate }}</p>
             <p class="nhsuk-body-m"><strong>Prescription approved by GP</strong></p>
 
 
@@ -95,7 +115,7 @@
             </h3>
             <p class="nhsuk-body-m nhsuk-u-margin-bottom-3">40mg gastro-resistant capsules</p>
 
-            <p class="nhsuk-body-m">Order date: 17 October 2019</p>
+            <p class="nhsuk-body-m">Order date: {{ 27 | returnPastDate }}</p>
             <p class="nhsuk-body-m"><strong>Prescription approved by GP</strong></p>
 
 
