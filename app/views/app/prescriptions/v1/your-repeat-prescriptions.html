@@ -48,7 +48,7 @@
             <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
               Order date
             </h3>
-            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">20 November 2019</p>
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ "today" | returnDate }}</p>
 
             <div class="nhs-app-status">
               <div class="requested">
@@ -87,7 +87,7 @@
             <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
               Order date
             </h3>
-            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">18 October 2019</p>
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ 27 | returnPastDate }}</p>
 
             <div class="nhs-app-status">
                 <svg class="nhs-app-status-svg" width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
