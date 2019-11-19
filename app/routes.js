@@ -443,6 +443,18 @@ router.post('/app/prescriptions/v2/save', function (req, res) {
 });
 
 
+// prescriptions v3
+
+
+router.post('/app/prescriptions/v3/save', function (req, res) {
+
+  // add what is saved later!
+
+  req.session.data.prescriptionConfirmed = "True";
+  res.redirect('/app/prescriptions/v3/confirmed')
+
+});
+
 
 
 
