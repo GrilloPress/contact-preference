@@ -8,7 +8,7 @@
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
-{% extends 'layouts/layout-app.html' %}
+{% extends 'layouts/layout-app-new.html' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -85,12 +85,11 @@
 
   <h2>To access your NHS services</h2>
 
+  <form action="/app/v3/index" method="post">
+    <input class="nhsuk-button nhslogin-button nhs-app-u-button-full" type="submit" value="Continue with NHS login">
+  </form>
 
-		<a href="/app/v3/index" class="button blue" id="btn_login">
-			Continue with NHS login
-		</a>
-
-    <p><a href="">Check what features you can use</a></p>
+    <p><a href="#">Check what features you can use</a></p>
 
 	</section>
 {% endblock %}

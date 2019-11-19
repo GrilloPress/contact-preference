@@ -20,3 +20,26 @@
   }
 
 }
+
+.nhslogin-button {
+
+  background-color: darken($color_nhsuk-blue, 1%);
+  box-shadow: 0 $button-shadow-size 0 darken($color_nhsuk-blue, 20%); // s0
+
+
+  &:hover {
+    background-color: darken($color_nhsuk-blue, 12%);
+    cursor: default;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: darken($color_nhsuk-blue, 12%);
+  }
+
+  &:active {
+    box-shadow: 0 $button-shadow-size 0 darken($color_nhsuk-blue, 12%); // s0
+    top: 0;
+  }
+
+}
