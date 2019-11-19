@@ -7,7 +7,7 @@
 {% endif %}
 {% if data['pharmDetails'] %}
     {% set pharmDetails = data['pharmDetails'] %}
-  {% else %}
+    {% else %}
     {% set pharmDetails = '97 Lidgett Lane, Leeds, West Yorkshire, <br> LS8 1QR <br> Telephone: 0113 266 1786' %}
 {% endif %}
 {% set contentTitle = "Confirm " + pharmName + " as your new nominated pharmacy" %}
@@ -93,7 +93,7 @@
             </tbody>
           </table>"
         }) }}
-      
+
       </div>
 
       <form action="/{{ PROTOTYPEURL }}/v2/confirmed" method="get">

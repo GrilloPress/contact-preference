@@ -68,13 +68,13 @@ function pharmSelect(pharm, url){
 
   var details;
   if (pharm === "Ma Manning (Pharmacy) Ltd") {
-    details = "97 Lidgett Lane, Leeds, West Yorkshire, <br> LS8 1QR <br> Telephone: 0113 266 1786 "
+    details = "97 Lidgett Lane, Leeds, West Yorkshire, <br> LS8 1QR<br> Telephone: 0113 266 1786"
   } else if (pharm === "Medichem (Leeds) Ltd") {
-    details = "40-42 Harrogate Road, Leeds, <br> LS7 4LA <br> Telephone: 0113 262 2684"
+    details = "40-42 Harrogate Road, Leeds, <br> LS7 4LA<br> Telephone: 0113 262 2684"
   } else if (pharm === "Knights Chapel Allerton Pharmacy") {
     details = "6 Stainbeck Lane, Leeds, <br> LS7 3QY<br> Telephone: 0113 268 1163"
   } else {
-    details = "643 Roundhay Road, Leeds, <br> LS8 4BA <br> Telephone: 0113 240 3315"
+    details = "643 Roundhay Road, Leeds, <br> LS8 4BA<br> Telephone: 0113 240 3315"
   }
 
   $.post( "", { pharmName: pharm, pharmDetails: details } );
