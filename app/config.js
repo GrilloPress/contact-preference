@@ -16,4 +16,7 @@ module.exports = {
 
   // Enable or disable built-in docs and examples.
   useDocumentation: true,
+
+  // Force HTTP to redirect to HTTPS on production
+  useHttps: 'true',
 }
