@@ -9,6 +9,8 @@
 {% set showAppointmentType %}
 {% if data["appointmentType"] == "Telephone appointment" %}
   {{ data["appointmentType"] }} <br> Telephone
+{% elif data["browseAppointments"] == "true" %}
+  All
 {% elif data["appointmentType"] %}
   {{ data["appointmentType"] }} <br> Face to face
 {% else %}
@@ -95,76 +97,170 @@
       {% endset %}
 
       {{ details({
-      "classes": "nhsuk-expander app-card--with-border",
-      "text": "Your search criteria",
-      "HTML": searchQuery
-    }) }}
+        "classes": "nhsuk-expander app-card--with-border",
+        "text": "Your search criteria",
+        "HTML": searchQuery
+      }) }}
 
 
       {% set general %}
-      <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "tomorrow" | returnDate }}</h2>
-      <ul class="list-menu list-menu__results">
         <li>
-          <a href="/{{ PROTOTYPEURL }}/confirm-appointment?date={{ 'tomorrow' | returnDate }}&time=10.50am&type=General appointment in person&staffName=Dr Sanjit Praneskear (Male)" id="btn_organdonation">
-            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9:50am</h2>
-            <p class="list-menu__results-person">General appointment in person</p>
+          <a href="/{{ PROTOTYPEURL }}/confirm-appointment?date={{ 'tomorrow' | returnDate }}&time=9.50am&type=General appointment in person&staffName=Dr Sanjit Praneskear (Male)" id="btn_organdonation">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9.50am</h2>
+            <p class="list-menu__results-person list-menu__results--bold">General appointment in person</p>
+            <p class="list-menu__results-person">Dr Sanjit Praneskear (Male)</p>
           </a>
         </li>
         <li>
           <a href="/{{ PROTOTYPEURL }}/confirm-appointment?date={{ 'tomorrow' | returnDate }}&time=10.50am&type=General appointment in person&staffName=Dr Sanjit Praneskear (Male)" id="btn_organdonation">
-            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10:50am</h2>
-            <p class="list-menu__results-person">General appointment in person</p>
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10.50am</h2>
+            <p class="list-menu__results-person list-menu__results--bold">General appointment in person</p>
+            <p class="list-menu__results-person">Dr Sanjit Praneskear (Male)</p>
           </a>
         </li>
-      </ul>
+      {% endset %}
+
+      {% set generalFar %}
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/confirm-appointment?date={{ '14' | returnDate }}&time=4.40pm&type=General appointment in person&staffName=Dr Sanjit Praneskear (Male)" id="btn_organdonation">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">4.40pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">General appointment in person</p>
+            <p class="list-menu__results-person">Dr Sanjit Praneskear (Male)</p>
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/confirm-appointment?date={{ '14' | returnDate }}&time=4.55pm&type=General appointment in person&staffName=Dr Sanjit Praneskear (Male)" id="btn_organdonation">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">4.55pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">General appointment in person</p>
+            <p class="list-menu__results-person">Dr Sanjit Praneskear (Male)</p>
+          </a>
+        </li>
+      {% endset %}
+
+      {% set telephoneEarly %}
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/confirm-appointment?date={{ 'tomorrow' | returnDate }}&time=3.15pm&type=Telephone appointment&staffName=Dr Sanjit Praneskear (Male)" id="btn_organdonation">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">3.15pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Telephone appointment</p>
+            <p class="list-menu__results-person">Dr Sanjit Praneskear (Male)</p>
+          </a>
+        </li>
+
       {% endset %}
 
       {% set telephone %}
-      <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '6' | returnDate }}</h2>
-      <ul class="list-menu list-menu__results">
+
         <li>
-          <a href="/{{ PROTOTYPEURL }}/confirm-appointment?date={{ '6' | returnDate }}&time=10.50am&type=Telephone appointment&staffName=Dr Sanjit Praneskear (Male)" id="btn_organdonation">
-            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9:50am</h2>
-            <p class="list-menu__results-person">Telephone appointment</p>
+          <a href="/{{ PROTOTYPEURL }}/confirm-appointment?date={{ '6' | returnDate }}&time=9.50am&type=Telephone appointment&staffName=Dr Sanjit Praneskear (Male)" id="btn_organdonation">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9.50am</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Telephone appointment</p>
+            <p class="list-menu__results-person">Dr Sanjit Praneskear (Male)</p>
           </a>
         </li>
         <li>
           <a href="/{{ PROTOTYPEURL }}/confirm-appointment?date={{ '6' | returnDate }}&time=10.50am&type=Telephone appointment&staffName=Dr Sanjit Praneskear (Male)" id="btn_organdonation">
-            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10:50am</h2>
-            <p class="list-menu__results-person">Telephone appointment</p>
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10.50am</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Telephone appointment</p>
+            <p class="list-menu__results-person">Dr Sanjit Praneskear (Male)</p>
           </a>
         </li>
-      </ul>
+
       {% endset %}
 
       {% set nurse %}
-      <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '2' | returnDate }}</h2>
-      <ul class="list-menu list-menu__results">
+
         <li>
           <a href="/{{ PROTOTYPEURL }}/confirm-appointment?date={{ '2' | returnDate }}&time=9.50am&type=Nurse appointment&staffName=Sister Leanna Leveille (Female)" id="btn_organdonation">
-            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9:50am</h2>
-            <p class="list-menu__results-person">Nurse appointment</p>
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9.50am</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Nurse appointment</p>
+            <p class="list-menu__results-person">Sister Leanna Leveille (Female)</p>
           </a>
         </li>
         <li>
           <a href="/{{ PROTOTYPEURL }}/confirm-appointment?date={{ '2' | returnDate }}&time=10.50am&type=Nurse appointment&staffName=Sister Leanna Leveille (Female)" id="btn_organdonation">
-            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10:50am</h2>
-            <p class="list-menu__results-person">Nurse appointment</p>
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10.50am</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Nurse appointment</p>
+            <p class="list-menu__results-person">Sister Leanna Leveille (Female)</p>
           </a>
         </li>
-      </ul>
+
+      {% endset %}
+      {% set nurseFar %}
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/confirm-appointment?date={{ '6' | returnDate }}&time=2.25pm&type=Nurse appointment&staffName=Sister Leanna Leveille (Female)" id="btn_organdonation">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">2.35pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Nurse appointment</p>
+            <p class="list-menu__results-person">Sister Leanna Leveille (Female)</p>
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/confirm-appointment?date={{ '6' | returnDate }}&time=2.50pm&type=Nurse appointment&staffName=Sister Leanna Leveille (Female)" id="btn_organdonation">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">2.50pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Nurse appointment</p>
+            <p class="list-menu__results-person">Sister Leanna Leveille (Female)</p>
+          </a>
+        </li>
+
       {% endset %}
 
       {% if data.appointmentType == 'Nurse appointment' %}
-        {{ nurse | safe }}
+      <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '2' | returnDate }}</h2>
+        <ul class="list-menu list-menu__results">
+          {{ nurse | safe }}
+        </ul>
+      <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '6' | returnDate }}</h2>
+        <ul class="list-menu list-menu__results">
+          {{ nurseFar | safe }}
+        </ul>
+
       {% elif data.appointmentType == 'Telephone appointment' %}
+      <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '2' | returnDate }}</h2>
+        <ul class="list-menu list-menu__results">
+          {{ telephoneEarly | safe }}
+        </ul>
+      <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '6' | returnDate }}</h2>
+      <ul class="list-menu list-menu__results">
         {{ telephone | safe }}
+      </ul>
+
       {% elif data.appointmentType == 'General appointment in person' %}
+      <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "tomorrow" | returnDate }}</h2>
+      <ul class="list-menu list-menu__results">
         {{ general | safe }}
+      </ul>
+      <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '14' | returnDate }}</h2>
+      <ul class="list-menu list-menu__results">
+        {{ generalFar | safe }}
+      </ul>
+
       {% else %}
+      <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "tomorrow" | returnDate }}</h2>
+      <ul class="list-menu list-menu__results">
         {{ general | safe }}
-        {{ nurse | safe }}
-        {{ telephone | safe }}
+      </ul>
+
+        <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '2' | returnDate }}</h2>
+        <ul class="list-menu list-menu__results">
+          {{ nurse | safe }}
+          {{ telephoneEarly | safe }}
+        </ul>
+
+        <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '6' | returnDate }}</h2>
+        <ul class="list-menu list-menu__results">
+          {{ telephone | safe }}
+          {{ nurseFar | safe }}
+        </ul>
+
+        <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '14' | returnDate }}</h2>
+        <ul class="list-menu list-menu__results">
+          {{ generalFar | safe }}
+        </ul>
+
+
+
+
       {% endif %}
 
     </div>

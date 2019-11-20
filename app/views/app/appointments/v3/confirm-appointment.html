@@ -16,10 +16,10 @@ $("textarea").focusout(function(){
 {% endblock %}
 
 {% set showAppointmentType %}
-{% if data["appointmentType"] == "Telephone appointment" %}
-  {{ data["appointmentType"] }} <br> Telephone
-{% elif data["appointmentType"] %}
-  {{ data["appointmentType"] }} <br> Face to face
+{% if data["type"] == "Telephone appointment" %}
+  {{ data["type"] }} <br> Telephone
+{% elif data["type"] %}
+  {{ data["type"] }} <br> Face to face
 {% else %}
   General appointment in person <br> Face to face
 {% endif %}
@@ -53,6 +53,7 @@ $("textarea").focusout(function(){
       <h1 class="nhsuk-heading-l">
         {{ contentTitle }}
       </h1>
+
       <div class="app-card app-card--with-border">
         <div class="app-card__wrapper">
           <div class="app-card__content">
