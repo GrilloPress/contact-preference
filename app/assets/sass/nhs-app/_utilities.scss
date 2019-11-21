@@ -25,6 +25,14 @@ a:visited {
   font-weight: 500;
 }
 
+.nhs-app-mobile--hide {
+
+  @include mq($until: tablet) {
+    display: none;
+  }
+
+}
+
 .nhs-app-desktop--hide {
 
   @include mq($from: desktop) {
