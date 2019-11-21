@@ -17,6 +17,13 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+    </ol>
+  </div>
+</nav>
 {% endblock %}
 
 {% block content %}
@@ -111,4 +118,5 @@
         {% endif %}
 
   </div>
+</div>
 {% endblock %}
