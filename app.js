@@ -104,18 +104,6 @@ if (useAutoStoreData === 'true') {
 
 
 var env = (process.env.NODE_ENV || 'development').toLowerCase()
-
-var forceHttps = function (req, res, next) {
-  if (req.headers['x-forwarded-proto'] !== 'https') {
-    console.log('Redirecting request to https')
-    // 302 temporary - this is a feature that can be disabled
-    return res.redirect(302, 'https://' + req.get('Host') + req.url)
-  }
-
-  // Mark proxy as secure (allows secure cookies)
-  req.connection.proxySecure = true
-  next()
-}
 var useHttps = process.env.USE_HTTPS || config.useHttps
 
 useHttps = useHttps.toLowerCase()
@@ -124,7 +112,7 @@ useHttps = useHttps.toLowerCase()
 // asking for username/password twice (for `http`, then `https`).
 var isSecure = (env === 'production' && useHttps === 'true')
 if (isSecure) {
-  app.use(forceHttps)
+  app.use(utils.forceHttps)
   app.set('trust proxy', 1) // needed for secure cookies on heroku
 }
 
