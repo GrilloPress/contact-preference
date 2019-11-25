@@ -19,11 +19,11 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v3/home">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/overview">Choose if data from your health records is shared for research and planning</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v3/overview">Choose if data from your health records is shared for research and planning</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v2/overview">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" onClick='window.history.go(-1)'>Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -104,9 +104,9 @@ text: "Make your choice"
       <p>All NHS organisations must provide information on the type of data they collect and how it’s used. Data release registers are published by NHS Digital and Public Health England, showing records of the data they have shared with other organisations.</p>
 
       {{ pagination({
-        "previousUrl": "/" + PROTOTYPEURL + "/v2/overview",
+        "previousUrl": "/" + PROTOTYPEURL + "/v3/overview",
         "previousPage": "Overview",
-        "nextUrl": "/" + PROTOTYPEURL + "/v2/does-not-apply",
+        "nextUrl": "/" + PROTOTYPEURL + "/v3/does-not-apply",
         "nextPage": "When your choice does not apply"
       }) }}
 
