@@ -1,5 +1,11 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
+{% if data['pharmName'] %}
+    {% set pharmName = data['pharmName'] %}
+{% endif %}
+{% if data['onlineName'] %}
+    {% set onlineName = data['onlineName'] %}
+{% endif %}
 {% set prescriptionsActive = "active" %}
 {% set contentTitle = "Your prescriptions" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -34,26 +40,34 @@
         {{ contentTitle }}
       </h1>
 
+      <p>Manage your repeat prescriptions and your nominated pharmacy.</p>
 
-            <p>Manage your repeat prescriptions and nominate a pharmacy.</p>
+
+      <ul class="list-menu">
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v2/your-repeat-prescriptions">
+            <h2 class="nhsuk-heading-s">Your repeat prescriptions</h2>
+              <p>Order and see your repeat prescriptions</p>
+          </a>
+        </li>
+
+      	<li>
+      		<a href="/app/nominated-pharmacy/v2/your-nominated-pharmacy">
+            <h2 class="nhsuk-heading-s">Pharmacy your prescriptions are sent to</h2>
+            {% if data['pharmName'] %}
+              <p>Your nominated pharmacy is {{ pharmName }}</p>
+            {% elif data['onlineName'] %}
+              <p>Your nominated pharmacy is {{ onlineName }}</p>
+            {% elif data['inputPharmacyName'] %}
+              <p>Your nominated pharmacy is {{ data['inputPharmacyName'] }}</p>
+            {% else %}
+              <p>Your nominated pharmacy is Ma Manning (Pharmacy) Ltd</p>
+            {% endif %}
+          </a>
+      	</li>
+      </ul>
 
 
-            <ul class="list-menu">
-              <li>
-                <a href="/{{ PROTOTYPEURL }}/v2/your-repeat-prescriptions">
-                  <h2 class="nhsuk-heading-s">Your repeat prescriptions</h2>
-                    <p>Order and see your repeat prescriptions</p>
-                </a>
-              </li>
-
-            	<li>
-            		<a href="/app/nominated-pharmacy/v2/card-nom-pharmacy-2">
-                  <h2 class="nhsuk-heading-s">Nominate a pharmacy</h2>
-                    <p>You can choose to nominate a pharmacy to collect your prescriptions from</p>
-
-                </a>
-            	</li>
-            </ul>
     </div>
   </div>
 {% endblock %}
