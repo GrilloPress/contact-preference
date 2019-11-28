@@ -34,9 +34,12 @@
       <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
       <p>We've put some small files called cookies on your device to make the NHS App work.</p>
       <p>We will not use any other cookies unless you choose to turn them on.</p>
-      <p>
-        <a target="_blank" href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/cookies/">Cookies policy</a>
-      </p>
+
+      <ul class="list-menu">
+        <li>
+          <a target="_blank" href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/cookies/">Cookies policy</a>
+        </li>
+      </ul>
 
       {% set checked %}
         {% if data['cookies'] == "on" %}
@@ -51,7 +54,7 @@
           <div class="nhs-app-card__inner" onclick="cookieToggle()">
             <div>
               <label for="cookie">Optional analytic cookies</label>
-              <span class="nhsuk-hint">
+              <span class="nhsuk-hint nhsuk-u-margin-top-4">
                 These collect anonymous information about how you use the NHS App to improve its performance. If you turn these cookies off, they will be removed from your device when you next log in.
               </span>
               <input class="toggle" type="checkbox" id="cookie" name="cookie" value="on" {{ checked }}>
