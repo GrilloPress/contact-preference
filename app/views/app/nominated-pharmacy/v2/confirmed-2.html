@@ -74,13 +74,13 @@
       <h2 class="nhsuk-heading-m">What happens next</h2>
 
       {% if data['pharmName'] %}
-        <p>Your repeat prescriptions will now be sent to {{ pharmName }}.</p>
+        <p>Your prescriptions will now be sent to {{ pharmName }}.</p>
       {% elif data['onlineName'] %}
-        <p>Your repeat prescriptions will now be sent to {{ onlineName }}.</p>
+        <p>Your prescriptions will now be sent to {{ onlineName }}.</p>
       {% elif data['inputPharmacyName'] %}
-        <p>Your repeat prescriptions will now be sent to {{ data['inputPharmacyName'] }}.</p>
+        <p>Your prescriptions will now be sent to {{ data['inputPharmacyName'] }}.</p>
       {% else %}
-      <p>Your repeat prescriptions will now be sent to Ma Manning (Pharmacy) Ltd.</p>
+      <p>Your prescriptions will now be sent to Ma Manning (Pharmacy) Ltd.</p>
       {% endif %}
 
 
