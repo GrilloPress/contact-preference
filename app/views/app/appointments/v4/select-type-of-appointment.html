@@ -1,0 +1,95 @@
+{% set PROTOTYPEURL = "app/appointments/v4" %}
+{% set serviceName = "NHS App" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "Select type of appointment" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Appointments</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="index">Your appointments</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ PROTOTYPEURL}}/select-practice-member" method="post">
+        {{ select({
+          "id": "appointmentType",
+          "name": "appointmentType",
+          "classes": "nhs-app-select",
+          "label": {
+            "text": contentTitle,
+            "isPageHeading": true,
+            "classes": "nhsuk-label--l "
+          },
+          "items": [
+            {
+              "value": "",
+              "text": "Select type",
+              "selected": true,
+              "disabled": true
+            },
+            {
+              "value": "General appointment in person",
+              "text": "General appointment in person"
+            },
+            {
+              "value": "Telephone appointment",
+              "text": "Telephone appointment"
+            },
+            {
+              "value": "Nurse appointment",
+              "text": "Nurse appointment"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
+
+      <h2 class="nhsuk-heading-m">Your search criteria</h2>
+      <div class="app-card app-card--xs app-card--with-border nhsuk-u-margin-bottom-4">
+        <div class="app-card__wrapper">
+          <div class="app-card__content">
+            {{ summaryList({
+              classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
+              rows: [
+                {
+                  key: {
+                    text: "Location"
+                  },
+                  value: {
+                    text: "Gledhow Practice",
+                    classes: "nhsuk-u-margin-bottom-0"
+                  }
+                }
+              ]
+            }) }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}
