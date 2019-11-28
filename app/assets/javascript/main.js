@@ -34,6 +34,16 @@ function clickToggle (){
 
 }
 
+function cookieToggle (){
+
+  if ($('input.toggle').is(":checked")) {
+    $.post( "/app/settings/v1/cookies", { cookies: "on" } );
+  } else {
+    $.post( "/app/settings/v1/cookies", { cookies: "off" } );
+  }
+
+}
+
 function passwordToggle (){
 
   // input

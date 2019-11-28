@@ -654,6 +654,16 @@ router.post('/app/password', function (req, res) {
   res.redirect('/app/password')
 });
 
+router.post('/app/settings/cookie', function (req, res) {
+  let answer = req.body.cookie;
+  if (answer == "on") {
+    req.session.data.cookie = "on";
+  } else {
+    req.session.data.cookie = "off";
+  }
+  res.redirect('/app/cookie')
+});
+
 
 // Add your routes here - above the module.exports line
 
