@@ -1,0 +1,66 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Your prescription has been ordered" %}
+{% set prescriptionsActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
+
+      <p>Your order has been sent to your GP practice.</p>
+
+      <h2 class="nhsuk-heading-m">What happens next</h2>
+
+
+      <p>
+        Your prescription should be ready to collect from your nominated pharmacy in 2 working days unless you need a medication review.
+      </p>
+
+      {% if data['pharmName'] %}
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ pharmName }}</h2>
+      {% elif data['onlineName'] %}
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ onlineName }}</h2>
+      {% elif data['inputPharmacyName'] %}
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ data['inputPharmacyName'] }}</h2>
+      {% else %}
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Ma Manning (Pharmacy) Ltd</h2>
+      {% endif %}
+
+      {% if data['pharmDetails'] %}
+        <p class="nhsuk-u-margin-bottom-1">{{ pharmDetails | safe }}</p>
+      {% elif data['onlineInfo'] %}
+        <p class="nhsuk-u-margin-bottom-1">{{ onlineInfo | safe }}</p>
+      {% elif data['inputPharmacyName'] %}
+        <p class="nhsuk-u-margin-bottom-1">
+          <a href="" class="nhsuk-u-margin-bottom-1">www.{{ exact | lower | safe }}.com</a>
+        </p>
+        <p>Telephone: 03069 990735</p>
+      {% else %}
+        <p>97 Lidgett Lane, Leeds, West Yorkshire, <br> LS8 1QR <br> Telephone: 0113 266 1786 </p>
+      {% endif %}
+
+      <p><a href="/app/prescriptions/v1/your-repeat-prescriptions">Go to your repeat prescriptions</a> to check the status of your prescription.</p>
+
+
+    </div>
+  </div>
+{% endblock %}
