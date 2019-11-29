@@ -49,7 +49,7 @@ $("textarea").focusout(function(){
 "errorList": [
 {
 "text": "Select at least one medicine",
-"href": "#medicineError"
+"href": "#nhs-error"
 }
 ]
 }) }}
@@ -67,10 +67,9 @@ $("textarea").focusout(function(){
   "href": "https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/abbreviations/"
 }) }}
 
-<form action="confirm-prescription" method="get">
+<form action="confirm-prescription" id= "nhs-error" method="get">
   {{ checkboxes({
-    "idPrefix": "nhs",
-    "name": "nationality",
+    "name": "example-error",
     "fieldset": {
       "legend": {
         "text": 'Medication currently available to order',
@@ -81,7 +80,6 @@ $("textarea").focusout(function(){
     "errorMessage": {
         "text": "Select at least one medicine"
     },
-    id: "medicineError",
       "items": [
       {
         "value": "OGR",

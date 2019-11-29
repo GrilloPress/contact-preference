@@ -37,7 +37,7 @@
   "errorList": [
     {
       "text": "Choose a type of pharmacy to search for",
-      "href": "#type"
+      "href": "#nhs-error"
     }
   ]
 }) }}
@@ -48,6 +48,7 @@
 
         {{ radios({
           "idPrefix": "nhs",
+          "id": "error",
           "name": "pharmacyType",
           "fieldset": {
             "legend": {
@@ -59,7 +60,6 @@
           "errorMessage": {
               "text": "Choose a type of pharmacy to search for"
           },
-          id: "type",
               "items": [
             {
               "value": "community",

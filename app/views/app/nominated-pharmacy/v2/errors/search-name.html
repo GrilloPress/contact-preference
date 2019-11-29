@@ -32,19 +32,20 @@
     <div class="nhsuk-grid-column-two-thirds">
 
       {{ errorSummary({
-  "titleText": "There is a problem",
-  "errorList": [
-    {
-      "text": "Enter the name of the online-only pharmacy",
-      "href": "#enterName"
-    }
-  ]
-}) }}
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Enter the name of the online-only pharmacy",
+            "href": "#nhs-error"
+          }
+        ]
+      }) }}
 
 
-      <form action="/{{ PROTOTYPEURL }}/v2/exact-match" method="get">
+      <form action="/{{ PROTOTYPEURL }}/v2/exact-match" idPrefix= "nhs" id= "error" method="get">
 
         {{ input({
+          "idPrefix": "nhs",
           "label": {
             "text": contentTitle,
             "classes": "nhsuk-label--l"
