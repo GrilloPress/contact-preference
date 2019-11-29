@@ -1,7 +1,7 @@
-{% set PROTOTYPEURL = "app/nominated-pharmacy" %}
+{% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
+{% set contentTitle = "Repeat prescriptions unavailable" %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "The pharmacy you choose is where your prescriptions will be sent" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -19,10 +19,10 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/nominated-pharmacy/v2/home">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" onClick='window.history.go(-1)'>Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/your-repeat-prescriptions">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -30,18 +30,13 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
 
+      <p>You are not currently able to order repeat prescriptions online.</p>
 
-
-            <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
-
-            <form action="/{{ PROTOTYPEURL }}/v2/type-of-pharmacy" method="get">
-
-              <input type="submit" class="nhsuk-button" value="Continue">
-              </input>
-
-            </form>
-
+      <p>Contact your GP surgery for more information. For urgent medical help, call 111.</p>
 
     </div>
   </div>
