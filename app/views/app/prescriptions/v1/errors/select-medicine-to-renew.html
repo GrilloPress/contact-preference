@@ -43,90 +43,76 @@ $("textarea").focusout(function(){
 
 
 
-<div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
-  <h2 class="nhsuk-error-summary__title" id="error-summary-title">
-    There is a problem
-  </h2>
-  <div class="nhsuk-error-summary__body">
-    <ul class="nhsuk-list nhsuk-error-summary__list">
-      <li>
-        <a href="#example-error-1">Select at least one medicine</a>
-      </li>
-    </ul>
-  </div>
-</div>
+
+{{ errorSummary({
+"titleText": "There is a problem",
+"errorList": [
+{
+"text": "Select at least one medicine",
+"href": "#medicineError"
+}
+]
+}) }}
 
 
-      <h1 class="nhsuk-heading-l">
-        {{ contentTitle }}
-      </h1>
+<h1 class="nhsuk-heading-l">
+  {{ contentTitle }}
+</h1>
 
-      <p>You may see medical abbreviations that you aren't familiar with.</p>
+<p>You may see medical abbreviations that you aren't familiar with.</p>
 
-      {{ actionLink({
-        "text": "Help with abbreviations",
-        openInNewWindow: "true",
-        "href": "https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/abbreviations/"
-      }) }}
+{{ actionLink({
+  "text": "Help with abbreviations",
+  openInNewWindow: "true",
+  "href": "https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/abbreviations/"
+}) }}
 
-      <form action="confirm-prescription" method="get">
+<form action="confirm-prescription" method="get">
+  {{ checkboxes({
+    "idPrefix": "nhs",
+    "name": "nationality",
+    "fieldset": {
+      "legend": {
+        "text": 'Medication currently available to order',
+        "classes": "nhsuk-fieldset__legend--m",
+        "isPageHeading": false
+      }
+    },
+    "errorMessage": {
+        "text": "Select at least one medicine"
+    },
+    id: "medicineError",
+      "items": [
+      {
+        "value": "OGR",
+        "text": "Omeprazole 40mg gastro-resistant capsules",
+        "hint": {
+          "text": "One to be taken each day - 28 tablet"
+        }
+      }
+    ]
+  }) }}
 
+  {{ textarea({
+    "name": "more-detail",
+    "id": "more-detail",
+    "classes": "nhsuk-u-margin-bottom-0",
+    "rows": "3",
+    "label": {
+      "text": "Special requests relating to this order (optional)",
+      "classes": "nhsuk-label--m"
+    },
+    "hint": {
+      "text": "This text may not be seen by your GP. For important requests, contact your GP surgery."
+    }
+  }) }}
 
+  <p class="nhsuk-body-s">Must be shorter than 1000 characters (about 150 words).</p>
 
-        <div class="nhsuk-form-group">
+  <input type="submit" class="nhsuk-button" value="Continue">
+  </input>
 
-          <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
-              <h1 class="nhsuk-fieldset__heading">
-                Medication currently available to order
-              </h1>
-            </legend>
-
-
-            <span class="nhsuk-error-message">
-              <span class="nhsuk-u-visually-hidden" id="example-error-1">Error:</span>Select at least one medicine
-            </span>
-
-
-            <div class="nhsuk-checkboxes">
-
-              <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="OGR">
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-                  Omeprazole 40mg gastro-resistant capsules
-                </label>
-                <span class="nhsuk-hint" id="example-hint">
-                      One to be taken each day - 28 tablet
-                </span>
-              </div>
-
-
-            </div>
-          </fieldset>
-
-        </div>
-
-
-        {{ textarea({
-          "name": "more-detail",
-          "id": "more-detail",
-          "classes": "nhsuk-u-margin-bottom-0",
-          "rows": "3",
-          "label": {
-            "text": "Special requests relating to this order (optional)",
-            "classes": "nhsuk-label--m"
-          },
-          "hint": {
-            "text": "This text may not be seen by your GP. For important requests, contact your GP surgery."
-          }
-        }) }}
-
-        <p class="nhsuk-body-s">Must be shorter than 1000 characters (about 150 words).</p>
-
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
-
-      </form>
+</form>
 
 
 
