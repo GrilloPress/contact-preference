@@ -1,6 +1,7 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "Change your nominated pharmacy" %}
-{% set contentTitle = "Did you mean Ma Manning (Pharmacy) Ltd?" %}
+{% set nameOfPharmacy %}{% if data['inputPharmacyName'] %}{{ data['inputPharmacyName'] }}{% else %}Meadow Pharm{% endif %}{% endset %}
+{% set contentTitle = "No results found for " + '"' + nameOfPharmacy + '"' %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -19,10 +20,10 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v3/home">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v2/search-name">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v3/search-name">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -33,24 +34,26 @@
 
       <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
 
-      <ul class="list-menu">
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/v2/high-street-pharmacy-2">
-            <h2 class="nhsuk-heading-s">Ma Manning (Pharmacy) Ltd</h2>
-            <p>
-              97 Lidgett Lane,
-              Leeds,
-              West Yorkshire, <br>
-              LS8 1QR <br>
-              0113 266 1786 
-            </p>
-            <p>0.4 miles away</p>
-          </a>
-        </li>
 
-      </ul>
+<p>We could not find any results for "{{nameOfPharmacy}}". Make sure you enter the pharmacy name correctly.</p>
 
-      <p><a href="/{{ PROTOTYPEURL }}/v2/search-name">Search again</a></p>
+
+  <form action="/{{ PROTOTYPEURL }}/v3/exact-match" method="get">
+
+    {{ input({
+      "label": {
+        "html": '<h2 class="nhsuk-heading-m">Search again</h2>'
+          },
+      "id": "input-width-20",
+      "name": "inputPharmacyName",
+      "value": nameOfPharmacy,
+      "classes": "nhsuk-input--width-20"
+    }) }}
+
+    <input type="submit" class="nhsuk-button" value="Search">
+    </input>
+
+  </form>
 
 
     </div>

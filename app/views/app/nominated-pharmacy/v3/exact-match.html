@@ -1,6 +1,7 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "Change your nominated pharmacy" %}
-{% set contentTitle = "Did you mean Ma Manning (Pharmacy) Ltd?" %}
+{% set exact %}{% if data['inputPharmacyName'] %}{{ data['inputPharmacyName'] }}{% else %}Echo{% endif %}{% endset %}
+{% set contentTitle = "You searched " + '"' + exact + '"' %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -19,10 +20,10 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v3/home">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v2/search-name">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v3/search-name">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -30,27 +31,24 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
       <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+
+
 
       <ul class="list-menu">
         <li>
-          <a href="/{{ PROTOTYPEURL }}/v2/high-street-pharmacy-2">
-            <h2 class="nhsuk-heading-s">Ma Manning (Pharmacy) Ltd</h2>
+          <a href="/{{ PROTOTYPEURL }}/v3/online-pharmacy-2?onlineInfo=&onlineName={{ data['inputPharmacyName'] if data['inputPharmacyName'] else 'Echo'  }}">
+            <h2 class="nhsuk-heading-s">{{ exact | safe }}</h2>
             <p>
-              97 Lidgett Lane,
-              Leeds,
-              West Yorkshire, <br>
-              LS8 1QR <br>
-              0113 266 1786 
+              www.{{ exact | lower | safe }}.com
             </p>
-            <p>0.4 miles away</p>
+            <p>Telephone: 03069 990735</p>
           </a>
         </li>
 
       </ul>
 
-      <p><a href="/{{ PROTOTYPEURL }}/v2/search-name">Search again</a></p>
+      <p><a href="/{{ PROTOTYPEURL }}/v3/search-name">Search again</a></p>
 
 
     </div>
