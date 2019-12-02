@@ -43,3 +43,25 @@
   margin-bottom: nhsuk-spacing(1);
 
 }
+
+.nhs-app-panel-link {}
+
+.nhs-app-panel-heading {
+
+
+  @include mq($until: desktop) {
+    margin: 0 -1em 0;
+  }
+
+  margin-bottom: 0;
+
+
+
+  h1, h2, h3, h4, h5 {
+
+    background-color: white;
+    padding: 0.5em 16px 0.5em 16px;
+  border-top: 1px solid #d8dde0;
+  margin-bottom: 0;
+  }
+}

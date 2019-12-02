@@ -1,0 +1,76 @@
+{% set PROTOTYPEURL = "app/appointments/v4" %}
+{% set serviceName = "NHS App" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "Your appointments" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% if data["confirmed"] %}
+<script type="text/javascript">
+$( document ).ready(function() {
+    jQuery.post( "/app/password", { confirmed: "seen" } );
+  });
+</script>
+{% endif %}
+{% endblock %}
+
+{% set showAppointmentType %}
+{% if data["appointmentType"] == "Telephone appointment" %}
+  {{ data["appointmentType"] }} <br> Telephone <br> {{data["staffName"] or "Dr Sanjit Praneskear (Male)"}}
+{% elif data["appointmentType"] %}
+  {{ data["appointmentType"] }} <br> Face to face <br> {{data["staffName"] or "Sister Leanna Leveille (Female)"}}
+{% else %}
+  General appointment in person <br> Face to face <br> {{data["staffName"] or "Dr Sanjit Praneskear (Male)"}}
+{% endif %}
+{% endset %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
+
+      <p>Manage and book your appointments</p>
+
+      <ul class="list-menu">
+        <li>
+         <a href="/{{ PROTOTYPEURL}}/appointment-interruption">
+           <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Book an appointment</h2>
+           <p>Book an appointment at your GP surgery</p>
+         </a>
+       </li>
+        <li>
+      		<a href="/app/send-a-message/v3/send-a-message-radio?">
+      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Upcoming appointments</h2>
+            {% if data["confirmed"] %}
+            <p>You have 1 upcoming appointment.</p><p>{{ data["date"] or "5" | returnDate }} at {{ data["time"] or "10.50am" }}</p>
+            {% else %}
+            <p>You have no upcoming appointments</p>
+            {% endif %}
+
+      		</a>
+      	</li>
+        <li>
+      		<a href="/app/send-a-message/v3/send-a-message-radio?">
+      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Previous appointments</h2>
+      			<p>See the appointments you've had in the last year</p>
+      		</a>
+      	</li>
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}
