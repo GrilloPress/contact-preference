@@ -141,11 +141,6 @@ function onlineSelect(online, url){
     info = '<p class="nhsuk-u-margin-bottom-1"><a href="https://www.olivepharmacy.co.uk" class="nhsuk-u-margin-bottom-1">www.olivepharmacy.co.uk</a></p> Telephone: 01756 701208'
   }
 
-
-
-
-
-
   $.post( "", { onlineName: online, onlineInfo: info } );
   console.log(info);
   if (url) {
@@ -153,4 +148,12 @@ function onlineSelect(online, url){
   } else {
     window.location.href = "app/nominated-pharmacy/v1/online-pharmacy"
   }
+}
+
+// In a link href do:
+// javascript:jumpTo('idWithoutHash', 120);
+function jumpTo(h, pixels){
+  var top = document.getElementById(h).offsetTop;
+  top -= pixels;
+  window.scrollTo(0, top);
 }

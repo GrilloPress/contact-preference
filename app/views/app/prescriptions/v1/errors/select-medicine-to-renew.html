@@ -41,78 +41,70 @@ $("textarea").focusout(function(){
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
+      {{ errorSummary({
+      "titleText": "There is a problem",
+      "errorList": [
+          {
+          "text": "Select at least one medicine",
+          "href": "javascript:jumpTo('nhs-error', 120)"
+          }
+        ]
+      }) }}
 
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
 
+      <p>You may see medical abbreviations that you aren't familiar with.</p>
+      {{ actionLink({
+        "text": "Help with abbreviations",
+        openInNewWindow: "true",
+        "href": "https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/abbreviations/"
+      }) }}
+      <form action="confirm-prescription" id= "nhs-error" method="get">
+        {{ checkboxes({
+          "name": "example-error",
+          "fieldset": {
+            "legend": {
+              "text": 'Medication currently available to order',
+              "classes": "nhsuk-fieldset__legend--m",
+              "isPageHeading": false
+            }
+          },
+          "errorMessage": {
+              "text": "Select at least one medicine"
+          },
+            "items": [
+            {
+              "value": "OGR",
+              "text": "Omeprazole 40mg gastro-resistant capsules",
+              "hint": {
+                "text": "One to be taken each day - 28 tablet"
+              }
+            }
+          ]
+        }) }}
 
-{{ errorSummary({
-"titleText": "There is a problem",
-"errorList": [
-{
-"text": "Select at least one medicine",
-"href": "#nhs-error"
-}
-]
-}) }}
+        {{ textarea({
+          "name": "more-detail",
+          "id": "more-detail",
+          "classes": "nhsuk-u-margin-bottom-0",
+          "rows": "3",
+          "label": {
+            "text": "Special requests relating to this order (optional)",
+            "classes": "nhsuk-label--m"
+          },
+          "hint": {
+            "text": "This text may not be seen by your GP. For important requests, contact your GP surgery."
+          }
+        }) }}
 
+        <p class="nhsuk-body-s">Must be shorter than 1000 characters (about 150 words).</p>
 
-<h1 class="nhsuk-heading-l">
-  {{ contentTitle }}
-</h1>
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
 
-<p>You may see medical abbreviations that you aren't familiar with.</p>
-
-{{ actionLink({
-  "text": "Help with abbreviations",
-  openInNewWindow: "true",
-  "href": "https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/abbreviations/"
-}) }}
-
-<form action="confirm-prescription" id= "nhs-error" method="get">
-  {{ checkboxes({
-    "name": "example-error",
-    "fieldset": {
-      "legend": {
-        "text": 'Medication currently available to order',
-        "classes": "nhsuk-fieldset__legend--m",
-        "isPageHeading": false
-      }
-    },
-    "errorMessage": {
-        "text": "Select at least one medicine"
-    },
-      "items": [
-      {
-        "value": "OGR",
-        "text": "Omeprazole 40mg gastro-resistant capsules",
-        "hint": {
-          "text": "One to be taken each day - 28 tablet"
-        }
-      }
-    ]
-  }) }}
-
-  {{ textarea({
-    "name": "more-detail",
-    "id": "more-detail",
-    "classes": "nhsuk-u-margin-bottom-0",
-    "rows": "3",
-    "label": {
-      "text": "Special requests relating to this order (optional)",
-      "classes": "nhsuk-label--m"
-    },
-    "hint": {
-      "text": "This text may not be seen by your GP. For important requests, contact your GP surgery."
-    }
-  }) }}
-
-  <p class="nhsuk-body-s">Must be shorter than 1000 characters (about 150 words).</p>
-
-  <input type="submit" class="nhsuk-button" value="Continue">
-  </input>
-
-</form>
-
-
+      </form>
 
     </div>
   </div>
