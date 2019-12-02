@@ -29,7 +29,7 @@
       text: "Home"
     }
   ],
-  href: "/" + PROTOTYPEURL + "/v1/withdraw-decision",
+  href: "/" + PROTOTYPEURL + "/v1/decision-recorded",
   text: "Organ Donation"
 }) }}
 {% endblock %}
@@ -51,7 +51,7 @@
 
       <p>Whatever you decide, please make sure your family know your decision.</p>
 
-      <form action="/{{ PROTOTYPEURL }}/v1/decision-withdrawn" method="post">
+      <form action="/{{ PROTOTYPEURL }}/v1/withdraw-decision" method="post">
 
   {% call fieldset({
     "legend": {

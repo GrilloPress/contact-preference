@@ -162,7 +162,7 @@
 
 
 
-                        <form action="/{{ PROTOTYPEURL }}/v1/reason-for-withdraw" method="post">
+                        <form action="/{{ PROTOTYPEURL }}/v1/decision-withdrawn" method="post">
 
                         {{ checkboxes({
                           "idPrefix": "organ",
@@ -194,7 +194,7 @@
 
 
                               {{ button({
-                                "href": "/" + PROTOTYPEURL + "/v1/decision-recorded",
+                                "href": "/" + PROTOTYPEURL + "/v1/reason-for-withdraw",
                                 "text": "Back",
                                 "classes": "nhsuk-button--secondary"
                               }) }}
