@@ -822,6 +822,46 @@ router.post('/app/nominated-pharmacy/v2/name-of-pharmacy', function (req, res) {
 });
 
 
+router.post('/app/nominated-pharmacy/v3/type-of-pharmacy', function (req, res) {
+  let answer = req.body.pharmacyType;
+
+  if (answer === 'community') {
+
+    res.redirect('/app/nominated-pharmacy/v3/find-community-pharmacy')
+
+  } else {
+    res.redirect('/app/nominated-pharmacy/v3/name-of-pharmacy')
+  }
+});
+
+router.post('/app/nominated-pharmacy/v3/name-of-pharmacy', function (req, res) {
+  let answer = req.body.pharmacyName;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/nominated-pharmacy/v3/search-name')
+
+  } else {
+
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    }
+
+    theRoll = getRandomInt(2);
+
+      if (theRoll == 0) {
+
+        res.redirect('/app/nominated-pharmacy/v3/online-results')
+
+      } else {
+
+        res.redirect('/app/nominated-pharmacy/v3/online-results-2')
+
+      }
+
+  }
+});
+
 
 
 

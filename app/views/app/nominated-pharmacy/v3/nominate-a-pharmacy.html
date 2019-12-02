@@ -1,0 +1,75 @@
+{% set PROTOTYPEURL = "app/nominated-pharmacy" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Choose a type of pharmacy to search for" %}
+{% set prescriptionsActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v3/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v3/card-nom-pharmacy">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+              <form action="/{{ PROTOTYPEURL }}/v3/nominate-a-pharmacy" method="post">
+
+              {{ radios({
+                "idPrefix": "nhs",
+                "name": "nominatePharmacy",
+                "fieldset": {
+                  "legend": {
+                    "html": '<h1 class="nhsuk-fieldset__heading">' + contentTitle + '</h1>',
+                    "classes": "nhsuk-fieldset__legend--l",
+                    "isPageHeading": true
+                  }
+                },
+                "items": [
+                {
+                  "value": "community",
+                  "text": "High street pharmacies",
+                  "hint": {
+                    "text": "You can collect your prescriptions in person at a high street pharmacy local to you. They may also deliver."
+                  }
+                },
+                {
+                  "value": "online",
+                  "text": "Online-only pharmacies",
+                  "hint": {
+                    "text": "Internet-based pharmacies send your prescriptions to you in the post."
+                  }
+                }
+                ]
+              }) }}
+
+
+
+
+              <input type="submit" class="nhsuk-button" value="Continue">
+              </input>
+
+            </form>
+
+
+    </div>
+  </div>
+{% endblock %}

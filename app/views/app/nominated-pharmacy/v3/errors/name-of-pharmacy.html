@@ -1,0 +1,89 @@
+{% set PROTOTYPEURL = "app/nominated-pharmacy" %}
+{% set serviceName = "NHS App" %}
+{% set prescriptionsActive = "active" %}
+{% set contentTitle = "Is there a specific online-only pharmacy that you want to use?" %}
+{% set title = "Error - " + contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v3/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v3/type-of-pharmacy">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+            {{ errorSummary({
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Select yes if you know the name of your online-only pharmacy",
+            "href": "#nhs-error"
+          }
+        ]
+      }) }}
+
+
+
+        <form action="/{{ PROTOTYPEURL }}/v3/name-of-pharmacy" method="post">
+
+        {{ radios({
+          "idPrefix": "nhs",
+          "id": "error",
+          "name": "pharmacyName",
+          "fieldset": {
+            "legend": {
+              "html": '<h1 class="nhsuk-fieldset__heading">' + contentTitle + '</h1>',
+              "classes": "nhsuk-fieldset__legend--l",
+              "isPageHeading": true
+            }
+          },
+          "errorMessage": {
+              "text": "Select yes if you know the name of your online-only pharmacy"
+          },
+          id: "name",
+               "items": [
+            {
+              "value": "yes",
+              "text": "Yes, I know the name of the online-only pharmacy I want"
+            },
+            {
+              "value": "no",
+              "text": "No"
+            }
+          ]
+        }) }}
+
+
+
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

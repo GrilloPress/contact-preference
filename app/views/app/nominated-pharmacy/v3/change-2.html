@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
-{% set serviceName = "Change your nominated pharmacy" %}
-{% set contentTitle = "Did you mean Ma Manning (Pharmacy) Ltd?" %}
+{% set serviceName = "NHS App" %}
 {% set prescriptionsActive = "active" %}
+{% set contentTitle = "Any outstanding prescriptions may still arrive at your current nominated pharmacy" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -19,10 +19,10 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v3/home">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v2/search-name">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v3/your-nominated-pharmacy">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -31,26 +31,19 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
 
-      <ul class="list-menu">
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/v2/high-street-pharmacy-2">
-            <h2 class="nhsuk-heading-s">Ma Manning (Pharmacy) Ltd</h2>
+
+            <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+            <p>The new pharmacy you choose is where your prescriptions will be sent in future.</p>
             <p>
-              97 Lidgett Lane,
-              Leeds,
-              West Yorkshire, <br>
-              LS8 1QR <br>
-              0113 266 1786 
+              Your new pharmacy can help to check on any outstanding prescriptions for you.
             </p>
-            <p>0.4 miles away</p>
-          </a>
-        </li>
+            <form action="/{{ PROTOTYPEURL }}/v3/type-of-pharmacy" method="get">
 
-      </ul>
+              <input type="submit" class="nhsuk-button" value="Continue">
+              </input>
 
-      <p><a href="/{{ PROTOTYPEURL }}/v2/search-name">Search again</a></p>
+            </form>
 
 
     </div>
