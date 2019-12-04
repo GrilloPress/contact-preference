@@ -35,28 +35,59 @@
         Your prescription should be ready to collect from your nominated pharmacy in 2 working days unless you need a medication review.
       </p>
 
-      {% if data['pharmName'] %}
-        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ pharmName }}</h2>
-      {% elif data['onlineName'] %}
-        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ onlineName }}</h2>
-      {% elif data['inputPharmacyName'] %}
-        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ data['inputPharmacyName'] }}</h2>
+      {% if data['pharmacyType'] === "online" %}
+
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Echo" }}</h2>
+
+              <p class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</p>
+
+
+                <p>Telephone: {{ data["phoneNumber"] or "03069 990735" }}</p>
+
+
+
+        {% elif data['pharmacyType'] === "community" %}
+
+
+      <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }}</h2>
+
+
+      <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or data["onlineUrl"] or "97 Lidgett Lane" }}</p>
+
+      <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Leeds" }}</p>
+
+
+      <p class="nhsuk-u-margin-bottom-0">{{ data['county'] if data["pickPharmacy"] == "Ma Manning (Pharmacy) Ltd" }}</p>
+
+      <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "LS8 1QR" }}</p>
+
+
+      <p>Telephone: {{ data["phoneNumber"] or "0113 266 1786" }}</p>
+
+
       {% else %}
-        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Ma Manning (Pharmacy) Ltd</h2>
+
+
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }}</h2>
+
+
+            <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or data["onlineUrl"] or "97 Lidgett Lane" }}</p>
+
+            <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Leeds" }}</p>
+
+
+            <p class="nhsuk-u-margin-bottom-0">{{ data['county'] or "West Yorkshire" }}</p>
+
+            <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "LS8 1QR" }}</p>
+
+
+            <p>Telephone: {{ data["phoneNumber"] or "0113 266 1786" }}</p>
+
+
+
+
       {% endif %}
 
-      {% if data['pharmDetails'] %}
-        <p class="nhsuk-u-margin-bottom-1">{{ pharmDetails | safe }}</p>
-      {% elif data['onlineInfo'] %}
-        <p class="nhsuk-u-margin-bottom-1">{{ onlineInfo | safe }}</p>
-      {% elif data['inputPharmacyName'] %}
-        <p class="nhsuk-u-margin-bottom-1">
-          <a href="" class="nhsuk-u-margin-bottom-1">www.{{ exact | lower | safe }}.com</a>
-        </p>
-        <p>Telephone: 03069 990735</p>
-      {% else %}
-        <p>97 Lidgett Lane, Leeds, West Yorkshire, <br> LS8 1QR <br> Telephone: 0113 266 1786 </p>
-      {% endif %}
 
       <p><a href="/app/prescriptions/v1/your-repeat-prescriptions">Go to your repeat prescriptions</a> to check the status of your prescription.</p>
 

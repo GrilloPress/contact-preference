@@ -14,6 +14,28 @@
   {% endif %}
 {% endset %}
 
+{% if data['choosePrescription'] == 'omeprazole' %}
+   One to be taken each day - 28 tablet
+{% endif %}
+
+
+
+  {% if data['choosePrescription'] == 'alogliptin' %}
+    One to be taken each day - 28 tablet
+  {% endif %}
+
+  {% if data['choosePrescription'] == 'metformin' %}
+    One to be taken 4 times a day with food - 112 tablet
+  {% endif %}
+
+  {% if data['choosePrescription'] == '' %}
+    One to be taken each day - 28 tablet
+  {% endif %}
+
+
+
+
+
 
 {% set choosePrescription %}
   {% if data['choosePrescription'] == 'omeprazole' %}
@@ -29,6 +51,8 @@
 
 
 
+
+
   {% if data['choosePrescription'] | stringOrNot %}{% set cheese = "stringyCheese" %}{% else %}{% set cheese = "hardCheese" %}{% endif %}
   {% set chosenMedication %}
     {% if cheese == 'stringyCheese' %}
@@ -36,13 +60,13 @@
     {% else %}
       {% for item in data['choosePrescription'] %}
       {% if item == 'omeprazole' %}
-        Omeprazole 40mg gastro-resistant capsules 
+        Omeprazole 40mg gastro-resistant capsules
       {% elif item == 'alogliptin' %}
-        Alogliptin 25mg tablets 
+        Alogliptin 25mg tablets
       {% elif item == 'metformin' %}
-        Metformin 500mg tablets 
+        Metformin 500mg tablets
       {% else %}
-          Omeprazole 40mg gastro-resistant capsules 
+          Omeprazole 40mg gastro-resistant capsules
       {% endif %}
       {% endfor %}
     {% endif %}
@@ -83,8 +107,12 @@
       <div class="app-card app-card--with-border">
         <div class="app-card__wrapper">
           <div class="app-card__content">
-            <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">{{ chosenMedication or "Omeprazole 40mg gastro-resistant capsules" }}</h3>
-            <p>One to be taken each day - 28 tablet</p>
+
+
+
+
+            <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">khj</h3>
+            <p>{{ instructions }}</p>
 
             <div class="nhs-app-card-delete">
 
