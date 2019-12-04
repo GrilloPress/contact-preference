@@ -1,6 +1,5 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "Change your nominated pharmacy" %}
-
 {% set contentTitle = "Confirm your new nominated pharmacy" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -41,17 +40,14 @@
 
             <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Echo" }}</h2>
 
-
-            {% if data['onlineInfo'] %}
-              <p class="nhsuk-u-margin-bottom-1">{{ onlineInfo | safe }}</p>
-            {% elif data['inputPharmacyName'] %}
               <p class="nhsuk-u-margin-bottom-1">
-                <a href="" class="nhsuk-u-margin-bottom-1">www.{{ exact | lower | safe }}.com</a>
+                <a href="" class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</a>
               </p>
-              <p>Telephone: 03069 990735</p>
-            {% else %}
-              <p class="nhsuk-u-margin-bottom-1"><a href="https://www.echo.co.uk" class="nhsuk-u-margin-bottom-0">www.echo.co.uk</a></p><p> Telephone: 020 80688067</p>
-            {% endif %}
+
+
+                <p>{{ data["phoneNumber"] or "03069 990735" }}</p>
+
+
 
 
 
