@@ -27,7 +27,42 @@
         {{ contentTitle }}
       </h1>
 
-      <h2>v3 (EMIS specific)</h2>
+      <h2>Latest</h2>
+      <ul>
+        <li>
+          <a href="#emis">EMIS</a>
+        </li>
+        <li>
+          <a href="#tpp">TPP</a>
+        </li>
+      </ul>
+      
+      <hr>
+
+      <h2 id="tpp">v4 (TPP specific)</h2>
+      <h3>Main user flow</h3>
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v4/index">Messages</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v4/send-a-message-radio">Send a message (interruption)</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v4/contact-your-gp-v2">CARE CARD VERSION Contact your GP (if need urgent reply)</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v4/select-who">Select who to message</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v4/your-message?msgTo=Dr Sanjit Praneskear">Your message</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v4/message?id=2&from=Dr%20Sanjit%20Praneskear&sent=today&time=7:33&body=An example message&to=True&messageRead2=read&">Message sent</a>
+        </li>
+      </ul>
+
+      <h2 id="emis">v3 (EMIS specific)</h2>
       <h3>Main user flow</h3>
       <ul>
         <li>
@@ -38,6 +73,9 @@
         </li>
         <li>
           <a href="/{{ PROTOTYPEURL }}/v3/contact-your-gp">Contact your GP (if need urgent reply)</a>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/v4/contact-your-gp-v2">CARE CARD VERSION Contact your GP (if need urgent reply)</a>
+          </li>
         </li>
         <li>
           <a href="/{{ PROTOTYPEURL }}/v3/select-who">Select who to message</a>
