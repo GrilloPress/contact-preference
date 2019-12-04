@@ -1,6 +1,5 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "Change your nominated pharmacy" %}
-
 {% set contentTitle = "Confirm your new nominated pharmacy" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -40,8 +39,21 @@
       <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }}</h2>
 
 
+      <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or "97 Lidgett Lane" }}</p>
 
-      <p>{{ pharmDetails | safe }}</p>
+      <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Leeds" }}</p>
+
+
+      <p class="nhsuk-u-margin-bottom-0">{{ data['county'] if data["pickPharmacy"] == "Ma Manning (Pharmacy) Ltd" }}</p>
+
+      <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "LS8 1QR" }}</p>
+
+
+      <p>Telephone: {{ data["phoneNumber"] or "0113 266 1786" }}</p>
+
+
+      <p>{{ data["miles"] or "0.4" }} miles away</p>
+
 
 
       <div class="nhsuk-expander-group nhsuk-u-margin-bottom-4">
@@ -91,7 +103,7 @@
 
 
 
-      <form action="/{{ PROTOTYPEURL }}/v3/confirmed" method="get">
+      <form action="/{{ PROTOTYPEURL }}/v3/confirmed-2-high-street" method="get">
         <input type="submit" class="nhsuk-button" value="Confirm">
         </input>
       </form>

@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "Change your nominated pharmacy" %}
-{% set input %}{% if data['pharmacyPostcode'] %}{{ data['pharmacyPostcode'] | upper }}{% else %}LS7 4LA{% endif %}{% endset %}
+{% set input %}{{ data['pharmacyPostcode'] | upper if data['pharmacyPostcode']  else "LS7 4LA" }}{% endset %}
 {% set contentTitle = "High street pharmacies near " + '"' + input + '"' %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -40,13 +40,13 @@
 
       <ul class="list-menu">
         <li>
-          <a href="/{{ PROTOTYPEURL }}/v3/high-street-pharmacy-2?pickPharmacy=Ma Manning (Pharmacy) Ltd">
+          <a href="/{{ PROTOTYPEURL }}/v3/high-street-pharmacy-2?pickPharmacy=Ma Manning (Pharmacy) Ltd&address=97 Lidgett Lane&city=Leeds&county=West Yorkshire&postcode=LS8 1QR&phoneNumber=0113 266 1786&miles=0.4">
             <h2 class="nhsuk-heading-s">Ma Manning (Pharmacy) Ltd</h2>
             <p>
-              97 Lidgett Lane,
-              Leeds,
-              West Yorkshire, <br>
-              LS8 1QR<br>
+              97 Lidgett Lane <br>
+              Leeds <br>
+              West Yorkshire <br>
+              LS8 1QR <br>
               Telephone: 0113 266 1786
             </p>
             <p>0.4 miles away</p>
@@ -56,11 +56,12 @@
 
 
         <li>
-          <a href="/{{ PROTOTYPEURL }}/v3/high-street-pharmacy-2?pickPharmacy=Medichem (Leeds) Ltd">
+          <a href="/{{ PROTOTYPEURL }}/v3/high-street-pharmacy-2?pickPharmacy=Medichem (Leeds) Ltd&address=40-42 Harrogate Road&city=Leeds&postcode=LS7 4LA&phoneNumber=0113 262 2684&miles=0.5">
             <h2 class="nhsuk-heading-s">Medichem (Leeds) Ltd</h2>
             <p>
-              40-42 Harrogate Road, Leeds, <br>
-              LS7 4LA<br>
+              40-42 Harrogate Road <br>
+              Leeds <br>
+              LS7 4LA <br>
               Telephone: 0113 262 2684
             </p>
             <p>0.5 miles away</p>
@@ -68,11 +69,12 @@
         </li>
 
         <li>
-          <a href="/{{ PROTOTYPEURL }}/v3/high-street-pharmacy-2?pickPharmacy=Knights Chapel Allerton Pharmacy">
+          <a href="/{{ PROTOTYPEURL }}/v3/high-street-pharmacy-2?pickPharmacy=Knights Chapel Allerton Pharmacy&address=6 Stainbeck Lane&city=Leeds&postcode=LS7 3QY&phoneNumber=0113 268 1163&miles=0.5">
             <h2 class="nhsuk-heading-s">Knights Chapel Allerton Pharmacy</h2>
             <p>
-              6 Stainbeck Lane, Leeds, <br>
-              LS7 3QY<br>
+              6 Stainbeck Lane <br>
+              Leeds <br>
+              LS7 3QY <br>
               Telephone: 0113 268 1163
             </p>
             <p>0.5 miles away</p>
@@ -80,11 +82,12 @@
         </li>
 
         <li>
-          <a href="/{{ PROTOTYPEURL }}/v3/high-street-pharmacy-2?pickPharmacy=St Martins Pharmacy">
+          <a href="/{{ PROTOTYPEURL }}/v3/high-street-pharmacy-2?pickPharmacy=St Martins Pharmacy&address=643 Roundhay Road&city=Leeds&postcode=LS8 4BA&phoneNumber=0113 240 3315&miles=0.8">
             <h2 class="nhsuk-heading-s">St Martins Pharmacy</h2>
             <p>
-              643 Roundhay Road, Leeds, <br>
-              LS8 4BA<br>
+              643 Roundhay Road <br>
+              Leeds <br>
+              LS8 4BA <br>
               Telephone: 0113 240 3315
             </p>
             <p>0.8 miles away</p>

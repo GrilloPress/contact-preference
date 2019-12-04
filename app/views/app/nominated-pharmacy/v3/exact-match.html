@@ -1,7 +1,6 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "Change your nominated pharmacy" %}
-{% set exact %}{% if data['inputPharmacyName'] %}{{ data['inputPharmacyName'] }}{% else %}Echo{% endif %}{% endset %}
-{% set contentTitle = "You searched " + '"' + exact + '"' %}
+{% set contentTitle = "You searched " + '"' + data["inputPharmacyName"]  + '"' %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -37,10 +36,10 @@
 
       <ul class="list-menu">
         <li>
-          <a href="/{{ PROTOTYPEURL }}/v3/online-pharmacy-2?onlineInfo=&onlineName={{ data['inputPharmacyName'] if data['inputPharmacyName'] else 'Echo'  }}">
-            <h2 class="nhsuk-heading-s">{{ exact | safe }}</h2>
+          <a href="/{{ PROTOTYPEURL }}/v3/online-pharmacy-2?pickPharmacy={{ data["inputPharmacyName"] }}&onlineUrl=www.{{ data["inputPharmacyName"] }}.com&phoneNumber=03069 990735">
+            <h2 class="nhsuk-heading-s">{{ data["inputPharmacyName"] | safe }}</h2>
             <p>
-              www.{{ exact | lower | safe }}.com
+              www.{{ data["inputPharmacyName"] | lower | safe }}.com
             </p>
             <p>Telephone: 03069 990735</p>
           </a>

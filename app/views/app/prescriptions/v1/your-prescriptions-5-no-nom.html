@@ -1,5 +1,16 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
+{% set nomPharmName %}
+{% if data['pharmName'] %}
+    {% set nomPharmName = data['pharmName'] %}
+{% elif data['onlineName'] %}
+    {% set nomPharmName = data['onlineName'] %}
+{% elif data['inputPharmacyName'] %}
+    {% set nomPharmName = data['inputPharmacyName'] %}
+{% else %}
+    {% set nomPharmName = "Ma Manning (Pharmacy) Ltd" %}
+{% endif %}
+{% endset %}
 {% set prescriptionsActive = "active" %}
 {% set contentTitle = "Your prescriptions" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -46,9 +57,9 @@
         </li>
 
       	<li>
-      		<a href="/app/nominated-pharmacy/v3/your-nominated-pharmacy">
-            <h2 class="nhsuk-heading-s">Your nominated pharmacy</h2>
-            <p>{{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }}</p>
+      		<a href="/app/nominated-pharmacy/v3/card-nom-pharmacy-2">
+            <h2 class="nhsuk-heading-s">Nominate a pharmacy</h2>
+            <p>Choose a pharmacy to get your prescriptions from</p>
           </a>
       	</li>
       </ul>
