@@ -6,26 +6,6 @@
 {% block pageScripts %}
 {% endblock %}
 
-{% set specialRequest %}
-  {% if data['specialRequest'] %}
-     {{ data['specialRequest'] }}
-{% else %}
-    No requests added
-  {% endif %}
-{% endset %}
-
-
-{% set medication %}
-  {% if cheese == 'stringyCheese' %}
-    Medication
-  {% elif cheese == 'hardCheese' %}
-    Medications
-  {% else %}
-    Medication
-  {% endif %}
-{% endset %}
-
-
 
 
 {% set choosePrescription %}
@@ -78,6 +58,26 @@
       <p>One to be taken each day - 28 tablet</p>
       {% endif %}
       {% endfor %}
+    {% endif %}
+  {% endset %}
+
+
+
+  {% set medication %}
+    {% if cheese == 'stringyCheese' %}
+      Medication
+    {% elif cheese == 'hardCheese' %}
+      Medications
+    {% else %}
+      Medication
+    {% endif %}
+  {% endset %}
+
+  {% set specialRequest %}
+    {% if data['specialRequest'] %}
+       {{ data['specialRequest'] }}
+  {% else %}
+      No requests added
     {% endif %}
   {% endset %}
 
