@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/records/v1" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
-{% set contentTitle = "Medicine" %}
+{% set contentTitle = "Personal details" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -34,26 +34,43 @@
         {{ contentTitle }}
       </h1>
 
-      <ul class="list-menu">
-        <li>
-          <a href="medicine-acute">
-            Acute (short-term) medicine
-            <span class="nhs-app-list-menu__count">2</span>
-          </a>
-        </li>
-        <li>
-          <a href="medicine-current">
-            Repeat medicine: current
-            <span class="nhs-app-list-menu__count">5</span>
-          </a>
-        </li>
-        <li>
-          <a href="medicine-discontinued">
-            Repeat medicine: discontinued
-            <span class="nhs-app-list-menu__count">0</span>
-          </a>
-        </li>
-      </ul>
+      {{ summaryList({
+        classes: 'nhsuk-summary-list--no-border nhsuk-u-margin-bottom-3',
+          rows: [
+          {
+            key: {
+              text: "Full name"
+            },
+            value: {
+              text: "Bernard Doyle"
+            }
+          },
+            {
+              key: {
+                text: "Date of birth"
+              },
+              value: {
+                text: "20 January 1982"
+              }
+            },
+            {
+              key: {
+                text: "NHS Number"
+              },
+              value: {
+                text: "123 456 7890"
+              }
+            },
+            {
+              key: {
+                text: "Address"
+              },
+              value: {
+                html: "72 Guild Street, London, SE23 6FH"
+              }
+            }
+          ]
+        }) }}
 
     </div>
   </div>

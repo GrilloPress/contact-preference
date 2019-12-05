@@ -49,6 +49,20 @@ a:visited {
     display: block;
   }
 
+}
+
+.nhs-app-tablet--show {
+
+  display: none;
+
+  @include mq($from: tablet) {
+    display: block;
+  }
+
+  @include mq($from: desktop) {
+    display: none;
+  }
+
 
 }
 
