@@ -28,7 +28,7 @@
       {{ warningCallout({
         "heading": "Important",
         "classes": "nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-5",
-        "HTML": "<p>Your record may contain sensitive information. If someone is pressuring you for this information, contact your GP surgery immediately.</p><p>You have a legal right to access the information in your record. </p>"
+        "HTML": "<p>Your record may contain sensitive information. If someone is pressuring you for this information, contact your GP Surgery immediately.</p>"
       }) }}
 
       <p>Your record shows personal data, such as your details, allergies and medications.</p>
@@ -38,7 +38,7 @@
         <li>test results that you may not have discussed with your doctor</li>
       </ul>
 
-      <form action="/{{ PROTOTYPEURL}}/your-record-restricted" method="get">
+      <form action="/{{ PROTOTYPEURL}}/your-record" method="get">
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>
