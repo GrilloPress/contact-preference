@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Select medication to renew" %}
+{% set contentTitle = "Select medicine to renew" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -51,7 +51,7 @@ $("textarea").focusout(function(){
           "name": "choosePrescription",
           "fieldset": {
             "legend": {
-              "text": 'Medication currently available to order',
+              "text": 'Medicine currently available to order',
               "classes": "nhsuk-fieldset__legend--m",
               "isPageHeading": false
             }
