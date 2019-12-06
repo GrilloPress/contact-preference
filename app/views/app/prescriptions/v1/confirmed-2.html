@@ -1,10 +1,72 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Your prescription has been ordered" %}
+
+
+{% set choosePrescription %}
+  {% if data['choosePrescription'] == 'omeprazole' %}
+
+  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+  <p>One to be taken each day - 28 tablet</p>
+
+  {% elif data['choosePrescription'] == 'alogliptin' %}
+
+  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Alogliptin 25mg tablets</h3>
+  <p>One to be taken each day - 28 tablet</p>
+
+  {% elif data['choosePrescription'] == 'metformin' %}
+
+  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Metformin 500mg tablets</h3>
+  <p>One to be taken 4 times a day with food - 112 tablet</p>
+
+  {% else %}
+
+  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+  <p>One to be taken each day - 28 tablet</p>
+
+  {% endif %}
+
+{% endset %}
+
+
+  {% if data['choosePrescription'] | stringOrNot %}{% set cheese = "stringyCheese" %}{% else %}{% set cheese = "hardCheese" %}{% endif %}
+  {% set chosenMedication %}
+    {% if cheese == 'stringyCheese' %}
+      {{ choosePrescription | safe }}
+
+    {% else %}
+      {% for item in data['choosePrescription'] %}
+      {% if item == 'omeprazole' %}
+      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+      <p>One to be taken each day - 28 tablet</p>
+      {% elif item == 'alogliptin' %}
+      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Alogliptin 25mg tablets</h3>
+      <p>One to be taken each day - 28 tablet</p>
+      {% elif item == 'metformin' %}
+      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Metformin 500mg tablets</h3>
+      <p>One to be taken 4 times a day with food - 112 tablet</p>
+      {% else %}
+      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+      <p>One to be taken each day - 28 tablet</p>
+      {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endset %}
+
+{% if cheese == 'stringyCheese' %}
+  {% set contentTitle = "Your prescription has been ordered" %}
+{% elif cheese == 'hardCheese' %}
+  {% set contentTitle = "Your prescriptions have been ordered" %}
+{% else %}
+  {% set contentTitle = "Your prescription has been ordered" %}
+{% endif %}
+
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
+
+
+
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -26,14 +88,46 @@
         {{ contentTitle }}
       </h1>
 
-      <p>Your order has been sent to your GP practice.</p>
+      {% if cheese == 'stringyCheese' %}
+        <p>Your order has been sent to your GP practice.</p>
+      {% elif cheese == 'hardCheese' %}
+        <p>Your orders have been sent to your GP practice.</p>
+      {% else %}
+        <p>Your order has been sent to your GP practice.</p>
+      {% endif %}
+
+      <p>You have ordered:</p>
+
+      {{ chosenMedication | safe }}
+
+
 
       <h2 class="nhsuk-heading-m">What happens next</h2>
 
 
-      <p>
-        Your prescription should be ready to collect from your nominated pharmacy in 2 working days unless you need a medication review.
-      </p>
+            {% if cheese == 'stringyCheese' %}
+            <p>
+               Your prescription request is now getting sent to your GP.
+            </p>
+            <p>
+              Once they approve it, they’ll send the prescription to your nominated pharmacy, where pharmacists will check and prepare it for you.
+            </p>
+            {% elif cheese == 'hardCheese' %}
+            <p>
+               Your prescription requests are now getting sent to your GP.
+            </p>
+            <p>
+              Once they approve them, they’ll send the prescriptions to your nominated pharmacy, where pharmacists will check and prepare them for you.
+            </p>
+            {% else %}
+            <p>
+               Your prescription request is now getting sent to your GP.
+            </p>
+            <p>
+              Once they approve it, they’ll send the prescription to your nominated pharmacy, where pharmacists will check and prepare it for you.
+            </p>
+            {% endif %}
+
 
       {% if data['pharmacyType'] === "online" %}
 
@@ -88,8 +182,15 @@
 
       {% endif %}
 
+      {% if cheese == 'stringyCheese' %}
+        <p><a href="/app/prescriptions/v1/your-repeat-prescriptions">Go to your repeat prescriptions</a> to check the status of your prescription.</p>
+      {% elif cheese == 'hardCheese' %}
+        <p><a href="/app/prescriptions/v1/your-repeat-prescriptions">Go to your repeat prescriptions</a> to check the status of your prescriptions.</p>
+      {% else %}
+        <p><a href="/app/prescriptions/v1/your-repeat-prescriptions">Go to your repeat prescriptions</a> to check the status of your prescription.</p>
+      {% endif %}
 
-      <p><a href="/app/prescriptions/v1/your-repeat-prescriptions">Go to your repeat prescriptions</a> to check the status of your prescription.</p>
+
 
 
     </div>

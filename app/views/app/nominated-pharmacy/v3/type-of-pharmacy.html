@@ -22,10 +22,16 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v3/home">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" onClick='window.history.go(-1)'>Back</a></p>
+    {% if data["nominatedConfirmed"] %}
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v3/change-2">Back</a></p>
+    {% else %}
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v3/card-nom-pharmacy-2">Back</a></p>
+    {% endif %}
   </div>
 </nav>
 {% endblock %}
+
+
 
 {% block content %}
   <div class="nhsuk-grid-row">
