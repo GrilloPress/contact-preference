@@ -11,23 +11,23 @@
 {% set choosePrescription %}
   {% if data['choosePrescription'] == 'omeprazole' %}
 
-  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhs-app-secondary-text">Omeprazole 40mg gastro-resistant capsules</h3>
-  <p>One to be taken each day - 28 tablet</p>
+  <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+  <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
 
   {% elif data['choosePrescription'] == 'alogliptin' %}
 
-  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhs-app-secondary-text">Alogliptin 25mg tablets</h3>
-  <p>One to be taken each day - 28 tablet</p>
+  <p class="nhsuk-u-margin-bottom-0">Alogliptin 25mg tablets</p>
+  <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
 
   {% elif data['choosePrescription'] == 'metformin' %}
 
-  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhs-app-secondary-text">Metformin 500mg tablets</h3>
-  <p>One to be taken 4 times a day with food - 112 tablet</p>
+  <p class="nhsuk-u-margin-bottom-0">Metformin 500mg tablets</p>
+  <p class="nhs-app-secondary-text">One to be taken 4 times a day with food - 112 tablet</p>
 
   {% else %}
 
-  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhs-app-secondary-text">Omeprazole 40mg gastro-resistant capsules</h3>
-  <p>One to be taken each day - 28 tablet</p>
+  <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+  <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
 
   {% endif %}
 
@@ -45,22 +45,21 @@
     {% else %}
       {% for item in data['choosePrescription'] %}
       {% if item == 'omeprazole' %}
-      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhs-app-secondary-text">Omeprazole 40mg gastro-resistant capsules</h3>
-      <p>One to be taken each day - 28 tablet</p>
+      <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+      <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
       {% elif item == 'alogliptin' %}
-      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhs-app-secondary-text">Alogliptin 25mg tablets</h3>
-      <p>One to be taken each day - 28 tablet</p>
+      <p class="nhsuk-u-margin-bottom-0">Alogliptin 25mg tablets</p>
+      <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
       {% elif item == 'metformin' %}
-      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhs-app-secondary-text">Metformin 500mg tablets</h3>
-      <p>One to be taken 4 times a day with food - 112 tablet</p>
+      <p class="nhsuk-u-margin-bottom-0">Metformin 500mg tablets</p>
+      <p class="nhs-app-secondary-text">One to be taken 4 times a day with food - 112 tablet</p>
       {% else %}
-      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhs-app-secondary-text">Omeprazole 40mg gastro-resistant capsules</h3>
-      <p>One to be taken each day - 28 tablet</p>
+      <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+      <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
       {% endif %}
       {% endfor %}
     {% endif %}
   {% endset %}
-
 
 
   {% set medication %}
@@ -73,7 +72,6 @@
     {% endif %}
   {% endset %}
 
-  
   {% set specialRequest %}
     {% if data['specialRequest'] %}
        {{ data['specialRequest'] }}
