@@ -1,18 +1,10 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Confirm prescription" %}
+{% set contentTitle = "Check your prescription details before you order" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
-
-{% set specialRequest %}
-  {% if data['specialRequest'] %}
-     {{ data['specialRequest'] }}
-{% else %}
-    No requests added
-  {% endif %}
-{% endset %}
 
 
 
@@ -35,7 +27,9 @@
   {% else %}
 
   <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
-  <p>One to be taken each day - 28 tablet</p>  {% endif %}
+  <p>One to be taken each day - 28 tablet</p>
+
+  {% endif %}
 
 {% endset %}
 
@@ -47,6 +41,7 @@
   {% set chosenMedication %}
     {% if cheese == 'stringyCheese' %}
       {{ choosePrescription | safe }}
+
     {% else %}
       {% for item in data['choosePrescription'] %}
       {% if item == 'omeprazole' %}
@@ -65,6 +60,28 @@
       {% endfor %}
     {% endif %}
   {% endset %}
+
+
+
+  {% set medication %}
+    {% if cheese == 'stringyCheese' %}
+      Medication
+    {% elif cheese == 'hardCheese' %}
+      Medications
+    {% else %}
+      Medication
+    {% endif %}
+  {% endset %}
+
+  {% set specialRequest %}
+    {% if data['specialRequest'] %}
+       {{ data['specialRequest'] }}
+  {% else %}
+      No requests added
+    {% endif %}
+  {% endset %}
+
+
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -94,37 +111,52 @@
         {{ contentTitle }}
       </h1>
 
-      <p>
-        Check your prescription details before ordering
-      </p>
 
-      <div class="app-card app-card--with-border">
-        <div class="app-card__wrapper">
-          <div class="app-card__content">
-
-
-
-
-            {{ chosenMedication | safe }}
-
-            <div class="nhs-app-card-delete">
-
-              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Special request relating to this order</h3>
-              <p class="nhsuk-u-margin-bottom-0">{{ data["specialRequest"] or "No requests added" }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              html: medication
+            },
+            value: {
+              html: chosenMedication or '<h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+              <p>One to be taken each day - 28 tablet</p>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/app/prescriptions/v1/select-medicine-to-renew-2",
+                  text: "Change",
+                  visuallyHiddenText: "medication"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Special requests relating to your order (optional)"
+            },
+            value: {
+              text: data['specialRequest'] | placeholder('No requests added')
+            },
+            actions: {
+              items: [
+                {
+                  href: "/app/prescriptions/v1/select-medicine-to-renew-2",
+                  text: "Change",
+                  visuallyHiddenText: "special requests relating to this order (optional)"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
 
       <form action="/app/prescriptions/save" method="post">
         <input type="submit" class="nhsuk-button" value="Confirm and order prescription">
         </input>
       </form>
 
-      <form action="select-medicine-to-renew" method="get">
-        <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Change this prescription">
-        </input>
-      </form>
 
     </div>
   </div>
