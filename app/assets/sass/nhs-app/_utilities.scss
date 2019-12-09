@@ -108,6 +108,11 @@ a:visited {
   color: $nhsuk-secondary-text-color;
 }
 
+.nhs-app-xl {
+
+  @include nhsuk-responsive-margin(4, 'bottom');
+}
+
 
 // Ed from slack Utilities
 
@@ -116,28 +121,28 @@ a:visited {
 // Mixins - use these for custom components
 ​
 // Hide on mobile
-@mixin app-display-mobile--hide {
+.app-display-mobile--hide {
   @include mq($until: tablet) {
     display: none;
   }
 }
 ​
 // Only on mobile
-@mixin app-display-mobile--only {
+.app-display-mobile--only {
   @include mq($from: tablet) {
     display: none;
   }
 }
 ​
 // Hide on tablet
-@mixin app-display-tablet--hide {
+.app-display-tablet--hide {
   @include mq($from: tablet, $until: desktop) {
     display: none;
   }
 }
 ​
 // Only on tablet
-@mixin app-display-tablet--only {
+.app-display-tablet--only {
   @include mq($from: desktop) {
     display: none;
   }
@@ -147,14 +152,14 @@ a:visited {
 }
 ​
 // Hide on desktop
-@mixin app-display-desktop--hide {
+.app-display-desktop--hide {
   @include mq($from: desktop) {
     display: none;
   }
 }
 ​
 // Only on desktop
-@mixin app-display-desktop--only {
+.app-display-desktop--only {
   @include mq($until: desktop) {
     display: none;
   }

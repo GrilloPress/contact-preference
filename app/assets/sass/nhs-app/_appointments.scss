@@ -17,6 +17,24 @@
   }
 }
 
+li {
+  a.nhs-app-list-menu-delete__link {
+
+    display: block;
+    color: $color_nhsuk-red !important;
+    font-weight: 500;
+    margin-top: -.8em;
+    padding: 16px 2em 0.8em 1em;
+    @include nhsuk-typography-responsive(16);
+
+    &:hover, &:focus {
+
+      color: #9a140a !important;
+    }
+  }
+}
+
+
 
 .nhsuk-expander .nhsuk-details__summary {
 
@@ -64,4 +82,14 @@
   border-top: 1px solid #d8dde0;
   margin-bottom: 0;
   }
+}
+
+.list-menu_container {
+
+  padding: 0.8em 2em 0.8em 1em;
+}
+
+.list-menu li.no-chevron {
+
+  background: white;
 }
