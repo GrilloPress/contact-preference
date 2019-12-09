@@ -862,7 +862,21 @@ router.post('/app/nominated-pharmacy/v3/name-of-pharmacy', function (req, res) {
   }
 });
 
+// Appointment ROUTES
 
+router.post('/app/appointments/v4/select-how-to-search', function (req, res) {
+  let answer = req.body.appointmentSearchMethod;
+
+  if (answer === 'search') {
+
+    res.redirect('/app/appointments/v4/select-location?browseAppointments=false')
+
+
+
+  } else {
+    res.redirect('/app/appointments/v4/select-available-appointment?browseAppointments=true&appointmentType=')
+  }
+});
 
 
 module.exports = router;
