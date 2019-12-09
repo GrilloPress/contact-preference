@@ -1,52 +1,81 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Check your repeat prescription before you order" %}
+{% set contentTitle = "Check your prescription details before you order" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 
-{% set specialRequest %}
-  {% if data['specialRequest'] %}
-     {{ data['specialRequest'] }}
-{% else %}
-    No requests added
+{% set choosePrescription %}
+  {% if data['choosePrescription'] == 'omeprazole' %}
+
+  <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+  <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+
+  {% elif data['choosePrescription'] == 'alogliptin' %}
+
+  <p class="nhsuk-u-margin-bottom-0">Alogliptin 25mg tablets</p>
+  <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+
+  {% elif data['choosePrescription'] == 'metformin' %}
+
+  <p class="nhsuk-u-margin-bottom-0">Metformin 500mg tablets</p>
+  <p class="nhs-app-secondary-text">One to be taken 4 times a day with food - 112 tablet</p>
+
+  {% else %}
+
+  <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+  <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+
   {% endif %}
+
 {% endset %}
 
 
-{% set choosePrescription %}
-  {% if data['choosePrescription'] == 'omeprazole' %}
-    <p> Omeprazole 40mg gastro-resistant capsules </p>
-  {% elif data['choosePrescription'] == 'alogliptin' %}
-    <p> Alogliptin 25mg tablets </p>
-  {% else %}
-    <p> Omeprazole 40mg gastro-resistant capsules </p>
-  {% endif %}
-  {% endset %}
+
+
 
   {% if data['choosePrescription'] | stringOrNot %}{% set cheese = "stringyCheese" %}{% else %}{% set cheese = "hardCheese" %}{% endif %}
   {% set chosenMedication %}
     {% if cheese == 'stringyCheese' %}
       {{ choosePrescription | safe }}
+
     {% else %}
       {% for item in data['choosePrescription'] %}
       {% if item == 'omeprazole' %}
-      <p> Omeprazole 40mg gastro-resistant capsules </p>
+      <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+      <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
       {% elif item == 'alogliptin' %}
-      <p> Alogliptin 25mg tablets </p>
+      <p class="nhsuk-u-margin-bottom-0">Alogliptin 25mg tablets</p>
+      <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+      {% elif item == 'metformin' %}
+      <p class="nhsuk-u-margin-bottom-0">Metformin 500mg tablets</p>
+      <p class="nhs-app-secondary-text">One to be taken 4 times a day with food - 112 tablet</p>
       {% else %}
-        <p> Omeprazole 40mg gastro-resistant capsules </p>
+      <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+      <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
       {% endif %}
       {% endfor %}
     {% endif %}
   {% endset %}
 
+
   {% set medication %}
     {% if cheese == 'stringyCheese' %}
-      Medication
+      Medicine
+    {% elif cheese == 'hardCheese' %}
+      Medicines
     {% else %}
-      Medications
+      Medicine
     {% endif %}
   {% endset %}
+
+  {% set specialRequest %}
+    {% if data['specialRequest'] %}
+       {{ data['specialRequest'] }}
+  {% else %}
+      No requests added
+    {% endif %}
+  {% endset %}
+
 
 
 
@@ -91,53 +120,67 @@ $("textarea").focusout(function(){
       <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m nhsuk-caption--top">Order a repeat prescription
 </span>{{ contentTitle }}</h1>
 
-      <form action="/app/prescriptions/v3/save" method="post">
 
-      {{ summaryList({
-        rows: [
-          {
-            key: {
-              html: medication
+        {{ summaryList({
+          rows: [
+            {
+              key: {
+                html: medication,
+                "classes": "nhsuk-heading-s nhsuk-u-margin-bottom-3"
+              },
+              value: {
+                html: chosenMedication or '<h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhs-app-secondary-text">Omeprazole 40mg gastro-resistant capsules</h3>
+                <p>One to be taken each day - 28 tablet</p>'
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/app/prescriptions/v1/select-medicine-to-renew-2",
+                    text: "Change",
+                    visuallyHiddenText: "medication"
+                  }
+                ]
+              }
             },
-            value: {
-              html: chosenMedication | placeholder('Omeprazole 40mg gastro-resistant capsules')
-            },
-            actions: {
-              items: [
-                {
-                  href: "/app/prescriptions/v3/order-prescription",
-                  text: "Change",
-                  visuallyHiddenText: "medication"
-                }
-              ]
+            {
+              key: {
+                text: "Special requests relating to your order (optional)",
+                "classes": "nhsuk-heading-s"
+              },
+              value: {
+                text: data['specialRequest'] | placeholder('No requests added')
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/app/prescriptions/v1/select-medicine-to-renew-2",
+                    text: "Change",
+                    visuallyHiddenText: "special requests relating to this order (optional)"
+                  }
+                ]
+              }
             }
-          },
-          {
-            key: {
-              text: "Requests relating to your order (optional)"
-            },
-            value: {
-              text: data['specialRequest'] | placeholder('No requests added')
-            },
-            actions: {
-              items: [
-                {
-                  href: "/app/prescriptions/v3/add-requests",
-                  text: "Change",
-                  visuallyHiddenText: "requests relating to your order (optional)"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
+          ]
+        }) }}
 
+        {% if cheese == 'stringyCheese' %}
+        <form action="/app/prescriptions/v3/save" method="post">
+          <input type="submit" class="nhsuk-button" value="Confirm and order prescription">
+          </input>
+        </form>
 
+         {% elif cheese == 'hardCheese' %}
+         <form action="/app/prescriptions/v3/save" method="post">
+           <input type="submit" class="nhsuk-button" value="Confirm and order prescriptions">
+           </input>
+         </form>
 
-        <input type="submit" class="nhsuk-button" value="Confirm and order prescription">
-        </input>
-
-      </form>
+         {% else %}
+         <form action="/app/prescriptions/v3/save" method="post">
+           <input type="submit" class="nhsuk-button" value="Confirm and order prescription">
+           </input>
+         </form>
+         {% endif %}
 
 
 

@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Select which medications you want to order" %}
+{% set contentTitle = "Select which medicines you want to order" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 
@@ -51,15 +51,24 @@
               "isPageHeading": true
             }
           },
-          "items": [
-            {
-              "value": "omeprazole",
-              "text": "Omeprazole 40mg gastro-resistant capsules"
-            },
-            {
-              "value": "alogliptin",
-              "text": "Alogliptin 25mg tablets"
-            }
+          "hint": {
+            "text": "You have 2 medicines available to order."
+          },
+           "items": [
+           {
+             "value": "alogliptin",
+             "text": "Alogliptin 25mg tablets",
+             "hint": {
+               "text": "One to be taken each day - 28 tablet"
+             }
+           },
+           {
+             "value": "omeprazole",
+             "text": "Omeprazole 40mg gastro-resistant capsules",
+             "hint": {
+               "text": "One to be taken each day - 28 tablet"
+             }
+           }
           ]
         }) }}
 
