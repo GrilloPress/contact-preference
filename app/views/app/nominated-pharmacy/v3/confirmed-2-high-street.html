@@ -25,10 +25,12 @@
 
       <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
 
+      <p>
+        Your nominated pharmacy is:
+      </p>
 
 
-
-            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }}</h2>
+            <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }}</p>
 
             <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or "97 Lidgett Lane" }}</p>
 

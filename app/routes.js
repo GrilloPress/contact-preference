@@ -426,7 +426,7 @@ router.post('/app/prescriptions/save', function (req, res) {
   // add what is saved later!
 
   req.session.data.prescriptionConfirmed = "True";
-  res.redirect('/app/prescriptions/v1/confirmed-2')
+  res.redirect('/app/prescriptions/v1/confirmed-3')
 
 });
 
