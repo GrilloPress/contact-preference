@@ -22,15 +22,7 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
-  <div class="nhsuk-width-container">
-    <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/home">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
-    </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/v3">Back</a></p>
-  </div>
-</nav>
+
 {% endblock %}
 
 {% block content %}
@@ -45,6 +37,8 @@
 
       <ul class="list-menu">
 
+        {% if data['prescriptionConfirmed'] %}
+
         <li>
           <a href="/{{ PROTOTYPEURL }}/v3/your-repeat-prescriptions">
             <h2 class="nhsuk-heading-s">Your repeat prescription order history</h2>
@@ -52,25 +46,30 @@
           </a>
         </li>
 
+        {% else %}
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v3/your-repeat-prescriptions">
+            <h2 class="nhsuk-heading-s">Your repeat prescription order history</h2>
+              <p>Your last ordered prescription has been approved by your GP</p>
+          </a>
+        </li>
+
+        {% endif %}
+
+
         <li>
           <a href="/{{ PROTOTYPEURL }}/v3/order-prescription">
             <h2 class="nhsuk-heading-s">Order a repeat prescription</h2>
-              <p>To collect at your nominated pharmacy</p>
+            <p>Request medicine you have on repeat prescription</p>
           </a>
         </li>
 
       	<li>
-      		<a href="/app/nominated-pharmacy/v2/your-nominated-pharmacy">
+      		<a href="">
             <h2 class="nhsuk-heading-s">Your nominated pharmacy</h2>
-            {% if data['pharmName'] %}
-              <p>{{ pharmName }}</p>
-            {% elif data['onlineName'] %}
-              <p>{{ onlineName }}</p>
-            {% elif data['inputPharmacyName'] %}
-              <p>{{ data['inputPharmacyName'] }}</p>
-            {% else %}
+
               <p>Ma Manning (Pharmacy) Ltd</p>
-            {% endif %}
           </a>
       	</li>
       </ul>

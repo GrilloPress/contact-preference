@@ -41,7 +41,7 @@
 
       {% if data['pharmacyType'] === "online" %}
 
-            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Echo" }}</h2>
+      <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Echo" }}</p>
 
               <p class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</p>
 
@@ -53,7 +53,7 @@
         {% elif data['pharmacyType'] === "community" %}
 
 
-      <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }}</h2>
+        <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }}</p>
 
 
       <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or data["onlineUrl"] or "97 Lidgett Lane" }}</p>
@@ -72,7 +72,7 @@
       {% else %}
 
 
-            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }}</h2>
+      <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }}</p>
 
 
             <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or data["onlineUrl"] or "97 Lidgett Lane" }}</p>
