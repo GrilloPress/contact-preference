@@ -18,6 +18,11 @@
 {% endif %}
 {% endset %}
 
+{% if data['appointmentMember']  %}
+  {% set practiceStaff %}
+    {{ data["appointmentMember"] }}
+  {% endset %}
+{% endif %}
 
 {% if data['appointmentLocation'] == "Lidgett Surgery" %}
   {% set location = 'Lidgett Surgery' %}
@@ -89,7 +94,7 @@
               text: "Member of staff"
             },
             value: {
-              html: data['appointmentMember'] or "No preference",
+              html: practiceStaff or "No preference",
               classes: "nhsuk-u-margin-bottom-0"
             },
             actions: {
@@ -543,7 +548,7 @@
 
           {% if 'Dr Abbie Thetford (Female)' in data['appointmentMember'] %}
           <li>
-            <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 15 | returnDate }}&time=10:05am&type=21 Day On Line Appointment&staffName=Dr Abbie Thetford (Female))&sessionName=Locum&location={{ location }}" >
+            <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 15 | returnDate }}&time=10:05am&type=21 Day On Line Appointment&staffName=Dr Abbie Thetford (Female)&sessionName=Locum&location={{ location }}" >
               <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10:05am</h2>
               <p class="list-menu__results-person list-menu__results--bold">21 Day On Line Appointment</p>
               <p class="list-menu__results-person">Locum</p>
@@ -586,9 +591,6 @@
           </ul>
           {% endif %}
         {% endif %}
-
-
-
 
         {% if 'Smear' in data.appointmentType %}
           {% if nurse | trim %}
