@@ -14,12 +14,10 @@ $( document ).ready(function() {
 {% endblock %}
 
 {% set showAppointmentType %}
-{% if data["appointmentType"] == "Telephone appointment" %}
-  {{ data["appointmentType"] }} <br> Telephone <br> {{data["staffName"] or "Dr Sanjit Praneskear (Male)"}}
-{% elif data["appointmentType"] %}
-  {{ data["appointmentType"] }} <br> Face to face <br> {{data["staffName"] or "Sister Leanna Leveille (Female)"}}
+{% if data["type"] %}
+  {{ data["type"] }} <br> {{ data['sessionName'] or "Session" }}
 {% else %}
-  General appointment in person <br> Face to face <br> {{data["staffName"] or "Dr Sanjit Praneskear (Male)"}}
+  Slot <br> Session
 {% endif %}
 {% endset %}
 
@@ -70,6 +68,14 @@ $( document ).ready(function() {
                 rows: [
                   {
                     key: {
+                      text: "Location"
+                    },
+                    value: {
+                      text: data['location'] or "Gledhow Practice"
+                    }
+                  },
+                  {
+                    key: {
                       text: "Appointment type"
                     },
                     value: {
@@ -79,10 +85,11 @@ $( document ).ready(function() {
                   },
                   {
                     key: {
-                      text: "Location"
+                      text: "Practice staff"
                     },
                     value: {
-                      text: "Gledhow Practice"
+                      html: data["staffName"] or "Dr Sanjit Praneskear (Male)",
+                      classes: "nhsuk-u-margin-bottom-0"
                     }
                   }
                 ]
