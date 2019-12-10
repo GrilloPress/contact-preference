@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/appointments/v4" %}
 {% set serviceName = "NHS App" %}
 {% set appointmentsActive = "active" %}
-{% set contentTitle = "Select a member of staff" %}
+{% set contentTitle = "Which member of staff would you like to see?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -47,7 +47,7 @@
             <fieldset class="nhsuk-fieldset" aria-describedby="appointmentMember-hint">
             <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
               <h1 class="nhsuk-fieldset__heading">
-                Select a member of staff
+                {{ contentTitle }}
               </h1>
             </legend>
 

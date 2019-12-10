@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/appointments/v4" %}
 {% set appointmentsActive = "active" %}
-{% set contentTitle = "Check appointment details before booking" %}
+{% set contentTitle = "Check your appointment details before booking" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 <script>
@@ -54,7 +54,7 @@ $("textarea").focusout(function(){
         {{ contentTitle }}
       </h1>
             {{ summaryList({
-              classes: 'nhsuk-u-margin-bottom-0',
+              classes: '',
               rows: [
                 {
                   key: {
