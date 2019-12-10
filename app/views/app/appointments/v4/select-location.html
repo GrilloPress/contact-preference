@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/appointments/v4" %}
 {% set serviceName = "NHS App" %}
 {% set appointmentsActive = "active" %}
-{% set contentTitle = "How do you want to find an appointment?" %}
+{% set contentTitle = "Select appointment location" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -32,39 +32,34 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="#" method="post">
-        {{ radios({
-          "idPrefix": "appointmentSearchMethod",
-          "name": "appointmentSearchMethod",
+      <form action="/{{ PROTOTYPEURL}}/select-type-of-appointment" method="post">
+        {{ checkboxes({
+          "idPrefix": "appointmentLocation",
+          "name": "appointmentLocation",
           "fieldset": {
             "legend": {
               "text": contentTitle,
-              "isPageHeading": true,
-              "classes": "nhsuk-fieldset__legend--l"
+              "classes": "nhsuk-fieldset__legend--l",
+              "isPageHeading": true
             }
           },
+          "hint": {
+          "text": "Select all that apply"
+        },
           "items": [
             {
-              "value": "search",
-              "text": "By searching for an appointment",
-              "hint": {
-                  "text": "Find appointments based on location, type of booking, member of staff and location."
-                }
+              "value": "Gledhow Practice",
+              "text": "Gledhow Practice"
             },
             {
-              "value": "browse",
-              "text": "By viewing all upcoming appointments",
-              "hint": {
-                  "text": "See all appointments in the next four weeks available at your GP surgery"
-                }
-
+              "value": "Lidgett Surgery",
+              "text": "Lidgett Surgery"
             }
           ]
         }) }}
 
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
-
       </form>
 
     </div>

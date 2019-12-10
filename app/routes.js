@@ -878,5 +878,16 @@ router.post('/app/appointments/v4/select-how-to-search', function (req, res) {
   }
 });
 
+router.post('/app/appointments/v4/radio-practice-member-answer', function (req, res) {
+  let answer = req.body.appointmentChoiceStaff;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/appointments/v4/select-practice-member')
+
+  } else {
+    res.redirect('/app/appointments/v4/select-available-appointment?appointmentMember=')
+  }
+});
 
 module.exports = router;

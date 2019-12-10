@@ -1,10 +1,29 @@
 {% set PROTOTYPEURL = "app/appointments/v4" %}
-{% set serviceName = "NHS App" %}
 {% set appointmentsActive = "active" %}
-{% set contentTitle = "How do you want to find an appointment?" %}
+{% set contentTitle = "Confirm your appointment details" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
+<script>
+// dirty hack to make the menu disappear when a textarea is being used
+$("textarea").focus(function(){
+  $(".menu").hide();
+});
+
+$("textarea").focusout(function(){
+  $(".menu").show();
+});
+</script>
 {% endblock %}
+
+{% set showAppointmentType %}
+{% if data["type"] == "Telephone appointment" %}
+  {{ data["type"] }} <br> Telephone
+{% elif data["type"] %}
+  {{ data["type"] }} <br> Face to face
+{% else %}
+  General appointment in person <br> Face to face
+{% endif %}
+{% endset %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -32,40 +51,27 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="#" method="post">
-        {{ radios({
-          "idPrefix": "appointmentSearchMethod",
-          "name": "appointmentSearchMethod",
-          "fieldset": {
-            "legend": {
-              "text": contentTitle,
-              "isPageHeading": true,
-              "classes": "nhsuk-fieldset__legend--l"
-            }
-          },
-          "items": [
-            {
-              "value": "search",
-              "text": "By searching for an appointment",
-              "hint": {
-                  "text": "Find appointments based on location, type of booking, member of staff and location."
-                }
-            },
-            {
-              "value": "browse",
-              "text": "By viewing all upcoming appointments",
-              "hint": {
-                  "text": "See all appointments in the next four weeks available at your GP surgery"
-                }
+      <form action="/{{ PROTOTYPEURL}}/confirm-appointment" method="post">
 
-            }
-          ]
+        {{ textarea({
+          "name": "appointmentReasons",
+          "id": "appointmentReasons",
+          "rows": "3",
+          "autocomplete": "off",
+          "label": {
+            "text": "Give a reason for appointment",
+            "isPageHeading": true,
+            "classes": "nhsuk-label--l"
+          },
+          "hint": {
+            "html": "This text may not be read by your GP or practice member until the day of your appointment. If it's urgent, contact your GP surgery before booking. <br><br> Text must be shorter than 150 characters (about 25 words)."
+          }
         }) }}
 
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
-
       </form>
+
 
     </div>
   </div>

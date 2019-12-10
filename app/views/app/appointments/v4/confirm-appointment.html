@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/appointments/v4" %}
 {% set appointmentsActive = "active" %}
-{% set contentTitle = "Confirm your appointment details" %}
+{% set contentTitle = "Check appointment details before booking" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 <script>
@@ -53,23 +53,15 @@ $("textarea").focusout(function(){
       <h1 class="nhsuk-heading-l">
         {{ contentTitle }}
       </h1>
-
-      <div class="app-card app-card--with-border">
-        <div class="app-card__wrapper">
-          <div class="app-card__content">
-            <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
-              {{ data["date"] or "" }}
-            </h3>
-            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ data["time"] }}</p>
             {{ summaryList({
-              classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
+              classes: 'nhsuk-u-margin-bottom-0',
               rows: [
                 {
                   key: {
-                    text: "Location"
+                    text: "Date"
                   },
                   value: {
-                    text: "Gledhow Practice"
+                    html: data["date"] + " at " + data["time"]
                   }
                 },
                 {
@@ -77,8 +69,7 @@ $("textarea").focusout(function(){
                     text: "Appointment type"
                   },
                   value: {
-                    html: showAppointmentType,
-                    classes: "nhsuk-u-margin-bottom-0"
+                    html: data['type'] + "<br> " + data['sessionName']
                   }
                 },
                 {
@@ -86,36 +77,38 @@ $("textarea").focusout(function(){
                     text: "Member of staff"
                   },
                   value: {
-                    html: data["staffName"] or "Dr Sanjit Praneskear (Male)",
-                    classes: "nhsuk-u-margin-bottom-0"
+                    html: data["staffName"] or "Dr Sanjit Praneskear (Male)"
+                  }
+                },
+                {
+                  key: {
+                    text: "Location"
+                  },
+                  value: {
+                    text: data['location'] or "Gledhow Practice"
+                  }
+                },
+                {
+                  key: {
+                    text: "Reason"
+                  },
+                  value: {
+                    text: data['appointmentReasons']
                   }
                 }
+
               ]
             }) }}
-          </div>
-        </div>
-      </div>
 
       <form action="/{{ PROTOTYPEURL}}/appointment-booked?confirmed=true" method="post">
-
-        {{ textarea({
-          "name": "appointmentReasons",
-          "id": "appointmentReasons",
-          "rows": "3",
-          "autocomplete": "off",
-          "label": {
-            "text": "Give a reason for appointment",
-            "isPageHeading": false,
-            "classes": "nhsuk-label--s nhsuk-u-margin-bottom-1"
-          },
-          "hint": {
-            "html": "Text must be shorter than 150 characters (about 25 words).<br><br> This text may not be read by your GP or practice member until the day of your appointment. If it's urgent, contact your GP surgery before booking."
-          }
-        }) }}
-
         <input type="submit" class="nhsuk-button" value="Confirm and book appointment">
         </input>
       </form>
+
+      {{ backLink({
+        "href": "javascript: window.history.go(-2)",
+        "text": "Choose a different appointment"
+      }) }}
 
 
     </div>

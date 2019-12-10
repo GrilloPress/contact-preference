@@ -1,11 +1,20 @@
 {% set PROTOTYPEURL = "app/appointments/v4" %}
 {% set serviceName = "NHS App" %}
 {% set appointmentsActive = "active" %}
-{% set contentTitle = "How do you want to find an appointment?" %}
+{% set contentTitle = "Is there a specific member of staff you’d like to see?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
 
+{% set showAppointmentType %}
+{% if data["appointmentType"] == "Telephone appointment" %}
+  {{ data["appointmentType"] }} <br> Telephone
+{% elif data["appointmentType"] %}
+  {{ data["appointmentType"] }} <br> Face to face
+{% else %}
+  General appointment in person <br> Face to face
+{% endif %}
+{% endset %}
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
 
@@ -29,13 +38,14 @@
 {% endblock %}
 
 {% block content %}
+
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      <form action="/{{ PROTOTYPEURL}}/radio-practice-member-answer" method="post">
 
-      <form action="#" method="post">
         {{ radios({
-          "idPrefix": "appointmentSearchMethod",
-          "name": "appointmentSearchMethod",
+          "idPrefix": "appointmentChoiceStaff",
+          "name": "appointmentChoiceStaff",
           "fieldset": {
             "legend": {
               "text": contentTitle,
@@ -45,26 +55,18 @@
           },
           "items": [
             {
-              "value": "search",
-              "text": "By searching for an appointment",
-              "hint": {
-                  "text": "Find appointments based on location, type of booking, member of staff and location."
-                }
+              "value": "yes",
+              "text": "Yes, I want to see appointments available with a specific member of staff"
             },
             {
-              "value": "browse",
-              "text": "By viewing all upcoming appointments",
-              "hint": {
-                  "text": "See all appointments in the next four weeks available at your GP surgery"
-                }
-
+              "value": "no",
+              "text": "No, I want to see all available appointments"
             }
           ]
         }) }}
 
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
-
       </form>
 
     </div>

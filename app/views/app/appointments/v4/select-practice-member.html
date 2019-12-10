@@ -38,77 +38,140 @@
 {% endblock %}
 
 {% block content %}
+
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <form action="/{{ PROTOTYPEURL}}/select-available-appointment" method="post">
-        {{ select({
-          "id": "appointmentMember",
-          "name": "appointmentMember",
-          "classes": "nhs-app-select",
-          "label": {
-            "text": contentTitle,
-            "isPageHeading": true,
-            "classes": "nhsuk-label--l"
-          },
-          "items": [
-            {
-              "value": "No preference",
-              "text": "No preference",
-              "selected": true
-            },
-            {
-              "value": "Sister Leanna Leveille (Female)",
-              "text": "Sister Leanna Leveille (Female)"
-            },
-            {
-              "value": "Dr Sanjit Praneskear (Male)",
-              "text": "Dr Sanjit Praneskear (Male)"
-            }
-          ]
-        }) }}
+        <div class="nhsuk-form-group">
+
+            <fieldset class="nhsuk-fieldset" aria-describedby="appointmentMember-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              <h1 class="nhsuk-fieldset__heading">
+                Select a member of staff
+              </h1>
+            </legend>
+
+            <span class="nhsuk-hint" id="appointmentMember-hint">
+              Select all that apply
+            </span>
+
+            <div class="nhsuk-checkboxes">
+
+              {% if data['appointmentType'] %}
+                {% if "Smear" in data['appointmentType'] %}
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Sister Leanna Leveille (Female)">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
+                    Sister Leanna Leveille (Female)
+                  </label>
+                </div>
+
+                {% elif "Blood tests only" in data['appointmentType'] %}
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Sister Leanna Leveille (Female)">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
+                    Sister Leanna Leveille (Female)
+                  </label>
+                </div>
+                {% else %}
+                {% endif %}
+
+              {% if "Slot" in data['appointmentType'] %}
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Dr Sanjit Praneskear (Male)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
+                  Dr Sanjit Praneskear (Male)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Dr Anjanette Peppard (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-3">
+                  Dr Anjanette Peppard (Female)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-4" name="appointmentMember" type="checkbox" value="Dr Abbie Thetford (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-4">
+                  Dr Abbie Thetford (Female)
+                </label>
+              </div>
+
+              {% elif "21 Day On Line Appointment" in data['appointmentType'] %}
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Dr Sanjit Praneskear (Male)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
+                  Dr Sanjit Praneskear (Male)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Dr Anjanette Peppard (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-3">
+                  Dr Anjanette Peppard (Female)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-4" name="appointmentMember" type="checkbox" value="Dr Abbie Thetford (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-4">
+                  Dr Abbie Thetford (Female)
+                </label>
+              </div>
+
+              {% elif "Telephone" in data['appointmentType'] %}
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Dr Sanjit Praneskear (Male)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
+                  Dr Sanjit Praneskear (Male)
+                </label>
+              </div>
+              {% else %}
+              {% endif %}
+
+              {% else %}
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Sister Leanna Leveille (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
+                  Sister Leanna Leveille (Female)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Dr Sanjit Praneskear (Male)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
+                  Dr Sanjit Praneskear (Male)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Dr Anjanette Peppard (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-3">
+                  Dr Anjanette Peppard (Female)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-4" name="appointmentMember" type="checkbox" value="Dr Abbie Thetford (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-4">
+                  Dr Abbie Thetford (Female)
+                </label>
+              </div>
+              {% endif %}
+
+
+
+
+
+            </div>
+            </fieldset>
+
+          </div>
 
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>
-
-      <h2 class="nhsuk-heading-m">Your search criteria</h2>
-      <div class="app-card app-card--xs app-card--with-border nhsuk-u-margin-bottom-4">
-        <div class="app-card__wrapper">
-          <div class="app-card__content">
-            {{ summaryList({
-              classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
-              rows: [
-                {
-                  key: {
-                    text: "Location"
-                  },
-                  value: {
-                    text: "Gledhow Practice"
-                  }
-                },
-                {
-                  key: {
-                    text: "Appointment type"
-                  },
-                  value: {
-                    html: showAppointmentType,
-                    classes: "nhsuk-u-margin-bottom-0"
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "name"
-                      }
-                    ]
-                  }
-                }
-              ]
-            }) }}
-          </div>
-        </div>
-      </div>
 
     </div>
   </div>

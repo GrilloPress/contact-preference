@@ -32,34 +32,40 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{ PROTOTYPEURL}}/select-practice-member" method="post">
-        {{ select({
-          "id": "appointmentType",
+      <form action="/{{ PROTOTYPEURL}}/radio-practice-member" method="post">
+        {{ checkboxes({
+          "idPrefix": "appointmentType",
           "name": "appointmentType",
-          "classes": "nhs-app-select",
-          "label": {
-            "text": contentTitle,
-            "isPageHeading": true,
-            "classes": "nhsuk-label--l "
+          "fieldset": {
+            "legend": {
+              "text": contentTitle,
+              "classes": "nhsuk-fieldset__legend--l",
+              "isPageHeading": true
+            }
           },
+          "hint": {
+          "text": "Select all that apply"
+        },
           "items": [
             {
-              "value": "",
-              "text": "Select type",
-              "selected": true,
-              "disabled": true
+              "value": "Slot",
+              "text": "Slot"
             },
             {
-              "value": "General appointment in person",
-              "text": "General appointment in person"
+              "value": "21 Day On Line Appointment",
+              "text": "21 Day On Line Appointment"
             },
             {
-              "value": "Telephone appointment",
-              "text": "Telephone appointment"
+              "value": "Blood tests only",
+              "text": "Blood tests only"
             },
             {
-              "value": "Nurse appointment",
-              "text": "Nurse appointment"
+              "value": "Smear",
+              "text": "Smear"
+            },
+            {
+              "value": "Telephone",
+              "text": "Telephone"
             }
           ]
         }) }}
@@ -67,28 +73,6 @@
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>
-
-      <h2 class="nhsuk-heading-m">Your search criteria</h2>
-      <div class="app-card app-card--xs app-card--with-border nhsuk-u-margin-bottom-4">
-        <div class="app-card__wrapper">
-          <div class="app-card__content">
-            {{ summaryList({
-              classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
-              rows: [
-                {
-                  key: {
-                    text: "Location"
-                  },
-                  value: {
-                    text: "Gledhow Practice",
-                    classes: "nhsuk-u-margin-bottom-0"
-                  }
-                }
-              ]
-            }) }}
-          </div>
-        </div>
-      </div>
 
     </div>
   </div>

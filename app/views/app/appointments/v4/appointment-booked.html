@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/appointments/v4" %}
 {% set appointmentsActive = "active" %}
-{% set contentTitle = "Your appointment is booked" %}
+{% set contentTitle = "Your appointment has been booked" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 <script>
@@ -16,12 +16,10 @@ $("textarea").focusout(function(){
 {% endblock %}
 
 {% set showAppointmentType %}
-{% if data["appointmentType"] == "Telephone appointment" %}
-  {{ data["appointmentType"] }} <br> Telephone
-{% elif data["appointmentType"] %}
-  {{ data["appointmentType"] }} <br> Face to face
+{% if data["appointmentType"] %}
+  {{ data["appointmentType"] }} <br> {{ data['sessionName'] or "Session" }}
 {% else %}
-  General appointment in person <br> Face to face
+  Slot <br> Session
 {% endif %}
 {% endset %}
 
@@ -59,7 +57,7 @@ $("textarea").focusout(function(){
                     text: "Location"
                   },
                   value: {
-                    text: "Gledhow Practice"
+                    text: data['location'] or "Gledhow Practice"
                   }
                 },
                 {
@@ -73,7 +71,7 @@ $("textarea").focusout(function(){
                 },
                 {
                   key: {
-                    text: "Member of staff"
+                    text: "Practice staff"
                   },
                   value: {
                     html: data["staffName"] or "Dr Sanjit Praneskear (Male)",

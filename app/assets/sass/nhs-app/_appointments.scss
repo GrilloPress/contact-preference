@@ -55,6 +55,14 @@ li {
   color: $nhsuk-secondary-text-color;
 }
 
+.list-menu li p.list-menu__results--small {
+
+  padding-top: 0;
+  padding-bottom: 0;
+  color: $nhsuk-secondary-text-color;
+  @include nhsuk-typography-responsive(16);
+}
+
 .list-menu li p.list-menu__results--bold {
 
   font-weight: 600;
