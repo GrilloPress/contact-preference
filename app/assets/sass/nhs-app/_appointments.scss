@@ -52,7 +52,7 @@ li {
 
   padding-top: 0;
   padding-bottom: 0;
-  color: $nhsuk-secondary-text-color;
+  // color: $nhsuk-secondary-text-color;
 }
 
 .list-menu li p.list-menu__results--small {
@@ -65,8 +65,14 @@ li {
 
 .list-menu li p.list-menu__results--bold {
 
-  font-weight: 600;
-  margin-bottom: nhsuk-spacing(1);
+  // font-weight: 600;
+  // margin-bottom: nhsuk-spacing(1);
+
+}
+
+.list-menu li p.list-menu__results-spacer {
+
+  margin-bottom: 4px;
 
 }
 
