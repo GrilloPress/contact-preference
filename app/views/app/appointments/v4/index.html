@@ -102,7 +102,6 @@ $( document ).ready(function() {
             {% else %}
             <li class="no-chevron">
               <div class="list-menu_container">
-                <p>You have no upcoming appointments</p>
                 <p>If you have an upcoming appointment that is not shown here, contact your GP surgery for more information.</p>
               </div>
             </li>
@@ -111,7 +110,7 @@ $( document ).ready(function() {
             {% endif %}
 
         <li>
-      		<a href="/app/send-a-message/v3/send-a-message-radio?">
+      		<a href="/{{ PROTOTYPEURL}}/previous">
       			<h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Previous appointments</h2>
       		</a>
       	</li>
