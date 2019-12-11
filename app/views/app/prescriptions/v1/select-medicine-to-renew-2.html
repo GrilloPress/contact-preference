@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Select medicine to renew" %}
+{% set contentTitle = "Order a repeat prescription" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -32,7 +32,7 @@ $("textarea").focusout(function(){
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/nominated-pharmacy/v2/home">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/your-repeat-prescriptions">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/your-prescriptions-7">Back</a></p>
   </div>
 </nav>
 {% endblock %}
