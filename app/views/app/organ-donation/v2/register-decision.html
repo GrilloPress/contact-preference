@@ -22,7 +22,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">Back</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href=""></a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/more/v3">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" onClick='window.history.go(-1)'>Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -30,8 +30,7 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l nhsuk-caption--top">Organ donation
-</span>{{ contentTitle }}</h1>
+      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
 
 
       <div class="nhsuk-grid-row nhsuk-panel-group nhs-app-panel-group">
