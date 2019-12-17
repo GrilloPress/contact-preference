@@ -134,6 +134,31 @@ $( document ).ready(function() {
 
           {% endif %}
 
+          {% if data['msgBody2'] %}
+          <li class="nhs-app-chat__item nhs-app-chat__item--reply">
+            <div class="nhs-app-chat__sender nhs-app-chat__sender--reply">
+              <span>You</span>
+
+            </div>
+            <div class="nhs-app-chat__container nhs-app-chat__container--reply">
+              <p class="nhs-app-chat__body nhs-app-chat__header--reply">
+                {{ data['msgBody2'] | nl2br | safe }}
+              </p>
+
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
+              Sent today at {{ 'now' | returnTime }}
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
+              <a href="delete">Delete message</a>
+            </div>
+          </li>
+          {% endif %}
+
 
         </ul>
 
@@ -145,7 +170,7 @@ $( document ).ready(function() {
         </form>
 
         <div class="" id="replyContainer" style="display: none;">
-          <form class="" action="/{{ PROTOTYPEURL }}/message-with-additional-reply" method="post">
+          <form class="" action="message-you-sent" method="post">
             {% call fieldset({
               "legend": {
                 "text": "Your reply",
@@ -160,8 +185,8 @@ $( document ).ready(function() {
 
             <div class="govuk-character-count">
             {{ textarea({
-              "name": "msgBody2",
-              "id": "msgBody2",
+              "name": "msgBody",
+              "id": "msgBody",
               "classes": "nhsuk-u-margin-bottom-0",
               "hint": {
                   "html": '<div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1"></div>'
@@ -177,7 +202,7 @@ $( document ).ready(function() {
           <div class="nhsuk-form-group">
             <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-2" for="attachment">Upload file (optional)</label>
             <input class="nhs-app-form-input" type="file"
-             id="attachment" name="msgAttachment2"
+             id="attachment" name="attachment"
              accept="image/png, image/jpeg">
           </div>
 

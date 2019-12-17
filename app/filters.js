@@ -48,6 +48,16 @@ module.exports = function (env) {
 
   }
 
+  filters.returnTime = function(date) {
+
+    if (date == "now") {
+
+      return moment().format("h:mm a");
+
+    }
+
+  }
+
   // Filter to print placeholder data if data doesn't exist.
   // Useful for prototypes that may also be used as documentation
   //
