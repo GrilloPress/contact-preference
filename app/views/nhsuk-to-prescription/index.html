@@ -1,13 +1,13 @@
 {% set PROTOTYPEURL = "" %}
-{% set serviceName = "Order a repeat prescription" %}
-{% set contentTitle = "Prototypes" %}
+{% set serviceName = "NHS" %}
+{% set contentTitle = "Order a repeat prescription" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
-{% extends 'layouts/layout-transactional.html' %}
+{% extends 'layouts/layout-nhsuk.html' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -25,6 +25,30 @@
       <h1>
         {{ contentTitle }}
       </h1>
+
+      <p>Use this service to:</p>
+
+      <ul>
+        <li>order a repeat prescription</li>
+        <li>check the status of a repeat prescription you have ordered</li>
+      </ul>
+
+      <h2>Before you start</h2>
+
+      <p>To use this service, you must:</p>
+
+      <ul>
+        <li>be a patient registered at a GP surgery in England</li>
+        <li>be aged 13 or older</li>
+        <li>already have a repeat prescription approved by your GP</li>
+        <li>have an NHS login - if you do not have one, we can help you <a href="https://account.login.nhs.uk/#/account/register">set one up</a></li>
+      </ul>
+
+      {% from 'button/macro.njk' import button %}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
 
     </div>
   </div>
