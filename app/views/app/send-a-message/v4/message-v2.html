@@ -173,37 +173,12 @@ $( document ).ready(function() {
             }) }}
           </div>
 
-          {% if data['fileAddedReply'] %}
-          {{ summaryList({
-            classes: 'nhsuk-summary-list--no-border',
-            rows: [
-              {
-                key: {
-                  text: "File details"
-                },
-                value: {
-                  text: "File name - 2MB",
-                  classes: "nhsuk-u-margin-bottom-2"
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "#",
-                      text: "Remove",
-                      visuallyHiddenText: "file"
-                    }
-                  ]
-                }
-              }
-            ]
-          }) }}
-
-          {% else %}
           <div class="nhsuk-form-group">
             <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-2" for="attachment">Upload file (optional)</label>
-            <button onclick="window.location='/{{ PROTOTYPEURL }}/file/add-file'" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-2" type="button" name="attachmentReply">Add file</button>
+            <input class="nhs-app-form-input" type="file"
+             id="attachment" name="msgAttachment2"
+             accept="image/png, image/jpeg">
           </div>
-          {% endif %}
 
             {% endcall %}
             <input class="nhsuk-button" type="submit" value="Send message">
@@ -216,7 +191,7 @@ $( document ).ready(function() {
           <input class="nhsuk-button" type="submit" value="Reply">
         </form>
 
-        <div class="nhs-app-message-reply__container" id="replyContainer" style="display: none;">
+        <div class="" id="replyContainer" style="display: none;">
           <form class="" action="/{{ PROTOTYPEURL }}/message-with-additional-reply" method="post">
             {% call fieldset({
               "legend": {
@@ -231,52 +206,27 @@ $( document ).ready(function() {
             })}}
 
             <div class="govuk-character-count">
-              {{ textarea({
-                "name": "msgBody2",
-                "id": "msgBody2",
-                "classes": "nhsuk-u-margin-bottom-0",
-                "hint": {
-                    "html": '<div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1"></div>'
-                  },
-                "label": {
-                  "text": "Message",
-                  "isPageHeading": false,
-                  "classes": "nhsuk-label--s nhsuk-u-margin-bottom-2"
-                }
-              }) }}
-            </div>
-
-            {% if data['fileAdded'] %}
-            {{ summaryList({
-              classes: 'nhsuk-summary-list--no-border',
-              rows: [
-                {
-                  key: {
-                    text: "File details"
-                  },
-                  value: {
-                    text: "File name - 2MB",
-                    classes: "nhsuk-u-margin-bottom-2"
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Remove",
-                        visuallyHiddenText: "file"
-                      }
-                    ]
-                  }
-                }
-              ]
+            {{ textarea({
+              "name": "msgBody2",
+              "id": "msgBody2",
+              "classes": "nhsuk-u-margin-bottom-0",
+              "hint": {
+                  "html": '<div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1"></div>'
+                },
+              "label": {
+                "text": "Message",
+                "isPageHeading": false,
+                "classes": "nhsuk-label--s nhsuk-u-margin-bottom-2"
+              }
             }) }}
+          </div>
 
-            {% else %}
-            <div class="nhsuk-form-group">
-              <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-2" for="attachment">Upload file (optional)</label>
-              <button onclick="window.location='/{{ PROTOTYPEURL }}/file/add-file'" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-2" type="button" name="attachment">Add file</button>
-            </div>
-            {% endif %}
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-2" for="attachment">Upload file (optional)</label>
+            <input class="nhs-app-form-input" type="file"
+             id="attachment" name="msgAttachment2"
+             accept="image/png, image/jpeg">
+          </div>
 
             {% endcall %}
             <input class="nhsuk-button" type="submit" value="Send reply">

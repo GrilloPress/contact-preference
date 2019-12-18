@@ -632,6 +632,22 @@ router.post('/app/send-a-message/v4/message-subject-radio', function (req, res) 
   }
 });
 
+router.post('/app/send-a-message/v4/file/check-file', function (req, res) {
+  let answer = req.body.checkFile;
+
+  if (answer === 'yes') {
+
+    req.session.data.fileAdded = "true";
+    res.redirect('/app/send-a-message/v4/your-message')
+
+  } else {
+    // req.session.data.fileAdded = "false";
+    res.redirect('/app/send-a-message/v4/file/add-file')
+  }
+});
+
+
+
 // NHS App AJAX routes
 
 router.post('/app/notifications', function (req, res) {

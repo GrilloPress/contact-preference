@@ -75,39 +75,15 @@ $("textarea").focusout(function(){
         }) }}
       </div>
 
-      {% if data['fileAdded'] %}
-      {{ summaryList({
-        classes: 'nhsuk-summary-list--no-border',
-        rows: [
-          {
-            key: {
-              text: "File details"
-            },
-            value: {
-              text: "File name - 2MB",
-              classes: "nhsuk-u-margin-bottom-2"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Remove",
-                  visuallyHiddenText: "file"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
-
-      {% else %}
       <div class="nhsuk-form-group">
         <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-2" for="attachment">Upload file (optional)</label>
-        <button onclick="window.location='/{{ PROTOTYPEURL }}/file/add-file'" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-2" type="button" name="attachment">Add file</button>
+        {{ hint({
+          "html": '<p>Files should be in .jpg .doc format</p><p>Your file should be smaller than 2MB</p>'
+        })}}
+        <input class="nhsuk-label nhs-app-form-input" type="file"
+         id="attachment" name="attachment"
+         accept="image/png, image/jpeg">
       </div>
-      {% endif %}
-
-
 
         {% endcall %}
         <input class="nhsuk-button" type="submit" value="Send message">

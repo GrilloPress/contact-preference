@@ -75,17 +75,16 @@ $("textarea").focusout(function(){
         }) }}
       </div>
 
-      {% if data['fileAdded'] %}
       {{ summaryList({
-        classes: 'nhsuk-summary-list--no-border',
+        classes: 'nhsuk-summary-list--no-border nhsuk-u-margin-bottom-2',
         rows: [
           {
             key: {
-              text: "File details"
+              text: "File"
             },
             value: {
               text: "File name - 2MB",
-              classes: "nhsuk-u-margin-bottom-2"
+              classes: "nhsuk-u-margin-bottom-1"
             },
             actions: {
               items: [
@@ -99,15 +98,6 @@ $("textarea").focusout(function(){
           }
         ]
       }) }}
-
-      {% else %}
-      <div class="nhsuk-form-group">
-        <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-2" for="attachment">Upload file (optional)</label>
-        <button onclick="window.location='/{{ PROTOTYPEURL }}/file/add-file'" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-2" type="button" name="attachment">Add file</button>
-      </div>
-      {% endif %}
-
-
 
         {% endcall %}
         <input class="nhsuk-button" type="submit" value="Send message">
