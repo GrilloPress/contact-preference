@@ -19,13 +19,6 @@ $( document ).ready(function() {
       e.preventDefault();
     }
   )
-
-  function toggleMessageContainer(){
-    jQuery('#replyContainer').toggle(); //make chat thing visible
-    jQuery('#replyButton').toggle(); //hide button
-    //scroll to reply container
-    jumpTo('replyContainer', 120);
-  }
 </script>
 {% endblock %}
 
@@ -146,14 +139,9 @@ $( document ).ready(function() {
 
         {% if data['id'] == "2" %}
 
-        <ul class="list-menu" id="replyButton">
-          <li>
-            <a href="javascript:void(0)" onclick="toggleMessageContainer()">Send message</a>
-          </li>
-          <li>
-            <a href="delete">Delete message</a>
-          </li>
-        </ul>
+        <form class="nhs-app-float--right" action="" method="post" id="replyButton">
+          <input class="nhsuk-button" type="submit" value="Send message">
+        </form>
 
         <div class="nhs-app-message-reply__container" id="replyContainer" style="display: none;">
           <form class="" action="/{{ PROTOTYPEURL }}/message-with-additional-reply" method="post">
@@ -224,14 +212,9 @@ $( document ).ready(function() {
 
         {% else %}
 
-        <ul class="list-menu" id="replyButton">
-          <li>
-            <a href="javascript:void(0)" onclick="toggleMessageContainer()">Reply</a>
-          </li>
-          <li>
-            <a href="delete?conversation=true">Delete conversation</a>
-          </li>
-        </ul>
+        <form class="" action="" method="post" id="replyButton">
+          <input class="nhsuk-button" type="submit" value="Reply">
+        </form>
 
         <div class="nhs-app-message-reply__container" id="replyContainer" style="display: none;">
           <form class="" action="/{{ PROTOTYPEURL }}/message-with-additional-reply" method="post">
