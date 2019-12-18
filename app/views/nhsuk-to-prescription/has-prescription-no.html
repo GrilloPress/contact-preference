@@ -1,6 +1,6 @@
-{% set PROTOTYPEURL = "" %}
-{% set serviceName = "Contact preferences" %}
-{% set contentTitle = "Prototypes" %}
+{% set PROTOTYPEURL = "nhsuk-to-prescription" %}
+{% set serviceName = "NHS" %}
+{% set contentTitle = "You cannot use this service to order a repeat prescription online" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -26,6 +26,9 @@
         {{ contentTitle }}
       </h1>
 
+      <p>This service is only available to patients who currently have at least one repeat prescription from a GP.</p>
+
     </div>
+
   </div>
 {% endblock %}
