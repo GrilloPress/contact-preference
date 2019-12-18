@@ -1,4 +1,4 @@
-{% set PROTOTYPEURL = "" %}
+{% set PROTOTYPEURL = "nhsuk-to-prescription" %}
 {% set serviceName = "NHS" %}
 {% set contentTitle = "Order a repeat prescription" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -30,7 +30,7 @@
 
       <ul>
         <li>order a repeat prescription</li>
-        <li>check the status of a repeat prescription you have ordered</li>
+        <li>check the status of a prescription you have ordered</li>
       </ul>
 
       <h2>Before you start</h2>
@@ -38,17 +38,16 @@
       <p>To use this service, you must:</p>
 
       <ul>
-        <li>be a patient registered at a GP surgery in England</li>
+        <li>be registered at a GP surgery in England</li>
         <li>be aged 13 or older</li>
         <li>already have a repeat prescription approved by your GP</li>
         <li>have an NHS login - if you do not have one, we can help you <a href="https://account.login.nhs.uk/#/account/register">set one up</a></li>
       </ul>
 
-      {% from 'button/macro.njk' import button %}
-
-      {{ button({
-        "text": "Continue"
-      }) }}
+      <form action="/{{ PROTOTYPEURL }}/england" method="get">
+        <input type="submit" class="nhsuk-button" value="Start now">
+        </input>
+      </form>
 
     </div>
   </div>

@@ -1,0 +1,61 @@
+{% set PROTOTYPEURL = "nhsuk-to-prescription" %}
+{% set serviceName = "NHS" %}
+{% set contentTitle = "How often do you collect your prescription?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-nhsuk.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <!-- Continue to NHS login -->
+      <form action="#" method="get">
+
+        {{ radios({
+          "idPrefix": "frequency",
+          "name": "frequency",
+          "fieldset": {
+            "legend": {
+              "text": "How often do you get your prescription?",
+              "classes": "nhsuk-fieldset__legend--xl",
+              "isPageHeading": true
+            }
+          },
+          "items": [
+            {
+              "value": "monthly",
+              "text": "Once a month"
+            },
+            {
+              "value": "once every two months",
+              "text": "Once every 2 months"
+            },
+            {
+              "value": "once a year",
+              "text": "Once a year"
+            }
+          ]
+        }) }}
+        
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
+
+    </div>
+
+  </div>
+{% endblock %}
