@@ -75,7 +75,16 @@ $( document ).ready(function() {
               <span>You</span>
 
             </div>
+            {% if data['fileAdded'] %}
             <div class="nhs-app-chat__container nhs-app-chat__container--reply">
+              <img class="nhsuk-image__img nhsuk-u-margin-bottom-2" src="/images/placeholder-image-16-9.jpg" alt="Image placeholder that you uploaded">
+              <p class="nhs-app-chat__body nhs-app-chat__header--reply">
+                <a href="#">File name</a>
+              </p>
+            </div>
+            {% endif %}
+            <div class="nhs-app-chat__container nhs-app-chat__container--reply">
+
               <p class="nhs-app-chat__body nhs-app-chat__header--reply">
                 {{ data['body'] | nl2br | safe }}
               </p>
