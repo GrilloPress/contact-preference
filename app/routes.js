@@ -946,7 +946,19 @@ router.post('/nhsuk-to-prescription/nhsuk/frequency', function (req, res) {
 
   } else {
 
-    res.redirect('https://nhs-cid.herokuapp.com/create-account/v19/login-nhs?service=app5&serviceName=the%20NHS%20app&lsId=undefined&lsAccess=undefined&lsStudy=undefined&emailAddress=undefined&hidehead=undefined&devMode=undefined&returnUrl=https://nhs-contact.herokuapp.com/nhsuk-to-prescription/app/prescriptions-landing')
+    var env = (process.env.NODE_ENV || 'development').toLowerCase()
+
+    if (env === 'production'){
+
+      res.redirect('https://nhs-cid.herokuapp.com/create-account/v19/login-nhs?service=app5&serviceName=the%20NHS%20app&lsId=undefined&lsAccess=undefined&lsStudy=undefined&emailAddress=undefined&hidehead=undefined&devMode=undefined&returnUrl=https://nhs-contact.herokuapp.com/nhsuk-to-prescription/app/prescriptions-landing')
+
+    } else {
+
+      res.redirect('https://nhs-cid.herokuapp.com/create-account/v19/login-nhs?service=app5&serviceName=the%20NHS%20app&lsId=undefined&lsAccess=undefined&lsStudy=undefined&emailAddress=undefined&hidehead=undefined&devMode=undefined&returnUrl=http://localhost:2001/nhsuk-to-prescription/app/prescriptions-landing')
+
+    }
+
+
 
 
   }
