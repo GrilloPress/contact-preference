@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/send-a-message/v4" %}
 {% set serviceName = "Send a message" %}
 {% set messagingActive = "active" %}
-{% set contentTitle = "Upload file" %}
+{% set contentTitle = "Upload your file" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -34,7 +34,7 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <p>You can upload an image or document. Files shold be in .jpg .doc format</p>
+      <p>You can upload an image or document. Files should be in .jpg .png .doc .docx .pdf or .rtf format</p>
       <p>Your file should be smaller than 2MB</p>
 
       <form action="/{{ PROTOTYPEURL }}/file/check-file" method="get">
@@ -44,7 +44,7 @@
            id="attachment" name="msgAttachment"
            accept="image/png, image/jpeg">
         </div>
-        <input class="nhsuk-button" type="submit" value="Upload file">
+        <input class="nhsuk-button" type="submit" value="Upload">
       </form>
 
       <p class="nhs-app-desktop--show">
