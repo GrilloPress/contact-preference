@@ -925,6 +925,18 @@ router.post('/nhsuk-to-prescription/nhsuk/england', function (req, res) {
   }
 });
 
+router.post('/nhsuk-to-prescription/nhsuk/has-prescription', function (req, res) {
+  let answer = req.body.hasPrescription;
+
+  if (answer === 'no') {
+
+    res.redirect('/nhsuk-to-prescription/nhsuk/has-prescription-no')
+
+  } else {
+    res.redirect('/nhsuk-to-prescription/nhsuk/frequency')
+  }
+});
+
 
 
 module.exports = router;

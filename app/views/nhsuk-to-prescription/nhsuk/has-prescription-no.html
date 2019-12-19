@@ -1,5 +1,5 @@
 {% set PROTOTYPEURL = "nhsuk-to-prescription" %}
-{% set serviceName = "NHS" %}
+{% set serviceName = "Order a repeat prescription" %}
 {% set contentTitle = "You cannot use this service to order a repeat prescription online" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -7,7 +7,7 @@
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
-{% extends 'layouts/layout-nhsuk.html' %}
+{% extends 'layouts/layout-transactional.html' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
