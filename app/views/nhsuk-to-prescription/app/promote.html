@@ -1,0 +1,77 @@
+{% set PROTOTYPEURL = "nhsuk-to-prescription" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Access NHS services on your smartphone or tablet with the NHS App" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        {{ contentTitle }}
+      </h1>
+
+      <p>Use the NHS App to:</p>
+
+      <ul>
+        <li>book and manage appointments at your GP surgery</li>
+        <li>order your repeat prescriptions</li>
+        <li>check your symptoms and get instant advice</li>
+        <li>view your medical record securely</li>
+        <li>register your organ donation decision</li>
+        <li>find out how the NHS uses your data</li>
+      </ul>
+
+      <div class="block-image_link">
+
+        <figure class="nhsuk-image-link  ">
+
+          <div class="nhsuk-c-image__container">
+            
+            <a href="https://itunes.apple.com/us/app/nhs-app/id1388411277?ls=1&amp;mt=8">
+          
+              <img class="nhsuk-c-image__img" alt="Download the NHS App on the App store (Apple)" src="/{{ PROTOTYPEURL }}/images/app-store-badge.png" sizes="(min-width: 920px) 920px, 100vw" srcset="">
+            </a>
+            
+          </div>
+          
+        </figure>
+
+      </div>
+
+      <div class="block-image_link">
+
+        <figure class="nhsuk-image-link  ">
+
+          <div class="nhsuk-c-image__container">
+            
+            <a href="https://play.google.com/store/apps/details?id=com.nhs.online.nhsonline">
+          
+              <img class="nhsuk-c-image__img" alt="Download the NHS App on Google Play (Android)" src="/{{ PROTOTYPEURL }}/images/google-play-badge.png" sizes="(min-width: 920px) 920px, 100vw" srcset="">
+            </a>
+            
+          </div>
+          
+        </figure>
+
+      </div>
+
+    </div>
+
+  </div>
+{% endblock %}
