@@ -937,6 +937,21 @@ router.post('/nhsuk-to-prescription/nhsuk/has-prescription', function (req, res)
   }
 });
 
+router.post('/nhsuk-to-prescription/nhsuk/frequency', function (req, res) {
+  let answer = req.body.frequency;
+
+  if (answer === 'once a year') {
+
+    res.redirect('/nhsuk-to-prescription/nhsuk/frequency-no')
+
+  } else {
+
+    res.redirect('https://nhs-cid.herokuapp.com/create-account/v19/login-nhs?service=app5&serviceName=the%20NHS%20app&lsId=undefined&lsAccess=undefined&lsStudy=undefined&emailAddress=undefined&hidehead=undefined&devMode=undefined&returnUrl=https://nhs-contact.herokuapp.com/nhsuk-to-prescription/app/prescriptions-landing')
+
+
+  }
+});
+
 
 
 module.exports = router;
