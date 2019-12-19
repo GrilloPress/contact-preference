@@ -1,5 +1,5 @@
 {% set PROTOTYPEURL = "nhsuk-to-prescription" %}
-{% set serviceName = "NHS" %}
+{% set serviceName = "Order a repeat prescription" %}
 {% set contentTitle = "Is the GP surgery you're registered with in England?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -7,7 +7,7 @@
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
-{% extends 'layouts/layout-nhsuk.html' %}
+{% extends 'layouts/layout-transactional.html' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -22,7 +22,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{ PROTOTYPEURL }}/nhsuk/has-prescription" method="get">
+      <form action="" method="post">
 
         {{ radios({
           "idPrefix": "england",
@@ -49,7 +49,7 @@
             }
           ]
         }) }}
-        
+
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>

@@ -906,4 +906,25 @@ router.post('/app/appointments/v4/radio-practice-member-answer', function (req, 
   }
 });
 
+
+// NHSUK ROUTES
+
+router.post('/nhsuk-to-prescription/nhsuk/england', function (req, res) {
+  let answer = req.body.england;
+
+  if (answer === 'not sure') {
+
+    res.redirect('/nhsuk-to-prescription/nhsuk/england-not-sure')
+
+  } else if (answer === 'no') {
+
+    res.redirect('/nhsuk-to-prescription/nhsuk/england-no')
+
+  } else {
+    res.redirect('/nhsuk-to-prescription/nhsuk/has-prescription')
+  }
+});
+
+
+
 module.exports = router;

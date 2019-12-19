@@ -1,5 +1,5 @@
 {% set PROTOTYPEURL = "nhsuk-to-prescription" %}
-{% set serviceName = "NHS" %}
+{% set serviceName = "Order a repeat prescription" %}
 {% set contentTitle = "Find your GP surgery" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -7,7 +7,7 @@
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
-{% extends 'layouts/layout-nhsuk.html' %}
+{% extends 'layouts/layout-transactional.html' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -37,7 +37,7 @@
           "name": "surgery",
           "classes": "nhsuk-u-width-full"
         }) }}
-        
+
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>
