@@ -1,13 +1,13 @@
 {% set PROTOTYPEURL = "nhsuk-to-prescription" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "You have 1 repeat prescription you can order" %}
+{% set contentTitle = "You have 2 repeat prescription you can order" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
-{% extends 'layouts/layout-app.html' %}
+{% extends 'layouts/layout-app-new.html' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -22,13 +22,13 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>
+      <h1 class="nhs-app-xl">
         {{ contentTitle }}
       </h1>
 
       <p>See your list of medicines.</p>
 
-      <form action="/{{ PROTOTYPEURL }}/#" method="get">
+      <form action="/app/prescriptions/v3/order-prescription" method="get">
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>
