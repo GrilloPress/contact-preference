@@ -9,7 +9,6 @@ const express = require('express');
 const nunjucks = require('nunjucks');
 const sessionInCookie = require('client-sessions')
 const sessionInMemory = require('express-session')
-const secure = require('ssl-express-www')
 
 // Run before other code to make sure variables from .env are available
 dotenv.config()
@@ -259,8 +258,6 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500)
   res.send(err.message)
 })
-
-app.use(secure);
 
 // Run the application
 app.listen(port);
