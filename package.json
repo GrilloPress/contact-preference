@@ -38,7 +38,8 @@
     "nhsuk-frontend": "^2.3.2",
     "nunjucks": "^3.2.0",
     "nunjucks-date": "^1.4.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "ssl-express-www": "^3.0.6"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.7.6",
