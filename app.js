@@ -63,6 +63,19 @@ nunjucksAppEnv.addGlobal('version', packageInfo.version);
 // Add Nunjucks filters
 utils.addNunjucksFilters(nunjucksAppEnv)
 
+var env = (process.env.NODE_ENV || 'development').toLowerCase()
+var useHttps = process.env.USE_HTTPS || config.useHttps
+
+useHttps = useHttps.toLowerCase()
+
+// Force HTTPS on production. Do this before using basicAuth to avoid
+// asking for username/password twice (for `http`, then `https`).
+//
+var isSecure = (env === 'production' && useHttps === 'true')
+if (isSecure) {
+ app.use(utils.forceHttps)
+ app.set('trust proxy', 1) // needed for secure cookies on heroku
+}
 
 // Session uses service name to avoid clashes with other prototypes
 const sessionName = 'nhsuk-prototype-kit-' + (Buffer.from(config.serviceName, 'utf8')).toString('hex')
@@ -101,21 +114,6 @@ if (useAutoStoreData === 'true') {
   app.use(utils.autoStoreData)
   utils.addCheckedFunction(nunjucksAppEnv)
 }
-
-
-var env = (process.env.NODE_ENV || 'development').toLowerCase()
-var useHttps = process.env.USE_HTTPS || config.useHttps
-
-useHttps = useHttps.toLowerCase()
-
-// Force HTTPS on production. Do this before using basicAuth to avoid
-// asking for username/password twice (for `http`, then `https`).
-//
-// var isSecure = (env === 'production' && useHttps === 'true')
-// if (isSecure) {
-// app.use(utils.forceHttps)
-// app.set('trust proxy', 1) // needed for secure cookies on heroku
-// }
 
 // initial checks
 checkFiles()
