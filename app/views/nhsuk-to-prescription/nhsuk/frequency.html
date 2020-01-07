@@ -1,0 +1,73 @@
+{% set PROTOTYPEURL = "nhsuk-to-prescription" %}
+{% set serviceName = "Order a repeat prescription" %}
+{% set contentTitle = "How often do you collect your prescription?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <!-- Continue to NHS login -->
+      <form action="" method="post">
+
+        {{ radios({
+          "idPrefix": "frequency",
+          "name": "frequency",
+          "fieldset": {
+            "legend": {
+              "text": "How often do you get your prescription?",
+              "classes": "nhsuk-fieldset__legend--xl",
+              "isPageHeading": true
+            }
+          },
+          "items": [
+          {
+            "value": "more than once a month",
+            "text": "Several times a month"
+          },
+            {
+              "value": "monthly",
+              "text": "Once a month"
+            },
+            {
+              "value": "once every two months",
+              "text": "Once every 2 months"
+            },
+            {
+              "value": "once every three months",
+              "text": "Once every 3 months"
+            },
+            {
+              "value": "once every six months",
+              "text": "Once every 6 months"
+            },
+            {
+              "value": "once a year",
+              "text": "Once a year"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
+
+    </div>
+
+  </div>
+{% endblock %}

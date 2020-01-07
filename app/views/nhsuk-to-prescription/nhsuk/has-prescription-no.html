@@ -1,0 +1,34 @@
+{% set PROTOTYPEURL = "nhsuk-to-prescription" %}
+{% set serviceName = "Order a repeat prescription" %}
+{% set contentTitle = "You cannot use this service to order a repeat prescription online" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        {{ contentTitle }}
+      </h1>
+
+      <p>This service is only available to patients who currently have at least one repeat prescription from a GP.</p>
+
+    </div>
+
+  </div>
+{% endblock %}

@@ -75,14 +75,12 @@ $( document ).ready(function() {
               <span>You</span>
 
             </div>
-            {% if data['fileAdded'] %}
+
             <div class="nhs-app-chat__container nhs-app-chat__container--reply">
-              <img class="nhsuk-image__img nhsuk-u-margin-bottom-2" src="/images/placeholder-image-16-9.jpg" alt="Image placeholder that you uploaded">
               <p class="nhs-app-chat__body nhs-app-chat__header--reply">
-                <a href="#">File name</a>
+                <img class="nhsuk-image__img" src="/images/placeholder-image-16-9.jpg" alt="Image placeholder that you uploaded">
               </p>
             </div>
-            {% endif %}
             <div class="nhs-app-chat__container nhs-app-chat__container--reply">
 
               <p class="nhs-app-chat__body nhs-app-chat__header--reply">
@@ -106,14 +104,21 @@ $( document ).ready(function() {
           <li class="nhs-app-chat__item nhs-app-chat__item--reply">
             <div class="nhs-app-chat__sender nhs-app-chat__sender--reply">
               <span>You</span>
-
             </div>
+
+            <div class="nhs-app-chat__container nhs-app-chat__container--reply">
+              <img class="nhsuk-image__img nhsuk-u-margin-bottom-2" src="/images/placeholder-image-16-9.jpg" alt="Image placeholder that you uploaded">
+              <p class="nhs-app-chat__body nhs-app-chat__header--reply">
+                <a href="#">File name</a>
+              </p>
+            </div>
+
             <div class="nhs-app-chat__container nhs-app-chat__container--reply">
               <p class="nhs-app-chat__body nhs-app-chat__header--reply">
                 I wasn't able to go to the phlebotomy clinic at the hospital last week. What should I do?
               </p>
-
             </div>
+            
             <div class="nhsuk-u-clear">
             </div>
             <div class="nhs-app-chat__date nhs-app-chat__date--reply">
@@ -184,7 +189,7 @@ $( document ).ready(function() {
               "id": "msgBody2",
               "classes": "nhsuk-u-margin-bottom-0",
               "hint": {
-                  "html": 'Text must be shorter than 450 characters (about 75 words)'
+                  "html": '<div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1"></div>'
                 },
               "label": {
                 "text": "Message",
@@ -262,7 +267,7 @@ $( document ).ready(function() {
                 "id": "msgBody2",
                 "classes": "nhsuk-u-margin-bottom-0",
                 "hint": {
-                    "html": 'Text must be shorter than 450 characters (about 75 words)'
+                    "html": '<div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1"></div>'
                   },
                 "label": {
                   "text": "Message",

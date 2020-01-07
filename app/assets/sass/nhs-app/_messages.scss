@@ -66,11 +66,11 @@
 
   font-size: 12px;
   font-weight: 600;
-  background-color: #FFC107;
+  background-color: #ffe609;
   border-radius: 14px;
   padding: 3px 8px;
   color: $nhsuk-text-color;
-  border: 1px solid #B58F1C; // for object accessibility issues
+  border: 1px solid $nhsuk-text-color; // for object accessibility issues
 
 }
 
@@ -276,5 +276,5 @@ padding-top: 4px;
 .nhs-app-message-reply__container {
 
   border-top: 1px solid #d8dde0;
-  padding-top: nhsuk-spacing(2);
+  padding-top: nhsuk-spacing(3);
 }

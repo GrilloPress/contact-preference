@@ -1,0 +1,59 @@
+{% set PROTOTYPEURL = "nhsuk-to-prescription" %}
+{% set serviceName = "Order a repeat prescription" %}
+{% set contentTitle = "Do you already have a repeat prescription from your GP?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="" method="post">
+
+        {{ radios({
+          "idPrefix": "hasPrescription",
+          "name": "hasPrescription",
+          "fieldset": {
+            "legend": {
+              "text": "Do you already have a repeat prescription from your GP?",
+              "classes": "nhsuk-fieldset__legend--xl",
+              "isPageHeading": true
+            }
+          },
+          "hint": {
+            "text": "It may be a prescription you collect from your GP surgery or pharmacy."
+          },
+          "items": [
+            {
+              "value": "yes",
+              "text": "Yes"
+            },
+            {
+              "value": "no",
+              "text": "No"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
+
+    </div>
+
+  </div>
+{% endblock %}

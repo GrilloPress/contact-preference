@@ -19,13 +19,6 @@ $( document ).ready(function() {
       e.preventDefault();
     }
   )
-
-  function toggleMessageContainer(){
-    jQuery('#replyContainer').toggle(); //make chat thing visible
-    jQuery('#replyButton').toggle(); //hide button
-    //scroll to reply container
-    jumpTo('replyContainer', 120);
-  }
 </script>
 {% endblock %}
 
@@ -75,16 +68,7 @@ $( document ).ready(function() {
               <span>You</span>
 
             </div>
-            {% if data['fileAdded'] %}
             <div class="nhs-app-chat__container nhs-app-chat__container--reply">
-              <img class="nhsuk-image__img nhsuk-u-margin-bottom-2" src="/images/placeholder-image-16-9.jpg" alt="Image placeholder that you uploaded">
-              <p class="nhs-app-chat__body nhs-app-chat__header--reply">
-                <a href="#">File name</a>
-              </p>
-            </div>
-            {% endif %}
-            <div class="nhs-app-chat__container nhs-app-chat__container--reply">
-
               <p class="nhs-app-chat__body nhs-app-chat__header--reply">
                 {{ data['body'] | nl2br | safe }}
               </p>
@@ -155,14 +139,9 @@ $( document ).ready(function() {
 
         {% if data['id'] == "2" %}
 
-        <ul class="list-menu" id="replyButton">
-          <li>
-            <a href="javascript:void(0)" onclick="toggleMessageContainer()">Send message</a>
-          </li>
-          <li>
-            <a href="delete">Delete message</a>
-          </li>
-        </ul>
+        <form class="nhs-app-float--right" action="" method="post" id="replyButton">
+          <input class="nhsuk-button" type="submit" value="Send message">
+        </form>
 
         <div class="nhs-app-message-reply__container" id="replyContainer" style="display: none;">
           <form class="" action="/{{ PROTOTYPEURL }}/message-with-additional-reply" method="post">
@@ -184,7 +163,7 @@ $( document ).ready(function() {
               "id": "msgBody2",
               "classes": "nhsuk-u-margin-bottom-0",
               "hint": {
-                  "html": 'Text must be shorter than 450 characters (about 75 words)'
+                  "html": '<div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1"></div>'
                 },
               "label": {
                 "text": "Message",
@@ -233,14 +212,9 @@ $( document ).ready(function() {
 
         {% else %}
 
-        <ul class="list-menu" id="replyButton">
-          <li>
-            <a href="javascript:void(0)" onclick="toggleMessageContainer()">Reply</a>
-          </li>
-          <li>
-            <a href="delete?conversation=true">Delete conversation</a>
-          </li>
-        </ul>
+        <form class="" action="" method="post" id="replyButton">
+          <input class="nhsuk-button" type="submit" value="Reply">
+        </form>
 
         <div class="nhs-app-message-reply__container" id="replyContainer" style="display: none;">
           <form class="" action="/{{ PROTOTYPEURL }}/message-with-additional-reply" method="post">
@@ -262,7 +236,7 @@ $( document ).ready(function() {
                 "id": "msgBody2",
                 "classes": "nhsuk-u-margin-bottom-0",
                 "hint": {
-                    "html": 'Text must be shorter than 450 characters (about 75 words)'
+                    "html": '<div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1"></div>'
                   },
                 "label": {
                   "text": "Message",

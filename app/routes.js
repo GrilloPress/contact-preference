@@ -906,6 +906,63 @@ router.post('/app/appointments/v4/radio-practice-member-answer', function (req, 
   }
 });
 
+// NHSUK ROUTES
+
+router.post('/nhsuk-to-prescription/nhsuk/england', function (req, res) {
+  let answer = req.body.england;
+
+  if (answer === 'not sure') {
+
+    res.redirect('/nhsuk-to-prescription/nhsuk/england-not-sure')
+
+  } else if (answer === 'no') {
+
+    res.redirect('/nhsuk-to-prescription/nhsuk/england-no')
+
+  } else {
+    res.redirect('/nhsuk-to-prescription/nhsuk/has-prescription')
+  }
+});
+
+router.post('/nhsuk-to-prescription/nhsuk/has-prescription', function (req, res) {
+  let answer = req.body.hasPrescription;
+
+  if (answer === 'no') {
+
+    res.redirect('/nhsuk-to-prescription/nhsuk/has-prescription-no')
+
+  } else {
+    res.redirect('/nhsuk-to-prescription/nhsuk/frequency')
+  }
+});
+
+router.post('/nhsuk-to-prescription/nhsuk/frequency', function (req, res) {
+  let answer = req.body.frequency;
+
+  if (answer === 'once a year') {
+
+    res.redirect('/nhsuk-to-prescription/nhsuk/frequency-no')
+
+  } else {
+
+    var env = (process.env.NODE_ENV || 'development').toLowerCase()
+
+    if (env === 'production'){
+
+      res.redirect('https://nhs-cid.herokuapp.com/create-account/v19/login-nhs?service=app5&serviceName=the%20NHS%20app&lsId=undefined&lsAccess=undefined&lsStudy=undefined&emailAddress=undefined&hidehead=undefined&devMode=undefined&returnUrl=https://nhs-contact.herokuapp.com/nhsuk-to-prescription/app/prescriptions-landing')
+
+    } else {
+
+      res.redirect('https://nhs-cid.herokuapp.com/create-account/v19/login-nhs?service=app5&serviceName=the%20NHS%20app&lsId=undefined&lsAccess=undefined&lsStudy=undefined&emailAddress=undefined&hidehead=undefined&devMode=undefined&returnUrl=http://localhost:2001/nhsuk-to-prescription/app/prescriptions-landing')
+
+    }
+
+
+
+
+  }
+});
+
 router.post('/app/appointments/v5/select-how-to-search', function (req, res) {
   let answer = req.body.appointmentSearchMethod;
 
@@ -931,5 +988,4 @@ router.post('/app/appointments/v5/radio-practice-member-answer', function (req, 
     res.redirect('/app/appointments/v5/select-available-appointment?appointmentMember=')
   }
 });
-
 module.exports = router;
