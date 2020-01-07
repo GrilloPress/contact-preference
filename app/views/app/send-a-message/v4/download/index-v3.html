@@ -39,7 +39,28 @@
       <p>When you download this file, you become responsible for keeping it confidential. </p>
 
       <form action="#" method="get">
-        <input type="submit" class="nhsuk-button" value="Download file">
+        {{ radios({
+          "idPrefix": "gov",
+          "name": "gov",
+          "fieldset": {
+            "legend": {
+              "text": "Do you want to download filename.jpg?",
+              "isPageHeading": true,
+              "classes": "nhsuk-fieldset__legend--s"
+            }
+          },
+          "items": [
+            {
+              "value": "yes",
+              "text": "Yes, I want to download filename.jpg"
+            },
+            {
+              "value": "no",
+              "text": "No"
+            }
+          ]
+        }) }}
+        <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>
 
