@@ -906,4 +906,30 @@ router.post('/app/appointments/v4/radio-practice-member-answer', function (req, 
   }
 });
 
+router.post('/app/appointments/v5/select-how-to-search', function (req, res) {
+  let answer = req.body.appointmentSearchMethod;
+
+  if (answer === 'search') {
+
+    res.redirect('/app/appointments/v5/select-type-of-appointment?browseAppointments=false')
+
+
+
+  } else {
+    res.redirect('/app/appointments/v5/select-available-appointment?browseAppointments=true&appointmentType=')
+  }
+});
+
+router.post('/app/appointments/v5/radio-practice-member-answer', function (req, res) {
+  let answer = req.body.appointmentChoiceStaff;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/appointments/v5/select-practice-member')
+
+  } else {
+    res.redirect('/app/appointments/v5/select-available-appointment?appointmentMember=')
+  }
+});
+
 module.exports = router;

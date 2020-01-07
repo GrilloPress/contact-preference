@@ -1,0 +1,78 @@
+{% set PROTOTYPEURL = "app/appointments/v5" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "Give a reason for this appointment" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script>
+// dirty hack to make the menu disappear when a textarea is being used
+$("textarea").focus(function(){
+  $(".menu").hide();
+});
+
+$("textarea").focusout(function(){
+  $(".menu").show();
+});
+</script>
+{% endblock %}
+
+{% set showAppointmentType %}
+{% if data["type"] == "Telephone appointment" %}
+  {{ data["type"] }} <br> Telephone
+{% elif data["type"] %}
+  {{ data["type"] }} <br> Face to face
+{% else %}
+  General appointment in person <br> Face to face
+{% endif %}
+{% endset %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Appointments</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="index">Your appointments</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ PROTOTYPEURL}}/confirm-appointment" method="post">
+
+        {{ textarea({
+          "name": "appointmentReasons",
+          "id": "appointmentReasons",
+          "rows": "3",
+          "autocomplete": "off",
+          "label": {
+            "text": contentTitle,
+            "isPageHeading": true,
+            "classes": "nhsuk-label--l"
+          },
+          "hint": {
+            "html": "This text may not be read by your GP or a member of staff until the day of your appointment. If it's urgent, contact your GP surgery before booking. <br><br> Text must be shorter than 150 characters (about 25 words)."
+          }
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
+
+
+    </div>
+  </div>
+{% endblock %}
