@@ -16,7 +16,17 @@ $color_app-interruption-blue: #05538e;
 
   .nhsuk-button {
 
-    margin-bottom: 0;
+    margin-bottom: nhsuk-spacing(4);
+  }
+
+  .nhsuk-back-link__link {
+
+    color: $color_nhsuk-white;
+  }
+
+  .nhsuk-icon__chevron-left {
+
+    fill: $color_nhsuk-white;
   }
 
 }
