@@ -68,9 +68,9 @@
 
                 {% elif "Baby Clinic" in data['appointmentType'] %}
                 <div class="nhsuk-checkboxes__item">
-                  <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Katie Malito">
+                  <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Siobhan Jones">
                   <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
-                    Katie Malito
+                    Siobhan Jones
                   </label>
                 </div>
                 {% else %}
@@ -85,48 +85,15 @@
               </div>
 
 
-              {% elif "Cervical Smear (MUST be over 25 years old) Booked Online" in data['appointmentType'] %}
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Diana Degraw">
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
-                  Diana Degraw
-                </label>
-              </div>
-
-              <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Siobhan Jones">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Diana Degraw">
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-3">
-                  Siobhan Jones
+                  Diana Degraw
                 </label>
               </div>
 
 
               {% elif "Doctor - Booked Online" in data['appointmentType'] %}
-              <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Diana Degraw">
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
-                  Diana Degraw
-                </label>
-              </div>
-
-              {% elif "Doctor Mental Health - Booked Online" in data['appointmentType'] %}
-              <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Siobhan Jones">
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
-                  Siobhan Jones
-                </label>
-              </div>
-
-
-              {% else %}
-              <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Diana Degraw">
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
-                  Diana Degraw
-                </label>
-              </div>
-
-              {% endif %}
               <div class="nhsuk-checkboxes__item">
                 <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Katie Malito">
                 <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
@@ -134,6 +101,45 @@
                 </label>
               </div>
 
+              {% elif "Doctor Mental Health - Booked Online" in data['appointmentType'] %}
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Katie Malito">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
+                  Katie Malito
+                </label>
+              </div>
+              {% else %}
+              {% endif %}
+
+              {% else %}
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Siobhan Jones">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
+                  Siobhan Jones
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Katie Malito">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
+                  Katie Malito
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Diana Degraw">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-3">
+                  Diana Degraw
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember4" name="appointmentMember" type="checkbox" value="Joseph Goldner">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-4">
+                  Joseph Goldner
+                </label>
+              </div>
+              {% endif %}
 
             </div>
             </fieldset>
@@ -157,5 +163,4 @@
 
     </div>
   </div>
-
 {% endblock %}
