@@ -24,9 +24,7 @@
   {% endset %}
 {% endif %}
 
-{% if data['appointmentLocation'] == "Lidgett Surgery" %}
-  {% set location = 'Lidgett Surgery' %}
-{% elif data['appointmentLocation'] == "Gledhow Practice" %}
+{% if data['appointmentLocation'] == "Gledhow Practice" %}
   {% set location = 'Gledhow Practice' %}
 {% else %}
   {% set location = 'Gledhow Practice' %}
