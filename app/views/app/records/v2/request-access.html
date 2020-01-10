@@ -1,0 +1,48 @@
+{% set PROTOTYPEURL = "app/records/v2" %}
+{% set serviceName = "NHS App" %}
+{% set recordActive = "active" %}
+{% set contentTitle = "You do not currently have access to your full GP medical record" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="javascript: window.history.go(-1)">Your GP health record</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">
+        {{ contentTitle }}
+      </h1>
+
+      <p>To view your test results, immunisation history and more, your GP surgery needs to give you greater access to your record.</p>
+
+      <p>You have a legal right to view this information.</p>
+
+      <h2 class="nhsuk-heading-m">What to ask your GP surgery</h2>
+      <p>Your GP surgery may use specific words when they talk about a full medical record. When you contact them, ask for “detailed coded record access”.</p>
+
+
+
+    </div>
+  </div>
+{% endblock %}
