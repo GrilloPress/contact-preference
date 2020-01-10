@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% set showAppointmentType %}
-{% if data["appointmentType"] == "Telephone appointment" %}
+{% if data["appointmentType"] == "Same Day AM" %}
   {{ data["appointmentType"] }}
 {% elif data["browseAppointments"] == "true" %}
   All
@@ -130,22 +130,22 @@
       {% set nurse %}
 
       {% if data['appointmentMember'] %}
-        {% if 'Sister Leanna Leveille (Female)' in data['appointmentMember'] %}
+        {% if 'Siobhan Jones' in data['appointmentMember'] %}
         <li>
-          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '2' | returnDate }}&time=9.50am&type=Smear&sessionName=Nurse Clinic&location={{ location }}&staffName=Sister Leanna Leveille (Female)" >
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '2' | returnDate }}&time=9.50am&type=Smear&sessionName=Nurse Clinic&location={{ location }}&staffName=Siobhan Jones" >
             <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9.50am</h2>
             <p class="list-menu__results-person list-menu__results--bold">Smear</p>
             <p class="list-menu__results-person list-menu__results-spacer">Nurse Clinic</p>
-            <p class="list-menu__results--small">Sister Leanna Leveille (Female)</p>
+            <p class="list-menu__results--small">Siobhan Jones</p>
             <p class="list-menu__results--small">{{ location }}</p>
           </a>
         </li>
         <li>
-          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '2' | returnDate }}&time=10.50am&type=Smear&sessionName=Nurse Clinic&location={{ location }}&staffName=Sister Leanna Leveille (Female)" >
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '2' | returnDate }}&time=10.50am&type=Smear&sessionName=Nurse Clinic&location={{ location }}&staffName=Siobhan Jones" >
             <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10.50am</h2>
             <p class="list-menu__results-person list-menu__results--bold">Smear</p>
             <p class="list-menu__results-person list-menu__results-spacer">Nurse Clinic</p>
-            <p class="list-menu__results--small">Sister Leanna Leveille (Female)</p>
+            <p class="list-menu__results--small">Siobhan Jones</p>
             <p class="list-menu__results--small">{{ location }}</p>
           </a>
         </li>
