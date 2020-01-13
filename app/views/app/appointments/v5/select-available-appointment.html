@@ -159,7 +159,7 @@
       {% endif %}
       {% endset %}
 
-      {% set nurseFar %}
+      {% set asthmaNurse %}
       {% if data['appointmentMember'] %}
         {% if 'Siobhan Jones' in data['appointmentMember'] %}
         <li>
@@ -247,6 +247,51 @@
         </li>
       {% endif %}
       {% endset %}
+
+      {% set bloods %}
+      {% if data['appointmentMember'] %}
+        {% if 'Siobhan Jones' in data['appointmentMember'] %}
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '5' | returnDate }}&time=2.25pm&type=Blood Test ONLY (IF invited by a clinician at THIS practice) Booked Online&sessionName=General&location={{ location }}&staffName=Siobhan Jones" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">2.35pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Blood Test ONLY (IF invited by a clinician at THIS practice) Booked Online</p>
+            <p class="list-menu__results-person list-menu__results-spacer">General</p>
+            <p class="list-menu__results--small">Siobhan Jones</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '5' | returnDate }}&time=2.50pm&type=Blood Test ONLY (IF invited by a clinician at THIS practice) Booked Online&sessionName=General&location={{ location }}&staffName=Siobhan Jones" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">2.50pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Blood Test ONLY (IF invited by a clinician at THIS practice) Booked Online</p>
+            <p class="list-menu__results-person list-menu__results-spacer">General</p>
+            <p class="list-menu__results--small">Siobhan Jones</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        {% endif %}
+      {% else %}
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '5' | returnDate }}&time=2.25pm&type=Blood Test ONLY (IF invited by a clinician at THIS practice) Booked Online&sessionName=General&location={{ location }}&staffName=Siobhan Jones" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">2.35pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Blood Test ONLY (IF invited by a clinician at THIS practice) Booked Online</p>
+            <p class="list-menu__results-person list-menu__results-spacer">General</p>
+            <p class="list-menu__results--small">Siobhan Jones</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '5' | returnDate }}&time=2.50pm&type=Blood Test ONLY (IF invited by a clinician at THIS practice) Booked Online&sessionName=General&location={{ location }}&staffName=Siobhan Jones" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">2.50pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Blood Test ONLY (IF invited by a clinician at THIS practice) Booked Online</p>
+            <p class="list-menu__results-person list-menu__results-spacer">General</p>
+            <p class="list-menu__results--small">Siobhan Jones</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+      {% endif %}
+      {% endset %}
+
 
       {% set doctorsWknd %}
         {% if data['appointmentMember'] %}
@@ -339,9 +384,6 @@
           </a>
         </li>
         {% endif %}
-
-
-
       {% endset %}
 
 
@@ -471,13 +513,19 @@
         {% endif %}
 
         {% if 'Asthma Nurse' in data.appointmentType %}
-          {% if nurseFar | trim %}
+          {% if asthmaNurse | trim %}
             <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "2" | returnDate }}</h2>
             <ul class="list-menu list-menu__results">
           {% endif %}
 
         {% elif 'Doctor - Booked Online' in data.appointmentType %}
         {% if doctors | trim %}
+          <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "2" | returnDate }}</h2>
+          <ul class="list-menu list-menu__results">
+        {% endif %}
+
+        {% elif 'Blood Test ONLY (IF invited by a clinician at THIS practice) Booked Online' in data.appointmentType %}
+        {% if bloods | trim %}
           <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "2" | returnDate }}</h2>
           <ul class="list-menu list-menu__results">
         {% endif %}
@@ -492,6 +540,11 @@
         {% if 'Doctor Weekend Appointment HUB - Booked Online' in data.appointmentType %}
           {{ doctorsWknd | safe }}
         {% endif %}
+
+        {% if 'Blood Test ONLY (IF invited by a clinician at THIS practice) Booked Online' in data.appointmentType %}
+          {{ bloods | safe }}
+        {% endif %}
+
 
         {% if 'Asthma Nurse' in data.appointmentType %}
           {% if nurse | trim %}
@@ -515,10 +568,10 @@
         {% endif %}
 
         {% if 'Asthma Nurse' in data.appointmentType %}
-          {% if nurseFar | trim %}
+          {% if asthmaNurse | trim %}
           <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '6' | returnDate }}</h2>
             <ul class="list-menu list-menu__results">
-              {{ nurseFar | safe }}
+              {{ asthmaNurse | safe }}
             </ul>
           {% endif %}
         {% endif %}
@@ -532,32 +585,6 @@
           {% endif %}
         {% endif %}
 
-        {% if 'Same Day AM' in data.appointmentType %}
-          {% if slotLate | trim %}
-          <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "9" | returnDate }}</h2>
-          <ul class="list-menu list-menu__results">
-            {{ slotLate | safe }}
-          </ul>
-          {% endif %}
-        {% endif %}
-
-        {% if '21 Day On Line Appointment' in data.appointmentType %}
-          {% if onlineLate | trim %}
-          <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "16" | returnDate }}</h2>
-          <ul class="list-menu list-menu__results">
-            {{ onlineLate | safe }}
-          </ul>
-          {% endif %}
-        {% endif %}
-
-        {% if '21 Day On Line Appointment' in data.appointmentType %}
-          {% if onlineLateLate | trim %}
-          <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "23" | returnDate }}</h2>
-          <ul class="list-menu list-menu__results">
-            {{ onlineLateLate | safe }}
-          </ul>
-          {% endif %}
-        {% endif %}
 
 
       {% else %}
@@ -569,9 +596,13 @@
 
       <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "2" | returnDate }}</h2>
         <ul class="list-menu list-menu__results">
-          {{ nurseFar | safe }}
-          {{ doctors | safe }}
+          {{ asthmaNurse | safe }}
         </ul>
+
+        <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "2" | returnDate }}</h2>
+          <ul class="list-menu list-menu__results">
+            {{ doctors | safe }}
+          </ul>
 
         <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '5' | returnDate }}</h2>
           <ul class="list-menu list-menu__results">
@@ -580,7 +611,7 @@
 
           <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '6' | returnDate }}</h2>
             <ul class="list-menu list-menu__results">
-              {{ nurse | safe }}
+              {{ bloods | safe }}
             </ul>
 
             <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "7" | returnDate }}</h2>
