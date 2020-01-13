@@ -171,9 +171,9 @@
 
 
 
-            {% set bloods %}
-            {% if data['appointmentMember'] %}
-              {% if 'Siobhan Jones' in data['appointmentMember'] %}
+      {% set bloods %}
+      {% if data['appointmentMember'] %}
+          {% if 'Siobhan Jones' in data['appointmentMember'] %}
               <li>
                 <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '5' | returnDate }}&time=2.25pm&type=Blood Test ONLY (IF invited by a clinician at THIS practice) Booked Online&sessionName=General&location={{ location }}&staffName=Siobhan Jones" >
                   <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">2.35pm</h2>
@@ -321,7 +321,6 @@
               </a>
             </li>
             {% endif %}
-
         {% else %}
         <li>
           <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 2 | returnDate }}&time=3.15pm&type=Doctor Mental Health - Booked&staffName=Joseph Goldner&sessionName=Bookable&location={{ location }}" >
@@ -429,11 +428,11 @@
             <p class="list-menu__results--small">{{ location }}</p>
           </a>
         </li>
-
         {% endif %}
       {% endset %}
 
-      {% set nurse1 %}
+
+      {% set nurseOnline %}
         {% if data['appointmentMember'] %}
           {% if 'Siobhan Jones' in data['appointmentMember'] %}
           <li>
@@ -441,7 +440,7 @@
               <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9:15am</h2>
               <p class="list-menu__results-person list-menu__results--bold">Nurse (See our Website for what the nurses can see BEFORE booking) Booked Online</p>
               <p class="list-menu__results-person list-menu__results-spacer">Session</p>
-              <p class="list-menu__results--small">Joseph Goldner</p>
+              <p class="list-menu__results--small">Siobhan Jones</p>
               <p class="list-menu__results--small">{{ location }}</p>
             </a>
           </li>
@@ -450,24 +449,11 @@
               <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9:30am</h2>
               <p class="list-menu__results-person list-menu__results--bold">Nurse (See our Website for what the nurses can see BEFORE booking) Booked Online</p>
               <p class="list-menu__results-person list-menu__results-spacer">Session</p>
-              <p class="list-menu__results--small">Joseph Goldner</p>
+              <p class="list-menu__results--small">Siobhan Jones</p>
               <p class="list-menu__results--small">{{ location }}</p>
             </a>
           </li>
           {% endif %}
-
-          {% if 'Katie Malito' in data['appointmentMember'] %}
-          <li>
-            <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 16 | returnDate }}&time=10:05am&type=Nurse (See our Website for what the nurses can see BEFORE booking) Booked Online&staffName=Siobhan Jones&sessionName=Session&location={{ location }}" >
-              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10:05am</h2>
-              <p class="list-menu__results-person list-menu__results--bold">Doctor - Booked Online</p>
-              <p class="list-menu__results-person list-menu__results-spacer">Session</p>
-              <p class="list-menu__results--small">Katie Malito</p>
-              <p class="list-menu__results--small">{{ location }}</p>
-            </a>
-          </li>
-          {% endif %}
-
         {% else %}
         <li>
           <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 16 | returnDate }}&time=9:15am&type=Nurse (See our Website for what the nurses can see BEFORE booking) Booked Online&staffName=Siobhan Jones&sessionName=Session&location={{ location }}" >
@@ -479,11 +465,11 @@
           </a>
         </li>
         <li>
-          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 16 | returnDate }}&time=9:30am&type=Doctor - Booked Online&staffName=Katie Malito&sessionName=Session&location={{ location }}" >
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 16 | returnDate }}&time=9:30am&type=Doctor - Booked Online&staffName=Siobhan Jones&sessionName=Session&location={{ location }}" >
             <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9:30am</h2>
-            <p class="list-menu__results-person list-menu__results--bold">Doctor - Booked Online</p>
+            <p class="list-menu__results-person list-menu__results--bold">Nurse (See our Website for what the nurses can see BEFORE booking) Booked Onlin</p>
             <p class="list-menu__results-person list-menu__results-spacer">Session</p>
-            <p class="list-menu__results--small">Katie Malito</p>
+            <p class="list-menu__results--small">Siobhan Jones</p>
             <p class="list-menu__results--small">{{ location }}</p>
           </a>
         </li>
@@ -537,10 +523,6 @@
           {{ doctorsWknd | safe }}
         {% endif %}
 
-        {% if 'Blood Test ONLY (IF invited by a clinician at THIS practice) Booked Online' in data.appointmentType %}
-          {{ bloods | safe }}
-        {% endif %}
-
 
         {% if 'Doctor Mental Health - Booked Online' in data.appointmentType %}
           {% if doctorsMental | trim %}
@@ -562,10 +544,10 @@
         {% endif %}
 
         {% if 'Nurse (See our Website for what the nurses can see BEFORE booking) Booked Online' in data.appointmentType %}
-          {% if nurse1 | trim %}
+          {% if nurseOnline | trim %}
           <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '6' | returnDate }}</h2>
             <ul class="list-menu list-menu__results">
-              {{ nurse1 | safe }}
+              {{ nurseOnline | safe }}
             </ul>
           {% endif %}
         {% endif %}
@@ -589,10 +571,6 @@
           {{ asthmaNurse | safe }}
       </ul>
 
-        <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "2" | returnDate }}</h2>
-        <ul class="list-menu list-menu__results">
-            {{ bloods | safe }}
-        </ul>
 
         <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '5' | returnDate }}</h2>
         <ul class="list-menu list-menu__results">
@@ -616,7 +594,7 @@
 
             <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "7" | returnDate }}</h2>
             <ul class="list-menu list-menu__results">
-              {{ nurse1 | safe }}
+              {{ nurseOnline | safe }}
             </ul>
 
             <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "9" | returnDate }}</h2>
