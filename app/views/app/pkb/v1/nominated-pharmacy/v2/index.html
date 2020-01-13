@@ -1,0 +1,86 @@
+{% set PROTOTYPEURL = "app/prescriptions/v1/nominated-pharmacy/v2" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Nominated pharmacy prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+      <h2>Current prototypes</h2>
+      <h3>v2</h3>
+      <h4>Latest</h4>
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/change">Change (interruption card)</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/search">Search</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/search-with-radio-v2">Search with inline radios v2</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/more-options">More options (search options)</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/results">Results</a>
+        </li>
+      </ul>
+
+
+      <h4>Previous</h4>
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/change">Change (interruption card)</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/search-with-type-and-postcode">Search with type dropdown and postcode field</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/search-with-radio">Search with radios</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/search-with-show-options">Search with show options</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/search-with-radio">Search with radio</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/search-postcode-and-a-z">Search with postcode and link to A-Z</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/search-name-and-postcode">Search name and postcode</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/search-inline-radio">Search with inline radios</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/search-dropdown-all">Search with dropdowns</a>
+        </li>
+      </ul>
+
+
+    </div>
+  </div>
+{% endblock %}

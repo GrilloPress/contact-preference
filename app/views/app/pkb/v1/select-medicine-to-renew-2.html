@@ -1,0 +1,117 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Order a repeat prescription" %}
+{% set prescriptionsActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script>
+// dirty hack to make the menu disappear when a textarea is being used
+$("textarea").focus(function(){
+  $(".menu").hide();
+});
+
+$("textarea").focusout(function(){
+  $(".menu").show();
+});
+</script>
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/nominated-pharmacy/v2/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/your-prescriptions-7">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
+
+
+      <form action="confirm-prescription-5" method="get">
+        {{ checkboxes({
+          "idPrefix": "prescription",
+          "name": "choosePrescription",
+          "fieldset": {
+            "legend": {
+              "text": 'Medicine currently available to order',
+              "classes": "nhsuk-fieldset__legend--m",
+              "isPageHeading": false
+            }
+          },
+          "items": [
+            {
+              "value": "alogliptin",
+              "text": "Alogliptin 25mg tablets",
+              "hint": {
+                "text": "One to be taken each day - 28 tablet"
+              }
+            },
+            {
+              "value": "omeprazole",
+              "text": "Omeprazole 40mg gastro-resistant capsules",
+              "hint": {
+                "text": "One to be taken each day - 28 tablet"
+              }
+            },
+            {
+              "value": "metformin",
+              "text": "Metformin 500mg tablets",
+              "hint": {
+                "text": "One to be taken 4 times a day with food - 112 tablet"
+              }
+            }
+          ]
+        }) }}
+
+        {{ textarea({
+          "name": "specialRequest",
+          "id": "more-detail",
+          "classes": "nhsuk-u-margin-bottom-0",
+          "rows": "3",
+          "label": {
+            "text": "Special requests relating to this order (optional)",
+            "classes": "nhsuk-label--m"
+          },
+          "hint": {
+            "html": "<p>This text may not be seen by your GP. For important requests, contact your GP surgery.</p><p>Must be shorter than 1000 characters (about 150 words).</p>"
+          }
+        }) }}
+
+
+
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+      {{ details({
+        "text": "Help with medical abbreviations",
+        "HTML": "
+        <p>You might see medical abbreviations that you are not familiar with.</p>
+          <p>We have guidance for <a href='https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/abbreviations/'>abbreviations commonly found in medical records</a>.</p>
+        "
+      }) }}
+
+
+    </div>
+  </div>
+{% endblock %}

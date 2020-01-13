@@ -1,0 +1,63 @@
+{% set PROTOTYPEURL = "app/pkb" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "PKB prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+
+{{ button({
+  "text": "Start prototype",
+  "href": "/" + PROTOTYPEURL + "/v1/index"
+}) }}
+
+
+<hr>
+
+
+      <h2>Version currently being tested</h2>
+
+      <h3>v1</h3>
+
+                <h4>Start</h4>
+
+
+      <ul>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/index">PKB test</a>
+        </li>
+      </ul>
+
+
+
+
+            <hr>
+
+
+
+    </div>
+  </div>
+{% endblock %}

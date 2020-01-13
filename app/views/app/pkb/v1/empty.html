@@ -1,0 +1,39 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Your prescriptions" %}
+{% set prescriptionsActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
+
+      <form action="#" method="get">
+        <input type="submit" class="nhsuk-button" value="Order a new repeat prescription">
+        </input>
+      </form>
+
+      <h2 class="nhsuk-heading-m">You do not have any repeat prescriptions ordered</h2>
+      <p>
+        If you have an existing order that you expected to see here, contact your GP surgery or pharmacy for more information.
+      </p>
+    </div>
+  </div>
+{% endblock %}

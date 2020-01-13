@@ -1,0 +1,36 @@
+{% set PROTOTYPEURL = "app/errors/messages/current" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Error sending order" %}
+{% set title = "Prescription order error" + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+        <p>There's been a problem sending your order.</p>
+        <p>Go back and try again. If the problem continues and you need to order a repeat prescription now, contact your GP surgery directly. For urgent medical advice, go to <a href="https://111.nhs.uk/">111.nhs.uk</a> or <a href="">call 111</a>.</p>
+
+
+        {{ button({
+          "text": "Back to your repeat prescriptions",
+          "classes": "nhsuk-button--secondary"
+        }) }}
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,163 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Check your prescription details before you order" %}
+{% set prescriptionsActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+
+{% set choosePrescription %}
+  {% if data['choosePrescription'] == 'omeprazole' %}
+
+  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+  <p>One to be taken each day - 28 tablet</p>
+
+  {% elif data['choosePrescription'] == 'alogliptin' %}
+
+  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Alogliptin 25mg tablets</h3>
+  <p>One to be taken each day - 28 tablet</p>
+
+  {% elif data['choosePrescription'] == 'metformin' %}
+
+  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Metformin 500mg tablets</h3>
+  <p>One to be taken 4 times a day with food - 112 tablet</p>
+
+  {% else %}
+
+  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+  <p>One to be taken each day - 28 tablet</p>
+
+  {% endif %}
+
+{% endset %}
+
+
+
+
+
+  {% if data['choosePrescription'] | stringOrNot %}{% set cheese = "stringyCheese" %}{% else %}{% set cheese = "hardCheese" %}{% endif %}
+  {% set chosenMedication %}
+    {% if cheese == 'stringyCheese' %}
+      {{ choosePrescription | safe }}
+
+    {% else %}
+      {% for item in data['choosePrescription'] %}
+      {% if item == 'omeprazole' %}
+      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+      <p>One to be taken each day - 28 tablet</p>
+      {% elif item == 'alogliptin' %}
+      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Alogliptin 25mg tablets</h3>
+      <p>One to be taken each day - 28 tablet</p>
+      {% elif item == 'metformin' %}
+      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Metformin 500mg tablets</h3>
+      <p>One to be taken 4 times a day with food - 112 tablet</p>
+      {% else %}
+      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+      <p>One to be taken each day - 28 tablet</p>
+      {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endset %}
+
+
+
+  {% set medication %}
+    {% if cheese == 'stringyCheese' %}
+      Medicine
+    {% elif cheese == 'hardCheese' %}
+      Medicines
+    {% else %}
+      Medicine
+    {% endif %}
+  {% endset %}
+
+  {% set specialRequest %}
+    {% if data['specialRequest'] %}
+       {{ data['specialRequest'] }}
+  {% else %}
+      No requests added
+    {% endif %}
+  {% endset %}
+
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/nominated-pharmacy/v2/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/select-medicine-to-renew-2">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
+
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              html: medication
+            },
+            value: {
+              html: chosenMedication or '<h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+              <p>One to be taken each day - 28 tablet</p>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/app/prescriptions/v1/select-medicine-to-renew-2",
+                  text: "Change",
+                  visuallyHiddenText: "medicine"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Special requests relating to your order (optional)"
+            },
+            value: {
+              text: data['specialRequest'] | placeholder('No requests added')
+            },
+            actions: {
+              items: [
+                {
+                  href: "/app/prescriptions/v1/select-medicine-to-renew-2",
+                  text: "Change",
+                  visuallyHiddenText: "special requests relating to this order (optional)"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <form action="/app/prescriptions/save" method="post">
+        <input type="submit" class="nhsuk-button" value="Confirm and order prescription">
+        </input>
+      </form>
+
+
+    </div>
+  </div>
+{% endblock %}

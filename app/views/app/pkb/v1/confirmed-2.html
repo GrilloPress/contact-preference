@@ -1,0 +1,201 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+
+
+{% set choosePrescription %}
+  {% if data['choosePrescription'] == 'omeprazole' %}
+
+  <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+  <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+
+  {% elif data['choosePrescription'] == 'alogliptin' %}
+
+  <p class="nhsuk-u-margin-bottom-0">Alogliptin 25mg tablets</p>
+  <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+
+  {% elif data['choosePrescription'] == 'metformin' %}
+
+  <p class="nhsuk-u-margin-bottom-0">Metformin 500mg tablets</p>
+  <p class="nhs-app-secondary-text">One to be taken 4 times a day with food - 112 tablet</p>
+
+  {% else %}
+
+  <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+  <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+
+  {% endif %}
+
+{% endset %}
+
+
+
+
+
+  {% if data['choosePrescription'] | stringOrNot %}{% set cheese = "stringyCheese" %}{% else %}{% set cheese = "hardCheese" %}{% endif %}
+  {% set chosenMedication %}
+    {% if cheese == 'stringyCheese' %}
+      {{ choosePrescription | safe }}
+
+    {% else %}
+      {% for item in data['choosePrescription'] %}
+      {% if item == 'omeprazole' %}
+      <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+      <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+      {% elif item == 'alogliptin' %}
+      <p class="nhsuk-u-margin-bottom-0">Alogliptin 25mg tablets</p>
+      <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+      {% elif item == 'metformin' %}
+      <p class="nhsuk-u-margin-bottom-0">Metformin 500mg tablets</p>
+      <p class="nhs-app-secondary-text">One to be taken 4 times a day with food - 112 tablet</p>
+      {% else %}
+      <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+      <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+      {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endset %}
+
+{% if cheese == 'stringyCheese' %}
+  {% set contentTitle = "Your prescription has been ordered" %}
+{% elif cheese == 'hardCheese' %}
+  {% set contentTitle = "Your prescriptions have been ordered" %}
+{% else %}
+  {% set contentTitle = "Your prescription has been ordered" %}
+{% endif %}
+
+{% set prescriptionsActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
+
+      {% if cheese == 'stringyCheese' %}
+        <p>Your order has been sent to your GP practice.</p>
+      {% elif cheese == 'hardCheese' %}
+        <p>Your orders have been sent to your GP practice.</p>
+      {% else %}
+        <p>Your order has been sent to your GP practice.</p>
+      {% endif %}
+
+      <p>You have ordered:</p>
+
+      {{ chosenMedication | safe }}
+
+
+
+      <h2 class="nhsuk-heading-m">What happens next</h2>
+
+
+            {% if cheese == 'stringyCheese' %}
+            <p>
+               Your prescription requests have been sent to your GP.
+            </p>
+            <p>
+              Once they approve it, they’ll send your prescription to your nominated pharmacy, where pharmacists will check and prepare it for you.
+            </p>
+            {% elif cheese == 'hardCheese' %}
+            <p>
+               Your prescription requests have been sent to your GP.
+            </p>
+            <p>
+              Once they approve them, they’ll send your prescriptions to your nominated pharmacy, where pharmacists will check and prepare them for you.
+            </p>
+            {% else %}
+            <p>
+               Your prescription requests have been sent to your GP.
+            </p>
+            <p>
+              Once they approve it, they’ll send your prescription to your nominated pharmacy, where pharmacists will check and prepare it for you.
+            </p>
+            {% endif %}
+
+
+      {% if data['pharmacyType'] === "online" %}
+
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Echo" }}</h2>
+
+              <p class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</p>
+
+
+                <p>Telephone: {{ data["phoneNumber"] or "03069 990735" }}</p>
+
+
+
+        {% elif data['pharmacyType'] === "community" %}
+
+
+      <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }}</h2>
+
+
+      <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or data["onlineUrl"] or "97 Lidgett Lane" }}</p>
+
+      <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Leeds" }}</p>
+
+
+      <p class="nhsuk-u-margin-bottom-0">{{ data['county'] if data["pickPharmacy"] == "Ma Manning (Pharmacy) Ltd" }}</p>
+
+      <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "LS8 1QR" }}</p>
+
+
+      <p>Telephone: {{ data["phoneNumber"] or "0113 266 1786" }}</p>
+
+
+      {% else %}
+
+
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }}</h2>
+
+
+            <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or data["onlineUrl"] or "97 Lidgett Lane" }}</p>
+
+            <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Leeds" }}</p>
+
+
+            <p class="nhsuk-u-margin-bottom-0">{{ data['county'] or "West Yorkshire" }}</p>
+
+            <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "LS8 1QR" }}</p>
+
+
+            <p>Telephone: {{ data["phoneNumber"] or "0113 266 1786" }}</p>
+
+
+
+
+      {% endif %}
+
+      {% if cheese == 'stringyCheese' %}
+        <p><a href="/app/prescriptions/v1/your-repeat-prescriptions">Go to your repeat prescriptions</a> to check the status of your prescription.</p>
+      {% elif cheese == 'hardCheese' %}
+        <p><a href="/app/prescriptions/v1/your-repeat-prescriptions">Go to your repeat prescriptions</a> to check the status of your prescriptions.</p>
+      {% else %}
+        <p><a href="/app/prescriptions/v1/your-repeat-prescriptions">Go to your repeat prescriptions</a> to check the status of your prescription.</p>
+      {% endif %}
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
