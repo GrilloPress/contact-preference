@@ -1,0 +1,228 @@
+{% set PROTOTYPEURL = "app/records/v2" %}
+{% set serviceName = "NHS App" %}
+{% set recordActive = "active" %}
+{% set contentTitle = "Test results" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="javascript: window.history.go(-1)">Your GP health record</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">
+        {{ contentTitle }}
+      </h1>
+
+      <ol class="nhs-app-list-card">
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  16 July 2019
+                </h2>
+                <p>Neutrophil count: 4.38 x10^9/L (normal range: 1.7 - 6)</p>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  8 April 2011
+                </h2>
+                <p>Basophil count: 0.06 x10^9 /L (normal range: 0.02 - 0.1)</p>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  2 March 2007
+                </h2>
+                <p>Platelet count: 253 x10^9/L (normal range: 140 - 400)</p>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  3 June 2003
+                </h2>
+                <p>Lymphocyte count: 2.59 x10^9/L (normal range: 1 - 3.5)</p>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  8 April 2001
+                </h2>
+                <p>BP 164 mm Hg/ 88 mm Hg </p>
+                <ul>
+                  <li>Diastolic blood pressure: 88 mm Hg</li>
+                  <li>Systolic blood pressure: 164 mm Hg</li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  25 May 2000
+                </h2>
+                <p>Serum HDL cholesterol level: 1.6 mmol/l (normal range: 1 - 100000000) </p>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  25 May 2000
+                </h2>
+                <p>Serum LDL cholesterol level: 4.4 mmol/l</p>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  25 May 2000
+                </h2>
+                <p>Serum electrolytes </p>
+                <ul>
+                  <li>Serum potassium: 3.9 mmol/L (normal range: 3.5 - 5) </li>
+                  <li>Serum sodium: 138 mmol/L (normal range: 135 - 145) </li>
+                  <li>Serum bicarbonate: 27 mmol/L (normal range: 22 - 32) </li>
+                  <li>Serum creatinine: 68 umol/L (normal range: 48 - 128) </li>
+                  <li>GFR calculated abbreviated MDRD</li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                17 August 1999
+                </h2>
+                <p>Serum albumin: 38 g/l (normal range: 35 - 50) </p>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                16 August 1999
+                </h2>
+                <p>Serum sodium: 142 mmol/l (normal range: 135 - 146) </p>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                17 August 1999
+                </h2>
+                <p>Packed cell volume: 0.453 L/L (normal range: 0.4 - 0.51) </p>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                17 August 1999
+                </h2>
+                <p>Serum TSH level: 2.4 mu/l (normal range: 0.2 - 4) </p>
+
+              </div>
+            </div>
+          </div>
+        </li>
+      </ol>
+
+      {{ details({
+        "text": "Help with medical abbreviations",
+        "HTML": "
+        <p>You may see medical abbreviations that you aren't familiar with.</p>
+        <p>We have guidance for <a target='_blank' href='https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/abbreviations/'>abbreviations commonly found in medical records</a>.</p>
+        "
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}
