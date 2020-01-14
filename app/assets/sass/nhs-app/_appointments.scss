@@ -109,6 +109,9 @@ li {
 }
 
 .list-menu--in-card {
-  margin: 0 -24px;
-  margin-top: 24px;
+  margin: 24px -24px 0;
+
+  @include mq($from: desktop) {
+    margin: 32px -32px 0;
+  }
 }
