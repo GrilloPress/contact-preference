@@ -7,8 +7,8 @@
 {% endblock %}
 
 {% set showAppointmentType %}
-{% if data["appointmentType"] == "Telephone appointment" %}
-  {{ data["appointmentType"] }} <br> Telephone
+{% if data["appointmentType"] == "Same Day AM" %}
+  {{ data["appointmentType"] }} <br> Same Day AM
 {% elif data["appointmentType"] %}
   {{ data["appointmentType"] }} <br> Face to face
 {% else %}
@@ -74,7 +74,16 @@
                                 </label>
                               </div>
 
-                              {% elif "Cervical Smear (MUST be over 25 years old) Booked Online" in data['appointmentType'] %}
+                              {% elif "Nurse (See our Website for what the nurses can see BEFORE booking) Booked Online" in data['appointmentType'] %}
+                              <div class="nhsuk-checkboxes__item">
+                                <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Siobhan Jones">
+                                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
+                                  Siobhan Jones
+                                </label>
+                              </div>
+
+
+                              {% elif "Same Day AM" in data['appointmentType'] %}
                               <div class="nhsuk-checkboxes__item">
                                 <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Siobhan Jones">
                                 <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
@@ -96,9 +105,10 @@
                                   Siobhan Jones
                                 </label>
                               </div>
-                              
+
                               {% else %}
                             {% endif %}
+
 
                             {% if "Doctor - Booked Online" in data['appointmentType'] %}
                             <div class="nhsuk-checkboxes__item">
@@ -108,7 +118,18 @@
                               </label>
                             </div>
 
-                            {% elif "Doctor Mental Health - Booked Online" in data['appointmentType'] %}
+                            {% elif "Cervical Smear (MUST be over 25 years old) Booked Online" in data['appointmentType'] %}
+                            <div class="nhsuk-checkboxes__item">
+                              <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Katie Malito">
+                              <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-3">
+                                Katie Malito
+                              </label>
+                            </div>
+                            {% else %}
+                            {% endif %}
+
+
+                            {% if "Doctor Mental Health - Booked Online" in data['appointmentType'] %}
                             <div class="nhsuk-checkboxes__item">
                               <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Joseph Goldner">
                               <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
@@ -123,7 +144,6 @@
                                 Joseph Goldner
                               </label>
                             </div>
-
                             {% else %}
                             {% endif %}
 
