@@ -75,14 +75,7 @@ $( document ).ready(function() {
               <span>You</span>
 
             </div>
-            {% if data['fileAdded'] %}
-            <div class="nhs-app-chat__container nhs-app-chat__container--reply">
-              <img class="nhsuk-image__img nhsuk-u-margin-bottom-2" src="/images/placeholder-image-16-9.jpg" alt="Image placeholder that you uploaded">
-              <p class="nhs-app-chat__body nhs-app-chat__header--reply">
-                <a href="#">File name</a>
-              </p>
-            </div>
-            {% endif %}
+
             <div class="nhs-app-chat__container nhs-app-chat__container--reply">
 
               <p class="nhs-app-chat__body nhs-app-chat__header--reply">
@@ -92,6 +85,18 @@ $( document ).ready(function() {
             </div>
             <div class="nhsuk-u-clear">
             </div>
+            {% if data['fileAdded'] %}
+            <div class="nhs-app-chat__container nhs-app-chat__container--reply">
+              <img class="nhsuk-image__img nhsuk-u-margin-bottom-2" src="/images/placeholder-image-16-9.jpg" alt="Image placeholder that you uploaded">
+              <p class="nhs-app-chat__body nhs-app-chat__header--reply">
+                <div>File name</div>
+                <a class="nhs-app-chat__document-action" href="#">View</a>
+                <a class="nhs-app-chat__document-action" href="#">Download</a>
+              </p>
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+            {% endif %}
             <div class="nhs-app-chat__date nhs-app-chat__date--reply">
               Sent {{ data['sent']}} at {{ data['time'] }}
             </div>
