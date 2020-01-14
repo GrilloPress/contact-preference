@@ -119,11 +119,20 @@ li {
 
 }
 
+.list-menu--in-card li {
+
+  @include mq($from: desktop) {
+    background-position: right 2em center;
+
+  }
+}
+
 .list-menu--in-card li a {
 
   @include mq($from: desktop) {
 
     padding-left: 32px;
+    padding-right: 32px;
 
   }
 
