@@ -113,5 +113,18 @@ li {
 
   @include mq($from: desktop) {
     margin: 32px -32px 0;
+
   }
+
+
+}
+
+.list-menu--in-card li a {
+
+  @include mq($from: desktop) {
+
+    padding-left: 32px;
+
+  }
+
 }
