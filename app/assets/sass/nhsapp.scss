@@ -2166,3 +2166,12 @@ nav.nhs-app-breadcrumb {
 
   }
 }
+
+// Fix iPhone 5/SE label sizes
+nav.menu ul li b {
+
+  @include mq($until: 321px) {
+   font-size: 9px;
+  }
+
+}
