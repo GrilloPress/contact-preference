@@ -43,12 +43,13 @@ $("textarea").focusout(function(){
       </h1>
 
       <div class="app-card app-card--with-border">
-        <div class="app-card__wrapper">
-          <div class="app-card__content">
-            <h2 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
-              {{ data["date"] or "Thursday 12 December 2019" }}
+        <div class="app-card__wrapper app-card--without-shadow">
+          <div class="app-card__content app-card__content--with-actions">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">
+              {{ data["appViewDate"] or "5" | returnDate }}
             </h2>
-            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ data["time"] or "10.50am" }}</p>
+
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ data["appViewTime"] or "10.50am" }}</p>
             {{ summaryList({
               classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
               rows: [
@@ -57,7 +58,7 @@ $("textarea").focusout(function(){
                     text: "Location"
                   },
                   value: {
-                    text: data['location'] or "Gledhow Practice"
+                    text: data['appViewLocation'] or "Gledhow Practice"
                   }
                 },
                 {
@@ -74,20 +75,22 @@ $("textarea").focusout(function(){
                     text: "Member of staff"
                   },
                   value: {
-                    html: data["staffName"] or "Dr Sanjit Praneskear (Male)",
-                    classes: "nhsuk-u-margin-bottom-0"
+                    html: data["appViewStaff"] or "Dr Sanjit Praneskear (Male)",
+                    classes: ""
                   }
                 }
               ]
             }) }}
 
-            <div class="">
-              <a class="" href="/images/event-1991731225.ics">Add to your calendar</a>
-            </div>
+            <ul class="list-menu list-menu--in-card">
+              <li>
+                <a href="#">Add to your calendar</a>
+              </li>
+              <li>
+                <a href="#">Cancel this appointment</a>
+              </li>
+            </ul>
 
-            <div class="nhs-app-card-delete">
-              <a class="nhs-app-card-delete__link" href="#">Cancel this appointment</a>
-            </div>
           </div>
         </div>
       </div>
