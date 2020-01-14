@@ -7,8 +7,8 @@
 {% endblock %}
 
 {% set showAppointmentType %}
-{% if data["appointmentType"] == "Telephone appointment" %}
-  {{ data["appointmentType"] }} <br> Telephone
+{% if data["appointmentType"] == "Same Day AM" %}
+  {{ data["appointmentType"] }} <br> Same Day AM
 {% elif data["appointmentType"] %}
   {{ data["appointmentType"] }} <br> Face to face
 {% else %}

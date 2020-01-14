@@ -331,9 +331,8 @@
             <p class="list-menu__results--small">{{ location }}</p>
           </a>
         </li>
-
         <li>
-          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 2 | returnDate }}&time=4.15pm&type=Doctor Mental Health - Booked&staffName=Joseph Goldner&sessionName=Bookable&location={{ location }}" >
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '2' | returnDate }}&time=4.15pm&type=Doctor Mental Health - Booked&staffName=Joseph Goldner&sessionName=Bookable&location={{ location }}" >
             <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">4.15pm</h2>
             <p class="list-menu__results-person list-menu__results--bold">Doctor Mental Health - Booked Online</p>
             <p class="list-menu__results-person list-menu__results-spacer">Bookable</p>
@@ -432,6 +431,7 @@
       {% endset %}
 
 
+
       {% set nurseOnline %}
         {% if data['appointmentMember'] %}
           {% if 'Siobhan Jones' in data['appointmentMember'] %}
@@ -477,6 +477,7 @@
       {% endset %}
 
 
+
       {% if data.appointmentType %}
 
         {% if 'Asthma Nurse' in data.appointmentType %}
@@ -486,9 +487,8 @@
             {{ asthmaNurse | safe }}
           </ul>
           {% endif %}
-        {% endif %}
 
-        {% if 'Blood Test ONLY (IF invited by a clinician at THIS practice) Booked Online' in data.appointmentType %}
+        {% elif 'Blood Test ONLY (IF invited by a clinician at THIS practice) Booked Online' in data.appointmentType %}
           {% if bloods | trim %}
             <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "2" | returnDate }}</h2>
             <ul class="list-menu list-menu__results">
@@ -561,12 +561,12 @@
       </ul>
 
 
-        <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '5' | returnDate }}</h2>
+        <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "5" | returnDate }}</h2>
         <ul class="list-menu list-menu__results">
             {{ smear | safe }}
         </ul>
 
-        <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '6' | returnDate }}</h2>
+        <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "6" | returnDate }}</h2>
           <ul class="list-menu list-menu__results">
               {{ doctors | safe }}
           </ul>
