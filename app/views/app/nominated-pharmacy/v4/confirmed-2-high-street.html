@@ -45,11 +45,19 @@
             <p>Telephone: {{ data["phoneNumber"] or "0113 266 1786" }}</p>
 
 
+            {% if data['inJourney'] == "true" %}
+
+            <form action="/app/prescriptions/v4/confirm-prescription-5" method="get">
+              <input type="submit" class="nhsuk-button" value="Continue to your order">
+            </form>
+
+            {% else %}
             <h2 class="nhsuk-heading-m">What happens next</h2>
 
               <p>Your prescriptions will be sent to {{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }} from now on.</p>
 
               <p>Collect your prescriptions from {{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }} when they are ready to collect.</p>
+            {% endif %}
 
 
 

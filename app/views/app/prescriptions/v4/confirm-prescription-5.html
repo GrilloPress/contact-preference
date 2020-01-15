@@ -162,7 +162,7 @@
             actions: {
               items: [
                 {
-                  href: "/app/prescriptions/v4/nominate-interrupt",
+                  href: "/app/nominated-pharmacy/v4/change-2?inJourney=true" if data["pickPharmacy"] else "/app/prescriptions/v4/nominate-interrupt?inJourney=true",
                   text: "Change" if data["pickPharmacy"] else "Nominate a pharmacy",
                   visuallyHiddenText: "special requests relating to this order (optional)"
                 }
@@ -171,6 +171,9 @@
           }
         ]
       }) }}
+
+
+
 
       {% if cheese == 'stringyCheese' %}
       <form action="/app/prescriptions/v4/save" method="post">
