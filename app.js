@@ -63,10 +63,10 @@ nunjucksAppEnv.addGlobal('version', packageInfo.version);
 // Add Nunjucks filters
 utils.addNunjucksFilters(nunjucksAppEnv)
 
-var env = (process.env.NODE_ENV || 'development').toLowerCase()
-var useHttps = process.env.USE_HTTPS || config.useHttps
+// var env = (process.env.NODE_ENV || 'development').toLowerCase()
+// var useHttps = process.env.USE_HTTPS || config.useHttps
 
-useHttps = useHttps.toLowerCase()
+// useHttps = useHttps.toLowerCase()
 
 // Force HTTPS on production. Do this before using basicAuth to avoid
 // asking for username/password twice (for `http`, then `https`).
