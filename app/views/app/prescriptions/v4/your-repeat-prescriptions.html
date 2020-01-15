@@ -1,0 +1,274 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set prescriptionsActive = "active" %}
+{% set contentTitle = "Your repeat prescription orders" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+{% set choosePrescription %}
+  {% if data['choosePrescription'] == 'omeprazole' %}
+
+  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+  <p>One to be taken each day - 28 tablet</p>
+
+  {% elif data['choosePrescription'] == 'alogliptin' %}
+
+  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Alogliptin 25mg tablets</h3>
+  <p>One to be taken each day - 28 tablet</p>
+
+  {% elif data['choosePrescription'] == 'metformin' %}
+
+  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Metformin 500mg tablets</h3>
+  <p>One to be taken 4 times a day with food - 112 tablet</p>
+
+  {% else %}
+
+  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+  <p>One to be taken each day - 28 tablet</p>
+
+  {% endif %}
+
+{% endset %}
+
+
+
+  {% if data['choosePrescription'] | stringOrNot %}{% set cheese = "stringyCheese" %}{% else %}{% set cheese = "hardCheese" %}{% endif %}
+  {% set chosenMedication %}
+    {% if cheese == 'stringyCheese' %}
+      {{ choosePrescription | safe }}
+
+    {% else %}
+      {% for item in data['choosePrescription'] %}
+      {% if item == 'omeprazole' %}
+      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+      <p>One to be taken each day - 28 tablet</p>
+      {% elif item == 'alogliptin' %}
+      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Alogliptin 25mg tablets</h3>
+      <p>One to be taken each day - 28 tablet</p>
+      {% elif item == 'metformin' %}
+      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Metformin 500mg tablets</h3>
+      <p>One to be taken 4 times a day with food - 112 tablet</p>
+      {% else %}
+      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+      <p>One to be taken each day - 28 tablet</p>
+      {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endset %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/nominated-pharmacy/v2/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v4/your-prescriptions-8">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
+
+
+
+
+
+      {% if data['prescriptionConfirmed'] %}
+        {% if 'omeprazole' in data['choosePrescription'] %}
+
+
+      <div class="app-card app-card--with-border">
+        <div class="app-card__wrapper">
+          <div class="app-card__content">
+            <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
+              Order date
+            </h3>
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ "today" | returnDate }}</p>
+
+            <div class="nhs-app-status">
+              <div class="requested">
+        					<svg class="nhs-app-status-svg" width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+        						<title>Ordered</title>
+        						<desc></desc>
+        						<defs></defs>
+        						<g id="Icon---Clock" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        							<g id="clock-with-white-face" fill="#df6b31" fill-rule="nonzero">
+        								<path d="M8.5,0 C3.825,0 0,3.825 0,8.5 C0,13.175 3.825,17 8.5,17 C13.175,17 17,13.175 17,8.5 C17,3.825 13.175,0 8.5,0 Z M8.5,15.3 C4.76,15.3 1.7,12.24 1.7,8.5 C1.7,4.76 4.76,1.7 8.5,1.7 C12.24,1.7 15.3,4.76 15.3,8.5 C15.3,12.24 12.24,15.3 8.5,15.3 Z" id="Shape"></path>
+        								<polygon id="Shape" points="9.25 4 8 4 8 9.2173913 12.3333333 12 13 10.8695652 9.25 8.52173913"></polygon>
+        							</g>
+        						</g>
+        					</svg>
+        				<p class="nhs-app-status-body nhs-app-status-body--waiting">Prescription pending GP approval</p>
+        			</div>
+
+
+
+            </div>
+
+
+            <div class="nhs-app-card-delete">
+
+              <h3 class="nhsuk-heading-xs">Omeprazole 40mg gastro-resistant capsules</h3>
+              <p>One to be taken each day - 28 tablet</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      {% endif %}
+      {% endif %}
+
+      {% if data['prescriptionConfirmed'] %}
+        {% if 'alogliptin' in data['choosePrescription'] %}
+
+
+
+            <div class="app-card app-card--with-border">
+              <div class="app-card__wrapper">
+                <div class="app-card__content">
+                  <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
+                    Order date
+                  </h3>
+                  <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ "today" | returnDate }}</p>
+
+                  <div class="nhs-app-status">
+                    <div class="requested">
+              					<svg class="nhs-app-status-svg" width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+              						<title>Ordered</title>
+              						<desc></desc>
+              						<defs></defs>
+              						<g id="Icon---Clock" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              							<g id="clock-with-white-face" fill="#df6b31" fill-rule="nonzero">
+              								<path d="M8.5,0 C3.825,0 0,3.825 0,8.5 C0,13.175 3.825,17 8.5,17 C13.175,17 17,13.175 17,8.5 C17,3.825 13.175,0 8.5,0 Z M8.5,15.3 C4.76,15.3 1.7,12.24 1.7,8.5 C1.7,4.76 4.76,1.7 8.5,1.7 C12.24,1.7 15.3,4.76 15.3,8.5 C15.3,12.24 12.24,15.3 8.5,15.3 Z" id="Shape"></path>
+              								<polygon id="Shape" points="9.25 4 8 4 8 9.2173913 12.3333333 12 13 10.8695652 9.25 8.52173913"></polygon>
+              							</g>
+              						</g>
+              					</svg>
+              				<p class="nhs-app-status-body nhs-app-status-body--waiting">Prescription pending GP approval</p>
+              			</div>
+
+
+
+                  </div>
+
+
+                  <div class="nhs-app-card-delete">
+
+                    <h3 class="nhsuk-heading-xs">Alogliptin 25mg tablets</h3>
+                    <p>One to be taken each day - 28 tablet</p>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {% endif %}
+            {% endif %}
+
+
+                  {% if data['prescriptionConfirmed'] %}
+                    {% if 'metformin' in data['choosePrescription'] %}
+
+
+                        <div class="app-card app-card--with-border">
+                          <div class="app-card__wrapper">
+                            <div class="app-card__content">
+                              <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
+                                Order date
+                              </h3>
+                              <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ "today" | returnDate }}</p>
+
+                              <div class="nhs-app-status">
+                                <div class="requested">
+                          					<svg class="nhs-app-status-svg" width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+                          						<title>Ordered</title>
+                          						<desc></desc>
+                          						<defs></defs>
+                          						<g id="Icon---Clock" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          							<g id="clock-with-white-face" fill="#df6b31" fill-rule="nonzero">
+                          								<path d="M8.5,0 C3.825,0 0,3.825 0,8.5 C0,13.175 3.825,17 8.5,17 C13.175,17 17,13.175 17,8.5 C17,3.825 13.175,0 8.5,0 Z M8.5,15.3 C4.76,15.3 1.7,12.24 1.7,8.5 C1.7,4.76 4.76,1.7 8.5,1.7 C12.24,1.7 15.3,4.76 15.3,8.5 C15.3,12.24 12.24,15.3 8.5,15.3 Z" id="Shape"></path>
+                          								<polygon id="Shape" points="9.25 4 8 4 8 9.2173913 12.3333333 12 13 10.8695652 9.25 8.52173913"></polygon>
+                          							</g>
+                          						</g>
+                          					</svg>
+                          				<p class="nhs-app-status-body nhs-app-status-body--waiting">Prescription pending GP approval</p>
+                          			</div>
+
+
+
+                              </div>
+
+
+                              <div class="nhs-app-card-delete">
+
+                                  <h3 class="nhsuk-heading-xs">Metformin 500mg tablets</h3>
+                                  <p>One to be taken 4 times a day with food - 112 tablet</p>
+
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {% endif %}
+                        {% endif %}
+
+
+
+
+
+      <div class="app-card app-card--with-border">
+        <div class="app-card__wrapper">
+          <div class="app-card__content">
+            <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
+              Order date
+            </h3>
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ 27 | returnPastDate }}</p>
+
+            <div class="nhs-app-status">
+                <svg class="nhs-app-status-svg" width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+                  <title>Approved</title>
+                  <desc></desc>
+                  <defs></defs>
+                  <g id="Icon---Ready" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="done" fill="#006435" fill-rule="nonzero">
+                      <polygon id="Shape" points="11.6398175 5 7.36505863 9.49932468 5.17466546 7.22683909 4 8.44068522 7.45336658 12 13 6.44199307"></polygon>
+                      <path d="M8.5,0 C3.80560204,0 0,3.80560204 0,8.5 C0,13.194398 3.80560204,17 8.5,17 C13.194398,17 17,13.194398 17,8.5 C17,3.80560204 13.1944378,0 8.5,0 Z M8.5,15.4615109 C4.65527134,15.4615109 1.53848912,12.3447287 1.53848912,8.5 C1.53848912,4.65527134 4.65527134,1.53848912 8.5,1.53848912 C12.3427763,1.54315085 15.4568093,4.65718384 15.4615109,8.5 C15.4615109,12.3447685 12.3447685,15.4615109 8.5,15.4615109 Z" id="Shape"></path>
+                    </g>
+                  </g>
+                </svg>
+                <p class="nhs-app-status-body nhs-app-status-body--approved">Prescription approved by your GP</p>
+
+            </div>
+
+
+            <div class="nhs-app-card-delete">
+
+              <h3 class="nhsuk-heading-xs">Omeprazole 40mg gastro-resistant capsules</h3>
+              <p>One to be taken each day - 28 tablet</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

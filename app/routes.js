@@ -456,6 +456,32 @@ router.post('/app/prescriptions/v3/save', function (req, res) {
 });
 
 
+// prescriptions v4
+
+
+router.post('/app/prescriptions/v4/save', function (req, res) {
+
+  // add what is saved later!
+
+  req.session.data.prescriptionConfirmed = "True";
+  res.redirect('/app/prescriptions/v4/confirmed-3')
+
+});
+
+
+router.post('/app/prescriptions/v4/nominate-interrupt', function (req, res) {
+  let answer = req.body.nominateInterrupt;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/nominated-pharmacy/v4/card-nom-pharmacy-2')
+
+  } else {
+    res.redirect('/app/prescriptions/v4/confirm-prescription-5')
+  }
+});
+
+
 
 
 router.post('/app/settings/v1/logout', function (req, res) {
@@ -743,6 +769,22 @@ router.post('/app/nominated-pharmacy/v1/type-of-pharmacy', function (req, res) {
   }
 });
 
+
+
+router.post('/app/nominated-pharmacy/v4/type-of-pharmacy', function (req, res) {
+  let answer = req.body.pharmacyType;
+
+  if (answer === 'community') {
+
+    res.redirect('/app/nominated-pharmacy/v4/find-community-pharmacy')
+
+  } else {
+    res.redirect('/app/nominated-pharmacy/v4/online-interrupt')
+  }
+});
+
+
+
 router.post('/app/nominated-pharmacy/v1/name-of-pharmacy', function (req, res) {
   let answer = req.body.pharmacyName;
 
@@ -872,6 +914,35 @@ router.post('/app/nominated-pharmacy/v3/name-of-pharmacy', function (req, res) {
       } else {
 
         res.redirect('/app/nominated-pharmacy/v3/online-results-2')
+
+      }
+
+  }
+});
+
+
+router.post('/app/nominated-pharmacy/v4/name-of-pharmacy', function (req, res) {
+  let answer = req.body.pharmacyName;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/nominated-pharmacy/v4/search-name')
+
+  } else {
+
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    }
+
+    theRoll = getRandomInt(2);
+
+      if (theRoll == 0) {
+
+        res.redirect('/app/nominated-pharmacy/v4/online-results')
+
+      } else {
+
+        res.redirect('/app/nominated-pharmacy/v4/online-results-2')
 
       }
 

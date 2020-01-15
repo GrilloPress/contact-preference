@@ -1,0 +1,139 @@
+{% set PROTOTYPEURL = "app/nominated-pharmacy" %}
+{% set serviceName = "Change your nominated pharmacy" %}
+{% set contentTitle = "Choose an online-only pharmacy" %}
+{% set prescriptionsActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v4/home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v4">More</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v4/name-of-pharmacy">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+
+
+  <p>This is a selection of online-only pharmacies.</p>
+
+      <ul class="list-menu">
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v4/online-pharmacy-2?pickPharmacy=Echo&onlineUrl=www.echo.org&phoneNumber=020 80688067">
+            <h2 class="nhsuk-heading-s">Echo</h2>
+              <p>www.echo.co.uk</p>
+            <p>Telephone: 020 80688067</p>
+          </a>
+        </li>
+
+
+
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v4/online-pharmacy-2?pickPharmacy=Quantum Pharmacy&onlineUrl=www.prescriptioncareservices.co.uk&phoneNumber=0121 7072786">
+            <h2 class="nhsuk-heading-s">Quantum Pharmacy</h2>
+              <p>www.prescriptioncareservices.co.uk</p>
+            <p>Telephone: 0121 7072786</p>
+          </a>
+        </li>
+
+
+
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v4/online-pharmacy-2?pickPharmacy=Stockport Pharmacy&onlineUrl=www.stockport-pharmacy.co.uk&phoneNumber=0161 2223505">
+            <h2 class="nhsuk-heading-s">Stockport Pharmacy</h2>
+              <p>www.stockport-pharmacy.co.uk</p>
+            <p>Telephone: 0161 2223505</p>
+          </a>
+        </li>
+
+
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v4/online-pharmacy-2?pickPharmacy=Care2homes&onlineUrl=care2homes.co.uk&phoneNumber=01707 326151">
+            <h2 class="nhsuk-heading-s">Care2homes</h2>
+              <p>care2homes.co.uk</p>
+            <p>Telephone:  01707 326151</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v4/online-pharmacy-2?pickPharmacy=Akhtars Pharmacy&onlineUrl=www.akhtarspharmacy.co.uk&phoneNumber=01254 278515">
+            <h2 class="nhsuk-heading-s">Akhtars Pharmacy</h2>
+              <p>www.akhtarspharmacy.co.uk</p>
+            <p>Telephone: 01254 278515</p>
+          </a>
+        </li>
+
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v4/online-pharmacy-2?pickPharmacy=Fastheal Pharmacy&onlineUrl=www.fasthealpharmacy.com&phoneNumber=07868 039834">
+            <h2 class="nhsuk-heading-s">Fastheal Pharmacy</h2>
+              <p>www.fasthealpharmacy.com</p>
+            <p>Telephone: 07868 039834</p>
+          </a>
+        </li>
+
+
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v4/online-pharmacy-2?pickPharmacy=Medico2u&onlineUrl=www.medico2u.co.uk&phoneNumber=020 89044848">
+            <h2 class="nhsuk-heading-s">Medico2u</h2>
+              <p>www.medico2u.co.uk</p>
+            <p>Telephone: 020 89044848</p>
+          </a>
+        </li>
+
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v4/online-pharmacy-2?pickPharmacy=Biomed Care Services&onlineUrl=www.biomedcareservices.com&phoneNumber=0800 9994888">
+            <h2 class="nhsuk-heading-s">Biomed Care Services</h2>
+              <p>www.biomedcareservices.com</p>
+            <p>Telephone: 0800 9994888</p>
+          </a>
+        </li>
+
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v4/online-pharmacy-2?pickPharmacy=Waterfoot Pharmacy&onlineUrl=www.waterfootpharmacy.co.uk&phoneNumber=01706 214588">
+            <h2 class="nhsuk-heading-s">Waterfoot Pharmacy</h2>
+              <p>www.waterfootpharmacy.co.uk</p>
+            <p>Telephone: 01706 214588</p>
+          </a>
+        </li>
+
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v4/online-pharmacy-2?pickPharmacy=Drugs4delivery&onlineUrl=www.drugs4delivery.com&phoneNumber=01472 241990">
+            <h2 class="nhsuk-heading-s">Drugs4delivery</h2>
+              <p>www.drugs4delivery.com</p>
+            <p>Telephone: 01472 241990</p>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}
