@@ -101,7 +101,7 @@ $( document ).ready(function() {
             </div>
             <div class="nhs-app-chat__container nhs-app-chat__container--reply">
               <p class="nhs-app-chat__body nhs-app-chat__header--reply">
-                I wasn't able to go to the phlebotomy clinic at the hospital last week. What should I do?
+                You mentioned that you could send me my x-ray. Could you send that to me?
               </p>
 
             </div>
@@ -133,6 +133,16 @@ $( document ).ready(function() {
                 {{ data['body'] | nl2br | safe}}
               </p>
 
+            </div>
+            <div class="nhs-app-chat__container nhs-app-chat__container">
+              <img class="nhsuk-image__img nhsuk-u-margin-bottom-2" src="/images/placeholder-image-16-9.jpg" alt="Image placeholder that you uploaded">
+              <p class="nhs-app-chat__body nhs-app-chat__header">
+                <div>xray.jpg</div>
+                <a class="nhs-app-chat__document-action" href="/images/placeholder-image-16-9.jpg">View</a>
+                <a class="nhs-app-chat__document-action" href="/{{ PROTOTYPEURL }}/download/index">Download</a>
+              </p>
+            </div>
+            <div class="nhsuk-u-clear">
             </div>
             <div class="nhs-app-chat__date">
               Sent {{ data['sent']}} at {{ data['time'] }}
