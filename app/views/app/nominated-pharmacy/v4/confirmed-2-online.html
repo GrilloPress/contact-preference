@@ -33,8 +33,9 @@
 
       <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Echo" }}</p>
 
-        <p class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</p>
-
+      <p class="nhsuk-u-margin-bottom-1">
+        <a href="" class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</a>
+      </p>
 
           <p>Telephone: {{ data["phoneNumber"] or "03069 990735" }}</p>
 
@@ -54,6 +55,8 @@
         <p>{{ data["pickPharmacy"] or "Echo" }} will send your prescriptions to you in the post.</p>
 
         {% endif %}
+
+
 
 
 
