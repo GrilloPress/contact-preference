@@ -1,0 +1,180 @@
+{% set PROTOTYPEURL = "app/appointments/v6" %}
+{% set serviceName = "NHS App" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "Which member of staff would you like to see?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+{% set showAppointmentType %}
+{% if data["appointmentType"] == "Same Day AM" %}
+  {{ data["appointmentType"] }} <br> Same Day AM
+{% elif data["appointmentType"] %}
+  {{ data["appointmentType"] }} <br> Face to face
+{% else %}
+  General appointment in person <br> Face to face
+{% endif %}
+{% endset %}
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Appointments</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="index">Your appointments</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/{{ PROTOTYPEURL}}/select-available-appointment" method="post">
+        <div class="nhsuk-form-group">
+
+            <fieldset class="nhsuk-fieldset" aria-describedby="appointmentMember-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              <h1 class="nhsuk-fieldset__heading">
+                {{ contentTitle }}
+              </h1>
+            </legend>
+
+            <span class="nhsuk-hint" id="appointmentMember-hint">
+              Select all that apply
+            </span>
+
+            <div class="nhsuk-checkboxes">
+
+                            {% if data['appointmentType'] %}
+                              {% if "Asthma Nurse" in data['appointmentType'] %}
+                              <div class="nhsuk-checkboxes__item">
+                                <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Siobhan Jones">
+                                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
+                                  Siobhan Jones
+                                </label>
+                              </div>
+
+                              {% elif "Blood Test ONLY (IF invited by a clinician at THIS practice) Booked Online" in data['appointmentType'] %}
+                              <div class="nhsuk-checkboxes__item">
+                                <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Siobhan Jones">
+                                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
+                                  Siobhan Jones
+                                </label>
+                              </div>
+
+                              {% elif "Nurse (See our Website for what the nurses can see BEFORE booking) Booked Online" in data['appointmentType'] %}
+                              <div class="nhsuk-checkboxes__item">
+                                <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Siobhan Jones">
+                                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
+                                  Siobhan Jones
+                                </label>
+                              </div>
+
+
+                              {% elif "Same Day AM" in data['appointmentType'] %}
+                              <div class="nhsuk-checkboxes__item">
+                                <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Siobhan Jones">
+                                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
+                                  Siobhan Jones
+                                </label>
+                              </div>
+                              {% else %}
+                              {% endif %}
+
+
+                            {% if "Doctor - Booked Online" in data['appointmentType'] %}
+                            <div class="nhsuk-checkboxes__item">
+                              <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Katie Malito">
+                              <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-3">
+                                Katie Malito
+                              </label>
+                            </div>
+
+                            {% elif "Cervical Smear (MUST be over 25 years old) Booked Online" in data['appointmentType'] %}
+                            <div class="nhsuk-checkboxes__item">
+                              <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Katie Malito">
+                              <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-3">
+                                Katie Malito
+                              </label>
+                            </div>
+                            {% else %}
+                            {% endif %}
+
+
+                            {% if "Doctor Mental Health - Booked Online" in data['appointmentType'] %}
+                            <div class="nhsuk-checkboxes__item">
+                              <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Joseph Goldner">
+                              <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
+                                Joseph Goldner
+                              </label>
+                            </div>
+
+                            {% elif "Doctor Weekend Appointment HUB - Booked Online" in data['appointmentType'] %}
+                            <div class="nhsuk-checkboxes__item">
+                              <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Joseph Goldner">
+                              <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
+                                Joseph Goldner
+                              </label>
+                            </div>
+                            {% else %}
+                            {% endif %}
+
+                            {% else %}
+                            <div class="nhsuk-checkboxes__item">
+                              <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Siobhan Jones">
+                              <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
+                                Siobhan Jones
+                              </label>
+                            </div>
+
+                            <div class="nhsuk-checkboxes__item">
+                              <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Joseph Goldner">
+                              <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
+                                Joseph Goldner
+                              </label>
+                            </div>
+
+                            <div class="nhsuk-checkboxes__item">
+                              <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Katie Malito">
+                              <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-3">
+                                Katie Malito
+                              </label>
+                            </div>
+                            {% endif %}
+
+                          </div>
+                          </fieldset>
+
+                        </div>
+
+                      <input type="submit" class="nhsuk-button" value="Continue">
+                      </input>
+                    </form>
+
+      {{ details({
+        "text": "Information about booking appointments",
+        "HTML": "
+        <p> IMPORTANT, PLEASE READ BEFORE BOOKING: </p>
+          <p>  Some of our appointments are available to book in advance online. The remainder of appointments can be accessed via our same day service.
+          You can book an appointment with one of our Nurses for the following: contraception; cough/cold/fever/sore throat; urinary symptoms in women; diarrhoea and vomiting; cervical smears; ear problems; minor injuries.</p>
+          <p>For other issues, including mental health and wellbeing, you will need to book an appointment with a GP.
+          Our Health Care Assistants (HCAs) may be booked for blood tests once these have been requested by a clinician.</p>
+        <p>**IT IS IMPORTANT THAT YOU BOOK THE CORRECT APPOINTMENT OTHERWISE YOUR APPOINTMENT WILL BE CANCELLED**</p>
+        "
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

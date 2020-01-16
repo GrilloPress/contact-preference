@@ -1,0 +1,101 @@
+{% set PROTOTYPEURL = "app/appointments/v6" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "Your appointment has been booked" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script>
+// dirty hack to make the menu disappear when a textarea is being used
+$("textarea").focus(function(){
+  $(".menu").hide();
+});
+
+$("textarea").focusout(function(){
+  $(".menu").show();
+});
+</script>
+{% endblock %}
+
+{% set showAppointmentType %}
+{% if data["type"] %}
+  {{ data["type"] }} <br> {{ data['sessionName'] or "Session" }}
+{% else %}
+  Slot <br> Session
+{% endif %}
+{% endset %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
+
+      <div class="app-card app-card--with-border">
+        <div class="app-card__wrapper">
+          <div class="app-card__content">
+            <h2 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
+              {{ data["date"] or "Thursday 12 December 2019" }}
+            </h2>
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ data["time"] or "10.50am" }}</p>
+            {{ summaryList({
+              classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
+              rows: [
+                {
+                  key: {
+                    text: "Location"
+                  },
+                  value: {
+                    text: data['location'] or "Gledhow Practice"
+                  }
+                },
+                {
+                  key: {
+                    text: "Appointment type"
+                  },
+                  value: {
+                    html: showAppointmentType,
+                    classes: "nhsuk-u-margin-bottom-0"
+                  }
+                },
+                {
+                  key: {
+                    text: "Member of staff"
+                  },
+                  value: {
+                    html: data["staffName"] or "Dr Sanjit Praneskear (Male)",
+                    classes: "nhsuk-u-margin-bottom-0"
+                  }
+                }
+              ]
+            }) }}
+
+            <div class="">
+              <a class="" href="/images/event-1991731225.ics">Add to your calendar</a>
+            </div>
+
+            <div class="nhs-app-card-delete">
+              <a class="nhs-app-card-delete__link" href="#">Cancel this appointment</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        <a href="/{{ PROTOTYPEURL}}/">Go to your appointments</a>
+      </p>
+
+    </div>
+  </div>
+{% endblock %}

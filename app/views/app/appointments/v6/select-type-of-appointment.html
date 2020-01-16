@@ -1,0 +1,106 @@
+{% set PROTOTYPEURL = "app/appointments/v6" %}
+{% set serviceName = "NHS App" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "What type of appointment would you like?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Appointments</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="index">Your appointments</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ PROTOTYPEURL}}/check-search-criteria" method="post">
+        {{ checkboxes({
+          "idPrefix": "appointmentType",
+          "name": "appointmentType",
+          "fieldset": {
+            "legend": {
+              "text": contentTitle,
+              "classes": "nhsuk-fieldset__legend--l",
+              "isPageHeading": true
+            }
+          },
+          "hint": {
+          "text": "Select all that apply"
+          },
+          "items": [
+          {
+            "value": "Asthma Nurse",
+            "text": "Asthma Nurse"
+          },
+          {
+            "value": "Blood Test ONLY (IF invited by a clinician at THIS practice) Booked Online",
+            "text": "Blood Test ONLY (IF invited by a clinician at THIS practice) Booked Online"
+          },
+          {
+            "value": "Cervical Smear (MUST be over 25 years old) Booked Online",
+            "text": "Cervical Smear (MUST be over 25 years old) Booked Online"
+          },
+          {
+            "value": "Doctor - Booked Online",
+            "text": "Doctor - Booked Online"
+          },
+          {
+            "value": "Doctor Mental Health - Booked Online",
+            "text": "Doctor Mental Health - Booked Online"
+          },
+          {
+            "value": "Doctor Weekend Appointment HUB - Booked Online",
+            "text": "Doctor Weekend Appointment HUB - Booked Online"
+          },
+          {
+            "value": "Nurse (See our Website for what the nurses can see BEFORE booking) Booked Online",
+            "text": "Nurse (See our Website for what the nurses can see BEFORE booking) Booked Online"
+          },
+          {
+            "value": "Same Day AM",
+            "text": "Same Day AM"
+          }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
+
+
+      {{ details({
+        "text": "Information about booking appointments",
+        "HTML": "
+        <p> IMPORTANT, PLEASE READ BEFORE BOOKING: </p>
+          <p>  Some of our appointments are available to book in advance online. The remainder of appointments can be accessed via our same day service.
+          You can book an appointment with one of our Nurses for the following: contraception; cough/cold/fever/sore throat; urinary symptoms in women; diarrhoea and vomiting; cervical smears; ear problems; minor injuries.</p>
+          <p>For other issues, including mental health and wellbeing, you will need to book an appointment with a GP.
+          Our Health Care Assistants (HCAs) may be booked for blood tests once these have been requested by a clinician.</p>
+        <p>**IT IS IMPORTANT THAT YOU BOOK THE CORRECT APPOINTMENT OTHERWISE YOUR APPOINTMENT WILL BE CANCELLED**</p>
+        "
+      }) }}
+
+
+
+    </div>
+  </div>
+{% endblock %}
