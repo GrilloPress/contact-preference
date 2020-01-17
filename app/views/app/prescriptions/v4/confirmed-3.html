@@ -102,9 +102,12 @@
       <h2 class="nhsuk-heading-m">What happens next</h2>
 
 
+      {% if data["pickPharmacy"] %}
+
+
             {% if cheese == 'stringyCheese' %}
             <p>
-               Your prescription requests have been sent to your GP practice.
+               Your prescription request has been sent to your GP practice.
             </p>
             <p>
               Once they approve it, they’ll send your prescription to your nominated pharmacy, where pharmacists will check and prepare it for you. Your nominated pharmacy is:
@@ -116,9 +119,6 @@
 
                 {% endif %}
 
-            <p>
-              Your nominated pharmacy is:
-            </p>
 
 
             {% elif cheese == 'hardCheese' %}
@@ -138,23 +138,7 @@
             <p>
               Your nominated pharmacy is:
             </p>
-            {% else %}
-            <p>
-               Your prescription requests have been sent to your GP practice.
-            </p>
-            <p>
-              Once they approve it, they’ll send your prescription to your nominated pharmacy, where pharmacists will check and prepare it for you.
-            </p>
 
-                  {% if data['pharmacyType'] === "online" %}
-                  
-                  <p>Your nominated pharmacy will send your prescriptions to you in the post.</p>
-                  
-                  {% endif %} 
-
-            <p>
-              Your nominated pharmacy is:
-            </p>
             {% endif %}
 
 
@@ -210,6 +194,29 @@
 
 
       {% endif %}
+
+      {% else %}
+
+      {% if cheese == 'stringyCheese' %}
+      <p>
+         Your prescription request has been sent to your GP practice.
+      </p>
+      <p>
+        Once they approve it, collect your prescription from your GP practice.
+      </p>
+
+      {% elif cheese == 'hardCheese' %}
+      <p>
+         Your prescription requests have been sent to your GP practice.
+      </p>
+      <p>
+          Once they approve them, collect your prescriptions from your GP practice.
+      </p>
+
+      {% endif %}
+
+      {% endif %}
+
 
       {% if cheese == 'stringyCheese' %}
         <p><a href="/app/prescriptions/v4/your-repeat-prescriptions">Go to your repeat prescription orders</a> to check the status of your prescription.</p>
