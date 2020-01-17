@@ -105,17 +105,26 @@
       {% if data["pickPharmacy"] %}
 
 
+
+
+
             {% if cheese == 'stringyCheese' %}
             <p>
-               Your prescription request has been sent to your GP practice.
+               Your prescription request has been sent to your GP surgery.
             </p>
             <p>
-              Once they approve it, they’ll send your prescription to your nominated pharmacy, where pharmacists will check and prepare it for you. Your nominated pharmacy is:
+              Once GPs approve it, they'll send your prescription to your nominated pharmacy, {{ data["pickPharmacy"] or "Cameolord Pharmacy" }}.
             </p>
 
                 {% if data['pharmacyType'] === "online" %}
 
-                <p>Your nominated pharmacy will send your prescriptions to you in the post.</p>
+                <p>
+                  You may need to register with {{ data["pickPharmacy"] or "Echo" }} separately at <a href="" class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</a> or call them at {{ data["phoneNumber"] or "03069 990735" }}.
+                </p>
+
+                <p>
+                  When the pharmacists have checked and prepared your prescription, {{ data["pickPharmacy"] or "Echo" }} will send it to you in the post.
+                </p>
 
                 {% endif %}
 
@@ -123,94 +132,68 @@
 
             {% elif cheese == 'hardCheese' %}
             <p>
-               Your prescription requests have been sent to your GP practice.
+               Your prescription requests have been sent to your GP surgery.
             </p>
             <p>
-              Once they approve them, they’ll send your prescriptions to your nominated pharmacy, where pharmacists will check and prepare them for you.
+              Once GPs approve them, they'll send your prescription to your nominated pharmacy, {{ data["pickPharmacy"] or "Cameolord Pharmacy" }}.
             </p>
 
                   {% if data['pharmacyType'] === "online" %}
 
-                  <p>Your nominated pharmacy will send your prescriptions to you in the post.</p>
+                  <p>
+                    You may need to register with {{ data["pickPharmacy"] or "Echo" }} separately at <a href="" class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</a> or call them at {{ data["phoneNumber"] or "03069 990735" }}.
+                  </p>
 
+                  <p>
+                    When the pharmacists have checked and prepared your prescriptions, {{ data["pickPharmacy"] or "Echo" }} will send them to you in the post.
+                  </p>
                   {% endif %}
-
-            <p>
-              Your nominated pharmacy is:
-            </p>
 
             {% endif %}
 
 
-      {% if data['pharmacyType'] === "online" %}
-
-            <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Echo" }}</p>
-
-              <p class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</p>
 
 
-                <p>Telephone: {{ data["phoneNumber"] or "03069 990735" }}</p>
+        {% if data['pharmacyType'] === "community" %}
+
+        <p>
+          Your nominated pharmacy is:
+        </p>
 
 
-
-        {% elif data['pharmacyType'] === "community" %}
-
-
-      <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }}</p>
+      <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
 
 
-      <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or data["onlineUrl"] or "97 Lidgett Lane" }}</p>
+      <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or data["onlineUrl"] or "16 Oxford S" }}</p>
 
-      <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Leeds" }}</p>
+      <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Manchester" }}</p>
 
-
-      <p class="nhsuk-u-margin-bottom-0">{{ data['county'] if data["pickPharmacy"] == "Ma Manning (Pharmacy) Ltd" }}</p>
-
-      <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "LS8 1QR" }}</p>
+      <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "M1 5AE" }}</p>
 
 
-      <p>Telephone: {{ data["phoneNumber"] or "0113 266 1786" }}</p>
-
-
-      {% else %}
-
-
-            <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }}</p>
-
-
-            <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or data["onlineUrl"] or "97 Lidgett Lane" }}</p>
-
-            <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Leeds" }}</p>
-
-
-            <p class="nhsuk-u-margin-bottom-0">{{ data['county'] or "West Yorkshire" }}</p>
-
-            <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "LS8 1QR" }}</p>
-
-
-            <p>Telephone: {{ data["phoneNumber"] or "0113 266 1786" }}</p>
-
-
+      <p>Telephone: {{ data["phoneNumber"] or "0161 236 1445" }}</p>
 
 
       {% endif %}
 
       {% else %}
 
+
+
       {% if cheese == 'stringyCheese' %}
       <p>
-         Your prescription request has been sent to your GP practice.
+         Your prescription request has been sent to your GP surgery.
       </p>
       <p>
-        Once they approve it, collect your prescription from your GP practice.
+        Once they approve your prescription, you'll need to collect it from them.
       </p>
 
       {% elif cheese == 'hardCheese' %}
       <p>
-         Your prescription requests have been sent to your GP practice.
+         Your prescription requests have been sent to your GP surgery.
       </p>
       <p>
-          Once they approve them, collect your prescriptions from your GP practice.
+          Once they approve your prescriptions, you'll need to collect them from them.
       </p>
 
       {% endif %}
@@ -218,13 +201,7 @@
       {% endif %}
 
 
-      {% if cheese == 'stringyCheese' %}
-        <p><a href="/app/prescriptions/v4/your-repeat-prescriptions">Go to your repeat prescription orders</a> to check the status of your prescription.</p>
-      {% elif cheese == 'hardCheese' %}
-        <p><a href="/app/prescriptions/v4/your-repeat-prescriptions">Go to your repeat prescriptions orders</a> to check the status of your prescriptions.</p>
-      {% else %}
-        <p><a href="/app/prescriptions/v4/your-repeat-prescriptions">Go to your repeat prescriptions orders</a> to check the status of your prescription.</p>
-      {% endif %}
+        <p><a href="/app/prescriptions/v4/your-repeat-prescriptions">Go to your repeat prescription orders</a></p>
 
 
 

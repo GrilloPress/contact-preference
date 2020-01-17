@@ -53,40 +53,32 @@
         {% elif data['pharmacyType'] === "community" %}
 
 
-        <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }}</p>
+        <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
+
+        <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or "16 Oxford St" }}</p>
+
+        <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Manchester" }}</p>
+
+        <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "M1 5AE" }}</p>
 
 
-      <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or data["onlineUrl"] or "97 Lidgett Lane" }}</p>
+        <p>Telephone: {{ data["phoneNumber"] or "0161 236 1445" }}</p>
 
-      <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Leeds" }}</p>
-
-
-      <p class="nhsuk-u-margin-bottom-0">{{ data['county'] if data["pickPharmacy"] == "Ma Manning (Pharmacy) Ltd" }}</p>
-
-      <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "LS8 1QR" }}</p>
-
-
-      <p>Telephone: {{ data["phoneNumber"] or "0113 266 1786" }}</p>
 
 
       {% else %}
 
 
-      <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }}</p>
+      <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
+
+      <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or "16 Oxford St" }}</p>
+
+      <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Manchester" }}</p>
+
+      <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "M1 5AE" }}</p>
 
 
-            <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or data["onlineUrl"] or "97 Lidgett Lane" }}</p>
-
-            <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Leeds" }}</p>
-
-
-            <p class="nhsuk-u-margin-bottom-0">{{ data['county'] or "West Yorkshire" }}</p>
-
-            <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "LS8 1QR" }}</p>
-
-
-            <p>Telephone: {{ data["phoneNumber"] or "0113 266 1786" }}</p>
-
+      <p>Telephone: {{ data["phoneNumber"] or "0161 236 1445" }}</p>
 
 
 
