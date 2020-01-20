@@ -1,6 +1,6 @@
-{% set PROTOTYPEURL = "app/nominated-pharmacy" %}
-{% set serviceName = "NHS App" %}
-{% set contentTitle = "Your nominated pharmacy" %}
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "Change your nominated pharmacy" %}
+{% set contentTitle = "Check the pharmacy this will be sent to" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -22,7 +22,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v4/home">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v4">More</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v4/your-prescriptions-8">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v4/your-prescriptions-8">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -30,18 +30,15 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">
-        {{ contentTitle }}
-      </h1>
 
-      <p>
-        If you order prescriptions using the NHS App, this pharmacy is where they will be sent.
-      </p>
+      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+
+
 
 
       {% if data['pharmacyType'] === "online" %}
 
-      <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Echo" }}</p>
+      <h2 class="nhsuk-heading-m">{{ data["pickPharmacy"] or "Echo" }}</h2>
 
       <a href="" class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</a>
 
@@ -53,7 +50,7 @@
         {% elif data['pharmacyType'] === "community" %}
 
 
-        <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
+        <h2 class="nhsuk-heading-m">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</h2>
 
         <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or "16 Oxford St" }}</p>
 
@@ -69,7 +66,7 @@
       {% else %}
 
 
-      <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
+      <h2 class="nhsuk-heading-m">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</h2>
 
       <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or "16 Oxford St" }}</p>
 
@@ -85,69 +82,12 @@
       {% endif %}
 
 
-
-
-            {% if data['pharmacyType'] === "community" %}
-
-
-
-      <div class="nhsuk-expander-group nhsuk-u-margin-bottom-4">
-        {{ details({
-          "classes": "nhsuk-expander",
-          "text": "Opening times",
-          "HTML": "
-          <table>
-            <tbody>
-              <tr>
-                <th><strong>Day of the week</strong></th>
-                <th><strong>Opening hours</strong></th>
-              </tr>
-              <tr>
-                <th>Monday</th>
-                <td>9am to 6pm</td>
-              </tr>
-              <tr>
-                <th>Tuesday</th>
-                <td>9am to 6pm</td>
-              </tr>
-              <tr>
-                <th>Wednesday</th>
-                <td>9am to 6pm</td>
-              </tr>
-              <tr>
-                <th>Thursday</th>
-                <td>9am to 6pm</td>
-              </tr>
-              <tr>
-                <th>Friday</th>
-                <td>9am to 6pm</td>
-              </tr>
-              <tr>
-                <th>Saturday</th>
-                <td>9am to 1pm</td>
-              </tr>
-              <tr>
-                <th>Sunday</th>
-                <td>Closed</td>
-              </tr>
-            </tbody>
-          </table>"
-        }) }}
-
-      </div>
-
-
-      {% elif data['pharmacyType'] === "online" %}
+      {% if data['pharmacyType'] === "community" %}
 
 
 
-      {% else %}
-
-
-
-
-<div class="nhsuk-expander-group nhsuk-u-margin-bottom-4">
-  {{ details({
+    <div class="nhsuk-expander-group nhsuk-u-margin-bottom-4">
+    {{ details({
     "classes": "nhsuk-expander",
     "text": "Opening times",
     "HTML": "
@@ -187,18 +127,77 @@
         </tr>
       </tbody>
     </table>"
-  }) }}
+    }) }}
 
-</div>
-
-
-      {% endif %}
+    </div>
 
 
-      <form action="/{{ PROTOTYPEURL }}/v4/change-2" method="get">
-        <input type="submit" class="nhsuk-button" value="Change your nominated pharmacy">
+    {% elif data['pharmacyType'] === "online" %}
+
+
+
+    {% else %}
+
+
+
+
+    <div class="nhsuk-expander-group nhsuk-u-margin-bottom-4">
+    {{ details({
+    "classes": "nhsuk-expander",
+    "text": "Opening times",
+    "HTML": "
+    <table>
+    <tbody>
+    <tr>
+    <th><strong>Day of the week</strong></th>
+    <th><strong>Opening hours</strong></th>
+    </tr>
+    <tr>
+    <th>Monday</th>
+    <td>9am to 6pm</td>
+    </tr>
+    <tr>
+    <th>Tuesday</th>
+    <td>9am to 6pm</td>
+    </tr>
+    <tr>
+    <th>Wednesday</th>
+    <td>9am to 6pm</td>
+    </tr>
+    <tr>
+    <th>Thursday</th>
+    <td>9am to 6pm</td>
+    </tr>
+    <tr>
+    <th>Friday</th>
+    <td>9am to 6pm</td>
+    </tr>
+    <tr>
+    <th>Saturday</th>
+    <td>9am to 1pm</td>
+    </tr>
+    <tr>
+    <th>Sunday</th>
+    <td>Closed</td>
+    </tr>
+    </tbody>
+    </table>"
+    }) }}
+
+    </div>
+
+
+    {% endif %}
+
+      <p><a href="/app/nominated-pharmacy/v4/change-2">Change your nominated pharmacy</a></p>
+
+
+      <form action="/{{ PROTOTYPEURL }}/v4/select-medicine-to-renew-2" method="post">
+        <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>
+
+
 
     </div>
   </div>

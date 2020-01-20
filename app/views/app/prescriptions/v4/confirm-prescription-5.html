@@ -4,7 +4,16 @@
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
+<script type="text/javascript">
+// This kills any row that is empty
+$('div.nhsuk-summary-list__row').each(function() {
+         if ($(this).text().trim() === "") {
+                   $(this).css('display','none');
+         }
+});
+</script>
 {% endblock %}
+
 
 
 
@@ -156,19 +165,18 @@
               "classes": "nhsuk-heading-s"
             },
             value: {
-              html: data["pickPharmacy"] or '<p>You do not have a nominated pharmacy.</p><p>Collect your paper prescription from your GP surgery when it’s ready.</p>
-'
+              html: data["pickPharmacy"] or '<p>Cameolord Pharmacy</p>'
             },
             actions: {
               items: [
                 {
-                  href: "/app/nominated-pharmacy/v4/change-2?inJourney=true" if data["pickPharmacy"] else "/app/prescriptions/v4/nominate-interrupt?inJourney=true",
-                  text: "Change" if data["pickPharmacy"] else "Nominate a pharmacy",
-                  visuallyHiddenText: "special requests relating to this order (optional)"
+                  href: "/app/nominated-pharmacy/v4/change-2?inJourney=true",
+                  text: "Change",
+                  visuallyHiddenText: "your nominated pharmacy"
                 }
               ]
             }
-          }
+          } if data['pickPharmacy']
         ]
       }) }}
 

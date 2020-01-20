@@ -135,7 +135,7 @@
                Your prescription requests have been sent to your GP surgery.
             </p>
             <p>
-              Once GPs approve them, they'll send your prescription to your nominated pharmacy, {{ data["pickPharmacy"] or "Cameolord Pharmacy" }}.
+              Once GPs approve them, they'll send your prescriptions to your nominated pharmacy, {{ data["pickPharmacy"] or "Cameolord Pharmacy" }}.
             </p>
 
                   {% if data['pharmacyType'] === "online" %}
@@ -156,9 +156,6 @@
 
         {% if data['pharmacyType'] === "community" %}
 
-        <p>
-          Your nominated pharmacy is:
-        </p>
 
 
       <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
