@@ -37,21 +37,18 @@
       <p>You can upload 1 image or 1 document.</p>
       <p>Your file must be 2MB or smaller.</p>
 
-      <form enctype="multipart/form-data">
+      <form action="/{{ PROTOTYPEURL }}/file/check-file" method="get">
         <div class="nhsuk-form-group">
           <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-2" for="attachment">File</label>
-          <input class="file-input nhs-app-form-input" type="file"
+          <input class="nhs-app-form-input" type="file"
            id="attachment" name="msgAttachment"
            accept="image/png, image/jpeg">
         </div>
-
-      </form>
-
-      <img src="" id="image-preview" style="display:none" />
-
-      <form action="/{{ PROTOTYPEURL }}/file/check-file" method="get">
         <input class="nhsuk-button" type="submit" value="Upload">
       </form>
+
+
+      
 
       <p class="nhs-app-desktop--show">
         <a href="javascript: window.history.go(-1)">Back</a>

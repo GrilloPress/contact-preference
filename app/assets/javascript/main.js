@@ -157,3 +157,20 @@ function jumpTo(h, pixels){
   top -= pixels;
   window.scrollTo(0, top);
 }
+
+
+const image = document.getElementById('image-preview');
+const dataImage = sessionStorage.getItem('imgData');
+if (dataImage) {
+  image.setAttribute('src', dataImage);
+}
+document.querySelector('.file-input').addEventListener('change', function() {
+  if (this.files && this.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      image.setAttribute('src', e.target.result);
+      sessionStorage.setItem("imgData", e.target.result);
+    }
+    reader.readAsDataURL(this.files[0]);
+  }
+});

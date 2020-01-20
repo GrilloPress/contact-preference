@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/send-a-message/v4" %}
 {% set serviceName = "Send a message" %}
 {% set messagingActive = "active" %}
-{% set contentTitle = "Upload a file" %}
+{% set contentTitle = "Check your file" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -34,28 +34,54 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <p>You can upload 1 image or 1 document.</p>
-      <p>Your file must be 2MB or smaller.</p>
+      {{ image({
+        "src": "/images/placeholder-image-16-9.jpg",
+        "alt": "Image placeholder that you uploaded"
+      }) }}
 
-      <form enctype="multipart/form-data">
-        <div class="nhsuk-form-group">
-          <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-2" for="attachment">File</label>
-          <input class="file-input nhs-app-form-input" type="file"
-           id="attachment" name="msgAttachment"
-           accept="image/png, image/jpeg">
-        </div>
+      {{ summaryList({
+        classes: 'nhsuk-summary-list--no-border',
+        rows: [
+          {
+            key: {
+              text: "File details"
+            },
+            value: {
+              text: "File name - 2MB"
+            }
+          }
+        ]
+      }) }}
 
-      </form>
-
-      <img src="" id="image-preview" style="display:none" />
-
-      <form action="/{{ PROTOTYPEURL }}/file/check-file" method="get">
-        <input class="nhsuk-button" type="submit" value="Upload">
+      <form class="" action="" method="post">
+        {{ radios({
+          "idPrefix": "checkFile",
+          "name": "checkFile",
+          "fieldset": {
+            "legend": {
+              "text":"Is this the file you want to send?",
+              "isPageHeading": false,
+              "classes": "nhsuk-fieldset__legend--m"
+            }
+          },
+          "items": [
+            {
+              "value": "yes",
+              "text": " Yes, this is the file I want to send"
+            },
+            {
+              "value": "no",
+              "text": "No, I need to upload a different file"
+            }
+          ]
+        }) }}
+        <input class="nhsuk-button" type="submit" value="Continue">
       </form>
 
       <p class="nhs-app-desktop--show">
         <a href="javascript: window.history.go(-1)">Back</a>
       </p>
+
 
     </div>
   </div>
