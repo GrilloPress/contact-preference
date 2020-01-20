@@ -82,6 +82,24 @@ module.exports = function (env) {
     return typeof obj == 'string';
   }
 
+
+  filters.printStringOrArray = function(obj) {
+
+    if (typeof obj == 'string') {
+      return obj
+    } else {
+
+      var output = "";
+
+      obj.forEach(function(value){
+        output += value + " <br>"
+      });
+
+      return output
+    }
+
+  }
+
   // Started
   // Complete
   //

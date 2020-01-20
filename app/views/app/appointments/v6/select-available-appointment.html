@@ -65,28 +65,10 @@
         rows: [
           {
             key: {
-              text: "Location"
-            },
-            value: {
-              text: location,
-              classes: "nhsuk-u-margin-bottom-0"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "Location"
-                }
-              ]
-            }
-          },
-          {
-            key: {
               text: "Appointment type"
             },
             value: {
-              html: showAppointmentType,
+              html: data['appointmentType'] | placeholder('Any') | printStringOrArray,
               classes: "nhsuk-u-margin-bottom-0"
             },
             actions: {
@@ -104,7 +86,7 @@
               text: "Member of staff"
             },
             value: {
-              html: practiceStaff or "No preference",
+              html: data['appointmentMember'] | placeholder('Any') | printStringOrArray,
               classes: "nhsuk-u-margin-bottom-0"
             },
             actions: {
@@ -115,6 +97,15 @@
                   visuallyHiddenText: "Member of staff"
                 }
               ]
+            }
+          },
+          {
+            key: {
+              text: "Location"
+            },
+            value: {
+              text: location,
+              classes: "nhsuk-u-margin-bottom-0"
             }
           }
         ]

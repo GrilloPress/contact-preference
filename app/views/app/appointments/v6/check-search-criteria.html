@@ -61,7 +61,7 @@ $("textarea").focusout(function(){
                     text: "Appointment type"
                   },
                   value: {
-                    html: data['appointmentType'] + "<br> "
+                    html: data['appointmentType'] | placeholder('Any') | printStringOrArray
                   },
                   actions: {
                     items: [
@@ -78,7 +78,7 @@ $("textarea").focusout(function(){
                     text: "Member of staff"
                   },
                   value: {
-                    html: data["appointmentMember"] or "Any"
+                    html: data['appointmentMember'] | placeholder('Any') | printStringOrArray
                   },
                   actions: {
                     items: [
