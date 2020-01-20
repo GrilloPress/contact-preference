@@ -951,29 +951,29 @@ router.post('/app/nominated-pharmacy/v4/name-of-pharmacy', function (req, res) {
 
 // Appointment ROUTES
 
-router.post('/app/appointments/v4/select-how-to-search', function (req, res) {
+router.post('/app/appointments/v6/select-how-to-search', function (req, res) {
   let answer = req.body.appointmentSearchMethod;
 
   if (answer === 'search') {
 
-    res.redirect('/app/appointments/v4/select-location?browseAppointments=false')
+    res.redirect('/app/appointments/v6/select-location?browseAppointments=false')
 
 
 
   } else {
-    res.redirect('/app/appointments/v4/select-available-appointment?browseAppointments=true&appointmentType=')
+    res.redirect('/app/appointments/6/select-available-appointment?browseAppointments=true&appointmentType=')
   }
 });
 
-router.post('/app/appointments/v4/radio-practice-member-answer', function (req, res) {
+router.post('/app/appointments/6/radio-practice-member-answer', function (req, res) {
   let answer = req.body.appointmentChoiceStaff;
 
   if (answer === 'yes') {
 
-    res.redirect('/app/appointments/v4/select-practice-member')
+    res.redirect('/app/appointments/v6/select-practice-member')
 
   } else {
-    res.redirect('/app/appointments/v4/select-available-appointment?appointmentMember=')
+    res.redirect('/app/appointments/v6/select-available-appointment?appointmentMember=')
   }
 });
 
@@ -1034,29 +1034,29 @@ router.post('/nhsuk-to-prescription/nhsuk/frequency', function (req, res) {
   }
 });
 
-router.post('/app/appointments/v5/select-how-to-search', function (req, res) {
+router.post('/app/appointments/v6/select-how-to-search', function (req, res) {
   let answer = req.body.appointmentSearchMethod;
 
   if (answer === 'search') {
 
-    res.redirect('/app/appointments/v5/select-type-of-appointment?browseAppointments=false')
+    res.redirect('/app/appointments/v6/select-type-of-appointment?browseAppointments=false')
 
 
 
   } else {
-    res.redirect('/app/appointments/v5/select-available-appointment?browseAppointments=true&appointmentType=')
+    res.redirect('/app/appointments/v6/select-available-appointment?browseAppointments=true&appointmentType=')
   }
 });
 
-router.post('/app/appointments/v5/radio-practice-member-answer', function (req, res) {
+router.post('/app/appointments/6/radio-practice-member-answer', function (req, res) {
   let answer = req.body.appointmentChoiceStaff;
 
   if (answer === 'yes') {
 
-    res.redirect('/app/appointments/v5/select-practice-member')
+    res.redirect('/app/appointments/v6/select-practice-member')
 
   } else {
-    res.redirect('/app/appointments/v5/select-available-appointment?appointmentMember=')
+    res.redirect('/app/appointments/v6/select-available-appointment?appointmentMember=')
   }
 });
 module.exports = router;
