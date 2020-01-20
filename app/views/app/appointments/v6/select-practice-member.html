@@ -1,0 +1,175 @@
+{% set PROTOTYPEURL = "app/appointments/v6" %}
+{% set serviceName = "NHS App" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "Which member of staff would you like to see?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+{% set showAppointmentType %}
+{% if data["appointmentType"] == "Telephone appointment" %}
+  {{ data["appointmentType"] }} <br> Telephone
+{% elif data["appointmentType"] %}
+  {{ data["appointmentType"] }} <br> Face to face
+{% else %}
+  General appointment in person <br> Face to face
+{% endif %}
+{% endset %}
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Appointments</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="index">Your appointments</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/{{ PROTOTYPEURL}}/check-search-criteria" method="post">
+        <div class="nhsuk-form-group">
+
+            <fieldset class="nhsuk-fieldset" aria-describedby="appointmentMember-hint">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+              <h1 class="nhsuk-fieldset__heading">
+                {{ contentTitle }}
+              </h1>
+            </legend>
+
+            <span class="nhsuk-hint" id="appointmentMember-hint">
+              Select all that apply
+            </span>
+
+            <div class="nhsuk-checkboxes">
+
+              {% if data['appointmentType'] %}
+                {% if "Smear" in data['appointmentType'] %}
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Sister Leanna Leveille (Female)">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
+                    Sister Leanna Leveille (Female)
+                  </label>
+                </div>
+
+                {% elif "Blood tests only" in data['appointmentType'] %}
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Sister Leanna Leveille (Female)">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
+                    Sister Leanna Leveille (Female)
+                  </label>
+                </div>
+                {% else %}
+                {% endif %}
+
+              {% if "Slot" in data['appointmentType'] %}
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Dr Sanjit Praneskear (Male)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
+                  Dr Sanjit Praneskear (Male)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Dr Anjanette Peppard (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-3">
+                  Dr Anjanette Peppard (Female)
+                </label>
+              </div>
+
+              {% elif "21 Day On Line Appointment" in data['appointmentType'] %}
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Dr Sanjit Praneskear (Male)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
+                  Dr Sanjit Praneskear (Male)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Dr Anjanette Peppard (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-3">
+                  Dr Anjanette Peppard (Female)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-4" name="appointmentMember" type="checkbox" value="Dr Abbie Thetford (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-4">
+                  Dr Abbie Thetford (Female)
+                </label>
+              </div>
+
+              {% elif "Telephone" in data['appointmentType'] %}
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Dr Sanjit Praneskear (Male)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
+                  Dr Sanjit Praneskear (Male)
+                </label>
+              </div>
+              {% else %}
+              {% endif %}
+
+              {% else %}
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Sister Leanna Leveille (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
+                  Sister Leanna Leveille (Female)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Dr Sanjit Praneskear (Male)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
+                  Dr Sanjit Praneskear (Male)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Dr Anjanette Peppard (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-3">
+                  Dr Anjanette Peppard (Female)
+                </label>
+              </div>
+
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-4" name="appointmentMember" type="checkbox" value="Dr Abbie Thetford (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-4">
+                  Dr Abbie Thetford (Female)
+                </label>
+              </div>
+              {% endif %}
+
+            </div>
+            </fieldset>
+
+          </div>
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
+
+      {{ details({
+        "text": "Information about booking appointments",
+        "HTML": "
+        <p>PLEASE NOTE IF YOU ARE BOOKING A TELEPHONE CONSULTATION IT COULD HAPPEN AT ANY TIME OF THE MORNING OR AFTERNOON-IT WON'T NECESSARILY BE AT THE TIME OF THE APPOINTMENT.</p>
+        <p>Please ensure you cancel your appointment if you are unable to attend.</p>
+        "
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

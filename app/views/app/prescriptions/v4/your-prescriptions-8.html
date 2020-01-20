@@ -1,0 +1,88 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set prescriptionsActive = "active" %}
+{% set contentTitle = "Prescriptions" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+
+      <p>Manage your prescriptions and your nominated pharmacy.</p>
+
+
+      <ul class="list-menu">
+        <li>
+         <a href="/{{ PROTOTYPEURL}}/v4/select-medicine-to-renew-2">
+           <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Order a repeat prescription</h2>
+         </a>
+       </li>
+      </ul>
+
+      <ul class="list-menu">
+      {% if data['prescriptionConfirmed'] %}
+
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v4/your-repeat-prescriptions">
+          <h2 class="nhsuk-heading-s">Your repeat prescription orders</h2>
+            <p>See repeat prescriptions you have ordered</p>
+        </a>
+      </li>
+
+      {% else %}
+
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v4/your-repeat-prescriptions">
+          <h2 class="nhsuk-heading-s">Your repeat prescription orders</h2>
+            <p>See repeat prescriptions you have ordered</p>
+        </a>
+      </li>
+
+      {% endif %}
+
+        {% if data["nominatedConfirmed"] %}
+
+      	<li>
+      		<a href="/app/nominated-pharmacy/v4/your-nominated-pharmacy">
+            <h2 class="nhsuk-heading-s">Your nominated pharmacy</h2>
+            <p>{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
+          </a>
+      	</li>
+
+        {% else %}
+
+      <li>
+        <a href="/app/nominated-pharmacy/v4/card-nom-pharmacy-2">
+          <h2 class="nhsuk-heading-s">Nominate a pharmacy</h2>
+          <p>Choose a pharmacy for your prescriptions to be sent to</p>
+        </a>
+      </li>
+
+      {% endif %}
+
+    </ul>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
