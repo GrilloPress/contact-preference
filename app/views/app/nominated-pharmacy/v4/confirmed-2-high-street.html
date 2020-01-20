@@ -30,19 +30,16 @@
       </p>
 
 
-            <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }}</p>
+            <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
 
-            <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or "97 Lidgett Lane" }}</p>
+            <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or "16 Oxford St" }}</p>
 
-            <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Leeds" }}</p>
+            <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Manchester" }}</p>
 
-
-            <p class="nhsuk-u-margin-bottom-0">{{ data['county'] if data["pickPharmacy"] == "Ma Manning (Pharmacy) Ltd" }}</p>
-
-            <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "LS8 1QR" }}</p>
+            <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "M1 5AE" }}</p>
 
 
-            <p>Telephone: {{ data["phoneNumber"] or "0113 266 1786" }}</p>
+            <p>Telephone: {{ data["phoneNumber"] or "0161 236 1445" }}</p>
 
 
             {% if data['inJourney'] == "true" %}
@@ -54,9 +51,9 @@
             {% else %}
             <h2 class="nhsuk-heading-m">What happens next</h2>
 
-              <p>Your prescriptions will be sent to {{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }} from now on.</p>
+              <p>Your prescriptions will be sent to {{ data["pickPharmacy"] or "Cameolord Pharmacy" }} from now on.</p>
 
-              <p>Collect your prescriptions from {{ data["pickPharmacy"] or "Ma Manning (Pharmacy) Ltd" }} when they are ready to collect.</p>
+              <p>Collect your prescriptions from {{ data["pickPharmacy"] or "Cameolord Pharmacy" }} when they are ready to collect.</p>
             {% endif %}
 
 
