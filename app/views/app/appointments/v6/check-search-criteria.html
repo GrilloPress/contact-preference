@@ -61,7 +61,16 @@ $("textarea").focusout(function(){
                     text: "Appointment type"
                   },
                   value: {
-                    html: data['type'] + "<br> " + data['sessionName']
+                    html: data['appointmentType'] + "<br> "
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "select-type-of-appointment",
+                        text: "Change",
+                        visuallyHiddenText: "type"
+                      }
+                    ]
                   }
                 },
                 {
@@ -69,7 +78,16 @@ $("textarea").focusout(function(){
                     text: "Member of staff"
                   },
                   value: {
-                    html: data["staffName"] or "Any"
+                    html: data["appointmentMember"] or "Any"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "select-practice-member",
+                        text: "Change",
+                        visuallyHiddenText: "practicemember"
+                      }
+                    ]
                   }
                 },
                 {
@@ -84,8 +102,8 @@ $("textarea").focusout(function(){
               ]
             }) }}
 
-      <form action="/{{ PROTOTYPEURL}}/select-available-appointment?confirmed=true" method="post">
-        <input type="submit" class="nhsuk-button" value="Search appointments">
+      <form action="/{{ PROTOTYPEURL}}/select-available-appointment" method="post">
+        <input type="submit" class="nhsuk-button" value="View available appointments">
         </input>
       </form>
 

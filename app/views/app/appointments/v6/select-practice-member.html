@@ -7,8 +7,8 @@
 {% endblock %}
 
 {% set showAppointmentType %}
-{% if data["appointmentType"] == "Same Day AM" %}
-  {{ data["appointmentType"] }} <br> Same Day AM
+{% if data["appointmentType"] == "Telephone appointment" %}
+  {{ data["appointmentType"] }} <br> Telephone
 {% elif data["appointmentType"] %}
   {{ data["appointmentType"] }} <br> Face to face
 {% else %}
@@ -41,7 +41,7 @@
 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <form action="/{{ PROTOTYPEURL}}/select-available-appointment" method="post">
+      <form action="/{{ PROTOTYPEURL}}/check-search-criteria" method="post">
         <div class="nhsuk-form-group">
 
             <fieldset class="nhsuk-fieldset" aria-describedby="appointmentMember-hint">
@@ -57,121 +57,116 @@
 
             <div class="nhsuk-checkboxes">
 
-                            {% if data['appointmentType'] %}
-                              {% if "Asthma Nurse" in data['appointmentType'] %}
-                              <div class="nhsuk-checkboxes__item">
-                                <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Siobhan Jones">
-                                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
-                                  Siobhan Jones
-                                </label>
-                              </div>
+              {% if data['appointmentType'] %}
+                {% if "Smear" in data['appointmentType'] %}
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Sister Leanna Leveille (Female)">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
+                    Sister Leanna Leveille (Female)
+                  </label>
+                </div>
 
-                              {% elif "Blood Test ONLY (IF invited by a clinician at THIS practice) Booked Online" in data['appointmentType'] %}
-                              <div class="nhsuk-checkboxes__item">
-                                <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Siobhan Jones">
-                                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
-                                  Siobhan Jones
-                                </label>
-                              </div>
+                {% elif "Blood tests only" in data['appointmentType'] %}
+                <div class="nhsuk-checkboxes__item">
+                  <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Sister Leanna Leveille (Female)">
+                  <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
+                    Sister Leanna Leveille (Female)
+                  </label>
+                </div>
+                {% else %}
+                {% endif %}
 
-                              {% elif "Nurse (See our Website for what the nurses can see BEFORE booking) Booked Online" in data['appointmentType'] %}
-                              <div class="nhsuk-checkboxes__item">
-                                <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Siobhan Jones">
-                                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
-                                  Siobhan Jones
-                                </label>
-                              </div>
+              {% if "Slot" in data['appointmentType'] %}
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Dr Sanjit Praneskear (Male)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
+                  Dr Sanjit Praneskear (Male)
+                </label>
+              </div>
 
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Dr Anjanette Peppard (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-3">
+                  Dr Anjanette Peppard (Female)
+                </label>
+              </div>
 
-                              {% elif "Same Day AM" in data['appointmentType'] %}
-                              <div class="nhsuk-checkboxes__item">
-                                <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Siobhan Jones">
-                                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
-                                  Siobhan Jones
-                                </label>
-                              </div>
-                              {% else %}
-                              {% endif %}
+              {% elif "21 Day On Line Appointment" in data['appointmentType'] %}
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Dr Sanjit Praneskear (Male)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
+                  Dr Sanjit Praneskear (Male)
+                </label>
+              </div>
 
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Dr Anjanette Peppard (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-3">
+                  Dr Anjanette Peppard (Female)
+                </label>
+              </div>
 
-                            {% if "Doctor - Booked Online" in data['appointmentType'] %}
-                            <div class="nhsuk-checkboxes__item">
-                              <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Katie Malito">
-                              <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-3">
-                                Katie Malito
-                              </label>
-                            </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-4" name="appointmentMember" type="checkbox" value="Dr Abbie Thetford (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-4">
+                  Dr Abbie Thetford (Female)
+                </label>
+              </div>
 
-                            {% elif "Cervical Smear (MUST be over 25 years old) Booked Online" in data['appointmentType'] %}
-                            <div class="nhsuk-checkboxes__item">
-                              <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Katie Malito">
-                              <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-3">
-                                Katie Malito
-                              </label>
-                            </div>
-                            {% else %}
-                            {% endif %}
+              {% elif "Telephone" in data['appointmentType'] %}
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Dr Sanjit Praneskear (Male)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
+                  Dr Sanjit Praneskear (Male)
+                </label>
+              </div>
+              {% else %}
+              {% endif %}
 
+              {% else %}
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Sister Leanna Leveille (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
+                  Sister Leanna Leveille (Female)
+                </label>
+              </div>
 
-                            {% if "Doctor Mental Health - Booked Online" in data['appointmentType'] %}
-                            <div class="nhsuk-checkboxes__item">
-                              <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Joseph Goldner">
-                              <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
-                                Joseph Goldner
-                              </label>
-                            </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Dr Sanjit Praneskear (Male)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
+                  Dr Sanjit Praneskear (Male)
+                </label>
+              </div>
 
-                            {% elif "Doctor Weekend Appointment HUB - Booked Online" in data['appointmentType'] %}
-                            <div class="nhsuk-checkboxes__item">
-                              <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Joseph Goldner">
-                              <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
-                                Joseph Goldner
-                              </label>
-                            </div>
-                            {% else %}
-                            {% endif %}
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Dr Anjanette Peppard (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-3">
+                  Dr Anjanette Peppard (Female)
+                </label>
+              </div>
 
-                            {% else %}
-                            <div class="nhsuk-checkboxes__item">
-                              <input class="nhsuk-checkboxes__input" id="appointmentMember-1" name="appointmentMember" type="checkbox" value="Siobhan Jones">
-                              <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-1">
-                                Siobhan Jones
-                              </label>
-                            </div>
+              <div class="nhsuk-checkboxes__item">
+                <input class="nhsuk-checkboxes__input" id="appointmentMember-4" name="appointmentMember" type="checkbox" value="Dr Abbie Thetford (Female)">
+                <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-4">
+                  Dr Abbie Thetford (Female)
+                </label>
+              </div>
+              {% endif %}
 
-                            <div class="nhsuk-checkboxes__item">
-                              <input class="nhsuk-checkboxes__input" id="appointmentMember-2" name="appointmentMember" type="checkbox" value="Joseph Goldner">
-                              <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-2">
-                                Joseph Goldner
-                              </label>
-                            </div>
+            </div>
+            </fieldset>
 
-                            <div class="nhsuk-checkboxes__item">
-                              <input class="nhsuk-checkboxes__input" id="appointmentMember-3" name="appointmentMember" type="checkbox" value="Katie Malito">
-                              <label class="nhsuk-label nhsuk-checkboxes__label" for="appointmentMember-3">
-                                Katie Malito
-                              </label>
-                            </div>
-                            {% endif %}
+          </div>
 
-                          </div>
-                          </fieldset>
-
-                        </div>
-
-                      <input type="submit" class="nhsuk-button" value="Continue">
-                      </input>
-                    </form>
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
 
       {{ details({
         "text": "Information about booking appointments",
         "HTML": "
-        <p> IMPORTANT, PLEASE READ BEFORE BOOKING: </p>
-          <p>  Some of our appointments are available to book in advance online. The remainder of appointments can be accessed via our same day service.
-          You can book an appointment with one of our Nurses for the following: contraception; cough/cold/fever/sore throat; urinary symptoms in women; diarrhoea and vomiting; cervical smears; ear problems; minor injuries.</p>
-          <p>For other issues, including mental health and wellbeing, you will need to book an appointment with a GP.
-          Our Health Care Assistants (HCAs) may be booked for blood tests once these have been requested by a clinician.</p>
-        <p>**IT IS IMPORTANT THAT YOU BOOK THE CORRECT APPOINTMENT OTHERWISE YOUR APPOINTMENT WILL BE CANCELLED**</p>
+        <p>PLEASE NOTE IF YOU ARE BOOKING A TELEPHONE CONSULTATION IT COULD HAPPEN AT ANY TIME OF THE MORNING OR AFTERNOON-IT WON'T NECESSARILY BE AT THE TIME OF THE APPOINTMENT.</p>
+        <p>Please ensure you cancel your appointment if you are unable to attend.</p>
         "
       }) }}
 
