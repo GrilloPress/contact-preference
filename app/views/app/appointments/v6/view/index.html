@@ -1,26 +1,15 @@
-{% set PROTOTYPEURL = "app/appointments/v6" %}
+{% set PROTOTYPEURL = "app/appointments/v5" %}
 {% set appointmentsActive = "active" %}
-{% set contentTitle = "Your appointment has been booked" %}
-{% set title = contentTitle + " - " + serviceName %}
-{% block pageScripts %}
-<script>
-// dirty hack to make the menu disappear when a textarea is being used
-$("textarea").focus(function(){
-  $(".menu").hide();
-});
+{% set contentTitle %}
+  {{ data["appViewDate"] or "5" | returnDate }}
+{% endset %}
 
-$("textarea").focusout(function(){
-  $(".menu").show();
-});
-</script>
+{% set title = "Upcoming appointment: " + contentTitle + " - " + serviceName %}
+{% block pageScripts %}
 {% endblock %}
 
 {% set showAppointmentType %}
-{% if data["type"] %}
-  {{ data["type"] }} <br> {{ data['sessionName'] or "Session" }}
-{% else %}
-  Slot <br> Session
-{% endif %}
+{{ data["appViewType"] or "Slot" }} <br> {{ data["appViewSession"] or "Session" }}
 {% endset %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -33,21 +22,29 @@ $("textarea").focusout(function(){
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Appointments</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="index">Your appointments</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">
-        {{ contentTitle }}
-      </h1>
 
       <div class="app-card app-card--with-border">
         <div class="app-card__wrapper app-card--without-shadow">
           <div class="app-card__content app-card__content--with-actions">
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">
+            <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-0">
+              <span class="nhsuk-caption-m nhsuk-caption--top">Upcoming appointment </span>
               {{ data["appViewDate"] or "5" | returnDate }}
-            </h2>
+            </h1>
 
             <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ data["appViewTime"] or "10.50am" }}</p>
             {{ summaryList({
@@ -95,8 +92,8 @@ $("textarea").focusout(function(){
         </div>
       </div>
 
-      <p>
-        <a href="/{{ PROTOTYPEURL}}/GP-hub">Go to your GP appointments</a>
+      <p class="nhs-app-desktop--show">
+        <a href="javascript: window.history.go(-1)">Back</a>
       </p>
 
     </div>

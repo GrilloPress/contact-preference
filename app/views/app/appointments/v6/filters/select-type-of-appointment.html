@@ -32,7 +32,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{ PROTOTYPEURL}}/check-search-criteria" method="post">
+      <form action="/{{ PROTOTYPEURL}}/select-available-appointment" method="post">
         {{ checkboxes({
           "idPrefix": "appointmentType",
           "name": "appointmentType",
@@ -46,33 +46,33 @@
           "hint": {
           "text": "Select all that apply"
         },
-        "items": [
-          {
-            "value": "Slot",
-            "text": "Slot",
-            "checked": checked("appointmentType", "Slot")
-          },
-          {
-            "value": "21 Day On Line Appointment",
-            "text": "21 Day On Line Appointment",
-            "checked": checked("appointmentType", "21 Day On Line Appointment")
-          },
-          {
-            "value": "Blood tests only",
-            "text": "Blood tests only",
-            "checked": checked("appointmentType", "Blood tests only")
-          },
-          {
-            "value": "Smear",
-            "text": "Smear",
-            "checked": checked("appointmentType", "Smear")
-          },
-          {
-            "value": "Telephone",
-            "text": "Telephone",
-            "checked": checked("appointmentType", "Telephone")
-          }
-        ]
+          "items": [
+            {
+              "value": "Slot",
+              "text": "Slot",
+              "checked": checked("appointmentType", "Slot")
+            },
+            {
+              "value": "21 Day On Line Appointment",
+              "text": "21 Day On Line Appointment",
+              "checked": checked("appointmentType", "21 Day On Line Appointment")
+            },
+            {
+              "value": "Blood tests only",
+              "text": "Blood tests only",
+              "checked": checked("appointmentType", "Blood tests only")
+            },
+            {
+              "value": "Smear",
+              "text": "Smear",
+              "checked": checked("appointmentType", "Smear")
+            },
+            {
+              "value": "Telephone",
+              "text": "Telephone",
+              "checked": checked("appointmentType", "Telephone")
+            }
+          ]
         }) }}
 
         <input type="submit" class="nhsuk-button" value="Continue">

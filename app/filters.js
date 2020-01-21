@@ -10,6 +10,39 @@ module.exports = function (env) {
   var nunjucksDate = require('nunjucks-date');
   var moment = require('moment');
 
+
+  // Add Nunjucks function called 'checked' to populate radios and checkboxes
+  // {{ checked("appointmentType", "Slot") }}
+  filters.checked = function(name,value) {
+    // Check data exists
+    if (this.ctx.data === undefined) {
+      return ''
+    }
+
+    var storedValue = this.ctx.data[name]
+
+    // Check the requested data exists
+    if (storedValue === undefined) {
+      return ''
+    }
+
+    var checked = ''
+
+    // If data is an array, check it exists in the array
+    if (Array.isArray(storedValue)) {
+      if (storedValue.indexOf(value) !== -1) {
+        checked = 'checked'
+      }
+    } else {
+      // The data is just a simple value, check it matches
+      if (storedValue === value) {
+        checked = 'checked'
+      }
+    }
+    return checked
+  }
+
+
   filters.today = function(name) {
       return moment().format("Do MMMM YYYY");
   }

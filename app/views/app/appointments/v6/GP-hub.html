@@ -38,7 +38,7 @@ $( document ).ready(function() {
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Appointments</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="index">Your appointments</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back to appointments</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -68,47 +68,15 @@ $( document ).ready(function() {
       <ul class="list-menu">
 
             {% if data["confirmed"] %}
-            <li class="no-chevron">
-              <div class="list-menu_container nhsuk-u-padding-bottom-0">
-              <h3 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ data["date"] or "5" | returnDate }}</h3>
-              <p class="nhsuk-u-margin-bottom-0 nhsuk-u-padding-top-0">{{ data["time"] or "10.50am" }}</p>
+            <li>
+          		<a href='/{{ PROTOTYPEURL }}/view/index?appViewDate={{ data["date"] or "5" | returnDate }}&appViewTime={{ data["time"] or "10.50am" }}&appViewLocation={{ data["location"] or "Gledhow Practice" }}&appViewType={{ data["type"] or "Slot" }}&appViewSession={{ data["sessionName"] or "Session" }}&appViewStaff={{ data["staffName"] or "Dr Sanjit Praneskear (Male)" }}'>
 
-              {{ summaryList({
-                classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
-                rows: [
-                  {
-                    key: {
-                      text: "Location"
-                    },
-                    value: {
-                      text: data['location'] or "Gledhow Practice"
-                    }
-                  },
-                  {
-                    key: {
-                      text: "Appointment type"
-                    },
-                    value: {
-                      html: showAppointmentType,
-                      classes: "nhsuk-u-margin-bottom-0"
-                    }
-                  },
-                  {
-                    key: {
-                      text: "Practice staff"
-                    },
-                    value: {
-                      html: data["staffName"] or "Dr Sanjit Praneskear (Male)",
-                      classes: "nhsuk-u-margin-bottom-0"
-                    }
-                  }
-                ]
-              }) }}
-            </div>
-              <a class="nhs-app-list-menu-delete__link" href="#">
-                <span>Cancel this appointment</span>
-              </a>
-            </li>
+                <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">{{ data["date"] or "5" | returnDate }}</h3>
+                <p class="nhsuk-u-margin-bottom-0 nhsuk-u-padding-bottom-0 nhsuk-u-padding-top-0">{{ data["time"] or "10.50am" }}</p>
+                <p class="nhsuk-body-s nhsuk-u-padding-bottom-0 nhsuk-u-padding-top-0">{{ data['location'] or "Gledhow Practice" }}</p>
+
+          		</a>
+          	</li>
             {% else %}
             <li class="no-chevron">
               <div class="list-menu_container">

@@ -4,6 +4,14 @@
 {% set contentTitle = "Choose an appointment" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
+<script>
+$('ul.list-menu.list-menu__results').each(function() {
+         if ($(this).text().trim() === "") {
+                   $(this).css('display','none');
+                   $(this).prev().css('display','none');
+         }
+});
+</script>
 {% endblock %}
 
 {% set showAppointmentType %}
@@ -74,7 +82,7 @@
             actions: {
               items: [
                 {
-                  href: "select-type-of-appointment",
+                  href: "/" + PROTOTYPEURL + "/filters/select-type-of-appointment",
                   text: "Change",
                   visuallyHiddenText: "appointment type"
                 }
@@ -92,7 +100,7 @@
             actions: {
               items: [
                 {
-                  href: "select-practice-member",
+                  href: "/" + PROTOTYPEURL + "/filters/select-practice-member",
                   text: "Change",
                   visuallyHiddenText: "Member of staff"
                 }
