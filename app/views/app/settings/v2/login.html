@@ -1,0 +1,45 @@
+{% set PROTOTYPEURL = "app/settings/v2" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% set bodyClasses = "login" %}
+{% block pageScripts %}
+<script>
+$('#loginFrame').on("load", function () {
+    console.log('iframe loaded completely'); //replace with code to hide loader
+    $( ".container--loader" ).hide();
+});
+</script>
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/",
+  text: "Settings"
+}) }}
+<div class="container--loader">
+      <div id="waitingForData" class="loader mobile">
+      </div>
+    </div>
+<iframe id="loginFrame" frameBorder="0" src="https://manage-nhs-login.herokuapp.com/account/v5-app" width="100%" height="1000px"></iframe>
+{% endblock %}
+
+{% block content %}
+{% endblock %}

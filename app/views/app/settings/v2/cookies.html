@@ -1,0 +1,70 @@
+{% set PROTOTYPEURL = "app/settings/v2" %}
+{% set serviceName = "Home" %}
+{% set contentTitle = "Manage cookies" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/",
+  text: "Settings"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+      <p>We've put some small files called cookies on your device to make the NHS App work.</p>
+      <p>We will not use any other cookies unless you choose to turn them on.</p>
+
+      <ul class="list-menu">
+        <li>
+          <a target="_blank" href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/cookies/">Cookies policy</a>
+        </li>
+      </ul>
+
+      {% set checked %}
+        {% if data['cookies'] == "on" %}
+          Checked
+        {% else %}
+          nope
+        {% endif %}
+      {% endset %}
+
+      <form action="" method="post">
+        <div class="nhs-app-card">
+          <div class="nhs-app-card__inner" onclick="cookieToggle()">
+            <div>
+              <label for="cookie">Allow optional analytic cookies</label>
+              <span class="nhsuk-hint nhsuk-u-margin-top-4">
+                I accept the use of optional analytic cookies used to improve the performance of the NHS App
+              </span>
+              <input class="toggle" type="checkbox" id="cookie" name="cookie" value="on" {{ checked }}>
+              <input class="nhsuk-u-visually-hidden" type="submit" value="Submit">
+      			</div>
+          </div>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+{% endblock %}
