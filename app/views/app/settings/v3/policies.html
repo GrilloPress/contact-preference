@@ -1,0 +1,45 @@
+{% set PROTOTYPEURL = "app/settings/v3" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">Our policies</h1>
+      <ul class="list-menu">
+        <li>
+      		<a href="#">Help and support</a>
+      	</li>
+        <li>
+      		<a href="#">Accessibility statement</a>
+      	</li>
+        <li>
+      		<a href="#">Open source licences</a>
+      	</li>
+        <li>
+          <a href="#">Privacy policy</a>
+        </li>
+        <li>
+      		<a href="#">Terms of use</a>
+      	</li>
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}
