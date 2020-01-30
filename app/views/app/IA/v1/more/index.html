@@ -1,0 +1,41 @@
+{% set PROTOTYPEURL = "app/IA/v1" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "More" %}
+{% set moreActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new-v1.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">{{ contentTitle }}</h1>
+
+      <ul class="list-menu">
+        <li>
+      		<a href="/app/organ-donation/v2/register-decision">
+      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Nominate your pharmacy</h2>
+      		</a>
+      	</li>
+        <li>
+      		<a href="/app/send-a-message/v4/send-a-message-radio">
+      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">NHS App settings</h2>
+      		</a>
+      	</li>
+      </ul>
+
+
+    </div>
+  </div>
+{% endblock %}

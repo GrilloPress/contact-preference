@@ -1,0 +1,58 @@
+{% set PROTOTYPEURL = "app/IA/v1" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Home" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new-v1.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-1">{{ contentTitle }}</h1>
+      <p class="nhsuk-body-l">Welcome, Bernard Doyle</p>
+      <div class="nhsuk-u-margin-bottom-4">
+      	<p class="nhsuk-body-l nhsuk-u-margin-bottom-2">
+          <strong>Date of birth</strong>
+          <span class="app-display--block">20 January 1982</span>
+        </p>
+        <p class="nhsuk-body-l nhsuk-u-margin-bottom-2">
+          <strong>NHS number</strong>
+          <span class="app-display--block">123 456 7890</span>
+        </p>
+      </div>
+
+      {% if data['messageRead1'] !== "read" %}
+      <ul class="list-menu nhs-app-message">
+        <li id="messageID1" class="nhs-app-message__item nhs-app-message__item--unread">
+      		<a class="nhs-app-message__link" href="/app/send-a-message/v4/index">
+            <h2 class="nhsuk-heading-xs">
+              You have 1 unread message
+              <span class="nhs-app-message__meta nhs-app-message__date">
+                <span class="nhsuk-u-visually-hidden">You have </span>
+                <span class="nhs-app-message__count">1</span>
+                <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                  unread message
+                </span>
+              </span>
+            </h2>
+          </a>
+      	</li>
+      </ul>
+      {% endif %}
+
+    </div>
+  </div>
+{% endblock %}
