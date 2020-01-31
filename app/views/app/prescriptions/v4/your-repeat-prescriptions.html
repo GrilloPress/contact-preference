@@ -117,9 +117,6 @@
                   </svg>
                 <p class="nhs-app-status-body nhs-app-status-body--waiting">Prescription pending GP approval</p>
               </div>
-
-
-
             </div>
 
 
@@ -138,48 +135,59 @@
       {% endif %}
 
 
+            {% if data['prescriptionConfirmed'] %}
+              {% if 'alogliptin' in data['choosePrescription'] %}
+
+              <h2 class="nhsuk-heading-m">
+                Requested
+              </h2>
+
+
+              <div class="app-card app-card--with-border">
+                <div class="app-card__wrapper">
+                  <div class="app-card__content">
+                    <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
+                      Ordered
+                    </h3>
+                    <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ "today" | returnDate }}</p>
+
+                    <div class="nhs-app-status">
+                      <div class="requested">
+                          <svg class="nhs-app-status-svg" width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+                            <title>Ordered</title>
+                            <desc></desc>
+                            <defs></defs>
+                            <g id="Icon---Clock" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                              <g id="clock-with-white-face" fill="#df6b31" fill-rule="nonzero">
+                                <path d="M8.5,0 C3.825,0 0,3.825 0,8.5 C0,13.175 3.825,17 8.5,17 C13.175,17 17,13.175 17,8.5 C17,3.825 13.175,0 8.5,0 Z M8.5,15.3 C4.76,15.3 1.7,12.24 1.7,8.5 C1.7,4.76 4.76,1.7 8.5,1.7 C12.24,1.7 15.3,4.76 15.3,8.5 C15.3,12.24 12.24,15.3 8.5,15.3 Z" id="Shape"></path>
+                                <polygon id="Shape" points="9.25 4 8 4 8 9.2173913 12.3333333 12 13 10.8695652 9.25 8.52173913"></polygon>
+                              </g>
+                            </g>
+                          </svg>
+                        <p class="nhs-app-status-body nhs-app-status-body--waiting">Prescription pending GP approval</p>
+                      </div>
+                    </div>
+
+
+                    <div class="nhs-app-card-delete">
+
+                      <h3 class="nhsuk-heading-xs">Alogliptin 25mg tablets</h3>
+                      <p>One to be taken each day - 28 tablet</p>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {% endif %}
+              {% endif %}
+
 
 
             <h2 class="nhsuk-heading-m">
               Approved
             </h2>
 
-
-
-            <div class="app-card app-card--with-border">
-              <div class="app-card__wrapper">
-                <div class="app-card__content">
-                  <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
-                    Ordered
-                  </h3>
-                  <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ "15" | returnPastDate }}</p>
-
-                  <div class="nhs-app-status">
-                      <svg class="nhs-app-status-svg" width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
-                        <title>Approved</title>
-                        <desc></desc>
-                        <defs></defs>
-                        <g id="Icon---Ready" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                          <g id="done" fill="#006435" fill-rule="nonzero">
-                            <polygon id="Shape" points="11.6398175 5 7.36505863 9.49932468 5.17466546 7.22683909 4 8.44068522 7.45336658 12 13 6.44199307"></polygon>
-                            <path d="M8.5,0 C3.80560204,0 0,3.80560204 0,8.5 C0,13.194398 3.80560204,17 8.5,17 C13.194398,17 17,13.194398 17,8.5 C17,3.80560204 13.1944378,0 8.5,0 Z M8.5,15.4615109 C4.65527134,15.4615109 1.53848912,12.3447287 1.53848912,8.5 C1.53848912,4.65527134 4.65527134,1.53848912 8.5,1.53848912 C12.3427763,1.54315085 15.4568093,4.65718384 15.4615109,8.5 C15.4615109,12.3447685 12.3447685,15.4615109 8.5,15.4615109 Z" id="Shape"></path>
-                          </g>
-                        </g>
-                      </svg>
-                      <p class="nhs-app-status-body nhs-app-status-body--approved">Prescription approved by your GP</p>
-
-                  </div>
-
-
-                  <div class="nhs-app-card-delete">
-
-                    <h3 class="nhsuk-heading-xs">Omeprazole 40mg gastro-resistant capsules</h3>
-                    <p>One to be taken each day - 28 tablet</p>
-
-                  </div>
-                </div>
-              </div>
-            </div>
 
 
             <div class="app-card app-card--with-border">
@@ -209,7 +217,7 @@
 
                   <div class="nhs-app-card-delete">
 
-                    <h3 class="nhsuk-heading-xs">Atenolol 25mg tablets</h3>
+                    <h3 class="nhsuk-heading-xs">Omeprazole 40mg gastro-resistant capsules</h3>
                     <p>One to be taken each day - 28 tablet</p>
 
                   </div>
@@ -219,40 +227,8 @@
 
 
 
-            <div class="app-card app-card--with-border">
-              <div class="app-card__wrapper">
-                <div class="app-card__content">
-                  <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
-                    Ordered
-                  </h3>
-                  <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ "4" | returnPastDate }}</p>
-
-                  <div class="nhs-app-status">
-                      <svg class="nhs-app-status-svg" width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
-                        <title>Approved</title>
-                        <desc></desc>
-                        <defs></defs>
-                        <g id="Icon---Ready" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                          <g id="done" fill="#006435" fill-rule="nonzero">
-                            <polygon id="Shape" points="11.6398175 5 7.36505863 9.49932468 5.17466546 7.22683909 4 8.44068522 7.45336658 12 13 6.44199307"></polygon>
-                            <path d="M8.5,0 C3.80560204,0 0,3.80560204 0,8.5 C0,13.194398 3.80560204,17 8.5,17 C13.194398,17 17,13.194398 17,8.5 C17,3.80560204 13.1944378,0 8.5,0 Z M8.5,15.4615109 C4.65527134,15.4615109 1.53848912,12.3447287 1.53848912,8.5 C1.53848912,4.65527134 4.65527134,1.53848912 8.5,1.53848912 C12.3427763,1.54315085 15.4568093,4.65718384 15.4615109,8.5 C15.4615109,12.3447685 12.3447685,15.4615109 8.5,15.4615109 Z" id="Shape"></path>
-                          </g>
-                        </g>
-                      </svg>
-                      <p class="nhs-app-status-body nhs-app-status-body--approved">Prescription approved by your GP</p>
-
-                  </div>
 
 
-                  <div class="nhs-app-card-delete">
-
-                    <h3 class="nhsuk-heading-xs">Citalopram 20mg tablets</h3>
-                    <p>One to be taken each day - 28 tablet</p>
-
-                  </div>
-                </div>
-              </div>
-            </div>
 
             <div class="app-card app-card--with-border">
               <div class="app-card__wrapper">
@@ -260,7 +236,7 @@
                   <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
                     Ordered
                   </h3>
-                  <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ "26" | returnPastDate }}</p>
+                  <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ "33" | returnPastDate }}</p>
 
                   <div class="nhs-app-status">
                       <svg class="nhs-app-status-svg" width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
@@ -297,7 +273,7 @@
                   <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
                     Ordered
                   </h3>
-                  <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ "26" | returnPastDate }}</p>
+                  <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ "30" | returnPastDate }}</p>
 
                   <div class="nhs-app-status">
                       <svg class="nhs-app-status-svg" width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
@@ -335,7 +311,7 @@
                   <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
                     Ordered
                   </h3>
-                  <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ "25" | returnPastDate }}</p>
+                  <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ "32" | returnPastDate }}</p>
 
                   <div class="nhs-app-status">
                       <svg class="nhs-app-status-svg" width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
@@ -367,48 +343,53 @@
 
 
 
+            {% if data['prescriptionConfirmed'] %}
+              {% if 'metformin' in data['choosePrescription'] %}
+              <h2 class="nhsuk-heading-m">
+                Rejected
+              </h2>
 
+                    <div class="app-card app-card--with-border">
+                      <div class="app-card__wrapper">
+                        <div class="app-card__content">
+                          <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
+                            Ordered
+                          </h3>
+                          <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ "today" | returnDate }}</p>
+
+                          <div class="nhs-app-status">
+                            <div class="requested">
+                                  <svg class="nhs-app-status-svg" data-v-6f08ed22="" data-v-7b72e180="" width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" data-label="status-icon" data-status="Rejected" focusable="false">
+                                    <title>Rejected</title>
+                                    <defs data-v-6f08ed22=""></defs> <g data-v-6f08ed22="" stroke="none" stroke-width="1" fill="#da291c" fill-rule="evenodd" class="Icon---Info"><g data-v-6f08ed22="" fill-rule="nonzero" class="info info-icon--path_1Or41"><path data-v-6f08ed22="" d="M8.00689061,16 C12.416882,16 16,12.4137931 16,8 C16,3.5862069 12.416882,0 8.00689061,0 C3.59689922,0 0,3.5862069 0,8 C0,12.4137931 3.59689922,16 8.00689061,16 Z M8.00689061,1.10344828 C11.796727,1.10344828 14.8837209,4.19310345 14.8837209,7.9862069 C14.8837209,11.7793103 11.796727,14.8689655 8.00689061,14.8689655 C4.21705426,14.8689655 1.13006029,11.7793103 1.13006029,7.9862069 C1.13006029,4.19310345 4.21705426,1.10344828 8.00689061,1.10344828 Z"></path>
+                                  <path data-v-6f08ed22="" d="M6.58404558,11.8140496 C6.25641026,11.8140496 6,12.0743802 6,12.4070248 C6,12.7396694 6.25641026,13 6.58404558,13 L10.4159544,13 C10.7435897,13 11,12.7396694 11,12.4070248 C11,12.0743802 10.7435897,11.8140496 10.4159544,11.8140496 L9.07692308,11.8140496 L9.07692308,6.59297521 C9.07692308,6.26033058 8.82051282,6 8.49287749,6 L6.58404558,6 C6.25641026,6 6,6.26033058 6,6.59297521 C6,6.92561983 6.25641026,7.18595041 6.58404558,7.18595041 L7.92307692,7.18595041 L7.92307692,11.8140496 L6.58404558,11.8140496 Z"></path>
+                                  <circle data-v-6f08ed22="" cx="8" cy="4" r="1" class="Oval"></circle></g></g></svg>
+                              <p class="nhs-app-status-body nhs-app-status-body--rejected">Contact your GP</p>
+                            </div>
+
+
+
+                          </div>
+
+
+                          <div class="nhs-app-card-delete">
+
+                            <h3 class="nhsuk-heading-xs">Alogliptin 25mg tablets</h3>
+                            <p>One to be taken each day - 28 tablet</p>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {% endif %}
+                    {% endif %}
 
 
 {% if data['prescriptionConfirmed'] %}
 {% if 'alogliptin' in data['choosePrescription'] %}
 
-      <h2 class="nhsuk-heading-m">
-        Rejected
-      </h2>
 
-            <div class="app-card app-card--with-border">
-              <div class="app-card__wrapper">
-                <div class="app-card__content">
-                  <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
-                    Ordered
-                  </h3>
-                  <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ "today" | returnDate }}</p>
-
-                  <div class="nhs-app-status">
-                    <div class="requested">
-                          <svg class="nhs-app-status-svg" data-v-6f08ed22="" data-v-7b72e180="" width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" data-label="status-icon" data-status="Rejected" focusable="false">
-                            <title>Rejected</title>
-                            <defs data-v-6f08ed22=""></defs> <g data-v-6f08ed22="" stroke="none" stroke-width="1" fill="#da291c" fill-rule="evenodd" class="Icon---Info"><g data-v-6f08ed22="" fill-rule="nonzero" class="info info-icon--path_1Or41"><path data-v-6f08ed22="" d="M8.00689061,16 C12.416882,16 16,12.4137931 16,8 C16,3.5862069 12.416882,0 8.00689061,0 C3.59689922,0 0,3.5862069 0,8 C0,12.4137931 3.59689922,16 8.00689061,16 Z M8.00689061,1.10344828 C11.796727,1.10344828 14.8837209,4.19310345 14.8837209,7.9862069 C14.8837209,11.7793103 11.796727,14.8689655 8.00689061,14.8689655 C4.21705426,14.8689655 1.13006029,11.7793103 1.13006029,7.9862069 C1.13006029,4.19310345 4.21705426,1.10344828 8.00689061,1.10344828 Z"></path>
-                          <path data-v-6f08ed22="" d="M6.58404558,11.8140496 C6.25641026,11.8140496 6,12.0743802 6,12.4070248 C6,12.7396694 6.25641026,13 6.58404558,13 L10.4159544,13 C10.7435897,13 11,12.7396694 11,12.4070248 C11,12.0743802 10.7435897,11.8140496 10.4159544,11.8140496 L9.07692308,11.8140496 L9.07692308,6.59297521 C9.07692308,6.26033058 8.82051282,6 8.49287749,6 L6.58404558,6 C6.25641026,6 6,6.26033058 6,6.59297521 C6,6.92561983 6.25641026,7.18595041 6.58404558,7.18595041 L7.92307692,7.18595041 L7.92307692,11.8140496 L6.58404558,11.8140496 Z"></path>
-                          <circle data-v-6f08ed22="" cx="8" cy="4" r="1" class="Oval"></circle></g></g></svg>
-                      <p class="nhs-app-status-body nhs-app-status-body--rejected">Contact your GP</p>
-                    </div>
-
-
-
-                  </div>
-
-
-                  <div class="nhs-app-card-delete">
-
-                    <h3 class="nhsuk-heading-xs">Alogliptin 25mg tablets</h3>
-                    <p>One to be taken each day - 28 tablet</p>
-
-                  </div>
-                </div>
-              </div>
-            </div>
 
             {% endif %}
             {% endif %}

@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "NHS App" %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "If you nominate an online-only pharmacy, you may still need to register with that pharmacy separately" %}
+{% set contentTitle = "The pharmacy you choose is where your prescriptions will be sent" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -22,7 +22,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v4/home">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v4">More</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v4/type-of-pharmacy">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v4/your-prescriptions-8">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -34,12 +34,11 @@
 
 
 
+                        <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
 
-                  <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
-
-                  <form action="/{{ PROTOTYPEURL }}/v4/name-of-pharmacy" method="get">
-                    <input type="submit" class="nhsuk-button" value="Continue">
-                  </form>
+                        <form action="/{{ PROTOTYPEURL }}/v4/type-of-pharmacy" method="get">
+                          <input type="submit" class="nhsuk-button" value="Continue">
+                        </form>
 
 
 
