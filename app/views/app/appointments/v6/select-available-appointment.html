@@ -112,8 +112,17 @@ $('ul.list-menu.list-menu__results').each(function() {
               text: "Location"
             },
             value: {
-              text: location,
+              html: data['appointmentLocation'] | placeholder('Gledhow Practice') | printStringOrArray,
               classes: "nhsuk-u-margin-bottom-0"
+            },
+            actions: {
+              items: [
+              {
+                href: "/" + PROTOTYPEURL + "/select-location",
+                text: "Change",
+                visuallyHiddenText: "Location"
+              }
+              ]
             }
           }
         ]
