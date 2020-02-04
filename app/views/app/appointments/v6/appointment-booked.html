@@ -46,10 +46,10 @@ $("textarea").focusout(function(){
         <div class="app-card__wrapper app-card--without-shadow">
           <div class="app-card__content app-card__content--with-actions">
             <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">
-              {{ data["appViewDate"] or "5" | returnDate }}
+              {{ data["date"] or "5" | returnDate }}
             </h2>
 
-            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ data["appViewTime"] or "10.50am" }}</p>
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ data["time"] or "10.50am" }}</p>
             {{ summaryList({
               classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
               rows: [
@@ -58,7 +58,7 @@ $("textarea").focusout(function(){
                     text: "Location"
                   },
                   value: {
-                    text: data['appViewLocation'] or "Gledhow Practice"
+                    text: data['appointmentLocation'] or "Gledhow Practice"
                   }
                 },
                 {

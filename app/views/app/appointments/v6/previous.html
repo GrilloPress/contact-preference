@@ -70,7 +70,7 @@
                   },
                   {
                     key: {
-                      text: "Practice staff"
+                      text: "Member of staff"
                     },
                     value: {
                       html: data["staffName"] or "Dr Sanjit Praneskear (Male)",
@@ -82,6 +82,47 @@
             </div>
           </li>
         </ul>
+
+        <ul class="list-menu">
+          <li class="no-chevron">
+            <div class="list-menu_container nhsuk-u-padding-bottom-0">
+              <h3 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ "-18" | returnDate }}</h3>
+              <p class="nhsuk-u-margin-bottom-0 nhsuk-u-padding-top-0">3.30pm</p>
+
+                {{ summaryList({
+                  classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
+                  rows: [
+                    {
+                      key: {
+                        text: "Location"
+                      },
+                      value: {
+                        text: data['location'] or "Lidgett Surgery"
+                      }
+                    },
+                    {
+                      key: {
+                        text: "Appointment type"
+                      },
+                      value: {
+                        html: showAppointmentType,
+                        classes: "nhsuk-u-margin-bottom-0"
+                      }
+                    },
+                    {
+                      key: {
+                        text: "Member of staff"
+                      },
+                      value: {
+                        html: data["staffName"] or "Dr Leanna Preville (Female)",
+                        classes: "nhsuk-u-margin-bottom-0"
+                      }
+                    }
+                  ]
+                }) }}
+              </div>
+            </li>
+          </ul>
     </div>
   </div>
 {% endblock %}
