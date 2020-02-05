@@ -20,6 +20,34 @@
   <link href="/css/nhsapp.css" rel="stylesheet">
 {% endblock %}
 
+{% set appointmentRoute %}
+  {{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v6/pre-hub" }}
+{% endset %}
+
+{% set recordRoute %}
+  {{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v1/" }}
+{% endset %}
+
+{% set symptomsRoute %}
+  {{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v1/" }}
+{% endset %}
+
+{% set moreRoute %}
+  {{ data["routeMore"] if data ["routeMore"] else "/app/more/v3/" }}
+{% endset %}
+
+{% set settingsRoute %}
+  {{ data["routeSettings"] if data ["routeSettings"] else "/app/settings/v1/" }}
+{% endset %}
+
+{% set prescriptionsRoute %}
+  {{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v4/your-prescriptions-8" }}
+{% endset %}
+
+{% set messagingRoute %}
+  {{ data["routeMessaging"] if data ["routeMessaging"] else "/app/send-a-message/v4/" }}
+{% endset %}
+
 {% block skipLink %}
 {% endblock %}
 
@@ -87,7 +115,7 @@
           </a>
         </li>
         <li class="nhsuk-header__navigation-item">
-          <a class="nhsuk-header__navigation-link is-{{ symptomsActive }}" href="/app/symptoms/v1/">
+          <a class="nhsuk-header__navigation-link is-{{ symptomsActive }}" href="{{ routeSymptoms }}">
             Symptoms
             <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
@@ -95,7 +123,7 @@
           </a>
         </li>
         <li class="nhsuk-header__navigation-item">
-          <a class="nhsuk-header__navigation-link is-{{ appointmentsActive }}" href="/app/appointments/v6/pre-hub">
+          <a class="nhsuk-header__navigation-link is-{{ appointmentsActive }}" href="{{ routeAppointments }}">
             Appointments
             <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
@@ -103,7 +131,7 @@
           </a>
         </li>
         <li class="nhsuk-header__navigation-item">
-          <a class="nhsuk-header__navigation-link is-{{ prescriptionsActive }}" href="/app/prescriptions/v4/your-prescriptions-8">
+          <a class="nhsuk-header__navigation-link is-{{ prescriptionsActive }}" href="{{ routePrescriptions }}">
             Prescriptions
             <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
@@ -111,7 +139,7 @@
           </a>
         </li>
         <li class="nhsuk-header__navigation-item">
-          <a class="nhsuk-header__navigation-link is-{{ recordActive }}" href="/app/records/v1/">
+          <a class="nhsuk-header__navigation-link is-{{ recordActive }}" href="{{ routeRecords }}">
             Health record
             <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
@@ -119,7 +147,7 @@
           </a>
         </li>
         <li class="nhsuk-header__navigation-item">
-          <a class="nhsuk-header__navigation-link is-{{ messagingActive }} {{ 'nhs-app-header__icon--unread' if data['messageRead1'] !== 'read' }}" href="/app/send-a-message/v4/">
+          <a class="nhsuk-header__navigation-link is-{{ messagingActive }} {{ 'nhs-app-header__icon--unread' if data['messageRead1'] !== 'read' }}" href="{{ messagingRoute }}">
             Messages
             <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
@@ -155,7 +183,7 @@
 
 
 
-        <a class="nhs-app-header__icon {{- messagesReadUnread -}}" href="/app/send-a-message/v4/index">
+        <a class="nhs-app-header__icon {{- messagesReadUnread -}}" href="{{ messagingRoute}}">
 
           <svg width="27px" height="23px" viewBox="0 0 27 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>Icon/Header/Message2</title>
@@ -166,7 +194,7 @@
               </g>
           </svg>
         </a>
-        <a class="nhs-app-header__icon nhs-app-header__icon--right" href="/app/settings/v1/"><img src="/images/settings.svg" alt=""></a>
+        <a class="nhs-app-header__icon nhs-app-header__icon--right" href="{{ routeSettings }}"><img src="/images/settings.svg" alt=""></a>
       </div>
     </div>
   </div>
@@ -310,7 +338,7 @@
             <div class="nhsuk-grid-column-full">
       <ul>
         <li class="{{ symptomsActive }}" id="btn_symptoms">
-          <a href="/app/symptoms/v1/">
+          <a href="{{ routeSymptoms }}">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.39 110.39">
             <defs>
             <style>
@@ -337,7 +365,7 @@
         </a>
         </li>
         <li class="{{ appointmentsActive }}" id="btn_appointments">
-          <a href="/app/appointments/v6/pre-hub">
+          <a href="{{ routeAppointments }}">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.39 110.39">
             <defs>
             </defs>
@@ -364,7 +392,7 @@
         </a>
         </li>
         <li class="{{ prescriptionsActive }}" id="btn_prescriptions">
-          <a href="/app/prescriptions/v4/your-prescriptions-8">
+          <a href="{{ routePrescriptions }}">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.39 110.39">
             <defs>
             </defs>
@@ -385,7 +413,7 @@
           </a>
         </li>
         <li class="{{ recordActive }}" id="btn_record">
-          <a href="/app/records/v1/">
+          <a href="{{ routeRecords }}">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.39 110.39">
             <defs>
             </defs>
@@ -407,7 +435,7 @@
           </a>
         </li>
         <li class="{{ moreActive }}" id="btn_more">
-          <a href="/app/more/v3/">
+          <a href="{{ routeMore }}">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.39 110.39">
               <defs>
               </defs>
