@@ -1,0 +1,48 @@
+{% extends 'layouts/layout-app-new.html' %}
+
+{% block pageTitle %}
+  Example - Branching
+{% endblock %}
+
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+
+<h1 class="nhsuk-fieldset__legend--l">
+    How would you like us to help you with this problem?
+  </h1>
+
+{% from 'textarea/macro.njk' import textarea %}
+
+{{ textarea({
+  "name": "example",
+  "id": "example",
+  "label": {
+    "text": ""
+  },
+  "hint": {
+    "text": ""
+  }
+}) }}
+
+{% from 'button/macro.njk' import button %}
+
+
+{{ button({
+    "text": "Continue",
+    "id": "btn_submit",
+    "href": '/medical/problem'
+  }) }}
+
+{% endblock %}

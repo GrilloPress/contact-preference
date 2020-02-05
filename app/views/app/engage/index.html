@@ -1,13 +1,13 @@
 {% set PROTOTYPEURL = "app/engage" %}
-{% set serviceName = "Engage" %}
-{% set contentTitle = "Example patterns" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Engage" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
-{% extends 'layouts/layout-app-new.html' %}
+{% extends 'layouts/layout-transactional.html' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -21,11 +21,40 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
       <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
         {{ contentTitle }}
       </h1>
 
+      <h2>Messaging design</h2>
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/messaging/hub">Hub design - Latest</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/messaging/hub-7">Hub design - v7</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/messaging/hub-6">Hub design - v6</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/messaging/hub-5">Hub design - v5</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/messaging/hub-4">Hub design - v4</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/messaging/hub-3">Hub design - v3</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/messaging/hub-2">Hub design - v2</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/messaging/hub-1">Hub design - v1</a>
+        </li>
+      </ul>
+
+      <h2>Design examples</h2>
       <ul>
         <li><a href="/{{ PROTOTYPEURL}}/panels">Panels</a></li>
         <li><a href="/{{ PROTOTYPEURL}}/radios">Radios</a></li>

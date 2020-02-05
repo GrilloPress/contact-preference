@@ -1,0 +1,66 @@
+{% block pageScripts %}
+  <link href="/css/nhsapp.css" rel="stylesheet">
+{% endblock %}
+
+{% extends 'layouts/layout-app-new.html' %}
+
+{% block pageTitle %}
+  Example - Branching
+{% endblock %}
+
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <!-- Change the page title here -->
+      <h1>
+        Please answer a series of medical questions to help our clinical staff to help you.
+      </h1>
+      {{ careCard({
+        "type": "non-urgent",
+        "heading": "Info",
+        "HTML": "<p>Questionnaires generally take about 5 to 10 minutes to complete and it really helps us if you complete as much as you are able. When requests are submitted within the published response times (usually ending before the surgery closes each day), we will contact you on the number provided to discuss the next steps.</p>"
+      }) }}
+
+      {{ warningCallout({
+        "heading": "Please remember that:",
+        "HTML": "<ul>
+            <li>Engage Consult must never be used for medical emergencies. Please contact 111 or 999 if you are in any doubt.</li>
+            <li>It remains your responsibility to seek medical help by other means for yourself (or for the person for whom the request is being made) if the situation worsens or you have concerns.</li>
+            <li>Any requests made outside our daily response hours will not be read or responded to until our next full working day.</li>
+        </ul>"
+      }) }}
+
+      <ul class="list-menu">
+        <li>
+          <a href="question" id="btn_organdonation">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Start the questions</h2>
+          </a>
+        </li>
+        <li>
+          <a href="question" id="btn_organdonation">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">No, send my request as it is
+            </h2>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+{% endblock %}

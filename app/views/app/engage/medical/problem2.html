@@ -1,0 +1,59 @@
+{% extends 'layouts/layout-app-new.html' %}
+
+{% block pageTitle %}
+  Example - Branching
+{% endblock %}
+
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+
+<h1 class="nhsuk-fieldset__legend--l">
+    Medical problem entered
+</h1>
+
+{% from 'textarea/macro.njk' import textarea %}
+
+{% from 'button/macro.njk' import button %}
+
+{{ button({
+  "text": "x Cough",
+  "classes": "nhsuk-button--secondary"
+}) }}
+
+{% from 'inset-text/macro.njk' import insetText %}
+
+{{ insetText({
+  "HTML": "<p>If you have other problems you wish to let us know about, please enter below, otherwise click continue.</p>"
+}) }}
+
+
+{% from 'input/macro.njk' import input %}
+
+{{ input({
+
+  "id": "example",
+  "name": "example"
+}) }}
+
+{% from 'button/macro.njk' import button %}
+
+
+{{ button({
+    "text": "Continue",
+    "id": "btn_submit",
+    "href": '/medical/self_help'
+  }) }}
+
+{% endblock %}

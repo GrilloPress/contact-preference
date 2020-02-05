@@ -1,0 +1,83 @@
+{% extends 'layouts/layout-app-new.html' %}
+
+{% block pageTitle %}
+  Example - Branching
+{% endblock %}
+
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+
+<strong>You might find it useful to take a look at the resources we have found relating to your issue/issues.</strong>
+<br /><br />
+<h1 class="nhsuk-fieldset__legend--l">
+Useful information that may help you
+</h1>
+
+{% from 'inset-text/macro.njk' import insetText %}
+
+{{ insetText({
+  "HTML": "Cough"
+}) }}
+
+<p>
+There's usually no need to see a GP.
+<br /><br />
+You should:<br />
+rest<br />
+drink plenty of fluids
+<br /><br />
+You could also try:<br />
+hot lemon and honey (not suitable for babies under 1 year old)<br />
+a herbal medicine called pelargonium (suitable for people aged 12 or over)
+<br /><br />
+There's limited evidence to show these work.<br />
+Hot lemon with honey has a similar effect to cough medicines.
+<br /><br />
+  You can ask a pharmacist about:<br />
+cough syrup<br />
+cough medicine (some cough medicines should not be given to children under 12)<br />
+cough sweets
+<br /><br />
+These will not stop your cough, but will help you cough less.
+<br /><br />
+Decongestants and cough medicines containing codeine will not stop your cough.<br />
+<br />
+When to seek non urgent medical help:<br />
+you have had a cough for more than 3 weeks (persistent cough)<br />
+your cough is very bad or quickly gets worse – for example, you have a hacking cough or cannot stop coughing<br />
+you feel very unwell<br />
+you have chest pain<br />
+you're losing weight for no reason<br />
+the side of your neck feels swollen and painful (swollen glands)<br />
+you find it hard to breathe<br />
+you have a weakened immune system – for example, because of chemotherapy or diabetes
+<br /><br />
+See a GP urgently if you're coughing up blood.
+
+Helpful links :
+
+NHS.UK: <a target="new" href="https://www.nhs.uk/conditions/Cough/">Cough</a>
+</p>
+
+{% from 'button/macro.njk' import button %}
+
+
+{{ button({
+    "text": "Continue",
+    "id": "btn_submit",
+    "href": '/medical/medical-upload-file'
+  }) }}
+
+{% endblock %}

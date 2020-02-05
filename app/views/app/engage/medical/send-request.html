@@ -1,0 +1,157 @@
+{% block pageScripts %}
+  <link href="/css/nhsapp.css" rel="stylesheet">
+{% endblock %}
+
+{% extends 'layouts/layout-app-new.html' %}
+
+{% block pageTitle %}
+  Example - Branching
+{% endblock %}
+
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <!-- Change the page title here -->
+      <h1>
+        Please read and review the request below carefully, then scroll to the bottom and click "Accept and Continue" to submit your request
+      </h1>
+
+      {% from "summary-list/macro.njk" import summaryList %}
+
+{{ summaryList({
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "Test Patient"
+      }
+    },
+    {
+        key: {
+          text: "Gender"
+        },
+        value: {
+          text: "Male"
+        }
+      },
+    {
+      key: {
+        text: "Date of birth"
+      },
+      value: {
+        text: "15 March 1984"
+      }
+    },
+    {
+        key: {
+          text: "Relationship"
+        },
+        value: {
+          text: "Self"
+        }
+      },
+    {
+        key: {
+            text: "Telephone"
+        },
+        value: {
+            text: "07123456432"
+        }
+    },
+    {
+        key: {
+            text: "Email"
+        },
+        value: {
+            text: "user@test.com"
+        }
+    },
+    {
+        key: {
+            text: "Availablitity"
+        },
+        value: {
+            text: "n/a"
+        }
+    },
+    {
+        key: {
+            text: "Enquiry type"
+        },
+        value: {
+            text: "A medical problem"
+        }
+    },
+    {
+        key: {
+            text: "Problem Type"
+        },
+        value: {
+            text: "New problem"
+        }
+    },
+    {
+        key: {
+            text: "Help from"
+        },
+        value: {
+            text: "Anyone"
+        }
+    },
+    {
+        key: {
+            text: "Postcode"
+        },
+        value: {
+            text: "NR1 13E"
+        }
+    }
+  ]
+}) }}
+
+<p>Medical problems reported:</p>
+
+<p>Problem 1, Problem 2</p>
+
+<hr>
+
+<p><strong>Questionaire completion</strong></p>
+<p>Test report data</p>
+
+<hr>
+
+      <ul class="list-menu">
+        <li>
+          <a href="../thankyou" id="btn_organdonation">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Download report</h2>
+          </a>
+        </li>
+        <li>
+            <a href="../thankyou" id="btn_organdonation">
+              <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Accept and continue</h2>
+            </a>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+{% endblock %}
