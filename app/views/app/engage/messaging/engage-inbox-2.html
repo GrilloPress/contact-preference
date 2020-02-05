@@ -1,0 +1,59 @@
+{% set PROTOTYPEURL = "app/send-a-message/v4" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Online consultations" %}
+{% set messagingActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Messages</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">{{ contentTitle }}</h1>
+
+        <div class="nhs-app-panel-heading">
+          <h2 class="nhsuk-heading-m">Your messages</h2>
+        </div>
+        <ul class="list-menu nhs-app-message">
+          <li id="messageID1" class="nhs-app-message__item  ">
+            <a class="nhs-app-message__link" href="engage-view?id=3&from=Anyone&sent=31 October 2019&time=4.55pm&body=I need help with getting my patient record on paper&cat=Admin request for:">
+              <h2 class="nhsuk-heading-xs">
+                  <span class="nhsuk-u-visually-hidden">Conversation with:</span>
+                  Admin request for: Anyone
+                  <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+                  <span class="nhs-app-message__date  ">31 October 2019</span>
+                </h2>
+                <p class="nhs-app-message__subject-line">
+                  <span class="nhsuk-u-visually-hidden">Latest message: </span>
+                   Submitted: I need help with getting my patient record on paper
+                </p>
+              </a>
+          	</li>
+        </ul>
+
+
+  </div>
+</div>
+{% endblock %}
