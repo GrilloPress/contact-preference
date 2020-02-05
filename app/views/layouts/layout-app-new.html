@@ -20,31 +20,31 @@
   <link href="/css/nhsapp.css" rel="stylesheet">
 {% endblock %}
 
-{% set appointmentRoute %}
-  {{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v6/pre-hub" }}
+{% set routeAppointments %}
+  {{ data["routeAppointments"] if data ["routeAppointments"] else "app/appointments/v6/pre-hub" }}
 {% endset %}
 
-{% set recordRoute %}
+{% set routeRecords %}
   {{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v1/" }}
 {% endset %}
 
-{% set symptomsRoute %}
+{% set routeSymptoms %}
   {{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v1/" }}
 {% endset %}
 
-{% set moreRoute %}
+{% set routeMore %}
   {{ data["routeMore"] if data ["routeMore"] else "/app/more/v3/" }}
 {% endset %}
 
-{% set settingsRoute %}
+{% set routeSettings %}
   {{ data["routeSettings"] if data ["routeSettings"] else "/app/settings/v1/" }}
 {% endset %}
 
-{% set prescriptionsRoute %}
+{% set routePrescriptions %}
   {{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v4/your-prescriptions-8" }}
 {% endset %}
 
-{% set messagingRoute %}
+{% set routeMessaging %}
   {{ data["routeMessaging"] if data ["routeMessaging"] else "/app/send-a-message/v4/" }}
 {% endset %}
 
@@ -147,7 +147,7 @@
           </a>
         </li>
         <li class="nhsuk-header__navigation-item">
-          <a class="nhsuk-header__navigation-link is-{{ messagingActive }} {{ 'nhs-app-header__icon--unread' if data['messageRead1'] !== 'read' }}" href="{{ messagingRoute }}">
+          <a class="nhsuk-header__navigation-link is-{{ messagingActive }} {{ 'nhs-app-header__icon--unread' if data['messageRead1'] !== 'read' }}" href="{{ routeMessaging }}">
             Messages
             <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
@@ -183,7 +183,7 @@
 
 
 
-        <a class="nhs-app-header__icon {{- messagesReadUnread -}}" href="{{ messagingRoute}}">
+        <a class="nhs-app-header__icon {{- messagesReadUnread -}}" href="{{ routeMessaging }}">
 
           <svg width="27px" height="23px" viewBox="0 0 27 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>Icon/Header/Message2</title>
