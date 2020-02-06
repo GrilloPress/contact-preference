@@ -34,21 +34,44 @@
         </p>
       </div>
 
+      {% if data['messageRead1'] !== "read" %}
+      <ul class="list-menu nhs-app-message">
+        <li id="messageID1" class="nhs-app-message__item nhs-app-message__item--unread">
+      		<a class="nhs-app-message__link" href="/app/send-a-message/v4/index">
+            <h2 class="nhsuk-heading-xs">
+              You have 1 unread message
+              <span class="nhs-app-message__meta nhs-app-message__date">
+                <span class="nhsuk-u-visually-hidden">You have </span>
+                <span class="nhs-app-message__count">1</span>
+                <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                  unread message
+                </span>
+              </span>
+            </h2>
+          </a>
+      	</li>
+      </ul>
+      {% endif %}
+
+
       <ul class="list-menu">
         <li>
-          <a href="#">Check your symptoms</a>
+          <a href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v1/" }}'>Check your symptoms</a>
         </li>
         <li>
-          <a href="#">Book and manage appointments</a>
+          <a href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v6/pre-hub" }}'>Book and manage appointments</a>
         </li>
         <li>
-          <a href="#">Order a repeat prescription</a>
+          <a href='{{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v4/your-prescriptions-8" }}'>Order a repeat prescription</a>
         </li>
         <li>
-          <a href="#">View your GP health record</a>
+          <a href='{{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v1/" }}'>View your GP health record</a>
         </li>
         <li>
-          <a href="#">Manage your organ donation decision</a>
+          <a href="/app/organ-donation/v2/register-decision">Manage your organ donation decision</a>
+        </li>
+        <li>
+          <a href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/send-a-message/v4/" }}'>View your messages</a>
         </li>
       </ul>
     </div>
