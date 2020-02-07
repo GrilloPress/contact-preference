@@ -29,6 +29,25 @@ $color_app-interruption-blue: #05538e;
     fill: $color_nhsuk-white;
   }
 
+  strong {
+
+    color: $color_nhsuk-white;
+  }
+
+  a {
+    color: $color_nhsuk-white;
+
+    &:visited {
+
+      color: $color_nhsuk-white;
+    }
+
+    &:focus {
+
+      color: $color_nhsuk-black;
+    }
+  }
+
 }
 
 .app-interruption__img {
