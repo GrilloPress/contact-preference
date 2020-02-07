@@ -1,0 +1,82 @@
+{% set PROTOTYPEURL = "app/engage" %}
+{% set serviceName = "Engage" %}
+{% set contentTitle = "This service may not be appropriate for you and you may need to seek emergency care elsewhere" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l nhs-app-xl">{{ contentTitle }}</h1>
+
+      {{ careCard({
+        "type": "immediate",
+        "heading": "Call 999 or go to A&E if:",
+        "HTML": "
+        <ul>
+          <li>you injured your head badly - for example, from a fall or accident</li>
+          <li>the headache came on suddenly and is extremely painful</li>
+        </ul>
+        <p>You have an extrmely painful headache and:</p>
+        <ul>
+          <li>sudden problem speaking or remembering things</li>
+          <li>loss of vision</li>
+          <li>you're feeling drowsy or confused</li>
+          <li>you have a very hot temperature, feel hot and shivery, and have a stiff neck or a rash</li>
+          <li>the white part of your eye is red</li>
+        </ul>
+        "
+      }) }}
+
+      {{ careCard({
+        "type": "urgent",
+        "heading": "Ask for an urgent GP appointment if:",
+        "classes": "nhsuk-u-margin-bottom-4",
+        "HTML": "
+        <p>You have a severe headache and:</p>
+        <ul>
+          <li>your jaw hurts when eating</li>
+          <li>blurred or double vision</li>
+          <li>your scalp feels sore</li>
+        </ul>
+         <p>These could be signs that your arteries in your head or neck are inflamed. This needs urgent treatment.</p>
+        "
+      }) }}
+
+      <p>Some headaches can require immediate treatment.</p>
+
+      <p>By continuing you are declaring that this does not apply.</p>
+
+      <form action="/{{ PROTOTYPEURL }}/preq/v1/info" method="get">
+        <input type="submit" class="nhsuk-button" value="I understand">
+        </input>
+      </form>
+
+
+    </div>
+  </div>
+{% endblock %}
