@@ -1,0 +1,753 @@
+{% set PROTOTYPEURL = "app/appointments/v7-engage" %}
+{% set serviceName = "NHS App" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "Choose an appointment" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script>
+$('ul.list-menu.list-menu__results').each(function() {
+         if ($(this).text().trim() === "") {
+                   $(this).css('display','none');
+                   $(this).prev().css('display','none');
+         }
+});
+</script>
+{% endblock %}
+
+{% set showAppointmentType %}
+{% if data["appointmentType"] == "Telephone appointment" %}
+  {{ data["appointmentType"] }}
+{% elif data["browseAppointments"] == "true" %}
+  All
+{% elif data["appointmentType"] %}
+  {{ data["appointmentType"] }}
+{% else %}
+  All
+{% endif %}
+{% endset %}
+
+{% if data['appointmentMember']  %}
+  {% set practiceStaff %}
+    {{ data["appointmentMember"] }}
+  {% endset %}
+{% endif %}
+
+{% if data['appointmentLocation'] == "Lidgett Surgery" %}
+  {% set location = 'Lidgett Surgery' %}
+{% elif data['appointmentLocation'] == "Gledhow Practice" %}
+  {% set location = 'Gledhow Practice' %}
+{% else %}
+  {% set location = 'Gledhow Practice' %}
+{% endif %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Appointments</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="index">Your appointments</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+
+      {% set searchQuery %}
+      {{ summaryList({
+        classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
+        rows: [
+          {
+            key: {
+              text: "Appointment type"
+            },
+            value: {
+              html: data['appointmentType'] | placeholder('Any') | printStringOrArray,
+              classes: "nhsuk-u-margin-bottom-0"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/" + PROTOTYPEURL + "/filters/select-type-of-appointment",
+                  text: "Change",
+                  visuallyHiddenText: "appointment type"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Member of staff"
+            },
+            value: {
+              html: data['appointmentMember'] | placeholder('Any') | printStringOrArray,
+              classes: "nhsuk-u-margin-bottom-0"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/" + PROTOTYPEURL + "/filters/select-practice-member",
+                  text: "Change",
+                  visuallyHiddenText: "Member of staff"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Location"
+            },
+            value: {
+              html: data['appointmentLocation'] | placeholder('Gledhow Practice') | printStringOrArray,
+              classes: "nhsuk-u-margin-bottom-0"
+            },
+            actions: {
+              items: [
+              {
+                href: "/" + PROTOTYPEURL + "/select-location",
+                text: "Change",
+                visuallyHiddenText: "Location"
+              }
+              ]
+            }
+          }
+        ]
+      }) }}
+      {% endset %}
+
+      {{ details({
+        "classes": "nhsuk-expander app-card--with-border",
+        "text": "Search filters",
+        "HTML": searchQuery
+      }) }}
+
+      {% set nurse %}
+
+      {% if data['appointmentMember'] %}
+        {% if 'Sister Leanna Leveille (Female)' in data['appointmentMember'] %}
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '2' | returnDate }}&time=9.50am&type=Smear&sessionName=Nurse Clinic&location={{ location }}&staffName=Sister Leanna Leveille (Female)" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9.50am</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Smear</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Nurse Clinic</p>
+            <p class="list-menu__results--small">Sister Leanna Leveille (Female)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '2' | returnDate }}&time=10.50am&type=Smear&sessionName=Nurse Clinic&location={{ location }}&staffName=Sister Leanna Leveille (Female)" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10.50am</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Smear</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Nurse Clinic</p>
+            <p class="list-menu__results--small">Sister Leanna Leveille (Female)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        {% endif %}
+      {% else %}
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '2' | returnDate }}&time=9.50am&type=Smear&sessionName=Nurse Clinic&location={{ location }}&staffName=Sister Leanna Leveille (Female)" >
+          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9.50am</h2>
+          <p class="list-menu__results-person list-menu__results--bold">Smear</p>
+          <p class="list-menu__results-person list-menu__results-spacer">Nurse Clinic</p>
+          <p class="list-menu__results--small">Sister Leanna Leveille (Female)</p>
+          <p class="list-menu__results--small">{{ location }}</p>
+        </a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '2' | returnDate }}&time=10.50am&type=Smear&sessionName=Nurse Clinic&location={{ location }}&staffName=Sister Leanna Leveille (Female)" >
+          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10.50am</h2>
+          <p class="list-menu__results-person list-menu__results--bold">Smear</p>
+          <p class="list-menu__results-person list-menu__results-spacer">Nurse Clinic</p>
+          <p class="list-menu__results--small">Sister Leanna Leveille (Female)</p>
+          <p class="list-menu__results--small">{{ location }}</p>
+        </a>
+      </li>
+      {% endif %}
+      {% endset %}
+
+      {% set nurseFar %}
+
+      {% if data['appointmentMember'] %}
+        {% if 'Sister Leanna Leveille (Female)' in data['appointmentMember'] %}
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '6' | returnDate }}&time=2.25pm&type=Smear&sessionName=Nurse Clinic&location={{ location }}&staffName=Sister Leanna Leveille (Female)" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">2.35pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Smear</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Nurse Clinic</p>
+            <p class="list-menu__results--small">Sister Leanna Leveille (Female)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '6' | returnDate }}&time=2.50pm&type=Smear&sessionName=Nurse Clinic&location={{ location }}&staffName=Sister Leanna Leveille (Female)" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">2.50pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Smear</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Nurse Clinic</p>
+            <p class="list-menu__results--small">Sister Leanna Leveille (Female)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        {% endif %}
+      {% else %}
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '6' | returnDate }}&time=2.25pm&type=Smear&sessionName=Nurse Clinic&location={{ location }}&staffName=Sister Leanna Leveille (Female)" >
+          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">2.35pm</h2>
+          <p class="list-menu__results-person list-menu__results--bold">Smear</p>
+          <p class="list-menu__results-person list-menu__results-spacer">Nurse Clinic</p>
+          <p class="list-menu__results--small">Sister Leanna Leveille (Female)</p>
+          <p class="list-menu__results--small">{{ location }}</p>
+        </a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '6' | returnDate }}&time=2.50pm&type=Smear&sessionName=Nurse Clinic&location={{ location }}&staffName=Sister Leanna Leveille (Female)" >
+          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">2.50pm</h2>
+          <p class="list-menu__results-person list-menu__results--bold">Smear</p>
+          <p class="list-menu__results-person list-menu__results-spacer">Nurse Clinic</p>
+          <p class="list-menu__results--small">Sister Leanna Leveille (Female)</p>
+          <p class="list-menu__results--small">{{ location }}</p>
+        </a>
+      </li>
+      {% endif %}
+      {% endset %}
+
+
+      {% set bloods %}
+      {% if data['appointmentMember'] %}
+        {% if 'Sister Leanna Leveille (Female)' in data['appointmentMember'] %}
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '5' | returnDate }}&time=2.25pm&type=Blood tests only&sessionName=Nurse&location={{ location }}&staffName=Sister Leanna Leveille (Female)" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">2.35pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Blood tests only</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Nurse</p>
+            <p class="list-menu__results--small">Sister Leanna Leveille (Female)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '5' | returnDate }}&time=2.50pm&type=Blood tests only&sessionName=Nurse&location={{ location }}&staffName=Sister Leanna Leveille (Female)" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">2.50pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Blood tests only</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Nurse</p>
+            <p class="list-menu__results--small">Sister Leanna Leveille (Female)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        {% endif %}
+      {% else %}
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '5' | returnDate }}&time=2.25pm&type=Blood tests only&sessionName=Nurse&location={{ location }}&staffName=Sister Leanna Leveille (Female)" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">2.35pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Blood tests only</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Nurse</p>
+            <p class="list-menu__results--small">Sister Leanna Leveille (Female)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ '5' | returnDate }}&time=2.50pm&type=Blood tests only&sessionName=Nurse&location={{ location }}&staffName=Sister Leanna Leveille (Female)" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">2.50pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Blood tests only</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Nurse</p>
+            <p class="list-menu__results--small">Sister Leanna Leveille (Female)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+      {% endif %}
+      {% endset %}
+
+      {% set telephoneEarly %}
+        {% if data['appointmentMember'] %}
+          {% if 'Dr Sanjit Praneskear (Male)' in data['appointmentMember'] %}
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 'tomorrow' | returnDate }}&time=3.15pm&type=Telephone&staffName=Dr Sanjit Praneskear (Male)&sessionName=Session&location={{ location }}" >
+                <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">3.15pm</h2>
+                <p class="list-menu__results-person list-menu__results--bold">Telephone appointment</p>
+                <p class="list-menu__results-person list-menu__results-spacer">Session</p>
+                <p class="list-menu__results--small">Dr Sanjit Praneskear (Male)</p>
+                <p class="list-menu__results--small">{{ location }}</p>
+              </a>
+            </li>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 'tomorrow' | returnDate }}&time=4.15pm&type=Telephone&staffName=Dr Sanjit Praneskear (Male)&sessionName=Session&location={{ location }}" >
+                <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">4.15pm</h2>
+                <p class="list-menu__results-person list-menu__results--bold">Telephone appointment</p>
+                <p class="list-menu__results-person list-menu__results-spacer">Session</p>
+                <p class="list-menu__results--small">Dr Sanjit Praneskear (Male)</p>
+                <p class="list-menu__results--small">{{ location }}</p>
+              </a>
+            </li>
+          {% endif %}
+        {% else %}
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 'tomorrow' | returnDate }}&time=3.15pm&type=Telephone&staffName=Dr Sanjit Praneskear (Male)&sessionName=Session&location={{ location }}" >
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">3.15pm</h2>
+              <p class="list-menu__results-person list-menu__results--bold">Telephone appointment</p>
+              <p class="list-menu__results-person list-menu__results-spacer">Session</p>
+              <p class="list-menu__results--small">Dr Sanjit Praneskear (Male)</p>
+              <p class="list-menu__results--small">{{ location }}</p>
+            </a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 'tomorrow' | returnDate }}&time=4.15pm&type=Telephone&staffName=Dr Sanjit Praneskear (Male)&sessionName=Session&location={{ location }}" >
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">4.15pm</h2>
+              <p class="list-menu__results-person list-menu__results--bold">Telephone appointment</p>
+              <p class="list-menu__results-person list-menu__results-spacer">Session</p>
+              <p class="list-menu__results--small">Dr Sanjit Praneskear (Male)</p>
+              <p class="list-menu__results--small">{{ location }}</p>
+            </a>
+          </li>
+        {% endif %}
+
+      {% endset %}
+
+      {% set slot %}
+        {% if data['appointmentMember'] %}
+          {% if 'Dr Anjanette Peppard (Female)' in data['appointmentMember'] %}
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 2 | returnDate }}&time=3.15pm&type=Slot&staffName=Dr Anjanette Peppard (Female)&sessionName=Doctors Bookable&location={{ location }}" >
+                <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">3.15pm</h2>
+                <p class="list-menu__results-person list-menu__results--bold">Slot</p>
+                <p class="list-menu__results-person list-menu__results-spacer">Doctors Bookable</p>
+                <p class="list-menu__results--small">Dr Anjanette Peppard (Female)</p>
+                <p class="list-menu__results--small">{{ location }}</p>
+              </a>
+            </li>
+            {% endif %}
+
+            {% if 'Dr Sanjit Praneskear (Male)' in data['appointmentMember'] %}
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 2 | returnDate }}&time=4.15pm&type=Slot&staffName=Dr Sanjit Praneskear (Male)&sessionName=Doctors Bookable&location={{ location }}" >
+                <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">4.15pm</h2>
+                <p class="list-menu__results-person list-menu__results--bold">Slot</p>
+                <p class="list-menu__results-person list-menu__results-spacer">Doctors Bookable</p>
+                <p class="list-menu__results--small">Dr Sanjit Praneskear (Male)</p>
+                <p class="list-menu__results--small">{{ location }}</p>
+              </a>
+            </li>
+          {% endif %}
+        {% else %}
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 2 | returnDate }}&time=3.15pm&type=Slot&staffName=Dr Anjanette Peppard (Female)&sessionName=Doctors Bookable&location={{ location }}" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">3.15pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Slot</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Doctors Bookable</p>
+            <p class="list-menu__results--small">Dr Anjanette Peppard (Female)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 2 | returnDate }}&time=4.15pm&type=Slot&staffName=Dr Sanjit Praneskear (Male)&sessionName=Doctors Bookable&location={{ location }}" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">4.15pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">Slot</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Doctors Bookable</p>
+            <p class="list-menu__results--small">Dr Sanjit Praneskear (Male)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        {% endif %}
+
+
+
+      {% endset %}
+
+
+
+      {% set slotLate %}
+        {% if data['appointmentMember'] %}
+          {% if 'Dr Sanjit Praneskear (Male)' in data['appointmentMember'] %}
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 9 | returnDate }}&time=3.15pm&type=Slot&staffName=Dr Sanjit Praneskear (Male)&sessionName=Doctors Bookable&location={{ location }}" >
+                <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">3.15pm</h2>
+                <p class="list-menu__results-person list-menu__results--bold">Slot</p>
+                <p class="list-menu__results-person list-menu__results-spacer">Doctors Bookable</p>
+                <p class="list-menu__results--small">Dr Sanjit Praneskear (Male)</p>
+                <p class="list-menu__results--small">{{ location }}</p>
+              </a>
+            </li>
+          {% endif %}
+          {% if 'Dr Anjanette Peppard (Female)' in data['appointmentMember'] %}
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 9 | returnDate }}&time=4.15pm&type=Slot&staffName=Dr Anjanette Peppard (Female)&sessionName=Doctors Bookable&location={{ location }}" >
+                <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">4.15pm</h2>
+                <p class="list-menu__results-person list-menu__results--bold">Slot</p>
+                <p class="list-menu__results-person list-menu__results-spacer">Doctors Bookable</p>
+                <p class="list-menu__results--small">Dr Anjanette Peppard (Female)</p>
+                <p class="list-menu__results--small">{{ location }}</p>
+              </a>
+            </li>
+          {% endif %}
+        {% else %}
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 9 | returnDate }}&time=3.15pm&type=Slot&staffName=Dr Sanjit Praneskear (Male)&sessionName=Doctors Bookable&location={{ location }}" >
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">3.15pm</h2>
+              <p class="list-menu__results-person list-menu__results--bold">Slot</p>
+              <p class="list-menu__results-person list-menu__results-spacer">Doctors Bookable</p>
+              <p class="list-menu__results--small">Dr Sanjit Praneskear (Male)</p>
+              <p class="list-menu__results--small">{{ location }}</p>
+            </a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 9 | returnDate }}&time=4.15pm&type=Slot&staffName=Dr Anjanette Peppard (Female)&sessionName=Doctors Bookable&location={{ location }}" >
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">4.15pm</h2>
+              <p class="list-menu__results-person list-menu__results--bold">Slot</p>
+              <p class="list-menu__results-person list-menu__results-spacer">Doctors Bookable</p>
+              <p class="list-menu__results--small">Dr Anjanette Peppard (Female)</p>
+              <p class="list-menu__results--small">{{ location }}</p>
+            </a>
+          </li>
+        {% endif %}
+      {% endset %}
+
+      {% set onlineEarly %}
+        {% if data['appointmentMember'] %}
+
+        {% if 'Dr Anjanette Peppard (Female)' in data['appointmentMember'] %}
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 7 | returnDate }}&time=3.15pm&type=21 Day On Line Appointment&staffName=Dr Anjanette Peppard (Female)&sessionName=Session&location={{ location }}" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">3.15pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">21 Day On Line Appointment</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Session</p>
+            <p class="list-menu__results--small">Dr Anjanette Peppard (Female)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        {% endif %}
+
+        {% if 'Dr Sanjit Praneskear (Male)' in data['appointmentMember'] %}
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 7 | returnDate }}&time=4.05pm&type=21 Day On Line Appointment&staffName=Dr Sanjit Praneskear (Male)&sessionName=Session&location={{ location }}" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">4.05pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">21 Day On Line Appointment</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Session</p>
+            <p class="list-menu__results--small">Dr Sanjit Praneskear (Male)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        {% endif %}
+
+        {% if 'Dr Abbie Thetford (Female)' in data['appointmentMember'] %}
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 7 | returnDate }}&time=4.15pm&type=21 Day On Line Appointment&staffName=Dr Abbie Thetford (Female)&sessionName=Locum&location={{ location }}" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">4.15pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">21 Day On Line Appointment</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Locum</p>
+            <p class="list-menu__results--small">Dr Abbie Thetford (Female)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        {% endif %}
+
+        {% else %}
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 7 | returnDate }}&time=3.15pm&type=21 Day On Line Appointment&staffName=Dr Anjanette Peppard (Female)&sessionName=Session&location={{ location }}" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">3.15pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">21 Day On Line Appointment</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Session</p>
+            <p class="list-menu__results--small">Dr Anjanette Peppard (Female)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 7 | returnDate }}&time=4.05pm&type=21 Day On Line Appointment&staffName=Dr Sanjit Praneskear (Male)&sessionName=Session&location={{ location }}" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">4.05pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">21 Day On Line Appointment</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Session</p>
+            <p class="list-menu__results--small">Dr Sanjit Praneskear (Male)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 7 | returnDate }}&time=4.15pm&type=21 Day On Line Appointment&staffName=Dr Abbie Thetford (Female)&sessionName=Locum&location={{ location }}" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">4.15pm</h2>
+            <p class="list-menu__results-person list-menu__results--bold">21 Day On Line Appointment</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Locum</p>
+            <p class="list-menu__results--small">Dr Abbie Thetford (Female)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+
+        {% endif %}
+      {% endset %}
+
+      {% set onlineLate %}
+        {% if data['appointmentMember'] %}
+          {% if 'Dr Sanjit Praneskear (Male)' in data['appointmentMember'] %}
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 16 | returnDate }}&time=9:15am&type=21 Day On Line Appointment&staffName=Dr Sanjit Praneskear (Male)&sessionName=Session&location={{ location }}" >
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9:15am</h2>
+              <p class="list-menu__results-person list-menu__results--bold">21 Day On Line Appointment</p>
+              <p class="list-menu__results-person list-menu__results-spacer">Session</p>
+              <p class="list-menu__results--small">Dr Sanjit Praneskear (Male)</p>
+              <p class="list-menu__results--small">{{ location }}</p>
+            </a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 16 | returnDate }}&time=9:30am&type=21 Day On Line Appointment&staffName=Dr Sanjit Praneskear (Male)&sessionName=Session&location={{ location }}" >
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9:30am</h2>
+              <p class="list-menu__results-person list-menu__results--bold">21 Day On Line Appointment</p>
+              <p class="list-menu__results-person list-menu__results-spacer">Session</p>
+              <p class="list-menu__results--small">Dr Sanjit Praneskear (Male)</p>
+              <p class="list-menu__results--small">{{ location }}</p>
+            </a>
+          </li>
+          {% endif %}
+
+          {% if 'Dr Abbie Thetford (Female)' in data['appointmentMember'] %}
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 16 | returnDate }}&time=10:05am&type=21 Day On Line Appointment&staffName=Dr Abbie Thetford (Female)&sessionName=Locum&location={{ location }}" >
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10:05am</h2>
+              <p class="list-menu__results-person list-menu__results--bold">21 Day On Line Appointment</p>
+              <p class="list-menu__results-person list-menu__results-spacer">Locum</p>
+              <p class="list-menu__results--small">Dr Abbie Thetford (Female)</p>
+              <p class="list-menu__results--small">{{ location }}</p>
+            </a>
+          </li>
+          {% endif %}
+
+        {% else %}
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 16 | returnDate }}&time=9:15am&type=21 Day On Line Appointment&staffName=Dr Sanjit Praneskear (Male)&sessionName=Session&location={{ location }}" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9:15am</h2>
+            <p class="list-menu__results-person list-menu__results--bold">21 Day On Line Appointment</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Session</p>
+            <p class="list-menu__results--small">Dr Sanjit Praneskear (Male)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 16 | returnDate }}&time=9:30am&type=21 Day On Line Appointment&staffName=Dr Sanjit Praneskear (Male)&sessionName=Session&location={{ location }}" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9:30am</h2>
+            <p class="list-menu__results-person list-menu__results--bold">21 Day On Line Appointment</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Session</p>
+            <p class="list-menu__results--small">Dr Sanjit Praneskear (Male)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 16 | returnDate }}&time=10:05am&type=21 Day On Line Appointment&staffName=Dr Abbie Thetford (Female)&sessionName=Locum&location={{ location }}" >
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10:05am</h2>
+            <p class="list-menu__results-person list-menu__results--bold">21 Day On Line Appointment</p>
+            <p class="list-menu__results-person list-menu__results-spacer">Locum</p>
+            <p class="list-menu__results--small">Dr Abbie Thetford (Female)</p>
+            <p class="list-menu__results--small">{{ location }}</p>
+          </a>
+        </li>
+        {% endif %}
+      {% endset %}
+
+      {% set onlineLateLate %}
+        {% if data['appointmentMember'] %}
+          {% if 'Dr Sanjit Praneskear (Male)' in data['appointmentMember'] %}
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 23 | returnDate }}&time=9:15am&type=21 Day On Line Appointment&staffName=Dr Sanjit Praneskear (Male)&sessionName=Session&location={{ location }}" >
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9:15am</h2>
+              <p class="list-menu__results-person list-menu__results--bold">21 Day On Line Appointment</p>
+              <p class="list-menu__results-person list-menu__results-spacer">Session</p>
+              <p class="list-menu__results--small">Dr Sanjit Praneskear (Male)</p>
+              <p class="list-menu__results--small">{{ location }}</p>
+            </a>
+          </li>
+          {% endif %}
+
+          {% if 'Dr Abbie Thetford (Female)' in data['appointmentMember'] %}
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 23 | returnDate }}&time=10:05am&type=21 Day On Line Appointment&staffName=Dr Abbie Thetford (Female)&sessionName=Locum&location={{ location }}" >
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10:05am</h2>
+              <p class="list-menu__results-person list-menu__results--bold">21 Day On Line Appointment</p>
+              <p class="list-menu__results-person list-menu__results-spacer">Locum</p>
+              <p class="list-menu__results--small">Dr Abbie Thetford (Female)</p>
+              <p class="list-menu__results--small">{{ location }}</p>
+            </a>
+          </li>
+          {% endif %}
+
+        {% else %}
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 23 | returnDate }}&time=9:15am&type=21 Day On Line Appointment&staffName=Dr Sanjit Praneskear (Male)&sessionName=Session&location={{ location }}" >
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">9:15am</h2>
+              <p class="list-menu__results-person list-menu__results--bold">21 Day On Line Appointment</p>
+              <p class="list-menu__results-person list-menu__results-spacer">Session</p>
+              <p class="list-menu__results--small">Dr Sanjit Praneskear (Male)</p>
+              <p class="list-menu__results--small">{{ location }}</p>
+            </a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/appointment-reason?date={{ 23 | returnDate }}&time=10:05am&type=21 Day On Line Appointment&staffName=Dr Sanjit Praneskear (Male)&sessionName=Locum&location={{ location }}" >
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">10:05am</h2>
+              <p class="list-menu__results-person list-menu__results--bold">21 Day On Line Appointment</p>
+              <p class="list-menu__results-person list-menu__results-spacer">Locum</p>
+              <p class="list-menu__results--small">Dr Sanjit Praneskear (Male)</p>
+              <p class="list-menu__results--small">{{ location }}</p>
+            </a>
+          </li>
+        {% endif %}
+      {% endset %}
+
+
+      {% if data.appointmentType %}
+
+        {% if 'Telephone' in data.appointmentType %}
+          {% if telephoneEarly | trim %}
+          <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "tomorrow" | returnDate }}</h2>
+          <ul class="list-menu list-menu__results">
+            {{ telephoneEarly | safe }}
+          </ul>
+          {% endif %}
+        {% endif %}
+
+        {% if 'Smear' in data.appointmentType %}
+          {% if nurse | trim %}
+            <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "2" | returnDate }}</h2>
+            <ul class="list-menu list-menu__results">
+          {% endif %}
+
+        {% elif 'Slot' in data.appointmentType %}
+        {% if slot | trim %}
+          <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "2" | returnDate }}</h2>
+          <ul class="list-menu list-menu__results">
+        {% endif %}
+
+        {% else %}
+        {% endif %}
+
+        {% if 'Smear' in data.appointmentType %}
+            {{ nurse | safe }}
+        {% endif %}
+
+        {% if 'Slot' in data.appointmentType %}
+          {{ slot | safe }}
+        {% endif %}
+
+        {% if 'Smear' in data.appointmentType %}
+          {% if nurse | trim %}
+          </ul>
+          {% endif %}
+        {% elif 'Slot' in data.appointmentType %}
+          {% if slot | trim %}
+          </ul>
+          {% endif %}
+        {% else %}
+        {% endif %}
+
+
+        {% if 'Blood tests only' in data.appointmentType %}
+          {% if bloods | trim %}
+          <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '5' | returnDate }}</h2>
+          <ul class="list-menu list-menu__results">
+            {{ bloods | safe }}
+          </ul>
+          {% endif %}
+        {% endif %}
+
+        {% if 'Smear' in data.appointmentType %}
+          {% if nurseFar | trim %}
+          <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '6' | returnDate }}</h2>
+            <ul class="list-menu list-menu__results">
+              {{ nurseFar | safe }}
+            </ul>
+          {% endif %}
+        {% endif %}
+
+        {% if '21 Day On Line Appointment' in data.appointmentType %}
+          {% if onlineEarly | trim %}
+          <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "7" | returnDate }}</h2>
+          <ul class="list-menu list-menu__results">
+            {{ onlineEarly | safe }}
+          </ul>
+          {% endif %}
+        {% endif %}
+
+        {% if 'Slot' in data.appointmentType %}
+          {% if slotLate | trim %}
+          <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "9" | returnDate }}</h2>
+          <ul class="list-menu list-menu__results">
+            {{ slotLate | safe }}
+          </ul>
+          {% endif %}
+        {% endif %}
+
+        {% if '21 Day On Line Appointment' in data.appointmentType %}
+          {% if onlineLate | trim %}
+          <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "16" | returnDate }}</h2>
+          <ul class="list-menu list-menu__results">
+            {{ onlineLate | safe }}
+          </ul>
+          {% endif %}
+        {% endif %}
+
+        {% if '21 Day On Line Appointment' in data.appointmentType %}
+          {% if onlineLateLate | trim %}
+          <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "23" | returnDate }}</h2>
+          <ul class="list-menu list-menu__results">
+            {{ onlineLateLate | safe }}
+          </ul>
+          {% endif %}
+        {% endif %}
+
+
+      {% else %}
+
+      <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "tomorrow" | returnDate }}</h2>
+      <ul class="list-menu list-menu__results">
+        {{ telephoneEarly | safe }}
+      </ul>
+
+      <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "2" | returnDate }}</h2>
+        <ul class="list-menu list-menu__results">
+          {{ nurse | safe }}
+          {{ slot | safe }}
+        </ul>
+
+        <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '5' | returnDate }}</h2>
+          <ul class="list-menu list-menu__results">
+            {{ bloods | safe }}
+          </ul>
+
+          <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ '6' | returnDate }}</h2>
+            <ul class="list-menu list-menu__results">
+              {{ nurseFar | safe }}
+            </ul>
+
+            <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "7" | returnDate }}</h2>
+            <ul class="list-menu list-menu__results">
+              {{ onlineEarly | safe }}
+            </ul>
+
+            <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "9" | returnDate }}</h2>
+            <ul class="list-menu list-menu__results">
+              {{ slotLate | safe }}
+            </ul>
+
+            <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "16" | returnDate }}</h2>
+            <ul class="list-menu list-menu__results">
+              {{ onlineLate | safe }}
+            </ul>
+
+            <h2 class="nhsuk-heading-m nhs-app-heading--slim">{{ "23" | returnDate }}</h2>
+            <ul class="list-menu list-menu__results">
+              {{ onlineLateLate | safe }}
+            </ul>
+
+      {% endif %}
+
+
+
+    </div>
+  </div>
+{% endblock %}

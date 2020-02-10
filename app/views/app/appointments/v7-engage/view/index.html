@@ -1,0 +1,101 @@
+{% set PROTOTYPEURL = "app/appointments/v5" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle %}
+  {{ data["appViewDate"] or "5" | returnDate }}
+{% endset %}
+
+{% set title = "Upcoming appointment: " + contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+{% set showAppointmentType %}
+{{ data["appViewType"] or "Slot" }} <br> {{ data["appViewSession"] or "Session" }}
+{% endset %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Appointments</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="index">Your appointments</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="app-card app-card--with-border">
+        <div class="app-card__wrapper app-card--without-shadow">
+          <div class="app-card__content app-card__content--with-actions">
+            <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-0">
+              <span class="nhsuk-caption-m nhsuk-caption--top">Upcoming appointment </span>
+              {{ data["appViewDate"] or "5" | returnDate }}
+            </h1>
+
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ data["appViewTime"] or "10.50am" }}</p>
+            {{ summaryList({
+              classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
+              rows: [
+                {
+                  key: {
+                    text: "Location"
+                  },
+                  value: {
+                    text: data['appViewLocation'] or "Gledhow Practice"
+                  }
+                },
+                {
+                  key: {
+                    text: "Appointment type"
+                  },
+                  value: {
+                    html: showAppointmentType,
+                    classes: "nhsuk-u-margin-bottom-0"
+                  }
+                },
+                {
+                  key: {
+                    text: "Member of staff"
+                  },
+                  value: {
+                    html: data["appViewStaff"] or "Dr Sanjit Praneskear (Male)",
+                    classes: ""
+                  }
+                }
+              ]
+            }) }}
+
+            <ul class="list-menu list-menu--in-card">
+              <li>
+                <a href="#">Add to your calendar</a>
+              </li>
+              <li>
+                <a href="#">Cancel this appointment</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+
+      <p class="nhs-app-desktop--show">
+        <a href="javascript: window.history.go(-1)">Back</a>
+      </p>
+
+    </div>
+  </div>
+{% endblock %}
