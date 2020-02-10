@@ -188,7 +188,7 @@
       {% else %}
 
       <h2>History of present illness</h2>
-      <h3 class="nhsuk-u-margin-bottom-1">{{ data['engageProblemCat'] if data['engageProblemCat'] else "Blocked nose" }}</h3>
+      <h3>{{ data['engageProblemCat'] if data['engageProblemCat'] else "Blocked nose" }}</h3>
 
 
       <h4>Duration</h4>
@@ -223,7 +223,7 @@
       {% endset %}
 
       {% if durationDeniedPrint | trim %}
-      <p class="nhs-app-secondary-text">
+      <p>
         He denied:
         {{ durationDeniedPrint }}
       </p>
@@ -268,7 +268,7 @@
       {% endset %}
 
       {% if timingDeniedPrint | trim %}
-      <p class="nhs-app-secondary-text">
+      <p>
         He denied:
         {{ timingDeniedPrint }}
       </p>
@@ -318,7 +318,7 @@
         {% endset %}
 
         {% if qualityDeniedPrint | trim %}
-        <p class="nhs-app-secondary-text">
+        <p>
           He denied:
           {{ qualityDeniedPrint }}
         </p>
@@ -383,7 +383,7 @@
         {% endset %}
 
         {% if assocDeniedPrint | trim %}
-        <p class="nhs-app-secondary-text">
+        <p>
           He denied:
           {{ assocDeniedPrint }}
         </p>
@@ -396,12 +396,12 @@
 
 
       {% if data['engageProblemCatTwo'] %}
-      <h3 class="nhsuk-u-margin-bottom-1">{{ data['engageProblemCatTwo'] }}</h3>
+      <h3>{{ data['engageProblemCatTwo'] }}</h3>
       <h4>Severity</h4>
       {% if data['engageMedQ14'] == 'Yes' %}
         <p>He reported: Heaches severe.</p>
       {% else %}
-        <p class="nhs-app-secondary-text">He denied: Heaches severe.</p>
+        <p>He denied: Heaches severe.</p>
       {% endif %}
 
 
@@ -441,51 +441,49 @@
       {% endset %}
 
       {% if assocDeniedTwoPrint | trim %}
-      <p class="nhs-app-secondary-text">
+      <p>
         He denied:
         {{ assocDeniedTwoPrint }}
       </p>
       {% endif %}
 
+
+
+
       {% endif %}
 
-      <hr>
+
 
       <h2>Past, family and social history</h2>
-
+      <h3>Past medical history</h3>
       {% if data['engageMedQ12'] == 'Yes' %}
-        <h3 class="nhsuk-u-margin-bottom-1">Past medical history</h3>
         <h4>Ear, Nose and Throat</h4>
         <p>History of: Sinus infection</p>
       {% endif %}
-      <h3 class="nhsuk-u-margin-bottom-1">Social history</h3>
+      <h3>Social history</h3>
       <h4>Substance use</h4>
       {% if data['engageMedQ13'] == 'Yes' %}
         <p>He reported: Smoker</p>
       {% else %}
-        <p class="nhs-app-secondary-text">He denied: Smoker</p>
+        <p>He denied: Smoker</p>
       {% endif %}
-
-      <hr>
 
 
       <h2>Review of systems</h2>
-      <h3 class="nhsuk-u-margin-bottom-1">Constitutional</h3>
+      <h3>Constitutional</h3>
 
       {% if data['engageMedQ2'] == "Yes" %}
         <p>He reported: Fever in the last week</p>
       {% else %}
-        <p class="nhs-app-secondary-text">He denied: Fever in the last week</p>
+        <p>He denied: Fever in the last week</p>
       {% endif %}
 
-      <h3 class="nhsuk-u-margin-bottom-1">Respiratory</h3>
+      <h3>Respiratory</h3>
       {% if data['engageMedQ11'] == "Yes" %}
         <p>He reported: Recent respiratory symptoms improved then worsened</p>
       {% else %}
-        <p class="nhs-app-secondary-text">He denied: Recent respiratory symptoms improved then worsened</p>
+        <p>He denied: Recent respiratory symptoms improved then worsened</p>
       {% endif %}
-
-      <hr>
 
       <h2>Skipped questions</h2>
       {{ details({
@@ -495,12 +493,8 @@
         "
       }) }}
 
-      <hr>
-
       <h2>Questionnarie completed</h2>
       <p>The questionnarire was completed</p>
-
-      <hr>
 
       {% endif %}
 
@@ -515,17 +509,10 @@
         }
       }) }}
 
-      <hr>
+      <h2>Send your request</h2>
 
-      <h2>Submit your request</h2>
 
-      <button type="button" name="button" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-4">
-        Download report
-      </button>
-
-      <div></div>
-
-        <input type="submit" class="nhsuk-button" value="Submit request">
+        <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>
 
