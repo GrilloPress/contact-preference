@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Please answer a series of medical questions to help our clinical staff help you" %}
+{% set contentTitle = "How will we contact you?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -32,7 +32,60 @@
     <div class="nhsuk-grid-column-two-thirds">
 
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
-      <p>Questionnaires generally take about 5 to 10 minutes to complete and it really helps us if you complete as much as you are able. When requests are submitted within the published response times (usually ending before the surgery closes each day), we will contact you on the number provided to discuss the next steps.</p>
+
+      <form action="/{{ PROTOTYPEURL }}/med/v1/done" method="get">
+
+        {{ input({
+          "label": {
+            "text": "Telephone",
+            "isPageHeading": false,
+            "classes": "nhsuk-label--m"
+          },
+          "hint": {
+            "html": "Check your telephone number is correct"
+        },
+          "id": "engageTelephone",
+          "name": "engageTelephone",
+          "classes": "nhsuk-input--width-30",
+          "value":  data['engageTelephone'] or "07700 900000"
+        }) }}
+
+        {{ checkboxes({
+          "idPrefix": "nationality",
+          "name": "nationality",
+          "fieldset": {
+            "legend": {
+              "text": "Tell us if you do not want to use messaging",
+              "classes": "nhsuk-label--m",
+              "isPageHeading": false
+            }
+          },
+          "hint": {
+          "html": "<p>Where appropriate the practice would prefer to contact you via 2-way messaging, using our own safe and secure system.</p><p>If there is a message for you, you will receive a notification by email to login to your account.</p><p>If for any reason you do not wish to use the service as designed and prefer to be contacted by telephone please tick the box below.</p>"
+        },
+          "items": [
+            {
+              "value": "engageTelephoneOnly",
+              "text": "Contact me by telephone only"
+            }
+          ]
+        }) }}
+
+
+        {{ textarea({
+        "name": "more-detail",
+        "id": "more-detail",
+        "hint": {
+          "text": "For example, if answering the phone is likely to be a problem"
+        },
+        "label": {
+          "classes": "nhsuk-label--m",
+          "text": "Do you have any specific requests about the way that we contact you today? (optional)"
+        }
+      }) }}
+
+      <h2>Before you submit</h2>
+      <p>We will endeavour to contact you back on the day of your request if you have submitted your request outside the same day response times</p>
 
       {{ details({
   "classes": "nhsuk-expander",
@@ -46,32 +99,11 @@
         </table>'
 }) }}
 
+<p>Please remember that it is always your responsibility to call for help by alternative methods if the situation deteriorates or you are worried for any reason. This should include the unlikely event that some unforeseen circumstance has delayed the response to your request and you feel that you need more urgent help.</p>
 
-
-
-      {{ warningCallout({
-        "heading": "Important",
-        "HTML": "
-          <p>Please remember that:</p>
-          <ul>
-            <li>Engage Consult must never be used for medical emergencies. Please contact 111 or 999 if you are in any doubt.</li>
-            <li>It remains your responsibility to seek medical help by other means for yourself (or for the person for whom the request is being made) if the situation worsens or you have concerns.</li>
-            <li>Any requests made outside our daily response hours will not be read or responded to until our next full working day.</li>
-        </ul>"
-      }) }}
-
-      <ul class="list-menu">
-        <li>
-          <a href="/{{ PROTOTYPEURL}}/med/v1/q1?engageNoQs=">
-           Start the questions
-          </a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL}}/med/v1/check-answers?engageNoQs=true">
-           No, send my request as it is
-          </a>
-        </li>
-      </ul>
+        <input type="submit" class="nhsuk-button" value="Agree and submit">
+        </input>
+      </form>
 
     </div>
   </div>
