@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "How would you like us to help you with your condition today?" %}
+{% set contentTitle = "Do you have a sore throat?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -31,24 +31,30 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{ PROTOTYPEURL }}/preq/v1/file" method="get">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-        {{ textarea({
-            "name": "engageHowHelp",
-            "id": "engageHowHelp",
-            "label": {
-              "text": contentTitle,
-              "isPageHeading": true,
-              "classes": "nhsuk-label--xl"
-            }
-          }) }}
+      <ul class="list-menu">
+        <li>
+          <a href="/{{ PROTOTYPEURL}}/med/v1/q7?engageMedQ6=Yes">
+           Yes
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL}}/med/v1/q7?engageMedQ6=No">
+           No
+          </a>
+        </li>
+      </ul>
 
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
+      <p>
+        <a href="/{{ PROTOTYPEURL}}/med/v1/q7?engageMedQ6=">Skip this question</a>
+      </p>
 
-      </form>
+      <hr class="nhsuk-u-margin-top-0">
 
-
+      <p>
+        <a href="#">Finish now</a>
+      </p>
 
     </div>
   </div>

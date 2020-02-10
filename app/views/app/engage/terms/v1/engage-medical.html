@@ -45,28 +45,26 @@
       }) }}
       {% endset %}
 
+      {% set checkboxWarningTwo %}
+      {{ checkboxes({
+        "name": "engageMedicalGetHelp",
+        "items": [
+          {
+            "value": "true",
+            "text": "I understand"
+          }
+        ]
+      }) }}
+      {% endset %}
+
 
       <form class="" action="/{{ PROTOTYPEURL }}/terms/v1/engage-privacy" method="get">
 
         {{ warningCallout({
           "heading": "Emergencies",
-          "HTML": "<p>Do not use this service to contact your GP in an emergency.</p><p> In the case of life threatening emergencies, please ring 999.</p><p>Serious symptoms to consider may include but are not limited to: Unexpected breathlessness, severe bleeding, crushing chest pain or pressure</p>" + checkboxWarning
+          "HTML": "<p>Do not use this service to contact your GP in an emergency.</p><p> In the case of life threatening emergencies, please ring 999.</p><p>Serious symptoms to consider may include but are not limited to: Unexpected breathlessness, severe bleeding, crushing chest pain or pressure</p>" + checkboxWarning + "<p>You are responsible for seeking further medical help if the situation worsens or a medical condition deteriorates such that you consider immediate help may be required.</p>" + checkboxWarningTwo
         }) }}
 
-
-
-        <p>You are responsible for seeking further medical help if the situation worsens or a medical condition deteriorates such that you consider immediate help may be required.</p>
-
-
-        {{ checkboxes({
-          "name": "engageMedicalGetHelp",
-          "items": [
-            {
-              "value": "true",
-              "text": "I understand"
-            }
-          ]
-        }) }}
 
         <p>By proceeding to use this service you accept the
           <a href="#">end user license agreement</a>.

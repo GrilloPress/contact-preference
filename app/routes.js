@@ -1111,4 +1111,24 @@ router.post('/app/appointments/v6/radio-practice-member-answer', function (req, 
     res.redirect('/app/appointments/v6/select-available-appointment?appointmentMember=')
   }
 });
+
+
+
+// OLC
+
+router.post('/app/engage/med/v1/health-info-check', function (req, res) {
+  let answer = req.body.engageHealthInfoCheck;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/engage/med/v1/health-info')
+
+  } else {
+    res.redirect('/app/engage/med/v1/check-answers')
+  }
+});
+
+
+
+
 module.exports = router;

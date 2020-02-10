@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "How would you like us to help you with your condition today?" %}
+{% set contentTitle = "Would you like to see useful information relating to headache?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -31,24 +31,33 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{ PROTOTYPEURL }}/preq/v1/file" method="get">
-
-        {{ textarea({
-            "name": "engageHowHelp",
-            "id": "engageHowHelp",
-            "label": {
+      <form action="" method="post">
+        {{ radios({
+          "idPrefix": "engageHealthInfoCheck",
+          "name": "engageHealthInfoCheck",
+          "fieldset": {
+            "legend": {
               "text": contentTitle,
               "isPageHeading": true,
-              "classes": "nhsuk-label--xl"
+              "classes": "nhsuk-fieldset__legend--xl"
             }
-          }) }}
+          },
+          "items": [
+            {
+              "value": "yes",
+              "text": "Yes"
+            },
+            {
+              "value": "no",
+              "text": "No"
+            }
+          ]
+        }) }}
 
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
 
       </form>
-
-
 
     </div>
   </div>

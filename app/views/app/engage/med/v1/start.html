@@ -34,19 +34,29 @@
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
       <p>Questionnaires generally take about 5 to 10 minutes to complete and it really helps us if you complete as much as you are able. We will contact you on the number provided to discuss the next steps</p>
 
-      <form action="#" method="get">
-        <input type="submit" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-4" value="Yes, upload file">
-        </input>
-      </form>
+      {{ warningCallout({
+        "heading": "Important",
+        "HTML": "
+          <p>Please remember that:</p>
+          <ul>
+            <li>Engage Consult must never be used for medical emergencies. Please contact 111 or 999 if you are in any doubt.</li>
+            <li>It remains your responsibility to seek medical help by other means for yourself (or for the person for whom the request is being made) if the situation worsens or you have concerns.</li>
+            <li>Any requests made outside our daily response hours will not be read or responded to until our next full working day.</li>
+        </ul>"
+      }) }}
 
-      <form action="/{{ PROTOTYPEURL }}/med/v1/how" method="get">
-
-        <input type="submit" class="nhsuk-button" value="No, thanks">
-        </input>
-
-      </form>
-
-
+      <ul class="list-menu">
+        <li>
+          <a href="/{{ PROTOTYPEURL}}/med/v1/q1?engageNoQs=">
+           Start the questions
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL}}/med/v1/check-answers?engageNoQs=true">
+           No, send my request as it is
+          </a>
+        </li>
+      </ul>
 
     </div>
   </div>
