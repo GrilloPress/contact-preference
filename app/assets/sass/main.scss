@@ -69,3 +69,8 @@ li ul {
     font-size: .9em;
   }
 }
+
+.nhs-app-thin .nhsuk-label--xl {
+
+  @include nhsuk-responsive-margin(4, 'bottom')
+}

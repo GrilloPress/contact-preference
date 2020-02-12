@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "How can we help you today?" %}
+{% set contentTitle = "This service is provided by a third-party" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -25,40 +25,29 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
-
-<div class="nhsuk-breadcrumb nhs-app-third-party-container">
-  <div class="nhsuk-width-container">
-    <strong>This service is provided by your GP surgery</strong>
-  </div>
-</div>
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <form action="/{{ PROTOTYPEURL }}/admin/v1/confirm/review" method="get">
-
-        {{ textarea({
-            "name": "engageAdminHowHelp",
-            "id": "engageAdminHowHelp",
-            "classes": "",
-            "label": {
-              "text": contentTitle,
-              "isPageHeading": true,
-              "classes": "nhsuk-label--xl"
-            }
-          }) }}
-
-          <div class="nhsuk-form-group">
-            <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-2" for="attachment">Upload file (optional)</label>
-            <button class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-2" type="button" name="engageAdminAttachment">Add file</button>
+      <div class="app-interruption">
+        <div class="app-interruption__wrapper">
+          <div class="app-interruption__content">
+            <h1 class="app-card__heading nhsuk-heading-l">{{ contentTitle }}</h1>
+            <p>
+              This online consultation service is provided by <strong>EngageConsult</strong>, on behalf of your GP surgery
+            </p>
+            <form action="/{{ PROTOTYPEURL }}/admin/v1/terms/nhs-login" method="get">
+              <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
+            </form>
+            <p>
+              <a href="#">Find out more about online consultation services</a>
+            </p>
           </div>
+        </div>
+      </div>
 
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
-
-      </form>
     </div>
   </div>
 {% endblock %}

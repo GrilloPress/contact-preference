@@ -1129,6 +1129,34 @@ router.post('/app/engage/med/v1/health-info-check', function (req, res) {
 });
 
 
+/// Terms accepted
+
+// admin
+router.post('/app/engage/admin/v1/terms/engage-medical', function (req, res) {
+  let answer = req.session.data.engagePrivacyPolicy;
+
+  if (answer === 'true') {
+
+    res.redirect('/app/engage/admin/v1/telephone')
+
+  } else {
+    res.redirect('/app/engage/admin/v1/terms/engage-privacy')
+  }
+});
+
+// medical
+router.post('/app/engage/terms/v1/engage-medical', function (req, res) {
+  let answer = req.session.data.engagePrivacyPolicy;
+
+  if (answer === 'true') {
+
+    res.redirect('/app/engage/premed/v1/telephone')
+
+  } else {
+    res.redirect('/app/engage/terms/v1/engage-privacy')
+  }
+});
+
 
 
 module.exports = router;

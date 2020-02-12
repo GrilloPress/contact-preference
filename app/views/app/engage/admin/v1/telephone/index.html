@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "What can we help you with today?" %}
+{% set contentTitle = "Enter the best telephone number to contact you on" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -37,51 +37,23 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>{{ contentTitle }}</h1>
+      <form action="/{{ PROTOTYPEURL }}/admin/v1/who/from-practice" method="get">
 
-      <div class="nhsuk-form-group">
+        {{ input({
+          "label": {
+            "text": contentTitle,
+            "isPageHeading": true,
+            "classes": "nhsuk-label--xl"
+          },
+          "id": "engageTelephone",
+          "name": "engageTelephone",
+          "classes": "nhsuk-input--width-30"
+        }) }}
 
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
 
-
-
-
-
-
-
-        <ul class="list-menu">
-          <li>
-            <a href="/{{ PROTOTYPEURL}}/admin/v1/how/?engageAdminWhat=Med3 (Sick Note)">
-              Med3 (Sick Note)
-            </a>
-          </li>
-          <li>
-            <a href="/{{ PROTOTYPEURL}}/admin/v1/how/?engageAdminWhat=Letter from a doctor (May be chargeable)">
-              Letter from a doctor (May be chargeable)
-            </a>
-          </li>
-          <li>
-            <a href="/{{ PROTOTYPEURL}}/admin/v1/how/?engageAdminWhat=Medical information">
-              Medical information
-            </a>
-          </li>
-          <li>
-            <a href="/{{ PROTOTYPEURL}}/admin/v1/how/?engageAdminWhat=Prescription request">
-              Prescription request
-            </a>
-          </li>
-          <li>
-            <a href="/{{ PROTOTYPEURL}}/admin/v1/how/?engageAdminWhat=Travel information">
-              Travel information
-            </a>
-          </li>
-          <li>
-            <a href="/{{ PROTOTYPEURL}}/admin/v1/how/?engageAdminWhat=Something else">
-              Something else
-            </a>
-          </li>
-        </ul>
-
-      </div>
+      </form>
 
     </div>
   </div>
