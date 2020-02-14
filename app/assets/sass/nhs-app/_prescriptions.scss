@@ -37,3 +37,15 @@
 
   margin-bottom: 24px;
 }
+
+
+
+.nhs-app-prescription__instructions {
+
+  @extend .nhsuk-body-s;
+
+  @include mq($until: tablet) {
+    max-width: 90%;
+  }
+
+}

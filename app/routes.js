@@ -468,6 +468,19 @@ router.post('/app/prescriptions/v4/save', function (req, res) {
 
 });
 
+// prescriptions v4
+
+
+router.post('/app/prescriptions/v5/save', function (req, res) {
+
+  // add what is saved later!
+
+  req.session.data.prescriptionConfirmed = "True";
+  res.redirect('/app/prescriptions/v5/confirmed-3')
+
+});
+
+
 
 router.post('/app/prescriptions/v4/nominate-interrupt', function (req, res) {
   let answer = req.body.nominateInterrupt;
