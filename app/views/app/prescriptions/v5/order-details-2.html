@@ -92,37 +92,10 @@
 
 
             {% if data['prescriptionConfirmed'] %}
-              {% if data['choosePrescription'] == 'metformin' %}
-
-              <h3 class="nhsuk-heading-xs">Metformin 500mg tablets</h3>
-              <p>One to be taken 4 times a day with food - 112 tablet</p>
+              {% if 'alogliptin' in data['choosePrescription'] %}
+                {% if data['pName'] == 'alogliptin' %}
 
 
-                              <div class="nhs-app-status">
-                                    <div class="requested">
-                                        <svg class="nhs-app-status-svg" width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
-                                          <title>Ordered</title>
-                                          <desc></desc>
-                                          <defs></defs>
-                                          <g id="Icon---Clock" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <g id="clock-with-white-face" fill="#df6b31" fill-rule="nonzero">
-                                              <path d="M8.5,0 C3.825,0 0,3.825 0,8.5 C0,13.175 3.825,17 8.5,17 C13.175,17 17,13.175 17,8.5 C17,3.825 13.175,0 8.5,0 Z M8.5,15.3 C4.76,15.3 1.7,12.24 1.7,8.5 C1.7,4.76 4.76,1.7 8.5,1.7 C12.24,1.7 15.3,4.76 15.3,8.5 C15.3,12.24 12.24,15.3 8.5,15.3 Z" id="Shape"></path>
-                                              <polygon id="Shape" points="9.25 4 8 4 8 9.2173913 12.3333333 12 13 10.8695652 9.25 8.52173913"></polygon>
-                                            </g>
-                                          </g>
-                                        </svg>
-                                      <p class="nhs-app-status-body nhs-app-status-body--waiting">Prescription pending GP approval</p>
-                                    </div>
-                                  </div>
-
-
-
-
-
-            {% endif %}
-
-
-            {% if data['choosePrescription'] == 'alogliptin' %}
 
 
             <h3 class="nhsuk-heading-xs">Alogliptin 25mg tablets</h3>
@@ -147,10 +120,17 @@
             </div>
           </div>
 
-
+          {% endif %}
+            {% endif %}
             {% endif %}
 
-            {% if data['choosePrescription'] == 'omeprazole' %}
+
+
+
+
+            {% if data['prescriptionConfirmed'] %}
+              {% if 'omeprazole' in data['choosePrescription'] %}
+                {% if data['pName'] == 'omeprazole' %}
 
 
             <h3 class="nhsuk-heading-xs">Omeprazole 40mg gastro-resistant capsules</h3>
@@ -175,9 +155,50 @@
             </div>
           </div>
 
+          {% endif %}
+            {% endif %}
+            {% endif %}
 
+
+
+
+
+
+
+            {% if data['prescriptionConfirmed'] %}
+              {% if 'metformin' in data['choosePrescription'] %}
+                {% if data['pName'] == 'metformin' %}
+
+
+
+              <h3 class="nhsuk-heading-xs">Metformin 500mg tablets</h3>
+              <p>One to be taken 4 times a day with food - 112 tablet</p>
+
+
+                              <div class="nhs-app-status">
+                                    <div class="requested">
+                                        <svg class="nhs-app-status-svg" width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+                                          <title>Ordered</title>
+                                          <desc></desc>
+                                          <defs></defs>
+                                          <g id="Icon---Clock" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="clock-with-white-face" fill="#df6b31" fill-rule="nonzero">
+                                              <path d="M8.5,0 C3.825,0 0,3.825 0,8.5 C0,13.175 3.825,17 8.5,17 C13.175,17 17,13.175 17,8.5 C17,3.825 13.175,0 8.5,0 Z M8.5,15.3 C4.76,15.3 1.7,12.24 1.7,8.5 C1.7,4.76 4.76,1.7 8.5,1.7 C12.24,1.7 15.3,4.76 15.3,8.5 C15.3,12.24 12.24,15.3 8.5,15.3 Z" id="Shape"></path>
+                                              <polygon id="Shape" points="9.25 4 8 4 8 9.2173913 12.3333333 12 13 10.8695652 9.25 8.52173913"></polygon>
+                                            </g>
+                                          </g>
+                                        </svg>
+                                      <p class="nhs-app-status-body nhs-app-status-body--waiting">Prescription pending GP approval</p>
+                                    </div>
+                                  </div>
+
+                  {% endif %}
+              {% endif %}
             {% endif %}
-            {% endif %}
+
+
+
+
 
 
 
