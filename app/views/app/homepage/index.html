@@ -1,0 +1,55 @@
+{% set PROTOTYPEURL = "app/homepage" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Home page prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+
+
+
+      <h2 class="nhsuk-heading-m">Live</h2>
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/homepage-1">Live home page design</a>
+        </li>
+      </ul>
+
+
+      <h2 class="nhsuk-heading-m">Exploration</h2>
+
+      <p>This version includes alert message, new message, next appointment and quick links.</p>
+
+        <ul>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/homepage-2">Home page exploration</a>
+          </li>
+        </ul>
+
+
+    </div>
+  </div>
+{% endblock %}
