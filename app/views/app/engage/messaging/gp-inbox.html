@@ -52,7 +52,7 @@
 
           {% if data['msgTrue'] %}
             {% set queryFor2 %}
-            {{- "message?id=2&"
+            {{- "/message?id=2&"
                         + "from=" + data.msgFrom + "&"
                         + "sent=" + data.msgDate + "&"
                         + "time=" + data.msgTime + "&"
@@ -96,7 +96,7 @@
           {% if data['msgBody2'] %}
 
           <li id="messageID1" class="nhs-app-message__item {{ 'nhs-app-message__item--unread' if data['messageRead1'] !== 'read' }} {{ 'app-display--none' if data['deleteID'] == '1'  }}">
-            <a class="nhs-app-message__link" href="message-with-additional-reply?id=1&from=Sister Leanna Leveille&sent=31 October 2019&time=4.55pm&body=Please arrange for an appointment with a nurse for a blood test">
+            <a class="nhs-app-message__link" href="/app/send-a-message/v4/message-with-additional-reply?id=1&from=Sister Leanna Leveille&sent=31 October 2019&time=4.55pm&body=Please arrange for an appointment with a nurse for a blood test">
               <h2 class="nhsuk-heading-xs">
                 <span class="nhsuk-u-visually-hidden">Conversation with:</span>
                 Sister Leanna Leveille
@@ -126,7 +126,7 @@
           {% else %}
 
             <li id="messageID1" class="nhs-app-message__item {{ 'nhs-app-message__item--unread' if data['messageRead1'] !== 'read' }} {{ 'app-display--none' if data['deleteID'] == '1'  }}">
-          		<a class="nhs-app-message__link" href="message?id=1&from=Sister Leanna Leveille&sent=31 October 2019&time=4.55pm&body=Please arrange for an appointment with a nurse for a blood test">
+          		<a class="nhs-app-message__link" href="/app/send-a-message/v4/message?id=1&from=Sister Leanna Leveille&sent=31 October 2019&time=4.55pm&body=Please arrange for an appointment with a nurse for a blood test">
                 <h2 class="nhsuk-heading-xs">
                   <span class="nhsuk-u-visually-hidden">Conversation with:</span>
                   Sister Leanna Leveille

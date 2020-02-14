@@ -72,9 +72,6 @@ $( document ).ready(function() {
             </div>
             <div class="nhsuk-u-clear">
             </div>
-            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
-              <a href="delete">Delete message</a>
-            </div>
           </li>
 
           {% else %}
@@ -96,9 +93,6 @@ $( document ).ready(function() {
               Sent 30 October 2019 at 9.40am
             </div>
             <div class="nhsuk-u-clear">
-            </div>
-            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
-              <a href="delete?conversation=true">Delete message</a>
             </div>
           </li>
 
@@ -128,6 +122,19 @@ $( document ).ready(function() {
 
 
         </ul>
+
+        <ul class="list-menu" id="replyButton">
+          <li class="no-chevron">
+            <div class="list-menu_container">
+              <strong>You cannot reply to this message</strong>
+            </div>
+          </li>
+
+          <li>
+            <a href="delete?conversation=true">Delete conversation</a>
+          </li>
+        </ul>
+
       </div>
 
       <p class="nhs-app-desktop--show">

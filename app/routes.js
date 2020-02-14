@@ -1170,6 +1170,33 @@ router.post('/app/engage/terms/v1/engage-medical', function (req, res) {
   }
 });
 
+// medical
+router.post('/app/engage/terms/v1/nhs-login', function (req, res) {
+  let answer = req.session.data.engageLoginAccepted;
+
+  if (answer === 'true') {
+
+    res.redirect('/app/engage/who/v1/index')
+
+  } else {
+    res.redirect('/app/engage/terms/v1/nhs-login')
+  }
+});
+
+
+// admin
+router.post('/app/engage/admin/v1/terms/nhs-login', function (req, res) {
+  let answer = req.session.data.engageLoginAccepted;
+
+  if (answer === 'true') {
+
+    res.redirect('/app/engage/admin/v1/who/index')
+
+  } else {
+    res.redirect('/app/engage/admin/v1/terms/nhs-login')
+  }
+});
+
 
 
 module.exports = router;
