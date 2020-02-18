@@ -70,10 +70,10 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/nominated-pharmacy/v2/home">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">More</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v3/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v5/your-prescriptions-9">Prescriptions</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v5/your-prescriptions-9">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v5/your-prescriptions-9">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -89,14 +89,14 @@
 
       <p>Your nominated pharmacy is:</p>
 
-      <p>{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
+      <p class="nhsuk-u-margin-bottom-2">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
 
       <p><a href="/app/nominated-pharmacy/v4/change-2">Change<span class="nhsuk-u-visually-hidden"> your nominated pharmacy</span></a></p>
 
 
       {% else %}
 
-      <p>You do not have a nominated pharmacy.</p>
+      <p class="nhsuk-u-margin-bottom-2">You do not have a nominated pharmacy.</p>
 
       <p><a href="/app/nominated-pharmacy/v4/card-nom-pharmacy-2">Change<span class="nhsuk-u-visually-hidden"> how you get your prescriptions</span></a></p>
 
@@ -124,12 +124,14 @@
         {% if data['prescriptionConfirmed'] %}
           {% if 'metformin' in data['choosePrescription'] %}
 
+
+
                   <li>
-                		<a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v5/order-details">
+                		<a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v5/order-details?pName=metformin">
                       <h2 class="nhsuk-heading-xs">
                         {{ "today" | returnDate }}
                         <span class="nhsuk-u-visually-hidden">The status of this prescription is</span>
-                        <span class="nhs-app-message__date  ">Requested</span>
+                        <span class="nhs-app-message__date  "><strong>Requested</strong></span>
                       </h2>
                       <p class="nhs-app-prescription__instructions">
                         Metformin 500mg tablets
@@ -144,15 +146,16 @@
                   {% endif %}
 
 
+
                   {% if 'alogliptin' in data['choosePrescription'] %}
 
 
                   <li>
-                		<a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v5/order-details">
+                		<a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v5/order-details?pName=alogliptin">
                       <h2 class="nhsuk-heading-xs">
                         {{ "today" | returnDate }}
                         <span class="nhsuk-u-visually-hidden">The status of this prescription is</span>
-                        <span class="nhs-app-message__date  ">Requested</span>
+                        <span class="nhs-app-message__date  "><strong>Requested</strong></span>
                       </h2>
                       <p class="nhs-app-prescription__instructions">
                         Alogliptin 25mg tablets
@@ -173,11 +176,11 @@
 
 
                   <li>
-                		<a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v5/order-details">
+                		<a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v5/order-details?pName=omeprazole">
                       <h2 class="nhsuk-heading-xs">
                         {{ "today" | returnDate }}
                         <span class="nhsuk-u-visually-hidden">The status of this prescription is</span>
-                        <span class="nhs-app-message__date  ">Requested</span>
+                        <span class="nhs-app-message__date  "><strong>Requested</strong></span>
                       </h2>
                       <p class="nhs-app-prescription__instructions">
                         Omeprazole 40mg gastro-resistant capsules
@@ -194,6 +197,7 @@
 
 
                   {% else %}
+
 
                   <li class="no-chevron">
                     <div class="list-menu_container">
