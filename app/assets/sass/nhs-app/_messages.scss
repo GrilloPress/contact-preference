@@ -3,6 +3,10 @@
   .nhs-app-message__item {
 
     margin-bottom: 0;
+
+    h2.nhsuk-heading-xs {
+      padding-right: 1em !important;
+    }
   }
 
   h2, h3 {
@@ -16,6 +20,7 @@
     padding-bottom: 0;
     color: $nhsuk-secondary-text-color;
   }
+
 }
 
 .nhs-app-message__unread {
