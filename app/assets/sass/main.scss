@@ -74,3 +74,16 @@ li ul {
 
   @include nhsuk-responsive-margin(4, 'bottom')
 }
+
+
+.nhsuk-panel-with-label__label-purple {
+  @include heading-label($color_nhsuk-purple, $color_nhsuk-white);
+  @include print-color($nhsuk-print-text-color);
+}
+
+
+.center {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
