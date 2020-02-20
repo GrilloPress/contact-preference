@@ -44,7 +44,7 @@
 
             {% if data['inJourney'] == "true" %}
 
-            <form action="/app/prescriptions/v4/confirm-prescription-5" method="get">
+            <form action="/app/prescriptions/v5/confirm-prescription-5" method="get">
               <input type="submit" class="nhsuk-button" value="Continue to your order">
             </form>
 
@@ -56,7 +56,7 @@
               <p>Collect your prescriptions from {{ data["pickPharmacy"] or "Cameolord Pharmacy" }} when they are ready to collect.</p>
             {% endif %}
 
-            <p><a href="/app/prescriptions/v4/your-prescriptions-8">Go to your prescriptions</a></p>
+            <p><a href="/app/prescriptions/v5/your-prescriptions-9">Go to your prescriptions</a></p>
 
 
 
