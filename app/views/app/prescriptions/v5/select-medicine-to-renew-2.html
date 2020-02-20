@@ -60,6 +60,7 @@ $("textarea").focusout(function(){
             {
               "value": "alogliptin",
               "text": "Alogliptin 25mg tablets",
+              "checked": checked("choosePrescription", "alogliptin"),
               "hint": {
                 "text": "One to be taken each day - 28 tablet"
               }
@@ -67,6 +68,7 @@ $("textarea").focusout(function(){
             {
               "value": "omeprazole",
               "text": "Omeprazole 40mg gastro-resistant capsules",
+              "checked": checked("choosePrescription", "omeprazole"),
               "hint": {
                 "text": "One to be taken each day - 28 tablet"
               }
@@ -74,6 +76,7 @@ $("textarea").focusout(function(){
             {
               "value": "metformin",
               "text": "Metformin 500mg tablets",
+              "checked": checked("choosePrescription", "metformin"),
               "hint": {
                 "text": "One to be taken 4 times a day with food - 112 tablet"
               }
@@ -81,9 +84,17 @@ $("textarea").focusout(function(){
           ]
         }) }}
 
+
+
+
+
+
+
+
         {{ textarea({
           "name": "specialRequest",
           "id": "more-detail",
+          "value": data['specialRequest'],
           "classes": "nhsuk-u-margin-bottom-0",
           "rows": "3",
           "label": {
