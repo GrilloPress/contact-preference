@@ -34,25 +34,24 @@
         </p>
       </div>
 
-      
+
 
       {% if data['clearBiometric'] == 'true' %}
       {% else %}
 
-      <div class="nhsuk-panel-with-label">
+      <div class="nhsuk-panel-with-label nhs-app-desktop--hide">
           <h3 class="nhsuk-panel-with-label__label-purple">Login options</h3>
           <p>If your mobile device supports fingerprint or face recognition, you can use it to log in to the NHS App instead of a password and security code.</p>
 
-          <div class="center">
-          {{ button({
-            "text": "Open settings",
-            "classes": "nhsuk-button--secondary",
-            "href": "/app/settings/v1/password"
-          }) }}
-          <p class="center"><a href="/{{ PROTOTYPEURL }}/homepage/biometric-message?clearBiometric=true">Dismiss</a></p>
+          <div class="nhs-app-text-align--center">
+  <a class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-5" href="/app/settings/v1/password" role="button" draggable="false">
+    Open settings
+  </a>
+  <p class=""><a href="/app/homepage/biometric-message?clearBiometric=true">Dismiss</a></p>
+          </div>
+        </div>
 
-        </div>
-        </div>
+
 
         {% endif %}
 
