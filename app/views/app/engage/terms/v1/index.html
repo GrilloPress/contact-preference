@@ -34,9 +34,12 @@
       <div class="app-interruption">
         <div class="app-interruption__wrapper">
           <div class="app-interruption__content">
-            <h1 class="app-card__heading nhsuk-heading-l">{{ contentTitle }}</h1>
+            <h1 class="app-card__heading nhsuk-heading-xl nhsuk-u-margin-bottom-4">
+              <span class="app-interruption__caption nhsuk-caption-m nhsuk-caption--top">Ask a health professional for advice</span>
+              {{ contentTitle }}
+            </h1>
             <p>
-              This online consultation service is provided by <strong>EngageConsult</strong>, on behalf of your GP surgery
+              Your GP surgery has chosen this online consultation service provided by <strong>Engage Consult</strong>.
             </p>
             <form action="/{{ PROTOTYPEURL }}/terms/v1/nhs-login" method="post">
               <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
