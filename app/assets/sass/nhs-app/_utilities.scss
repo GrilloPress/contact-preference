@@ -219,3 +219,23 @@ a:visited {
     display: none !important;
   }
 }
+
+.app-silver__top-marker {
+
+  margin-top: -32px;
+}
+
+.app-silver__footer {
+
+  min-height: 164px;
+  padding-top: 24px;
+  background-color: #d8dde0;
+  border-top: 1px solid darken(#d8dde0, 5%);
+  // position: static;
+  width: 100%;
+  bottom: 0;
+
+  p:first-of-type {
+
+  }
+}
