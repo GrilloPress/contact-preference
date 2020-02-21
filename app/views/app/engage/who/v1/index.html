@@ -47,8 +47,16 @@
               Bernard Doyle (Self)
             </a>
           </li>
+          {% if data["engageProxyDone"] %}
           <li>
-            <a href="/{{ PROTOTYPEURL}}/#?engageWho=else">
+            <a href="/{{ PROTOTYPEURL}}/terms/v1/engage-medical?engageWho={{ data['engageProxyfirstname']}} {{ data['engageProxyLastname']}}&engageProxyJourney=true">
+              {{ data['engageProxyfirstname'] | capitalize }} {{ data['engageProxyLastname'] | capitalize }} {{ "(Carer)" if data['engageProxyRelationship'] == "You are their carer" else "(Parent)" }}
+            </a>
+          </li>
+
+          {% endif %}
+          <li>
+            <a href="/{{ PROTOTYPEURL}}/proxy/index">
               Add someone else
             </a>
           </li>

@@ -58,6 +58,10 @@ $color_app-interruption-blue: #05538e;
 
 }
 
+.app-interruption__wrapper .app-interruption__caption {
+  color: $color_nhsuk-white;
+}
+
 .app-interruption__heading {
   margin-bottom: nhsuk-spacing(3);
 }

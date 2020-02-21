@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "This is a connected service" %}
+{% set contentTitle = "To use this service on behalf of someone else you must both be registered at Gledhow Practice" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -25,28 +25,35 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
+
+<div class="nhsuk-breadcrumb nhs-app-third-party-container">
+  <div class="nhsuk-width-container">
+    <strong>This service is provided by your GP surgery</strong>
+  </div>
+</div>
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <div class="app-interruption">
-        <div class="app-interruption__wrapper">
-          <div class="app-interruption__content">
-            <h1 class="app-card__heading nhsuk-heading-xl nhsuk-u-margin-bottom-4">
-              <span class="app-interruption__caption nhsuk-caption-m nhsuk-caption--top">Ask a health professional for advice</span>
-              {{ contentTitle }}
-            </h1>
+      <div class="app-card">
+        <div class="app-card__wrapper">
+          <div class="app-card__content">
+            <h1 class="app-card__heading nhsuk-heading-l">{{ contentTitle }}</h1>
             <p>
-              Your GP surgery has chosen this online consultation service provided by <strong>Engage Consult</strong>.
+            To continue you must:
             </p>
-            <form action="/{{ PROTOTYPEURL }}/admin/v1/terms/nhs-login" method="post">
-              <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
+            <ul>
+              <li>both be registered at Gledhow Practice</li>
+              <li>be a parent or carer for them</li>
+            </ul>
+            <form action="/{{ PROTOTYPEURL }}/proxy/name" method="get">
+
+              <input type="submit" class="nhsuk-button" value="I understand">
+              </input>
+
             </form>
-            <p>
-              <a href="#">Find out more about online consultation services</a>
-            </p>
           </div>
         </div>
       </div>

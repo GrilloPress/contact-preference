@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Agree to share your NHS login information" %}
+{% set contentTitle = "What is their date of birth?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -25,35 +25,51 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
+
+<div class="nhsuk-breadcrumb nhs-app-third-party-container">
+  <div class="nhsuk-width-container">
+    <strong>This service is provided by your GP surgery</strong>
+  </div>
+</div>
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+      <form action="/{{ PROTOTYPEURL }}/proxy/gender" method="post">
+          {{ dateInput({
+            "id": "dob",
+            "namePrefix": "engageProxyDOB",
+            "fieldset": {
+              "legend": {
+                "text": contentTitle,
+                "isPageHeading": true,
+                "classes": "nhsuk-label--xl"
+              }
+            },
+            "hint": {
+              "text": "For example, 31 3 1980"
+            },
+            "items": [
+              {
+                "name": "day",
+                "classes": "nhsuk-input--width-2"
+              },
+              {
+                "name": "month",
+                "classes": "nhsuk-input--width-2"
+              },
+              {
+                "name": "year",
+                "classes": "nhsuk-input--width-4"
+              }
+            ]
+          }) }}
 
-      <p>
-        <span class="nhsuk-body-s nhsuk-u-margin-bottom-0">Your NHS login is:</span>
-        <span>email@test.com</span>
-      </p>
-
-      <p>To continue, you need to agree to share your NHS login information.</p>
-
-      <p><strong>'Engage Consult'</strong> will use your:</p>
-      <ul>
-        <li>NHS number</li>
-        <li>date of birth</li>
-        <li>last name</li>
-      </ul>
-
-      <p>Before you agree, you should read their terms of use and privacy policy to check how they will use your information.</p>
-
-      <form action="/{{ PROTOTYPEURL }}/admin/v1/who/index?engageLoginAccepted=true" method="post">
-        <input type="submit" class="nhsuk-button" value="Agree and continue">
+        <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>
-
     </div>
   </div>
 {% endblock %}
