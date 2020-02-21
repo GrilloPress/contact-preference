@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Who would you like to get help from?" %}
+{% set contentTitle = "What best describes their gender?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -37,30 +37,32 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+      <form action="/{{ PROTOTYPEURL }}/admin/v1/proxy/relationship" method="post">
+        {{ radios({
+          "idPrefix": "engageProxyGender",
+          "name": "engageProxyGender",
+          "fieldset": {
+            "legend": {
+              "text": contentTitle,
+              "isPageHeading": true,
+              "classes": "nhsuk-fieldset__legend--xl"
+            }
+          },
+          "items": [
+            {
+              "value": "Female",
+              "text": "Female"
+            },
+            {
+              "value": "Male",
+              "text": "Male"
+            }
+          ]
+        }) }}
 
-      <ul class="list-menu">
-        <li>
-          <a href="/{{ PROTOTYPEURL}}/premed/v1/response-as-soon?engageWhoGetHelp=Anyone">
-            Anyone
-          </a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL}}/premed/v1/response-as-soon?engageWhoGetHelp=Practice Nurse">
-            Practice Nurse
-          </a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL}}/premed/v1/response-as-soon?engageWhoGetHelp=Practice Pharmacist - Medication reviews">
-            Practice Pharmacist - Medication reviews
-          </a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL}}/premed/v1/response-as-soon?engageWhoGetHelp=I'm feeling unwell">
-           I'm feeling unwell
-          </a>
-        </li>
-      </ul>
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
 
     </div>
   </div>
