@@ -229,13 +229,28 @@ a:visited {
 
   min-height: 164px;
   padding-top: 24px;
-  background-color: #d8dde0;
+  // background-color: #d8dde0;
   border-top: 1px solid darken(#d8dde0, 5%);
   // position: static;
   width: 100%;
   bottom: 0;
 
-  p:first-of-type {
+  p {
+    @include nhsuk-typography-responsive(16);
+  }
+}
 
+.app-proxy__container {
+
+  margin-top: -24px;
+
+  p {
+
+    padding: 0 !important;
+  }
+
+  li.no-chevron {
+
+    background-color: #fec526;
   }
 }
