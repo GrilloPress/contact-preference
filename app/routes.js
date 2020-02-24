@@ -495,6 +495,20 @@ router.post('/app/prescriptions/v4/nominate-interrupt', function (req, res) {
 });
 
 
+// homepage
+
+
+router.post('/app/homepage/biometric-message-2', function (req, res) {
+  let answer = req.body.biometric;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/settings/v1/password-2')
+
+  } else {
+    res.redirect('/app/v3/')
+  }
+});
 
 
 router.post('/app/settings/v1/logout', function (req, res) {
