@@ -74,3 +74,11 @@ li ul {
 
   @include nhsuk-responsive-margin(4, 'bottom')
 }
+
+.nhsuk-care-card__content {
+
+  strong {
+
+    color: $color_nhsuk-white;
+  }
+}

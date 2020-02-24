@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "This service may not be appropriate for you and you may need to seek emergency care elsewhere" %}
+{% set contentTitle = "Confirm you do not need immediate treatment" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -34,6 +34,10 @@
 
       <h1 class="nhsuk-heading-l nhs-app-xl">{{ contentTitle }}</h1>
 
+      <p>This service may not be appropriate for you and you may need to seek emergency care elsewhere</p>
+
+      <p>Some headaches can require immediate treatment.</p>
+
       {{ careCard({
         "type": "immediate",
         "heading": "Call 999 or go to A&E if:",
@@ -42,7 +46,7 @@
           <li>you injured your head badly - for example, from a fall or accident</li>
           <li>the headache came on suddenly and is extremely painful</li>
         </ul>
-        <p>You have an extrmely painful headache and:</p>
+        <p>You have an extremely painful headache and:</p>
         <ul>
           <li>sudden problem speaking or remembering things</li>
           <li>loss of vision</li>
@@ -55,7 +59,7 @@
 
       {{ careCard({
         "type": "urgent",
-        "heading": "Ask for an urgent GP appointment if:",
+        "heading": "See your GP urgently if:",
         "classes": "nhsuk-u-margin-bottom-4",
         "HTML": "
         <p>You have a severe headache and:</p>
@@ -68,12 +72,12 @@
         "
       }) }}
 
-      <p>Some headaches can require immediate treatment.</p>
+
 
       <p>By continuing you are declaring that this does not apply.</p>
 
       <form action="/{{ PROTOTYPEURL }}/preq/v1/info" method="get">
-        <input type="submit" class="nhsuk-button" value="I understand">
+        <input type="submit" class="nhsuk-button" value="Agree and continue">
         </input>
       </form>
 

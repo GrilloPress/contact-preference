@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "In general, do any of your nasal symptoms (for example: stuffy nose, head congestion, or nasal blockage) seem to never go away or recur frequently as if you have an allergy?" %}
+{% set contentTitle = "Read and confirm" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -31,30 +31,49 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-heading-l nhs-app-xl">{{ contentTitle }}</h1>
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
-      <ul class="list-menu">
-        <li>
-          <a href="/{{ PROTOTYPEURL}}/med/v1/q21?engageMedQ19=Yes">
-           Yes
-          </a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL}}/med/v1/q21?engageMedQ19=No">
-           No
-          </a>
-        </li>
-      </ul>
+      {% set checkboxWarning %}
+      {{ checkboxes({
+        "name": "engageMedicalWarning",
+        "items": [
+          {
+            "value": "true",
+            "text": "I understand"
+          }
+        ]
+      }) }}
+      {% endset %}
 
-      <p>
-        <a href="/{{ PROTOTYPEURL}}/med/v1/q21?engageMedQ19=">Skip this question</a>
-      </p>
+      {% set checkboxWarningTwo %}
+      {{ checkboxes({
+        "name": "engageMedicalGetHelp",
+        "items": [
+          {
+            "value": "true",
+            "text": "I understand"
+          }
+        ]
+      }) }}
+      {% endset %}
 
-      <hr class="nhsuk-u-margin-top-0">
 
-      <p>
-        <a href="#">Finish now</a>
-      </p>
+      <form class="" action="" method="post">
+
+        {{ warningCallout({
+          "heading": "Emergencies",
+          "HTML": "<p>Do not use this service to contact your GP in an emergency.</p><p> In the case of life threatening emergencies, please ring 999.</p><p>Serious symptoms to consider may include but are not limited to: Unexpected breathlessness, severe bleeding, crushing chest pain or pressure</p>" + checkboxWarning + "<p>You are responsible for seeking further medical help if the situation worsens or a medical condition deteriorates such that you consider immediate help may be required.</p>" + checkboxWarningTwo
+        }) }}
+
+        <p>By proceeding to use this service you accept the
+          <a href="#">end user license agreement</a>.
+        </p>
+
+          <input type="submit" class="nhsuk-button" value="Agree and continue">
+          </input>
+
+      </form>
+
 
     </div>
   </div>

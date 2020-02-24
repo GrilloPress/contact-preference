@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Your data and privacy is important to us" %}
+{% set contentTitle = "Confirm it's not an emergency" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -33,51 +33,61 @@
 
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
+      <p>Do not use this service to contact your GP in an emergency</p>
+
+      {{ careCard({
+        "type": "immediate",
+        "heading": "Call 999 now if you have:",
+        "HTML": "
+        <ul>
+          <li>
+            <strong>signs of a heart attack</strong>
+            - pain like a very tight band, heavy weight or squeezing in the centre of your chest
+          </li>
+
+          <li>
+            <strong>signs of a stroke</strong>
+            - face drooping on one side, cannot hold both arms up, difficulty speaking
+          </li>
+
+          <li>
+            <strong>severe difficulty breathing</strong>
+            - gasping, not being able to get words out, choking or lips turning blue
+          </li>
+
+          <li>
+            <strong>heavy bleeing</strong>
+            - that will not stop
+          </li>
+
+          <li>
+            <strong>severe injuries</strong>
+            - or deep cuts after a serious accident
+          </li>
+
+          <li>
+            <strong>seizure (fit)</strong>
+            - someone is shaking or jerking because of a fit, or is unconscious (cannot be woken up)
+          </li>
+        </ul>
+        "
+      }) }}
+
+
+
+
       <form class="" action="" method="post">
 
-        <h2>Please read our privacy policy</h2>
-        <p>Before continuing please make sure you fully ready and completely understand our <a href="#">privacy policy</a>.</p>
+        <p>You are responsible for seeking further medical help if the situation worsens or a medical condition deteriorates such that you consider immediate help may be required.</p>
 
-        {{ checkboxes({
-          "name": "engagePrivacyPolicy",
-          "items": [
-            {
-              "value": "true",
-              "text": "I have fully read and agree to the privacy policy"
-            }
-          ]
-        }) }}
+        <p>By continuing you accept the
+          <a href="#">end user license agreement</a>.
+        </p>
 
-        <h2>Can I control who sees my data?</h2>
-        <p>Yes, you can, we give users the following options:</p>
-
-        {{ checkboxes({
-          "name": "engageDataUse",
-          "items": [
-            {
-              "value": "trueShare",
-              "text": "I am happy for requests to be dealt with by NHS staff outside this organisation",
-              "hint": {
-                "html": "<a href='#'>Learn more about how your request might be shared</a>"
-              }
-            },
-            {
-              "value": "trueImprove",
-              "text": "You can use my data to help improve this service",
-              "hint": {
-                "html": "<a href='#'>Learn more about how your data might be used to improve this service</a>"
-              }
-            }
-          ]
-        }) }}
-
-
-
-          <input type="submit" class="nhsuk-button" value="Continue">
+          <input type="submit" class="nhsuk-button" value="I understand">
           </input>
 
       </form>
-
 
 
     </div>

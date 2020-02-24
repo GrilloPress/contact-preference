@@ -31,15 +31,28 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
+      {{ errorSummary({
+        "titleText": "This is a problem",
+        "errorList": [
+          {
+            "text": "Select if you have read our privacy policy",
+            "href": "javascript:jumpTo('engagePrivacyPolicy-error', 120)"
+          }
+        ]
+      }) }}
+
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
-      <form class="" action="" method="post">
+      <form class="" action="/{{PROTOTYPEURL}}/terms/v1/engage-privacy" method="post">
 
         <h2>Please read our privacy policy</h2>
-        <p>Before continuing please make sure you fully ready and completely understand our <a href="#">privacy policy</a>.</p>
+        <p>Before continuing please make sure you fully read and completely understand our <a href="#">privacy policy</a>.</p>
 
         {{ checkboxes({
           "name": "engagePrivacyPolicy",
+          "errorMessage": {
+            "text": "Select if you have read our privacy policy"
+          },
           "items": [
             {
               "value": "true",

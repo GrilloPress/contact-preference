@@ -1170,6 +1170,19 @@ router.post('/app/engage/terms/v1/engage-medical', function (req, res) {
   }
 });
 
+// medical 111 style
+router.post('/app/engage/terms/v1/engage-medical-111', function (req, res) {
+  let answer = req.session.data.engagePrivacyPolicy;
+
+  if (answer === 'true') {
+
+    res.redirect('/app/engage/premed/v1/telephone')
+
+  } else {
+    res.redirect('/app/engage/terms/v1/engage-privacy')
+  }
+});
+
 // medical
 router.post('/app/engage/terms/v1/nhs-login', function (req, res) {
   let answer = req.session.data.engageLoginAccepted;
@@ -1196,6 +1209,23 @@ router.post('/app/engage/admin/v1/terms/nhs-login', function (req, res) {
     res.redirect('/app/engage/admin/v1/terms/nhs-login')
   }
 });
+
+
+// ERROR privacy
+
+router.post('/app/engage/terms/v1/engage-privacy', function (req, res) {
+  let answer = req.body.engagePrivacyPolicy;
+
+  if (answer === 'true') {
+
+    res.redirect('/app/engage/premed/v1/telephone')
+
+  } else {
+    res.redirect('/app/engage/terms/v1/engage-privacy-error')
+  }
+});
+
+
 
 
 
