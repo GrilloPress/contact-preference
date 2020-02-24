@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Who would you like to access services for?" %}
+{% set contentTitle = "Confirm it's not an emergency" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -25,39 +25,70 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
-
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>{{ contentTitle }}</h1>
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
-      <div class="nhsuk-form-group">
+      <p>Do not use this service to contact your GP in an emergency</p>
 
-        <ul class="list-menu">
+      {{ careCard({
+        "type": "immediate",
+        "heading": "Call 999 now if you have:",
+        "HTML": "
+        <ul>
           <li>
-            <a href="/{{ PROTOTYPEURL}}/admin/v1/terms/engage-medical-111?engageAdminWho=Bernard Doyle&engageProxyJourney=">
-              Bernard Doyle (Self)
-            </a>
-          </li>
-          {% if data["engageProxyDone"] %}
-          <li>
-            <a href="/{{ PROTOTYPEURL}}/admin/v1/terms/engage-medical?engageWho={{ data['engageProxyfirstname']}} {{ data['engageProxyLastname']}}&engageProxyJourney=true">
-              {{ data['engageProxyfirstname'] | capitalize }} {{ data['engageProxyLastname'] | capitalize }} {{ "(Carer)" if data['engageProxyRelationship'] == "You are their carer" else "(Parent)" }}
-            </a>
+            <strong>signs of a heart attack</strong>
+            - pain like a very tight band, heavy weight or squeezing in the centre of your chest
           </li>
 
-          {% endif %}
           <li>
-            <a href="/{{ PROTOTYPEURL}}/admin/v1/proxy?engageAdminWho=else">
-              Add someone else
-            </a>
+            <strong>signs of a stroke</strong>
+            - face drooping on one side, cannot hold both arms up, difficulty speaking
+          </li>
+
+          <li>
+            <strong>severe difficulty breathing</strong>
+            - gasping, not being able to get words out, choking or lips turning blue
+          </li>
+
+          <li>
+            <strong>heavy bleeing</strong>
+            - that will not stop
+          </li>
+
+          <li>
+            <strong>severe injuries</strong>
+            - or deep cuts after a serious accident
+          </li>
+
+          <li>
+            <strong>seizure (fit)</strong>
+            - someone is shaking or jerking because of a fit, or is unconscious (cannot be woken up)
           </li>
         </ul>
+        "
+      }) }}
 
-      </div>
+
+
+
+      <form class="" action="" method="post">
+
+        <p>You are responsible for seeking further medical help if the situation worsens or a medical condition deteriorates such that you consider immediate help may be required.</p>
+
+        <p>By continuing you accept the
+          <a href="#">end user license agreement</a>.
+        </p>
+
+          <input type="submit" class="nhsuk-button" value="I understand">
+          </input>
+
+      </form>
+
 
     </div>
   </div>

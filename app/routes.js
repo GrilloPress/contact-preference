@@ -1157,6 +1157,19 @@ router.post('/app/engage/admin/v1/terms/engage-medical', function (req, res) {
   }
 });
 
+// admin
+router.post('/app/engage/admin/v1/terms/engage-medical-111', function (req, res) {
+  let answer = req.session.data.engagePrivacyPolicy;
+
+  if (answer === 'true') {
+
+    res.redirect('/app/engage/admin/v1/telephone')
+
+  } else {
+    res.redirect('/app/engage/admin/v1/terms/engage-privacy')
+  }
+});
+
 // medical
 router.post('/app/engage/terms/v1/engage-medical', function (req, res) {
   let answer = req.session.data.engagePrivacyPolicy;
