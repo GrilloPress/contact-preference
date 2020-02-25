@@ -62,24 +62,30 @@
             </div>
             <div class="nhsuk-u-clear">
             </div>
-            {% if data['fileAdded'] %}
-            <div class="nhs-app-chat__container nhs-app-chat__container--reply">
-              <img class="nhsuk-image__img nhsuk-u-margin-bottom-2" src="" id="image-preview" />
-              <p class="nhs-app-chat__body nhs-app-chat__header--reply">
-                <div>File name</div>
-                <a class="nhs-app-chat__document-action" href="/images/placeholder-image-16-9.jpg">View</a>
-                <a class="nhs-app-chat__document-action" href="/{{ PROTOTYPEURL }}/download/index">Download</a>
-              </p>
-            </div>
-            <div class="nhsuk-u-clear">
-            </div>
-            {% endif %}
             <div class="nhs-app-chat__date nhs-app-chat__date--reply">
               Sent {{ data['sent']}} at {{ data['time'] }}
             </div>
             <div class="nhsuk-u-clear">
             </div>
           </li>
+
+            {% if data['engageReply'] === "true" %}
+            <li class="nhs-app-chat__item">
+              <div class="nhs-app-chat__sender">
+                Dr Anjanette Peppard
+              </div>
+              <div class="nhs-app-chat__container">
+                <p class="nhs-app-chat__body">
+                  I've read your message and notes. It should clear up with a treatment of corticosteroid nasal sprays. These are an anti-inflammatory medicine you spray into your nose.
+                  <br><br>
+                  You can pick them up at your local pharmacy. If your symptoms do not clear up after 1 week. Call the surgery for an appointment.
+                </p>
+              </div>
+              <div class="nhs-app-chat__date">
+                Sent {{ data['sent']}} at {{ 'now' | returnTime }}
+              </div>
+            </li>
+            {% endif %}
 
           {% else %}
           <li class="nhs-app-chat__item nhs-app-chat__item--reply">
@@ -209,6 +215,7 @@
 
         {% else %}
 
+        {% if data['engageReply'] !== "true" %}
         <ul class="list-menu" id="replyButton">
           <li class="no-chevron">
             <div class="list-menu_container">
@@ -217,6 +224,9 @@
 
           </li>
         </ul>
+        {% endif %}
+
+
 
         {% endif %}
 

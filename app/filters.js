@@ -89,6 +89,12 @@ module.exports = function (env) {
 
     }
 
+    if (date == "30MinAgo") {
+
+       return moment().subtract(30, 'minutes').format("h:mm a");
+
+    }
+
   }
 
   // Filter to print placeholder data if data doesn't exist.

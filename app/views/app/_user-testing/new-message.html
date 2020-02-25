@@ -21,13 +21,13 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
       <h1 class="nhsuk-heading-l">{{ contentTitle}}</h1>
-      <p>Your message was received at {{ "now" | returnTime }}  on {{ "today" | returnDate }}</p>
-      <p>Within working hours we usually respond within an hour. Sometimes demand may mean this takes longer, but please don't call us before two hours have passed.</p>
-      <p>Gledhow Practice</p>
+      <p>To view your message sign in to Engage Health</p>
+      <p>
+        <a href="/app/engage/messaging/engage-view?id=3&from=Woodrow GP Practice&sent=Today&time={{ '30MinAgo' | returnTime }}&body=Medical request submitted for {{ data[''] or 'Bernard Doyle' }}. Problems reported {{ medicalProblems }}&cat=Medical request for:&engageReply=true">www.</a>
+      </p>
     </div>
   </div>
 {% endblock %}
-
 
 {% block footerContent %}
 <p class="nhsuk-body-s">The information in this email is confidential and solely for the use of the intended recipient(s). </p><p class="nhsuk-body-s">If you have received this email in error, please notify the sender and delete the email from your system immediately.</p>
