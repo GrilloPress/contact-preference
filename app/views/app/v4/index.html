@@ -59,10 +59,10 @@
           <a href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v1/" }}'>Check your symptoms</a>
         </li>
         <li>
-          <a href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v6/pre-hub" }}'>Book and manage appointments</a>
+          <a href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v7-engage/pre-hub" }}'>Book and manage appointments</a>
         </li>
         <li>
-          <a href='{{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v4/your-prescriptions-8" }}'>Order a repeat prescription</a>
+          <a href='{{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v5/your-prescriptions-9" }}'>Order a repeat prescription</a>
         </li>
         <li>
           <a href='{{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v1/" }}'>View your GP health record</a>
@@ -70,7 +70,7 @@
         <li>
           <a href="/app/organ-donation/v2/register-decision">Manage your organ donation decision</a>
         </li>
-        <li>
+        <li style="display:none;">
           <a href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/send-a-message/v4/" }}'>View your messages</a>
         </li>
       </ul>

@@ -47,11 +47,33 @@
           <h2 class="nhsuk-heading-m">Your messages</h2>
         </div>
         <ul class="list-menu nhs-app-message">
+          {% if data['engageAdminDone'] %}
           <li id="messageID1" class="nhs-app-message__item  ">
-            <a class="nhs-app-message__link" href="engage-view?id=3&from=Woodrow GP Practice&sent=Today&time={{ 'now' | returnTime }}&body=Medical request submitted for {{ data[''] or 'Bernard Doyle' }}. Problems reported {{ medicalProblems }}&cat=Medical request for:">
+            <a class="nhs-app-message__link" href="
+            engage-view?id=3&from=Gledhow Practice&sent=Today&time={{ 'now' | returnTime }}&body=Administration request submitted for {{ data[''] or 'Bernard Doyle' }}. Problems reported {{ medicalProblems }}&cat=Administration request for:">
               <h2 class="nhsuk-heading-xs">
                   <span class="nhsuk-u-visually-hidden">Conversation with:</span>
-                Woodrow GP Practice
+                Gledhow Practice
+                  <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+                  <span class="nhs-app-message__date ">Today</span>
+                </h2>
+                <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold">
+                  <span class="nhsuk-u-visually-hidden">Subject: </span>
+                  Administration request sent
+                </p>
+                <p class="nhs-app-message__subject-line">
+                  <span class="nhsuk-u-visually-hidden">Latest message: </span>
+                   You: Administration request submitted for {{ data[''] or "Bernard Doyle" }}. Sick note requested
+                </p>
+              </a>
+            </li>
+          {% endif %}
+          <li id="messageID1" class="nhs-app-message__item  ">
+            <a class="nhs-app-message__link" href="
+            engage-view?id=3&from=Gledhow Practice&sent=Today&time={{ '30MinAgo' | returnTime }}&body=Medical request submitted for {{ data[''] or 'Bernard Doyle' }}. Problems reported {{ medicalProblems }}&cat=Medical request for:&engageReply=true">
+              <h2 class="nhsuk-heading-xs">
+                  <span class="nhsuk-u-visually-hidden">Conversation with:</span>
+                Gledhow Practice
                   <span class="nhsuk-u-visually-hidden">The last message was sent </span>
                   <span class="nhs-app-message__date ">Today</span>
                 </h2>
@@ -61,7 +83,7 @@
                 </p>
                 <p class="nhs-app-message__subject-line">
                   <span class="nhsuk-u-visually-hidden">Latest message: </span>
-                   You: Medical request submitted for {{ data[''] or "Bernard Doyle" }}. Problems reported {{ medicalProblems }}
+                   I've read your message and notes. It should clear up with a treatment of corticosteroid nasal sprays. These are an anti-inflammatory medicine you spray into your nose.
                 </p>
               </a>
           	</li>
