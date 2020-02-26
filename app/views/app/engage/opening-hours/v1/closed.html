@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Please answer a series of medical questions to help our clinical staff help you" %}
+{% set contentTitle = "Please come back later this service is currently closed" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -25,33 +25,22 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
-
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      {% if data['engageProxyJourney'] %}
-      <div class="app-proxy__container">
-        <ul class="list-menu">
-          <li>
-              <a href="/{{ PROTOTYPEURL }}/who/v1/index">
-                <p class="nhsuk-body-s">Acting on the behalf of <br>
-                  <strong>{{ data['engageWho']}}</strong>
-                </p>
-              </a>
-          </li>
-        </ul>
-      </div>
-      {% endif %}
-
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
-      <p>Questionnaires generally take about 5 to 10 minutes to complete and it really helps us if you complete as much as you are able. When requests are submitted within the published response times (usually ending before the surgery closes each day), we will contact you on the number provided to discuss the next steps.</p>
+
+      <div class="nhsuk-inset-text nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-2">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p>The earliest you can send a message is Thursday 26 February at 7:00am</p>
+      </div>
 
       {{ details({
   "classes": "nhsuk-expander",
-  "text": "Same day response times",
+  "text": "Service opening times",
   "HTML": '
   <table class="table table-responsive bottom-buffer">
             <tbody><tr><th>Day</th><th>Start</th><th>Finish</th>
@@ -61,33 +50,13 @@
         </table>'
 }) }}
 
+<p>For advice now, phone your GP surgery or visit <a href="#">111.nhs.uk</a> or <a href="#">call 111</a>.</p>
 
 
-
-      {{ warningCallout({
-        "heading": "Important",
-        "HTML": "
-          <p>Please remember that:</p>
-          <ul>
-            <li>Engage Consult must never be used for medical emergencies. Please contact 111 or 999 if you are in any doubt.</li>
-            <li>It remains your responsibility to seek medical help by other means for yourself (or for the person for whom the request is being made) if the situation worsens or you have concerns.</li>
-            <li>Any requests made outside our daily response hours will not be read or responded to until our next full working day.</li>
-        </ul>"
-      }) }}
-
-      <ul class="list-menu">
-        <li>
-          <a href="/{{ PROTOTYPEURL}}/med/v1/q1?engageNoQs=">
-           Start the questions
-          </a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL}}/med/v1/check-answers?engageNoQs=true">
-           No, send my request as it is
-          </a>
-        </li>
-      </ul>
-
+      <form action="#" method="post">
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
     </div>
   </div>
 {% endblock %}
