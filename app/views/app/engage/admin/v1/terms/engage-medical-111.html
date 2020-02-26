@@ -31,6 +31,20 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
+      {% if data['engageProxyJourney'] %}
+      <div class="app-proxy__container">
+        <ul class="list-menu">
+          <li>
+              <a href="/{{ PROTOTYPEURL }}/admin/v1/who/index">
+                <p class="nhsuk-body-s">Acting on the behalf of <br>
+                  <strong>{{ data['engageWho']}}</strong>
+                </p>
+              </a>
+          </li>
+        </ul>
+      </div>
+      {% endif %}
+
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
       <p>Do not use this service to contact your GP in an emergency</p>
