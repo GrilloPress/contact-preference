@@ -3,37 +3,6 @@
 {% set contentTitle = "Index" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
-<script type="text/javascript">
-let deferredPrompt = null;
-
-window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevent Chrome 67 and earlier from automatically showing the prompt
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-});
-
-async function install() {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    console.log(deferredPrompt)
-    deferredPrompt.userChoice.then(function(choiceResult){
-
-      if (choiceResult.outcome === 'accepted') {
-      console.log('Your PWA has been installed');
-    } else {
-      console.log('User chose to not install your PWA');
-    }
-
-    deferredPrompt = null;
-
-    });
-
-
-  }
-}
-
-</script>
 {% endblock %}
 
 
@@ -105,6 +74,15 @@ async function install() {
       </ol>
 
       <h2>Out of time</h2>
+
+      <h2>Messages</h2>
+      <ul>
+        <li>
+          <a href="/app/engage/messaging/engage-view?id=4&from=Gledhow%20Practice&sent=Today&time=6:55%20am&body=Administration%20request%20submitted%20for%20Bernard%20Doyle.%20I%20need%20a%20sick%20note&cat=Administration%20request%20for:">
+            Administration message
+          </a>
+        </li>
+      </ul>
 
 
 

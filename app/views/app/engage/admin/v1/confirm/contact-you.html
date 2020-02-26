@@ -34,7 +34,7 @@
 
     <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
-    <form action="/{{ PROTOTYPEURL }}/admin/v1/confirm/done?engageAdminDone=true" method="get">
+    <form action="/{{ PROTOTYPEURL }}/admin/v1/confirm/done" method="get">
 
       {{ input({
         "label": {
@@ -97,14 +97,14 @@
 <table class="table table-responsive bottom-buffer">
           <tbody><tr><th>Day</th><th>Start</th><th>Finish</th>
           </tr></tbody><tbody>
-              <!-- ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Monday</td><td class="ng-binding">07:00</td><td class="ng-binding">14:00</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Tuesday</td><td class="ng-binding">07:00</td><td class="ng-binding">14:00</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Wednesday</td><td class="ng-binding">07:00</td><td class="ng-binding">14:00</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Thursday</td><td class="ng-binding">07:00</td><td class="ng-binding">14:00</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Friday</td><td class="ng-binding">07:00</td><td class="ng-binding">14:00</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Saturday</td><td class="ng-binding">Closed</td><td class="ng-binding">Closed</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Sunday</td><td class="ng-binding">Closed</td><td class="ng-binding">Closed</td></tr><!-- end ngRepeat: hour in content.labels.hours -->
+              <!-- ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Monday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Tuesday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Wednesday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Thursday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Friday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Saturday</td><td class="ng-binding">Closed</td><td class="ng-binding">Closed</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Sunday</td><td class="ng-binding">Closed</td><td class="ng-binding">Closed</td></tr><!-- end ngRepeat: hour in content.labels.hours -->
           </tbody>
       </table>'
 }) }}
 
-<p>Please remember that it is always your responsibility to call for help by alternative methods if the situation deteriorates or you are worried for any reason. This should include the unlikely event that some unforeseen circumstance has delayed the response to your request and you feel that you need more urgent help.</p>
+      <p>Please remember that it is always your responsibility to call for help by alternative methods if the situation deteriorates or you are worried for any reason. This should include the unlikely event that some unforeseen circumstance has delayed the response to your request and you feel that you need more urgent help.</p>
 
-      <input type="submit" class="nhsuk-button" value="Agree and send">
+      <input type="submit" class="nhsuk-button" value="Agree and send" name="engageAdminDone">
       </input>
     </form>
 

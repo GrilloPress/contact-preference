@@ -33,11 +33,11 @@
 {% endset %}
 
 {% set routeSymptoms %}
-  {{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v1/" }}
+  {{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v2/" }}
 {% endset %}
 
 {% set routeMore %}
-  {{ data["routeMore"] if data ["routeMore"] else "/app/more/v3/" }}
+  {{ data["routeMore"] if data ["routeMore"] else "/app/more/v5/" }}
 {% endset %}
 
 {% set routeSettings %}
@@ -49,7 +49,7 @@
 {% endset %}
 
 {% set routeMessaging %}
-  {{ data["routeMessaging"] if data ["routeMessaging"] else "/app/send-a-message/v4/" }}
+  {{ data["routeMessaging"] if data ["routeMessaging"] else "/app/engage/messaging/hub-7" }}
 {% endset %}
 
 {% block skipLink %}

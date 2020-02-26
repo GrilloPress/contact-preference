@@ -95,6 +95,31 @@
             </li>
             {% endif %}
 
+          {% elif data['id'] == "4" %}
+
+          <li class="nhs-app-chat__item nhs-app-chat__item--reply">
+            <div class="nhs-app-chat__sender nhs-app-chat__sender--reply">
+              <span>You</span>
+
+            </div>
+
+            <div class="nhs-app-chat__container nhs-app-chat__container--reply">
+
+              <p class="nhs-app-chat__body nhs-app-chat__header--reply">
+                {{ data['body'] | nl2br | safe }}
+              </p>
+
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
+              Sent {{ data['sent']}} at {{ data['time'] }}
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+          </li>
+
+
           {% else %}
           <li class="nhs-app-chat__item nhs-app-chat__item--reply">
             <div class="nhs-app-chat__sender nhs-app-chat__sender--reply">
@@ -143,86 +168,6 @@
 
         </ul>
 
-        {% if data['id'] == "2" %}
-
-        <ul class="list-menu" id="replyButton">
-          <li>
-            <a href="javascript:void(0)" onclick="toggleMessageContainer()">Send message</a>
-          </li>
-          <li>
-            <a href="delete">Delete message</a>
-          </li>
-        </ul>
-
-        <div class="nhs-app-message-reply__container" id="replyContainer" style="display: none;">
-          <form class="" action="/{{ PROTOTYPEURL }}/message-with-additional-reply" method="post">
-            {% call fieldset({
-              "legend": {
-                "text": "Your message",
-                "classes": "nhsuk-fieldset__legend--m",
-                "isPageHeading": false
-              }
-            }) %}
-
-            {{ hint({
-              "html": 'For advice now, phone or visit your GP surgery, visit <a href="https://111.nhs.uk">111.nhs.uk</a> or <a href="tel:111">call 111</a>.'
-            })}}
-
-            <div class="govuk-character-count">
-            {{ textarea({
-              "name": "msgBody2",
-              "id": "msgBody2",
-              "classes": "nhsuk-u-margin-bottom-0",
-              "hint": {
-                  "html": 'Text must be shorter than 450 characters (about 75 words)'
-                },
-              "label": {
-                "text": "Message",
-                "isPageHeading": false,
-                "classes": "nhsuk-label--s nhsuk-u-margin-bottom-2"
-              }
-            }) }}
-          </div>
-
-          {% if data['fileAddedReply'] %}
-          {{ summaryList({
-            classes: 'nhsuk-summary-list--no-border',
-            rows: [
-              {
-                key: {
-                  text: "File details"
-                },
-                value: {
-                  text: "File name - 2MB",
-                  classes: "nhsuk-u-margin-bottom-2"
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "#",
-                      text: "Remove",
-                      visuallyHiddenText: "file"
-                    }
-                  ]
-                }
-              }
-            ]
-          }) }}
-
-          {% else %}
-          <div class="nhsuk-form-group">
-            <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-2" for="attachment">Upload file (optional)</label>
-            <button onclick="window.location='/{{ PROTOTYPEURL }}/file/add-file'" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-2" type="button" name="attachmentReply">Add file</button>
-          </div>
-          {% endif %}
-
-            {% endcall %}
-            <input class="nhsuk-button" type="submit" value="Send message">
-          </form>
-        </div>
-
-        {% else %}
-
         {% if data['engageReply'] !== "true" %}
         <ul class="list-menu" id="replyButton">
           <li class="no-chevron">
@@ -235,8 +180,6 @@
         {% endif %}
 
 
-
-        {% endif %}
 
       </div>
 
