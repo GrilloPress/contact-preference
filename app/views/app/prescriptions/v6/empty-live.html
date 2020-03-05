@@ -1,7 +1,7 @@
-{% set PROTOTYPEURL = "app/nominated-pharmacy" %}
+{% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
+{% set contentTitle = "Your prescriptions" %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "What is the name of the online-only pharmacy?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -20,9 +20,8 @@
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v3/">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v6/your-prescriptions-10">Your repeat prescriptions</a></li>
-     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v4/name-of-pharmacy">Back</a></p>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/v3/">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -30,28 +29,22 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
 
-
-
-      <form action="/{{ PROTOTYPEURL }}/v4/exact-match" method="get">
-
-        {{ input({
-          "label": {
-            "text": contentTitle,
-            "classes": "nhsuk-label--l"
-              },
-              "autocomplete": "off",
-          "id": "input-width-20",
-          "name": "inputPharmacyName",
-          "classes": "nhsuk-input--width-20"
-        }) }}
-
-        <input type="submit" class="nhsuk-button" value="Search">
+      <form action="#" method="get">
+        <input type="submit" class="nhsuk-button" value="Order a new repeat prescription">
         </input>
-
       </form>
 
-
+      <h2 class="nhsuk-heading-m">You don't currently have any repeat prescriptions ordered</h2>
+      <p>
+        Once you've placed an order here, you'll be able to view your repeat prescription status and history.
+      </p>
+      <p>
+        If you have an existing order that isn't showing here, contact your GP surgery or pharmacy for more information.
+      </p>
     </div>
   </div>
 {% endblock %}

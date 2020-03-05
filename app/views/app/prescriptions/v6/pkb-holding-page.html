@@ -1,7 +1,7 @@
-{% set PROTOTYPEURL = "app/nominated-pharmacy" %}
+{% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "The pharmacy you choose is where your prescriptions will be sent" %}
+{% set contentTitle = "PKB" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -20,9 +20,9 @@
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v3/">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v6/your-prescriptions-10">Your repeat prescriptions</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v6/your-prescriptions-10">Prescriptions</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v6/your-prescriptions-10">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v6/your-medicines">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -32,13 +32,7 @@
     <div class="nhsuk-grid-column-two-thirds">
 
 
-
-
-                              <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
-
-                              <form action="/{{ PROTOTYPEURL }}/v4/type-of-pharmacy" method="get">
-                                <input type="submit" class="nhsuk-button" value="Continue">
-                              </form>
+<img src="/images/current-medications-PKB.jpg">
 
 
 
