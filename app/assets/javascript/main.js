@@ -53,10 +53,10 @@ function passwordToggle (){
 
   if ($('input.toggle').is(":checked")) {
 
-    if (confirm('Turn on Touch ID for "NHS App"' )) {
+    if (confirm('Turn on fingerprint for "NHS App"' )) {
       $.post( "/app/password", { touchID: "on" } );
     } else {
-      window.location.replace("/app/settings/v1/password");
+      window.location.replace("/app/settings/v3/password");
     }
 
   } else {

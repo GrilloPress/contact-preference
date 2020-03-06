@@ -131,7 +131,7 @@
                       <h2 class="nhsuk-heading-xs">
                         {{ "today" | returnDate }}
                         <span class="nhsuk-u-visually-hidden">The status of this prescription is</span>
-                        <span class="nhs-app-message__date  "><strong>Requested</strong></span>
+                        <span class="nhs-app-message__date nhsuk-tag nhsuk-tag--orange">Requested</span>
                       </h2>
                       <p class="nhs-app-prescription__instructions">
                         Metformin 500mg tablets
@@ -155,7 +155,7 @@
                       <h2 class="nhsuk-heading-xs">
                         {{ "today" | returnDate }}
                         <span class="nhsuk-u-visually-hidden">The status of this prescription is</span>
-                        <span class="nhs-app-message__date  "><strong>Requested</strong></span>
+                        <span class="nhs-app-message__date nhsuk-tag nhsuk-tag--orange">Requested</span>
                       </h2>
                       <p class="nhs-app-prescription__instructions">
                         Alogliptin 25mg tablets
@@ -180,7 +180,7 @@
                       <h2 class="nhsuk-heading-xs">
                         {{ "today" | returnDate }}
                         <span class="nhsuk-u-visually-hidden">The status of this prescription is</span>
-                        <span class="nhs-app-message__date  "><strong>Requested</strong></span>
+                        <span class="nhs-app-message__date nhsuk-tag nhsuk-tag--orange">Requested</span>
                       </h2>
                       <p class="nhs-app-prescription__instructions">
                         Omeprazole 40mg gastro-resistant capsules
@@ -199,11 +199,11 @@
 
 
                   <li>
-                		<a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v6/order-details?pName=omeprazole">
+                		<a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v6/order-details-omeprazole">
                       <h2 class="nhsuk-heading-xs">
-                        {{ "today" | returnDate }}
+                        {{ 1 | returnPastDate }}
                         <span class="nhsuk-u-visually-hidden">The status of this prescription is</span>
-                        <span class="nhs-app-message__date  "><strong>Rejected</strong></span>
+                        <span class="nhs-app-message__date nhsuk-tag nhsuk-tag--red">Rejected</span>
                       </h2>
                       <p class="nhs-app-prescription__instructions">
                         Omeprazole 40mg gastro-resistant capsules
@@ -217,11 +217,11 @@
 
 
                   <li>
-                    <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v6/order-details?pName=omeprazole">
+                    <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v6/order-details-metformin">
                       <h2 class="nhsuk-heading-xs">
-                        {{ "today" | returnDate }}
+                        {{ 8 | returnPastDate }}
                         <span class="nhsuk-u-visually-hidden">The status of this prescription is</span>
-                        <span class="nhs-app-message__date  "><strong>Approved</strong></span>
+                        <span class="nhs-app-message__date nhsuk-tag nhsuk-tag--green">Approved</span>
                       </h2>
                       <p class="nhs-app-prescription__instructions">
                         Metformin 500mg tablets
@@ -235,11 +235,11 @@
 
 
                                     <li>
-                                  		<a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v6/order-details?pName=alogliptin">
+                                  		<a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v6/order-details-alogliptin">
                                         <h2 class="nhsuk-heading-xs">
-                                          {{ "today" | returnDate }}
+                                          {{ 15 | returnPastDate }}
                                           <span class="nhsuk-u-visually-hidden">The status of this prescription is</span>
-                                          <span class="nhs-app-message__date  "><strong>Approved</strong></span>
+                                          <span class="nhs-app-message__date nhsuk-tag nhsuk-tag--green">Approved</span>
                                         </h2>
                                         <p class="nhs-app-prescription__instructions">
                                           Alogliptin 25mg tablets

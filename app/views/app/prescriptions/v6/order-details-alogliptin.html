@@ -1,0 +1,114 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set prescriptionsActive = "active" %}
+{% set contentTitle = "Order details" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v3/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v6/your-prescriptions-10">Prescriptions</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v6/your-orders">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="app-card app-card--with-border">
+        <div class="app-card__wrapper app-card--without-shadow">
+          <div class="app-card__content app-card__content--with-actions">
+            <h1 class="nhsuk-heading-l">
+              <span class="nhsuk-caption-m nhsuk-caption--top">Order details</span>
+               {{ 15 | returnPastDate }}
+            </h1>
+
+
+
+            {{ summaryList({
+              classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
+              rows: [
+                {
+                  key: {
+                    text: "Medicine"
+                  },
+                  value: {
+                    text: "Alogliptin 25mg tablets"
+                  }
+                },
+                {
+                  key: {
+                    text: "Instructions"
+                  },
+                  value: {
+                    text: "One to be taken each day - 28 tablet",
+                    classes: "nhsuk-u-margin-bottom-0"
+                  }
+                },
+                {
+                  key: {
+                    text: "Status"
+                  },
+                  value: {
+                    html: '<div class="nhs-app-status">
+                                          <svg class="nhs-app-status-svg" width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+                                            <title>Approved</title>
+                                            <desc></desc>
+                                            <defs></defs>
+                                            <g id="Icon---Ready" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                              <g id="done" fill="#006435" fill-rule="nonzero">
+                                                <polygon id="Shape" points="11.6398175 5 7.36505863 9.49932468 5.17466546 7.22683909 4 8.44068522 7.45336658 12 13 6.44199307"></polygon>
+                                                <path d="M8.5,0 C3.80560204,0 0,3.80560204 0,8.5 C0,13.194398 3.80560204,17 8.5,17 C13.194398,17 17,13.194398 17,8.5 C17,3.80560204 13.1944378,0 8.5,0 Z M8.5,15.4615109 C4.65527134,15.4615109 1.53848912,12.3447287 1.53848912,8.5 C1.53848912,4.65527134 4.65527134,1.53848912 8.5,1.53848912 C12.3427763,1.54315085 15.4568093,4.65718384 15.4615109,8.5 C15.4615109,12.3447685 12.3447685,15.4615109 8.5,15.4615109 Z" id="Shape"></path>
+                                              </g>
+                                            </g>
+                                          </svg>
+                                          <p class="nhs-app-status-body nhs-app-status-body--approved">Prescription approved by your GP</p>
+
+                                      </div>'
+                  }
+                }
+              ]
+            }) }}
+
+
+
+
+            <ul class="list-menu list-menu--in-card">
+
+            </ul>
+
+
+
+
+          </div>
+        </div>
+      </div>
+
+      <p class="nhs-app-desktop--show">
+        <a href="javascript: window.history.go(-1)">Back</a>
+      </p>
+
+
+    </div>
+  </div>
+{% endblock %}
