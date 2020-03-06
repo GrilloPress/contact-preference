@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "Medicines" %}
+{% set contentTitle = "Your current and past prescriptions" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -19,10 +19,10 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v3/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v4/">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v6/your-prescriptions-10">Prescriptions</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v6/your-orders">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v6/your-prescriptions-10">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -42,13 +42,13 @@
 
       <li>
         <a href="/app/records/v1/items/medicine">
-          <h2 class="nhsuk-heading-s">GP medicines</h2>
+          <h2 class="nhsuk-heading-s">GP prescriptions</h2>
         </a>
       </li>
 
       <li>
         <a href="/{{ PROTOTYPEURL }}/v6/pkb-holding-page">
-          <h2 class="nhsuk-heading-s">Hospital and other medicines</h2>
+          <h2 class="nhsuk-heading-s">Hospital and other prescriptions</h2>
         </a>
       </li>
 
