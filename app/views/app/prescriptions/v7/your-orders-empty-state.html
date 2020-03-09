@@ -1,0 +1,141 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set prescriptionsActive = "active" %}
+{% set contentTitle = "Repeat prescription orders" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+{% set choosePrescription %}
+  {% if data['choosePrescription'] == 'omeprazole' %}
+
+  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+  <p>One to be taken each day - 28 tablet</p>
+
+  {% elif data['choosePrescription'] == 'alogliptin' %}
+
+  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Alogliptin 25mg tablets</h3>
+  <p>One to be taken each day - 28 tablet</p>
+
+  {% elif data['choosePrescription'] == 'metformin' %}
+
+  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Metformin 500mg tablets</h3>
+  <p>One to be taken 4 times a day with food - 112 tablet</p>
+
+  {% else %}
+
+  <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+  <p>One to be taken each day - 28 tablet</p>
+
+  {% endif %}
+
+{% endset %}
+
+
+
+  {% if data['choosePrescription'] | stringOrNot %}{% set cheese = "stringyCheese" %}{% else %}{% set cheese = "hardCheese" %}{% endif %}
+  {% set chosenMedication %}
+    {% if cheese == 'stringyCheese' %}
+      {{ choosePrescription | safe }}
+
+    {% else %}
+      {% for item in data['choosePrescription'] %}
+      {% if item == 'omeprazole' %}
+      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+      <p>One to be taken each day - 28 tablet</p>
+      {% elif item == 'alogliptin' %}
+      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Alogliptin 25mg tablets</h3>
+      <p>One to be taken each day - 28 tablet</p>
+      {% elif item == 'metformin' %}
+      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Metformin 500mg tablets</h3>
+      <p>One to be taken 4 times a day with food - 112 tablet</p>
+      {% else %}
+      <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-2">Omeprazole 40mg gastro-resistant capsules</h3>
+      <p>One to be taken each day - 28 tablet</p>
+      {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endset %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v4/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11">Prescriptions</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/your-prescriptions-11">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+
+      {% if data["nominatedConfirmed"] %}
+
+      <p class="nhsuk-u-margin-bottom-2">Your nominated pharmacy is:</p>
+
+      <p class="nhsuk-u-margin-bottom-2">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
+
+      <p><a href="/app/nominated-pharmacy/v4/change-2">Change<span class="nhsuk-u-visually-hidden"> your nominated pharmacy</span></a></p>
+
+
+      {% else %}
+
+      <p class="nhsuk-u-margin-bottom-2">You do not have a nominated pharmacy.</p>
+
+      <p><a href="/app/nominated-pharmacy/v4/card-nom-pharmacy-2">Change<span class="nhsuk-u-visually-hidden"> how you get your prescriptions</span></a></p>
+
+
+      {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+      <div class="nhs-app-panel-heading">
+        <h2 class="nhsuk-heading-m">Orders</h2>
+      </div>
+
+
+      <ul class="list-menu nhs-app-message">
+
+
+
+
+                  <li class="no-chevron">
+                    <div class="list-menu_container">
+                      <p>
+                        If you have an existing order that isn't showing here, contact your GP surgery or pharmacy for more information.
+                      </p>
+                    </div>
+                  </li>
+
+
+
+          </ul>
+
+
+    </div>
+  </div>
+{% endblock %}

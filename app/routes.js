@@ -481,7 +481,7 @@ router.post('/app/prescriptions/v5/save', function (req, res) {
 });
 
 
-// prescriptions v5
+// prescriptions v6
 
 
 router.post('/app/prescriptions/v6/save', function (req, res) {
@@ -492,6 +492,19 @@ router.post('/app/prescriptions/v6/save', function (req, res) {
   res.redirect('/app/prescriptions/v6/confirmed-3')
 
 });
+
+// prescriptions v7
+
+
+router.post('/app/prescriptions/v7/save', function (req, res) {
+
+  // add what is saved later!
+
+  req.session.data.prescriptionConfirmed = "True";
+  res.redirect('/app/prescriptions/v7/confirmed-3')
+
+});
+
 
 
 
