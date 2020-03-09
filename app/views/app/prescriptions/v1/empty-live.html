@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Your prescriptions" %}
+{% set contentTitle = "Your repeat prescriptions" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -16,27 +16,32 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="">Home</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="">Back</a></p>
+  </div>
+</nav>
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
         {{ contentTitle }}
       </h1>
 
       <form action="#" method="get">
-        <input type="submit" class="nhsuk-button" value="Order a new repeat prescription">
+        <input type="submit" class="nhsuk-button" value="Order a repeat prescription">
         </input>
       </form>
 
-      <h2 class="nhsuk-heading-m">You don't currently have any repeat prescriptions ordered</h2>
-      <p>
-        Once you've placed an order here, you'll be able to view your repeat prescription status and history.
-      </p>
-      <p>
-        If you have an existing order that isn't showing here, contact your GP surgery or pharmacy for more information.
-      </p>
+      <p>No repeat prescriptions ordered yet</p>
+
+      <p>Once you've placed an order here, you'll be able to view your repeat prescription status and history. If you have an existing order that is not shown here, contact your GP surgery or pharmacy for more information.</p>
+
     </div>
   </div>
 {% endblock %}

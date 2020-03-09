@@ -1,4 +1,4 @@
-{% set PROTOTYPEURL = "app/errors/messages/current" %}
+{% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
 {% set contentTitle = "We cannot complete this order" %}
 {% set title = "Error submitting request" %}
@@ -15,16 +15,26 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v1/your-repeat-prescriptions">Your repeat prescriptions</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/your-repeat-prescriptions">Back</a></p>
+  </div>
+</nav>
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-        <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
-        <p>You previously ordered at least one of these medications in the last 30 days.</p>
-        <p>If you need more medication sooner, contact your GP.</p>
+        <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+        <p>You previously ordered at least one of these medicines in the last 30 days.</p>
+        <p>If you need this medicine sooner, contact your GP.</p>
 
+        <p><a href="/{{ PROTOTYPEURL }}/v1/your-repeat-prescriptions">Back to your repeat prescriptions</a></p>
 
 
     </div>

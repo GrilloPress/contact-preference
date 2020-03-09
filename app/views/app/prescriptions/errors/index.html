@@ -1,0 +1,90 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Prescriptions errors" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+
+
+      <h2>System errors</h2>
+
+      <h3>Empty states</h3>
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/medicine-unavailable">No medicine available to order</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/empty-live">No prescriptions ordered yet</a>
+        </li>
+      </ul>
+
+
+
+      <h3>Service unavailable or not offered</h3>
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/service-not-offered">Service not offered by GP or to specific user</a>
+        </li>
+      </ul>
+
+      <h3>Cannot order prescription</h3>
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/errors/prescription-order-error">Error sending prescription order</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/errors/medication-already-issued">Medication issued within last 30 days</a>
+        </li>
+      </ul>
+
+
+      <h3>Failures</h3>
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/errors/response-time-out">Error getting users prescriptions details list: response time out</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/errors/prescription-failure">Error getting users prescriptions details list - system failure, user cannot try again</a>
+        </li>
+      </ul>
+
+      <h2>Validation errors</h2>
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/v1/errors/select-medicine-to-renew">Select medicine to renew - user does not select at least one medicine</a>
+        </li>
+      </ul>
+
+
+
+    </div>
+  </div>
+{% endblock %}
