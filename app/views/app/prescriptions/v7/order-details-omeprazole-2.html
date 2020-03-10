@@ -23,9 +23,9 @@
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v4/">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v6/your-prescriptions-10">Prescriptions</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11">Prescriptions</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v6/your-orders">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/your-orders">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -45,37 +45,36 @@
 
 
 
-
-                        {{ summaryList({
-                          classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
-                          rows: [
-                            {
-                              key: {
-                                text: "Medicine"
-                              },
-                              value: {
-                                text: "Omeprazole 40mg gastro-resistant capsules"
-                              }
-                            },
-                            {
-                              key: {
-                                text: "Instructions"
-                              },
-                              value: {
-                                text: "One to be taken each day - 28 tablet",
-                                classes: "nhsuk-u-margin-bottom-0"
-                              }
-                            },
-                            {
-                              key: {
-                                text: "Status"
-                              },
-                              value: {
-                                text: "Rejected, contact your GP"
-                              }
-                            }
-                          ]
-                        }) }}
+            {{ summaryList({
+              classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
+              rows: [
+                {
+                  key: {
+                    text: "Medicine"
+                  },
+                  value: {
+                    text: "Omeprazole 40mg gastro-resistant capsules"
+                  }
+                },
+                {
+                  key: {
+                    text: "Instructions"
+                  },
+                  value: {
+                    text: "One to be taken each day - 28 tablet",
+                    classes: "nhsuk-u-margin-bottom-0"
+                  }
+                },
+                {
+                  key: {
+                    text: "Status"
+                  },
+                  value: {
+                    text: "Rejected, contact your GP"
+                  }
+                }
+              ]
+            }) }}
 
 
 
