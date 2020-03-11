@@ -1,0 +1,73 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Part of your prescription has not been ordered" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v1/your-repeat-prescriptions">Your repeat prescriptions</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v1/your-repeat-prescriptions">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+
+
+
+              <div class="app-card">
+                <div class="app-card__wrapper">
+                  <div class="app-card__content">
+                    <h2 class="app-card__heading nhsuk-heading-m nhsuk-u-margin-bottom-4">Medication not ordered</h1>
+
+                      <p>If you need to order this medication now, contact your GP surgery directly. For urgent medical advice, visit 111.nhs.uk or call 111.</p>
+
+                      <p><strong>saccharum oral drops D6</strong></p>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+                    <div class="app-card">
+                      <div class="app-card__wrapper">
+                        <div class="app-card__content">
+                          <h1 class="app-card__heading nhsuk-heading-m nhsuk-u-margin-bottom-4">Medication ordered successfully</h1>
+
+                          <p>The order status will be updated once it's been updated by your GP.</p>
+
+                          <p><strong>Rivaroxaban 15mg tablets</strong></p>
+
+                        </div>
+                      </div>
+                    </div>
+
+
+                    {{ button({
+                      "text": "Back to your prescriptions"
+                    }) }}
+
+
+    </div>
+  </div>
+{% endblock %}
