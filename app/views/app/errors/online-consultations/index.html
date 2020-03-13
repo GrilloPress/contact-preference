@@ -1,6 +1,6 @@
-{% set PROTOTYPEURL = "app/errors" %}
-{% set serviceName = "NHS App Errors" %}
-{% set contentTitle = "Prototypes" %}
+{% set PROTOTYPEURL = "app/errors/online-consultations" %}
+{% set serviceName = "NHS App errors" %}
+{% set contentTitle = "Online consultations error prototypes" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -26,13 +26,12 @@
         {{ contentTitle }}
       </h1>
 
+      <h2>Generic across suppliers</h2>
       <ul>
         <li>
-          <a href="/{{ PROTOTYPEURL }}/messages/index">Notifications and messaging</a>
+          <a href="/{{ PROTOTYPEURL }}/service-unavailable">Service unavailable (NHSO-8633)</a>
         </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/online-consultations/index">Online consultations</a>
-        </li>
+
       </ul>
 
     </div>
