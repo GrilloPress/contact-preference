@@ -553,6 +553,24 @@ router.post('/app/settings/v3/logout', function (req, res) {
 });
 
 
+// qualtrics message
+
+
+router.post('/app/homepage/qualtrics-message', function (req, res) {
+  let answer = req.body.qualtrics;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/homepage/qualtrics-email')
+
+  } else {
+    res.redirect('/app/v4/')
+  }
+});
+
+
+
+
 var moment = require('moment');
 
 router.post('/app/send-a-message/v1/message-you-sent', function (req, res) {
