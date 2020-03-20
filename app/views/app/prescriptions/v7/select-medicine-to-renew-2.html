@@ -40,7 +40,7 @@ $("textarea").focusout(function(){
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
         {{ contentTitle }}
       </h1>
 
@@ -52,7 +52,7 @@ $("textarea").focusout(function(){
           "fieldset": {
             "legend": {
               "text": 'Medicine currently available to order',
-              "classes": "nhsuk-fieldset__legend--m",
+              "classes": "nhsuk-fieldset__legend--l",
               "isPageHeading": false
             }
           },
@@ -99,7 +99,7 @@ $("textarea").focusout(function(){
           "rows": "3",
           "label": {
             "text": "Special requests relating to this order (optional)",
-            "classes": "nhsuk-label--m"
+            "classes": "nhsuk-label--l"
           },
           "hint": {
             "html": "<p>This text may not be seen by your GP. For important requests, contact your GP surgery.</p><p>Must be shorter than 1000 characters (about 150 words).</p>"

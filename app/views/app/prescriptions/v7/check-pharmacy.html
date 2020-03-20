@@ -31,14 +31,16 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
 
 
 
 
       {% if data['pharmacyType'] === "online" %}
 
-      <h2 class="nhsuk-heading-m">{{ data["pickPharmacy"] or "Echo" }}</h2>
+      <h2 class="nhsuk-heading-l">{{ data["pickPharmacy"] or "Echo" }}</h2>
 
       <a href="" class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</a>
 
@@ -50,7 +52,7 @@
         {% elif data['pharmacyType'] === "community" %}
 
 
-        <h2 class="nhsuk-heading-m">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</h2>
+        <h2 class="nhsuk-heading-l">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</h2>
 
         <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or "16 Oxford St" }}</p>
 
@@ -66,7 +68,7 @@
       {% else %}
 
 
-      <h2 class="nhsuk-heading-m">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</h2>
+      <h2 class="nhsuk-heading-l">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</h2>
 
       <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or "16 Oxford St" }}</p>
 
