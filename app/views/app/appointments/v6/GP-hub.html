@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/appointments/v6" %}
 {% set serviceName = "NHS App" %}
 {% set appointmentsActive = "active" %}
-{% set contentTitle = "Your GP appointments" %}
+{% set contentTitle = "GP appointments" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% if data["confirmed"] %}
@@ -51,7 +51,7 @@ $( document ).ready(function() {
         {{ contentTitle }}
       </h1>
 
-      <p>Manage and book your GP appointments</p>
+      <p>Manage and book your GP appointments.</p>
 
       <ul class="list-menu">
         <li>
