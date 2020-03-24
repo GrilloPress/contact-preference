@@ -128,13 +128,16 @@ $( document ).ready(function() {
             <div class="nhs-app-chat__sender">
               {{ data["from"] }}
             </div>
-            <div class="nhs-app-chat__container nhs-app-chat__container">
-              <p class="nhs-app-chat__body nhsuk-u-margin-bottom-2">
+            <div class="nhs-app-chat__container">
+              <p class="nhs-app-chat__body">
                 {{ data['body'] | nl2br | safe}}
               </p>
-              <p class="nhs-app-chat__body nhs-app-chat__header nhsuk-body-s nhs-app-secondary-text">Attachment</p>
+
+            </div>
+            <div class="nhs-app-chat__container nhs-app-chat__container">
+              <img class="nhsuk-image__img nhsuk-u-margin-bottom-2" src="/images/placeholder-image-16-9.jpg" alt="Image placeholder that you uploaded">
               <p class="nhs-app-chat__body nhs-app-chat__header">
-                <div></div>
+                <div>xray.jpg</div>
                 <a class="nhs-app-chat__document-action" href="/images/placeholder-image-16-9.jpg">View</a>
                 <a class="nhs-app-chat__document-action" href="/{{ PROTOTYPEURL }}/download/index">Download</a>
               </p>
