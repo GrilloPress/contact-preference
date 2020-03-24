@@ -56,14 +56,32 @@
       <li>
         <a href="/{{ PROTOTYPEURL }}/v6/your-orders">
           <h2 class="nhsuk-heading-s">View your orders</h2>
-            <p>See your repeat prescription orders</p>
+          <p>See repeat prescriptions you have ordered</p>
         </a>
       </li>
 
+      {% if data["nominatedConfirmed"] %}
+
+      <li>
+        <a href="/app/nominated-pharmacy/v4/your-nominated-pharmacy">
+          <h2 class="nhsuk-heading-s">Your nominated pharmacy</h2>
+          <p>{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
+        </a>
+      </li>
+
+      {% else %}
+
+    <li>
+      <a href="/app/nominated-pharmacy/v4/card-nom-pharmacy-2">
+        <h2 class="nhsuk-heading-s">Nominate a pharmacy</h2>
+        <p>Choose a pharmacy for your prescriptions to be sent to</p>
+      </a>
+    </li>
+
+    {% endif %}
       <li>
         <a href="/{{ PROTOTYPEURL }}/v6/your-medicines">
           <h2 class="nhsuk-heading-s">View your current and past prescriptions</h2>
-            <p>See your GP, hospital and other prescriptions</p>
         </a>
       </li>
 
