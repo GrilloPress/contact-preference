@@ -126,9 +126,6 @@
 
 
 
-
-
-
           <li class="no-chevron no-chevron--subtle">
                       <div class="list-menu_container">
                         <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
@@ -184,6 +181,12 @@
                   {% endif %}
                   {% endif %}
 
+
+
+
+                  {% if data['prescriptionConfirmed'] %}
+                    {% if 'omeprazole' in data['choosePrescription'] %}
+                    {% else %}
                   <li class="no-chevron no-chevron--subtle">
                               <div class="list-menu_container">
                                 <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
@@ -192,19 +195,49 @@
                                 <p class="nhsuk-body-s">One to be taken each day - 28 tablet Last Issued: {{ 1 | returnPastDate }} Cannot order medication until {{ 27 | returnDate }} Last requested: {{ 3 | returnPastDate }}, status Issued</p>
                               </div>
                             </li>
-
-
+                            {% endif %}
+                            {% else %}
                             <li class="no-chevron no-chevron--subtle">
                                         <div class="list-menu_container">
                                           <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
-                                            Metformin 500mg tablets
+                                            Omeprazole 40mg gastro-resistant capsules
                                           </h2>
-                                          <p class="nhsuk-body-s">One to be taken 4 times a day with food - 112 tablet Last Issued: {{ 8 | returnPastDate }} Cannot order medication until {{ 20 | returnDate }} Last requested: {{ 11 | returnPastDate }}, status Issued</p>
+                                          <p class="nhsuk-body-s">One to be taken each day - 28 tablet Last Issued: {{ 1 | returnPastDate }} Cannot order medication until {{ 27 | returnDate }} Last requested: {{ 3 | returnPastDate }}, status Issued</p>
                                         </div>
                                       </li>
+                                      {% endif %}
 
 
 
+                            {% if data['prescriptionConfirmed'] %}
+                              {% if 'metformin' in data['choosePrescription'] %}
+                              {% else %}
+                              <li class="no-chevron no-chevron--subtle">
+                                          <div class="list-menu_container">
+                                            <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                                              Metformin 500mg tablets
+                                            </h2>
+                                            <p class="nhsuk-body-s">One to be taken 4 times a day with food - 112 tablet Last Issued: {{ 8 | returnPastDate }} Cannot order medication until {{ 20 | returnDate }} Last requested: {{ 11 | returnPastDate }}, status Issued</p>
+                                          </div>
+                                        </li>
+                                      {% endif %}
+                                      {% else %}
+                                      <li class="no-chevron no-chevron--subtle">
+                                                  <div class="list-menu_container">
+                                                    <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                                                      Metformin 500mg tablets
+                                                    </h2>
+                                                    <p class="nhsuk-body-s">One to be taken 4 times a day with food - 112 tablet Last Issued: {{ 8 | returnPastDate }} Cannot order medication until {{ 20 | returnDate }} Last requested: {{ 11 | returnPastDate }}, status Issued</p>
+                                                  </div>
+                                                </li>
+                                      {% endif %}
+
+
+
+
+                                      {% if data['prescriptionConfirmed'] %}
+                                        {% if 'alogliptin' in data['choosePrescription'] %}
+                                        {% else %}
                                       <li class="no-chevron no-chevron--subtle">
                                                   <div class="list-menu_container">
                                                     <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
@@ -213,6 +246,17 @@
                                                     <p class="nhsuk-body-s">One to be taken each day - 28 tablet Last Issued: {{ 15 | returnPastDate }} Cannot order medication until {{ 10 | returnDate }} Last requested: {{ 17 | returnPastDate }}, status Issued</p>
                                                   </div>
                                                 </li>
+                                                {% endif %}
+                                                {% else %}
+                                                <li class="no-chevron no-chevron--subtle">
+                                                      <div class="list-menu_container">
+                                                        <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                                                          Alogliptin 25mg tablets
+                                                        </h2>
+                                                        <p class="nhsuk-body-s">One to be taken each day - 28 tablet Last Issued: {{ 15 | returnPastDate }} Cannot order medication until {{ 10 | returnDate }} Last requested: {{ 17 | returnPastDate }}, status Issued</p>
+                                                      </div>
+                                                    </li>
+                                                  {% endif %}
 
 
 
