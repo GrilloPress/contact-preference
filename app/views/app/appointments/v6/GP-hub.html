@@ -72,8 +72,8 @@ $( document ).ready(function() {
           		<a href='/{{ PROTOTYPEURL }}/view/index?appViewDate={{ data["date"] or "5" | returnDate }}&appViewTime={{ data["time"] or "10.50am" }}&appViewLocation={{ data["location"] or "Gledhow Practice" }}&appViewType={{ data["type"] or "Slot" }}&appViewSession={{ data["sessionName"] or "Session" }}&appViewStaff={{ data["staffName"] or "Dr Sanjit Praneskear (Male)" }}'>
 
                 <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">{{ data["date"] or "5" | returnDate }}</h3>
-                <p class="nhsuk-u-margin-bottom-0 nhsuk-u-padding-bottom-0 nhsuk-u-padding-top-0">{{ data["time"] or "10.50am" }}</p>
-                <p class="nhsuk-body-s nhsuk-u-padding-bottom-0 nhsuk-u-padding-top-0">{{ data['location'] or "Gledhow Practice" }}</p>
+                <p class="nhsuk-u-margin-bottom-0 nhsuk-u-padding-bottom-0 nhsuk-u-padding-top-0">{{ data["time"] or "10:50am" }}</p>
+                <p class="nhsuk-u-padding-bottom-0 nhsuk-u-padding-top-0">{{ data['location'] or "Gledhow Practice" }}</p>
 
           		</a>
           	</li>
