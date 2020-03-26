@@ -24,6 +24,14 @@
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-xl">{{ contentTitle }}</h1>
       <ul class="list-menu">
+        {% if data['messagingIcon'] === "False" %}
+        <li>
+          <a href="/app/send-a-message/v4/index">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Your messages</h2>
+            <p>Get messages from your GP surgery and other NHS services</p>
+          </a>
+        </li>
+        {% endif %}
         <li>
       		<a href="/app/engage/admin/v1/terms/">
       			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Additional GP services</h2>
