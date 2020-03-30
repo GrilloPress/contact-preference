@@ -1,0 +1,58 @@
+{% set PROTOTYPEURL = "app/appointments/v6" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "Your GP appointment has been cancelled" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script>
+// dirty hack to make the menu disappear when a textarea is being used
+$("textarea").focus(function(){
+  $(".menu").hide();
+});
+
+$("textarea").focusout(function(){
+  $(".menu").show();
+});
+</script>
+{% endblock %}
+
+{% set showAppointmentType %}
+{% if data["type"] %}
+  {{ data["type"] }} <br> {{ data['sessionName'] or "Session" }}
+{% else %}
+  Slot <br> Session
+{% endif %}
+{% endset %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-xl nhs-app-xl"><span class="nhsuk-caption-m nhsuk-caption--top">{{ data["date"] or "5" | returnDate }} at {{ data["time"] or "10:50am" }}
+</span>{{ contentTitle }}</h1>
+
+
+
+  <p>If you added this appointment to your calendar, you’ll need to remove it yourself.</p>
+
+
+
+
+      <p>
+        <a href="/{{ PROTOTYPEURL}}/GP-hub">Go to your GP appointments</a>
+      </p>
+
+    </div>
+  </div>
+{% endblock %}
