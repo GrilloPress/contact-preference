@@ -49,7 +49,7 @@ $("textarea").focusout(function(){
               {{ data["date"] or "5" | returnDate }}
             </h2>
 
-            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ data["time"] or "10.50am" }}</p>
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ data["time"] or "10:50am" }}</p>
             {{ summaryList({
               classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
               rows: [
@@ -84,10 +84,10 @@ $("textarea").focusout(function(){
 
             <ul class="list-menu list-menu--in-card">
               <li>
-                <a href="#">Add to your calendar</a>
+                <a href="/{{ PROTOTYPEURL }}/add-to-calendar">Add to your calendar</a>
               </li>
               <li>
-                <a href="#">Cancel this appointment</a>
+                <a href="/{{ PROTOTYPEURL }}/cancel-appointment">Cancel this appointment</a>
               </li>
             </ul>
 
