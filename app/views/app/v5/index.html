@@ -19,48 +19,34 @@
 {% endblock %}
 
 {% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <div class="app-corona__container">
+      <ul class="list-menu">
+        <li>
+            <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">
+              <p class="nhsuk-body-s"><strong>Coronavirus (COVID-19)</strong></p>
+              <p class="nhsuk-body-s">Get information about coronavirus on NHS.UK</p>
+            </a>
+        </li>
+      </ul>
+    </div>
 
-
-    <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
-
-
-            <div class="app-corona__container">
-              <ul class="list-menu">
-                <li>
-                    <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">
-                      <p class="nhsuk-body-s"><strong>Coronavirus (COVID-19)</strong></p>
-                      <p class="nhsuk-body-s">Get information about coronavirus on NHS.UK</p>
-                    </a>
-                </li>
-              </ul>
-            </div>
-
-
-
-
-
-      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-2">{{ contentTitle }}</h1>
-      <div class="">
-        <p class="nhsuk-u-margin-bottom-0">
-          <strong>Name:</strong>
-          Bernard Doyle
-        </p>
-      	<p class="nhsuk-u-margin-bottom-0">
-          <strong>Date of birth:</strong>
-          20 January 1982
-        </p>
-        <p class="nhsuk-u-margin-bottom-4">
-          <strong>NHS number:</strong>
-          123 456 7890
-        </p>
-      </div>
-
-
-
-
-
-
+    <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-2">{{ contentTitle }}</h1>
+    <div class="">
+      <p class="nhsuk-u-margin-bottom-0">
+        <strong>Name:</strong>
+        Mr Bernard Doyle
+      </p>
+      <p class="nhsuk-u-margin-bottom-0">
+        <strong>Date of birth:</strong>
+        20 January 1982
+      </p>
+      <p class="nhsuk-u-margin-bottom-4">
+        <strong>NHS number:</strong>
+        123 456 7890
+      </p>
+    </div>
 
       {% if data["confirmed"] %}
 
@@ -105,11 +91,12 @@
           <a href='{{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v1/" }}'>View your GP health record</a>
         </li>
         <li>
-          <a href="/app/organ-donation/v2/register-decision">Manage your organ donation decision</a>
-        </li>
-        <li>
           <a href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/send-a-message/v4/" }}'>View your messages</a>
         </li>
+        <li>
+          <a href="/app/organ-donation/v2/register-decision">Manage your organ donation decision</a>
+        </li>
+
         <li>
           <a href=''>Switch to a linked profile</a>
         </li>
