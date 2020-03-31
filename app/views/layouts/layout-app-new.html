@@ -49,7 +49,7 @@
 {% endset %}
 
 {% set routeMessaging %}
-  {{ data["routeMessaging"] if data ["routeMessaging"] else "/app/appointments/v6/pre-hub" }}
+  {{ data["routeMessaging"] if data ["routeMessaging"] else "/app/send-a-message/v4/" }}
 {% endset %}
 
 {% block skipLink %}
