@@ -21,7 +21,7 @@
 {% endblock %}
 
 {% set routeHome %}
-  {{ data["routeHome"] if data ["routeHome"] else "/app/v4/" }}
+  {{ data["routeHome"] if data ["routeHome"] else "/app/v5/" }}
 {% endset %}
 
 {% set routeAppointments %}
@@ -49,7 +49,7 @@
 {% endset %}
 
 {% set routeMessaging %}
-  {{ data["routeMessaging"] if data ["routeMessaging"] else "/app/engage/messaging/hub-7" }}
+  {{ data["routeMessaging"] if data ["routeMessaging"] else "/app/appointments/v6/pre-hub" }}
 {% endset %}
 
 {% block skipLink %}
