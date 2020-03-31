@@ -86,11 +86,7 @@ $( document ).ready(function() {
             <div class="nhs-app-chat__date nhs-app-chat__date--reply">
               Sent {{ data['sent']}} at {{ data['time'] }}
             </div>
-            <div class="nhsuk-u-clear">
-            </div>
-            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
-              <a href="delete">Delete message</a>
-            </div>
+
           </li>
 
           {% else %}
@@ -109,11 +105,6 @@ $( document ).ready(function() {
             </div>
             <div class="nhs-app-chat__date nhs-app-chat__date--reply">
               Sent 30 October 2019 at 9.40am
-            </div>
-            <div class="nhsuk-u-clear">
-            </div>
-            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
-              <a href="delete?conversation=true">Delete message</a>
             </div>
           </li>
 
@@ -135,7 +126,7 @@ $( document ).ready(function() {
               <p class="nhs-app-chat__body nhs-app-chat__header nhsuk-body-s nhs-app-secondary-text">Attachment</p>
               <p class="nhs-app-chat__body nhs-app-chat__header">
                 <div></div>
-                <a class="nhs-app-chat__document-action" href="/images/placeholder-image-16-9.jpg">View</a>
+                <a class="nhs-app-chat__document-action" href="/{{ PROTOTYPEURL }}/download/view">View</a>
                 <a class="nhs-app-chat__document-action" href="/{{ PROTOTYPEURL }}/download/index">Download</a>
               </p>
             </div>
@@ -165,11 +156,6 @@ $( document ).ready(function() {
             <div class="nhs-app-chat__date nhs-app-chat__date--reply">
               Sent today at {{ 'now' | returnTime }}
             </div>
-            <div class="nhsuk-u-clear">
-            </div>
-            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
-              <a href="delete">Delete message</a>
-            </div>
           </li>
           {% endif %}
 
@@ -179,11 +165,25 @@ $( document ).ready(function() {
         {% if data['id'] == "2" %}
         {% else %}
 
-        <ul class="list-menu" id="replyButton">
+        <ul class="list-menu nhsuk-u-margin-bottom-0" id="replyButton">
+          <li class="no-chevron no-chevron--subtle">
+            <div class="list-menu_container list-menu_container--subtle">
+              <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">You cannot reply to this message</h2>
+              <p>To discuss this message further, send a new message or phone your GP surgery</p>
+            </div>
+          </li>
+        </ul>
+
+        <ul class="list-menu">
           <li>
+            <a href="#">Send a new message</a>
+          </li>
+
+          <li style="display:none;">
             <a href="javascript:void(0)" onclick="toggleMessageContainer()">Reply</a>
           </li>
-          <li>
+
+          <li style="display:none;">
             <a href="delete?conversation=true">Delete conversation</a>
           </li>
         </ul>

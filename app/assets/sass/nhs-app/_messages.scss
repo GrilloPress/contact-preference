@@ -19,6 +19,7 @@
     padding-top: 2px;
     padding-bottom: 0;
     color: $nhsuk-secondary-text-color;
+
   }
 
 }
@@ -45,6 +46,13 @@
     text-overflow: ellipsis;
     max-width: 90%;
   }
+
+}
+
+.nhs-app-message__subject-link {
+
+  @extend .nhsuk-body-s;
+  color: $color_nhsuk-blue;
 
 }
 
