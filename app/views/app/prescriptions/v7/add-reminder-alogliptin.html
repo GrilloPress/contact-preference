@@ -1,10 +1,11 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Your prescriptions" %}
 {% set prescriptionsActive = "active" %}
+{% set contentTitle = "Add a reminder to order Alogliptin 25mg tablets to you calendar" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
+
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -20,31 +21,34 @@
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11">Prescriptions</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/v3/">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v6/order-details">Back</a></p>
   </div>
 </nav>
 {% endblock %}
 
+
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+
       <h1 class="nhsuk-heading-xl nhs-app-xl">
         {{ contentTitle }}
       </h1>
 
-      <form action="#" method="get">
-        <input type="submit" class="nhsuk-button" value="Order a new repeat prescription">
-        </input>
-      </form>
+      <p>You should remove your calendar reminder if you no longer need it.</p>
 
-      <h2 class="nhsuk-heading-l">You don't currently have any repeat prescriptions ordered</h2>
-      <p>
-        Once you've placed an order here, you'll be able to view your repeat prescription status and history.
+        {{ button({
+          "text": "Add to calendar"
+        }) }}
+
+
+      <p class="nhs-app-desktop--show">
+        <a href="javascript: window.history.go(-1)">Back</a>
       </p>
-      <p>
-        If you have an existing order that isn't showing here, contact your GP surgery or pharmacy for more information.
-      </p>
+
+
     </div>
   </div>
 {% endblock %}
