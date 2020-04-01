@@ -75,46 +75,48 @@
         {{ contentTitle }}
       </h1>
 
-        <p>You can use the service to:</p>
+      <p>Use this service to:</p>
 
-        <ul>
-          <li>Book and manage appointments at your GP surgery</li>
-          <li>Order your repeat prescriptions</li>
-          <li>Check your symptoms and get instant advice</li>
-          <li>View your medical record securely</li>
-        </ul>
+      <ul>
+        <li>book and manage appointments at your GP surgery</li>
+        <li>order repeat prescriptions</li>
+        <li>check symptoms and get instant advice</li>
+        <li>view your medical record securely</li>
+      </ul>
+
+      <h2>Before you start</h2>
+
+      <p>To use this service you must be:</p>
+      <ul>
+        <li>registered with a GP surgery in England</li>
+        <li>aged 13 and over</li>
+      </ul>
+
+      {{ details({
+        "text": "What to do if you're aged 13 to 15",
+        "HTML": "
+        <p>You'll need to contact your GP surgery first and request access to GP online services.</p>
+        "
+      }) }}
 
 
-        <form action="/app/v4/start?messageRead1=read&cookies=on&routeHome=/app/v5/index&routeSymptoms=/app/symptoms/v2/index&routeAppointments=/app/appointments/v7-engage/pre-hub&routeMore=/app/more/v5/&routeMessaging=/app/send-a-message/v4/index&messagingIcon=False" method="post">
-          <input class="nhsuk-button nhslogin-button nhs-app-u-button-full" type="submit" value="Continue with NHS login">
-        </form>
+      <form action="/app/v4/start?messageRead1=read&cookies=on&routeHome=/app/v5/index&routeSymptoms=/app/symptoms/v2/index&routeAppointments=/app/appointments/v7-engage/pre-hub&routeMore=/app/more/v5/&routeMessaging=/app/send-a-message/v4/index&messagingIcon=False" method="post">
+        <input class="nhsuk-button nhslogin-button nhs-app-u-button-full" type="submit" value="Continue with NHS login">
+      </form>
 
-        <p><strong>Get the NHS App on your smartphone or tablet</strong></p>
+      <hr>  
 
-        <a href="/app/v4/start"><img src="/images/app-store-badge.png"></a>
+      <p>Other services you can use without logging in:</p>
 
+      <ul>
+        <li><a href="https://www.nhs.uk/conditions/">Search conditions and treatments</a></li>
+        <li><a href="https://111.nhs.uk/">Use NHS 111 online to check if you need urgent help</a></li>
+      </ul>
 
-        <hr>
+      <p><strong>Get the NHS App on your smartphone or tablet</strong></p>
 
+      <a href="/app/v4/start"><img src="/images/app-store-badge.png"></a>
 
-        <h2>Before you start you must be:</h2>
-
-        <ul>
-          <li>Registered with a GP surgery in England</li>
-          <li>Aged 13 and over</li>
-        </ul>
-
-        {{ details({
-  "text": "What to do if you’re aged 13 to 15",
-  "HTML": "
-  <p>You’ll need to visit your GP surgery first and request access to NHS services online.</p>
-  "
-}) }}
-
-  <h3>Services you can use without logging in:</h3>
-
-  <p><a href="">Search conditions and treatments</a></p>
-  <p><a href="">111.nhs.uk</a></p>
 
     </div>
   </div>
