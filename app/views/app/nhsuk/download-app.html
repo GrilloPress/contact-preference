@@ -1,0 +1,150 @@
+<!-- This layout is setup for NHS.UK pages -->
+
+
+{% set PROTOTYPEURL = "app/nhsuk" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Access your NHS services online" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends "layouts/layout-nhsuk.html" %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+      "showNav": "true",
+      "showSearch": "true",
+      "primaryLinks": [
+        {
+          "url"  : "#",
+          "label" : "Health A-Z"
+        },
+        {
+          'url' : '#',
+          'label' : 'Live Well'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Care and support'
+        },
+        {
+          'url'  : '#',
+          'label' : 'Health news'
+        },
+        {
+          'url' : '#',
+          'label' : 'Services near you'
+        }
+      ]
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    text: "Home",
+    href: "/"
+  }) }}
+
+
+        <div class="nhsuk-global-alert" id="nhsuk-global-alert" role="complementary">
+        <div class="nhsuk-width-container">
+        <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-full">
+        <div class="nhsuk-global-alert__content">
+        <div class="nhsuk-global-alert__message"><h2>Coronavirus: do not leave your home</h2><p>Everyone must stay at home to help stop the spread of <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">coronavirus</a>.</p></div>
+        </div></div></div></div></div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+
+      <h1>
+        {{ contentTitle }}
+      </h1>
+
+        <p>You can use the service to:</p>
+
+        <ul>
+          <li>Book and manage appointments at your GP surgery</li>
+          <li>Order your repeat prescriptions</li>
+          <li>Check your symptoms and get instant advice</li>
+          <li>View your medical record securely</li>
+        </ul>
+
+
+        <form action="/app/v4/start?messageRead1=read&cookies=on&routeHome=/app/v5/index&routeSymptoms=/app/symptoms/v2/index&routeAppointments=/app/appointments/v7-engage/pre-hub&routeMore=/app/more/v5/&routeMessaging=/app/send-a-message/v4/index&messagingIcon=False" method="post">
+          <input class="nhsuk-button nhslogin-button nhs-app-u-button-full" type="submit" value="Continue with NHS login">
+        </form>
+
+        <p><strong>Get the NHS App on your smartphone or tablet</strong></p>
+
+        <a href="/app/v4/start"><img src="/images/app-store-badge.png"></a>
+
+
+        <hr>
+
+
+        <h2>Before you start you must be:</h2>
+
+        <ul>
+          <li>Registered with a GP surgery in England</li>
+          <li>Aged 13 and over</li>
+        </ul>
+
+        {{ details({
+  "text": "What to do if you’re aged 13 to 15",
+  "HTML": "
+  <p>You’ll need to visit your GP surgery first and request access to NHS services online.</p>
+  "
+}) }}
+
+  <h3>Services you can use without logging in:</h3>
+
+  <p><a href="">Search conditions and treatments</a></p>
+  <p><a href="">111.nhs.uk</a></p>
+
+    </div>
+  </div>
+{% endblock %}
+
+
+<!-- Footer goes inside this block -->
+{% block footer %}
+  {{ footer({
+    "links": [
+      {
+        "URL": "#",
+        "label": "NHS sites"
+      },
+      {
+        "URL": "#",
+        "label": "About us"
+      },
+      {
+        "URL": "#",
+        "label": "Contact us"
+      },
+      {
+        "URL": "#",
+        "label": "Sitemap"
+      },
+      {
+        "URL": "#",
+        "label": "Our policies"
+      }
+    ]
+  })}}
+{% endblock %}
