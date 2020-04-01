@@ -56,11 +56,11 @@ $("textarea").focusout(function(){
       <p>Your calendar will not update automatically if the appointment is changed or cancelled.</p>
 
 
-      <button class="nhsuk-button" type="submit">
-        Add to calendar
-      </button>
 
-
+            <form action="/{{ PROTOTYPEURL }}/calendar-permissions" method="get">
+              <input type="submit" class="nhsuk-button" value="Add to calendar">
+              </input>
+            </form>
 
 
 
