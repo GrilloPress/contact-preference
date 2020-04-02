@@ -163,8 +163,15 @@ li ul {
 }
 
 .calendar-images {
-  width: 351px;
-  height: 648px;
+
+  max-width: 100%;
+  height: auto;
+
+  @include mq($from: tablet) {
+    width: 375px;
+    height: auto;
+  }
+
 }
 
 

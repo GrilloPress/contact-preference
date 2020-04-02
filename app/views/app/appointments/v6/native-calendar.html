@@ -5,9 +5,8 @@
 {% block pageScripts %}
 {% endblock %}
 
-
 <!-- Extends the layout from /app/views/layouts/layout.html -->
-{% extends 'layouts/layout-app-new.html' %}
+{% extends 'layouts/layout-screenshot.html' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -22,18 +21,11 @@
 {% endblock %}
 
 {% block content %}
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+<a href="/app/appointments/v6/native-calendar">
+  <img class="calendar-images" src="/images/native-calendar.png"></a>
 
 
-            <a href="/app/appointments/v6/native-calendar">
-              <img class="calendar-images" src="/images/native-calendar.png"></a>
-
-
-              <p><a href="/app/v4/start">Return to home</a></p>
-
-    </div>
-  </div>
+  <p><a href="/app/v4/start">Return to home</a></p>
 {% endblock %}
 
 {% block footer %}
