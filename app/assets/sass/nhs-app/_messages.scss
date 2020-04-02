@@ -52,7 +52,8 @@
 .nhs-app-message__subject-link {
 
   @extend .nhsuk-body-s;
-  color: $color_nhsuk-blue;
+  color: $color_nhsuk-blue !important;
+  text-decoration: underline;
 
 }
 

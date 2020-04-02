@@ -154,12 +154,26 @@ $( document ).ready(function() {
 
         {% if data['id'] == "2" %}
 
-        <ul class="list-menu" id="replyButton">
-          <li>
-            <a href="javascript:void(0)" onclick="toggleMessageContainer()">Send message</a>
+        <ul class="list-menu nhsuk-u-margin-bottom-0" id="replyButton">
+          <li class="no-chevron no-chevron--subtle">
+            <div class="list-menu_container list-menu_container--subtle">
+              <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">You cannot reply to this message</h2>
+              <p>To discuss this message further, send a new message or phone your GP surgery</p>
+            </div>
           </li>
+        </ul>
+
+        <ul class="list-menu">
           <li>
-            <a href="delete">Delete message</a>
+            <a href="#">Send a new message</a>
+          </li>
+
+          <li style="display:none;">
+            <a href="javascript:void(0)" onclick="toggleMessageContainer()">Reply</a>
+          </li>
+
+          <li style="display:none;">
+            <a href="delete?conversation=true">Delete conversation</a>
           </li>
         </ul>
 
@@ -232,11 +246,25 @@ $( document ).ready(function() {
 
         {% else %}
 
-        <ul class="list-menu" id="replyButton">
+        <ul class="list-menu nhsuk-u-margin-bottom-0" id="replyButton">
+          <li class="no-chevron no-chevron--subtle">
+            <div class="list-menu_container list-menu_container--subtle">
+              <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">You cannot reply to this message</h2>
+              <p>To discuss this message further, send a new message or phone your GP surgery</p>
+            </div>
+          </li>
+        </ul>
+
+        <ul class="list-menu">
           <li>
+            <a href="#">Send a new message</a>
+          </li>
+
+          <li style="display:none;">
             <a href="javascript:void(0)" onclick="toggleMessageContainer()">Reply</a>
           </li>
-          <li>
+
+          <li style="display:none;">
             <a href="delete?conversation=true">Delete conversation</a>
           </li>
         </ul>
