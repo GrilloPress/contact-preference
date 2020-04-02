@@ -1,5 +1,5 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
-{% set serviceName = "Change your nominated pharmacy" %}
+{% set serviceName = "NHS App" %}
 {% set input %}{{ data['pharmacyPostcode'] | upper if data['pharmacyPostcode']  else "M1 5AE" }}{% endset %}
 {% set contentTitle = "High street pharmacies near " + '"' + input + '"' %}
 {% set prescriptionsActive = "active" %}

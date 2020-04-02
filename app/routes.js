@@ -864,6 +864,23 @@ router.post('/app/nominated-pharmacy/v4/type-of-pharmacy', function (req, res) {
 
 
 
+router.post('/app/nominated-pharmacy/v4/type-of-pharmacy-no-online', function (req, res) {
+  let answer = req.body.pharmacyTypeOnline;
+
+  if (answer === 'community') {
+
+    res.redirect('/app/nominated-pharmacy/v4/find-community-pharmacy')
+
+  } else {
+    res.redirect('/app/nominated-pharmacy/v4/online-register-directly')
+  }
+});
+
+
+
+
+
+
 router.post('/app/nominated-pharmacy/v1/name-of-pharmacy', function (req, res) {
   let answer = req.body.pharmacyName;
 

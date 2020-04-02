@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Check your nominated pharmacy details" %}
+{% set contentTitle = "Register with the online-only pharmacy directly" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -35,27 +35,16 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <p>This is the pharmacy where your prescriptions will be sent in future.</p>
+      <p>To nominate an online-only pharmacy, you must register with the pharmacy through their website or contact them.</p>
 
 
-              <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Echo" }}</p>
+      <p><a href="https://www.nhs.uk/service-search/other-services/pharmacies/internetpharmacies">View a list of online-only pharmacies</a></p>
 
-              <p class="nhsuk-u-margin-bottom-1">
-                <a href="" class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</a>
-              </p>
+      <p><a href="">Go back to your prescriptions</a></p>
 
-
-                <p>Telephone: {{ data["phoneNumber"] or "03069 990735" }}</p>
-
-
-
-
-
-
-      <form action="/{{ PROTOTYPEURL }}/v4/confirmed-2-online?nominatedConfirmed=true" method="post">
-        <input type="submit" class="nhsuk-button" value="Confirm">
-        </input>
-      </form>
+      <p class="nhs-app-desktop--show">
+        <a href="javascript: window.history.go(-1)">Back</a>
+      </p>
 
     </div>
   </div>
