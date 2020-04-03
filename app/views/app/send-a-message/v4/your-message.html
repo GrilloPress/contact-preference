@@ -100,10 +100,16 @@ $("textarea").focusout(function(){
       }) }}
 
       {% else %}
-      <div class="nhsuk-form-group">
-        <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-2" for="attachment">Upload file (optional)</label>
-        <button onclick="window.location='/{{ PROTOTYPEURL }}/file/add-file'" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-2" type="button" name="attachment">Add a file</button>
-      </div>
+
+        {% if data['fileUploadSJR'] === "False" %}
+
+        {% else %}
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-2" for="attachment">Upload file (optional)</label>
+            <button onclick="window.location='/{{ PROTOTYPEURL }}/file/add-file'" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-2" type="button" name="attachment">Add a file</button>
+          </div>
+        {% endif %}
+
       {% endif %}
 
 
