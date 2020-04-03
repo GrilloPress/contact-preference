@@ -1,4 +1,4 @@
-{% set PROTOTYPEURL = "app/appointments/v5" %}
+{% set PROTOTYPEURL = "app/appointments" %}
 {% set appointmentsActive = "active" %}
 {% set contentTitle %}
   {{ data["appViewDate"] or "5" | returnDate }}
@@ -81,12 +81,15 @@
 
             <ul class="list-menu list-menu--in-card">
               <li>
-                <a href="#">Add to your calendar</a>
+                <a href="/{{ PROTOTYPEURL }}/v6/add-to-calendar">Add to your calendar</a>
               </li>
               <li>
-                <a href="#">Cancel this appointment</a>
+                <a href="/{{ PROTOTYPEURL }}/v6/cancel-appointment?confirmed=">Cancel this appointment</a>
               </li>
             </ul>
+
+
+
 
           </div>
         </div>
