@@ -1,0 +1,84 @@
+{% set PROTOTYPEURL = "app/nominated-pharmacy" %}
+{% set serviceName = "NHS App" %}
+{% set prescriptionsActive = "active" %}
+{% set contentTitle = "Choose a type of pharmacy" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v3/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v6/your-prescriptions-10">Your repeat prescriptions</a></li>
+    </ol>
+    {% if data["nominatedConfirmed"] %}
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v4/change-2">Back</a></p>
+    {% else %}
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v4/card-nom-pharmacy-2">Back</a></p>
+    {% endif %}
+  </div>
+</nav>
+{% endblock %}
+
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+        <form action="/{{ PROTOTYPEURL }}/v4/type-of-pharmacy-no-online" method="post">
+
+        {{ radios({
+          "idPrefix": "nhs",
+          "name": "pharmacyTypeOnline",
+          "fieldset": {
+            "legend": {
+              "html": '<h1 class="nhsuk-fieldset__heading">' + contentTitle + '</h1>',
+              "classes": "nhsuk-fieldset__legend--xl",
+              "isPageHeading": true
+            }
+          },
+          "items": [
+            {
+              "value": "community",
+              "text": "High street pharmacies",
+              "hint": {
+                "text": "You can collect your prescriptions in person at a high street pharmacy local to you. They may also deliver. You'll be able to nominate a high street pharmacy in the NHS App."
+              }
+            },
+            {
+              "value": "online",
+              "text": "Online-only pharmacies",
+              "hint": {
+                "text": "These send your prescriptions to you in the post. It's not possible to nominate an online-only pharmacy in the NHS App. You'll need to register with the pharmacy directly instead."
+              }
+            }
+          ]
+        }) }}
+
+
+
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
