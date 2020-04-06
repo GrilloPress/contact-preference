@@ -1,0 +1,68 @@
+{% set PROTOTYPEURL = "app/linked-profiles" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "You are acting on behalf of Miss Violet Doyle" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/proxy-home">Home</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/proxy-home">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+
+          <h1 class="nhsuk-heading-xl nhs-app-xl">
+            {{ contentTitle }}
+          </h1>
+
+
+          <div class="">
+            <p class="nhsuk-u-margin-bottom-0">
+              <strong>Age:</strong>
+              8 years old
+            </p>
+            <p class="">
+              <strong>GP surgery:</strong>
+              A00002
+            </p>
+          </div>
+
+
+                    <form action="/app/v5" method="get">
+                      <input type="submit" class="nhsuk-button" value="Switch to my profile">
+                      </input>
+                    </form>
+
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+
+
+{% endblock %}
