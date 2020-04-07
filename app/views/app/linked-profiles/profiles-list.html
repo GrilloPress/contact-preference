@@ -5,6 +5,18 @@
 {% block pageScripts %}
 {% endblock %}
 
+{% set proxyName %}
+  Miss Violet Doyle
+{% endset %}
+
+{% set age %}
+  8 years old
+{% endset %}
+
+{% set surgery %}
+  The Nye Practice
+{% endset %}
+
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -46,8 +58,8 @@
 
           	<li>
           		<a href="/{{ PROTOTYPEURL }}/switch-profile">
-                <h2 class="nhsuk-heading-s">Miss Violet Doyle</h2>
-                <p>8 years old</p>
+                <h2 class="nhsuk-heading-s">{{ proxyName }}</h2>
+                <p>{{ age }}</p>
               </a>
           	</li>
         </ul>

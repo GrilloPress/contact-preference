@@ -1,9 +1,26 @@
 {% set PROTOTYPEURL = "app/linked-profiles" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Switch to Miss Violet Doyle's profile to act on their behalf " %}
+{% set proxyName %}
+  Miss Violet Doyle
+{%- endset %}
+{% set contentTitle = "Switch to " + proxyName + "'s profile to act on their behalf" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
+
+
+
+
+{% set firstName %}Violet{% endset %}
+
+{% set age %}
+  8 years old
+{% endset %}
+
+{% set surgery %}
+  The Nye Practice
+{% endset %}
+
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -41,7 +58,7 @@
                             <div class="app-card">
                               <div class="app-card__wrapper">
                                 <div class="app-card__content">
-                                  <h2 class="app-card__heading nhsuk-heading-l nhsuk-u-margin-bottom-4">Services you can access for Miss Violet Doyle</h1>
+                                  <h2 class="app-card__heading nhsuk-heading-l nhsuk-u-margin-bottom-4">Services you can access for {{ proxyName }}</h1>
 
 
 
@@ -73,8 +90,8 @@
 
 
 
-                    <form action="/{{ PROTOTYPEURL }}/proxy-home" method="get">
-                      <input type="submit" class="nhsuk-button" value="Switch to Violet's profile">
+                    <form action="/{{ PROTOTYPEURL }}/proxy-home?proxyOn" method="get">
+                      <input type="submit" class="nhsuk-button" value="Switch to {{ firstName }}'s profile">
                       </input>
                     </form>
 

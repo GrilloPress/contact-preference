@@ -78,15 +78,13 @@
 
 
       <ul class="list-menu">
+
         <li>
-          <a href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v2/" }}'>Check your symptoms</a>
+          <a href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v6/pre-hub" }}'>Book and manage appointments</a>
         </li>
-        <li>
-          <a href="/app/appointments/v6/pre-hub">Book and manage appointments</a>
-        </li>
-        <li>
-          <a href="/app/prescriptions/v7/your-prescriptions-11">Order a repeat prescription</a>
-        </li>
+          <li>
+            <a href='{{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v7/your-prescriptions-11" }}'>Order a repeat prescription</a>
+          </li>
         <li>
           <a href='{{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v1/" }}'>View your GP health record</a>
         </li>
@@ -98,7 +96,7 @@
         </li>
 
         <li>
-          <a href=''>Switch to a linked profile</a>
+          <a href="/app/linked-profiles/profiles-list">Switch to a linked profile</a>
         </li>
         <li>
           <a href=''>See all NHS App services</a>
@@ -106,6 +104,7 @@
       </ul>
     </div>
   </div>
+
 
 
 

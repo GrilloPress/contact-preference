@@ -1,9 +1,25 @@
 {% set PROTOTYPEURL = "app/linked-profiles" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "You are acting on behalf of Miss Violet Doyle" %}
+{% set proxyName %}
+  Miss Violet Doyle
+{%- endset %}
+{% set contentTitle = "You are acting on behalf of " + proxyName %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
+
+
+
+{% set firstName %}Violet{% endset %}
+
+{% set age %}
+  8 years old
+{% endset %}
+
+{% set surgery %}
+  The Nye Practice
+{% endset %}
+
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -36,16 +52,16 @@
           </h1>
 
 
-          <div class="">
-            <p class="nhsuk-u-margin-bottom-0">
-              <strong>Age:</strong>
-              8 years old
-            </p>
-            <p class="">
-              <strong>GP surgery:</strong>
-              A00002
-            </p>
-          </div>
+                        <div class="">
+                <p class="nhsuk-u-margin-bottom-0">
+                  <strong>Age:</strong>
+                  {{ age }}
+                </p>
+                <p class="">
+                  <strong>GP surgery:</strong>
+                  {{ surgery }}
+                </p>
+              </div>
 
 
                     <form action="/app/v5" method="get">

@@ -506,6 +506,19 @@ router.post('/app/prescriptions/v7/save', function (req, res) {
 });
 
 
+// prescriptions v7
+
+
+router.post('/app/prescriptions/v7/proxy/save', function (req, res) {
+
+  // add what is saved later!
+
+  req.session.data.prescriptionConfirmed = "True";
+  res.redirect('/app/prescriptions/v7/proxy/confirmed')
+
+});
+
+
 
 
 
