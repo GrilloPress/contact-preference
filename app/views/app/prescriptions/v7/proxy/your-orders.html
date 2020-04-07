@@ -1,0 +1,122 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set prescriptionsActive = "active" %}
+{% set contentTitle = "Your orders" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+{% set choosePrescriptionProxy %}
+  {% if data['choosePrescriptionProxy'] == 'salbutamol' %}
+
+  <p class="nhsuk-u-margin-bottom-0">Salbutamol 100micrograms/dose Inhaler CFC free 200 dose</p>
+  <p class="nhs-app-secondary-text">Inhale 2 doses as needed</p>
+
+  {% endif %}
+
+{% endset %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/proxy/your-prescriptions">Prescriptions</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/proxy/your-prescriptions">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+
+
+      <div class="nhs-app-panel-heading">
+        <h2 class="nhsuk-heading-l">Orders</h2>
+      </div>
+
+
+      <ul class="list-menu nhs-app-message">
+
+
+        {% if data['choosePrescriptionProxy'] %}
+
+                  <li>
+                		<a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v7/proxy/order-details">
+                      <h2 class="nhsuk-heading-xs">
+                        {{ "today" | returnDate }}
+                        <span class="nhsuk-u-visually-hidden">The status of this prescription is</span>
+                        <span class="nhs-app-message__date nhsuk-tag nhsuk-tag--orange">Requested</span>
+                      </h2>
+                      <p class="nhs-app-prescription__instructions">
+                        Salbutamol 100micrograms/dose Inhaler CFC free 200 dose
+                      </p>
+                      <p class="nhs-app-prescription__instructions">
+                        Inhale 2 doses as needed
+                      </p>
+                    </a>
+                	</li>
+
+
+                  {% endif %}
+
+
+
+
+
+
+
+                  <li>
+                    <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v7/proxy/order-details-old">
+                      <h2 class="nhsuk-heading-xs">
+                        {{ 24 | returnPastDate }}
+                        <span class="nhsuk-u-visually-hidden">The status of this prescription is</span>
+                        <span class="nhs-app-message__date nhsuk-tag nhsuk-tag--green">Approved</span>
+                      </h2>
+                      <p class="nhs-app-prescription__instructions">
+                        Salbutamol 100micrograms/dose Inhaler CFC free 200 dose
+                      </p>
+                      <p class="nhs-app-prescription__instructions">
+                         Inhale 2 doses as needed
+                      </p>
+                    </a>
+                  </li>
+
+
+                                    <li>
+                                  		<a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v7/proxy/order-details-older">
+                                        <h2 class="nhsuk-heading-xs">
+                                          {{ 48 | returnPastDate }}
+                                          <span class="nhsuk-u-visually-hidden">The status of this prescription is</span>
+                                          <span class="nhs-app-message__date nhsuk-tag nhsuk-tag--green">Approved</span>
+                                        </h2>
+                                        <p class="nhs-app-prescription__instructions">
+                                          Salbutamol 100micrograms/dose Inhaler CFC free 200 dose
+                                        </p>
+                                        <p class="nhs-app-prescription__instructions">
+                                           Inhale 2 doses as needed
+                                        </p>
+                                      </a>
+                                  	</li>
+
+
+          </ul>
+
+    </div>
+  </div>
+{% endblock %}
