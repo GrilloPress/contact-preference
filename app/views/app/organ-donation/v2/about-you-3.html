@@ -145,10 +145,10 @@ or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] ==
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <h2 class="nhsuk-heading-m">About you</h2>
-      <h3 class="nhsuk-heading-s">Personal details</h3>
+      <h2 class="nhsuk-heading-l">About you</h2>
+      <h3 class="nhsuk-heading-m">Personal details</h3>
 
 
 
@@ -185,7 +185,7 @@ or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] ==
 
             <hr>
 
-            <h3 class="nhsuk-heading-s">Contact details</h3>
+            <h3 class="nhsuk-heading-m">Contact details</h3>
 
 
             <p>We will only contact you about your organ donation registration.</p>
@@ -208,7 +208,7 @@ or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] ==
                   <hr>
 
 
-                  <h3 class="nhsuk-heading-s">Additional information</h3>
+                  <h3 class="nhsuk-heading-m">Additional information</h3>
 
 
 
@@ -239,7 +239,7 @@ or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] ==
 
 
 
-                        <h2 class="nhsuk-heading-m">Your decision</h2>
+                        <h2 class="nhsuk-heading-l">Your decision</h2>
 
                         {% if data['donationDecision'] == "no" %}
                         <div class="nhs-app-decision">
@@ -289,7 +289,7 @@ or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] ==
 
                         {% if data['donationDecision'] == "yes" %}
 
-                        <h3 class="nhsuk-heading-s">Decision details</h3>
+                        <h3 class="nhsuk-heading-m">Decision details</h3>
 
                         <p>{{ decisionDetails }}</p>
 
@@ -299,7 +299,7 @@ or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] ==
                         {% if data["yourChoice"] == "some" %}
 
                           {% if organDonationChooseAnyYes %}
-                          <h4 class="nhsuk-heading-xs">You have chosen to donate:</h4>
+                          <h4 class="nhsuk-heading-s">You have chosen to donate:</h4>
                             <ul style="list-style-type:none;">
                               {% if data['heart'] == 'yes' %}
                               <li>Heart</li>
@@ -336,7 +336,7 @@ or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] ==
                             {% endif %}
 
                           {% if organDonationChooseAnyNos %}
-                          <h4 class="nhsuk-heading-xs">You have chosen not to donate:</h4>
+                          <h4 class="nhsuk-heading-s">You have chosen not to donate:</h4>
                           <ul style="list-style-type:none;">
                             {% if data['heart'] == 'no' %}
                             <li>Heart</li>
@@ -380,7 +380,7 @@ or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] ==
 
                         {% if data['donationDecision'] == "yes" %}
 
-                        <h2 class="nhsuk-heading-m">Faith / beliefs details</h2>
+                        <h2 class="nhsuk-heading-l">Faith / beliefs details</h2>
 
                         {{ summaryList({
                           rows: [
@@ -397,7 +397,7 @@ or (data['corneas'] == "no") or (data['pancreas'] == "no") or (data['tissue'] ==
 
                         {% endif %}
 
-                        <h2 class="nhsuk-heading-m">Submit your decision</h2>
+                        <h2 class="nhsuk-heading-l">Submit your decision</h2>
 
 
                         <form action="/{{ PROTOTYPEURL }}/v2/decision-recorded-2" method="post">
