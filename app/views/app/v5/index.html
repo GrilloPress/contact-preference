@@ -91,9 +91,19 @@
         <li>
           <a href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/send-a-message/v4/" }}'>View your messages</a>
         </li>
+
+        {% if not data['donationDecision'] %}
+                <li>
+                  <a href="/app/organ-donation/v2/register-decision">Manage your organ donation decision</a>
+                </li>
+
+        {% else %}
         <li>
-          <a href="/app/organ-donation/v2/register-decision">Manage your organ donation decision</a>
+          <a href="/app/organ-donation/v2/donates-home">Manage your organ donation decision</a>
         </li>
+
+        {% endif %}
+
 
         <li>
           <a href="/app/linked-profiles/profiles-list">Switch to a linked profile</a>
