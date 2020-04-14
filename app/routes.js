@@ -1336,6 +1336,13 @@ router.post('/app/engage/terms/v1/engage-privacy', function (req, res) {
 
 
 
+router.get('/', function (req, res) {
+
+    res.redirect('/app/iframe')
+
+});
+
+
 
 
 module.exports = router;
