@@ -44,9 +44,17 @@
   {{ data["routeSettings"] if data ["routeSettings"] else "/app/settings/v3/" }}
 {% endset %}
 
+
+
 {% set routePrescriptions %}
-  {{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v7/your-prescriptions-11" }}
+{% if data["proxy"] == "true" %}
+  {{ "/app/prescriptions/v7/proxy/your-prescriptions" }}
+{% else %}
+  {{ "/app/prescriptions/v7/your-prescriptions-11" }}
+{% endif %}
 {% endset %}
+
+
 
 {% set routeMessaging %}
   {{ data["routeMessaging"] if data ["routeMessaging"] else "/app/send-a-message/v4/" }}
