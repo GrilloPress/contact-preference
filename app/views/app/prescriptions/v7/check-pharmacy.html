@@ -40,19 +40,21 @@
 
       {% if data['pharmacyType'] === "online" %}
 
-      <h2 class="nhsuk-heading-l">{{ data["pickPharmacy"] or "Echo" }}</h2>
+      <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Echo" }}</p>
 
-      <a href="" class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</a>
+      <p class="nhsuk-u-margin-bottom-1">
+        <a href="" class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</a>
+      </p>
 
 
-                <p>Telephone: {{ data["phoneNumber"] or "03069 990735" }}</p>
+        <p>Telephone: {{ data["phoneNumber"] or "03069 990735" }}</p>
 
 
 
         {% elif data['pharmacyType'] === "community" %}
 
 
-        <h2 class="nhsuk-heading-l">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</h2>
+        <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
 
         <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or "16 Oxford St" }}</p>
 
@@ -65,10 +67,13 @@
 
 
 
+
+
+
       {% else %}
 
 
-      <h2 class="nhsuk-heading-l">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</h2>
+      <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
 
       <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or "16 Oxford St" }}</p>
 
