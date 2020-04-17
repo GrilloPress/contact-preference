@@ -1,0 +1,55 @@
+{% set PROTOTYPEURL = "app/econsult" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "eConsult journeys" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+      <form action="#?econsult=True&econsultHub=index" method="get">
+        <input type="submit" class="nhsuk-button" value="Start eConsult prototype">
+        </input>
+      </form>
+
+      <h2>Online consultation hub</h2>
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/hub/v1/index">Hub</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/hub/v1/index-no-child">Hub with no child journey</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/hub/v1/index-no-services">Hub with no services</a>
+        </li>
+      </ul>
+
+      <h2>Ask a health professional for advice for your child</h2>
+
+      <h2>Admin request</h2>
+
+
+    </div>
+  </div>
+{% endblock %}
