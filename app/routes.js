@@ -1354,13 +1354,14 @@ router.post('/app/engage/terms/v1/engage-privacy', function (req, res) {
 });
 
 
+// user research redirect
 
-
-router.get('/', function (req, res) {
-
-    res.redirect('/app/iframe')
-
-});
+//
+// router.get('/', function (req, res) {
+//
+//    res.redirect('/app/iframe')
+//
+// });
 
 
 
