@@ -855,7 +855,7 @@ router.post('/app/organ-donation/v2/change-radios', function (req, res) {
 
   } else if (answer === 'noDonate') {
 
-    res.redirect('/app/organ-donation/v2/additional-details?donationDecision=no?yourChoice=')
+    res.redirect('/app/organ-donation/v2/additional-details?donationDecision=no&yourChoice=')
 
   } else {
     res.redirect('/app/organ-donation/v2/reason-for-withdraw')
