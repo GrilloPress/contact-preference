@@ -849,14 +849,19 @@ router.post('/app/organ-donation/v2/your-choice', function (req, res) {
 router.post('/app/organ-donation/v2/change-radios', function (req, res) {
   let answer = req.body.changeRadios;
 
-  if (answer === 'changeDecision') {
+  if (answer === 'yesDonate') {
 
-    res.redirect('/app/organ-donation/v2/change-decision')
+    res.redirect('/app/organ-donation/v2/your-choice?donationDecision=yes')
+
+  } else if (answer === 'noDonate') {
+
+    res.redirect('/app/organ-donation/v2/additional-details?donationDecision=no?yourChoice=')
 
   } else {
     res.redirect('/app/organ-donation/v2/reason-for-withdraw')
   }
 });
+
 
 
 
