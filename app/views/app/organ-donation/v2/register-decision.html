@@ -22,7 +22,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/v3">Back</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href=""></a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" onClick='window.history.go(-1)'>Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" onClick="window.history.go(-1)">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -31,6 +31,16 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+
+
+      <ul class="list-menu">
+        <li>
+          <a href="https://www.organdonation.nhs.uk/register-your-decision/check-registration/">Think you have registered already?</a>
+        </li>
+        <li>
+          <a href="https://www.organdonation.nhs.uk/app/app-donation">Find out more about organ donation</a>
+        </li>
+      </ul>
 
       {{ insetText({
           "HTML": "<p>If you have not registered your decision, <a href=\"https://www.organdonation.nhs.uk/app/app-donation/#law\" title=\"External website\">changes to the law around organ donation may affect you</a>.</p>"
@@ -79,14 +89,7 @@
 
 
 
-      <ul class="list-menu">
-      	<li>
-      		<a href="https://www.organdonation.nhs.uk/register-your-decision/check-registration/">Think you have registered already?</a>
-      	</li>
-      	<li>
-      		<a href="https://www.organdonation.nhs.uk/app/app-donation">Find out more about organ donation</a>
-      	</li>
-      </ul>
+
     </div>
   </div>
 {% endblock %}

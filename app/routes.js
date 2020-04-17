@@ -846,6 +846,20 @@ router.post('/app/organ-donation/v2/your-choice', function (req, res) {
 });
 
 
+router.post('/app/organ-donation/v2/change-radios', function (req, res) {
+  let answer = req.body.changeRadios;
+
+  if (answer === 'changeDecision') {
+
+    res.redirect('/app/organ-donation/v2/change-decision')
+
+  } else {
+    res.redirect('/app/organ-donation/v2/reason-for-withdraw')
+  }
+});
+
+
+
 // Nominated pharmacy routing
 
 
@@ -1334,6 +1348,14 @@ router.post('/app/engage/terms/v1/engage-privacy', function (req, res) {
   }
 });
 
+
+
+
+router.get('/', function (req, res) {
+
+    res.redirect('/app/iframe')
+
+});
 
 
 

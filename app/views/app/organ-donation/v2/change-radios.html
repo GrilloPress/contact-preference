@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/organ-donation" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Do you want to donate some, or all, of your organs and tissue?" %}
+{% set contentTitle = "Change your decision" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -19,10 +19,10 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v2/register-decision">Back</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#" onClick='window.history.go(-1)'>Back</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href=""></a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v2/register-decision">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -34,10 +34,10 @@
 
 
 
-      <form action="/{{ PROTOTYPEURL }}/v2/your-choice" method="post">
+      <form action="/{{ PROTOTYPEURL }}/v2/change-radios" method="post">
         {{ radios({
           "idPrefix": "organ",
-          "name": "yourChoice",
+          "name": "changeRadios",
           "fieldset": {
             "legend": {
               "html": '<h1 class="nhsuk-fieldset__heading">' + contentTitle + '</h1>',
@@ -47,17 +47,17 @@
           },
           "items": [
             {
-              "value": "all",
-              "text": "All my organs and tissue",
+              "value": "changeDecision",
+              "text": "I want to change my decision",
               "hint": {
-                "text": "Help up to nine people through organ donation and even more through tissue donation."
+                "text": "This means moving from a ‘No - I don’t want to donate’ to a ‘Yes - I want to donate’ decision or vice versa."
             }
             },
             {
-              "value": "some",
-              "text": "Some organs and tissue",
+              "value": "withdrawDecision",
+              "text": "I want to withdraw my decision",
               "hint": {
-                "text": "Choose which of your organs and tissue to donate."
+                "text": "This is removing yourself from the Organ Donation Register altogether, and therefore there will be no recorded decision for you."
             }
             }
           ]
