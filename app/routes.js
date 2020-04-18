@@ -1380,4 +1380,16 @@ router.post('/app/econsult/child/v1/2_covid', function (req, res) {
   }
 });
 
+router.post('/app/econsult/child/v1/3_emergency', function (req, res) {
+  let answer = req.session.data.econsultCOVID;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/econsult/child/v1/end/emergency')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/4_registered')
+  }
+});
+
 module.exports = router;
