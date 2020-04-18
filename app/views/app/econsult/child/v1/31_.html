@@ -33,69 +33,25 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      {{ warningCallout({
-        "heading": "Next, let's make sure this isn't an emergency. Is the child currently experiencing any of the following?",
-        "HTML": "
-        <ul>
-          <li>
-            <strong>Severe breathing difficulties</strong> - fast breathing with muscle movement under the rib cage and between the ribs, lips turned blue, choking, unable to speak (older children), or grunting (babies)
-          </li>
-
-          <li>
-            <strong>Severe drowsiness </strong> - unconscious or
-            unaware of what is happening around
-            them or unable to wake them up
-          </li>
-
-          <li>
-            <strong>Severe infections </strong> - feverish illness,
-            with a rash that does not fade when
-            you press it or cold, mottled/pale skin
-          </li>
-
-          <li>
-            <strong>Has had their first fit </strong>
-          </li>
-
-          <li>
-            <strong>Heavy bleeding that won't stop </strong> - uncontrollable bleeding from any part
-            of their body
-          </li>
-
-          <li>
-            <strong>Severe injuries </strong> - including deep cuts
-            after a serious accident
-          </li>
-
-          <li>
-            <strong>Poisoning </strong> - they have swallowed
-            something they should not have
-            (medicines, batteries, household
-            chemicals)
-          </li>
-        </ul>
-          "
-      }) }}
-
       <form action="" method="post">
         {{ radios({
           "idPrefix": "econsult",
-          "name": "econsultEmergency",
+          "name": "econsultRash",
           "fieldset": {
             "legend": {
-              "text": "",
+              "text": "Does your child have any rash, redness, blisters or swelling of the skin beyond the eyelids or around the eye?",
               "isPageHeading": false,
               "classes": ""
             }
           },
           "items": [
             {
-              "value": "no",
-              "text": "The child is NOT experiencing any of these"
+              "value": "Yes",
+              "text": "Yes"
             },
             {
-              "value": "yes",
-              "text": "The child is experiencing some of these"
+              "value": "No",
+              "text": "No"
             }
           ]
         }) }}
@@ -104,14 +60,6 @@
         </input>
 
       </form>
-
-
-
-
-
-
-
-
 
     </div>
   </div>

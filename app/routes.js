@@ -1381,7 +1381,7 @@ router.post('/app/econsult/child/v1/2_covid', function (req, res) {
 });
 
 router.post('/app/econsult/child/v1/3_emergency', function (req, res) {
-  let answer = req.session.data.econsultCOVID;
+  let answer = req.session.data.econsultEmergency;
 
   if (answer === 'yes') {
 
@@ -1389,6 +1389,78 @@ router.post('/app/econsult/child/v1/3_emergency', function (req, res) {
 
   } else {
     res.redirect('/app/econsult/child/v1/4_registered')
+  }
+});
+
+router.post('/app/econsult/child/v1/4_registered', function (req, res) {
+  let answer = req.session.data.econsultRegistered;
+
+  if (answer === 'no') {
+
+    res.redirect('/app/econsult/child/v1/end/registered')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/5_your-dob')
+  }
+});
+
+router.post('/app/econsult/child/v1/6_legal-guardian', function (req, res) {
+  let answer = req.session.data.econsultLegalGuardian;
+
+  if (answer === 'no') {
+
+    res.redirect('/app/econsult/child/v1/end/legal-guardian')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/7_childs-sex')
+  }
+});
+
+router.post('/app/econsult/child/v1/15_', function (req, res) {
+  let answer = req.session.data.econsultFever;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/end/fever')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/16_')
+  }
+});
+
+router.post('/app/econsult/child/v1/24_', function (req, res) {
+  let answer = req.session.data.econsultObjectInEye;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/end/eye-object')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/25_')
+  }
+});
+
+router.post('/app/econsult/child/v1/25_', function (req, res) {
+  let answer = req.session.data.econsultVisionChanges;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/end/vision')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/26_')
+  }
+});
+
+router.post('/app/econsult/child/v1/31_', function (req, res) {
+  let answer = req.session.data.econsultRash;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/end/rash')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/32_')
   }
 });
 
