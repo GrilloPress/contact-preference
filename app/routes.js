@@ -1364,6 +1364,20 @@ router.post('/app/engage/terms/v1/engage-privacy', function (req, res) {
 // });
 
 
+// ECONSULT routes
 
+
+
+router.post('/app/econsult/child/v1/2_covid', function (req, res) {
+  let answer = req.session.data.econsultCOVID;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/econsult/child/v1/end/covid')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/3_emergency')
+  }
+});
 
 module.exports = router;
