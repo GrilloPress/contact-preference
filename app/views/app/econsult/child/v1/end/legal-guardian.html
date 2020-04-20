@@ -31,8 +31,17 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      not legal guardian end page
+      <h1>{{ contentTitle }}</h1>
 
+      {{ careCard({
+        "type": "immediate",
+        "headingLevel": 2,
+        "heading": "You can only request help for a child if you are their parent or legal guardian",
+        "HTML": "
+        <p>For safety reasons, only parents or legal guardians of a child can use this service.</p>
+        <p><a href='#'>Contact the practice</a> to find out how to book an appointment for the child.</p>
+        "
+      }) }}
 
     </div>
   </div>
