@@ -39,28 +39,20 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/child/v1/48_" method="get">
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultOtherDrugs",
-          "fieldset": {
-            "legend": {
-              "text": "Do you have any family history of illness?",
-              "isPageHeading": false,
-              "classes": ""
-            }
+      <form action="/{{ PROTOTYPEURL }}/child/v1/53_" method="get">
+
+        {{ input({
+          "label": {
+            "text": "Tell us your last name",
+            "isPageHeading": false,
+            "classes": ""
           },
-          "items": [
-            {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No",
-              "text": "No"
-            }
-          ]
+          "id": "econsult",
+          "name": "econsultYourLastName",
+          "value": "Doyle",
+          "classes": ""
         }) }}
+
 
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>

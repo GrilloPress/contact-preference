@@ -39,28 +39,37 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/child/v1/48_" method="get">
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultOtherDrugs",
+      <form action="/{{ PROTOTYPEURL }}/child/v1/55_" method="get">
+
+
+        {{ checkboxes({
+          "name": "econsultEndOfJourney",
           "fieldset": {
             "legend": {
-              "text": "Do you have any family history of illness?",
-              "isPageHeading": false,
-              "classes": ""
+              "text": "Finally, please let us know whether you'd like a copy of your answers and whether you would like to take a survery",
+              "classes": "",
+              "isPageHeading": false
             }
+          },
+          "hint": {
+            "text": "(optional)"
           },
           "items": [
             {
-              "value": "Yes",
-              "text": "Yes"
+              "value": "econsultEmailCopy",
+              "text": "Email me a copy of my consultation answers"
             },
             {
-              "value": "No",
-              "text": "No"
+              "value": "econsultOneTimeSurvey",
+              "text": "I'd like to take a one-time survey to help improve this service",
+              "hint": {
+                "text": "We will email you the survey a few days after your consultation"
+              }
+
             }
           ]
         }) }}
+
 
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>

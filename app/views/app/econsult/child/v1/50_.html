@@ -39,27 +39,18 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/child/v1/48_" method="get">
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultOtherDrugs",
-          "fieldset": {
-            "legend": {
-              "text": "Do you have any family history of illness?",
-              "isPageHeading": false,
-              "classes": ""
-            }
-          },
-          "items": [
-            {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No",
-              "text": "No"
-            }
-          ]
+      <form action="/{{ PROTOTYPEURL }}/child/v1/51_" method="get">
+
+        {{ textarea({
+          "name": "econsultChildsAddress",
+          "id": "econsult",
+          "classes": "nhsuk-u-margin-bottom-0",
+          "value": "",
+          "label": {
+            "text": "Tell us your child's full address, includes your postcode",
+            "isPageHeading": false,
+            "classes": ""
+          }
         }) }}
 
         <input type="submit" class="nhsuk-button" value="Continue">
