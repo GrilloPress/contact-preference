@@ -36,30 +36,15 @@
       {{ careCard({
         "type": "immediate",
         "headingLevel": 2,
-        "heading": "You need medical help now. Call 999 or go to your local A&E.",
+        "heading": "You've chosen to end your consultation. Your practice hasn't been notified and won't contact you about your request. You should still seek medical advice now.'",
         "HTML": "
-        <p>If you decide to seek medical advice, <strong>your GP will not be notified and your practice will not contact you about this consultation.</strong>.</p>
+        <p>Here's what you can do next:</p>
+        <ul>
+          <li>Call 999</li>
+          <li>Go to your local A&E</li>
+        </ul>
         "
       }) }}
-
-      <form action="/{{ PROTOTYPEURL }}/child/v1/end/end-of-consultation-emergency" method="post">
-        {{ checkboxes({
-          "name": "econsultGetEmergHelpRash",
-          "items": [
-            {
-              "value": "true",
-              "text": "End my consultation, I will seek medical advice myself instead"
-            }
-          ]
-        }) }}
-
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
-
-      </form>
-
-
-
 
     </div>
   </div>
