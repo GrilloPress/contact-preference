@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "This is a third-party service" %}
+{% set contentTitle = "Ask a health professional for advice about your child" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -25,13 +25,52 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
+
+<div class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-third-party-container nhs-app-third-party-container--grey nhsuk-body-s nhsuk-u-margin-bottom-0">
+  <div class="nhsuk-width-container">
+    <strong>This service is provided by your GP surgery</strong>
+  </div>
+</div>
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+
+      <p>We're about to ask you a few questions about your problem</p>
+
+      <p>
+        Gledhow Practice will respond to you by phone or email
+        <strong>before 6:30pm on {{ "2" | returnDate }}</strong>.
+      </p>
+
       <form action="/{{ PROTOTYPEURL }}/child/v1/1_choose-condition" method="post">
+
+        {{ checkboxes({
+          "name": "econsultPrivacyNotice",
+          "items": [
+            {
+              "value": "true",
+              "html": "  I have read the <a href='#'>privacy notice</a>,
+                        and I consent to eConsult Health Ltd (an NHS-approved third-party organisation) using my personal and health data to provide an online consultation. I can withdraw my consent at any time by abandoning the form."
+            }
+          ]
+        }) }}
+
+        {{ checkboxes({
+          "name": "econsultDataNotice",
+          "items": [
+            {
+              "value": "true",
+              "html": "
+                        I consent to eConsult Health Ltd sharing my personal and health data with Any Medical Practice.
+                    "
+            }
+          ]
+        }) }}
+
         <input type="submit" class="nhsuk-button" value="Continue">
       </form>
 

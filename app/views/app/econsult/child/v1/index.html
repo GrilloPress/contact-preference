@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "This is a third-party service" %}
+{% set contentTitle = "Ask a health professional for advice about your child" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -31,25 +31,41 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <div class="app-interruption">
-        <div class="app-interruption__wrapper">
-          <div class="app-interruption__content">
-            <h1 class="app-card__heading nhsuk-heading-xl nhsuk-u-margin-bottom-4">
-              <span class="app-interruption__caption nhsuk-caption-m nhsuk-caption--top">Ask a health professional for advice</span>
-              {{ contentTitle }}
-            </h1>
-            <p>
-              Your GP surgery has chosen this online consultation service provided by <strong>eConsult Health Limited</strong>.
-            </p>
-            <form action="/{{ PROTOTYPEURL }}/child/v1/data-sharing" method="post">
-              <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
-            </form>
-            <p>
-              <a href="#">Find out more about online consultation services</a>
-            </p>
-          </div>
-        </div>
-      </div>
+      <h1 class="app-card__heading nhsuk-heading-xl nhsuk-u-margin-bottom-4">
+        {{ contentTitle }}
+      </h1>
+
+      {{ warningCallout({
+        "heading": "Important",
+        "HTML": '<p>This service is provided by an online consultation service provider,
+                  eConsult Health Ltd, on behalf of your GP surgery.
+                  <span data-v-382c0b35=""><a data-v-382c0b35="" id="online_consultations_help_link" href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/online-consultations/" target="_blank" rel="noopener noreferrer">
+                    Find out more about online consultation services.</a></span></p>'
+      }) }}
+
+      <p>It takes around 5 minutes to answer a few questions about your condition.</p>
+
+      <p>To save you typing in personal information the online consultation service needs, you can use the personal information we already hold.</p>
+
+      {{ checkboxes({
+        "name": "econsultAutocomplete",
+        "hint": {
+          "text": "Optional"
+        },
+        "items": [
+          {
+            "value": "true",
+            "html": '
+          Use my name, date of birth, NHS number and postal address with the online consultation service as described in the <span data-v-72157036=""><a data-v-72157036="" href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/" target="_blank" rel="noopener noreferrer">
+              NHS App privacy policy.</a></span>
+          '
+          }
+        ]
+      }) }}
+
+      <form action="/{{ PROTOTYPEURL }}/child/v1/data-sharing" method="post">
+        <input type="submit" class="nhsuk-button" value="Continue">
+      </form>
 
     </div>
   </div>

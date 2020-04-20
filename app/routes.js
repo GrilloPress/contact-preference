@@ -1368,7 +1368,7 @@ router.post('/app/engage/terms/v1/engage-privacy', function (req, res) {
 
 
 
-router.post('/app/econsult/child/v1/2_covid', function (req, res) {
+router.post('/app/econsult/child/v1/3_covid', function (req, res) {
   let answer = req.session.data.econsultCOVID;
 
   if (answer === 'yes') {
@@ -1376,11 +1376,11 @@ router.post('/app/econsult/child/v1/2_covid', function (req, res) {
     res.redirect('/app/econsult/child/v1/end/covid')
 
   } else {
-    res.redirect('/app/econsult/child/v1/3_emergency')
+    res.redirect('/app/econsult/child/v1/4_registered')
   }
 });
 
-router.post('/app/econsult/child/v1/3_emergency', function (req, res) {
+router.post('/app/econsult/child/v1/2_emergency', function (req, res) {
   let answer = req.session.data.econsultEmergency;
 
   if (answer === 'yes') {
@@ -1388,7 +1388,7 @@ router.post('/app/econsult/child/v1/3_emergency', function (req, res) {
     res.redirect('/app/econsult/child/v1/end/emergency')
 
   } else {
-    res.redirect('/app/econsult/child/v1/4_registered')
+    res.redirect('/app/econsult/child/v1/3_covid')
   }
 });
 
