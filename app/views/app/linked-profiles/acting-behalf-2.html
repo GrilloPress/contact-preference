@@ -35,9 +35,9 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/proxy-home">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/proxy-home-2">Home</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/proxy-home">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/proxy-home-2">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -73,13 +73,21 @@
                 </p>
               </div>
 
+              <ul class="list-menu">
 
-                    <form action="/app/v5" method="get">
-                      <input type="submit" class="nhsuk-button" value="Switch to my profile">
-                      </input>
-                    </form>
-
-
+                <li>
+                  <a href="">Book an appointment</a>
+                </li>
+                  <li>
+                    <a href='{{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v7/your-prescriptions-11-no-pkb" }}'>Order a prescription</a>
+                  </li>
+                <li>
+                  <a href="">View their GP health record</a>
+                </li>
+                <li>
+                  <a href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5/" }}'>Switch to your profile</a>
+                </li>
+              </ul>
 
 
 
