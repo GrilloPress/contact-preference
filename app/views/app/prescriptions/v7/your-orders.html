@@ -67,15 +67,29 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
+{% if data['pkb'] == 'true' %}
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5/">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11">Prescriptions</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-gp-prescriptions">GP repeat prescriptions</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/your-gp-prescriptions">Back</a></p>
   </div>
 </nav>
+{% else %}
+
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+<div class="nhsuk-width-container">
+<ol class="nhsuk-breadcrumb__list">
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5/">Home</a></li>
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Prescriptions</a></li>
+</ol>
+<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Back</a></p>
+</div>
+</nav>
+{% endif %}
 {% endblock %}
 
 {% block content %}

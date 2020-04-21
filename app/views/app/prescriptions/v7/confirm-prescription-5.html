@@ -91,6 +91,38 @@ $('div.nhsuk-summary-list__row').each(function() {
 
 
 
+  {% set nomPharmDetails %}
+
+      {% if data["pickPharmacy"] %}
+	       {% if data['pharmacyType'] === "online" %}
+
+               <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Echo" }}</p>
+
+               <p class="nhsuk-u-margin-bottom-0">{{ data["onlineUrl"] or "www.echo.co.uk" }}</p>
+
+               <p>Telephone: {{ data["phoneNumber"] or "03069 990735" }}</p>
+
+
+          {% elif data['pharmacyType'] === "community" %}
+
+                <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
+
+                <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or "16 Oxford St" }}</p>
+
+                <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Manchester" }}</p>
+
+                <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "M1 5AE" }}</p>
+
+                <p>Telephone: {{ data["phoneNumber"] or "0161 236 1445" }}</p>
+
+          {% endif %}
+        {% endif %}
+    {% endset %}
+
+
+
+
+
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
 
@@ -101,16 +133,32 @@ $('div.nhsuk-summary-list__row').each(function() {
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
+{% if data['pkb'] == 'true' %}
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5/">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Prescriptions</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11">Prescriptions</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-gp-prescriptions">GP repeat prescriptions</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/select-medicine-to-renew-2">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
+{% else %}
+
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+<div class="nhsuk-width-container">
+<ol class="nhsuk-breadcrumb__list">
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5/">Home</a></li>
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Prescriptions</a></li>
+</ol>
+<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Back</a></p>
+</div>
+</nav>
+{% endif %}
 {% endblock %}
+
+
 
 {% block content %}
   <div class="nhsuk-grid-row">
@@ -165,7 +213,7 @@ $('div.nhsuk-summary-list__row').each(function() {
               "classes": "nhsuk-heading-s"
             },
             value: {
-              html: data["pickPharmacy"] or '<p>Cameolord Pharmacy</p>'
+              html: nomPharmDetails
             },
             actions: {
               items: [
