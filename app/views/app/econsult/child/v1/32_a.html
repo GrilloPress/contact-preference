@@ -42,22 +42,26 @@
       <form action="" method="post">
         {{ radios({
           "idPrefix": "econsult",
-          "name": "econsultSick",
+          "name": "econsultSickDays",
           "fieldset": {
             "legend": {
-              "text": "Has your child been sick (vomited) during this period of illness?",
+              "text": "How many days has your child been sick (vomited) for?",
               "isPageHeading": false,
               "classes": ""
             }
           },
           "items": [
             {
-              "value": "Yes",
-              "text": "Yes"
+              "value": "1-2 days",
+              "text": "1-2 days"
             },
             {
-              "value": "No",
-              "text": "No"
+              "value": "3-5 days",
+              "text": "3-5 days"
+            },
+            {
+              "value": "More than 5 days",
+              "text": "More than 5 days"
             }
           ]
         }) }}

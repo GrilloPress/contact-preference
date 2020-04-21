@@ -1536,4 +1536,52 @@ router.post('/app/econsult/child/v1/31_', function (req, res) {
   }
 });
 
+router.post('/app/econsult/child/v1/32_', function (req, res) {
+  let answer = req.session.data.econsultSick;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/32_a')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/33_')
+  }
+});
+
+router.post('/app/econsult/child/v1/32_a', function (req, res) {
+  let answer = req.session.data.econsultSickDays;
+
+  if (answer === 'More than 5 days') {
+
+    res.redirect('/app/econsult/child/v1/end/rash')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/32_b')
+  }
+});
+
+router.post('/app/econsult/child/v1/32_b', function (req, res) {
+  let answer = req.session.data.econsultSickTimesADay;
+
+  if (answer === 'More than 5 times a day') {
+
+    res.redirect('/app/econsult/child/v1/end/rash')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/32_c')
+  }
+});
+
+router.post('/app/econsult/child/v1/32_c', function (req, res) {
+  let answer = req.session.data.econsultSickColour;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/end/rash')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/33_')
+  }
+});
+
 module.exports = router;

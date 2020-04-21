@@ -42,10 +42,10 @@
       <form action="" method="post">
         {{ radios({
           "idPrefix": "econsult",
-          "name": "econsultSick",
+          "name": "econsultSickColour",
           "fieldset": {
             "legend": {
-              "text": "Has your child been sick (vomited) during this period of illness?",
+              "text": "Has your child vomited blood or does it look like a dark coffee ground colour?",
               "isPageHeading": false,
               "classes": ""
             }
@@ -58,6 +58,10 @@
             {
               "value": "No",
               "text": "No"
+            },
+            {
+              "value": "Not sure",
+              "text": "Not sure"
             }
           ]
         }) }}
