@@ -1476,6 +1476,18 @@ router.post('/app/econsult/child/v1/15_', function (req, res) {
   }
 });
 
+router.post('/app/econsult/child/v1/16_', function (req, res) {
+  let answer = req.session.data.econsultHadItBefore;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/16_a')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/17_')
+  }
+});
+
 router.post('/app/econsult/child/v1/24_', function (req, res) {
   let answer = req.session.data.econsultObjectInEye;
 
