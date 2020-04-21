@@ -1584,4 +1584,52 @@ router.post('/app/econsult/child/v1/32_c', function (req, res) {
   }
 });
 
+router.post('/app/econsult/child/v1/33_', function (req, res) {
+  let answer = req.session.data.econsultDiarrhoea;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/33_a')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/34_')
+  }
+});
+
+router.post('/app/econsult/child/v1/33_a', function (req, res) {
+  let answer = req.session.data.econsultDiarrhoeaDays;
+
+  if (answer === 'More than 5 days') {
+
+    res.redirect('/app/econsult/child/v1/end/rash')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/33_b')
+  }
+});
+
+router.post('/app/econsult/child/v1/33_b', function (req, res) {
+  let answer = req.session.data.econsultDiarrhoeaTimesADay;
+
+  if (answer === 'More than 5 times a day') {
+
+    res.redirect('/app/econsult/child/v1/end/rash')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/33_c')
+  }
+});
+
+router.post('/app/econsult/child/v1/33_c', function (req, res) {
+  let answer = req.session.data.econsultDiarrhoeaColour;
+
+  if (answer === 'No') {
+
+    res.redirect('/app/econsult/child/v1/34_')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/end/rash')
+  }
+});
+
 module.exports = router;
