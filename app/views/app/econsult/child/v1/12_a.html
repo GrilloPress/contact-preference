@@ -39,27 +39,19 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <form action="" method="post">
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultTrying",
-          "fieldset": {
-            "legend": {
-              "text": "Is your child trying anything now?",
-              "isPageHeading": false,
-              "classes": ""
-            }
+      <form action="/{{ PROTOTYPEURL }}/child/v1/13_" method="post">
+        {{ textarea({
+          "name": "econsultWhatTreatments",
+          "id": "econsult",
+          "classes": "nhsuk-u-margin-bottom-0",
+          "label": {
+            "text": "Please tell us what those treatments are?",
+            "isPageHeading": false,
+            "classes": "nhsuk-u-margin-bottom-4"
           },
-          "items": [
-            {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No",
-              "text": "No"
-            }
-          ]
+          "hint": {
+            "html": "Treatment names, dosages, when you started the treatment:"
+          }
         }) }}
 
         <input type="submit" class="nhsuk-button" value="Continue">
