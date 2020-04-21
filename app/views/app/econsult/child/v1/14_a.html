@@ -39,27 +39,16 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <form action="" method="post">
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultParticularDr",
-          "fieldset": {
-            "legend": {
-              "text": "Would you like help from a particular GP? If the doctor that you requested is not available, another doctor at the practice will contact you",
-              "isPageHeading": false,
-              "classes": ""
-            }
+      <form action="/{{ PROTOTYPEURL }}/child/v1/15_" method="get">
+        {{ input({
+          "label": {
+            "text": "Please tell us the name of the GP you would like help from",
+            "isPageHeading": false,
+            "classes": ""
           },
-          "items": [
-            {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No",
-              "text": "No"
-            }
-          ]
+          "id": "econsult",
+          "name": "econsultDoctor",
+          "classes": ""
         }) }}
 
         <input type="submit" class="nhsuk-button" value="Continue">
