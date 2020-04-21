@@ -31,7 +31,32 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      object in eye end page
+      <h1>{{ contentTitle }}</h1>
+
+      {{ careCard({
+        "type": "immediate",
+        "headingLevel": 2,
+        "heading": "You need medical help for the child now. Call 999 or go to your local A&E.",
+        "HTML": "
+        <p>If you decide to seek medical advice, <strong>your GP will not be notified and your practice will not contact you about this consultation.</strong>.</p>
+        "
+      }) }}
+
+      <form action="/{{ PROTOTYPEURL }}/child/v1/end/end-of-consultation-emergency" method="post">
+        {{ checkboxes({
+          "name": "econsultGetEmergHelpObject",
+          "items": [
+            {
+              "value": "true",
+              "text": "End my consultation, I will seek medical advice myself instead"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
 
 
     </div>

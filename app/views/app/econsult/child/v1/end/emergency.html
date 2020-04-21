@@ -31,7 +31,17 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      emergency end page
+      <h1>{{ contentTitle }}</h1>
+
+      {{ careCard({
+        "type": "immediate",
+        "headingLevel": 2,
+        "heading": "You need medical help for the child now. Call 999 or go to your local A&E.",
+        "HTML": "
+        <p>If the child is experiencing serious symptoms, contacting your doctor online isn't appropriate.</p>
+        <p>You should seek urgent medical help right now.</p>
+        "
+      }) }}
 
 
     </div>
