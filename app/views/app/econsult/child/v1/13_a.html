@@ -39,18 +39,15 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/child/v1/13_" method="get">
+      <form action="/{{ PROTOTYPEURL }}/child/v1/14_" method="get">
         {{ textarea({
           "name": "econsultWhatTreatments",
           "id": "econsult",
           "classes": "nhsuk-u-margin-bottom-0",
           "label": {
-            "text": "Please tell us what those treatments are?",
+            "text": "Please provide more details:",
             "isPageHeading": false,
             "classes": "nhsuk-u-margin-bottom-4"
-          },
-          "hint": {
-            "html": "Treatment names, dosages, when you started the treatment:"
           }
         }) }}
 
