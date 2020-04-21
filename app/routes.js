@@ -1416,6 +1416,18 @@ router.post('/app/econsult/child/v1/6_legal-guardian', function (req, res) {
   }
 });
 
+router.post('/app/econsult/child/v1/11_', function (req, res) {
+  let answer = req.session.data.econsultTriedAnything;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/11_a')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/12_')
+  }
+});
+
 router.post('/app/econsult/child/v1/15_', function (req, res) {
   let answer = req.session.data.econsultFever;
 

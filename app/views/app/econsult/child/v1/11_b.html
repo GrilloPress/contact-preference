@@ -39,13 +39,13 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <form action="" method="post">
+      <form action="/{{ PROTOTYPEURL }}/child/v1/12_" method="post">
         {{ radios({
           "idPrefix": "econsult",
-          "name": "econsultTriedAnything",
+          "name": "econsultDidTheyWork",
           "fieldset": {
             "legend": {
-              "text": "Has your child tried anything for this in the past?",
+              "text": "Did they work?",
               "isPageHeading": false,
               "classes": ""
             }
@@ -58,6 +58,10 @@
             {
               "value": "No",
               "text": "No"
+            },
+            {
+              "value": "Somewhat",
+              "text": "Somewhat"
             }
           ]
         }) }}
