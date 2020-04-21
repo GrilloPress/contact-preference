@@ -5,7 +5,18 @@
 {% block pageScripts %}
 {% endblock %}
 
+{% set routeHome %}
+  {{ data["routeHome"] if data ["routeHome"] else "/app/v5/" }}
+{% endset %}
 
+
+{% set routePrescriptions %}
+{% if data["proxy"] == "true" %}
+  {{ "/app/prescriptions/v7/proxy/your-prescriptions" }}
+{% else %}
+  {{ "/app/prescriptions/v7/your-prescriptions-11-no-pkb" }}
+{% endif %}
+{% endset %}
 
 {% set proxyName %}
   Miss Violet Doyle
@@ -68,15 +79,16 @@
         <a href="">Book an appointment</a>
       </li>
         <li>
-          <a href='{{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v7/your-prescriptions-11-no-pkb" }}'>Order a prescription</a>
+          <a href='{{ routePrescriptions }}'>Order a prescription</a>
         </li>
       <li>
         <a href="">View their GP health record</a>
       </li>
       <li>
-        <a href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5/" }}'>Switch to your profile</a>
+        <a href='{{ routeHome }}?proxy='>Switch to your profile</a>
       </li>
     </ul>
+
 
 
 
