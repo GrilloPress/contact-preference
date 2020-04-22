@@ -17,6 +17,18 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
+{% if data['pkbim'] == 'true' %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/engage/messaging/hub-8">Messages</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/engage/messaging/hub-8">Back</a></p>
+  </div>
+</nav>
+{% else %}
+
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-mobile--hide" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
@@ -24,6 +36,7 @@
     </ol>
   </div>
 </nav>
+{% endif %}
 {% endblock %}
 
 {% block content %}

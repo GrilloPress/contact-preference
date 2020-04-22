@@ -1,0 +1,43 @@
+{% set PROTOTYPEURL = "app/linked-profiles" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "NHS App services" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+
+
+      <ul>
+        <li>
+          <a href="/app/nhs-app-services/services-list">See all NHS App services list</a>
+        </li>
+      </ul>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
