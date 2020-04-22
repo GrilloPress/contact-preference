@@ -1693,8 +1693,77 @@ router.post('/app/econsult/child/v1/39_', function (req, res) {
   }
 });
 
+router.post('/app/econsult/child/v1/41_', function (req, res) {
+  let answer = req.session.data.econsultNursery;
 
+  if (answer === 'Yes') {
 
+    res.redirect('/app/econsult/child/v1/41_a')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/42_')
+  }
+});
+
+router.post('/app/econsult/child/v1/42_', function (req, res) {
+  let answer = req.session.data.econsultSupportServices;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/42_a')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/43_')
+  }
+});
+
+router.post('/app/econsult/child/v1/44_', function (req, res) {
+  let answer = req.session.data.econsultAllergic;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/44_a')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/45_')
+  }
+});
+
+router.post('/app/econsult/child/v1/45_', function (req, res) {
+  let answer = req.session.data.econsultOtherMedical;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/45_a')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/46_')
+  }
+});
+
+router.post('/app/econsult/child/v1/46_', function (req, res) {
+  let answer = req.session.data.econsultOtherDrugs;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/46_a')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/47_')
+  }
+});
+
+router.post('/app/econsult/child/v1/47_', function (req, res) {
+  let answer = req.session.data.econsultFamilyHistory;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/47_a')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/48_')
+  }
+});
 
 
 module.exports = router;

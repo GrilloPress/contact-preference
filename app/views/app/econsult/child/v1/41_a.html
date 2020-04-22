@@ -39,43 +39,23 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <form action="" method="post">
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultOtherDrugs",
-          "fieldset": {
-            "legend": {
-              "text": "Is your child taking any other drugs?",
-              "isPageHeading": false,
-              "classes": ""
-            }
+      <form action="/{{ PROTOTYPEURL }}/child/v1/42_" method="get">
+
+        {{ input({
+          "label": {
+            "text": "Please give the name of the nursery, playgroup, pre-school, school or college:",
+            "isPageHeading": false,
+            "classes": ""
           },
-          "hint": {
-            "html": "For example: over-the-counter medication from the pharmacist"
-          },
-          "items": [
-            {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No",
-              "text": "No"
-            }
-          ]
+          "id": "econsult",
+          "name": "econsultNursery",
+          "classes": ""
         }) }}
 
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
 
       </form>
-
-
-
-
-
-
-
 
 
     </div>

@@ -39,16 +39,19 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/child/v1/48_" method="get">
+      <form action="" method="post">
         {{ radios({
           "idPrefix": "econsult",
-          "name": "econsultOtherDrugs",
+          "name": "econsultFamilyHistory",
           "fieldset": {
             "legend": {
               "text": "Do you have any family history of illness?",
               "isPageHeading": false,
               "classes": ""
             }
+          },
+          "hint": {
+            "html": "For example: heart disease, cancer"
           },
           "items": [
             {

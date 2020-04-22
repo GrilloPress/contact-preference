@@ -39,7 +39,7 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/child/v1/46_" method="get">
+      <form action="" method="post">
         {{ radios({
           "idPrefix": "econsult",
           "name": "econsultOtherMedical",
@@ -49,6 +49,9 @@
               "isPageHeading": false,
               "classes": ""
             }
+          },
+          "hint": {
+            "html": "For example: asthma, epilepsy, heart problems"
           },
           "items": [
             {
