@@ -106,10 +106,13 @@
         {% endif %}
 
 
+        {% if data['linkedProfiles'] == "False" %}
+        {% else %}
+          <li>
+            <a href="/app/linked-profiles/profiles-list">Switch to a linked profile</a>
+          </li>
+        {% endif %}
 
-        <li>
-          <a href="/app/linked-profiles/profiles-list">Switch to a linked profile</a>
-        </li>
         <li>
           <a href="/app/nhs-app-services/services-list">See all NHS App services</a>
         </li>
