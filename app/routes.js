@@ -1645,4 +1645,56 @@ router.post('/app/econsult/child/v1/35_', function (req, res) {
   }
 });
 
+router.post('/app/econsult/child/v1/36_', function (req, res) {
+  let answer = req.session.data.econsultAnythingElse;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/36_a')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/37_')
+  }
+});
+
+router.post('/app/econsult/child/v1/37_', function (req, res) {
+  let answer = req.session.data.econsultSleepConcerns;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/37_a')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/38_')
+  }
+});
+
+router.post('/app/econsult/child/v1/38_', function (req, res) {
+  let answer = req.session.data.econsultGrowthConcerns;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/38_a')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/39_')
+  }
+});
+
+router.post('/app/econsult/child/v1/39_', function (req, res) {
+  let answer = req.session.data.econsultDevelopmentConcerns;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/39_a')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/40_')
+  }
+});
+
+
+
+
+
 module.exports = router;

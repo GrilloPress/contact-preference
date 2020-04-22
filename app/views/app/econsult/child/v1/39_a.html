@@ -39,40 +39,22 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <form action="" method="post">
-        {{ radios({
-          "idPrefix": "econsult",
+      <form action="/{{ PROTOTYPEURL }}/child/v1/40_" method="get">
+        {{ textarea({
           "name": "econsultDevelopmentConcerns",
-          "fieldset": {
-            "legend": {
-              "text": "Do you have any concerns about your child's development?",
-              "isPageHeading": false,
-              "classes": ""
-            }
-          },
-          "items": [
-            {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No",
-              "text": "No"
-            }
-          ]
+          "id": "econsult",
+          "classes": "nhsuk-u-margin-bottom-0",
+          "label": {
+            "text": "Please provide more details:",
+            "isPageHeading": false,
+            "classes": "nhsuk-u-margin-bottom-4"
+          }
         }) }}
 
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
 
       </form>
-
-
-
-
-
-
-
 
 
     </div>
