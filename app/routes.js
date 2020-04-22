@@ -1632,4 +1632,17 @@ router.post('/app/econsult/child/v1/33_c', function (req, res) {
   }
 });
 
+
+router.post('/app/econsult/child/v1/35_', function (req, res) {
+  let answer = req.session.data.econsultSeenBefore;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/child/v1/35_a')
+
+  } else {
+    res.redirect('/app/econsult/child/v1/36_')
+  }
+});
+
 module.exports = router;
