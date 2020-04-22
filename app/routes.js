@@ -1767,4 +1767,10 @@ router.post('/app/econsult/child/v1/47_', function (req, res) {
 
  });
 
+ router.get('/task-two', function (req, res) {
+
+    res.redirect('/app/iframe-2')
+
+ });
+
 module.exports = router;
