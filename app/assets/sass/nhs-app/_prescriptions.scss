@@ -49,3 +49,14 @@
   }
 
 }
+
+.nhs-app-prescription__status {
+
+  @extend .nhsuk-u-font-weight-bold;
+  @extend .nhsuk-body-s;
+
+  @include mq($until: tablet) {
+    max-width: 90%;
+  }
+
+}
