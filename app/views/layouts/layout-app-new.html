@@ -21,8 +21,13 @@
 {% endblock %}
 
 {% set routeHome %}
-  {{ data["routeHome"] if data ["routeHome"] else "/app/v5/" }}
+{% if data["proxy"] == "true" %}
+  {{ "/app/linked-profiles/proxy-home-2" }}
+{% else %}
+  {{ "/app/v5/" }}
+{% endif %}
 {% endset %}
+
 
 {% set routeAppointments %}
   {{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v6/pre-hub" }}

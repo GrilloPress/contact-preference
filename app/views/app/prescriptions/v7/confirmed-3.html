@@ -198,8 +198,11 @@
       {% endif %}
 
 
+      {% if data['pkb'] == 'true' %}
+      <p><a href="/app/prescriptions/v7/your-prescriptions-11">Go to your prescriptions</a></p>
+      {% else %}
       <p><a href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Go to your prescriptions</a></p>
-
+      {% endif %}
 
 
 
