@@ -2053,6 +2053,7 @@ main.nhs-app-thin {
     margin: 0 -1em 1em;
   }
 
+
   margin-bottom: 1em;
 
   li {
@@ -2065,7 +2066,18 @@ main.nhs-app-thin {
   li a {
 
     font-weight: 600;
-    padding: 0.8em 2em 0.8em 1em;
+    padding: 10.5px 2em 4px 1em;
+    min-height: 46px;
+  }
+
+  li a h2 {
+
+    padding-bottom: 6px;
+  }
+
+  li p {
+
+    padding-top: 0;
   }
 }
 
