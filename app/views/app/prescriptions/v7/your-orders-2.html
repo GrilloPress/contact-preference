@@ -140,9 +140,9 @@
 
 
 
-                  <li>
-                		<a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v7/order-details-2?pName=metformin">
-                      <h2 class="nhsuk-heading-xs">
+          <li class="no-chevron no-chevron--subtle">
+            <div class="list-menu_container">
+              <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
                         {{ "today" | returnDate }}
                         <span class="nhsuk-u-visually-hidden">The status of this prescription is</span>
                         <span class="nhs-app-message__date nhsuk-tag nhsuk-tag--orange">Requested</span>
@@ -153,7 +153,10 @@
                       <p class="nhs-app-prescription__instructions">
                         One to be taken 4 times a day with food - 112 tablet
                       </p>
-                    </a>
+                      <p class="nhs-app-prescription__status">
+                        Requested, waiting for GP approval
+                      </p>
+                    </div>
                 	</li>
 
 
@@ -164,9 +167,9 @@
                   {% if 'alogliptin' in data['choosePrescription'] %}
 
 
-                  <li>
-                		<a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v7/order-details-2?pName=alogliptin">
-                      <h2 class="nhsuk-heading-xs">
+                  <li class="no-chevron no-chevron--subtle">
+                    <div class="list-menu_container">
+                      <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
                         {{ "today" | returnDate }}
                         <span class="nhsuk-u-visually-hidden">The status of this prescription is</span>
                         <span class="nhs-app-message__date nhsuk-tag nhsuk-tag--orange">Requested</span>
@@ -177,7 +180,10 @@
                       <p class="nhs-app-prescription__instructions">
                         One to be taken each day - 28 tablet
                       </p>
-                    </a>
+                      <p class="nhs-app-prescription__status">
+                        Requested, waiting for GP approval
+                      </p>
+                    </div>
                 	</li>
 
 
@@ -189,9 +195,9 @@
                   {% if 'omeprazole' in data['choosePrescription'] %}
 
 
-                  <li>
-                		<a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v7/order-details-2?pName=omeprazole">
-                      <h2 class="nhsuk-heading-xs">
+                  <li class="no-chevron no-chevron--subtle">
+                    <div class="list-menu_container">
+                      <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
                         {{ "today" | returnDate }}
                         <span class="nhsuk-u-visually-hidden">The status of this prescription is</span>
                         <span class="nhs-app-message__date nhsuk-tag nhsuk-tag--orange">Requested</span>
@@ -202,7 +208,10 @@
                       <p class="nhs-app-prescription__instructions">
                         One to be taken each day - 28 tablet
                       </p>
-                    </a>
+                      <p class="nhs-app-prescription__status">
+                        Requested, waiting for GP approval
+                      </p>
+                    </div>
                 	</li>
 
 
@@ -248,7 +257,7 @@
                       <p class="nhs-app-prescription__instructions">
                         One to be taken 4 times a day with food - 112 tablet
                       </p>
-                      <p class="nhs-app-prescription__status">Prescription approved by your GP</p>
+                      <p class="nhs-app-prescription__status">Approved by your GP</p>
                     </div>
                 	</li>
 
@@ -266,7 +275,7 @@
                                         <p class="nhs-app-prescription__instructions">
                                           One to be taken each day - 28 tablet
                                         </p>
-                                        <p class="nhs-app-prescription__status">Prescription approved by your GP</p>
+                                        <p class="nhs-app-prescription__status">Approved by your GP</p>
                                       </div>
                                   	</li>
 
