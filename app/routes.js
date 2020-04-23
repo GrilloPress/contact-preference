@@ -1763,13 +1763,15 @@ router.post('/app/econsult/child/v1/47_', function (req, res) {
 
  router.get('/', function (req, res) {
 
-    res.redirect('/app/iframe')
+   req.session.data.ChildHub = "True"
+   res.redirect('/app/iframe')
 
  });
 
  router.get('/task-two', function (req, res) {
 
-    res.redirect('/app/iframe-2')
+   req.session.data.ChildHub = "False"
+   res.redirect('/app/iframe-2')
 
  });
 
