@@ -113,7 +113,7 @@
                Your prescription request has been sent to your GP surgery.
             </p>
             <p>
-              Once GPs approve it, they'll send your prescription to your nominated pharmacy, {{ data["pickPharmacy"] or "Cameolord Pharmacy" }}.
+              Once a GP approves it, they'll send your prescription to your nominated pharmacy, {{ data["pickPharmacy"] or "Cameolord Pharmacy" }}.
             </p>
 
                 {% if data['pharmacyType'] === "online" %}
@@ -135,7 +135,7 @@
                Your prescription requests have been sent to your GP surgery.
             </p>
             <p>
-              Once GPs approve them, they'll send your prescriptions to your nominated pharmacy, {{ data["pickPharmacy"] or "Cameolord Pharmacy" }}.
+              Once a GP approves them, they'll send your prescriptions to your nominated pharmacy, {{ data["pickPharmacy"] or "Cameolord Pharmacy" }}.
             </p>
 
                   {% if data['pharmacyType'] === "online" %}
@@ -182,7 +182,7 @@
          Your prescription request has been sent to your GP surgery.
       </p>
       <p>
-        Once they approve your prescription, you'll need to collect it from them.
+        Once they approve your prescription, you'll need to collect it from your GP surgery.
       </p>
 
       {% elif cheese == 'hardCheese' %}
@@ -190,7 +190,7 @@
          Your prescription requests have been sent to your GP surgery.
       </p>
       <p>
-          Once they approve your prescriptions, you'll need to collect them from them.
+          Once they approve your prescriptions, you'll need to collect them from your GP surgery.
       </p>
 
       {% endif %}
@@ -198,11 +198,8 @@
       {% endif %}
 
 
-      {% if data['pkb'] == 'true' %}
-      <p><a href="/app/prescriptions/v7/your-prescriptions-11">Go to your prescriptions</a></p>
-      {% else %}
-      <p><a href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Go to your prescriptions</a></p>
-      {% endif %}
+      <p><a href="/app/prescriptions/v7/your-orders">Go to your prescription orders</a></p>
+
 
 
 
