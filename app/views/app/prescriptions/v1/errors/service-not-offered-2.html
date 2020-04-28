@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "You do not have any medicine available to order right now" %}
+{% set contentTitle = "You cannot order repeat prescriptions online" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -49,11 +49,53 @@
       </h1>
 
 
-      <p>If you have medicines available on repeat prescription that are not shown here, contact your GP surgery for more information.</p>
+      <p>Contact your GP surgery for more information. For urgent medical help, call 111.</p>
 
-      <p class="nhs-app-desktop--show">
-        <a href="javascript: window.history.go(-1)">Back</a>
-      </p>
+      <h2 class="nhsuk-heading-l">
+        Other things you can do
+      </h2>
+
+
+
+
+      <ul class="list-menu">
+
+        <li>
+          <a href="https://111.nhs.uk/emergency-prescription">
+            <h2 class="nhsuk-heading-s">Find out how to get an emergency prescription</h2>
+            <p>Find out what to do if you've run out of your prescribed medicines</p>
+          </a>
+        </li>
+
+        {% if data["nominatedConfirmed"] %}
+
+        <li>
+          <a href="/app/nominated-pharmacy/v4/your-nominated-pharmacy">
+            <h2 class="nhsuk-heading-s">Your nominated pharmacy</h2>
+            <p>{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
+          </a>
+        </li>
+
+        {% else %}
+
+      <li>
+        <a href="/app/nominated-pharmacy/v4/card-nom-pharmacy-2">
+          <h2 class="nhsuk-heading-s">Nominate a pharmacy</h2>
+          <p>Choose a pharmacy for your prescriptions to be sent to</p>
+        </a>
+      </li>
+
+      {% endif %}
+
+
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v7/pkb-holding-page">
+          <h2 class="nhsuk-heading-s">Hospital and other prescriptions</h2>
+            <p>See your current and past prescriptions</p>
+        </a>
+      </li>
+
+    </ul>
 
     </div>
   </div>

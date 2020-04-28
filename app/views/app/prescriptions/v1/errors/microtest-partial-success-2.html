@@ -1,0 +1,57 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Part of your prescription has not been ordered" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+
+
+
+              <p>You have successfully ordered:</p>
+
+              <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+              <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+
+              <p>Medicine not ordered:</p>
+
+              <p class="nhsuk-u-margin-bottom-0">Alogliptin 25mg tablets</p>
+              <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+
+              <p>If you need to order this medicine now, contact your GP surgery directly. For urgent medical advice, visit 111.nhs.uk or call 111.</p>
+
+
+              <h2 class="nhsuk-heading-l">What happens next</h2>
+
+
+              <p>
+                 Your prescription request for Omeprazole 40mg gastro-resistant capsules has been sent to your GP surgery.
+              </p>
+              <p>
+                Once they approve your prescription, you'll need to collect it from your GP surgery.
+              </p>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
