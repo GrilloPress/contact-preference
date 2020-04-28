@@ -239,6 +239,41 @@
             {% endif %}
 
 
+            {% if not data['prescriptionConfirmed'] %}
+
+            {{ summaryList({
+              classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
+              rows: [
+                {
+                  key: {
+                    text: "Medicine"
+                  },
+                  value: {
+                    text: "Metformin 500mg tablets"
+                  }
+                },
+                {
+                  key: {
+                    text: "Instructions"
+                  },
+                  value: {
+                    text: "One to be taken 4 times a day with food - 112 tablet",
+                    classes: "nhsuk-u-margin-bottom-0"
+                  }
+                },
+                {
+                  key: {
+                    text: "Status"
+                  },
+                  value: {
+                    text: "Requested, waiting for GP approval"
+                  }
+                }
+              ]
+            }) }}
+
+            {% endif %}
+
 
 
 
