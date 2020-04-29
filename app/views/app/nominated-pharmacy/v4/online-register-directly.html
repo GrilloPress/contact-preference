@@ -54,11 +54,12 @@
 
       <p><a href="https://www.nhs.uk/service-search/other-services/pharmacies/internetpharmacies">View a list of online-only pharmacies</a></p>
 
-      <p><a href="">Go back to your prescriptions</a></p>
 
-      <p class="nhs-app-desktop--show">
-        <a href="javascript: window.history.go(-1)">Back</a>
-      </p>
+      {% if data['pkb'] == 'true' %}
+      <p><a href="/app/prescriptions/v7/your-prescriptions-11">Go to your prescriptions</a></p>
+      {% else %}
+      <p><a href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Go to your prescriptions</a></p>
+      {% endif %}
 
     </div>
   </div>

@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "You cannot order repeat prescriptions online" %}
+{% set contentTitle = "You cannot order repeat prescriptions from your GP online" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -89,13 +89,6 @@
 
       {% endif %}
 
-
-      <li>
-        <a href="/{{ PROTOTYPEURL }}/v7/pkb-holding-page">
-          <h2 class="nhsuk-heading-s">Hospital and other prescriptions</h2>
-            <p>See your current and past prescriptions</p>
-        </a>
-      </li>
 
     </ul>
 
