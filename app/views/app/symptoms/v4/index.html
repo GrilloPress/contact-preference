@@ -1,4 +1,4 @@
-{% set PROTOTYPEURL = "app/symptoms/v3" %}
+{% set PROTOTYPEURL = "app/symptoms/v4" %}
 {% set serviceName = "NHS App" %}
 {% set symptomsActive = "active" %}
 {% set contentTitle = "Symptoms" %}
@@ -48,10 +48,10 @@
           </a>
         </li>
 
-        {% if data['econsult'] == "False" %}
+        {% if data['doctorLink'] == "False" %}
         {% else %}
         <li>
-          <a href="/app/econsult/hub/v1/index" id="btn_111">
+          <a href="/app/doctorlink/terms/v1/index" id="btn_111">
             <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Ask a health professional for advice for yourself or your child</h2>
             <p>Answer questions online and get a response from a health professional</p>
           </a>

@@ -1,6 +1,6 @@
-{% set PROTOTYPEURL = "app/econsult" %}
+{% set PROTOTYPEURL = "app/doctorlink" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "eConsult journeys" %}
+{% set contentTitle = "Doctorlink journeys" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -27,21 +27,23 @@
         {{ contentTitle }}
       </h1>
 
-      <form action="/app/v5/start?econsult=True&econsultHub=index" method="get">
-        <input type="submit" class="nhsuk-button" value="Start eConsult prototype">
+      <form action="#?econsult=True&econsultHub=index" method="get">
+        <input type="submit" class="nhsuk-button" value="Start Doctorlink prototype">
         </input>
       </form>
+
+      <h2>Demo</h2>
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/iframe/index?messagingIcon=False">iFrame version</a>
+        </li>
+      </ul>
 
       <h2>Online consultation hub</h2>
       <ul>
         <li>
           <a href="/{{ PROTOTYPEURL }}/hub/v1/index">Hub</a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/hub/v1/index-no-child">Hub with no child journey</a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/hub/v1/index-no-services">Hub with no services</a>
         </li>
       </ul>
 
