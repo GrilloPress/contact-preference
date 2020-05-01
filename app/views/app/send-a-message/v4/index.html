@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/send-a-message/v4" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Messages" %}
+{% set contentTitle = "GP messages" %}
 {% set messagingActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -24,7 +24,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5/">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/engage/messaging/hub-8">Messages</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/engage/messaging/hub-8">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
 {% else %}
