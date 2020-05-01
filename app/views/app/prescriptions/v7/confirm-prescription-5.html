@@ -213,12 +213,30 @@ $('div.nhsuk-summary-list__row').each(function() {
               "classes": "nhsuk-heading-s"
             },
             value: {
+              html: "You do not have a nominated pharmacy.</p><p>Collect your paper prescription from your GP surgery when it's ready.</p>"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/app/nominated-pharmacy/v4/card-nom-pharmacy-2?inJourney=true",
+                  text: "Nominate a pharmacy",
+                  visuallyHiddenText: "Nominate a pharmacy"
+                }
+              ]
+            }
+          } if not data['pickPharmacy'],
+          {
+            key: {
+              text: "Your nominated pharmacy",
+              "classes": "nhsuk-heading-s"
+            },
+            value: {
               html: nomPharmDetails
             },
             actions: {
               items: [
                 {
-                  href: "/app/nominated-pharmacy/v4/change-2?inJourney=true",
+                  href: "/app/nominated-pharmacy/v4/change-2?inJourney=true&change=true",
                   text: "Change",
                   visuallyHiddenText: "your nominated pharmacy"
                 }
@@ -250,6 +268,10 @@ $('div.nhsuk-summary-list__row').each(function() {
        </form>
        {% endif %}
 
+
+             <p class="nhs-app-desktop--show">
+               <a href="javascript: window.history.go(-1)">Back</a>
+             </p>
 
 
 

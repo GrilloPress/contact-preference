@@ -1,0 +1,112 @@
+{% set PROTOTYPEURL = "app/homepage" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "New features prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+
+
+
+      <h2 class="nhsuk-heading-m">Live</h2>
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/biometric-message">Biometric message</a>
+        </li>
+      </ul>
+
+
+      <h2 class="nhsuk-heading-m">Exploration</h2>
+
+
+            <h3 class="nhsuk-heading-s">Telling users about new features - design</h3>
+
+            <p>Explore how we might tell users about new NHS App features</p>
+
+            <ul>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/new-feature-panel">White panel on home page</a>
+              </li>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/new-feature-message">New feature interruption page with native header and footer supressed</a>
+              </li>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/new-feature-sub-message">New feature interruption page if a user clicks Not now</a>
+              </li>
+            </ul>
+
+
+      <h3 class="nhsuk-heading-s">Biometrics</h3>
+
+      <p>Explored asking the user after logging in if they want to use biometric login. Example refers to Touch ID rather than Face ID.</p>
+
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/biometric-message-2">Biometric interruption page (long question format) (v2)</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/biometric-message-3">Biometric interruption page (v3)</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/biometric-message-4">Biometric interruption page with native header and footer supressed (v4)</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/biometric-sub-message">Biometric page if a user clicks Not now</a>
+        </li>
+      </ul>
+
+      <h3 class="nhsuk-heading-s">Qualtrics message</h3>
+
+
+            <ul>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/qualtrics-message">Qualtrics message</a>
+              </li>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/qualtrics-email">Qualtrics email template</a>
+              </li>
+            </ul>
+
+        <h3 class="nhsuk-heading-s">Notifications</h3>
+
+        <ul>
+        <li>
+          <a href="/app/new-features/notifications-message">Notifications interruption page</a>
+        </li>
+        <li>
+          <a href="/app/new-features/notifications-sub-message">Notifications page if a user clicks Not now</a>
+        </li>
+      </ul>
+
+
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

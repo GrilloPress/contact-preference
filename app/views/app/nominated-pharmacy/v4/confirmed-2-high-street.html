@@ -1,7 +1,15 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "NHS App" %}
 {% set prescriptionsActive = "active" %}
+{% if data['inJourney'] == "true" %}
+{% if data['change'] == "true" %}
+{% set contentTitle = "You have changed your nominated pharmacy" %}
+{% else %}
 {% set contentTitle = "You have nominated a pharmacy" %}
+{% endif %}
+{% else %}
+{% set contentTitle = "You have nominated a pharmacy" %}
+{% endif %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -44,7 +52,7 @@
 
             {% if data['inJourney'] == "true" %}
 
-            <form action="/app/prescriptions/v5/confirm-prescription-5" method="get">
+            <form action="/app/prescriptions/v7/confirm-prescription-5" method="get">
               <input type="submit" class="nhsuk-button" value="Continue to your order">
             </form>
 
@@ -54,12 +62,12 @@
               <p>Your prescriptions will be sent to {{ data["pickPharmacy"] or "Cameolord Pharmacy" }} from now on.</p>
 
               <p>Collect your prescriptions from {{ data["pickPharmacy"] or "Cameolord Pharmacy" }} when they are ready to collect.</p>
-            {% endif %}
 
             {% if data['pkb'] == 'true' %}
             <p><a href="/app/prescriptions/v7/your-prescriptions-11">Go to your prescriptions</a></p>
             {% else %}
             <p><a href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Go to your prescriptions</a></p>
+            {% endif %}
             {% endif %}
 
 

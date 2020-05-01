@@ -1,6 +1,6 @@
-{% set PROTOTYPEURL = "app/nominated-pharmacy" %}
+{% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Register with the online-only pharmacy directly" %}
+{% set contentTitle = "You have not nominated a phamacy" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -24,8 +24,8 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11">Prescriptions</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-gp-prescriptions">GP repeat prescriptions</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v4/type-of-pharmacy-no-online">Back</a></p>
-   </div>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/select-medicine-to-renew-2">Back</a></p>
+  </div>
 </nav>
 {% else %}
 
@@ -35,31 +35,44 @@
   <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5/">Home</a></li>
   <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Prescriptions</a></li>
 </ol>
-<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/v4/type-of-pharmacy-no-online">Back</a></p>
+<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/select-medicine-to-renew-2">Back</a></p>
 </div>
 </nav>
 {% endif %}
+
 {% endblock %}
-
-
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
-
-      <p>To nominate an online-only pharmacy, you must register with the pharmacy through their website or contact them.</p>
-
-
-      <p><a href="https://www.nhs.uk/service-search/other-services/pharmacies/internetpharmacies">View a list of online-only pharmacies</a></p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
 
 
-      {% if data['pkb'] == 'true' %}
-      <p><a href="/app/prescriptions/v7/your-prescriptions-11">Go to your prescriptions</a></p>
-      {% else %}
-      <p><a href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Go to your prescriptions</a></p>
-      {% endif %}
+      {{ warningCallout({
+        "heading": "Important",
+        "HTML": "<p>This means you'll collect a paper prescription from your GP.</p>"
+      }) }}
+
+
+      <p>If you nominate a pharmacy, your prescription will be sent there.
+
+      <p><a href="/app/nominated-pharmacy/v4/card-nom-pharmacy-2">Nominate a pharmacy</a></p>
+
+
+      <form action="/{{ PROTOTYPEURL }}/v7/select-medicine-to-renew-2" method="post">
+        <input type="submit" class="nhsuk-button" value="Continue without nominating">
+        </input>
+      </form>
+
+
+            <p class="nhs-app-desktop--show">
+              <a href="javascript: window.history.go(-1)">Back</a>
+            </p>
+
+
 
     </div>
   </div>

@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Check the pharmacy this will be sent to" %}
+{% set contentTitle = "Before you order, check the pharmacy your prescription will be sent to" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -53,7 +53,11 @@
 
 
 
+
       {% if data['pharmacyType'] === "online" %}
+
+      <p class="nhsuk-u-margin-bottom-2">Your nominated pharmacy is:</p>
+
 
       <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Echo" }}</p>
 
@@ -67,6 +71,8 @@
 
 
         {% elif data['pharmacyType'] === "community" %}
+
+        <p class="nhsuk-u-margin-bottom-2">Your nominated pharmacy is:</p>
 
 
         <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
@@ -86,6 +92,9 @@
 
 
       {% else %}
+
+      <p class="nhsuk-u-margin-bottom-2">Your nominated pharmacy is:</p>
+
 
 
       <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
@@ -218,7 +227,6 @@
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>
-
 
 
             <p class="nhs-app-desktop--show">
