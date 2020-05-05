@@ -33,12 +33,23 @@
           </a>
         </li>
 
+        {% if data['pkbMessaging'] === "True" %}
         <li>
           <a href="#">
             <h2 class="nhsuk-heading-s">Messages and online consultations</h2>
             <p>Message your healthcare team, or answer questions online and get a response from a health professional</p>
           </a>
         </li>
+        {% endif %}
+
+        {% if data['engageMessaging'] === "True" %}
+        <li>
+          <a href="#">
+            <h2 class="nhsuk-heading-s">Messages and online consultations</h2>
+            <p>Message your healthcare team, or answer questions online and get a response from a health professional</p>
+          </a>
+        </li>
+        {% endif %}
 
         <li>
           <a href="messages">
