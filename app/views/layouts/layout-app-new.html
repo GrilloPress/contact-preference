@@ -62,7 +62,7 @@
 
 
 {% set routeMessaging %}
-  {{ data["routeMessaging"] if data ["routeMessaging"] else "/app/send-a-message/v4/" }}
+  {{ data["routeMessaging"] if data ["routeMessaging"] else "app/messaging/v3/index?messagingIcon=False&messageRead1=unread" }}
 {% endset %}
 
 {% block skipLink %}
