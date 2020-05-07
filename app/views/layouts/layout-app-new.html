@@ -52,11 +52,13 @@
 
 
 {% set routePrescriptions %}
-{% if data["proxy"] == "true" %}
-  {{ "/app/prescriptions/v7/proxy/your-prescriptions" }}
-{% else %}
-  {{ "/app/prescriptions/v7/your-prescriptions-11-no-pkb" }}
-{% endif %}
+  {% if data["proxy"] == "true" %}
+    {{ "/app/prescriptions/v7/proxy/your-prescriptions" }}
+  {% elif data["p5"] == "true" %}
+    {{ "/app/prescriptions/v7/p5-prescriptions" }}
+  {% else %}
+    {{ "/app/prescriptions/v7/your-prescriptions-11-no-pkb" }}
+  {% endif %}
 {% endset %}
 
 
