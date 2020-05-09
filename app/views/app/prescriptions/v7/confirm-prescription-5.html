@@ -94,7 +94,7 @@ $('div.nhsuk-summary-list__row').each(function() {
   {% set nomPharmDetails %}
 
       {% if data["pickPharmacy"] %}
-	       {% if data['pharmacyType'] === "online" %}
+	       {% if data['pharmacyTypeOnline'] === "online" %}
 
                <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Echo" }}</p>
 
@@ -103,7 +103,7 @@ $('div.nhsuk-summary-list__row').each(function() {
                <p>Telephone: {{ data["phoneNumber"] or "03069 990735" }}</p>
 
 
-          {% elif data['pharmacyType'] === "community" %}
+          {% elif data['pharmacyTypeOnline'] === "community" %}
 
                 <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
 

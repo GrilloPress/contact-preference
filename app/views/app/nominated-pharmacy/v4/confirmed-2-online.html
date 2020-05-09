@@ -41,7 +41,7 @@
 
           {% if data['inJourney'] == "true" %}
 
-          <form action="/app/prescriptions/v5/confirm-prescription-5" method="get">
+          <form action="/app/prescriptions/v7/confirm-prescription-5" method="get">
             <input type="submit" class="nhsuk-button" value="Continue to your order">
           </form>
 
@@ -56,14 +56,14 @@
         <p>Your prescriptions will be sent to {{ data["pickPharmacy"] or "Echo" }}. Once they’ve checked and prepared your prescriptions, {{ data["pickPharmacy"] or "Echo" }} will send them to you in the post.</p>
 
 
-        {% endif %}
-
 
         {% if data['pkb'] == 'true' %}
         <p><a href="/app/prescriptions/v7/your-prescriptions-11">Go to your prescriptions</a></p>
         {% else %}
         <p><a href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Go to your prescriptions</a></p>
         {% endif %}
+        {% endif %}
+
 
     </div>
   </div>

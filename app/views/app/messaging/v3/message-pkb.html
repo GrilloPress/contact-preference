@@ -20,8 +20,8 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Messages</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v3/index">Messages</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
@@ -37,16 +37,21 @@
       </h1>
       <div class="nhs-app-chat">
         <ul class="nhs-app-chat__thread">
+          {% if data[read] !== "read"  %}
           <div class="nhs-app-chat__read-indicator" id="unread">
             <span class="nhs-app-chat__read-indicator-container">Unread message</span>
           </div>
+          {% endif %}
+
           <li class="nhs-app-chat__item">
             <div class="nhs-app-chat__sender">
               {{ sender }}
             </div>
             <div class="nhs-app-chat__container">
               <h2 class="nhs-app-chat__header">You can now use Patients Know Best in the NHS App</h2>
-              <p class="nhs-app-chat__body">Patients Know Best gives you instant access to your medical records. You can access up-to-date information on treatments, medication, allergies and more.</p>
+              <p class="nhs-app-chat__body">With Patients Know Best you can:</p>
+                <p>• view your hospital and other healthcare appointments</p>
+                <p>• view useful links your doctor or health professional has shared with you</p>
             </div>
             <div class="nhs-app-chat__date">
               Sent today at 11.53am

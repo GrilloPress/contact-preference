@@ -53,7 +53,7 @@
 
 
 
-      {% if data['pharmacyType'] === "online" %}
+      {% if data['pharmacyTypeOnline'] === "online" %}
 
       <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Echo" }}</p>
 
@@ -66,7 +66,7 @@
 
 
 
-        {% elif data['pharmacyType'] === "community" %}
+        {% elif data['pharmacyTypeOnline'] === "community" %}
 
 
         <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
@@ -104,7 +104,7 @@
       {% endif %}
 
 
-      {% if data['pharmacyType'] === "community" %}
+      {% if data['pharmacyTypeOnline'] === "community" %}
 
 
 
@@ -154,7 +154,7 @@
     </div>
 
 
-    {% elif data['pharmacyType'] === "online" %}
+    {% elif data['pharmacyTypeOnline'] === "online" %}
 
 
 
