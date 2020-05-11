@@ -7,7 +7,7 @@
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
-{% extends 'layouts/layout-app-new.html' %}
+{% extends "layouts/layout-transactional.html" %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -16,6 +16,14 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
+{% endblock %}
+
+{% block header %}
+  {{ header({
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
 {% endblock %}
 
 {% block content %}
@@ -38,7 +46,7 @@
 
 
 
-      <form action="/{{ PROTOTYPEURL }}/" method="post">
+      <form action="/app/homepage/qualtrics-message?messageRead1=read&cookies=on&routeHome=/app/v6/index&routeSymptoms=/app/symptoms/v4/index&routeAppointments=/app/appointments/v9-doctorlink/pre-hub&routePrescriptions=/app/prescriptions/v7/p5-prescriptions&routeMore=/app/more/v6/&routeMessaging=/app/send-a-message/v4/index&messagingIcon=False&linkedProfiles=False&p5=True" method="get">
       {{ checkboxes({
         "idPrefix": "p5",
         "name": "terms",

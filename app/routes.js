@@ -819,6 +819,33 @@ router.post('/send-a-patient-a-message/v2/create/sender/from', function (req, re
 });
 
 
+
+
+// P5 email
+
+
+function emailLinkRoute(req, res, next) {
+  if (!req.session.data['emailLink']) {
+    console.log('no data found');
+    var emailLink = req.query.emailLink;
+    if (emailLink === 'true') {
+      console.log('emailLink detected');
+      req.session.data['emailLink'] = 'true'
+      console.log('local storage updated');
+    } else {
+      console.log('emailLink not detected');
+    }
+  } else {
+    console.log('data found and set to ' + req.session.data['emailLink'])
+  }
+  next()
+}
+router.get("/*", emailLinkRoute);
+
+
+
+
+
 // Organ donation routing
 
 router.post('/app/organ-donation/v1/your-choice', function (req, res) {

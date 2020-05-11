@@ -6,8 +6,9 @@
 {% endblock %}
 
 
+
 <!-- Extends the layout from /app/views/layouts/layout.html -->
-{% extends 'layouts/layout-app-new.html' %}
+{% extends "layouts/layout-transactional.html" %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -19,20 +20,13 @@
 {% endblock %}
 
 {% block header %}
-<header class="app-interruption-header app-interruption-header--alt nhsuk-u-margin-bottom-2">
-  <div class="nhsuk-width-container">
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-two-thirds">
-        <a href="/{{ PROTOTYPEURL }}/v4">
-          <svg class="nhsuk-icon nhsuk-icon__close app-icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
-                  </svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</header>
+  {{ header({
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
 {% endblock %}
+
 
 {% block content %}
   <div class="nhsuk-grid-row">
@@ -64,7 +58,8 @@
   <p>Your information will only be used to contact you about the NHS App user research panel. It will not be shared with anyone else and you can unsubscribe at any time. <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">Read our privacy policy</a> to find out how we use and protect your data.</p>
 
 
-      <form action="/{{ PROTOTYPEURL }}/homepage/qualtrics-message" method="post">
+
+      <form action="/app/p5/home?p5=True" method="get">
 
       {{ radios({
         "idPrefix": "example",
