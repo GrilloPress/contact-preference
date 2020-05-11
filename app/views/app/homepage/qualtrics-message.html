@@ -41,7 +41,27 @@
 
 
 
-      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-4">{{ contentTitle }}</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+
+      <p>We would like to contact you about taking part in research to improve the NHS App and connected services.</p>
+
+
+      {{ details({
+  "text": "What’s involved?",
+  "HTML": "
+  <p>We'll add you to our user research panel and email you a short survey to fill in about you and your health. Your answers will help make sure you get invited to user research that's relevant to you.</p>
+
+  <p>Once you're signed up, you might be asked to:</p>
+  <ul>
+  <li>try out new features</li>
+  <li>answer more questions by email</li>
+  <li>talk to our researchers about your experience of using the app</li>
+</ul>
+
+  <p>You can always say no to an invite and you can leave the user research panel at any time.</p>"
+}) }}
+
+  <p>Your information will only be used to contact you about the NHS App user research panel. It will not be shared with anyone else and you can unsubscribe at any time. <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">Read our privacy policy</a> to find out how we use and protect your data.</p>
 
 
       <form action="/{{ PROTOTYPEURL }}/homepage/qualtrics-message" method="post">
@@ -51,7 +71,7 @@
         "name": "qualtrics",
         "fieldset": {
           "legend": {
-            "text": "Can we email you about taking part in research to improve the NHS App and connected services?",
+            "text": "Can we contact you to take part in NHS App research?",
             "classes": "nhsuk-fieldset__legend--l",
             "isPageHeading": true
           }
@@ -59,11 +79,11 @@
         "items": [
           {
             "value": "yes",
-            "text": "Yes, email me to take part in NHS App research"
+            "text": "Yes, you can contact me about taking part in research"
           },
           {
             "value": "no",
-            "text": "No, do not email me to take part in NHS App research"
+            "text": "No, do not contact me"
           }
         ]
       }) }}
@@ -75,7 +95,6 @@
 
       </form>
 
-      <p>We will only use your email address to send you a user research panel sign up survey as described in <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">our privacy policy</a>. You can change your mind at any time by using the unsubscribe link in the email.</p>
 
 
     </div>
