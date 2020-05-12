@@ -9,19 +9,6 @@
 {% endblock %}
 
 
-{% set routeHome %}
-  {{ data["routeHome"] if data ["routeHome"] else "/app/v5/" }}
-{% endset %}
-
-
-{% set routePrescriptions %}
-{% if data["proxy"] == "true" %}
-  {{ "/app/prescriptions/v7/proxy/your-prescriptions" }}
-{% else %}
-  {{ "/app/prescriptions/v7/your-prescriptions-11-no-pkb" }}
-{% endif %}
-{% endset %}
-
 
 {% set firstName %}Violet{% endset %}
 
@@ -99,7 +86,7 @@
                       <a href="">View their GP health record</a>
                     </li>
                     <li>
-                      <a href='{{ routeHome }}?proxy='>Switch to your profile</a>
+                      <a href='/app/v5?routePrescriptions=/app/prescriptions/v7/your-prescriptions-11-no-pkb&proxy='>Switch to your profile</a>
                     </li>
                   </ul>
 
