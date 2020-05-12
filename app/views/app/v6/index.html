@@ -77,7 +77,7 @@
           </div>
 
 
-      <ul class="list-menu">
+      <ul class="list-menu nhs-app-message">
 
         <li>
           <a href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v2/" }}'>Check your symptoms</a>
@@ -92,8 +92,22 @@
         <li>
           <a href='{{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v1/" }}'>View your GP health record</a>
         </li>
-        <li>
-          <a href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/index" }}'>View your messages</a>
+        <li class="nhs-app-message__item--unread">
+          <a href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/?messagingIcon=False&messageRead1=unread&pkbMessaging=False" }}'>
+            <h2 class="nhsuk-heading-xs nhsuk-u-padding-bottom-0">
+              View your messages
+              {% if data['messageRead1'] !== "read" %}
+              <span class="nhs-app-message__meta nhs-app-message__date">
+                <span class="nhsuk-u-visually-hidden">You have </span>
+                <span class="nhs-app-message__count">1</span>
+                <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                  unread message
+                </span>
+              </span>
+              {% endif %}
+
+            </h2>
+          </a>
         </li>
 
 
