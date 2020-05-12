@@ -1,0 +1,69 @@
+{% set PROTOTYPEURL = "app/appointments/v6" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "If this appointment changes, you’ll have to update your calendar yourself" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script>
+// dirty hack to make the menu disappear when a textarea is being used
+$("textarea").focus(function(){
+  $(".menu").hide();
+});
+
+$("textarea").focusout(function(){
+  $(".menu").show();
+});
+</script>
+{% endblock %}
+
+{% set showAppointmentType %}
+{% if data["type"] %}
+  {{ data["type"] }} <br> {{ data['sessionName'] or "Session" }}
+{% else %}
+  Slot <br> Session
+{% endif %}
+{% endset %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Appointments</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="index">Your appointments</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-xl nhs-app-xl"><span class="nhsuk-caption-m nhsuk-caption--top">{{ data["date"] or "5" | returnDate }} at {{ data["time"] or "10:50am" }}
+</span>{{ contentTitle }}</h1>
+
+
+      <p>Your calendar will not update automatically if the appointment is changed or cancelled.</p>
+
+
+
+            <form action="/{{ PROTOTYPEURL }}/calendar-permissions" method="get">
+              <input type="submit" class="nhsuk-button" value="Add to calendar">
+              </input>
+            </form>
+
+
+
+    </div>
+  </div>
+{% endblock %}

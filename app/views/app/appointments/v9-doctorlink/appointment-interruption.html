@@ -1,0 +1,74 @@
+{% set PROTOTYPEURL = "app/appointments/v6" %}
+{% set serviceName = "NHS App" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "Things to try before you book an appointment" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Appointments</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="index">Your appointments</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+
+      <ul class="list-menu">
+        <li>
+         <a href="https://www.nhs.uk/conditions/">
+           <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Browse conditions and treatments on NHS.UK</h2>
+         </a>
+       </li>
+
+       {% if data['doctorLink'] == "False" %}
+        {% else %}
+        <li>
+          <a href="/app/doctorlink/terms/v1/index">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Answer questions online and get access to the right help</h2>
+            <p>Answer questions about your symptoms and get advice on what to do next</p>
+          </a>
+        </li>
+        {% endif %}
+
+        {% if data['doctorLink'] == "False" %}
+          {% else %}
+          <li>
+            <a href="/app/doctorlink/terms/v1/index">
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Request a sick note</h2>
+            </a>
+          </li>
+          {% endif %}
+
+          <li>
+            <a href="/app/appointments/v6/select-type-of-appointment">
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Book an appointment</h2>
+            </a>
+          </li>
+
+
+
+    </div>
+  </div>
+{% endblock %}
