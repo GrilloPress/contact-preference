@@ -6,8 +6,9 @@
 {% endblock %}
 
 
+
 <!-- Extends the layout from /app/views/layouts/layout.html -->
-{% extends 'layouts/layout-app-new.html' %}
+{% extends "layouts/layout-transactional.html" %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -19,20 +20,13 @@
 {% endblock %}
 
 {% block header %}
-<header class="app-interruption-header app-interruption-header--alt nhsuk-u-margin-bottom-2">
-  <div class="nhsuk-width-container">
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-two-thirds">
-        <a href="/{{ PROTOTYPEURL }}/v4">
-          <svg class="nhsuk-icon nhsuk-icon__close app-icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
-                  </svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</header>
+  {{ header({
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
 {% endblock %}
+
 
 {% block content %}
   <div class="nhsuk-grid-row">
@@ -41,17 +35,38 @@
 
 
 
-      <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-4">{{ contentTitle }}</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+
+      <p>We would like to contact you about taking part in research to improve the NHS App and connected services.</p>
 
 
-      <form action="/{{ PROTOTYPEURL }}/homepage/qualtrics-message" method="post">
+      {{ details({
+  "text": "What’s involved?",
+  "HTML": "
+  <p>We'll add you to our user research panel and email you a short survey to fill in about you and your health. Your answers will help make sure you get invited to user research that's relevant to you.</p>
+
+  <p>Once you're signed up, you might be asked to:</p>
+  <ul>
+  <li>try out new features</li>
+  <li>answer more questions by email</li>
+  <li>talk to our researchers about your experience of using the app</li>
+</ul>
+
+  <p>You can always say no to an invite and you can leave the user research panel at any time.</p>"
+}) }}
+
+  <p>Your information will only be used to contact you about the NHS App user research panel. It will not be shared with anyone else and you can unsubscribe at any time. <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">Read our privacy policy</a> to find out how we use and protect your data.</p>
+
+
+
+      <form action="/app/p5/home?p5=True" method="get">
 
       {{ radios({
         "idPrefix": "example",
         "name": "qualtrics",
         "fieldset": {
           "legend": {
-            "text": "Can we email you about taking part in research to improve the NHS App and connected services?",
+            "text": "Can we contact you to take part in NHS App research?",
             "classes": "nhsuk-fieldset__legend--l",
             "isPageHeading": true
           }
@@ -59,11 +74,11 @@
         "items": [
           {
             "value": "yes",
-            "text": "Yes, email me to take part in NHS App research"
+            "text": "Yes, you can contact me about taking part in research"
           },
           {
             "value": "no",
-            "text": "No, do not email me to take part in NHS App research"
+            "text": "No, do not contact me"
           }
         ]
       }) }}
@@ -75,7 +90,6 @@
 
       </form>
 
-      <p>We will only use your email address to send you a user research panel sign up survey as described in <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">our privacy policy</a>. You can change your mind at any time by using the unsubscribe link in the email.</p>
 
 
     </div>

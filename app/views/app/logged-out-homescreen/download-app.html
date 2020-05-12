@@ -1,7 +1,7 @@
 <!-- This layout is setup for NHS.UK pages -->
 
 
-{% set PROTOTYPEURL = "app/nhsuk" %}
+{% set PROTOTYPEURL = "app/logged-out-homescreen" %}
 {% set serviceName = "NHS App" %}
 {% set contentTitle = "Access your NHS services" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -105,7 +105,7 @@
       }) }}
 
 
-      <form action="/app/v4/start?messageRead1=read&cookies=on&routeHome=/app/v5/index&routeSymptoms=/app/symptoms/v2/index&routeAppointments=/app/appointments/v7-engage/pre-hub&routeMore=/app/more/v5/&routeMessaging=/app/send-a-message/v4/index&messagingIcon=False" method="post">
+      <form action="https://nhs-login.herokuapp.com/set-up/demo/enter-email?p5=true" method="post">
         <input class="nhsuk-button nhslogin-button" type="submit" value="Continue with NHS login">
       </form>
 

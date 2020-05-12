@@ -50,19 +50,13 @@
 {% endset %}
 
 
-
 {% set routePrescriptions %}
-{% if data["proxy"] == "true" %}
-  {{ "/app/prescriptions/v7/proxy/your-prescriptions" }}
-{% else %}
-  {{ "/app/prescriptions/v7/your-prescriptions-11-no-pkb" }}
-{% endif %}
+  {{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v7/your-prescriptions-11-no-pkb" }}
 {% endset %}
 
 
-
 {% set routeMessaging %}
-  {{ data["routeMessaging"] if data ["routeMessaging"] else "/app/send-a-message/v4/" }}
+  {{ data["routeMessaging"] if data ["routeMessaging"] else "app/messaging/v3/index?messagingIcon=False&messageRead1=unread" }}
 {% endset %}
 
 {% block skipLink %}

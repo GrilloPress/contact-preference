@@ -1,7 +1,7 @@
-{% set PROTOTYPEURL = "app/appointments/v6" %}
+{% set PROTOTYPEURL = "app/appointments/v9-doctorlink" %}
 {% set serviceName = "NHS App" %}
 {% set appointmentsActive = "active" %}
-{% set contentTitle = "What type of appointment would you like?" %}
+{% set contentTitle = "There are currently no GP appointments available" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -31,6 +31,46 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+<<<<<<< HEAD
+=======
+      <h1> {{ contentTitle }}</h1>
+
+      <p>
+        All online appointments may have been booked, or your GP surgery may not have updated their available appointments.
+      </p>
+      <p>
+        If you need to speak to someone urgently, visit <a href="#">111.nhs.uk</a> or <a href="#">call 111</a>.
+      </p>
+
+      <h2>What you can do next</h2>
+
+      <ul class="list-menu">
+        <li>
+          <a href="/app/doctorlink/iframe/index" id="btn_111">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Ask a health professional for advice</h2>
+            <p>Answer questions online and get a reply from your GP surgery</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://111.nhs.uk/" id="btn_111" target="_blank">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Use NHS 111 online</h2>
+            <p>Check if you need urgent help and find out what to do next</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Additional GP services</h2>
+            <p>Get sick notes and GP letters or ask about recent tests</p>
+          </a>
+        </li>
+      </ul>
+
+
+    </div>
+    <div class="nhsuk-grid-column-two-thirds" style="display:none">
+>>>>>>> 8ac614761085b6a159407b62d5c3efae0c467423
 
       <form action="/{{ PROTOTYPEURL}}/select-available-appointment" method="post">
         {{ checkboxes({

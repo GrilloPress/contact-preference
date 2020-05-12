@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 {% set PROTOTYPEURL = "app/appointments/v6" %}
+=======
+{% set PROTOTYPEURL = "app/appointments/v9-doctorlink" %}
+>>>>>>> 8ac614761085b6a159407b62d5c3efae0c467423
 {% set serviceName = "NHS App" %}
 {% set appointmentsActive = "active" %}
 {% set contentTitle = "Things to try before you book an appointment" %}
@@ -37,37 +41,29 @@
 
       <ul class="list-menu">
         <li>
-         <a href="https://www.nhs.uk/conditions/">
-           <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Browse conditions and treatments on NHS.UK</h2>
+         <a href="/app/symptoms/v3/">
+           <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Check your symptoms</h2>
+           <p>Search trusted NHS information about conditions or check if you need urgent help</p>
          </a>
        </li>
-
-       {% if data['doctorLink'] == "False" %}
-        {% else %}
+       <li>
+         <a href="#">
+           <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Additional GP services</h2>
+           <p>Get sick notes and GP letters or ask about recent tests</p>
+         </a>
+       </li>
         <li>
-          <a href="/app/doctorlink/terms/v1/index">
-            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Answer questions online and get access to the right help</h2>
-            <p>Answer questions about your symptoms and get advice on what to do next</p>
-          </a>
-        </li>
-        {% endif %}
+      		<a href="/app/send-a-message/v4/send-a-message-radio?">
+      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Send your GP surgery a message</h2>
+      			<p>Ask your doctor or GP surgery a non-urgent question</p>
+      		</a>
+      	</li>
+      </ul>
 
-        {% if data['doctorLink'] == "False" %}
-          {% else %}
-          <li>
-            <a href="/app/doctorlink/terms/v1/index">
-              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Request a sick note</h2>
-            </a>
-          </li>
-          {% endif %}
-
-          <li>
-            <a href="/app/appointments/v6/select-type-of-appointment">
-              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Book an appointment</h2>
-            </a>
-          </li>
-
-
+      <form action="/{{ PROTOTYPEURL}}/select-type-of-appointment?browseAppointments=false" method="get">
+        <input type="submit" class="nhsuk-button" value="Book an appointment">
+        </input>
+      </form>
 
     </div>
   </div>

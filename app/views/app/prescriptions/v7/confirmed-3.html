@@ -116,7 +116,7 @@
               Once a GP approves it, they'll send your prescription to your nominated pharmacy, {{ data["pickPharmacy"] or "Cameolord Pharmacy" }}.
             </p>
 
-                {% if data['pharmacyType'] === "online" %}
+                {% if data['pharmacyTypeOnline'] === "online" %}
 
                 <p>
                   You may need to register with {{ data["pickPharmacy"] or "Echo" }} separately at <a href="" class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</a> or call them at {{ data["phoneNumber"] or "03069 990735" }}.
@@ -138,7 +138,7 @@
               Once a GP approves them, they'll send your prescriptions to your nominated pharmacy, {{ data["pickPharmacy"] or "Cameolord Pharmacy" }}.
             </p>
 
-                  {% if data['pharmacyType'] === "online" %}
+                  {% if data['pharmacyTypeOnline'] === "online" %}
 
                   <p>
                     You may need to register with {{ data["pickPharmacy"] or "Echo" }} separately at <a href="" class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</a> or call them at {{ data["phoneNumber"] or "03069 990735" }}.
@@ -154,7 +154,7 @@
 
 
 
-        {% if data['pharmacyType'] === "community" %}
+        {% if data['pharmacyTypeOnline'] === "community" %}
 
 
 

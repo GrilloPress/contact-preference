@@ -1,0 +1,62 @@
+{% set PROTOTYPEURL = "app/p5" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "P5 prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+
+
+
+            <ul>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/terms">NHS App terms and conditions</a>
+              </li>
+              <li>
+                <a href="/app/homepage/qualtrics-message">Qualtrics message</a>
+              </li>
+              <li>
+                <a href="/app/homepage/biometric-message-4">Biometrics message</a>
+              </li>
+              <li>
+                <a href="/app/homepage/biometric-sub-message">Biometrics sub message</a>
+              </li>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/home">P5 home page</a>
+              </li>
+              <li>
+                <a href="/app/prescriptions/v7/p5-prescriptions">Prove your identity to get full access to prescriptions</a>
+              </li>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/email">NHS App email - completed P9 uplift</a>
+              </li>
+            </ul>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

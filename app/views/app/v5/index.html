@@ -72,6 +72,34 @@
 
 
 
+
+                {% if data['messageRead1'] !== "read" %}
+
+                <div class="nhs-app-panel-heading">
+                  <h2 class="nhsuk-heading-m">Your messages</h2>
+                </div>
+
+
+                <ul class="list-menu nhs-app-message">
+                  <li id="messageID1" class="nhs-app-message__item nhs-app-message__item--unread">
+                		<a class="nhs-app-message__link" href="/app/messaging/v3/messages">
+                      <h2 class="nhsuk-heading-xs">
+                        You have 1 unread message
+                        <span class="nhs-app-message__meta nhs-app-message__date">
+                          <span class="nhsuk-u-visually-hidden">You have </span>
+                          <span class="nhs-app-message__count">1</span>
+                          <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                            unread message
+                          </span>
+                        </span>
+                      </h2>
+                    </a>
+                	</li>
+                </ul>
+                {% endif %}
+
+
+
           <div class="nhs-app-panel-heading">
             <h2 class="nhsuk-heading-m">NHS App services</h2>
           </div>
@@ -93,7 +121,7 @@
           <a href='{{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v1/" }}'>View your GP health record</a>
         </li>
         <li>
-          <a href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/send-a-message/v4/" }}'>View your messages</a>
+          <a href='{{ data["routeMessaging"] if data ["routeMessaging"] else "app/messaging/v3/home?messagingIcon=False&messageRead1=unread&pkbMessaging=true" }}'>View your messages</a>
         </li>
 
 

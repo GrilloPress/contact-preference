@@ -3,11 +3,10 @@
 {% set proxyName %}
   Miss Violet Doyle
 {%- endset %}
-{% set contentTitle = "You are acting on behalf of " + proxyName %}
+{% set contentTitle = "You do not have access to " + proxyName + "'s repeat prescriptions" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
-
 
 
 {% set firstName %}Violet{% endset %}
@@ -35,9 +34,9 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/proxy-home-2">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5?proxy=">Home</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/proxy-home-2">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/v5?proxy=">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -62,33 +61,13 @@
           </h1>
 
 
-                        <div class="">
-                <p class="nhsuk-u-margin-bottom-0">
-                  <strong>Age:</strong>
-                  {{ age }}
-                </p>
-                <p class="">
-                  <strong>GP surgery:</strong>
-                  {{ surgery }}
-                </p>
-              </div>
+          <p>Contact {{ proxyName }}'s GP surgery to request access. Switch to your profile to order repeat prescriptions for yourself.</p>
 
 
-                  <ul class="list-menu">
-
-                    <li>
-                      <a href="">Book an appointment</a>
-                    </li>
-                      <li>
-                        <a href='{{ routePrescriptions }}'>Order a repeat prescription</a>
-                      </li>
-                    <li>
-                      <a href="">View their GP health record</a>
-                    </li>
-                    <li>
-                      <a href='/app/v5?routePrescriptions=/app/prescriptions/v7/your-prescriptions-11-no-pkb&proxy='>Switch to your profile</a>
-                    </li>
-                  </ul>
+                    <form action="/app/v5?proxy=" method="post">
+                      <input type="submit" class="nhsuk-button" value="Switch to your profile">
+                      </input>
+                    </form>
 
 
 
