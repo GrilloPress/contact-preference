@@ -23,15 +23,18 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl">{{ contentTitle }}</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <ul class="list-menu">
+      <ul class="list-menu nhs-app-message-hub">
+
+        {% if data['eConsultMessaging'] === "True" %}
         <li>
-          <a href="/app/send-a-message/v4/index?pkbim=true">
-            <h2 class="nhsuk-heading-s">GP messages</h2>
-            <p>View messages sent to and from your GP surgery</p>
+          <a href="/app/econsult/hub/v1/index" id="btn_111">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Ask a health professional for advice for yourself or your child</h2>
+            <p>Answer questions online and get a response from a health professional</p>
           </a>
         </li>
+        {% endif %}
 
         {% if data['pkbMessaging'] === "True" %}
         <li>
@@ -44,12 +47,34 @@
 
         {% if data['engageMessaging'] === "True" %}
         <li>
-          <a href="#">
-            <h2 class="nhsuk-heading-s">Messages and online consultations</h2>
-            <p>Message your healthcare team, or answer questions online and get a response from a health professional</p>
+          <a href="/app/engage/terms/v1/index" id="btn_111">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Ask a health professional for advice</h2>
+            <p>Answer questions online and get a reply from your GP surgery</p>
           </a>
         </li>
         {% endif %}
+
+        <li>
+          <a href="/app/send-a-message/v4/index?pkbim=true">
+            <h2 class="nhsuk-heading-s">GP surgery messages</h2>
+            {% if data['messageRead1'] !== "read" %}
+            <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold">
+                <span class="nhs-app-message__meta">
+                  <span class="nhsuk-u-visually-hidden">You have </span>
+                  <span class="nhs-app-message__count">1</span>
+                  <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                    unread messages from Leanna Leveille
+                  </span>
+                </span>
+                </p>
+            {% endif %}
+
+            <p>
+              Send or view messages from your GP surgery
+
+            </p>
+          </a>
+        </li>
 
         <li>
           <a href="messages">

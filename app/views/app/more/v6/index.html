@@ -29,6 +29,17 @@
         <li>
       		<a href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/index" }}'>
       			<h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Your messages</h2>
+            {% if data['messageRead1'] !== "read" %}
+            <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold nhsuk-u-padding-bottom-0">
+                <span class="nhs-app-message__meta">
+                  <span class="nhsuk-u-visually-hidden">You have </span>
+                  <span class="nhs-app-message__count">1</span>
+                  <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                    unread message
+                  </span>
+                </span>
+                </p>
+            {% endif %}
       			<p>Get messages from your GP surgery and other NHS services</p>
       		</a>
       	</li>
