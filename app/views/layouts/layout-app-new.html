@@ -20,12 +20,9 @@
   <link href="/css/nhsapp.css" rel="stylesheet">
 {% endblock %}
 
+
 {% set routeHome %}
-{% if data["proxy"] == "true" %}
-  {{ "/app/linked-profiles/proxy-home-2" }}
-{% else %}
-  {{ "/app/v5/" }}
-{% endif %}
+  {{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}
 {% endset %}
 
 

@@ -525,7 +525,7 @@ router.post('/app/prescriptions/v7/proxy/save', function (req, res) {
 router.post('/app/linked-profiles/switch-profile', function (req, res) {
 
 req.session.data.switchProfile = "true"
-res.redirect('/app/linked-profiles/proxy-home-2?routePrescriptions=/app/prescriptions/v7/proxy/your-prescriptions&proxy=true')
+res.redirect('/app/linked-profiles/proxy-home-2?routePrescriptions=/app/prescriptions/v7/proxy/your-prescriptions&routeHome=/app/linked-profiles/proxy-home-2&proxy=true')
 
 });
 
@@ -864,7 +864,7 @@ router.get("/*", emailLinkRoute);
 router.post('/app/p5/terms', function (req, res) {
 
 req.session.data.terms = "True"
-res.redirect('/app/homepage/qualtrics-message?messageRead1=read&cookies=on&routeHome=/app/v6/index&routeSymptoms=/app/symptoms/v4/index&routeAppointments=/app/appointments/v9-doctorlink/pre-hub&routePrescriptions=/app/prescriptions/v7/p5-prescriptions&routeMore=/app/more/v6/&routeMessaging=/app/send-a-message/v4/index&messagingIcon=False&linkedProfiles=False&p5=True')
+res.redirect('/app/homepage/qualtrics-message?messageRead1=read&cookies=on&routeHome=/app/p5/home&routeSymptoms=/app/symptoms/v4/index&routeAppointments=/app/appointments/v6/p5-appointments&routePrescriptions=/app/prescriptions/v7/p5-prescriptions&routeMore=/app/more/p5-more&routeRecords=/app/records/v2/p5-records&routeMessaging=/app/send-a-message/v4/index&messagingIcon=False&linkedProfiles=False&p5=True')
 
 });
 
