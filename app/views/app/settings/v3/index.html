@@ -21,7 +21,7 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl">Settings</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Settings</h1>
       <ul class="list-menu">
       	<li>
       		<a href="/{{ PROTOTYPEURL }}/password">Fingerprint or face recognition</a>
@@ -29,18 +29,19 @@
       	<li>
       		<a href="/{{ PROTOTYPEURL }}/notifications">Notifications</a>
       	</li>
+        {% if data['manageLogin'] == "False" %}
+        {% else %}
         <li>
-      		<a href="/{{ PROTOTYPEURL }}/login">Manage your NHS login</a>
-      	</li>
+          <a href="/{{ PROTOTYPEURL }}/login">Manage your NHS login</a>
+        </li>
+        {% endif %}
+
         <li>
       		<a href="/{{ PROTOTYPEURL }}/cookies">Cookies</a>
       	</li>
-        <li style="display:none">
+        <li>
       		<a href="/{{ PROTOTYPEURL }}/policies">Our policies</a>
       	</li>
-        <li>
-          <a href="/app/_user-testing/index">Our policies</a>
-        </li>
       </ul>
       <form action="/{{ PROTOTYPEURL}}/logout" method="post">
         <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Log out">

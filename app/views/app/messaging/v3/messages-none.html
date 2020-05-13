@@ -1,6 +1,6 @@
-{% set PROTOTYPEURL = "app/settings/v3" %}
-{% set serviceName = "NHS App" %}
-{% set contentTitle = "Prototypes" %}
+{% set PROTOTYPEURL = "app/messaging" %}
+{% set serviceName = "Home" %}
+{% set contentTitle = "Messages" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -19,8 +19,8 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Settings</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v3/messages-none">Messages</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
@@ -30,25 +30,9 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Our policies</h1>
-      <ul class="list-menu">
-        <li>
-      		<a href="#">Help and support</a>
-      	</li>
-        <li>
-      		<a href="#">Accessibility statement</a>
-      	</li>
-        <li>
-      		<a href="#">Open source licences</a>
-      	</li>
-        <li>
-          <a href="#">Privacy policy</a>
-        </li>
-        <li>
-      		<a href="#">Terms of use</a>
-      	</li>
-      </ul>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-    </div>
+      <p>You have no messages.</p>
+
   </div>
 {% endblock %}

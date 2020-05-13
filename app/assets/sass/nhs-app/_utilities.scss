@@ -283,3 +283,20 @@ a:visited {
   }
 
 }
+
+.app-corona__container--desktop {
+
+  background-color: #ffeb3b;
+  border-bottom: 1px #D8DDE0 solid;
+
+  .list-menu {
+
+    margin-bottom: 0;
+
+  }
+}
+
+.app-corona__container--desktop .list-menu li {
+
+  border-bottom: 0;
+}
