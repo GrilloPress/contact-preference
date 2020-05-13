@@ -27,7 +27,7 @@
 
 
 {% set routeAppointments %}
-  {{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v6/pre-hub" }}
+  {{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v9-doctorlink" }}
 {% endset %}
 
 {% set routeRecords %}
@@ -35,11 +35,15 @@
 {% endset %}
 
 {% set routeSymptoms %}
+<<<<<<< HEAD
+  {{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/" }}
+=======
   {{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v3/" }}
+>>>>>>> 5c8592bd524b599a8c8511ff740d79c4b3e46a64
 {% endset %}
 
 {% set routeMore %}
-  {{ data["routeMore"] if data ["routeMore"] else "/app/more/v5/" }}
+  {{ data["routeMore"] if data ["routeMore"] else "/app/more/v9_DL/" }}
 {% endset %}
 
 {% set routeSettings %}
