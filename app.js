@@ -20,6 +20,7 @@ const automaticRouting = require('./middleware/auto-routing');
 const config = require('./app/config');
 const locals = require('./app/locals');
 const routes = require('./app/routes');
+const consultationRoutes = require('./app/routes/consultations');
 const documentationRoutes = require('./docs/documentation_routes');
 const utils = require('./lib/utils.js')
 
@@ -185,6 +186,8 @@ if(onlyDocumentation == 'true') {
 
 // Use custom application routes
 app.use('/', routes);
+app.use('/', consultationRoutes);
+
 
 // Automatically route pages
 app.get(/^([^.]+)$/, function (req, res, next) {
