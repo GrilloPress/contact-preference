@@ -39,44 +39,40 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <p>We're about to ask you a few questions about your request. Your answers will be sent securely to your GP surgery unless urgent medical attention is needed. For such cases, the online consultation service will direct you to other health services.</p>
-      <div class="nhsuk-u-padding-bottom-4"></div>
-      <p>To start, please agree to the privacy notice applicable to online consultation services.</p>
-
-
-    <form action="/{{ PROTOTYPEURL }}/admin/v1/3" method="get">
-      {{ checkboxes({
-        "idPrefix": "eConsult",
-        "name": "eConsultAdminPrivacyNotice",
-        "fieldset": {
-          "legend": {
-            "classes": "nhsuk-fieldset__legend--xl",
-            "isPageHeading": true
-          }
+      <form action="/{{ PROTOTYPEURL }}/admin/v1/25" method="get">
+        {{ checkboxes({
+          "idPrefix": "eConsult",
+          "name": "eConsultAdminAnswers",
+          "fieldset": {
+            "legend": {
+              "text": "Finally please let us know whether you'd like a copy of your answers and whether you would like to take a survey",
+              "classes": "nhsuk-fieldset__legend--p",
+              "isPageHeading": true
+            }
+          },
+          "hint": {
+          "text": "(optional)"
         },
-        "items": [
-          {
-            "value": "Opt In",
-            "html": "I have read the <a href=\"https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/online-consultations/\">GP online consultation services privacy notice.</a> I understand the online consultation service provider will process my personal and health data on behalf of my GP surgery to provide an online consultation."
-          }
-        ]
-      }) }}
+          "items": [
+            {
+              "value": "Email",
+              "text": "Email me a copy of my consultation answers"
+            },
+            {
+              "value": "Survey",
+              "text": "I'd like to take a one-time survey to help improve this service",
+              "hint": {
+                "text": "We will email you the survey a few days after your consultation"
+              }
+            }
+          ]
+        }) }}
+        <div class="nhsuk-u-padding-bottom-4"></div>
 
-      <div class="nhsuk-u-padding-bottom-4"></div>
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
 
-      <input type="submit" class="nhsuk-button" value="Continue">
-      </input>
-    </form>
-      
-    <div class="nhsuk-u-padding-bottom-2"></div>
-
-    <form action="/{{ PROTOTYPEURL }}/v6/index" method="get">
-
-      {{ button({
-        "text": "End my consultation",
-        "classes": "nhsuk-button--secondary"
-      }) }}
-    </form>
 
     </div>
   </div>

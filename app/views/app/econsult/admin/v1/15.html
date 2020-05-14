@@ -39,44 +39,21 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <p>We're about to ask you a few questions about your request. Your answers will be sent securely to your GP surgery unless urgent medical attention is needed. For such cases, the online consultation service will direct you to other health services.</p>
-      <div class="nhsuk-u-padding-bottom-4"></div>
-      <p>To start, please agree to the privacy notice applicable to online consultation services.</p>
-
-
-    <form action="/{{ PROTOTYPEURL }}/admin/v1/3" method="get">
-      {{ checkboxes({
-        "idPrefix": "eConsult",
-        "name": "eConsultAdminPrivacyNotice",
-        "fieldset": {
-          "legend": {
-            "classes": "nhsuk-fieldset__legend--xl",
-            "isPageHeading": true
+      <form action="/{{ PROTOTYPEURL }}/admin/v1/16" method="get">
+        {{ textarea({
+          "name": "eConsult",
+          "id": "eConsultAdminWhy",
+          "label": {
+            "text": "Please tell us why you need a sick note (fit note)"
           }
-        },
-        "items": [
-          {
-            "value": "Opt In",
-            "html": "I have read the <a href=\"https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/online-consultations/\">GP online consultation services privacy notice.</a> I understand the online consultation service provider will process my personal and health data on behalf of my GP surgery to provide an online consultation."
-          }
-        ]
-      }) }}
+        }) }}
+        
 
-      <div class="nhsuk-u-padding-bottom-4"></div>
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
 
-      <input type="submit" class="nhsuk-button" value="Continue">
-      </input>
-    </form>
-      
-    <div class="nhsuk-u-padding-bottom-2"></div>
+      </form>
 
-    <form action="/{{ PROTOTYPEURL }}/v6/index" method="get">
-
-      {{ button({
-        "text": "End my consultation",
-        "classes": "nhsuk-button--secondary"
-      }) }}
-    </form>
 
     </div>
   </div>

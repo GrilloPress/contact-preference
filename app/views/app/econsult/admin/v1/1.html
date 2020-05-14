@@ -26,11 +26,6 @@
   </div>
 </nav>
 
-<div class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-third-party-container nhs-app-third-party-container--grey nhsuk-body-s nhsuk-u-margin-bottom-0">
-  <div class="nhsuk-width-container">
-    <strong>This service is provided by your GP surgery</strong>
-  </div>
-</div>
 {% endblock %}
 
 {% block content %}
@@ -39,35 +34,45 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/admin/v1/2" method="get">
+      <section id="provider-interrupt">
+      <div class="nhsuk-warning-callout">
+        <h3 class="nhsuk-warning-callout__label">Important</h3>
+        <p>This service is provided by an online consultation service provider, eConsult Health Ltd, on behalf of your GP surgery.</p>
+        <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/help/online-consultations/">Find out more about online consultation services.</a>
+      </div>
+    </section>
 
-        {{ radios({
-          "idPrefix": "eConsult",
-          "name": "eConsultAdminSex",
-          "fieldset": {
-            "legend": {
-              "text": "Tell us your sex",
-              "isPageHeading": false,
-              "classes": ""
-            }
-          },
-          "items": [
-            {
-              "value": "Female",
-              "text": "Female"
-            },
-            {
-              "value": "Male",
-              "text": "Male"
-            }
-          ]
-        }) }}
+    <section id="service-explanation">
+      <p>Use this service to contact your GP surgery for things like test results, sick notes, GP letters and medical reports.</p>
+      <p>It takes around 5 minutes to answer a few questions.</p>
+      <p>To save you typing in personal information the online consultation service needs, you can use the personal information we already hold.</p>
+    </section>
 
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
+    <form action="/{{ PROTOTYPEURL }}/admin/v1/2" method="get">
+      {{ checkboxes({
+        "idPrefix": "eConsult",
+        "name": "eConsultAdminOptIn",
+        "fieldset": {
+          "legend": {
+            "classes": "nhsuk-fieldset__legend--xl",
+            "isPageHeading": true
+          }
+        },
+        "hint": {
+        "text": "(optional)"
+      },
+        "items": [
+          {
+            "value": "Opt In",
+            "html": "Use my name, date of birth, NHS number and postal address with the online consultation service as described in the <a href=\"https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/\">NHS App privacy policy.</a>"
+          }
+        ]
+      }) }}
 
-      </form>
-
+      <input type="submit" class="nhsuk-button" value="Continue">
+      </input>
+</form>
+     
 
     </div>
   </div>
