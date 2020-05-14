@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 
+
 // HOW WOULD YOU PREFER TO BE CONTACTED?
 
 router.post('/app/v2/prefer-to-be-contacted', function (req, res) {
@@ -1250,9 +1251,6 @@ router.post('/nhsuk-to-prescription/nhsuk/frequency', function (req, res) {
 
     }
 
-
-
-
   }
 });
 
@@ -1814,6 +1812,19 @@ router.post('/app/econsult/child/v1/47_', function (req, res) {
 
 
 
+// ADMIN ROUTES
+
+router.post('/app/econsult/admin/v1/4', function (req, res) {
+  let answer = req.session.data.eConsultAdminNotEmergency;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/econsult/admin/v1/5')
+
+  } else {
+    res.redirect('/app/econsult/admin/v1/end/emergency')
+  }
+});
 
 
 
