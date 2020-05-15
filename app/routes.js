@@ -1824,7 +1824,65 @@ router.post('/app/econsult/admin/v1/4', function (req, res) {
   }
 });
 
+router.post('/app/econsult/admin/v1/5', function (req, res) {
+  let answer = req.session.data.eConsultAdminCorona;
 
+  if (answer === 'yes') {
+
+    res.redirect('/app/econsult/admin/v1/end/covid')
+
+  } else {
+    res.redirect('/app/econsult/admin/v1/6')
+  }
+});
+
+router.post('/app/econsult/admin/v1/8', function (req, res) {
+  let answer = req.session.data.eConsultAdminService;
+
+  if (answer === 'Sick note') {
+
+    res.redirect('/app/econsult/admin/v1/9')
+
+  } else {
+    res.redirect('/app/econsult/admin/v1/8')
+  }
+});
+
+router.post('/app/econsult/admin/v1/9', function (req, res) {
+  let answer = req.session.data.eConsultAdminCoronaNote;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/admin/v1/end/isolation-note-needed')
+
+  } else {
+    res.redirect('/app/econsult/admin/v1/10')
+  }
+});
+
+router.post('/app/econsult/admin/v1/10', function (req, res) {
+  let answer = req.session.data.eConsultAdminNewNote;
+
+  if (answer === 'New request') {
+
+    res.redirect('/app/econsult/admin/v1/11')
+
+  } else {
+    res.redirect('/app/econsult/admin/v1/12')
+  }
+});
+
+router.post('/app/econsult/admin/v1/11', function (req, res) {
+  let answer = req.session.data.eConsultAdminLengthOfNote;
+
+  if (answer === '7 days or less') {
+
+    res.redirect('/app/econsult/admin/v1/end/note-denied')
+
+  } else {
+    res.redirect('/app/econsult/admin/v1/12')
+  }
+});
 
 
 

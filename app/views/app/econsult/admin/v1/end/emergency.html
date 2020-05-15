@@ -1,5 +1,5 @@
-{% set PROTOTYPEURL = "app/econsult" %}
-{% set serviceName = "Engage" %}
+{% set PROTOTYPEURL = "" %}
+{% set serviceName = "eConsult" %}
 {% set contentTitle = "Ask a health professional for advice about your child" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -31,18 +31,38 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>{{ contentTitle }}</h1>
+      <h1>Additional GP services</h1>
 
       {{ careCard({
         "type": "immediate",
         "headingLevel": 2,
-        "heading": "You need medical help for the child now. Call 999 or go to your local A&E.",
+        "heading": "You need medical help for the now. Call 999 or go to your local A&E.",
         "HTML": "
-        <p>If the child is experiencing serious symptoms, contacting your doctor online isn't appropriate.</p>
-        <p>You should seek urgent medical help right now.</p>
+        <p>If you decide to seek medical advice, <strong>your GP will not be notified and your practice will not contact you about this consultation.</strong></p>
         "
       }) }}
 
+      <form action="/app/v5/index" method="get">
+        {{ checkboxes({
+          "idPrefix": "eConsult",
+          "name": "eConsultAdminOptIn",
+          "fieldset": {
+            "legend": {
+              "classes": "nhsuk-fieldset__legend--xl",
+              "isPageHeading": true
+            }
+          },
+          "items": [
+            {
+              "value": "Opt In",
+              "text": "End my consultation, I will seek medical advice myself instead"
+            }
+          ]
+        }) }}
+  
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+  </form>
 
     </div>
   </div>
