@@ -62,7 +62,7 @@ router.post('/app/settings/v1/logout', function (req, res) {
 router.post('/app/settings/v3/logout', function (req, res) {
 
   req.session.data = {}
-  res.redirect('/app/v4/start')
+  res.redirect('/app/start')
 
 });
 
