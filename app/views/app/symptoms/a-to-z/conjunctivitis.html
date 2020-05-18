@@ -4,12 +4,6 @@
 {% set contentTitle = "Conjunctivitis" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
-<script>
-$('#azFrame').on("load", function () {
-    console.log('iframe loaded completely'); //replace with code to hide loader
-    $( ".container--loader" ).hide();
-});
-</script>
 {% endblock %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -20,17 +14,7 @@ $('#azFrame').on("load", function () {
 <!-- Breadcrumb goes inside this block -->
 
 {% block beforeContent %}
-{{ breadcrumb({
-  classes: "nhs-app-breadcrumb",
-  items: [
-    {
-      href: "/" + PROTOTYPEURL,
-      text: "Home"
-    }
-  ],
-  href: "/" + PROTOTYPEURL + "/",
-  text: "Check your symptoms"
-}) }}
+
 {% endblock %}
 
 
@@ -40,7 +24,7 @@ $('#azFrame').on("load", function () {
         <h1 class="nhsuk-heading-xl">
           {{ contentTitle }}
         </h1>
-        
+
         <section>
         <strong>Conjunctivitis is an eye condition caused by infection or allergies. It usually gets better in a couple of weeks without treatment.</strong>
         <div class="nhsuk-u-padding-bottom-6"></div>
@@ -71,11 +55,11 @@ $('#azFrame').on("load", function () {
                 https://assets.nhs.uk/prod/images/C0284481-Bacterial_conjunctivitis-SPL_copy.width-1125.jpg 1125w,
                 https://assets.nhs.uk/prod/images/C0284481-Bacterial_conjunctivitis-SPL_copy.width-1534.jpg 1534w,
               " alt="A sticky eye producing pus">
-            
+
             <figcaption class="nhsuk-image__caption">
               Conjunctivitis that produces sticky pus is contagious.
             </figcaption>
-            
+
           </figure>
 
           <figure class="nhsuk-image">
@@ -92,7 +76,7 @@ $('#azFrame').on("load", function () {
                 https://assets.nhs.uk/prod/images/C0269241-Viral_conjunctivitis-SPL.width-1125.jpg 1125w,
                 https://assets.nhs.uk/prod/images/C0269241-Viral_conjunctivitis-SPL.width-1534.jpg 1534w,
               " alt="A red and gritty eye caused by conjunctivitis">
-            
+
             <figcaption class="nhsuk-image__caption">
               If eyes are red and feel gritty, the conjunctivitis is also usually contagious.
             </figcaption>
@@ -112,7 +96,7 @@ $('#azFrame').on("load", function () {
                 https://assets.nhs.uk/prod/images/C0230722-Allergic_conjunctivitis-SPL.width-1125.jpg 1125w,
                 https://assets.nhs.uk/prod/images/C0230722-Allergic_conjunctivitis-SPL.width-1534.jpg 1534w,
               " alt="A red and watery eye caused by conjunctivitis">
-            
+
             <figcaption class="nhsuk-image__caption">
               Conjunctivitis caused by allergies like hay fever makes eyes red and watery but is not contagious.
             </figcaption>
@@ -232,8 +216,8 @@ $('#azFrame').on("load", function () {
             <p>These can be signs of a more serious eye problem.</p>
             <p>111 will tell you what to do. They can arrange a phone call from a nurse or doctor if you need one.</p>
             <p>Go to <a href="https://111.nhs.uk/?utm_source=nhsuk&amp;utm_campaign=conditions&amp;utm_content=conjunctivitis">111.nhs.uk</a> or <a href="tel:111">call 111</a>.</p>
-            
-              
+
+
         <details class="nhsuk-details" nhsuk-polyfilled="true" id="nhsuk-details0">
           <summary class="nhsuk-details__summary" role="button" aria-controls="nhsuk-details__text0" tabindex="0" aria-expanded="false">
             <span class="nhsuk-details__summary-text">
@@ -270,8 +254,3 @@ $('#azFrame').on("load", function () {
       </div>
     </div>
   {% endblock %}
-
-
-
-
-

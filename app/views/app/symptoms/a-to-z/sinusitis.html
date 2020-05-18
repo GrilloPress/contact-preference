@@ -4,12 +4,6 @@
 {% set contentTitle = "Sinusitis (sinus infection)" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
-<script>
-$('#azFrame').on("load", function () {
-    console.log('iframe loaded completely'); //replace with code to hide loader
-    $( ".container--loader" ).hide();
-});
-</script>
 {% endblock %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -20,17 +14,7 @@ $('#azFrame').on("load", function () {
 <!-- Breadcrumb goes inside this block -->
 
 {% block beforeContent %}
-{{ breadcrumb({
-  classes: "nhs-app-breadcrumb",
-  items: [
-    {
-      href: "/" + PROTOTYPEURL,
-      text: "Home"
-    }
-  ],
-  href: "/" + PROTOTYPEURL + "/",
-  text: "Check your symptoms"
-}) }}
+
 {% endblock %}
 
 
@@ -40,7 +24,7 @@ $('#azFrame').on("load", function () {
         <h1 class="nhsuk-heading-xl">
           {{ contentTitle }}
         </h1>
-        
+
         <section>
         <strong>Sinusitis is swelling of the sinuses, usually caused by an infection. It's common and usually clears up on its own within 2 to 3 weeks. But medicines can help if it's taking a long time to go away.</strong>
         <div class="nhsuk-u-padding-bottom-6"></div>
@@ -144,7 +128,7 @@ $('#azFrame').on("load", function () {
               <p><a href="/conditions/coronavirus-covid-19/staying-at-home-to-avoid-getting-coronavirus/how-to-get-medical-help-from-home/">Find out how to get medical help from home</a>.</p>
             </div>
           </div>
-       </div>   
+       </div>
       </section>
 
       <section>
@@ -193,8 +177,3 @@ $('#azFrame').on("load", function () {
       </div>
     </div>
   {% endblock %}
-
-
-
-
-
