@@ -1,0 +1,58 @@
+{% set PROTOTYPEURL = "app/send-a-message/v5" %}
+{% set serviceName = "Send a message" %}
+{% set messagingActive = "active" %}
+{% set contentTitle = "By downloading filename.jpg, you become responsible for keeping it confidential" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Messages</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="app-card nhsuk-u-margin-bottom-5">
+        <div class="app-card__wrapper">
+          <div class="app-card__content">
+            <h1 class="app-card__heading nhsuk-heading-m">{{ contentTitle }}</h1>
+            <form action="#" method="get">
+              <input type="submit" class="nhsuk-button nhsuk-u-margin-bottom-2" value="Download file">
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      {{ backLink({
+        "href": "javascript: window.history.go(-1)",
+        "text": "Back to your message"
+      }) }}
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,270 @@
+{% set PROTOTYPEURL = "app/send-a-message/v5" %}
+{% set serviceName = "Home" %}
+{% set sender = "Woodrow Practice" %}
+{% set messagingActive = "active" %}
+{% set contentTitle = "Messages from " + sender %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script type="text/javascript">
+$( document ).ready(function() {
+  jQuery.post( "/app/password", { messageRead{{data['id']}}: "read" } );
+  });
+
+  jQuery('#replyButton').submit(
+    function(e){
+      jQuery('#replyContainer').toggle(); //make chat thing visible
+      jQuery('#replyButton').toggle(); //hide button
+      //scroll to reply container
+      jumpTo('replyContainer', 120);
+      e.preventDefault();
+    }
+  )
+
+  function toggleMessageContainer(){
+    jQuery('#replyContainer').toggle(); //make chat thing visible
+    jQuery('#replyButton').toggle(); //hide button
+    //scroll to reply container
+    jumpTo('replyContainer', 120);
+  }
+</script>
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Messages</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">
+        <span class="nhsuk-caption-m nhsuk-caption--top">
+          {% if data['id'] == 1 %}
+            Conversation with:
+          {% else %}
+            Message to:
+          {% endif %}
+
+         </span>
+        {{ data["from"] }}
+      </h1>
+
+      <div class="nhs-app-chat">
+        <ul class="nhs-app-chat__thread">
+
+          {% if data['id'] == "2" %}
+          <li class="nhs-app-chat__item nhs-app-chat__item--reply">
+            <div class="nhs-app-chat__sender nhs-app-chat__sender--reply">
+              <span>You</span>
+
+            </div>
+            <div class="nhs-app-chat__container nhs-app-chat__container--reply">
+              <p class="nhs-app-chat__body nhs-app-chat__header--reply">
+                {{ data['body'] | nl2br | safe }}
+              </p>
+
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
+              Sent {{ data['sent']}} at {{ data['time'] }}
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
+              <a href="delete">Delete message</a>
+            </div>
+          </li>
+
+          {% else %}
+          <li class="nhs-app-chat__item nhs-app-chat__item--reply">
+            <div class="nhs-app-chat__sender nhs-app-chat__sender--reply">
+              <span>You</span>
+
+            </div>
+            <div class="nhs-app-chat__container nhs-app-chat__container--reply">
+              <p class="nhs-app-chat__body nhs-app-chat__header--reply">
+                You mentioned that you could send me my x-ray. Could you send that to me?
+              </p>
+
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
+              Sent 30 October 2019 at 9.40am
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
+              <a href="delete?conversation=true">Delete message</a>
+            </div>
+          </li>
+
+          {% set read = 'messageRead' + data['id'] %}
+          {% if data[read] !== "read"  %}
+            <div class="nhs-app-chat__read-indicator" id="unread">
+              <span class="nhs-app-chat__read-indicator-container">Unread message</span>
+            </div>
+          {% endif %}
+
+          <li class="nhs-app-chat__item">
+            <div class="nhs-app-chat__sender">
+              {{ data["from"] }}
+            </div>
+            <div class="nhs-app-chat__container nhs-app-chat__container">
+              <p class="nhs-app-chat__body nhsuk-u-margin-bottom-2">
+                {{ data['body'] | nl2br | safe}}
+              </p>
+              <p class="nhs-app-chat__body nhs-app-chat__header nhsuk-body-s nhs-app-secondary-text">Attachment</p>
+              <p class="nhs-app-chat__body nhs-app-chat__header">
+                <div></div>
+                <a class="nhs-app-chat__document-action" href="/images/placeholder-image-16-9.jpg">View</a>
+                <a class="nhs-app-chat__document-action" href="/{{ PROTOTYPEURL }}/download/index">Download</a>
+              </p>
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+            <div class="nhs-app-chat__date">
+              Sent {{ data['sent']}} at {{ data['time'] }}
+            </div>
+          </li>
+
+          {% endif %}
+
+          {% if data['msgBody2'] %}
+          <li class="nhs-app-chat__item nhs-app-chat__item--reply">
+            <div class="nhs-app-chat__sender nhs-app-chat__sender--reply">
+              <span>You</span>
+
+            </div>
+            <div class="nhs-app-chat__container nhs-app-chat__container--reply">
+              <p class="nhs-app-chat__body nhs-app-chat__header--reply">
+                {{ data['msgBody2'] | nl2br | safe }}
+              </p>
+
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
+              Sent today at {{ 'now' | returnTime }}
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
+              <a href="delete">Delete message</a>
+            </div>
+          </li>
+          {% endif %}
+
+
+        </ul>
+
+        {% if data['id'] == "2" %}
+        {% else %}
+
+        <ul class="list-menu" id="replyButton">
+          <li>
+            <a href="javascript:void(0)" onclick="toggleMessageContainer()">Reply</a>
+          </li>
+          <li>
+            <a href="delete?conversation=true">Delete conversation</a>
+          </li>
+        </ul>
+
+        <div class="nhs-app-message-reply__container" id="replyContainer" style="display: none;">
+          <form class="" action="/{{ PROTOTYPEURL }}/message-with-additional-reply" method="post">
+            {% call fieldset({
+              "legend": {
+                "text": "Your reply",
+                "classes": "nhsuk-fieldset__legend--m",
+                "isPageHeading": false
+              }
+            }) %}
+
+            {{ hint({
+              "html": 'For advice now, phone or visit your GP surgery, visit <a href="https://111.nhs.uk">111.nhs.uk</a> or <a href="tel:111">call 111</a>.'
+            })}}
+
+            <div class="govuk-character-count">
+              {{ textarea({
+                "name": "msgBody2",
+                "id": "msgBody2",
+                "classes": "nhsuk-u-margin-bottom-0",
+                "hint": {
+                    "html": '<div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1"></div>'
+                  },
+                "label": {
+                  "text": "Message",
+                  "isPageHeading": false,
+                  "classes": "nhsuk-label--s nhsuk-u-margin-bottom-2"
+                }
+              }) }}
+            </div>
+
+            {% if data['fileAdded'] %}
+            {{ summaryList({
+              classes: 'nhsuk-summary-list--no-border',
+              rows: [
+                {
+                  key: {
+                    text: "File details"
+                  },
+                  value: {
+                    text: "File name - 2MB",
+                    classes: "nhsuk-u-margin-bottom-2"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Remove",
+                        visuallyHiddenText: "file"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }) }}
+
+            {% else %}
+            <div class="nhsuk-form-group">
+              <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-2" for="attachment">Upload file (optional)</label>
+              <button onclick="window.location='/{{ PROTOTYPEURL }}/file/add-file'" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-2" type="button" name="attachment">Add file</button>
+            </div>
+            {% endif %}
+
+            {% endcall %}
+            <input class="nhsuk-button" type="submit" value="Send reply">
+          </form>
+        </div>
+
+        {% endif %}
+
+
+
+      </div>
+
+      <p class="nhs-app-desktop--show">
+        <a href="javascript: window.history.go(-1)">Back</a>
+      </p>
+
+    </div>
+  </div>
+{% endblock %}

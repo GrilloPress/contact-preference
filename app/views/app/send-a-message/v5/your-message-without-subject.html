@@ -1,0 +1,82 @@
+{% set PROTOTYPEURL = "app/send-a-message/v5" %}
+{% set serviceName = "Send a message" %}
+{% set messagingActive = "active" %}
+{% set contentTitle = "Send your message to " + data["msgTo"] or "Dr Sanjit Praneskear" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script>
+// dirty hack to make the menu disappear when a textarea is being used
+$("textarea").focus(function(){
+  $(".menu").hide();
+});
+
+$("textarea").focusout(function(){
+  $(".menu").show();
+});
+</script>
+<script type="text/javascript" src="/js/character-count.js" ></script>
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/app/send-a-message/v3/select-who",
+  text: "select who to message"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form class="" action="message-you-sent" method="post">
+
+        {% call fieldset({
+          "legend": {
+            "text": contentTitle,
+            "classes": "nhsuk-fieldset__legend--l",
+            "isPageHeading": true
+          }
+        }) %}
+
+        {{ hint({
+          "html": 'For urgent medical advice, phone or visit your GP surgery, visit <a href="https://111.nhs.uk">111.nhs.uk</a> or <a href="tel:111">call 111</a>.'
+        })}}
+
+        <div class="govuk-character-count">
+        {{ textarea({
+          "name": "msgBody",
+          "id": "msgBody",
+          "classes": "nhsuk-u-margin-bottom-0",
+          "label": {
+            "text": "Message",
+            "isPageHeading": false,
+            "classes": "nhsuk-label--s"
+          }
+        }) }}
+        <div id="textarea_feedback" class="nhsuk-hint"></div>
+      </div>
+
+
+        {% endcall %}
+        <input class="nhsuk-button" type="submit" value="Send message">
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
