@@ -90,9 +90,6 @@
 
 
 
-          <div class="nhs-app-panel-heading">
-            <h2 class="nhsuk-heading-m">NHS App services</h2>
-          </div>
 
 
       <ul class="list-menu nhs-app-message">
@@ -126,7 +123,8 @@
           </a>
         </li>
 
-
+        {% if data['organDonationShow'] == "False" %}
+        {% else %}
         {% if not data['donationDecision'] %}
                 <li>
                   <a href="/app/organ-donation/v2/register-decision-2">Manage your organ donation decision</a>
@@ -138,6 +136,8 @@
         </li>
 
         {% endif %}
+        {% endif %}
+
 
 
         {% if data['linkedProfiles'] == "False" %}
@@ -148,7 +148,7 @@
         {% endif %}
 
         <li>
-          <a href="/app/nhs-app-services/services-list-headings">See all NHS App services</a>
+          <a href="/app/nhs-app-services/services-list-headings">See more NHS App services</a>
         </li>
       </ul>
     </div>
