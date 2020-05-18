@@ -1,0 +1,200 @@
+{% set PROTOTYPEURL = "app/symptoms/a-to-z" %}
+{% set serviceName = "NHS App" %}
+{% set symptomsActive = "active" %}
+{% set contentTitle = "Sinusitis (sinus infection)" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script>
+$('#azFrame').on("load", function () {
+    console.log('iframe loaded completely'); //replace with code to hide loader
+    $( ".container--loader" ).hide();
+});
+</script>
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+
+
+<!-- Breadcrumb goes inside this block -->
+
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/",
+  text: "Check your symptoms"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <h1 class="nhsuk-heading-xl">
+          {{ contentTitle }}
+        </h1>
+        
+        <section>
+        <strong>Sinusitis is swelling of the sinuses, usually caused by an infection. It's common and usually clears up on its own within 2 to 3 weeks. But medicines can help if it's taking a long time to go away.</strong>
+        <div class="nhsuk-u-padding-bottom-6"></div>
+        </section>
+
+        <section>
+          <h2>Check if you have sinusitis</h2>
+          <p>Sinusitis is common after a <a href="javascript:void(0)">cold</a> or <a href="javascript:void(0)">flu</a>.</p>
+          <p>Symptoms of sinusitis include:</p>
+          <ul>
+            <li>pain, swelling and tenderness around your cheeks, eyes or forehead</li>
+            <li>a blocked nose</li>
+            <li>a reduced sense of smell</li>
+            <li>green or yellow mucus from your nose</li>
+            <li>a sinus headache</li>
+            <li>a high temperature</li>
+            <li>toothache</li>
+            <li>bad breath</li>
+          </ul>
+          <p>Signs of sinusitis in young children may also include irritability, difficulty feeding, and breathing through their mouth.</p>
+          <details class="nhsuk-details" nhsuk-polyfilled="true" id="nhsuk-details0">
+              <summary class="nhsuk-details__summary" role="button" aria-controls="nhsuk-details__text0" tabindex="0" aria-expanded="false">
+                <span class="nhsuk-details__summary-text">What are the sinuses?</span>
+              </summary>
+              <div class="nhsuk-details__text" id="nhsuk-details__text0" aria-hidden="true">
+                <p>The sinuses are small, empty spaces behind your cheekbones and forehead that connect to the inside of the nose.</p><p>Sinusitis causes the lining of the sinuses to swell up.</p><p>This stops mucus draining into your nose and throat properly, making you feel blocked up.</p>
+              </div>
+          </details>
+          <div class="nhsuk-u-padding-bottom-4"></div>
+        </section>
+
+        <section>
+          <h2>How you can treat sinusitis yourself</h2>
+          <p>You can often treat mild sinusitis without seeing a GP by:</p>
+          <ul>
+            <li>getting plenty of rest</li>
+            <li>drinking plenty of fluids</li>
+            <li>taking painkillers, such as <a href="javascript:void(0)">paracetamol</a> or <a href="javascript:void(0)">ibuptofen</a> (do not give aspirin to children under 16)</li>
+            <li>avoiding allergic triggers and not smoking</li>
+            <li>cleaning your nose with a salt water solution to ease congestion</li>
+          </ul>
+          <details class="nhsuk-details" nhsuk-polyfilled="true" id="nhsuk-details1">
+            <summary class="nhsuk-details__summary" role="button" aria-controls="nhsuk-details__text1" tabindex="0" aria-expanded="false">
+              <span class="nhsuk-details__summary-text">
+              How to clean your nose with a salt water solution
+              </span>
+            </summary>
+            <div class="nhsuk-details__text" id="nhsuk-details__text1" aria-hidden="true">
+              <ol><li>Boil a pint of water, then leave it to cool.</li><li>Mix 1 teaspoon of salt and 1 teaspoon of bicarbonate of soda into the water.</li><li>Wash your hands.</li><li>Stand over a sink, cup the palm of 1 hand and pour a small amount of the solution into it.</li><li>Sniff the water into 1 nostril at a time.</li><li>Repeat these steps until your nose feels more comfortable.</li></ol><p>You do not need to use all of the solution, but use a fresh 1 each day.</p>
+            </div>
+          </details>
+          <div class="nhsuk-u-padding-bottom-4"></div>
+        </section>
+
+        <section>
+          <h2>A pharmacist can help with sinusitis</h2>
+          <p>A pharmacist can advise you about medicines that can help, such as:</p>
+          <ul>
+            <li><a href="javascript:void(0)">decongestant nasal sprays or drops</a> to unblock your nose (decongestants should not be taken by children under 6)</li>
+            <li>salt water nasal sprays or solutions to rinse out the inside of your nose</li>
+          </ul>
+          <p>You can buy nasal sprays without a prescription, but they should not be used for more than 1 week.</p>
+          <div class="nhsuk-action-link">
+            <a class="nhsuk-action-link__link" href="https://www.nhs.uk/service-search/find-a-pharmacy/">
+              <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+              </svg>
+              <span class="nhsuk-action-link__text">Find a pharmacy</span>
+            </a>
+          </div>
+          <div class="nhsuk-u-padding-bottom-4"></div>
+        </section>
+
+        <section>
+          <a id="when-to-get-medical-help"></a>
+          <div class="nhsuk-care-card nhsuk-care-card--primary">
+            <div class="nhsuk-care-card__heading-container">
+              <h3 class="nhsuk-care-card__heading">
+                <span role="text">
+                <span class="nhsuk-u-visually-hidden">Non-urgent advice:  </span>See a GP if:</span>
+              </h3>
+              <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
+            </div>
+          <div class="nhsuk-care-card__content">
+          <ul>
+            <li>your symptoms are severe</li>
+            <li>painkillers do not help or your symptoms get worse</li>
+            <li>your symptoms do not improve after 1 week</li>
+            <li>you keep getting sinusitis</li>
+          </ul>
+            <div class="nhsuk-inset-text">
+              <span class="nhsuk-u-visually-hidden">Information: </span>
+              <h3>Coronavirus update: how to contact a GP</h3>
+              <p>It's still important to get help from a GP if you need it. To contact your GP surgery:</p>
+              <ul>
+                <li>visit their website</li>
+                <li>use the <a href="/using-the-nhs/nhs-services/the-nhs-app/">NHS App</a></li>
+                <li>call them</li>
+              </ul>
+              <p><a href="/conditions/coronavirus-covid-19/staying-at-home-to-avoid-getting-coronavirus/how-to-get-medical-help-from-home/">Find out how to get medical help from home</a>.</p>
+            </div>
+          </div>
+       </div>   
+      </section>
+
+      <section>
+        <h2>Treatment for sinusitis from a GP</h2>
+        <p>If you have sinusitis, a GP may be able to recommend other medicines to help with your symptoms, such as:</p>
+        <ul>
+          <li><a href="javascript:void(0)">steroid nasal sprays or drops</a> - to reduce the swelling in your sinuses</li>
+          <li><a href="javascript:void(0)">antihistamines</a> - if an allergy is causing your symptoms</li>
+          <li>antibiotics – if a bacterial infection is causing your symptoms and you're very unwell or at risk of complications (but antibiotics are often not needed, as sinusitis is usually caused by a virus)</li>
+        </ul>
+        <p>You might need to take steroid nasal sprays or drops for a few months. They sometimes cause irritation, sore throats or nosebleeds.</p>
+        <p>A GP may refer you to an ear, nose and throat (ENT) specialist if, for example, you:</p>
+        <ul>
+          <li>still have sinusitis after 3 months of treatment</li>
+          <li>keep getting sinusitis</li>
+          <li>only have symptoms on 1 side of your face</li>
+        </ul>
+        <p>They may also recommend surgery in some cases.</p>
+      </section>
+
+      <section>
+        <h2>Surgery for sinusitis</h2>
+        <p>Surgery to treat chronic sinusitis is called functional endoscopic sinus surgery (FESS).</p>
+        <p>Fess is carried out under <a href="javascript:void(0)">general anaesthetic</a> (where you're asleep).</p>
+        <p>The surgeon can widen your sinuses by either:</p>
+        <ul>
+          <li>removing some of the blocked tissue</li>
+          <li>inflating a tiny balloon in the blocked sinuses, then removing it</li>
+        </ul>
+        <p>You should be able to have FESS wihtin 18 weeks of your GP appointment.</p>
+        <p>The ENT UK website has more <a href="javascript:void(0)">information about FESS (PDF, 506kb)</a></p>
+      </section>
+
+      <section>
+      <div class="nhsuk-review-date">
+        <p class="nhsuk-body-s">
+          Page last reviewed: 19 December 2017<br>
+          Next review due: 19 December 2020
+        </p>
+      </div>
+    </section>
+
+
+
+
+      </div>
+    </div>
+  {% endblock %}
+
+
+
+
+

@@ -1,0 +1,277 @@
+{% set PROTOTYPEURL = "app/symptoms/a-to-z" %}
+{% set serviceName = "NHS App" %}
+{% set symptomsActive = "active" %}
+{% set contentTitle = "Conjunctivitis" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script>
+$('#azFrame').on("load", function () {
+    console.log('iframe loaded completely'); //replace with code to hide loader
+    $( ".container--loader" ).hide();
+});
+</script>
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+
+
+<!-- Breadcrumb goes inside this block -->
+
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "/" + PROTOTYPEURL,
+      text: "Home"
+    }
+  ],
+  href: "/" + PROTOTYPEURL + "/",
+  text: "Check your symptoms"
+}) }}
+{% endblock %}
+
+
+{% block content %}
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <h1 class="nhsuk-heading-xl">
+          {{ contentTitle }}
+        </h1>
+        
+        <section>
+        <strong>Conjunctivitis is an eye condition caused by infection or allergies. It usually gets better in a couple of weeks without treatment.</strong>
+        <div class="nhsuk-u-padding-bottom-6"></div>
+        </section>
+
+        <section>
+          <h2>Check if you have conjunctivitis</h2>
+          <p>Conjunctivitis is also known as red or pink eye.</p>
+          <p>It usually affects both eyes and makes them:</p>
+          <ul>
+            <li>bloodshot</li>
+            <li>burn or feel gritty</li>
+            <li>produce pus that sticks to lashes</li>
+            <li>itch</li>
+            <li>water</li>
+          </ul>
+          <figure class="nhsuk-image">
+            <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/C0284481-Bacterial_conjunctivitis-SPL_copy.width-320.jpg" sizes="
+                (min-width: 1020px) 320px
+                (min-width: 768px) 50vw
+                100vw
+              " srcset="
+                https://assets.nhs.uk/prod/images/C0284481-Bacterial_conjunctivitis-SPL_copy.width-320.jpg 320w,
+                https://assets.nhs.uk/prod/images/C0284481-Bacterial_conjunctivitis-SPL_copy.width-510.jpg 510w,
+                https://assets.nhs.uk/prod/images/C0284481-Bacterial_conjunctivitis-SPL_copy.width-640.jpg 640w,
+                https://assets.nhs.uk/prod/images/C0284481-Bacterial_conjunctivitis-SPL_copy.width-767.jpg 767w,
+                https://assets.nhs.uk/prod/images/C0284481-Bacterial_conjunctivitis-SPL_copy.width-1019.jpg 1019w,
+                https://assets.nhs.uk/prod/images/C0284481-Bacterial_conjunctivitis-SPL_copy.width-1125.jpg 1125w,
+                https://assets.nhs.uk/prod/images/C0284481-Bacterial_conjunctivitis-SPL_copy.width-1534.jpg 1534w,
+              " alt="A sticky eye producing pus">
+            
+            <figcaption class="nhsuk-image__caption">
+              Conjunctivitis that produces sticky pus is contagious.
+            </figcaption>
+            
+          </figure>
+
+          <figure class="nhsuk-image">
+            <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/C0269241-Viral_conjunctivitis-SPL.width-320.jpg" sizes="
+                (min-width: 1020px) 320px
+                (min-width: 768px) 50vw
+                100vw
+              " srcset="
+                https://assets.nhs.uk/prod/images/C0269241-Viral_conjunctivitis-SPL.width-320.jpg 320w,
+                https://assets.nhs.uk/prod/images/C0269241-Viral_conjunctivitis-SPL.width-510.jpg 510w,
+                https://assets.nhs.uk/prod/images/C0269241-Viral_conjunctivitis-SPL.width-640.jpg 640w,
+                https://assets.nhs.uk/prod/images/C0269241-Viral_conjunctivitis-SPL.width-767.jpg 767w,
+                https://assets.nhs.uk/prod/images/C0269241-Viral_conjunctivitis-SPL.width-1019.jpg 1019w,
+                https://assets.nhs.uk/prod/images/C0269241-Viral_conjunctivitis-SPL.width-1125.jpg 1125w,
+                https://assets.nhs.uk/prod/images/C0269241-Viral_conjunctivitis-SPL.width-1534.jpg 1534w,
+              " alt="A red and gritty eye caused by conjunctivitis">
+            
+            <figcaption class="nhsuk-image__caption">
+              If eyes are red and feel gritty, the conjunctivitis is also usually contagious.
+            </figcaption>
+          </figure>
+
+          <figure class="nhsuk-image">
+            <img class="nhsuk-image__img" src="https://assets.nhs.uk/prod/images/C0230722-Allergic_conjunctivitis-SPL.width-320.jpg" sizes="
+                (min-width: 1020px) 320px
+                (min-width: 768px) 50vw
+                100vw
+              " srcset="
+                https://assets.nhs.uk/prod/images/C0230722-Allergic_conjunctivitis-SPL.width-320.jpg 320w,
+                https://assets.nhs.uk/prod/images/C0230722-Allergic_conjunctivitis-SPL.width-510.jpg 510w,
+                https://assets.nhs.uk/prod/images/C0230722-Allergic_conjunctivitis-SPL.width-640.jpg 640w,
+                https://assets.nhs.uk/prod/images/C0230722-Allergic_conjunctivitis-SPL.width-767.jpg 767w,
+                https://assets.nhs.uk/prod/images/C0230722-Allergic_conjunctivitis-SPL.width-1019.jpg 1019w,
+                https://assets.nhs.uk/prod/images/C0230722-Allergic_conjunctivitis-SPL.width-1125.jpg 1125w,
+                https://assets.nhs.uk/prod/images/C0230722-Allergic_conjunctivitis-SPL.width-1534.jpg 1534w,
+              " alt="A red and watery eye caused by conjunctivitis">
+            
+            <figcaption class="nhsuk-image__caption">
+              Conjunctivitis caused by allergies like hay fever makes eyes red and watery but is not contagious.
+            </figcaption>
+          </figure>
+          <h3>If you're not sure it's conjunctivitis</h3>
+          <p>Other conditions can cause <a href="javascript:void(0)">red eyes</a>.</p>
+          <div class="nhsuk-u-padding-bottom-4"></div>
+        </section>
+
+        <section>
+          <h2>How to treat conjunctivitis</h2>
+          <p>There are things you can do to help ease your symptoms.</p>
+          <p>Use clean cotton wool (1 piece for each eye). Boil water and then let it cool down before you:</p>
+          <ul>
+            <li>gently rub your eyelashes to clean off crusts</li>
+            <li>hold a cold flannel on your eyes for a few minutes to cool them down</li>
+          </ul>
+          <p>Do not wear contact lenses until your eyes are better.</p>
+          <div class="nhsuk-u-padding-bottom-2"></div>
+        </section>
+
+        <section>
+          <h2>Stop infectious conjunctivits from spreading</h2>
+          <div class="nhsuk-do-dont-list">
+            <h3 class="nhsuk-do-dont-list__label">Do</h3>
+            <ul class="nhsuk-list nhsuk-list--tick">
+              <li>
+                <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+                </svg>
+                <p>wash hands regularly with warm soapy water</p>
+              </li>
+              <li>
+                <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+                </svg>
+                <p>wash pillows and face cloths in hot water and detergent</p>
+              </li>
+            </ul>
+          </div>
+          <div class="nhsuk-do-dont-list">
+            <h3 class="nhsuk-do-dont-list__label">Don't</h3>
+            <ul class="nhsuk-list nhsuk-list--cross">
+              <li>
+                <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z"></path>
+                  <path d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z"></path>
+                </svg>
+                <p>do not share towels and pillows</p>
+              </li>
+              <li>
+                <svg class="nhsuk-icon nhsuk-icon__cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M17 18.5c-.4 0-.8-.1-1.1-.4l-10-10c-.6-.6-.6-1.6 0-2.1.6-.6 1.5-.6 2.1 0l10 10c.6.6.6 1.5 0 2.1-.3.3-.6.4-1 .4z"></path>
+                  <path d="M7 18.5c-.4 0-.8-.1-1.1-.4-.6-.6-.6-1.5 0-2.1l10-10c.6-.6 1.5-.6 2.1 0 .6.6.6 1.5 0 2.1l-10 10c-.3.3-.6.4-1 .4z"></path>
+                </svg>
+                <p>do not rub your eyes</p>
+              </li>
+            </ul>
+          </div>
+          <h3>Staying away from work or school</h3>
+          <p>You do not need to avoid work or school unless you or your child are feeling very unwell.</p>
+        </section>
+
+        <section>
+          <h2>A pharmacist can help with conjunctivitis</h2>
+          <p>Speak to a pharmacist about conjunctivits. They can give you advice and suggest eyedrios or antihistamines to help with your symptoms.</p>
+          <p>If you need treatment for a child under 2, you'll need a prescription from a GP.</p>
+          <div class="nhsuk-action-link">
+            <a class="nhsuk-action-link__link" href="https://beta.nhs.uk/find-a-pharmacy/">
+              <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+              </svg>
+              <span class="nhsuk-action-link__text">Find a pharmacy</span>
+            </a>
+          </div>
+        </section>
+
+        <div class="nhsuk-care-card nhsuk-care-card--primary">
+          <div class="nhsuk-care-card__heading-container">
+            <h3 class="nhsuk-care-card__heading">
+              <span role="text">
+                <span class="nhsuk-u-visually-hidden">Non-urgent advice:  </span>See a GP if:
+              </span>
+            </h3>
+            <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
+          </div>
+          <div class="nhsuk-care-card__content">
+            <ul>
+              <li>your baby has red eyes – <b>get an urgent appointment if your baby is less than 28 days old</b></li>
+              <li>you wear contact lenses and have conjunctivitis symptoms as well as spots on your eyelids – you might be allergic to the lenses</li>
+              <li>your symptoms have not cleared up after 2 weeks</li>
+            </ul>
+            <div class="nhsuk-inset-text">
+              <span class="nhsuk-u-visually-hidden">Information: </span>
+               <h3>Coronavirus update: how to contact a GP</h3><p>It's still important to get help from a GP if you need it. To contact your GP surgery:</p><ul><li>visit their website</li><li>use the <a href="/using-the-nhs/nhs-services/the-nhs-app/">NHS App</a></li><li>call them</li></ul><p><a href="/conditions/coronavirus-covid-19/staying-at-home-to-avoid-getting-coronavirus/how-to-get-medical-help-from-home/">Find out how to get medical help from home</a>.</p>
+            </div>
+          </div>
+        </div>
+        <div class="nhsuk-care-card nhsuk-care-card--urgent">
+          <div class="nhsuk-care-card__heading-container">
+            <h3 class="nhsuk-care-card__heading">
+              <span role="text">
+                <span class="nhsuk-u-visually-hidden">Urgent advice: </span>Get advice from 111 now if you have:
+              </span>
+            </h3>
+            <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
+          </div>
+          <div class="nhsuk-care-card__content">
+            <ul>
+              <li>pain in your eyes</li>
+              <li>sensitivity to light</li>
+              <li>changes in your vision, like wavy lines or flashing</li>
+              <li>intense redness in 1 eye or both eyes</li>
+              <li>a baby less than 28 days old with red eyes</li>
+            </ul>
+            <p>These can be signs of a more serious eye problem.</p>
+            <p>111 will tell you what to do. They can arrange a phone call from a nurse or doctor if you need one.</p>
+            <p>Go to <a href="https://111.nhs.uk/?utm_source=nhsuk&amp;utm_campaign=conditions&amp;utm_content=conjunctivitis">111.nhs.uk</a> or <a href="tel:111">call 111</a>.</p>
+            
+              
+        <details class="nhsuk-details" nhsuk-polyfilled="true" id="nhsuk-details0">
+          <summary class="nhsuk-details__summary" role="button" aria-controls="nhsuk-details__text0" tabindex="0" aria-expanded="false">
+            <span class="nhsuk-details__summary-text">
+            Other ways to get help
+            </span>
+          </summary>
+          <div class="nhsuk-details__text" id="nhsuk-details__text0" aria-hidden="true">
+            <p><b>Get an urgent GP appointment</b></p><p>A GP may be able to help you.</p><p>Ask your GP practice for an urgent appointment.</p>
+          </div>
+        </details>
+        </div>
+        </div>
+
+
+        <section>
+          <h2>Treatment for a GP</h2>
+          <p>Treatment will depend on the cause of your conjunctivitis.</p>
+          <p>If it's a bacterial infection you might be prescribed antibiotics. But these will not work if it's caused by a virus (viral conjunctivitis) or an allergy.</p>
+          <p>Some sexually transmitted infections (STIs) can cause conjunctivitis. This type takes longer to clear up.</p>
+        </section>
+
+      <section>
+      <div class="nhsuk-review-date">
+        <p class="nhsuk-body-s">
+          Page last reviewed: 9 January 2018<br>
+          Next review due: 9 January 2021
+        </p>
+      </div>
+      </section>
+
+
+
+
+      </div>
+    </div>
+  {% endblock %}
+
+
+
+
+
