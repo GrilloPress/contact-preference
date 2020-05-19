@@ -19,6 +19,18 @@ var moment = require('moment');
 /////////////////////////////////////////////////////////////////////////////////////
 
 
+////// INCLUDE OTHER ROUTES FILES FROM THE ROUTES FOLDER
+
+router.use('/', require('./routes/appointments.js'))
+router.use('/', require('./routes/consultations.js'))
+router.use('/', require('./routes/contact-preferences.js'))
+router.use('/', require('./routes/messaging.js'))
+router.use('/', require('./routes/prescriptions.js'))
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+
+
 // proxy
 
 router.post('/app/linked-profiles/switch-profile', function (req, res) {

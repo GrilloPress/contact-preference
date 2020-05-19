@@ -21,10 +21,10 @@ const config = require('./app/config');
 const locals = require('./app/locals');
 const routes = require('./app/routes');
 const consultationRoutes = require('./app/routes/consultations');
-const contactPreferenceRoutes = require('./app/routes/contact-preferences');
-const messagingRoutes = require('./app/routes/messaging');
-const appointmentsRoutes = require('./app/routes/appointments');
-const prescriptionsRoutes = require('./app/routes/prescriptions');
+// const contactPreferenceRoutes = require('./app/routes/contact-preferences');
+// const messagingRoutes = require('./app/routes/messaging');
+// const appointmentsRoutes = require('./app/routes/appointments');
+// const prescriptionsRoutes = require('./app/routes/prescriptions');
 const documentationRoutes = require('./docs/documentation_routes');
 const utils = require('./lib/utils.js')
 
@@ -190,11 +190,11 @@ if(onlyDocumentation == 'true') {
 
 // Use custom application routes
 app.use('/', routes);
-app.use('/', contactPreferenceRoutes);
-app.use('/', consultationRoutes);
-app.use('/', messagingRoutes);
-app.use('/', appointmentsRoutes);
-app.use('/', prescriptionsRoutes);
+// app.use('/', contactPreferenceRoutes);
+// app.use('/', consultationRoutes);
+// app.use('/', messagingRoutes);
+// app.use('/', appointmentsRoutes);
+// app.use('/', prescriptionsRoutes);
 
 // Automatically route pages
 app.get(/^([^.]+)$/, function (req, res, next) {
