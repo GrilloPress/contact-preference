@@ -4,6 +4,15 @@
 {% set contentTitle = "Messages from " + sender %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
+<script type="text/javascript">
+
+
+$( document ).ready(function() {
+    jQuery.post( "/app/password", { messageReadPKB: "read" } );
+  });
+
+
+</script>
 {% endblock %}
 
 
@@ -37,7 +46,8 @@
       </h1>
       <div class="nhs-app-chat">
         <ul class="nhs-app-chat__thread">
-          {% if data[read] !== "read"  %}
+          {% if data['messageReadPKB'] === "read" %}
+          {% else %}
           <div class="nhs-app-chat__read-indicator" id="unread">
             <span class="nhs-app-chat__read-indicator-container">Unread message</span>
           </div>
@@ -50,8 +60,10 @@
             <div class="nhs-app-chat__container">
               <h2 class="nhs-app-chat__header">You can now use Patients Know Best in the NHS App</h2>
               <p class="nhs-app-chat__body">With Patients Know Best you can:</p>
-                <p>• view your hospital and other healthcare appointments</p>
-                <p>• view useful links your doctor or health professional has shared with you</p>
+                <ul>
+                  <li>view your hospital and other healthcare appointments</li>
+                  <li>view useful links your doctor or health professional has shared with you</li>
+                </ul>
             </div>
             <div class="nhs-app-chat__date">
               Sent today at 11.53am
