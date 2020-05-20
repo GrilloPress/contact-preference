@@ -27,7 +27,7 @@
 
 
 {% set routeAppointments %}
-  {{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v9-doctorlink" }}
+  {{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v9-doctorlink/pre-hub" }}
 {% endset %}
 
 {% set routeRecords %}
@@ -39,7 +39,7 @@
 {% endset %}
 
 {% set routeMore %}
-  {{ data["routeMore"] if data ["routeMore"] else "/app/more/v9_DL/" }}
+  {{ data["routeMore"] if data ["routeMore"] else "/app/more/v10/" }}
 {% endset %}
 
 {% set routeSettings %}
