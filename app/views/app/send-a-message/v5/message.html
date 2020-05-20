@@ -155,19 +155,10 @@ $( document ).ready(function() {
 
         {% if data['id'] == "2" %}
 
-        <ul class="list-menu">
-
-          {% if data['messagingReply'] === "body" %}
+        <ul id="togglePanelLink" class="list-menu">
           <li>
             <a href="javascript:void(0)" onclick="toggleMessageContainer()">Reply</a>
           </li>
-
-          {% else  %}
-          <li>
-            <a href="/{{ PROTOTYPEURL }}/reply/index">Reply</a>
-          </li>
-          {% endif %}
-
         </ul>
 
         <div class="nhs-app-message-reply__container" id="replyContainer" style="display: none;">
@@ -241,21 +232,14 @@ $( document ).ready(function() {
 
         <ul id="togglePanelLink" class="list-menu">
 
-          {% if data['messagingReply'] === "body" %}
-          <li>
-            <a href="javascript:void(0)" onclick="toggleMessageContainer()">Reply</a>
-          </li>
-
-          {% else  %}
-          <li>
-            <a href="/{{ PROTOTYPEURL }}/reply/index">Reply</a>
-          </li>
-          {% endif %}
+            <li>
+              <a href="javascript:void(0)" onclick="toggleMessageContainer()">Reply</a>
+            </li>
 
         </ul>
 
         <div class="nhs-app-message-reply__container" id="replyContainer" style="display: none;">
-          <form class="" action="/{{ PROTOTYPEURL }}/message-with-additional-reply" method="post">
+          <form class="" action="/{{ PROTOTYPEURL }}/message-with-additional-reply#newMessage" method="post">
             {% call fieldset({
               "legend": {
                 "text": "Your reply",
