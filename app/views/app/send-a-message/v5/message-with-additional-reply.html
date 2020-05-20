@@ -22,6 +22,7 @@ $( document ).ready(function() {
 
   function toggleMessageContainer(){
     jQuery('#replyContainer').toggle(); //make chat thing visible
+    jQuery('#togglePanelLink').toggle(); //hide button
     jQuery('#replyButton').toggle(); //hide button
     //scroll to reply container
     jumpTo('replyContainer', 120);
@@ -123,12 +124,15 @@ $( document ).ready(function() {
               <p class="nhs-app-chat__body nhsuk-u-margin-bottom-2">
                 {{ data['body'] | nl2br | safe}}
               </p>
-              <p class="nhs-app-chat__body nhs-app-chat__header nhsuk-body-s nhs-app-secondary-text">Attachment</p>
-              <p class="nhs-app-chat__body nhs-app-chat__header">
-                <div></div>
-                <a class="nhs-app-chat__document-action" href="/{{ PROTOTYPEURL }}/download/view">View</a>
-                <a class="nhs-app-chat__document-action" href="/{{ PROTOTYPEURL }}/download/index">Download</a>
-              </p>
+              <div style="display:none">
+                <p class="nhs-app-chat__body nhs-app-chat__header nhsuk-body-s nhs-app-secondary-text">Attachment</p>
+                <p class="nhs-app-chat__body nhs-app-chat__header">
+                  <div></div>
+                  <a class="nhs-app-chat__document-action" href="/{{ PROTOTYPEURL }}/download/view">View</a>
+                  <a class="nhs-app-chat__document-action" href="/{{ PROTOTYPEURL }}/download/index">Download</a>
+                </p>
+              </div>
+
             </div>
             <div class="nhsuk-u-clear">
             </div>
@@ -165,27 +169,12 @@ $( document ).ready(function() {
         {% if data['id'] == "2" %}
         {% else %}
 
-        <ul class="list-menu nhsuk-u-margin-bottom-0" id="replyButton">
-          <li class="no-chevron no-chevron--subtle">
-            <div class="list-menu_container list-menu_container--subtle">
-              <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">You cannot reply to this message</h2>
-              <p>To discuss this message further, send a new message or phone your GP surgery</p>
-            </div>
-          </li>
-        </ul>
+        <ul id="togglePanelLink" class="list-menu">
 
-        <ul class="list-menu">
           <li>
-            <a href="#">Send a new message</a>
-          </li>
-
-          <li style="display:none;">
             <a href="javascript:void(0)" onclick="toggleMessageContainer()">Reply</a>
           </li>
 
-          <li style="display:none;">
-            <a href="delete?conversation=true">Delete conversation</a>
-          </li>
         </ul>
 
         <div class="nhs-app-message-reply__container" id="replyContainer" style="display: none;">
@@ -208,7 +197,7 @@ $( document ).ready(function() {
                 "id": "msgBody2",
                 "classes": "nhsuk-u-margin-bottom-0",
                 "hint": {
-                    "html": '<div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1"></div>'
+                    "html": 'Text must be shorter than 450 characters (about 75 words)'
                   },
                 "label": {
                   "text": "Message",
@@ -218,41 +207,11 @@ $( document ).ready(function() {
               }) }}
             </div>
 
-            {% if data['fileAdded'] %}
-            {{ summaryList({
-              classes: 'nhsuk-summary-list--no-border',
-              rows: [
-                {
-                  key: {
-                    text: "File details"
-                  },
-                  value: {
-                    text: "File name - 2MB",
-                    classes: "nhsuk-u-margin-bottom-2"
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Remove",
-                        visuallyHiddenText: "file"
-                      }
-                    ]
-                  }
-                }
-              ]
-            }) }}
-
-            {% else %}
-            <div class="nhsuk-form-group">
-              <label class="nhsuk-label nhsuk-label--s nhsuk-u-margin-bottom-2" for="attachment">Upload file (optional)</label>
-              <button onclick="window.location='/{{ PROTOTYPEURL }}/file/add-file'" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-2" type="button" name="attachment">Add file</button>
-            </div>
-            {% endif %}
-
             {% endcall %}
             <input class="nhsuk-button" type="submit" value="Send reply">
           </form>
+
+          <p><a href="javascript:void(0)" onclick="toggleMessageContainer()">Cancel</a></p>
         </div>
 
         {% endif %}

@@ -22,6 +22,7 @@ $( document ).ready(function() {
 
   function toggleMessageContainer(){
     jQuery('#replyContainer').toggle(); //make chat thing visible
+    jQuery('#togglePanelLink').toggle(); //hide button
     jQuery('#replyButton').toggle(); //hide button
     //scroll to reply container
     jumpTo('replyContainer', 120);
@@ -238,7 +239,7 @@ $( document ).ready(function() {
 
         {% else %}
 
-        <ul class="list-menu">
+        <ul id="togglePanelLink" class="list-menu">
 
           {% if data['messagingReply'] === "body" %}
           <li>
@@ -286,6 +287,8 @@ $( document ).ready(function() {
             {% endcall %}
             <input class="nhsuk-button" type="submit" value="Send reply">
           </form>
+
+          <p><a href="javascript:void(0)" onclick="toggleMessageContainer()">Cancel</a></p>
         </div>
 
         {% endif %}
