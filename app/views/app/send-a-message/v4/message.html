@@ -6,8 +6,8 @@
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 <script type="text/javascript">
-$( document ).ready(function() {
-  jQuery.post( "/app/password", { messageRead{{data['id']}}: "read" } );
+  $( document ).ready(function() {
+    jQuery.post( "/app/password", { messageRead{{data['id']}}: "read" } );
   });
 
   jQuery('#replyButton').submit(
