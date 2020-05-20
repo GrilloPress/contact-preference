@@ -34,6 +34,11 @@
   float: right;
   position: absolute;
   right: 42px;
+
+  &.panel-link {
+    bottom: 38%;
+  }
+
 }
 
 .nhs-app-message__subject-line {
