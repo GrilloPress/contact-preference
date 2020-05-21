@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/records/v3" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
-{% set contentTitle = "Health records" %}
+{% set contentTitle = "Track your health" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -15,8 +15,7 @@
 {% endblock %}
 
 <!-- Breadcrumb goes inside this block -->
-{% block beforeContent %}
-{% endblock %}
+
 
 {% block content %}
   <div class="nhsuk-grid-row">
@@ -26,27 +25,29 @@
       </h1>
 
       <ul class="list-menu">
+      {% if data['SJR_PKB'] === 'True' %}
         <li>
           <a href="#">
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">GP health record</h2>
-            <p>View your GP health record</p>
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Symptoms</h2>
+            <p>Record your symptoms and check your symptom history</p>
           </a>
         </li>
-
-        {% if data['SJR_PKB'] === 'True' %}
-        <li>
-          <a href="/app/PKB/terms-care-plan">
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Care plans</h2>
-            <p>View your personalised care plans</p>
-          </a>
-        </li>
-        {% endif %}
+      {% endif %}
 
       {% if data['SJR_PKB'] === 'True' %}
         <li>
-          <a href="/{{ PROTOTYPEURL }}/track-your-health">
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Track your health</h2>
-            <p>Record symptoms and add to your health journal</p>
+          <a href="#">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Measurements</h2>
+            <p>Add your body and activity measurements</p>
+          </a>
+        </li>
+      {% endif %}
+
+      {% if data['SJR_PKB'] === 'True' %}
+        <li>
+          <a href="#">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Journal</h2>
+            <p>Record how you are feeling today</p>
           </a>
         </li>
       {% endif %}
