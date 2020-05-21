@@ -144,11 +144,11 @@
 
 
           <li class="no-chevron no-chevron--subtle">
-                      <div class="list-menu_container">
+                      <div class="list-menu-container_prescriptions">
                         <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
                                     Metformin 500mg tablets
                                 </h2>
-                                <p class="nhsuk-body-s">One to be taken 4 times a day with food - 112 tablet Last Issued: {{ 20 | returnPastDate }} Cannot order medication until the current request has been processed Last requested {{ "today" | returnDate }}, status Undetermined</p>
+                                <p class="nhsuk-body-s nhsuk-u-padding-bottom-0">One to be taken 4 times a day with food - 112 tablet Last Issued: {{ 20 | returnPastDate }} Cannot order medication until the current request has been processed Last requested {{ "today" | returnDate }}, status Undetermined</p>
                               </div>
                               </li>
 
@@ -163,11 +163,11 @@
 
 
                   <li class="no-chevron no-chevron--subtle">
-                              <div class="list-menu_container">
+                              <div class="list-menu-container_prescriptions">
                                 <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
                       Alogliptin 25mg tablets
                     </h2>
-                      <p class="nhsuk-body-s">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Cannot order medication until the current request has been processed Last requested {{ "today" | returnDate }}, status Undetermined</p>
+                      <p class="nhsuk-body-s nhsuk-u-padding-bottom-0">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Cannot order medication until the current request has been processed Last requested {{ "today" | returnDate }}, status Undetermined</p>
                     </div>
                   </li>
 
@@ -182,11 +182,11 @@
 
 
                   <li class="no-chevron no-chevron--subtle">
-                              <div class="list-menu_container">
+                              <div class="list-menu-container_prescriptions">
                                 <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
                                         Omeprazole 40mg gastro-resistant capsules
                                       </h2>
-                                      <p class="nhsuk-body-s">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Cannot order medication until the current request has been processed Last requested {{ "today" | returnDate }}, status Undetermined</p>
+                                      <p class="nhsuk-body-s nhsuk-u-padding-bottom-0">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Cannot order medication until the current request has been processed Last requested {{ "today" | returnDate }}, status Undetermined</p>
                                     </div>
                                     </li>
 
@@ -205,21 +205,21 @@
                     {% if 'omeprazole' in data['choosePrescription'] %}
                     {% else %}
                   <li class="no-chevron no-chevron--subtle">
-                              <div class="list-menu_container">
+                              <div class="list-menu-container_prescriptions">
                                 <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
                                   Omeprazole 40mg gastro-resistant capsules
                                 </h2>
-                                <p class="nhsuk-body-s">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
+                                <p class="nhsuk-body-s nhsuk-u-padding-bottom-0">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
                               </div>
                             </li>
                             {% endif %}
                             {% else %}
                             <li class="no-chevron no-chevron--subtle">
-                                        <div class="list-menu_container">
+                                        <div class="list-menu-container_prescriptions">
                                           <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
                                             Omeprazole 40mg gastro-resistant capsules
                                           </h2>
-                                          <p class="nhsuk-body-s">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
+                                          <p class="nhsuk-body-s nhsuk-u-padding-bottom-0">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
                                         </div>
                                       </li>
                                       {% endif %}
@@ -230,21 +230,21 @@
                               {% if 'metformin' in data['choosePrescription'] %}
                               {% else %}
                               <li class="no-chevron no-chevron--subtle">
-                                          <div class="list-menu_container">
+                                          <div class="list-menu-container_prescriptions">
                                             <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
                                               Metformin 500mg tablets
                                             </h2>
-                                            <p class="nhsuk-body-s">One to be taken 4 times a day with food - 112 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
+                                            <p class="nhsuk-body-s nhsuk-u-padding-bottom-0">One to be taken 4 times a day with food - 112 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
                                           </div>
                                         </li>
                                       {% endif %}
                                       {% else %}
                                       <li class="no-chevron no-chevron--subtle">
-                                                  <div class="list-menu_container">
+                                                  <div class="list-menu-container_prescriptions">
                                                     <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
                                                       Metformin 500mg tablets
                                                     </h2>
-                                                    <p class="nhsuk-body-s">One to be taken 4 times a day with food - 112 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
+                                                    <p class="nhsuk-body-s nhsuk-u-padding-bottom-0">One to be taken 4 times a day with food - 112 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
                                                   </div>
                                                 </li>
                                       {% endif %}
@@ -256,21 +256,21 @@
                                         {% if 'alogliptin' in data['choosePrescription'] %}
                                         {% else %}
                                       <li class="no-chevron no-chevron--subtle">
-                                                  <div class="list-menu_container">
+                                                  <div class="list-menu-container_prescriptions">
                                                     <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
                                                       Alogliptin 25mg tablets
                                                     </h2>
-                                                    <p class="nhsuk-body-s">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
+                                                    <p class="nhsuk-body-s nhsuk-u-padding-bottom-0">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
                                                   </div>
                                                 </li>
                                                 {% endif %}
                                                 {% else %}
                                                 <li class="no-chevron no-chevron--subtle">
-                                                      <div class="list-menu_container">
+                                                      <div class="list-menu-container_prescriptions">
                                                         <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">
                                                           Alogliptin 25mg tablets
                                                         </h2>
-                                                        <p class="nhsuk-body-s">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
+                                                        <p class="nhsuk-body-s nhsuk-u-padding-bottom-0">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
                                                       </div>
                                                     </li>
                                                   {% endif %}
