@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Log in using your fingerprint" %}
+{% set contentTitle = "You can set up Face ID anytime in your settings" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -38,17 +38,15 @@
           <div class="app-card__content">
             <h1 class="app-card__heading nhsuk-heading-xl nhsuk-u-margin-bottom-4">{{ contentTitle }}</h1>
 
-            <p>You can log in to the NHS App using your fingerprint instead of using a password and security code.</p>
 
-            <form action="/{{ PROTOTYPEURL }}/settings/v3/password" method="post">
+            <form action="/{{ PROTOTYPEURL }}/v6/?messagingIcon=False" method="post">
 
 
-              <input type="submit" class="nhsuk-button" value="Use your fingerprint">
+              <input type="submit" class="nhsuk-button" value="Continue">
               </input>
 
             </form>
 
-            <p><a href="/{{ PROTOTYPEURL }}/homepage/biometric-sub-message">Not now</a></p>
           </div>
         </div>
       </div>

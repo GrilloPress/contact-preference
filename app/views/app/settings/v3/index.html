@@ -6,6 +6,22 @@
 {% endblock %}
 
 
+
+
+{% set loginType %}
+{% if data["type"] == "fingerprint" %}
+  Fingerprint
+{% elif data["type"] == "touch" %}
+  Touch ID
+{% elif data["type"] == "face" %}
+  Face ID
+{% else %}
+  Login options
+{% endif %}
+{% endset %}
+
+
+
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
 
@@ -24,7 +40,7 @@
       <h1 class="nhsuk-heading-xl nhs-app-xl">Settings</h1>
       <ul class="list-menu">
       	<li>
-      		<a href="/{{ PROTOTYPEURL }}/password">Fingerprint or face recognition</a>
+      		<a href="/{{ PROTOTYPEURL }}/password">{{ loginType }}</a>
       	</li>
       	<li>
       		<a href="/{{ PROTOTYPEURL }}/notifications">Notifications</a>

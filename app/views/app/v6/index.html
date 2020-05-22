@@ -51,20 +51,35 @@
     </div>
 
     <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-2">{{ contentTitle }}</h1>
-    <div class="">
-      <p class="nhsuk-u-margin-bottom-0">
-        <strong>Name:</strong>
-        Mr Bernard Doyle
-      </p>
-      <p class="nhsuk-u-margin-bottom-0">
-        <strong>Date of birth:</strong>
-        20 January 1982
-      </p>
-      <p class="nhsuk-u-margin-bottom-4">
-        <strong>NHS number:</strong>
-        123 456 7890
-      </p>
-    </div>
+    {{ summaryList({
+      classes: 'nhsuk-summary-list--no-border nhs-app-summary-list-inline',
+      rows: [
+        {
+          key: {
+            text: "Name:"
+          },
+          value: {
+            text: "Mr Bernard Doyle"
+          }
+        },
+        {
+          key: {
+            text: "Date of birth:"
+          },
+          value: {
+            text: "20 January 1982"
+          }
+        },
+        {
+          key: {
+            text: "NHS number:"
+          },
+          value: {
+            text: "123 456 7890"
+          }
+        }
+      ]
+    }) }}
 
       {% if data["confirmed"] %}
 
@@ -72,14 +87,14 @@
         <h2 class="nhsuk-heading-m">Your next GP appointment</h2>
       </div>
 
-      <ul class="list-menu">
+      <ul class="list-menu list-menu-gp-appointment">
 
             <li>
               <a href='/app/appointments/v6/view/index?appViewDate={{ data["date"] or "5" | returnDate }}&appViewTime={{ data["time"] or "10.50am" }}&appViewLocation={{ data["location"] or "Gledhow Practice" }}&appViewType={{ data["type"] or "Slot" }}&appViewSession={{ data["sessionName"] or "Session" }}&appViewStaff={{ data["staffName"] or "Dr Sanjit Praneskear (Male)" }}'>
 
                 <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">{{ data["date"] or "5" | returnDate }}</h3>
                 <p class="nhsuk-u-margin-bottom-0 nhsuk-u-padding-bottom-0 nhsuk-u-padding-top-0">{{ data["time"] or "10:50am" }}</p>
-                <p class="nhsuk-u-padding-bottom-0 nhsuk-u-padding-top-0">{{ data['location'] or "Gledhow Practice" }}</p>
+                <p class="nhsuk-u-padding-bottom-2 nhsuk-u-padding-top-0">{{ data['location'] or "Gledhow Practice" }}</p>
 
               </a>
             </li>
