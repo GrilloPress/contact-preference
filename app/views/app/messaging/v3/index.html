@@ -36,15 +36,6 @@
         </li>
         {% endif %}
 
-        {% if data['pkbMessaging'] === "True" %}
-        <li>
-          <a href="#">
-            <h2 class="nhsuk-heading-s">Messages and online consultations</h2>
-            <p>Message your healthcare team, or answer questions online and get a response from a health professional</p>
-          </a>
-        </li>
-        {% endif %}
-
         {% if data['engageMessaging'] === "True" %}
         <li>
           <a href="/app/engage/terms/v1/index" id="btn_111">
@@ -75,6 +66,16 @@
             </p>
           </a>
         </li>
+
+        {% if data['SJR_PKB'] === "True" %}
+        <li>
+          <a href="/app/PKB/terms-messages">
+            <h2 class="nhsuk-heading-s">Messages and online consultations</h2>
+            <p>Message your healthcare team, or answer questions online and get a response from a health professional</p>
+          </a>
+        </li>
+        {% endif %}
+
 
         <li>
           <a href="messages">
