@@ -34,7 +34,7 @@
         </li>
         {% else %}
         <li>
-      		<a href="app/PKB/terms-messages">
+      		<a href="app/engage/messaging/hub-8">
       			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Messages</h2>
       			<p>Send or view messages from your GP surgery and other health services</p>
       		</a>
@@ -50,12 +50,15 @@
         </li>
         {% endif %}
 
+        {% if data['SJR_PKB'] !== 'True' %}
         <li>
       		<a href="/app/engage/admin/v1/terms/">
       			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Additional GP services</h2>
       			<p>Get sick notes and GP letters or ask about recent tests</p>
       		</a>
-      	</li>
+        </li>
+        {% endif %}
+
         <li>
       		<a href="/app/organ-donation/v2/register-decision">
       			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Manage your organ donation decision</h2>
