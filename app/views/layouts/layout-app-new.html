@@ -20,6 +20,11 @@
   <link href="/css/nhsapp.css" rel="stylesheet">
 {% endblock %}
 
+{% set messagesReadUnreadFooter %}
+  {% if data['messageRead1'] !== 'read' %}
+  nhs-app-footer__icon--unread
+  {% endif %}
+{% endset %}
 
 {% set routeHome %}
   {{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}
@@ -154,7 +159,6 @@
             </svg>
           </a>
         </li>
-        {% if data['messagingIcon'] !== "False" %}
         <li class="nhsuk-header__navigation-item">
           <a class="nhsuk-header__navigation-link is-{{ messagingActive }} {{ 'nhs-app-header__icon--unread' if data['messageRead1'] !== 'read' }}" href="{{ routeMessaging }}">
             Messages
@@ -163,13 +167,8 @@
             </svg>
           </a>
         </li>
-        {% endif %}
         <li class="nhsuk-header__navigation-item">
-          {% if data['messagingIcon'] !== "False" %}
             <a class="nhsuk-header__navigation-link" href="{{ routeMore }}">
-          {% else %}
-            <a class="nhsuk-header__navigation-link is-{{ messagingActive }} {{ 'nhs-app-header__icon--unread' if data['messageRead1'] !== 'read' }}" href="{{ routeMore }}">
-          {% endif %}
 
             More
             <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
@@ -183,38 +182,8 @@
 
 </header>
 
-{% if data['messagingIcon'] == "False" %}
-<header class="nhsuk-header nhsuk-header--transactional nhs-app-header--app nhs-app-desktop--hide" role="banner">
-  <div class="nhsuk-width-container">
+{% if data['messagingIcon'] == "True" %}
 
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-one-third nhs-app-u-one-third-mobile" style="padding: 0 0 0 16px !important">
-        <a href="{{ routeHome }}"><img src="/images/Home.svg" alt=""></a>
-
-      </div>
-      <div class="nhsuk-grid-column-one-third nhs-app-u-one-third-mobile" style="padding: 0 8px !important">
-        <div class="nhs-app-logo">
-          <a class="" href="{{ routeHome }}" aria-label="NHS homepage">
-            <svg class="" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 40 16">
-              <path fill="#fff" d="M0 0h40v16H0z"></path>
-              <path fill="#005eb8" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
-              <image src="https://assets.nhs.uk/images/nhs-logo.png" xlink:href=""></image>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="nhsuk-grid-column-one-third nhs-app-u-one-third-mobile" style="padding: 0 16px 0 0 !important">
-        <a class="nhs-app-header__icon nhs-app-header__icon--right" href="{{ routeSettings }}"><img src="/images/settings.svg" alt=""></a>
-
-        <a class="nhs-app-header__icon nhs-app-header__icon--right nhsuk-u-margin-right-3" href="#"><img src="/images/Help.svg" alt=""></a>
-
-      </div>
-    </div>
-  </div>
-</header>
-
-{% else %}
 <header class="nhsuk-header nhsuk-header--transactional nhs-app-header--app nhs-app-desktop--hide" role="banner">
   <div class="nhsuk-width-container">
 
@@ -259,6 +228,39 @@
     </div>
   </div>
 </header>
+
+{% else %}
+
+<header class="nhsuk-header nhsuk-header--transactional nhs-app-header--app nhs-app-desktop--hide" role="banner">
+  <div class="nhsuk-width-container">
+
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-one-third nhs-app-u-one-third-mobile" style="padding: 0 0 0 16px !important">
+        <a href="{{ routeHome }}"><img src="/images/Home.svg" alt=""></a>
+
+      </div>
+      <div class="nhsuk-grid-column-one-third nhs-app-u-one-third-mobile" style="padding: 0 8px !important">
+        <div class="nhs-app-logo">
+          <a class="" href="{{ routeHome }}" aria-label="NHS homepage">
+            <svg class="" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 40 16">
+              <path fill="#fff" d="M0 0h40v16H0z"></path>
+              <path fill="#005eb8" d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"></path>
+              <image src="https://assets.nhs.uk/images/nhs-logo.png" xlink:href=""></image>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="nhsuk-grid-column-one-third nhs-app-u-one-third-mobile" style="padding: 0 16px 0 0 !important">
+        <a class="nhs-app-header__icon nhs-app-header__icon--right" href="{{ routeSettings }}"><img src="/images/settings.svg" alt=""></a>
+
+        <a class="nhs-app-header__icon nhs-app-header__icon--right nhsuk-u-margin-right-3" href="#"><img src="/images/Help.svg" alt=""></a>
+
+      </div>
+    </div>
+  </div>
+</header>
+
 {% endif %}
 
 
@@ -501,7 +503,7 @@
           <b>Health record</b>
           </a>
         </li>
-        <li class="{{ moreActive }}" id="btn_more">
+        <li class="{{ moreActive }} {{ messagesReadUnreadFooter if data['SJR_MessagingMore'] === 'True' }}" id="btn_more">
           <a href="{{ routeMore }}">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110.39 110.39">
               <defs>
