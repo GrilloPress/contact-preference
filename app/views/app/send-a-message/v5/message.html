@@ -55,15 +55,12 @@ $( document ).ready(function() {
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">
-        <span class="nhsuk-caption-m nhsuk-caption--top">
-          {% if data['id'] == 1 %}
-            Conversation with:
-          {% else %}
-            Message to:
-          {% endif %}
-
-         </span>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {% if data['id'] == 1 %}
+          Conversation with
+        {% else %}
+          Message to
+        {% endif %}
         {{ data["from"] }}
       </h1>
 
@@ -172,7 +169,7 @@ $( document ).ready(function() {
             }) %}
 
             {{ hint({
-              "html": '<p>Messaging is for non-urgent advice. </p><p>For advice now, contact your GP surgery, visit <a href="https://111.nhs.uk">111.nhs.uk</a> or call 111</p>'
+              "html": '<p>Messaging is for non-urgent advice. </p><p>If you need urgent advice, contact your GP surgery, go to <a href="https://111.nhs.uk">111.nhs.uk</a> or call 111</p>'
             })}}
 
             <div class="govuk-character-count">
@@ -249,7 +246,7 @@ $( document ).ready(function() {
             }) %}
 
             {{ hint({
-              "html": '<p>Messaging is for non-urgent advice. </p><p>For advice now, contact your GP surgery, visit <a href="https://111.nhs.uk">111.nhs.uk</a> or call 111</p>'
+              "html": '<p>Messaging is for non-urgent advice. </p><p>If you need urgent advice, contact your GP surgery, go to <a href="https://111.nhs.uk">111.nhs.uk</a> or call 111</p>'
             })}}
 
             <div class="govuk-character-count">
