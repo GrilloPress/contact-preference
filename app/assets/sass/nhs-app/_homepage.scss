@@ -1,0 +1,45 @@
+.nhs-app-summary-list-inline {
+
+  margin-bottom: nhsuk-spacing(3);
+
+  @include mq($until: tablet) {
+
+    .nhsuk-summary-list__row {
+      margin-bottom: 0;
+    }
+
+    .nhsuk-summary-list__key {
+
+      display: inline-block;
+      width: 32%;
+    }
+
+    .nhsuk-summary-list__value {
+
+      display: inline-block;
+      margin-bottom: nhsuk-spacing(1);
+      vertical-align: baseline;
+    }
+
+  }
+
+
+  @include mq($from: tablet) {
+
+    .nhsuk-summary-list__key {
+
+      width: 16%;
+    }
+
+    .nhsuk-summary-list__key, .nhsuk-summary-list__value {
+
+      padding-top: 0;
+      padding-bottom: nhsuk-spacing(1);
+
+    }
+
+  }
+
+
+
+}
