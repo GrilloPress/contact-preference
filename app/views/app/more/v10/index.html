@@ -43,15 +43,6 @@
       		</a>
       	</li>
 
-        {% if data['SJR_PKB'] === 'True' %}
-        <li>
-          <a href="/app/PKB/terms-shared-links">
-            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Shared links</h2>
-            <p>View links your doctor or health professional has shared with you</p>
-          </a>
-        </li>
-        {% endif %}
-
         {% if data['SJR_PKB'] !== 'True' %}
         <li>
       		<a href="/app/engage/admin/v1/terms/">
@@ -67,6 +58,16 @@
       			<p>Help save thousands of lives in the UK every year by signing up to become a donor on the NHS Organ Donor Register</p>
       		</a>
       	</li>
+
+        {% if data['SJR_PKB'] === 'True' %}
+        <li>
+          <a href="/app/PKB/terms-shared-links">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Shared links</h2>
+            <p>View links your doctor or health professional has shared with you</p>
+          </a>
+        </li>
+        {% endif %}
+        
         <li>
           <a href="/app/ndop/v3/overview">
       			<h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Choose if data from your health records is shared for research and planning</h2>
