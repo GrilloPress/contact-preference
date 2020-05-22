@@ -1,0 +1,94 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Prescriptions tags" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+
+
+
+            <h2>How many prescription tags there are</h2>
+
+                <p>There are 3 prescriptions tags:</p>
+
+                      <ul>
+                        <li>Requested</li>
+                        <li>Approved</li>
+                        <li>Rejected</li>
+                      </ul>
+
+                      <p>The <a href="https://github.com/davidhunter08/tag-test/blob/master/app/assets/sass/components/_tag.scss">NHS service manual sass for tags is on Github</a>.</p>
+
+
+                      <div class="nhsuk-table-responsive">
+                        <table class="nhsuk-table">
+                          <caption class="nhsuk-table__caption">Prescriptions tags we use</caption>
+                          <thead class="nhsuk-table__head">
+                            <tr class="nhsuk-table__row">
+                              <th class="nhsuk-table__header" scope="col">Class name</th>
+                              <th class="nhsuk-table__header" scope="col">Tag</th>
+                            </tr>
+                          </thead>
+                          <tbody class="nhsuk-table__body">
+                            <tr class="nhsuk-table__row">
+                              <td class="nhsuk-table__cell"><code>nhsuk-tag--orange</code></td>
+                              <td class="nhsuk-table__cell "><span class="nhsuk-tag nhsuk-tag--orange">Requested</span></td>
+                            </tr>
+                            <tr class="nhsuk-table__row">
+                              <td class="nhsuk-table__cell"><code>nhsuk-tag--green</code></td>
+                              <td class="nhsuk-table__cell "><span class="nhsuk-tag nhsuk-tag--green">Approved</span></td>
+                            </tr>
+                            <tr class="nhsuk-table__row">
+                              <td class="nhsuk-table__cell"><code>nhsuk-tag--red</code></td>
+                              <td class="nhsuk-table__cell "><span class="nhsuk-tag nhsuk-tag--red">Rejected</span></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+
+      <h2>Which users will see prescriptions tags</h2>
+
+      <p>Users who will see prescriptions tags are:</p>
+        <ul>
+          <li>EMIS users</li>
+          <li>Microtest users</li>
+          <li>Vision users</li>
+        </ul>
+
+
+
+            <h2>Where prescriptions tags appear</h2>
+
+            <p>Prescriptions tags appear on the <a href="/{{ PROTOTYPEURL }}/v7/your-orders-2">Your orders page</a>.</p>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
