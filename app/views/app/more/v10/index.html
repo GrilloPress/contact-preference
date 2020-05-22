@@ -22,29 +22,31 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl">{{ contentTitle }}</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
       <ul class="list-menu">
 
-        {% if data['SJR_PKB'] === 'True' %}
         <li>
-          <a href="/app/PKB/terms-shared-links">
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Messages and online consultations</h2>
-            <p>Message your healthcare team, or answer questions online and get a response from a health professional</p>
-          </a>
-        </li>
-        {% else %}
-        <li>
-      		<a href="app/engage/messaging/hub-8">
-      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Messages</h2>
-      			<p>Send or view messages from your GP surgery and other health services</p>
+      		<a href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/index" }}'>
+      			<h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Your messages</h2>
+            {% if data['messageRead1'] !== "read" %}
+            <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold nhsuk-u-padding-bottom-0">
+                <span class="nhs-app-message__meta panel-link">
+                  <span class="nhsuk-u-visually-hidden">You have </span>
+                  <span class="nhs-app-message__count"><strong>&bull;</strong></span>
+                  <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                    unread messages
+                  </span>
+                </span>
+                </p>
+            {% endif %}
+      			<p>Get messages from your GP surgery and other NHS services</p>
       		</a>
-        </li>
-        {% endif %}
+      	</li>
 
         {% if data['SJR_PKB'] === 'True' %}
         <li>
           <a href="/app/PKB/terms-shared-links">
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Shared links</h2>
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Shared links</h2>
             <p>View links your doctor or health professional has shared with you</p>
           </a>
         </li>
@@ -53,7 +55,7 @@
         {% if data['SJR_PKB'] !== 'True' %}
         <li>
       		<a href="/app/engage/admin/v1/terms/">
-      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Additional GP services</h2>
+      			<h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Additional GP services</h2>
       			<p>Get sick notes and GP letters or ask about recent tests</p>
       		</a>
         </li>
@@ -61,13 +63,13 @@
 
         <li>
       		<a href="/app/organ-donation/v2/register-decision">
-      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Manage your organ donation decision</h2>
+      			<h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Manage your organ donation decision</h2>
       			<p>Help save thousands of lives in the UK every year by signing up to become a donor on the NHS Organ Donor Register</p>
       		</a>
       	</li>
         <li>
           <a href="/app/ndop/v3/overview">
-      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Choose if data from your health records is shared for research and planning</h2>
+      			<h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Choose if data from your health records is shared for research and planning</h2>
       			<p>Find out how the NHS uses your confidential patient information and choose whether or not it can be used for research and planning</p>
       		</a>
       	</li>
