@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/records/v3" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
-{% set contentTitle = "Health records" %}
+{% set contentTitle = "Your GP health records" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -21,37 +21,27 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl nhs-app-xl">
+      <h1 class="nhsuk-heading-xl">
         {{ contentTitle }}
       </h1>
 
-      <ul class="list-menu">
-        <li>
-          <a href="#">
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">GP health record</h2>
-            <p>View your GP health record</p>
-          </a>
-        </li>
+      {{ warningCallout({
+        "heading": "Important",
+        "classes": "nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-5",
+        "HTML": "<p>Your record may contain sensitive information. If someone is pressuring you for this information, contact your GP surgery immediately.</p><p>You have a legal right to access the information in your record. </p>"
+      }) }}
 
-        {% if data['SJR_PKB'] === 'True' %}
-        <li>
-          <a href="/app/PKB/terms-care-plan">
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Care plans</h2>
-            <p>View your personalised care plans</p>
-          </a>
-        </li>
-        {% endif %}
-
-      {% if data['SJR_PKB'] === 'True' %}
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/track-your-health">
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Track your health</h2>
-            <p>Record symptoms and add to your health journal</p>
-          </a>
-        </li>
-      {% endif %}
+      <p>Your record shows personal data, such as your details, allergies and medications.</p>
+      <p>Depending on what your GP surgery shares, you may also see:</p>
+      <ul>
+        <li>your medical history, including problems and consultation notes</li>
+        <li>test results that you may not have discussed with your doctor</li>
       </ul>
-        
+
+      <form action="/{{ PROTOTYPEURL}}/your-record-restricted" method="get">
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
 
     </div>
   </div>

@@ -1,0 +1,140 @@
+{% set PROTOTYPEURL = "app/records/v3" %}
+{% set serviceName = "NHS App" %}
+{% set recordActive = "active" %}
+{% set contentTitle = "Immunisations" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="javascript: window.history.go(-1)">Your GP health record</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">
+        {{ contentTitle }}
+      </h1>
+
+      <ol class="nhs-app-list-card">
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  15 August 2018
+                </h2>
+                <p>Influenza vaccination</p>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  1 June 2017
+                </h2>
+                <p>Third pertussis vaccination</p>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  17 March 2007
+                </h2>
+                <p>Second pertussis vaccination</p>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  14 March 2004
+                </h2>
+                <p>Second pertussis vaccination</p>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  28 February 1987
+                </h2>
+                <p>Booster tetanus vaccination</p>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  28 October 1985
+                </h2>
+                <p>Booster polio vaccination</p>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  28 February 1985
+                </h2>
+                <p>Measles vaccination</p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ol>
+
+      {{ details({
+        "text": "Help with medical abbreviations",
+        "HTML": "
+        <p>You may see medical abbreviations that you aren't familiar with.</p>
+        <p>We have guidance for <a target='_blank' href='https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/abbreviations/'>abbreviations commonly found in medical records</a>.</p>
+        "
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}
