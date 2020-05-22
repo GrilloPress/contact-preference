@@ -165,14 +165,14 @@ $( document ).ready(function() {
           <form class="" action="/{{ PROTOTYPEURL }}/message-with-additional-reply" method="post">
             {% call fieldset({
               "legend": {
-                "text": "Your message",
+                "text": "Send your reply",
                 "classes": "nhsuk-fieldset__legend--m",
                 "isPageHeading": false
               }
             }) %}
 
             {{ hint({
-              "html": 'For advice now, phone or visit your GP surgery, visit <a href="https://111.nhs.uk">111.nhs.uk</a> or <a href="tel:111">call 111</a>.'
+              "html": '<p>Messaging is for non-urgent advice. </p><p>For advice now, contact your GP surgery, visit <a href="https://111.nhs.uk">111.nhs.uk</a> or call 111</p>'
             })}}
 
             <div class="govuk-character-count">
@@ -242,14 +242,14 @@ $( document ).ready(function() {
           <form class="" action="/{{ PROTOTYPEURL }}/message-with-additional-reply#newMessage" method="post">
             {% call fieldset({
               "legend": {
-                "text": "Your reply",
+                "text": "Send your reply",
                 "classes": "nhsuk-fieldset__legend--m",
                 "isPageHeading": false
               }
             }) %}
 
             {{ hint({
-              "html": 'For advice now, phone or visit your GP surgery, visit <a href="https://111.nhs.uk">111.nhs.uk</a> or <a href="tel:111">call 111</a>.'
+              "html": '<p>Messaging is for non-urgent advice. </p><p>For advice now, contact your GP surgery, visit <a href="https://111.nhs.uk">111.nhs.uk</a> or call 111</p>'
             })}}
 
             <div class="govuk-character-count">

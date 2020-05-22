@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 var moment = require('moment');
 
-//////   IMPORTANT  /////////////////////////////////////////////////////////////////
+////////   IMPORTANT  /////////////////////////////////////////////////////////////////
 //
 //           !Your routes have moved!
 //    ____
@@ -17,7 +17,6 @@ var moment = require('moment');
 //
 //
 /////////////////////////////////////////////////////////////////////////////////////
-
 
 ////// INCLUDE OTHER ROUTES FILES FROM THE ROUTES FOLDER
 
@@ -39,13 +38,6 @@ req.session.data.switchProfile = "true"
 res.redirect('/app/linked-profiles/proxy-home-2?routePrescriptions=/app/prescriptions/v7/proxy/your-prescriptions&routeHome=/app/linked-profiles/proxy-home-2&proxy=true')
 
 });
-
-
-
-
-
-
-
 
 
 // homepage
@@ -78,10 +70,6 @@ router.post('/app/settings/v3/logout', function (req, res) {
 
 });
 
-
-
-
-
 // qualtrics message
 
 
@@ -96,12 +84,6 @@ router.post('/app/homepage/qualtrics-message', function (req, res) {
     res.redirect('/app/v4/')
   }
 });
-
-
-
-
-
-
 
 // NHS App AJAX routes
 
