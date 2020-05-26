@@ -49,20 +49,37 @@
 
 
         <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-2">{{ contentTitle }}</h1>
-        <div class="">
-          <p class="nhsuk-u-margin-bottom-0">
-            <strong>Name:</strong>
-            Miss Violet Doyle
-          </p>
-          <p class="nhsuk-u-margin-bottom-0">
-            <strong>Age:</strong>
-            {{ age }}
-          </p>
-          <p class="">
-            <strong>GP surgery:</strong>
-            {{ surgery }}
-          </p>
-        </div>
+
+
+        {{ summaryList({
+          classes: 'nhsuk-summary-list--no-border nhs-app-summary-list-inline',
+          rows: [
+            {
+              key: {
+                text: "Name:"
+              },
+              value: {
+                text: "Miss Violet Doyle"
+              }
+            },
+            {
+              key: {
+                text: "Age:"
+              },
+              value: {
+                text: age
+              }
+            },
+            {
+              key: {
+                text: "GP surgery:"
+              },
+              value: {
+                text: surgery
+              }
+            }
+          ]
+        }) }}
 
 
     <ul class="list-menu">

@@ -1,0 +1,99 @@
+{% set PROTOTYPEURL = "app/biometrics" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Biometrics prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+
+
+
+<h2 class="nhsuk-heading-m">Latest designs</h2>
+
+<h3 class="nhsuk-heading-s">Fingerprint login</h3>
+
+
+
+            <ul>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/biometric-message-4">Fingerprint interrupt page</a>
+              </li>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/biometric-sub-message">Fingerprint sub message</a>
+              </li>
+            </ul>
+
+
+  <h3 class="nhsuk-heading-s">Touch ID</h3>
+
+  <ul>
+    <li>
+      <a href="/{{ PROTOTYPEURL }}/biometric-touch-id">Touch ID interrupt page</a>
+    </li>
+    <li>
+      <a href="/{{ PROTOTYPEURL }}/touch-id-sub-message">Touch ID sub message</a>
+    </li>
+  </ul>
+
+
+    <h3 class="nhsuk-heading-s">Face ID</h3>
+
+    <ul>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/biometric-face-id">Face ID interrupt page</a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/face-id-sub-message">Face ID sub message</a>
+      </li>
+    </ul>
+
+
+
+    <h2 class="nhsuk-heading-m">Exploration</h2>
+
+
+    <ul>
+      <li>
+        <a href="/app/homepage/biometric-message-2">Biometric interruption page (long question format) (v2)</a>
+      </li>
+      <li>
+        <a href="/app/homepage/biometric-message-3">Biometric interruption page (v3)</a>
+      </li>
+    </ul>
+
+
+      <h2 class="nhsuk-heading-m">Live</h2>
+
+      <ul>
+        <li>
+          <a href="/app/homepage/biometric-message">Biometric message</a>
+        </li>
+      </ul>
+
+
+
+    </div>
+  </div>
+{% endblock %}
