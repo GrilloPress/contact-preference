@@ -210,6 +210,25 @@
   }
 }
 
+
+.nhs-app-footer__icon--unread {
+
+  &:after{
+
+    content: '';
+    height: 8px;
+    width: 8px;
+    background: #ffe609;
+    border-radius: 50%;
+    position: absolute;
+    border: 0.5px solid #212b32;
+    top: 10px;
+    right: 28px;
+  }
+
+
+}
+
 .nhs-app-chat__read-indicator-container {
 
 }

@@ -1,0 +1,120 @@
+{% set PROTOTYPEURL = "app/records/v3" %}
+{% set serviceName = "NHS App" %}
+{% set recordActive = "active" %}
+{% set contentTitle = "Consultations and events" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="javascript: window.history.go(-1)">Your GP health record</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">
+        {{ contentTitle }}
+      </h1>
+
+      <ol class="nhs-app-list-card">
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  8 April 2011
+                </h2>
+                <p class="nhsuk-u-margin-bottom-0">Allertion Medical Centre - Abbie Thetford <br>Document</p>
+                <ul>
+                  <li>History / Symptoms</li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  2 March 2009
+                </h2>
+                <p class="nhsuk-u-margin-bottom-0">Allertion Medical Centre - Abbie Thetford <br>Document</p>
+                <ul>
+                  <li>History / Symptoms</li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  17 December 2003
+                </h2>
+                <p class="nhsuk-u-margin-bottom-0">Allertion Medical Centre - Abbie Thetford <br>Regime review</p>
+                <ul>
+                  <li>Medication review</li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nhs-app-list-card__item">
+          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
+            <div class="app-card__wrapper">
+              <div class="app-card__content">
+                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
+                  17 December 2003
+                </h2>
+                <p class="nhsuk-u-margin-bottom-0">Allertion Medical Centre - Abbie Thetford <br>Document</p>
+                <ul>
+                  <li>History / Symptoms</li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+
+
+      </ol>
+
+      {{ details({
+        "text": "Help with medical abbreviations",
+        "HTML": "
+        <p>You may see medical abbreviations that you aren't familiar with.</p>
+        <p>We have guidance for <a target='_blank' href='https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/abbreviations/'>abbreviations commonly found in medical records</a>.</p>
+        "
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}
