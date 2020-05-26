@@ -1,0 +1,521 @@
+{% set PROTOTYPEURL = "app/engage" %}
+{% set serviceName = "Engage" %}
+{% set contentTitle = "Check your answers" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+      <p>
+        Please read and review the request carefully before submitting your request
+      </p>
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "Bernard Doyle"
+            }
+          },
+          {
+            key: {
+              text: "Gender"
+            },
+            value: {
+              text: "Male"
+            }
+          },
+          {
+            key: {
+              text: "Born"
+            },
+            value: {
+              text: "5 January 1978"
+            }
+          },
+          {
+            key: {
+              text: "Enquirer"
+            },
+            value: {
+              text: "Bernard Doyle"
+            }
+          },
+          {
+            key: {
+              text: "Relationship"
+            },
+            value: {
+              text: "Self"
+            }
+          },
+          {
+            key: {
+              text: "Telephone"
+            },
+            value: {
+              text: "xxx"
+            }
+          },
+          {
+            key: {
+              text: "Email"
+            },
+            value: {
+              text: "xxx"
+            }
+          },
+          {
+            key: {
+              text: "Availability"
+            },
+            value: {
+              text: "xxx"
+            }
+          },
+          {
+            key: {
+              text: "Enquiry type"
+            },
+            value: {
+              text: "xxx"
+            }
+          },
+          {
+            key: {
+              text: "Problem Type"
+            },
+            value: {
+              text: "xxx"
+            }
+          },
+          {
+            key: {
+              text: "Help from"
+            },
+            value: {
+              text: "xxx"
+            }
+          },
+          {
+            key: {
+              text: "Postcode"
+            },
+            value: {
+              text: "xxx"
+            }
+          }
+        ]
+      }) }}
+
+      {% set medicalProblems %}
+        {{ data['engageProblemCat'] if data['engageProblemCat'] else "Blocked nose" }}
+        {% if data['engageProblemCatTwo'] %}
+          <br> {{ data['engageProblemCatTwo'] }}
+        {% endif %}
+      {% endset %}
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Medical problems reported"
+            },
+            value: {
+              html: medicalProblems | safe
+            }
+          }
+        ]
+      }) }}
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "What concerns do you have about your condition today?"
+            },
+            value: {
+              html: data['engageConcerns'] or "Been several weeks and not feeling better. Can't sleep or breathe easily"
+            }
+          }
+        ]
+      }) }}
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "How would you like us to help you with your condition today?"
+            },
+            value: {
+              html: data['engageHowHelp'] or "Either something to help clear this up or a hospital appointment"
+            }
+          }
+        ]
+      }) }}
+
+      {% if data['engageNoQs'] == "true" %}
+
+      {% else %}
+
+      <h2>History of present illness</h2>
+      <h3>{{ data['engageProblemCat'] if data['engageProblemCat'] else "Blocked nose" }}</h3>
+
+
+      <h4>Duration</h4>
+      {% set durationReported = {
+          '1': "Stuffy nose and head congestion " + data['engageMedQ18'] | placeholder("1 to 3 weeks") + ". ",
+          '2': 'Nasal stuffiness or congestion chronic' if data['engageMedQ11'] == "Yes"
+        }
+      %}
+
+      {% set durationReportedPrint %}
+        {% for index, key in durationReported %}
+          {{ key | safe }}
+        {% endfor %}
+      {% endset %}
+
+      {% if durationReportedPrint | trim %}
+      <p>
+        He reported:
+        {{ durationReportedPrint }}
+      </p>
+      {% endif %}
+
+      {% set durationDenied = {
+          '1': 'Nasal stuffiness or congestion chronic' if data['engageMedQ11'] !== "Yes"
+        }
+      %}
+
+      {% set durationDeniedPrint %}
+        {% for index, key in durationDenied %}
+          {{ key | safe }}
+        {% endfor %}
+      {% endset %}
+
+      {% if durationDeniedPrint | trim %}
+      <p>
+        He denied:
+        {{ durationDeniedPrint }}
+      </p>
+      {% endif %}
+
+      <h4>Timing</h4>
+
+      {% set timingReported = {
+          '1': 'Excessive mucus dripping down the back of your throat' if data['engageMedQ5'] == "Yes",
+          '2': 'Stuffy, blocked or congested nose. ' if data['engageMedQ4'] == "Yes",
+          '3': 'Earache now. ' if data['engageMedQ8'] == "Yes",
+          '4': 'Runny nose during allergy season. ' if data['engageMedQ19'] == "Yes"
+        }
+      %}
+
+      {% set timingReportedPrint %}
+        {% for index, key in timingReported %}
+          {{ key | safe }}
+        {% endfor %}
+      {% endset %}
+
+      {% if timingReportedPrint | trim %}
+      <p>
+        He reported:
+        {{ timingReportedPrint }}
+      </p>
+      {% endif %}
+
+
+      {% set timingDenied = {
+          '1': 'Excessive mucus dripping down the back of your throat' if data['engageMedQ5'] !== "Yes",
+          '2': 'Stuffy, blocked or congested nose. ' if data['engageMedQ4'] !== "Yes",
+          '3': 'Earache now. ' if data['engageMedQ8'] !== "Yes",
+          '4': 'Runny nose during allergy season. ' if data['engageMedQ19'] !== "Yes"
+        }
+      %}
+
+      {% set timingDeniedPrint %}
+        {% for index, key in timingDenied %}
+          {{ key | safe }}
+        {% endfor %}
+      {% endset %}
+
+      {% if timingDeniedPrint | trim %}
+      <p>
+        He denied:
+        {{ timingDeniedPrint }}
+      </p>
+      {% endif %}
+
+
+
+      <h4>Severity</h4>
+      <p>He reported: {{ data['engageMedQ1'] or "Severe problems" }} with {{ data['engageProblemCat'] if data['engageProblemCat'] else "blocked nose" }} </p>
+
+      <h4>Quality</h4>
+
+        {% set qualityReported = {
+            '1': 'Runny nose. ' if data['engageMedQ3'] == "Yes",
+            '2': 'Stuffy, blocked or congested nose. ' if data['engageMedQ4'] == "Yes",
+            '3': 'Sore throat. ' if data['engageMedQ6'] == "Yes"
+          }
+        %}
+
+        {% set qualityReportedPrint %}
+          {% for index, key in qualityReported %}
+            {{ key | safe }}
+          {% endfor %}
+        {% endset %}
+
+        {% if qualityReportedPrint | trim %}
+        <p>
+          He reported:
+          {{ qualityReportedPrint }}
+        </p>
+        {% endif %}
+
+
+
+
+        {% set qualityDenied = {
+            '1': 'Runny nose. ' if data['engageMedQ3'] !== "Yes",
+            '2': 'Stuffy, blocked or congested nose. ' if data['engageMedQ4'] !== "Yes",
+            '3': 'Sore throat. ' if data['engageMedQ6'] !== "Yes"
+          }
+        %}
+
+        {% set qualityDeniedPrint %}
+          {% for index, key in qualityReported %}
+            {{ key | safe }}
+          {% endfor %}
+        {% endset %}
+
+        {% if qualityDeniedPrint | trim %}
+        <p>
+          He denied:
+          {{ qualityDeniedPrint }}
+        </p>
+        {% endif %}
+
+        <h4>Modifying factors</h4>
+
+        {% set modReported = {
+            '1': 'Nasal stuffiness or congestion difference: ' + data['']
+          }
+        %}
+
+        {% set modReportedPrint %}
+          {% for index, key in modReported %}
+            {{ key | safe }}
+          {% endfor %}
+        {% endset %}
+
+        {% if modReportedPrint | trim %}
+        <p>
+          He reported:
+          {{ modReportedPrint }}
+        </p>
+        {% endif %}
+
+
+
+
+        <h4>Associated signs and symptoms</h4>
+        {% set assocReported = {
+            '1': 'Catarrh in the back of the throat. ' if data['engageMedQ2'] == "Yes",
+            '2': 'Swollen glands in the neck. ' if data['engageMedQ7'] == "Yes",
+            '3': 'Sinus pain. ' if data['engageMedQ10'] == "Yes"
+          }
+        %}
+
+        {% set assocReportedPrint %}
+          {% for index, key in assocReported %}
+            {{ key | safe }}
+          {% endfor %}
+        {% endset %}
+
+        {% if assocReportedPrint | trim %}
+        <p>
+          He reported:
+          {{ assocReportedPrint }}
+        </p>
+        {% endif %}
+
+
+        {% set assocDenied = {
+            '1': 'Catarrh in the back of the throat. ' if data['engageMedQ2'] !== "Yes",
+            '2': 'Swollen glands in the neck. ' if data['engageMedQ7'] !== "Yes",
+            '3': 'Sinus pain. ' if data['engageMedQ10'] !== "Yes"
+          }
+        %}
+
+        {% set assocDeniedPrint %}
+          {% for index, key in assocDenied %}
+            {{ key | safe }}
+          {% endfor %}
+        {% endset %}
+
+        {% if assocDeniedPrint | trim %}
+        <p>
+          He denied:
+          {{ assocDeniedPrint }}
+        </p>
+        {% endif %}
+
+
+
+
+
+
+
+      {% if data['engageProblemCatTwo'] %}
+      <h3>{{ data['engageProblemCatTwo'] }}</h3>
+      <h4>Severity</h4>
+      {% if data['engageMedQ14'] == 'Yes' %}
+        <p>He reported: Heaches severe.</p>
+      {% else %}
+        <p>He denied: Heaches severe.</p>
+      {% endif %}
+
+
+      <h4>Associated signs and symptoms</h4>
+
+      {% set assocReportedTwo = {
+          '1': 'Headaches caused by illness. ' if data['engageMedQ9'] == "Yes",
+          '2': 'Headaches accompanied by neck stiffness. ' if data['engageMed15'] == "Yes",
+          '3': 'Severe pain bending chin to chest. ' if data['engageMed16'] !== "No"
+        }
+      %}
+
+      {% set assocReportedTwoPrint %}
+        {% for index, key in assocReportedTwo %}
+          {{ key | safe }}
+        {% endfor %}
+      {% endset %}
+
+      {% if assocReportedTwoPrint | trim %}
+      <p>
+        He reported:
+        {{ assocReportedTwoPrint }}
+      </p>
+      {% endif %}
+
+      {% set assocDeniedTwo = {
+          '1': 'Headaches caused by illness. ' if data['engageMedQ9'] !== "Yes",
+          '2': 'Headaches accompanied by neck stiffness. ' if data['engageMed15'] !== "Yes",
+          '3': 'Severe pain bending chin to chest. ' if data['engageMed16'] == "No"
+        }
+      %}
+
+      {% set assocDeniedTwoPrint %}
+        {% for index, key in assocDeniedTwo %}
+          {{ key | safe }}
+        {% endfor %}
+      {% endset %}
+
+      {% if assocDeniedTwoPrint | trim %}
+      <p>
+        He denied:
+        {{ assocDeniedTwoPrint }}
+      </p>
+      {% endif %}
+
+
+
+
+      {% endif %}
+
+
+
+      <h2>Past, family and social history</h2>
+      <h3>Past medical history</h3>
+      {% if data['engageMedQ12'] == 'Yes' %}
+        <h4>Ear, Nose and Throat</h4>
+        <p>History of: Sinus infection</p>
+      {% endif %}
+      <h3>Social history</h3>
+      <h4>Substance use</h4>
+      {% if data['engageMedQ13'] == 'Yes' %}
+        <p>He reported: Smoker</p>
+      {% else %}
+        <p>He denied: Smoker</p>
+      {% endif %}
+
+
+      <h2>Review of systems</h2>
+      <h3>Constitutional</h3>
+
+      {% if data['engageMedQ2'] == "Yes" %}
+        <p>He reported: Fever in the last week</p>
+      {% else %}
+        <p>He denied: Fever in the last week</p>
+      {% endif %}
+
+      <h3>Respiratory</h3>
+      {% if data['engageMedQ11'] == "Yes" %}
+        <p>He reported: Recent respiratory symptoms improved then worsened</p>
+      {% else %}
+        <p>He denied: Recent respiratory symptoms improved then worsened</p>
+      {% endif %}
+
+      <h2>Skipped questions</h2>
+      {{ details({
+        "text": "Skipped questions",
+        "HTML": "
+        <p>No skipped questions</p>
+        "
+      }) }}
+
+      <h2>Questionnarie completed</h2>
+      <p>The questionnarire was completed</p>
+
+      {% endif %}
+
+      <form action="/{{ PROTOTYPEURL }}/med/v2/check-answers" method="get">
+
+        {{ textarea({
+        "name": "more-detail",
+        "id": "more-detail",
+        "label": {
+          "classes": "nhsuk-label--l",
+          "text": "Additional information or changes to your request"
+        }
+      }) }}
+
+      <h2>Send your request</h2>
+
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

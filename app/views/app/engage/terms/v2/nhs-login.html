@@ -33,12 +33,14 @@
 
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
-      <p>Your NHS login is:<br />
-        email@test.com</p>
+      <p>
+        <span class="nhsuk-body-s nhsuk-u-margin-bottom-0">Your NHS login is:</span>
+        <span>email@test.com</span>
+      </p>
 
-      <p>To continue, you need to agree to share your NHS login information with <strong>Engage Health Systems Ltd</strong>. 
-        
-      <p>They will use your:</p>
+      <p>To continue, you need to agree to share your NHS login information.</p>
+
+      <p><strong>'Engage Consult'</strong> will use your:</p>
       <ul>
         <li>NHS number</li>
         <li>date of birth</li>
@@ -47,7 +49,7 @@
 
       <p>Before you agree, you should read their terms of use and privacy policy to check how they will use your information.</p>
 
-      <form action="/{{ PROTOTYPEURL }}/who/v1/index?engageLoginAccepted=true" method="post">
+      <form action="/{{ PROTOTYPEURL }}/who/v2/index?engageLoginAccepted=true" method="post">
         <input type="submit" class="nhsuk-button" value="Agree and continue">
         </input>
       </form>

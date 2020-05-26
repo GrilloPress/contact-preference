@@ -114,6 +114,121 @@ router.post('/app/engage/terms/v1/engage-privacy', function (req, res) {
   }
 });
 
+
+//////// V2 ROUTES
+
+// OLC
+
+router.post('/app/engage/med/v2/health-info-check', function (req, res) {
+  let answer = req.body.engageHealthInfoCheck;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/engage/med/v2/health-info')
+
+  } else {
+    res.redirect('/app/engage/med/v2/check-answers')
+  }
+});
+
+
+/// Terms accepted
+
+// admin
+router.post('/app/engage/admin/v2/terms/engage-medical', function (req, res) {
+  let answer = req.session.data.engagePrivacyPolicy;
+
+  if (answer === 'true') {
+
+    res.redirect('/app/engage/admin/v2/telephone')
+
+  } else {
+    res.redirect('/app/engage/admin/v2/terms/engage-privacy')
+  }
+});
+
+// admin
+router.post('/app/engage/admin/v2/terms/engage-medical-111', function (req, res) {
+  let answer = req.session.data.engagePrivacyPolicy;
+
+  if (answer === 'true') {
+
+    res.redirect('/app/engage/admin/v2/telephone')
+
+  } else {
+    res.redirect('/app/engage/admin/v2/terms/engage-privacy')
+  }
+});
+
+// medical
+router.post('/app/engage/terms/v2/engage-medical', function (req, res) {
+  let answer = req.session.data.engagePrivacyPolicy;
+
+  if (answer === 'true') {
+
+    res.redirect('/app/engage/premed/v2/telephone')
+
+  } else {
+    res.redirect('/app/engage/terms/v2/engage-privacy')
+  }
+});
+
+// medical 111 style
+router.post('/app/engage/terms/v2/engage-medical-111', function (req, res) {
+  let answer = req.session.data.engagePrivacyPolicy;
+
+  if (answer === 'true') {
+
+    res.redirect('/app/engage/premed/v2/telephone')
+
+  } else {
+    res.redirect('/app/engage/terms/v2/engage-privacy')
+  }
+});
+
+// medical
+router.post('/app/engage/terms/v2/nhs-login', function (req, res) {
+  let answer = req.session.data.engageLoginAccepted;
+
+  if (answer === 'true') {
+
+    res.redirect('/app/engage/who/v2/index')
+
+  } else {
+    res.redirect('/app/engage/terms/v2/nhs-login')
+  }
+});
+
+
+// admin
+router.post('/app/engage/admin/v2/terms/nhs-login', function (req, res) {
+  let answer = req.session.data.engageLoginAccepted;
+
+  if (answer === 'true') {
+
+    res.redirect('/app/engage/admin/v2/who/index')
+
+  } else {
+    res.redirect('/app/engage/admin/v2/terms/nhs-login')
+  }
+});
+
+
+// ERROR privacy
+
+router.post('/app/engage/terms/v2/engage-privacy', function (req, res) {
+  let answer = req.body.engagePrivacyPolicy;
+
+  if (answer === 'true') {
+
+    res.redirect('/app/engage/premed/v2/telephone')
+
+  } else {
+    res.redirect('/app/engage/terms/v2/engage-privacy-error')
+  }
+});
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // ECONSULT routes
 ////////////////////////////////////////////////////////////////////////////////

@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "This is a third party service" %}
+{% set contentTitle = "This is a connected service" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -39,13 +39,13 @@
               {{ contentTitle }}
             </h1>
             <p>
-              Your GP surgery has chosen this online consultation service provided by <strong>Engage Health Systems Ltd</strong>.
+              Your GP surgery has chosen this online consultation service provided by <strong>Engage Consult</strong>.
             </p>
             <form action="/{{ PROTOTYPEURL }}/terms/v2/nhs-login" method="post">
               <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
             </form>
             <p>
-              <a href="#">Find out more about online consultations</a>
+              <a href="#">Find out more about online consultation services</a>
             </p>
 
           </div>
