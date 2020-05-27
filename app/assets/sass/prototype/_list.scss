@@ -28,6 +28,12 @@
   @include nhsuk-responsive-margin(2, 'bottom');
 }
 
+.app-list-cards__heading h3 {
+
+  color: $color_nhsuk-blue;
+  @include nhsuk-responsive-margin(2, 'bottom');
+}
+
 .app-list-cards__heading--no-link {
 
   color: $color_nhsuk-black;

@@ -58,12 +58,10 @@ async function install() {
         {{ contentTitle }}
       </h1>
 
-      <form action="/app/start" method="get">
-        <input type="submit" class="nhsuk-button" value="Start prototype">
-        </input>
-      </form>
-
       <ul>
+        <li>
+          <a href="/app/start">Latest</a>
+        </li>
         <li>
           <a href="/app/iframe">Start iframe</a>
         </li>
@@ -81,229 +79,318 @@ async function install() {
         </li>
       </ul>
 
+      <h2>Epics</h2>
 
+<div class="nhsuk-expander-group">
 
-      <h2>NHS App</h2>
-
-      <ul class="app-list--unstyled app-list-cards">
+  {{ details({
+    "classes": "nhsuk-expander app-card--with-border",
+    "text": "NHS App IA and signposting",
+    "HTML": '
+    <ul class="app-list--unstyled app-list-cards">
       <li class="app-list-cards__item">
         <a href="app/homepage/index">
-          <h3 class="app-list-cards__heading nhsuk-heading-m">Home page</h3>
+          <h3 class="app-list-cards__heading ">Home page</h3>
           <p>Home page exploration</p>
         </a>
       </li>
 
+    <li class="app-list-cards__item">
+      <a href="app/biometrics/index">
+        <h3 class="app-list-cards__heading ">Biometric login</h3>
+        <p>Biometric login exploration</p>
+      </a>
+    </li>
+
+
+    <li class="app-list-cards__item">
+      <a href="app/new-features/index">
+        <h3 class="app-list-cards__heading ">New features</h3>
+        <p>Telling users about new features</p>
+      </a>
+    </li>
+
+    <li class="app-list-cards__item">
+      <a href="app/nhs-app-services/index">
+        <h3 class="app-list-cards__heading ">NHS App services</h3>
+        <p>NHS App services list</p>
+      </a>
+    </li>
+
+    <li class="app-list-cards__item">
+      <a href="app/logged-out-homescreen/index">
+        <h3 class="app-list-cards__heading ">Logged out homescreen</h3>
+        <p>Logged out homescreen page</p>
+      </a>
+    </li>
+  </ul>
+    '
+  }) }}
+
+  {{ details({
+    "classes": "nhsuk-expander app-card--with-border",
+    "text": "NHS App notifications and messaging",
+    "HTML": '
+    <ul class="app-list--unstyled app-list-cards">
       <li class="app-list-cards__item">
-        <a href="app/biometrics/index">
-          <h3 class="app-list-cards__heading nhsuk-heading-m">Biometric login</h3>
-          <p>Biometric login exploration</p>
+        <a href="app/messaging/index">
+          <h3 class="app-list-cards__heading ">Notifications</h3>
+          <p>Notifications MVP</p>
         </a>
       </li>
 
 
       <li class="app-list-cards__item">
-        <a href="app/new-features/index">
-          <h3 class="app-list-cards__heading nhsuk-heading-m">New features</h3>
-          <p>Telling users about new features</p>
+        <a href="app/push-notifications/index">
+          <h3 class="app-list-cards__heading ">Push notifications</h3>
+          <p>Push notifications</p>
+        </a>
+      </li>
+    </ul>
+    '
+  }) }}
+
+  {{ details({
+    "classes": "nhsuk-expander app-card--with-border",
+    "text": "GP and core services",
+    "HTML": '
+    <ul class="app-list--unstyled app-list-cards">
+
+      <li class="app-list-cards__item">
+        <a href="app/send-a-message/index">
+          <h3 class="app-list-cards__heading ">Practice to patient messaging (IM1)</h3>
+          <p>Alpha designs for send a message</p>
         </a>
       </li>
 
       <li class="app-list-cards__item">
-        <a href="app/nhs-app-services/index">
-          <h3 class="app-list-cards__heading nhsuk-heading-m">NHS App services</h3>
-          <p>NHS App services list</p>
+        <a href="app/prescriptions/index">
+          <h3 class="app-list-cards__heading ">Repeat prescriptions</h3>
+          <p>Prescriptions exploration</p>
         </a>
       </li>
 
+      <li class="app-list-cards__item">
+        <a href="app/nominated-pharmacy/index">
+          <h3 class="app-list-cards__heading ">Nominated pharmacy</h3>
+          <p>Nominated pharmacy exploration</p>
+        </a>
+      </li>
+
+      <li class="app-list-cards__item">
+        <a href="app/appointments/index">
+          <h3 class="app-list-cards__heading ">Appointments</h3>
+          <p>Appointments exploration</p>
+        </a>
+      </li>
+
+      <li class="app-list-cards__item">
+        <a href="app/records/index">
+          <h3 class="app-list-cards__heading ">Health records</h3>
+          <p>Health records exploration</p>
+        </a>
+      </li>
+      <li class="app-list-cards__item">
+        <a href="app/symptoms/index">
+          <h3 class="app-list-cards__heading ">Symptoms hub</h3>
+          <p>Symptoms hub exploration</p>
+        </a>
+      </li>
+      <li class="app-list-cards__item">
+        <a href="app/linked-profiles/index">
+          <h3 class="app-list-cards__heading ">Linked profiles</h3>
+          <p>Linked profiles (proxy)</p>
+        </a>
+      </li>
+      <li class="app-list-cards__item">
+        <a href="app/settings/index">
+          <h3 class="app-list-cards__heading ">Settings</h3>
+          <p>Settings pages. For example, manage cookies.</p>
+        </a>
+      </li>
+      <li class="app-list-cards__item">
+        <a href="app/ical/index">
+          <h3 class="app-list-cards__heading ">Reminders in the NHS App</h3>
+          <p>iCal reminders exploration</p>
+        </a>
+      </li>
+    </ul>
+    '
+  }) }}
+
+  {{ details({
+    "classes": "nhsuk-expander app-card--with-border",
+    "text": "Online consultations (OLC)",
+    "HTML": '
+      <ul class="app-list--unstyled app-list-cards">
+        <li class="app-list-cards__item">
+          <a href="app/econsult/index">
+            <h3 class="app-list-cards__heading ">eConsult</h3>
+            <p>eConsult integration exploration</p>
+          </a>
+        </li>
+
+
+          <li class="app-list-cards__item">
+            <a href="app/engage/index">
+              <h3 class="app-list-cards__heading ">Engage</h3>
+              <p>Engage (OLC) journey exploration</p>
+            </a>
+          </li>
+      </ul>
+    '
+  }) }}
+
+  {{ details({
+    "classes": "nhsuk-expander app-card--with-border",
+    "text": "Personal health records (PHR)",
+    "HTML": '
+    <ul class="app-list--unstyled app-list-cards">
+        <li class="app-list-cards__item">
+          <a href="app/PKB/index">
+            <h3 class="app-list-cards__heading ">PKB</h3>
+            <p>PKB pages and jump off points</p>
+          </a>
+        </li>
+    </ul>
+    '
+  }) }}
+
+  {{ details({
+    "classes": "nhsuk-expander app-card--with-border",
+    "text": "Login and authentication (P5 etc.)",
+    "HTML": '
+    <ul class="app-list--unstyled app-list-cards">
+      <li class="app-list-cards__item">
+        <a href="app/login/index">
+          <h3 class="app-list-cards__heading ">NHS login</h3>
+          <p>From login to app journeys</p>
+        </a>
+      </li>
+
+      <li class="app-list-cards__item">
+        <a href="app/p5/index">
+          <h3 class="app-list-cards__heading ">P5</h3>
+          <p>P5 journey pages</p>
+        </a>
+      </li>
+    </ul>
+    '
+  }) }}
+
+  {{ details({
+    "classes": "nhsuk-expander app-card--with-border",
+    "text": "Other (national services, Coronavirus, errors etc.)",
+    "HTML": '
+    <ul class="app-list--unstyled app-list-cards">
       <li class="app-list-cards__item">
         <a href="app/logged-out-homescreen/index">
-          <h3 class="app-list-cards__heading nhsuk-heading-m">Logged out homescreen</h3>
+          <h3 class="app-list-cards__heading ">Logged out homescreen</h3>
           <p>Logged out homescreen page</p>
         </a>
       </li>
 
       <li class="app-list-cards__item">
         <a href="app/corona/index">
-          <h3 class="app-list-cards__heading nhsuk-heading-m">Coronavirus changes</h3>
+          <h3 class="app-list-cards__heading ">Coronavirus changes</h3>
           <p>Response to new national services</p>
         </a>
       </li>
 
-      <li class="app-list-cards__item">
-        <a href="app/econsult/index">
-          <h3 class="app-list-cards__heading nhsuk-heading-m">eConsult</h3>
-          <p>eConsult integration exploration</p>
-        </a>
-      </li>
-
-      <li class="app-list-cards__item">
-        <a href="app/symptoms/index">
-          <h3 class="app-list-cards__heading nhsuk-heading-m">Symptoms hub</h3>
-          <p>Symptoms hub exploration</p>
-        </a>
-      </li>
-
-
-        <li class="app-list-cards__item">
-          <a href="app/engage/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">Engage</h3>
-            <p>Engage (OLC) journey exploration</p>
-          </a>
-        </li>
-
-
-        <li class="app-list-cards__item">
-          <a href="app/linked-profiles/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">Linked profiles</h3>
-            <p>Linked profiles (proxy)</p>
-          </a>
-        </li>
-
-
         <li class="app-list-cards__item">
           <a href="app/ndop/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">NDOP</h3>
+            <h3 class="app-list-cards__heading ">NDOP</h3>
             <p>NDOP journey exploration</p>
           </a>
         </li>
 
         <li class="app-list-cards__item">
           <a href="app/organ-donation/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">Organ donation</h3>
+            <h3 class="app-list-cards__heading ">Organ donation</h3>
             <p>Organ donation journey exploration</p>
           </a>
         </li>
 
         <li class="app-list-cards__item">
-          <a href="app/ical/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">Reminders in the NHS App</h3>
-            <p>iCal reminders exploration</p>
-          </a>
-        </li>
-
-        <li class="app-list-cards__item">
-          <a href="app/prescriptions/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">Repeat prescriptions</h3>
-            <p>Prescriptions exploration</p>
-          </a>
-        </li>
-
-        <li class="app-list-cards__item">
-          <a href="app/nominated-pharmacy/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">Nominated pharmacy</h3>
-            <p>Nominated pharmacy exploration</p>
-          </a>
-        </li>
-
-        <li class="app-list-cards__item">
-          <a href="app/appointments/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">Appointments</h3>
-            <p>Appointments exploration</p>
-          </a>
-        </li>
-
-        <li class="app-list-cards__item">
-          <a href="app/records/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">Health records</h3>
-            <p>Health records exploration</p>
-          </a>
-        </li>
-
-        <li class="app-list-cards__item">
-          <a href="app/send-a-message/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">Practice to patient messaging (IM1)</h3>
-            <p>Alpha designs for send a message</p>
-          </a>
-        </li>
-
-        <li class="app-list-cards__item">
           <a href="nhsuk-to-prescription/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">NHS website to service</h3>
+            <h3 class="app-list-cards__heading ">NHS website to service</h3>
             <p>From NHS website to app journeys</p>
           </a>
         </li>
 
         <li class="app-list-cards__item">
-          <a href="app/login/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">NHS login</h3>
-            <p>From login to app journeys</p>
-          </a>
-        </li>
-
-        <li class="app-list-cards__item">
-          <a href="app/messaging/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">Notifications</h3>
-            <p>Notifications MVP</p>
-          </a>
-        </li>
-
-
-        <li class="app-list-cards__item">
-          <a href="app/push-notifications/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">Push notifications</h3>
-            <p>Push notifications</p>
-          </a>
-        </li>
-
-
-        <li class="app-list-cards__item">
-          <a href="app/settings/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">Settings</h3>
-            <p>Settings pages. For example, manage cookies.</p>
-          </a>
-        </li>
-
-        <li class="app-list-cards__item">
-          <a href="app/p5/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">P5</h3>
-            <p>P5 journey pages</p>
-          </a>
-        </li>
-
-        <li class="app-list-cards__item">
           <a href="app/errors/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">NHS App errors</h3>
+            <h3 class="app-list-cards__heading ">NHS App errors</h3>
             <p>Current and future error messaging in the NHS App</p>
           </a>
         </li>
+    </ul>
+    '
+  }) }}
+
+
+
+</div>
+
+
+
+
+
+
+
+
+      <ul class="app-list--unstyled app-list-cards">
+
+
+
       </ul>
 
       <hr>
 
-      <h2>Send a message to a patient with the NHS App</h2>
+      <h2>Previous/Older/Other prototypes</h2>
 
-      <ul class="app-list--unstyled app-list-cards">
-        <li class="app-list-cards__item">
-          <a href="send-a-patient-a-message">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">Send a message to a patient</h3>
-            <p>MVP solution to send notifications and messages to NHS App users</p>
-          </a>
-        </li>
-      </ul>
+      {{ details({
+        "classes": "nhsuk-expander app-card--with-border",
+        "text": "Contact preferences, messaging admin",
+        "HTML": '
+        <h3>Send a message to a patient with the NHS App</h3>
+
+        <ul class="app-list--unstyled app-list-cards">
+          <li class="app-list-cards__item">
+            <a href="send-a-patient-a-message">
+              <h4 class="app-list-cards__heading ">Send a message to a patient</h4>
+              <p>MVP solution to send notifications and messages to NHS App users</p>
+            </a>
+          </li>
+        </ul>
 
 
-      <h2>Contact preferences</h2>
+        <h3>Contact preferences</h3>
 
-      <ul class="app-list--unstyled app-list-cards">
-        <li class="app-list-cards__item">
-          <a href="/set-a-preference/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">Set a preference</h3>
-            <p>Exploring how we could ask people if they had a preference</p>
-          </a>
-        </li>
-        <li class="app-list-cards__item">
-          <a href="/app/start">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">NHS app exploration</h3>
-            <p>Exploring how we could ask people if they had a preference in the NHS app</p>
-          </a>
-        </li>
-        <li class="app-list-cards__item">
-          <a href="/examples/index">
-            <h3 class="app-list-cards__heading nhsuk-heading-m">Example components</h3>
-            <p>Ready made examples to copy</p>
-          </a>
-        </li>
-      </ul>
+        <ul class="app-list--unstyled app-list-cards">
+          <li class="app-list-cards__item">
+            <a href="/set-a-preference/index">
+              <h4 class="app-list-cards__heading ">Set a preference</h4>
+              <p>Exploring how we could ask people if they had a preference</p>
+            </a>
+          </li>
+          <li class="app-list-cards__item">
+            <a href="/app/start">
+              <h4 class="app-list-cards__heading ">NHS app exploration</h4>
+              <p>Exploring how we could ask people if they had a preference in the NHS app</p>
+            </a>
+          </li>
+          <li class="app-list-cards__item">
+            <a href="/examples/index">
+              <h4 class="app-list-cards__heading ">Example components</h4>
+              <p>Ready made examples to copy</p>
+            </a>
+          </li>
+        </ul>
+
+        '
+      }) }}
+
 
 
     </div>
