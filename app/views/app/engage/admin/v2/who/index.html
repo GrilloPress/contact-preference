@@ -38,20 +38,20 @@
 
         <ul class="list-menu">
           <li>
-            <a href="/{{ PROTOTYPEURL}}/admin/v1/terms/engage-medical-111?engageAdminWho=Bernard Doyle&engageProxyJourney=">
+            <a href="/{{ PROTOTYPEURL}}/admin/v2/terms/engage-medical-111?engageAdminWho=Bernard Doyle&engageProxyJourney=">
               Bernard Doyle (Self)
             </a>
           </li>
           {% if data["engageProxyDone"] %}
           <li>
-            <a href="/{{ PROTOTYPEURL}}/admin/v1/terms/engage-medical-111?engageWho={{ data['engageProxyfirstname']}} {{ data['engageProxyLastname']}}&engageProxyJourney=true">
+            <a href="/{{ PROTOTYPEURL}}/admin/v2/terms/engage-medical-111?engageWho={{ data['engageProxyfirstname']}} {{ data['engageProxyLastname']}}&engageProxyJourney=true">
               {{ data['engageProxyfirstname'] | capitalize }} {{ data['engageProxyLastname'] | capitalize }} {{ "(Carer)" if data['engageProxyRelationship'] == "You are their carer" else "(Parent)" }}
             </a>
           </li>
 
           {% endif %}
           <li>
-            <a href="/{{ PROTOTYPEURL}}/admin/v1/proxy?engageAdminWho=else">
+            <a href="/{{ PROTOTYPEURL}}/admin/v2/proxy?engageAdminWho=else">
               Add someone else
             </a>
           </li>
