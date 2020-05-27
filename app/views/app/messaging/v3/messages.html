@@ -37,16 +37,15 @@
       </div>
       <ul class="list-menu nhs-app-message">
 
-
+        {% if data['messageRead2'] !== "read" %}
                 <li class="nhs-app-message__item nhs-app-message__item--unread">
-                  <a class="nhs-app-message__link" href="message-pkb">
+                  <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/message-pkb?messageRead2=unread">
                     <h2 class="nhsuk-heading-xs">
                       <span class="nhsuk-u-visually-hidden">Messages from:</span>
                       Patients Know Best
                       <span class="nhsuk-u-visually-hidden">The last message was sent </span>
                       <span class="nhs-app-message__date nhs-app-message__date--unread">Yesterday</span>
                     </h2>
-
                     <p class="nhs-app-message__subject-line">
                       <span class="nhs-app-message__meta panel-link">
                         <span class="nhsuk-u-visually-hidden">You have </span>
@@ -66,6 +65,28 @@
                   </a>
                 </li>
 
+                {% else %}
+
+                <li class="nhs-app-message__item nhs-app-message__item--read">
+                  <a class="nhs-app-message__link" href="message-pkb">
+                    <h2 class="nhsuk-heading-xs">
+                      <span class="nhsuk-u-visually-hidden">Messages from:</span>
+                      Patients Know Best
+                      <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+                      <span class="nhs-app-message__date">Yesterday</span>
+                    </h2>
+                    <p class="nhs-app-message__subject-line">
+                      <span class="nhsuk-u-visually-hidden">Latest message sent: </span>
+                      You can now use Patients Know Best with the NHS App
+                    </p>
+                    <p class="nhs-app-message__subject-link">
+                      View full message
+                    </p>
+                  </a>
+                </li>
+
+
+                {% endif %}
 
 
 
