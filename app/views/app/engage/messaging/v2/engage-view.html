@@ -1,0 +1,214 @@
+{% set PROTOTYPEURL = "app/send-a-message/v4" %}
+{% set serviceName = "Home" %}
+{% set sender = "Woodrow Practice" %}
+{% set messagingActive = "active" %}
+{% set contentTitle = "Messages from " + sender %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script type="text/javascript">
+</script>
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Messages</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">
+        <span class="nhsuk-caption-m nhsuk-caption--top">
+          {{ data['cat'] }}
+
+         </span>
+        {{ data["from"] }}
+      </h1>
+
+      <div class="nhs-app-chat">
+        <ul class="nhs-app-chat__thread">
+
+          {% if data['id'] == "3" %}
+          <li class="nhs-app-chat__item nhs-app-chat__item--reply">
+            <div class="nhs-app-chat__sender nhs-app-chat__sender--reply">
+              <span>You</span>
+
+            </div>
+
+            <div class="nhs-app-chat__container nhs-app-chat__container--reply">
+
+              <p class="nhs-app-chat__body nhs-app-chat__header--reply">
+                {{ data['body'] | nl2br | safe }}
+              </p>
+
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
+              Sent {{ data['sent']}} at {{ data['time'] }}
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+          </li>
+
+            {% if data['engageReply'] === "true" %}
+            <li class="nhs-app-chat__item">
+              <div class="nhs-app-chat__sender">
+                Dr Anjanette Peppard
+              </div>
+              <div class="nhs-app-chat__container">
+                <p class="nhs-app-chat__body">
+                  I've read your message and notes.
+                </p>
+              </div>
+              <div class="nhs-app-chat__container">
+                <p class="nhs-app-chat__body">
+                  It should clear up with a treatment of corticosteroid nasal sprays. These are an anti-inflammatory medicine you spray into your nose.
+                </p>
+              </div>
+              <div class="nhs-app-chat__container">
+                <p class="nhs-app-chat__body">
+                  You can pick them up at your local pharmacy. If your symptoms do not clear up after 1 week. Call the surgery for an appointment.
+                </p>
+              </div>
+              <div class="nhs-app-chat__date">
+                Sent {{ data['sent']}} at {{ 'now' | returnTime }}
+              </div>
+            </li>
+            {% endif %}
+
+          {% elif data['id'] == "4" %}
+
+          <li class="nhs-app-chat__item nhs-app-chat__item--reply">
+            <div class="nhs-app-chat__sender nhs-app-chat__sender--reply">
+              <span>You</span>
+
+            </div>
+
+            <div class="nhs-app-chat__container nhs-app-chat__container--reply">
+
+              <p class="nhs-app-chat__body nhs-app-chat__header--reply">
+                {{ data['body'] | nl2br | safe }}
+              </p>
+
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
+              Sent {{ data['sent']}} at {{ data['time'] }}
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+          </li>
+
+
+          {% else %}
+          <li class="nhs-app-chat__item nhs-app-chat__item--reply">
+            <div class="nhs-app-chat__sender nhs-app-chat__sender--reply">
+              <span>You</span>
+
+            </div>
+            <div class="nhs-app-chat__container nhs-app-chat__container--reply">
+              <p class="nhs-app-chat__body nhs-app-chat__header--reply">
+                I wasn't able to go to the phlebotomy clinic at the hospital last week. What should I do?
+              </p>
+
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+            <div class="nhs-app-chat__date nhs-app-chat__date--reply">
+              Sent 30 October 2019 at 9.40am
+            </div>
+            <div class="nhsuk-u-clear">
+            </div>
+          </li>
+
+          {% set read = 'messageRead' + data['id'] %}
+          {% if data[read] !== "read"  %}
+            <div class="nhs-app-chat__read-indicator" id="unread">
+              <span class="nhs-app-chat__read-indicator-container">Unread message</span>
+            </div>
+          {% endif %}
+
+          <li class="nhs-app-chat__item">
+            <div class="nhs-app-chat__sender">
+              {{ data["from"] }}
+            </div>
+            <div class="nhs-app-chat__container">
+              <p class="nhs-app-chat__body">
+                {{ data['body'] | nl2br | safe}}
+              </p>
+
+            </div>
+            <div class="nhs-app-chat__date">
+              Sent {{ data['sent']}} at {{ data['time'] }}
+            </div>
+          </li>
+
+          {% endif %}
+
+
+        </ul>
+
+        {% if data['engageReply'] !== "true" %}
+        <ul class="list-menu" id="replyButton">
+          <li class="no-chevron">
+            <div class="list-menu_container">
+              <strong>Waiting for a reply from your GP surgery</strong>
+            </div>
+
+          </li>
+        </ul>
+
+        {% else %}
+        <ul class="list-menu" id="replyButton">
+          <li class="">
+            <a href="#">Send a reply</a>
+          </li>
+        </ul>
+        {% endif %}
+
+
+
+      </div>
+
+      <p class="nhs-app-desktop--show">
+        <a href="javascript: window.history.go(-1)">Back</a>
+      </p>
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block afterContent %}
+
+<footer class="app-silver__footer">
+<div class="nhsuk-width-container">
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <p>
+        <strong>This service is provided by your GP surgery</strong><br>
+        <a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/Pages/nhs-sites.aspx">Find out more about this service</a></p>
+    </div>
+  </div>
+</div>
+</footer>
+{% endblock %}
