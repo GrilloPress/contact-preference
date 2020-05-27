@@ -133,7 +133,7 @@ $('div.nhsuk-summary-list__row').each(function() {
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-{% if data['pkb'] == 'true' %}
+{% if data['SJR_PKB'] == 'True' %}
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
@@ -141,7 +141,7 @@ $('div.nhsuk-summary-list__row').each(function() {
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11">Prescriptions</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-gp-prescriptions">GP repeat prescriptions</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/select-medicine-to-renew-mandatory">Back</a></p>
   </div>
 </nav>
 {% else %}

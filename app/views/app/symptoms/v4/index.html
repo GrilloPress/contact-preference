@@ -1,7 +1,13 @@
 {% set PROTOTYPEURL = "app/symptoms/v4" %}
 {% set serviceName = "NHS App" %}
 {% set symptomsActive = "active" %}
+
+{% if data['experiment'] === 'True' %}
+{% set contentTitle = "Advice" %}
+{% else %}
 {% set contentTitle = "Symptoms" %}
+{% endif %}
+
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}

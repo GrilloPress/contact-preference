@@ -1,0 +1,188 @@
+{% set loginType %}
+{% if data["type"] == "fingerprint" %}
+  Fingerprint
+{% elif data["type"] == "touch" %}
+  Touch ID
+{% elif data["type"] == "face" %}
+  Face ID
+{% else %}
+  Login options
+{% endif %}
+{% endset %}
+
+{% set PROTOTYPEURL = "app/nhs-app-services" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "NHS App services" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+
+    <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+
+
+
+
+            <div class="nhs-app-panel-heading">
+              <h2 class="nhsuk-heading-m">Advice</h2>
+            </div>
+            <ul class="list-menu">
+
+            <li>
+              <a href="https://111.nhs.uk/service/COVID-19/" id="btn_az">Get advice about coronavirus</a>
+            </li>
+
+            <li>
+              <a href="/app/symptoms/a-to-z" id="btn_az">Search conditions and treatments</a>
+            </li>
+            <li>
+              <a href="https://111.nhs.uk/" id="btn_111" target="_blank">Use NHS 111 online</a>
+            </li>
+
+          </ul>
+
+
+
+          <div class="nhs-app-panel-heading">
+            <h2 class="nhsuk-heading-m">Appointments</h2>
+          </div>
+
+      <ul class="list-menu">
+        <li>
+          <a href="/app/appointments/v6/GP-hub">GP surgery appointments</a>
+        </li>
+        <li>
+          <a href="/app/appointments/v6/hospital-clinic-appts-hub">Hospital and other appointments</a>
+        </li>
+      </ul>
+
+
+
+
+                <div class="nhs-app-panel-heading">
+                  <h2 class="nhsuk-heading-m">Prescriptions</h2>
+                </div>
+        <ul class="list-menu">
+          {% if data['SJR_PKB'] == "True" %}
+          <li>
+            <a href="/app/prescriptions/v7/your-gp-prescriptions">GP repeat prescriptions</a>
+          </li>
+          <li>
+            <a href="/app/prescriptions/v7/pkb-holding-page">Hospital and other prescriptions</a>
+          </li>
+          {% else %}
+          {% if data['pickPharmacy'] %}
+          <li>
+            <a href="/app/prescriptions/v7/check-pharmacy">Order a repeat prescription</a>
+          </li>
+          {% else %}
+          <li>
+            <a href="/app/prescriptions/v7/select-medicine-to-renew-2">Order a repeat prescription</a>
+          </li>
+          {% endif %}
+          <li>
+            <a href="/app/prescriptions/v7/your-orders">View your orders</a>
+          </li>
+          {% if data["nominatedConfirmed"] %}
+          <li>
+            <a href="/app/nominated-pharmacy/v4/your-nominated-pharmacy">Nominate a pharmacy</a>
+          </li>
+          {% else %}
+          <li>
+            <a href="/app/nominated-pharmacy/v4/card-nom-pharmacy-2">Nominate a pharmacy</a>
+          </li>
+        {% endif %}
+        {% endif %}
+        </ul>
+
+
+
+        <div class="nhs-app-panel-heading">
+          <h2 class="nhsuk-heading-m">Your health</h2>
+        </div>
+        <ul class="list-menu">
+        <li>
+          <a href='{{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v1/" }}'>View your GP health record</a>
+        </li>
+
+                <li>
+                  <a href="/app/records/v3/preferences">Preferences</a>
+                </li>
+
+                <li>
+                  <a href="/app/records/v3/preferences">Care plans</a>
+                </li>
+
+
+                 <li>
+                   <a href="/app/records/v3/preferences">Track your health</a>
+                 </li>
+
+
+                  <li>
+                    <a href="/app/records/v3/preferences">Shared links</a>
+                  </li>
+
+
+
+      </ul>
+
+
+      <div class="nhs-app-panel-heading">
+        <h2 class="nhsuk-heading-m">Messages</h2>
+      </div>
+      <ul class="list-menu">
+        <li>
+          <a href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/index" }}'>View your messages</a>
+        </li>
+      </ul>
+
+
+
+      <div class="nhs-app-panel-heading">
+        <h2 class="nhsuk-heading-m">More</h2>
+      </div>
+      <ul class="list-menu">
+
+        <li>
+          <a href="/app/more/experimental/your-account">Your account</a>
+        </li>
+
+        <li>
+            <a href="/app/more/experimental/policies">Policies</a>
+          </li>
+
+      </ul>
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+{% endblock %}
