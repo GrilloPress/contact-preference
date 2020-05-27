@@ -1,0 +1,34 @@
+{% set PROTOTYPEURL = "app/doctorlink" %}
+{% set serviceName = "NHS App" %}
+{% set symptomsActive = "active" %}
+{% set contentTitle = "Ask a health professional for advice" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script>
+$('#azFrame').on("load", function () {
+    console.log('iframe loaded completely'); //replace with code to hide loader
+    $( ".container--loader" ).hide();
+});
+</script>
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+
+<div class="container--loader">
+      <div id="waitingForData" class="loader mobile">
+      </div>
+    </div>
+<iframe id="azFrame" src="https://stge.doctorlink.com/app/fitnotes" style="border: none; margin-top: -80px; height: 638px;background-color:#f0f4f5;" width="100%;"></iframe>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
