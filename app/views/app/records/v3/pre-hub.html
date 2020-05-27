@@ -1,7 +1,13 @@
 {% set PROTOTYPEURL = "app/records/v3" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
+
+{% if data['experiment'] === 'True' %}
+{% set contentTitle = "Your health" %}
+{% else %}
 {% set contentTitle = "Health records" %}
+{% endif %}
+
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -33,6 +39,18 @@
           </a>
         </li>
 
+        {% if data['experiment'] === 'True' %}
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/preferences">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Preferences</h2>
+            <p>?</p>
+          </a>
+        </li>
+
+        {% endif %}
+
+
         {% if data['SJR_PKB'] === 'True' %}
         <li>
           <a href="/app/PKB/terms-care-plan">
@@ -50,6 +68,19 @@
           </a>
         </li>
       {% endif %}
+
+
+      {% if data['experiment'] === 'True' %}
+
+      <li>
+        <a href="/app/PKB/terms-shared-links">
+          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Shared links</h2>
+          <p>View links your doctor or health professional has shared with you</p>
+        </a>
+      </li>
+
+      {% endif %}
+
       </ul>
 
 

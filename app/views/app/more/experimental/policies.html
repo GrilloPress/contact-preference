@@ -1,0 +1,60 @@
+{% set PROTOTYPEURL = "app/more/experimental" %}
+{% set serviceName = "Home" %}
+{% set contentTitle = "Policies" %}
+{% set moreActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v7/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/more/experimental">More</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/more/experimental">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+
+
+      <ul class="list-menu">
+
+
+        <li>
+      		<a href="#">Terms of use</a>
+      	</li>
+
+        <li>
+      		<a href="#">Privacy</a>
+      	</li>
+
+        <li>
+      		<a href="#">Accessibility statement</a>
+      	</li>
+
+        <li>
+      		<a href="#">Open source licences</a>
+      	</li>
+
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}
