@@ -1,0 +1,59 @@
+{% set PROTOTYPEURL = "app/engage" %}
+{% set serviceName = "Engage" %}
+{% set contentTitle = "Agree to share your NHS login information" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+      <p>
+        <span class="nhsuk-body-s nhsuk-u-margin-bottom-0">Your NHS login is:</span>
+        <span>email@test.com</span>
+      </p>
+
+      <p>To continue, you need to agree to share your NHS login information.</p>
+
+      <p><strong>'Engage Consult'</strong> will use your:</p>
+      <ul>
+        <li>NHS number</li>
+        <li>date of birth</li>
+        <li>last name</li>
+      </ul>
+
+      <p>Before you agree, you should read their terms of use and privacy policy to check how they will use your information.</p>
+
+      <form action="/{{ PROTOTYPEURL }}/admin/v1/who/index?engageLoginAccepted=true" method="post">
+        <input type="submit" class="nhsuk-button" value="Agree and continue">
+        </input>
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

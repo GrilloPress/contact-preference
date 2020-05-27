@@ -1,0 +1,154 @@
+{% set PROTOTYPEURL = "app/engage" %}
+{% set serviceName = "Engage" %}
+{% set contentTitle = "Check and confirm your answers" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+{% set dob %}
+  {% if (data['engageProxyDOB-day']) and (data['engageProxyDOB-month']) and (data['engageProxyDOB-year']) %}
+    {{ data['engageProxyDOB-day'] + " " + data['engageProxyDOB-month'] | monthToWord + " " + data['engageProxyDOB-year'] }}
+  {% else %}
+    14 February 2010
+  {% endif %}
+{% endset %}
+
+{% set name %}
+  {% if (data["engageProxyfirstname"]) and (data["engageProxyLastname"]) %}
+    {{ data["engageProxyfirstname"] }} {{ data["engageProxyLastname"] }}
+  {% else %}
+    Sarah Phillips
+  {% endif %}
+{% endset %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ contentTitle }}</h1>
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Their name"
+            },
+            value: {
+              text: name
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Their date of birth"
+            },
+            value: {
+              text: dob
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "date of birth"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Their gender"
+            },
+            value: {
+              html: data['engageProxyGender'] or "Female"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "gender"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Your relationship to them"
+            },
+            value: {
+              html: data['engageProxyRelationship'] or "I am their parent"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "relationship"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+      <p>By submitting you are confirming that:</p>
+      <ul>
+        <li>they are registered at Gledhow Practice</li>
+        <li>you are their parent or carer</li>
+      </ul>
+
+      <form action="/{{ PROTOTYPEURL }}/admin/v1/proxy/done" method="post">
+        <input type="submit" class="nhsuk-button" value="Agree and confirm">
+        </input>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block afterContent %}
+
+<footer class="app-silver__footer">
+<div class="nhsuk-width-container">
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <p>
+        <strong>This service is provided by your GP surgery</strong><br>
+        <a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/Pages/nhs-sites.aspx">Find out more about this service</a></p>
+    </div>
+  </div>
+</div>
+</footer>
+{% endblock %}
