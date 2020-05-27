@@ -27,7 +27,7 @@ $("textarea").focusout(function(){
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
 
-    {% if data['pkb'] == 'true' %}
+    {% if data['SJR_PKB'] == 'True' %}
     <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
       <div class="nhsuk-width-container">
         <ol class="nhsuk-breadcrumb__list">
@@ -62,11 +62,11 @@ $("textarea").focusout(function(){
         "titleText": "There is a problem",
         "errorList": [
           {
-            "text": "Error text for no choice o prescription",
+            "text": "Select at least one medicine",
             "href": "#prescription"
           } if data['choosePrescriptionError'],
           {
-            "text": "Error text",
+            "text": "Add a note about your prescription",
             "href": "#more-detail"
           } if data['specialRequestError']
         ]
@@ -89,7 +89,7 @@ $("textarea").focusout(function(){
             }
           },
           "errorMessage": {
-              "text": "Error text for no choice o prescription"
+              "text": "Select at least one medicine"
             } if data['choosePrescriptionError'],
 
           "items": [
@@ -127,15 +127,15 @@ $("textarea").focusout(function(){
           "classes": "nhsuk-u-margin-bottom-0",
           "rows": "3",
           "label": {
-            "text": "Notes for your GP surgery",
+            "text": "Add notes for your GP surgery",
             "classes": "nhsuk-label--l"
           },
           "hint": {
-            "html": "<p>You can leave a note about your prescription here or type 'none' if this field is mandatory. Your note may not be seen or replied to, so if you have an important request for this prescription, contact your GP surgery.</p>
+            "html": "<p>You can add a note about your prescription here or type 'none'. Your note may not be seen or replied to, so if you have an important request for this prescription, contact your GP surgery.</p>
             <p>No more than 1,000 characters.</p>"
           },
           "errorMessage": {
-              "text": "Error text"
+              "text": "Add a note about your prescription"
             } if data['specialRequestError']
 
         }) }}
