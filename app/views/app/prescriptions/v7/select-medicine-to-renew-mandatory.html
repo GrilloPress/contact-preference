@@ -56,12 +56,28 @@ $("textarea").focusout(function(){
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl nhs-app-xl">
+
+      {% if data['specialRequestError'] or data['choosePrescriptionError'] == 'True' %}
+      {{ errorSummary({
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Error text for no choice o prescription",
+            "href": "#prescription"
+          } if data['choosePrescriptionError'],
+          {
+            "text": "Error text",
+            "href": "#more-detail"
+          } if data['specialRequestError']
+        ]
+        }) }}
+      {% endif %}
+
+      <h1 class="nhsuk-heading-xl nhs-app-xl" id="prescription">
         {{ contentTitle }}
       </h1>
 
-
-      <form action="confirm-prescription-5" method="get">
+      <form action="" method="post">
         {{ checkboxes({
           "idPrefix": "prescription",
           "name": "choosePrescription",
@@ -72,6 +88,10 @@ $("textarea").focusout(function(){
               "isPageHeading": false
             }
           },
+          "errorMessage": {
+              "text": "Error text for no choice o prescription"
+            } if data['choosePrescriptionError'],
+
           "items": [
             {
               "value": "alogliptin",
@@ -100,13 +120,6 @@ $("textarea").focusout(function(){
           ]
         }) }}
 
-
-
-
-
-
-
-
         {{ textarea({
           "name": "specialRequest",
           "id": "more-detail",
@@ -120,7 +133,11 @@ $("textarea").focusout(function(){
           "hint": {
             "html": "<p>You can leave a note about your prescription here or type 'none' if this field is mandatory. Your note may not be seen or replied to, so if you have an important request for this prescription, contact your GP surgery.</p>
             <p>No more than 1,000 characters.</p>"
-          }
+          },
+          "errorMessage": {
+              "text": "Error text"
+            } if data['specialRequestError']
+
         }) }}
 
 

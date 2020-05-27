@@ -383,4 +383,41 @@ router.post('/nhsuk-to-prescription/nhsuk/frequency', function (req, res) {
 });
 
 
+
+router.post('/app/prescriptions/v7/select-medicine-to-renew-mandatory', function (req, res) {
+
+  let choosePrescription = req.body.choosePrescription;
+  let specialRequest = req.body.specialRequest;
+
+  if (specialRequest && choosePrescription) {
+
+    res.redirect('/app/prescriptions/v7/confirm-prescription-5?specialRequestError=')
+
+  } else {
+
+    var errorURL = "";
+
+    if (choosePrescription) {
+
+      errorURL += "choosePrescriptionError=&"
+
+    } else {
+       errorURL += "choosePrescriptionError=True&"
+    }
+
+    if (specialRequest) {
+
+      errorURL += "specialRequestError=&"
+
+    } else {
+       errorURL += "specialRequestError=True&"
+    }
+
+    res.redirect('/app/prescriptions/v7/select-medicine-to-renew-mandatory?' + errorURL )
+  }
+
+});
+
+
+
 module.exports = router;
