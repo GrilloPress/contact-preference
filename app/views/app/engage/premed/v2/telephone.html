@@ -35,7 +35,7 @@
       <div class="app-proxy__container">
         <ul class="list-menu">
           <li>
-              <a href="/{{ PROTOTYPEURL }}/who/v1/index">
+              <a href="/{{ PROTOTYPEURL }}/who/v2/index">
                 <p class="nhsuk-body-s">Acting on behalf of <br>
                   <strong>{{ data['engageWho']}}</strong>
                 </p>
@@ -45,7 +45,7 @@
       </div>
       {% endif %}
 
-      <form action="/{{ PROTOTYPEURL }}/premed/v1/who-get-help" method="get">
+      <form action="/{{ PROTOTYPEURL }}/premed/v2/who-get-help" method="get">
 
         {{ input({
           "label": {

@@ -38,6 +38,8 @@
         <p>Find out what to do if you think you have coronavirus</p>
         </a>
       </li>
+
+        {% if data['SJR_DoctorLink'] == "True" %}
         <li>
           <a href="/app/symptoms/a-to-z">
             <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Browse conditions and treatments on NHS.UK</h2>
@@ -46,19 +48,42 @@
         </li>
 
         <li>
-          <a href="https://111.nhs.uk">
+          <a href="#">
             <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Use 111.nhs.uk to check if you need urgent help</h2>
             <p>Find out when and where to get help</p>
           </a>
         </li>
 
-        {% if data['SJR_DoctorLink'] == "True" %}
         <li>
           <a href="/app/doctorlink/terms/v1/index">
             <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Answer questions online and get access to the right help</h2>
             <p>Answer questions about your symptoms and get advice on what to do next</p>
           </a>
         </li>
+
+        {% else %}
+        <li>
+          <a href="/app/symptoms/a-to-z">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Search conditions and treatments</h2>
+            <p>Find trusted NHS information on hundreds of conditions</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" id="btn_111">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Use NHS 111 online</h2>
+            <p>Check if you need urgent help and find out what to do next</p>
+          </a>
+        </li>
+        {% endif %}
+
+        {% if data['SJR_Engage'] === "True" %}
+          <li>
+            <a href="/app/engage/terms/v2/index" id="btn_111">
+              <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Ask a health professional for advice</h2>
+              <p>Answer questions online and get a reply from your GP surgery</p>
+            </a>
+          </li>
         {% endif %}
 
 

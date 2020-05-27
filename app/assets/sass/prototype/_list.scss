@@ -54,3 +54,17 @@
     width: 70%;
   }
 }
+
+.app-card--with-border .nhsuk-details__text {
+
+  padding-bottom: 0 !important;
+
+  @include mq($from: tablet) {
+    padding: 0 !important;
+  }
+}
+
+.app-card--with-border .nhsuk-details__summary {
+
+  z-index: 1;
+}

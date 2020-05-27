@@ -35,7 +35,7 @@
       <div class="app-proxy__container">
         <ul class="list-menu">
           <li>
-              <a href="/{{ PROTOTYPEURL }}/who/v1/index">
+              <a href="/{{ PROTOTYPEURL }}/who/v2/index">
                 <p class="nhsuk-body-s">Acting on behalf of <br>
                   <strong>{{ data['engageWho']}}</strong>
                 </p>
@@ -57,9 +57,9 @@
             <dt class="">{{ data['engageProblemCat'] or "Blocked nose" }}</dt>
             <dd class="nhsuk-summary-list__actions">
               {% if data['engageProblemCatTwo'] %}
-              <a href="/{{ PROTOTYPEURL }}/category/v1/review?engageProblemCat=NIL">Remove</a>
+              <a href="/{{ PROTOTYPEURL }}/category/v2/review?engageProblemCat=NIL">Remove</a>
               {% else  %}
-              <a href="/{{ PROTOTYPEURL }}/category/v1/search?engageProblemCat=">Remove</a>
+              <a href="/{{ PROTOTYPEURL }}/category/v2/search?engageProblemCat=">Remove</a>
               {% endif %}
             </dd>
           </div>
@@ -75,14 +75,14 @@
           <div class="nhsuk-summary-list__row">
             <dt class="">{{ data['engageProblemCatTwo'] }}</dt>
             <dd class="nhsuk-summary-list__actions">
-              <a href="/{{ PROTOTYPEURL }}/category/v1/review?engageProblemCatTwo=">Remove</a>
+              <a href="/{{ PROTOTYPEURL }}/category/v2/review?engageProblemCatTwo=">Remove</a>
             </dd>
           </div>
         </dl>
       </div>
       {% endif %}
 
-      <form action="/{{ PROTOTYPEURL }}/category/v1/warning" method="get">
+      <form action="/{{ PROTOTYPEURL }}/category/v2/warning" method="get">
 
         {{ radios({
           "idPrefix": "gov",
