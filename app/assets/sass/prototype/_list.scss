@@ -25,13 +25,9 @@
 .app-list-cards__heading {
 
   color: $color_nhsuk-blue;
-  @include nhsuk-responsive-margin(2, 'bottom');
-}
+  @include nhsuk-font(19, $weight: bold);
+  @include nhsuk-responsive-margin(1, 'bottom');
 
-.app-list-cards__heading h3 {
-
-  color: $color_nhsuk-blue;
-  @include nhsuk-responsive-margin(2, 'bottom');
 }
 
 .app-list-cards__heading--no-link {
