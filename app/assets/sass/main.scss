@@ -219,7 +219,6 @@ li ul {
 
 
   .footer-labels {
-    text-decoration: none;
     display: block;
     font-weight: 500;
     font-size: 10px;
@@ -228,6 +227,28 @@ li ul {
     display: block;
     box-sizing: border-box;
     align-self: flex-end;
-    text-align: center;
-    width: 100%;
+    margin-top: -5px;
+  }
+
+  .footer-labels--home {
+
+    margin-top: -6px;
+  }
+
+  .footer-labels--help {
+
+    margin-left: 2px;
+    margin-top: -6px;
+  }
+
+  .footer-labels--more {
+
+    margin-left: 4px;
+    margin-top: -6px;
+  }
+
+  .footer-labels__link {
+
+    text-decoration: none;
+    margin-top: -3px;
   }
