@@ -1,0 +1,19 @@
+{% if data['engageProxyJourney'] %}
+<div class="nhsuk-width-container">
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="app-proxy__container app-proxy__container--silver">
+        <ul class="list-menu">
+          <li>
+              <a href="/{{ PROTOTYPEURL }}/admin/v2/who/index">
+                <p class="nhsuk-body-s">Acting on behalf of <br>
+                  <strong>{{ data['engageWho']}}</strong>
+                </p>
+              </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
