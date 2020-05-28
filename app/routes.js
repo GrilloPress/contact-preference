@@ -70,6 +70,13 @@ router.post('/app/settings/v3/logout', function (req, res) {
 
 });
 
+
+router.post('/app/more/experimental', function (req, res) {
+
+  req.session.data = {}
+  res.redirect('/app/v7/start')
+
+});
 // qualtrics message
 
 
