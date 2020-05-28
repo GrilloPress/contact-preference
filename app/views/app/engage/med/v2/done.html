@@ -16,7 +16,7 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-
+{% include "../.././_parts/silver-banner.html" %}
 {% endblock %}
 
 {% block content %}
@@ -52,16 +52,4 @@
 {% endblock %}
 
 {% block afterContent %}
-
-<footer class="app-silver__footer">
-<div class="nhsuk-width-container">
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
-      <p>
-        <strong>This service is provided by your GP surgery</strong><br>
-        <a class="nhsuk-footer__list-item-link" href="https://www.nhs.uk/Pages/nhs-sites.aspx">Find out more about this service</a></p>
-    </div>
-  </div>
-</div>
-</footer>
 {% endblock %}
