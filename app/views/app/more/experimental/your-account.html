@@ -1,3 +1,15 @@
+{% set loginType %}
+{% if data["type"] == "fingerprint" %}
+  Fingerprint
+{% elif data["type"] == "touch" %}
+  Touch ID
+{% elif data["type"] == "face" %}
+  Face ID
+{% else %}
+  Login options
+{% endif %}
+{% endset %}
+
 {% set PROTOTYPEURL = "app/more/experimental" %}
 {% set serviceName = "Home" %}
 {% set contentTitle = "Your account" %}
@@ -38,7 +50,7 @@
 
         <li>
           <a href="/app/settings/v3/password">
-            Login options
+            {{ loginType }}
           </a>
         </li>
 
