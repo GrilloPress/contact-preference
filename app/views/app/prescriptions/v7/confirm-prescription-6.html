@@ -191,22 +191,58 @@ $('div.nhsuk-summary-list__row').each(function() {
           },
           {
             key: {
-              text: "Notes for your GP surgery",
+              text: "Special requests relating to your order (optional)",
               "classes": "nhsuk-heading-s"
             },
             value: {
-              text: data['specialRequest'] | placeholder('No notes added')
+              text: data['specialRequest'] | placeholder('No requests added')
             },
             actions: {
               items: [
                 {
                   href: "/app/prescriptions/v7/select-medicine-to-renew-2",
                   text: "Change",
-                  visuallyHiddenText: "notes for your GP surgery"
+                  visuallyHiddenText: "special requests relating to this order (optional)"
                 }
               ]
             }
-          }
+          },
+          {
+            key: {
+              text: "Your nominated pharmacy",
+              "classes": "nhsuk-heading-s"
+            },
+            value: {
+              html: "You do not have a nominated pharmacy.</p><p>Collect your paper prescription from your GP surgery when it's ready.</p>"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/app/nominated-pharmacy/v4/card-nom-pharmacy-2?inJourney=true",
+                  text: "Nominate a pharmacy",
+                  visuallyHiddenText: "Nominate a pharmacy"
+                }
+              ]
+            }
+          } if not data['pickPharmacy'],
+          {
+            key: {
+              text: "Your nominated pharmacy",
+              "classes": "nhsuk-heading-s"
+            },
+            value: {
+              html: nomPharmDetails
+            },
+            actions: {
+              items: [
+                {
+                  href: "/app/nominated-pharmacy/v4/change-2?inJourney=true&change=true",
+                  text: "Change",
+                  visuallyHiddenText: "your nominated pharmacy"
+                }
+              ]
+            }
+          } if data['pickPharmacy']
         ]
       }) }}
 
