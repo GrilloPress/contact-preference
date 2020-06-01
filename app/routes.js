@@ -217,11 +217,11 @@ router.post('/app/organ-donation/v2/change-radios', function (req, res) {
 
 // user research redirect
 
-router.get('/', function (req, res) {
-
-   res.redirect('/app/iframe-3')
-
-  });
+// router.get('/', function (req, res) {
+//
+//   res.redirect('/app/iframe-3')
+//
+//  });
 
 
 // router.get('/', function (req, res) {
