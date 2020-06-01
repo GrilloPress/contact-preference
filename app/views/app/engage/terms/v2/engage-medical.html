@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Read and confirm" %}
+{% set contentTitle = "Confirm it's not an emergency" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -32,45 +32,67 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
+      {% if data['engageProxyJourney'] %}
+      <div class="app-proxy__container">
+        <ul class="list-menu">
+          <li>
+              <a href="/{{ PROTOTYPEURL }}/who/v2/index">
+                <p class="nhsuk-body-s">Acting on behalf of <br>
+                  <strong>{{ data['engageWho']}}</strong>
+                </p>
+              </a>
+          </li>
+        </ul>
+      </div>
+      {% endif %}
+
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
-      {% set checkboxWarning %}
-      {{ checkboxes({
-        "name": "engageMedicalWarning",
-        "items": [
-          {
-            "value": "true",
-            "text": "I understand"
-          }
-        ]
-      }) }}
-      {% endset %}
+      <p>Do not use this service to contact your GP in an emergency</p>
 
-      {% set checkboxWarningTwo %}
-      {{ checkboxes({
-        "name": "engageMedicalGetHelp",
-        "items": [
-          {
-            "value": "true",
-            "text": "I understand"
-          }
-        ]
-      }) }}
-      {% endset %}
+      {{ careCard({
+        "type": "immediate",
+        "heading": "Call 999 now if you have:",
+        "HTML": "
+        <ul>
+          <li>
+            <strong>signs of a heart attack</strong>
+            - pain like a very tight band, heavy weight or squeezing in the centre of your chest
+          </li>
 
+          <li>
+            <strong>signs of a stroke</strong>
+            - face drooping on one side, cannot hold both arms up, difficulty speaking
+          </li>
+
+          <li>
+            <strong>severe difficulty breathing</strong>
+            - gasping, not being able to get words out, choking or lips turning blue
+          </li>
+
+          <li>
+            <strong>heavy bleeding</strong>
+            - that will not stop
+          </li>
+
+          <li>
+            <strong>severe injuries</strong>
+            - or deep cuts after a serious accident
+          </li>
+
+          <li>
+            <strong>seizure (fit)</strong>
+            - someone is shaking or jerking because of a fit, or is unconscious (cannot be woken up)
+          </li>
+        </ul>
+        "
+      }) }}
 
       <form class="" action="" method="post">
 
-        {{ warningCallout({
-          "heading": "Emergencies",
-          "HTML": "<p>Do not use this service to contact your GP in an emergency.</p><p> In the case of life threatening emergencies, please ring 999.</p><p>Serious symptoms to consider may include but are not limited to: Unexpected breathlessness, severe bleeding, crushing chest pain or pressure</p>" + checkboxWarning + "<p>You are responsible for seeking further medical help if the situation worsens or a medical condition deteriorates such that you consider immediate help may be required.</p>" + checkboxWarningTwo
-        }) }}
+        <p>You are responsible for seeking further medical help if the situation worsens or a medical condition deteriorates such that you consider immediate help may be required.</p>
 
-        <p>By proceeding to use this service you accept the
-          <a href="#">end user license agreement</a>.
-        </p>
-
-          <input type="submit" class="nhsuk-button" value="Agree and continue">
+          <input type="submit" class="nhsuk-button" value="I understand">
           </input>
 
       </form>

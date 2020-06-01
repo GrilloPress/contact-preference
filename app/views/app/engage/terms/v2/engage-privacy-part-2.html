@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Your data and privacy is important to us" %}
+{% set contentTitle = "Choose how your data is used using this service" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -48,23 +48,7 @@
 
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
-      <form class="" action="" method="post">
-
-        <h2>Please read our privacy policy</h2>
-        <p>Before continuing please make sure you are fully ready and completely understand our <a href="#">privacy policy</a>.</p>
-
-        {{ checkboxes({
-          "name": "engagePrivacyPolicy",
-          "items": [
-            {
-              "value": "true",
-              "text": "I have fully read and agree to the privacy policy"
-            }
-          ]
-        }) }}
-
-        <h2>Can I control who sees my data?</h2>
-        <p>Yes, you can, we give users the following options:</p>
+      <form class="" action="/{{ PROTOTYPEURL }}/premed/v2/telephone" method="post">
 
         {{ checkboxes({
           "name": "engageDataUse",
@@ -85,8 +69,6 @@
             }
           ]
         }) }}
-
-
 
           <input type="submit" class="nhsuk-button" value="Continue">
           </input>
