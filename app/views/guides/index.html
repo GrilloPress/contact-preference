@@ -1,0 +1,47 @@
+{% set PROTOTYPEURL = "guides" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Prototyping guides" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        {{ contentTitle }}
+      </h1>
+
+
+        <ul class="app-list--unstyled app-list-cards list-menu">
+          <li class="app-list-cards__item">
+            <a href="/guides/git-cloning">
+              <h3 class="app-list-cards__heading ">Cloning the git repo</h3>
+              <p>Cloning the git repo for usability sessions that's separate from the master prototype</p>
+            </a>
+          </li>
+          <li class="app-list-cards__item">
+            <a href="/guides/publish-heroku">
+              <h3 class="app-list-cards__heading ">Publishing your cloned repo to Heroku</h3>
+              <p>Getting a heroku link set up to give to users for testing</p>
+            </a>
+          </li>
+        </ul>
+
+    </div>
+  </div>
+{% endblock %}

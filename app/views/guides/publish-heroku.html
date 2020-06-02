@@ -1,0 +1,75 @@
+{% set PROTOTYPEURL = "guides" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Publishing your cloned repo to Heroku" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+  "href": "/guides/index",
+  "text": "Go back"
+}) }}
+
+      <h1>
+        {{ contentTitle }}
+      </h1>
+
+      <h2>1. Make sure you're in the right folder</h2>
+
+      <p>If you named your clone <code>remote-lab</code> for example, use the terminal to navigate to that folder. To do this, run:</p>
+
+      <pre class="app-pre"><code class="app-code">cd remote-lab</code></pre>
+
+
+      <h2>2. Login to Heroku</h2>
+
+      <p>Enter this command:</p>
+
+      <pre class="app-pre"><code class="app-code">heroku login</code></pre>
+
+
+      <h2>3. Choose a name and create your Heroku app</h2>
+
+      <p>This is the name that will be used in the URL of your Heroku app. For example, <code>prescriptions-lab</code>.</p>
+
+      <p>For this example, you would enter this command:</p>
+
+      <pre class="app-pre"><code class="app-code">heroku apps:create prescriptions-lab --region eu</code></pre>
+
+
+      <h2>4. Push to Heroku</h2>
+
+      <p>Make sure you commit any changes to git before deploying. But do not push your changes.</p>
+
+      <p>Enter this command:</p>
+
+      <pre class="app-pre"><code class="app-code">git push heroku master</code></pre>
+
+
+      <h2>5. Open Heroku</h2>
+
+      <p>Enter this command:</p>
+
+      <pre class="app-pre"><code class="app-code">heroku open</code></pre>
+
+
+    </div>
+  </div>
+{% endblock %}
