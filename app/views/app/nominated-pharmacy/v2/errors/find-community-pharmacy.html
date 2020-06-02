@@ -34,14 +34,26 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-heading-l">{{ contentTitle }}</h1>
+
+            {{ errorSummary({
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Enter a valid English postcode",
+            "href": "#nhs-error"
+          }
+        ]
+      }) }}
+
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
 
-
-
-      <form action="/{{ PROTOTYPEURL }}/v2/community-results" method="get">
+      <form action="/" method="get">
 
         {{ input({
+          "errorMessage": {
+              "text": "Enter a valid English postcode"
+            },
           "label": {
             "text": 'Enter a postcode',
             "isPageHeading": false,
@@ -50,10 +62,15 @@
           "hint": {
             "text": 'For example, LS1'
           },
+          "autocomplete": "off",
           "id": "inputpharmacyPostcode",
           "name": "pharmacyPostcode",
           "classes": "nhsuk-input--width-10"
         }) }}
+
+
+
+
 
         <input type="submit" class="nhsuk-button" value="Search">
         </input>

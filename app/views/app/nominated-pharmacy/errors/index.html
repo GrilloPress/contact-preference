@@ -1,0 +1,52 @@
+{% set PROTOTYPEURL = "app/nominated-pharmacy" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Nominated pharmacy errors" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+      <h2>Validation errors</h2>
+
+
+      <ul>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v2/errors/type-of-pharmacy">Choose a type of pharmacy to search for - user does not select an option and tries to continue</a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v2/errors/find-community-pharmacy">Find a high street pharmacy - user does not input anything and tries to continue</a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v2/errors/name-of-pharmacy">Is there a specific online-only pharmacy that you want to use? - user does not select an option and tries to continue</a>
+      </li>
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v2/errors/search-name">What is the name of the online-only pharmacy? - user does not input anything tries to continue</a>
+      </li>
+    </ul>
+
+
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "NHS App" %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "Choose a type of pharmacy to search for" %}
+{% set contentTitle = "Choose a type of pharmacy" %}
 {% set title = "Error - " + contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -36,7 +36,7 @@
   "titleText": "There is a problem",
   "errorList": [
     {
-      "text": "Choose a type of pharmacy to search for",
+      "text": "Choose a type of pharmacy",
       "href": "#nhs-error"
     }
   ]
@@ -44,7 +44,7 @@
 
 
 
-        <form action="/{{ PROTOTYPEURL }}/v2/type-of-pharmacy" method="post">
+        <form action="/" method="post">
 
         {{ radios({
           "idPrefix": "nhs",
@@ -53,30 +53,31 @@
           "fieldset": {
             "legend": {
               "html": '<h1 class="nhsuk-fieldset__heading">' + contentTitle + '</h1>',
-              "classes": "nhsuk-fieldset__legend--l",
+              "classes": "nhsuk-fieldset__legend--xl",
               "isPageHeading": true
             }
           },
           "errorMessage": {
-              "text": "Choose a type of pharmacy to search for"
+              "text": "Choose a type of pharmacy"
           },
               "items": [
             {
               "value": "community",
               "text": "High street pharmacies",
               "hint": {
-                "text": "You can collect your prescriptions in person at a high street pharmacy local to you. They may also deliver."
+                "text": "You can collect your prescriptions in person at a high street pharmacy local to you. They may also deliver. You'll be able to nominate a high street pharmacy in the NHS App."
               }
             },
             {
               "value": "online",
               "text": "Online-only pharmacies",
               "hint": {
-                "text": "Internet-based pharmacies send your prescriptions to you in the post."
+                "text": "These send your prescriptions to you in the post. It's not possible to nominate an online-only pharmacy in the NHS App. You'll need to register with the pharmacy directly instead."
               }
             }
           ]
         }) }}
+
 
 
 
