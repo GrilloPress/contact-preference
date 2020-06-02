@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/appointments/v9-doctorlink" %}
 {% set serviceName = "NHS App" %}
 {% set appointmentsActive = "active" %}
-{% set contentTitle = "Things to try before you book an appointment" %}
+{% set contentTitle = "Before you book an appointment" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -31,33 +31,22 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl nhs-app-xl">
-        {{ contentTitle }}
-      </h1>
 
-      <ul class="list-menu">
-        <li>
-         <a href="www.nhs.uk/conditions">
-           <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Browse conditions and treatments on NHS.UK</h2>
-         </a>
-       </li>
-       <li>
-         <a href="/app/doctorlink/appointment-iframe">
-           <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Answer questions online and get access to the right help</h2>
-           <p>Answer questions about your symptoms and get advice on what to do next</p>
-         </a>
-       </li>
-        <li>
-      		<a href="#">
-      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Request a sick note</h2>
-      		</a>
-        </li>
-        <li>
-      		<a href="/app/appointments/v9-doctorlink/filters/select-type-of-appointment?browseAppointments=false">
-      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Book an appointment</h2>
-      		</a>
-      	</li>
-      </ul>
- </div>
+            <h1 class="nhsuk-heading-xl nhs-app-xl">
+              {{ contentTitle }}
+            </h1>
+            <p>To make sure you get the right care, your GP surgery wants you to complete an online triage.</p>
+            <p>You'll need to answer questions online about your symptoms.</p>
+            <p>Based on the answers the you give, you will be told what care is best for you. If you need a GP appointment for your symptoms, you will be able to book one at the end of the triage.</p>
+            <p>The questions will take about <strong>10 minutes</strong> to complete.</p>
+          
+            <form action="/app/doctorlink/terms/v1/index" method="post">
+            <input type="submit" class="nhsuk-button" value="Continue"></input>
+        </form>
+            
+           
+
+
+    </div>
   </div>
 {% endblock %}
