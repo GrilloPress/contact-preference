@@ -1,0 +1,55 @@
+{% set PROTOTYPEURL = "app/doctorlink" %}
+{% set serviceName = "DoctorLink" %}
+{% set contentTitle = "Before you start" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="app-interruption">
+        <div class="app-interruption__wrapper">
+          <div class="app-interruption__content">
+            <h1 class="nhsuk-heading-xl nhs-app-xl">
+              {{ contentTitle }}
+            </h1>
+            <p>To make sure you get the right care, your GP surgery wants you to complete an online triage.</p>
+            <p>You'll need to answer questions online about your symptoms.</p>
+            <p>Based on the answers the you give, you will be told what care is best for you. If you need a GP appointment for your symptoms, you will be able to book one at the end of the triage.</p>
+            <p>The questions will take about <strong>10 minutes</strong> to complete.</p>
+            <form action="/{{ PROTOTYPEURL }}/terms/v1/index" method="post">
+              <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+{% endblock %}
