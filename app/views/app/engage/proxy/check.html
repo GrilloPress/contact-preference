@@ -41,6 +41,9 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
+{% if data['engageProxyReturnURL'] === 'v2' %}
+  {% include "../_parts/silver-banner.html" %}
+{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -138,7 +141,7 @@
 {% endblock %}
 
 {% block afterContent %}
-
+{% if data['engageProxyReturnURL'] !== 'v2' %}
 <footer class="app-silver__footer">
 <div class="nhsuk-width-container">
   <div class="nhsuk-grid-row">
@@ -150,4 +153,5 @@
   </div>
 </div>
 </footer>
+{% endif %}
 {% endblock %}
