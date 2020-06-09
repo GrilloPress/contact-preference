@@ -1,0 +1,87 @@
+{% set PROTOTYPEURL = "guides" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Getting the NHS App prototype kit" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+  "href": "/guides/index",
+  "text": "Go back"
+}) }}
+
+      <h1>
+        {{ contentTitle }}
+      </h1>
+
+
+
+      <h2>1. Make sure you're in the right folder</h2>
+
+      <p>Go to the folder where you would save your prototypes, for example, your home folder. To do this, run:</p>
+
+      <pre class="app-pre"><code class="app-code">cd <i>folder name</i></code></pre>
+
+
+      <h2>2. Clone the master repo</h2>
+
+      <p>Run this command:</p>
+
+      <pre class="app-pre"><code class="app-code">git clone https://github.com/GrilloPress/contact-preference.git nhs-app</code></pre>
+
+      <p>This will clone the master repo in a new folder called nhs-app.</p>
+
+
+
+      <h2>3. Navigate to your new folder</h2>
+
+      <p>Run this command:</p>
+
+      <pre class="app-pre"><code class="app-code">cd nhs-app</code></pre>
+
+
+
+      <h2>4. Install the kit</h2>
+
+      <p>Run this command:</p>
+
+      <pre class="app-pre"><code class="app-code">npm install</code></pre>
+
+      <p>This might take a few minutes.</p>
+
+
+      <h2>5. Run the kit</h2>
+
+      <p>Run this command:</p>
+
+      <pre class="app-pre"><code class="app-code">npm run watch</code></pre>
+
+
+      <h2>6. Open the kit locally</h2>
+
+      <p>Check the kit is working by running it locally on your own machine.</p>
+
+      <p><a href="http://localhost:2001/">Open local host</a></p>
+
+
+
+    </div>
+  </div>
+{% endblock %}
