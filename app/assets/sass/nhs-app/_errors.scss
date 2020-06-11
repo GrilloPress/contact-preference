@@ -7,4 +7,17 @@
     background-color: $color_nhsuk-red;
     top: -16px;
   }
+
+  a {
+
+    color: $color_nhsuk-red;
+
+    &:visited {
+      color: $color_nhsuk-red;
+    }
+
+    &:active, &:hover, &:focus {
+      color: $color_nhsuk-black;
+    }
+  }
 }

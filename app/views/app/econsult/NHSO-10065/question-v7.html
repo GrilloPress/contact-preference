@@ -1,0 +1,71 @@
+{% set PROTOTYPEURL = "app/econsult" %}
+{% set serviceName = "eConsult" %}
+{% set contentTitle = "Choose if you want to share your personal information" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ "Additional GP services" if data['eConsultAdminJourney'] == 'true' else "Ask your GP for advice"}}</h1>
+
+    <section id="service-explanation">
+      <p>To make this service easier to complete we can fill in answers for you. To do this we need you to agree to share your personal information with the service. </p><p>You can find out how this works in the <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">NHS App privacy policy.</a></p>
+    </section>
+
+    <form action="" method="post">
+      {{ radios({
+        "idPrefix": "eConsult",
+        "name": "eConsult",
+        "fieldset": {
+          "legend": {
+            "text": "Do you agree to sharing your personal information?",
+            "isPageHeading": true,
+            "classes": "nhsuk-fieldset__legend--m"
+          }
+        },
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes, share my name, date of birth, NHS number and postal address"
+          },
+          {
+            "value": "no",
+            "text": "No, I will enter the information myself"
+          }
+        ]
+      }) }}
+
+      <input type="submit" class="nhsuk-button" value="Continue">
+      </input>
+</form>
+
+
+    </div>
+  </div>
+{% endblock %}
