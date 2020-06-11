@@ -1,3 +1,15 @@
+{% set loginType %}
+{% if data["type"] == "fingerprint" %}
+  Fingerprint
+{% elif data["type"] == "touch" %}
+  Touch ID
+{% elif data["type"] == "face" %}
+  Face ID
+{% else %}
+  Login options
+{% endif %}
+{% endset %}
+
 {% set PROTOTYPEURL = "app/more/experimental" %}
 {% set serviceName = "NHS App" %}
 {% set contentTitle = "More" %}
@@ -27,10 +39,31 @@
 
       <ul class="list-menu">
 
+
         <li>
-        	<a href="/{{ PROTOTYPEURL }}/your-account">
-        		<h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Your account</h2>
-        	</a>
+          <a href="/app/settings/v3/password">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">{{ loginType }}</h2>
+          </a>
+        </li>
+
+        <li>
+          <a href="/app/settings/v3/notifications">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Notifications</h2>
+            </a>
+        </li>
+
+
+        <li>
+          <a href="/app/settings/v3/login">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Manage your NHS login</h2>
+          </a>
+        </li>
+
+
+        <li>
+          <a href="/app/settings/v3/cookies">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Cookies</h2>
+          </a>
         </li>
 
         <li>
@@ -38,6 +71,13 @@
               <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Policies</h2>
             </a>
           </li>
+
+
+                  <li>
+                    <a href="/app/homepage/qualtrics-message">
+                      <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Choose if you want to take part in NHS App research</h2>
+                    </a>
+                  </li>
 
 
           <li>
