@@ -1,0 +1,52 @@
+{% set PROTOTYPEURL = "app/errors/login" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Login failed" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<!-- 
+  <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
+-->
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">Login failed</h1>
+      <div class="nhsuk-panel-with-label nhs-app-error-panel">
+        <div class="nhsuk-panel-with-label__label">Error</div>
+          <h2>If your GP surgery is in Wales</h2>
+          <p>The NHS App is not available in Wales because health services are managed separately from England.</p>
+          <p>If you need an appointment or prescription, go to <a href="https://www.myhealthonline-inps2.wales.nhs.uk/">My Health Online</a> or contact your GP surgery directly. For urgent medical advice, go to <a href="https://111.wales.nhs.uk">111.wales.nhs.uk</a> or call 111.</p>
+          <h2>If your GP surgery is in England</h2>
+          <p>Either we cannot connect to your GP surgery, or we cannot match your NHS number to a GP surgery.</p>
+          <p>If you need an appointment or prescription, contact your GP surgery directly. For urgent medical advice, go to <a href="https://111.nhs.uk">111.nhs.uk</a> or call 111.</p>
+          <p>If you still need help to access the app, <a href="https://www.nhs.uk/contact-us/nhs-app-contact-us">contact us</a>.</p>
+          <h2>If your GP surgery is in Northern Ireland or Scotland</h2>
+          <p>The NHS App is not available in Northern Ireland or Scotland because health services are managed separately from England.</p>
+          <p>If you need an appointment or prescription, contact your GP surgery directly. For urgent medical advice, call 111.</p>
+          <p class="nhsuk-u-font-size-16">Reference: 3fxxxx</p>
+
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

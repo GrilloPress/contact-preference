@@ -1,6 +1,6 @@
-{% set PROTOTYPEURL = "app/errors" %}
-{% set serviceName = "NHS App Errors" %}
-{% set contentTitle = "Prototypes" %}
+{% set PROTOTYPEURL = "app/errors/login" %}
+{% set serviceName = "NHS App errors" %}
+{% set contentTitle = "Login error prototypes" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -26,21 +26,10 @@
         {{ contentTitle }}
       </h1>
 
+      <h2>Future</h2>
       <ul>
         <li>
-          <a href="/{{ PROTOTYPEURL }}/login/index">Login</a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/messages/index">Notifications and messaging</a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/online-consultations/index">Online consultations</a>
-        </li>
-        <li>
-          <a href="/app/prescriptions/errors/index">Prescriptions</a>
-        </li>
-        <li>
-          <a href="/app/nominated-pharmacy/errors/index">Nominated pharmacy</a>
+          <a href="/{{ PROTOTYPEURL }}/3f-unsupported-ods">3f: unsupported ODS code or no NHS number found</a>
         </li>
       </ul>
 
