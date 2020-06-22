@@ -1,0 +1,39 @@
+{% set PROTOTYPEURL = "app/examples" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Pattern and component examples" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+      <h2>Components</h2>
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/provider-banner">Provider banner</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}
