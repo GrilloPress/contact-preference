@@ -58,7 +58,8 @@ $('div.nhsuk-summary-list__row').each(function() {
       <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
       {% elif item == 'alogliptin' %}
       <p class="nhsuk-u-margin-bottom-0">Alogliptin 25mg tablets</p>
-      <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+      <p class="nhs-app-secondary-text nhsuk-u-margin-bottom-0">One to be taken each day - 28 tablet</p>
+      <p class="nhs-app-secondary-text">Cannot order medicine until {{"10" | returnDate }}</p>
       {% elif item == 'metformin' %}
       <p class="nhsuk-u-margin-bottom-0">Metformin 500mg tablets</p>
       <p class="nhs-app-secondary-text">One to be taken 4 times a day with food - 112 tablet</p>
@@ -182,7 +183,7 @@ $('div.nhsuk-summary-list__row').each(function() {
             actions: {
               items: [
                 {
-                  href: "/app/prescriptions/v7/select-medicine-to-renew-mandatory",
+                  href: "/app/prescriptions/v7/select-medicine-to-renew-4",
                   text: "Change",
                   visuallyHiddenText: "medicine"
                 }
@@ -200,7 +201,7 @@ $('div.nhsuk-summary-list__row').each(function() {
             actions: {
               items: [
                 {
-                  href: "/app/prescriptions/v7/select-medicine-to-renew-mandatory",
+                  href: "/app/prescriptions/v7/select-medicine-to-renew-4",
                   text: "Change",
                   visuallyHiddenText: "notes for your GP surgery"
                 }
