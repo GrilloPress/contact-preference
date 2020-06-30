@@ -32,10 +32,12 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ "Additional GP services" if data['eConsultAdminJourney'] == 'true' else "Ask your GP for advice"}}</h1>
+      <p class="nhsuk-caption-m nhsuk-caption--top">Ask a health professional for advice about your child</p>
+
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Would you like to use the personal information we already hold?</h1>
 
     <section id="service-explanation">
-      <p>To make this service easier to complete we can fill in answers for you. To do this we need you to agree to share your personal information with the service. </p><p>You can find out how this works in the <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">NHS App privacy policy.</a></p>
+      <p>You can use the name, date of birth, NHS number and postal address we already hold with the online consultation service. Read our <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">privacy policy</a> to find out how we use and protect your data.</p>
     </section>
 
     <form action="" method="post">
@@ -44,7 +46,6 @@
         "name": "eConsult",
         "fieldset": {
           "legend": {
-            "text": "Do you agree to sharing your personal information?",
             "isPageHeading": true,
             "classes": "nhsuk-fieldset__legend--m"
           }
@@ -52,11 +53,11 @@
         "items": [
           {
             "value": "yes",
-            "text": "Yes, share my name, date of birth, NHS number and postal address"
+            "text": "Yes, use my personal information"
           },
           {
             "value": "no",
-            "text": "No, I will enter the information myself"
+            "text": "No, I will fill in the information myself"
           }
         ]
       }) }}

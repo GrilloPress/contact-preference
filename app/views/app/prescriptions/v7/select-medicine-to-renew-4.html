@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Order a repeat prescription" %}
+{% set contentTitle = "Which medicine would you like to order?" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -73,33 +73,28 @@ $("textarea").focusout(function(){
         }) }}
       {% endif %}
 
-      <h1 class="nhsuk-heading-xl nhs-app-xl" id="prescription">
-        {{ contentTitle }}
-      </h1>
-
-      <form action="" method="post">
+      <form action="confirm-prescription-5" method="get">
         {{ checkboxes({
           "idPrefix": "prescription",
           "name": "choosePrescription",
           "fieldset": {
             "legend": {
-              "text": 'Medicine currently available to order',
-              "classes": "nhsuk-fieldset__legend--l",
+              "text": contentTitle,
+              "classes": "nhsuk-fieldset__legend--xl nhs-app-xl",
               "isPageHeading": false
             }
+            },
+              "hint": {
+              "text": "Select all that apply."
           },
-          "errorMessage": {
-              "text": "Select at least one medicine"
-            } if data['choosePrescriptionError'],
-
           "items": [
             {
               "value": "alogliptin",
               "text": "Alogliptin 25mg tablets",
               "checked": checked("choosePrescription", "alogliptin"),
               "hint": {
-                "text": "One to be taken each day - 28 tablet"
-              }
+                "html": '<p class="nhsuk-u-margin-bottom-1">One to be taken each day - 28 tablet</p><p class="nhsuk-u-margin-bottom-2">Cannot order medicine until ' + "10" | returnDate + ' </p>'
+               }
             },
             {
               "value": "omeprazole",
@@ -120,25 +115,26 @@ $("textarea").focusout(function(){
           ]
         }) }}
 
-        {{ textarea({
-          "name": "specialRequest",
-          "id": "more-detail",
-          "value": data['specialRequest'],
-          "classes": "nhsuk-u-margin-bottom-0",
-          "rows": "3",
-          "label": {
-            "text": "Add notes for your GP surgery",
-            "classes": "nhsuk-label--l"
-          },
-          "hint": {
-            "html": "<p>You can add a note about your prescription here or type 'none'. Your note may not be seen or replied to, so if you have an important request for this prescription, contact your GP surgery.</p>
-            <p>No more than 1,000 characters.</p>"
-          },
-          "errorMessage": {
-              "text": "Add a note about your prescription"
-            } if data['specialRequestError']
 
-        }) }}
+                {{ textarea({
+                  "name": "specialRequest",
+                  "id": "more-detail",
+                  "value": data['specialRequest'],
+                  "classes": "nhsuk-u-margin-bottom-0",
+                  "rows": "3",
+                  "label": {
+                    "text": "Add notes for your GP surgery",
+                    "classes": "nhsuk-label--l"
+                  },
+                  "hint": {
+                    "html": "<p>You can add a note about your prescription here or type 'none'. Your note may not be seen or replied to, so if you have an important request for this prescription, contact your GP surgery.</p>
+                    <p>No more than 1,000 characters.</p>"
+                  },
+                  "errorMessage": {
+                      "text": "Add a note about your prescription"
+                    } if data['specialRequestError']
+
+                }) }}
 
 
 
