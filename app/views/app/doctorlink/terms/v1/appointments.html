@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/doctorlink" %}
-{% set serviceName = "Doctorlink" %}
-{% set contentTitle = "Agree to share your NHS login information" %}
+{% set serviceName = "DoctorLink" %}
+{% set contentTitle = "This is a connected service" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -31,28 +31,27 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+      <div class="app-interruption">
+        <div class="app-interruption__wrapper">
+          <div class="app-interruption__content">
+            <h1 class="app-card__heading nhsuk-heading-xl nhsuk-u-margin-bottom-4">
+              <span class="app-interruption__caption nhsuk-caption-m nhsuk-caption--top">Book an appointment</span>
+              {{ contentTitle }}
+            </h1>
+            <p>
+              Your GP surgery has chosen this online consultation service provided by <strong>DoctorLink Limited</strong>.
+            </p>
+            <form action="/app/doctorlink/appointment-iframe/index" method="post">
+              <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
+            </form>
+            <p>
+              <a href="#">Find out more about online consultation services</a>
+            </p>
 
-      <p>
-        <span class="nhsuk-body-s nhsuk-u-margin-bottom-0">Your NHS login is:</span>
-        <span>email@test.com</span>
-      </p>
+          </div>
+        </div>
+      </div>
 
-      <p>To continue, you need to agree to share your NHS login information.</p>
-
-      <p><strong>'Doctorlink'</strong> will use your:</p>
-      <ul>
-        <li>NHS number</li>
-        <li>date of birth</li>
-        <li>last name</li>
-      </ul>
-
-      <p>Before you agree, you should read their terms of use and privacy policy to check how they will use your information.</p>
-
-      <form action="/{{ PROTOTYPEURL }}/symptoms_iframe/index?engageLoginAccepted=true" method="post">
-        <input type="submit" class="nhsuk-button" value="Agree and continue">
-        </input>
-      </form>
 
     </div>
   </div>
