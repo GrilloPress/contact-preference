@@ -1,0 +1,108 @@
+{% set PROTOTYPEURL = "app/doctorlink" %}
+{% set serviceName = "DoctorLink" %}
+{% set contentTitle = "Appointments" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+{% set bodyClasses = 'doctorlink' %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+
+{% include ".././_parts/banner.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ contentTitle }}</h1>
+
+      <div class="box">
+        <div class="box-heading">
+          <div class="box-heading-svg-container">
+            <svg class="box-svg" id="check_symptoms_svg__Layer_1" data-name="Layer 1" viewBox="0 0 164 164" theme="[object Object]"><defs><style>.check_symptoms_svg__cls-1{fill:#1018d5;opacity:.2}.check_symptoms_svg__cls-2{fill:#fff}</style></defs><circle class="check_symptoms_svg__cls-1" cx="81.87" cy="81.85" r="80"></circle><path class="check_symptoms_svg__cls-1" d="M81.87 161.85a80 80 0 0 1 0-160"></path><path class="check_symptoms_svg__cls-2" d="M68.79 78.35V18.69a3.12 3.12 0 0 1 3.1-3.1h19.9a3.11 3.11 0 0 1 3.1 3.1v59.66a35 35 0 1 1-26.1 0z"></path><circle cx="81.84" cy="111.5" r="23.09" fill="#b30000"></circle><path d="M98.11 127.89a23 23 0 0 1-32.53-32.52z" fill="#dc0000" fill-rule="evenodd"></path><rect class="check_symptoms_svg__cls-2" x="65.06" y="15.59" width="33.04" height="66.26" rx="3" ry="3"></rect><path stroke="#b30000" stroke-miterlimit="10" stroke-width="10" fill="#b30000" d="M81.84 25v72.04"></path></svg>
+          </div>
+          <div class="box-heading-title">
+            <h2 class="sc-1ihr08v-0-h2 sc-17lovsw-0 eecWdg">Urgent appointments</h2>
+          </div>
+        </div>
+
+        <p>Feeling unwell? Our symptoms checker will determine whether you need an appointment and then direct you to the care you need.</p>
+
+        <form action="" method="get">
+          <input class="btn" type="submit" name="" value="Start symptom checker">
+        </form>
+      </div>
+
+
+      <div class="box">
+        <div class="box-heading">
+          <div class="box-heading-svg-container">
+            <svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g transform="translate(-48.000000, -575.000000)" fill-rule="nonzero">
+                      <g transform="translate(24.000000, 549.000000)">
+                          <g transform="translate(24.000000, 26.000000)">
+                              <circle id="Oval___1b313253-e614" fill="#00C4FA" opacity="0.2" cx="22" cy="22" r="22"></circle>
+                              <path d="M22,44 C9.8497355,44 0,34.1502645 0,22 C0,9.8497355 9.8497355,0 22,0 L22,44 Z" fill="#00C4FA" opacity="0.2"></path>
+                              <rect fill="#03A0D8" transform="translate(22.000000, 22.814815) rotate(-180.000000) translate(-22.000000, -22.814815) " x="10.0833333" y="12.5277778" width="23.8333333" height="20.5740741"></rect>
+                              <rect fill="#FFFFFF" transform="translate(15.400000, 28.253704) rotate(-180.000000) translate(-15.400000, -28.253704) " x="13.7703704" y="26.7259259" width="3.25925926" height="3.05555556"></rect>
+                              <rect fill="#FFFFFF" transform="translate(19.881481, 28.253704) rotate(-180.000000) translate(-19.881481, -28.253704) " x="18.2518519" y="26.7259259" width="3.25925926" height="3.05555556"></rect>
+                              <rect fill="#00C4FA" transform="translate(28.009259, 22.814815) rotate(-180.000000) translate(-28.009259, -22.814815) " x="22.1018519" y="12.5277778" width="11.8148148" height="20.5740741"></rect>
+                              <rect fill="#FFFFFF" transform="translate(24.362963, 28.253704) rotate(-180.000000) translate(-24.362963, -28.253704) " x="22.7333333" y="26.7259259" width="3.25925926" height="3.05555556"></rect>
+                              <rect fill="#FFFFFF" transform="translate(28.844444, 28.253704) rotate(-180.000000) translate(-28.844444, -28.253704) " x="27.2148148" y="26.7259259" width="3.25925926" height="3.05555556"></rect>
+                              <rect fill="#FFFFFF" transform="translate(15.400000, 23.772222) rotate(-180.000000) translate(-15.400000, -23.772222) " x="13.7703704" y="22.2444444" width="3.25925926" height="3.05555556"></rect>
+                              <rect fill="#FFFFFF" transform="translate(19.881481, 23.772222) rotate(-180.000000) translate(-19.881481, -23.772222) " x="18.2518519" y="22.2444444" width="3.25925926" height="3.05555556"></rect>
+                              <rect fill="#FFFFFF" transform="translate(24.362963, 23.772222) rotate(-180.000000) translate(-24.362963, -23.772222) " x="22.7333333" y="22.2444444" width="3.25925926" height="3.05555556"></rect>
+                              <rect fill="#FFFFFF" transform="translate(28.844444, 23.772222) rotate(-180.000000) translate(-28.844444, -23.772222) " x="27.2148148" y="22.2444444" width="3.25925926" height="3.05555556"></rect>
+                              <rect fill="#FFFFFF" transform="translate(15.400000, 19.290741) rotate(-180.000000) translate(-15.400000, -19.290741) " x="13.7703704" y="17.762963" width="3.25925926" height="3.05555556"></rect>
+                              <rect fill="#FFFFFF" transform="translate(19.881481, 19.290741) rotate(-180.000000) translate(-19.881481, -19.290741) " x="18.2518519" y="17.762963" width="3.25925926" height="3.05555556"></rect>
+                              <rect fill="#FFFFFF" transform="translate(24.362963, 19.290741) rotate(-180.000000) translate(-24.362963, -19.290741) " x="22.7333333" y="17.762963" width="3.25925926" height="3.05555556"></rect>
+                              <rect fill="#FFFFFF" transform="translate(28.844444, 19.290741) rotate(-180.000000) translate(-28.844444, -19.290741) " x="27.2148148" y="17.762963" width="3.25925926" height="3.05555556"></rect>
+                              <rect fill="#03A0D8" transform="translate(13.648148, 11.712963) rotate(-180.000000) translate(-13.648148, -11.712963) " x="12.1203704" y="10.8981481" width="3.05555556" height="1.62962963"></rect>
+                              <rect fill="#00C4FA" transform="translate(29.537037, 11.712963) rotate(-180.000000) translate(-29.537037, -11.712963) " x="28.0092593" y="10.8981481" width="3.05555556" height="1.62962963"></rect>
+                          </g>
+                      </g>
+                  </g>
+              </g>
+          </svg>
+          </div>
+          <div class="box-heading-title">
+            <h2 class="sc-1ihr08v-0-h2 sc-17lovsw-0 eecWdg">Non-urgent appointments</h2>
+          </div>
+        </div>
+
+        <p>Request a non-urgent appointment. For example, smear tests, follow-up appointments and vaccinations.</p>
+
+        <form action="routine" method="get">
+          <input class="btn" type="submit" name="" value="Request routine appointment">
+        </form>
+      </div>
+
+
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

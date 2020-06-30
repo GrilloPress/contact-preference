@@ -1,0 +1,127 @@
+{% set PROTOTYPEURL = "app/doctorlink" %}
+{% set serviceName = "DoctorLink" %}
+{% set contentTitle = "Let's get started" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script type="text/javascript" src="/js/doctorlink.js" ></script>
+{% endblock %}
+{% set bodyClasses = 'doctorlink' %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+
+{% include ".././_parts/banner.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ contentTitle }}</h1>
+
+      <p>To get the best care available you need to complete a symptom assessment, typically this takes less than 10 minutes.</p>
+
+
+      <div class="question-box" id="1">
+        <div class="question-box__container">
+          <div class="question-box__title">
+            Who are your trying to book for?
+          </div>
+          <div class="question-box__inner-container">
+            <div class="question-box__answers">
+              <div class="question-box__button" onclick="answerQuestion('1','Bernard Doyle','2')">
+                Bernard Doyle
+              </div>
+              <div class="question-box__button">
+                Someone Else
+              </div>
+            </div>
+            <div class="question-box__note">
+              Click to answer
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="answer-box" style="display:none" id="answer1">
+        <div class="answer-box__container">
+          <div class="answer-box__answer">
+            <span class="answer">Bernard Doyle</span>
+          </div>
+
+        </div>
+        <div class="nhsuk-u-clear">
+        </div>
+        <div class="answer-box__note">
+          Click to change
+        </div>
+
+      </div>
+
+      <div class="question-box" style="display: none" id="2">
+        <div class="question-box__container">
+          <div class="question-box__title">
+            What type of appointment are you trying to book?
+          </div>
+
+          <div class="question-box__answers">
+            <div class="question-box__button">
+              Asthma review
+            </div>
+            <div class="question-box__button">
+              High blood pressure (hypertension)
+            </div>
+            <div class="question-box__button">
+              Blood test
+            </div>
+            <div class="question-box__button">
+              New symptoms I want to talk about
+            </div>
+            <div class="question-box__button">
+              Something else
+            </div>
+          </div>
+        </div>
+        <div class="question-box__note">
+          Click to answer
+        </div>
+      </div>
+
+      <div class="answer-box" style="display:none" id="answer2">
+        <div class="answer-box__container">
+          <div class="answer-box__answer">
+            <span class="answer">Asthma review</span>
+          </div>
+
+        </div>
+        <div class="nhsuk-u-clear">
+        </div>
+        <div class="answer-box__note">
+          Click to change
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+{% endblock %}
