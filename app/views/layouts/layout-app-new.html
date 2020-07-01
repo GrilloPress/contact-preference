@@ -92,7 +92,12 @@
 {% endif %}
 {% endset %}
 
+
+{% if data['experimentalHeaderDesktop'] === "True" %}
+{% include "./parts/_desktop-header-experimental.html" %}
+{% else %}
 {% include "./parts/_desktop-header.html" %}
+{% endif %}
 
 {% if data['messagingIcon'] == "True" %}
  {% include "./parts/_native-header-with-messaging-icon.html" %}
