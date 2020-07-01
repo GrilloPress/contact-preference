@@ -31,34 +31,12 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      <span class="nhsuk-caption-m nhsuk-caption--top">{{ "Additional GP services" if data['eConsultAdminJourney'] == 'true' else "Ask your GP for advice"}}</span>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Would you like to use the personal information we already hold?</h1>
 
-      {% set questionTitleHTML %}
-      <span class="nhsuk-caption-m nhsuk-caption--top">{{ "Additional GP services" if data['eConsultAdminJourney'] == 'true' else "Ask a health professional for advice"}}</span> Would you like to use the personal information we already hold?
-      {% endset %}
-
-      {% call fieldset({
-        "legend": {
-          "html": questionTitleHTML,
-          "classes": "nhsuk-fieldset__legend--xl nhs-app-xl",
-          "isPageHeading": true
-        },
-        "attributes": {
-          "aria-describedby": "radio-hint"
-        }
-      }) %}
-
-      {{ hint({
-        "html": 'You can use the name, date of birth, NHS number and postal address we already hold with the online consultation service. Read our <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">privacy policy</a> to find out how we use and protect your data.',
-        "classes": "nhsuk-u-margin-bottom-2",
-        "attributes": {
-          "id": "radio-hint"
-        }
-      }) }}
-
-      {% endcall %}
-
-
-
+    <section id="service-explanation">
+      <p>You can use the name, date of birth, NHS number and postal address we already hold with the online consultation service. Read our <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">privacy policy</a> to find out how we use and protect your data.</p>
+    </section>
 
     <form action="" method="post">
       {{ radios({
