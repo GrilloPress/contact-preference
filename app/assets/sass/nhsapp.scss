@@ -2211,3 +2211,23 @@ nav.menu ul li b {
     padding: 16px;
     position: relative;
 }
+
+
+
+.header-links_1SXdg {
+  @media (min-width: 990px) {
+    display: inline-block;
+  }
+    float: right;
+    display: none;
+    margin-top: 1.5em;
+
+    a {
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+
+    strong {
+      color: #FFFFFF;
+    }
+}

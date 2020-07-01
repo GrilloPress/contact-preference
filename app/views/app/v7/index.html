@@ -163,7 +163,7 @@
         {% endif %}
 
         <li>
-          <a href="/app/more/experimental/index">See more NHS App services</a>
+          <a href='{{ data["routeMore"] if data ["routeMore"] else "/app/more/experimental/index-2" }}'>See more NHS App services</a>
         </li>
       </ul>
     </div>
