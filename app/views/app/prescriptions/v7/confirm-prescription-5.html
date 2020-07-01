@@ -26,7 +26,8 @@ $('div.nhsuk-summary-list__row').each(function() {
   {% elif data['choosePrescription'] == 'alogliptin' %}
 
   <p class="nhsuk-u-margin-bottom-0">Alogliptin 25mg tablets</p>
-  <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+  <p class="nhs-app-secondary-text nhsuk-u-margin-bottom-0">One to be taken each day - 28 tablet</p>
+  <p class="nhs-app-secondary-text">Cannot order medicine until {{"10" | returnDate }}</p>
 
   {% elif data['choosePrescription'] == 'metformin' %}
 
@@ -214,24 +215,30 @@ $('div.nhsuk-summary-list__row').each(function() {
 
 
 
-      {% if cheese == 'stringyCheese' %}
-      <form action="/app/prescriptions/v7/save" method="post">
-        <input type="submit" class="nhsuk-button" value="Confirm and order prescription">
-        </input>
-      </form>
-
-       {% elif cheese == 'hardCheese' %}
-       <form action="/app/prescriptions/v7/save" method="post">
-         <input type="submit" class="nhsuk-button" value="Confirm and order prescriptions">
-         </input>
-       </form>
-
-       {% else %}
-       <form action="/app/prescriptions/v7/save" method="post">
-         <input type="submit" class="nhsuk-button" value="Confirm and order prescription">
-         </input>
-       </form>
-       {% endif %}
+            {% if cheese == 'stringyCheese' %}
+              {% if data['choosePrescription'] == 'alogliptin' %}
+              <form action="/app/prescriptions/v1/errors/medication-already-issued-4?prescriptionConfirmed=True" method="post">
+                {% else %}
+                <form action="/app/prescriptions/v7/confirmed-3?prescriptionConfirmed=True" method="post">
+              {% endif %}
+              <input type="submit" class="nhsuk-button" value="Confirm and order prescription">
+              </input>
+            </form>
+             {% elif cheese == 'hardCheese' %}
+               {% if 'alogliptin' in data['choosePrescription'] %}
+               <form action="/app/prescriptions/v1/errors/medication-already-issued-4?prescriptionConfirmed=True" method="post">
+                 {% else %}
+               <form action="/app/prescriptions/v7/confirmed-3?prescriptionConfirmed=True" method="post">
+                 {% endif %}
+               <input type="submit" class="nhsuk-button" value="Confirm and order prescriptions">
+               </input>
+             </form>
+             {% else %}
+             <form action="/app/prescriptions/v7/confirmed-3?prescriptionConfirmed=True" method="post">
+               <input type="submit" class="nhsuk-button" value="Confirm and order prescription">
+               </input>
+             </form>
+             {% endif %}
 
 
              <p class="nhs-app-desktop--show">

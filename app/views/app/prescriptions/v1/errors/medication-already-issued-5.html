@@ -37,64 +37,30 @@
       {{ choosePrescription | safe }}
 
     {% else %}
-    <ol class="nhs-app-list-card">
+    <div class="app-card">
+      <div class="app-card__wrapper">
+        <div class="app-card__content">
       {% for item in data['choosePrescription'] %}
       {% if item == 'omeprazole' %}
-        <li class="nhs-app-list-card__item">
-          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
-            <div class="app-card__wrapper">
-              <div class="app-card__content">
-                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
-                  Omeprazole 40mg gastro-resistant capsules
-                </h2>
-                <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
-              </div>
-            </div>
-          </div>
-        </li>
+      <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-2">
+      <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+      <p class="nhs-app-secondary-text nhsuk-u-margin-bottom-4">One to be taken each day - 28 tablet</p>
       {% elif item == 'alogliptin' %}
-        <li class="nhs-app-list-card__item">
-          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
-            <div class="app-card__wrapper">
-              <div class="app-card__content">
-                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
-                  Alogliptin 25mg tablets
-                </h2>
-                <p class="nhs-app-secondary-text nhsuk-u-margin-bottom-0">One to be taken each day - 28 tablet</p>
-                <p class="nhs-app-secondary-text">Cannot order medicine until {{"10" | returnDate }}</p>
-              </div>
-            </div>
-          </div>
-        </li>
+      <p class="nhsuk-u-margin-bottom-0">Alogliptin 25mg tablets</p>
+      <p class="nhs-app-secondary-text nhsuk-u-margin-bottom-0">One to be taken each day - 28 tablet</p>
+      <p class="nhs-app-secondary-text nhsuk-u-margin-bottom-4">Cannot order medicine until {{"10" | returnDate }}</p>
       {% elif item == 'metformin' %}
-        <li class="nhs-app-list-card__item">
-          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
-            <div class="app-card__wrapper">
-              <div class="app-card__content">
-                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
-                  Metformin 500mg tablets
-                </h2>
-                <p class="nhs-app-secondary-text">One to be taken 4 times a day with food - 112 tablet</p>
-              </div>
-            </div>
-          </div>
-        </li>
+      <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-2">
+      <p class="nhsuk-u-margin-bottom-0">Metformin 500mg tablets</p>
+      <p class="nhs-app-secondary-text">One to be taken 4 times a day with food - 112 tablet</p>
       {% else %}
-        <li class="nhs-app-list-card__item">
-          <div class="app-card app-card--with-border app-card--no-shadow app-card--xs nhsuk-u-margin-bottom-2">
-            <div class="app-card__wrapper">
-              <div class="app-card__content">
-                <h2 class="app-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-0">
-                  Omeprazole 40mg gastro-resistant capsules
-                </h2>
-                <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
-              </div>
-            </div>
-          </div>
-        </li>
+      <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+      <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
       {% endif %}
       {% endfor %}
-    </ol>
+              </div>
+            </div>
+          </div>
     {% endif %}
   {% endset %}
 {% set contentTitle = "We cannot complete your order" %}
