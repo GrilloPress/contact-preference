@@ -71,7 +71,7 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ routeHome }}">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11">Prescriptions</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-gp-prescriptions">GP repeat prescriptions</a></li>
     </ol>
@@ -83,7 +83,7 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
 <div class="nhsuk-width-container">
 <ol class="nhsuk-breadcrumb__list">
-  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5/">Home</a></li>
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ routeHome }}">Home</a></li>
   <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Prescriptions</a></li>
 </ol>
 <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Back</a></p>
@@ -132,10 +132,13 @@
       </div>
 
 
+
       <ul class="list-menu nhs-app-message">
 
+      {% if data['prescriptionConfirmed'] %}
+        {% if 'alogliptin' in data['choosePrescription'] %}
 
-        {% if data['prescriptionConfirmed'] %}
+        {% else %}
           {% if 'metformin' in data['choosePrescription'] %}
 
 
@@ -163,9 +166,7 @@
                   {% endif %}
 
 
-
-                  {% if 'alogliptin' in data['choosePrescription'] %}
-
+                  <!--{% if 'alogliptin' in data['choosePrescription'] %}
 
                   <li class="no-chevron no-chevron--subtle">
                     <div class="list-menu-container_prescriptions">
@@ -186,11 +187,7 @@
                     </div>
                 	</li>
 
-
-
-
-
-                  {% endif %}
+                  {% endif %}-->
 
                   {% if 'omeprazole' in data['choosePrescription'] %}
 
@@ -215,6 +212,7 @@
                 	</li>
 
 
+                  {% endif %}
 
                   {% endif %}
                   {% endif %}

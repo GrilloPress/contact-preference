@@ -139,7 +139,7 @@ $('div.nhsuk-summary-list__row').each(function() {
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ routeHome }}">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11">Prescriptions</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-gp-prescriptions">GP repeat prescriptions</a></li>
     </ol>
@@ -151,7 +151,7 @@ $('div.nhsuk-summary-list__row').each(function() {
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
 <div class="nhsuk-width-container">
 <ol class="nhsuk-breadcrumb__list">
-  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5/">Home</a></li>
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ routeHome }}">Home</a></li>
   <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Prescriptions</a></li>
 </ol>
 <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Back</a></p>
@@ -217,24 +217,24 @@ $('div.nhsuk-summary-list__row').each(function() {
 
             {% if cheese == 'stringyCheese' %}
               {% if data['choosePrescription'] == 'alogliptin' %}
-              <form action="/app/prescriptions/v1/errors/medication-already-issued-4?prescriptionConfirmed=True" method="post">
+              <form action="/app/prescriptions/v1/errors/medication-already-issued-5?prescriptionConfirmed=True" method="post">
                 {% else %}
-                <form action="/app/prescriptions/v7/confirmed-3?prescriptionConfirmed=True" method="post">
+                <form action="/app/prescriptions/v7/confirmed-4?prescriptionConfirmed=True" method="post">
               {% endif %}
               <input type="submit" class="nhsuk-button" value="Confirm and order prescription">
               </input>
             </form>
              {% elif cheese == 'hardCheese' %}
                {% if 'alogliptin' in data['choosePrescription'] %}
-               <form action="/app/prescriptions/v1/errors/medication-already-issued-4?prescriptionConfirmed=True" method="post">
+               <form action="/app/prescriptions/v1/errors/medication-already-issued-5?prescriptionConfirmed=True" method="post">
                  {% else %}
-               <form action="/app/prescriptions/v7/confirmed-3?prescriptionConfirmed=True" method="post">
+               <form action="/app/prescriptions/v7/confirmed-4?prescriptionConfirmed=True" method="post">
                  {% endif %}
                <input type="submit" class="nhsuk-button" value="Confirm and order prescriptions">
                </input>
              </form>
              {% else %}
-             <form action="/app/prescriptions/v7/confirmed-3?prescriptionConfirmed=True" method="post">
+             <form action="/app/prescriptions/v7/confirmed-4?prescriptionConfirmed=True" method="post">
                <input type="submit" class="nhsuk-button" value="Confirm and order prescription">
                </input>
              </form>

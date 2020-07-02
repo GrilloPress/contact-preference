@@ -4,25 +4,42 @@
 
 {% set choosePrescription %}
   {% if data['choosePrescription'] == 'omeprazole' %}
-
+  <div class="app-card">
+    <div class="app-card__wrapper">
+      <div class="app-card__content">
   <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
   <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
-
+</div>
+</div>
+</div>
   {% elif data['choosePrescription'] == 'alogliptin' %}
-
+  <div class="app-card">
+    <div class="app-card__wrapper">
+      <div class="app-card__content">
   <p class="nhsuk-u-margin-bottom-0">Alogliptin 25mg tablets</p>
-  <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
-
+  <p class="nhs-app-secondary-text nhsuk-u-margin-bottom-0">One to be taken each day - 28 tablet</p>
+  <p class="nhs-app-secondary-text">Cannot order medicine until {{"10" | returnDate }}</p>
+</div>
+</div>
+</div>
   {% elif data['choosePrescription'] == 'metformin' %}
-
+  <div class="app-card">
+    <div class="app-card__wrapper">
+      <div class="app-card__content">
   <p class="nhsuk-u-margin-bottom-0">Metformin 500mg tablets</p>
   <p class="nhs-app-secondary-text">One to be taken 4 times a day with food - 112 tablet</p>
-
+</div>
+</div>
+</div>
   {% else %}
-
+  <div class="app-card">
+    <div class="app-card__wrapper">
+      <div class="app-card__content">
   <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
   <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
-
+</div>
+</div>
+</div>
   {% endif %}
 
 {% endset %}
@@ -44,11 +61,11 @@
       {% if item == 'omeprazole' %}
       <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-2">
       <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
-      <p class="nhs-app-secondary-text nhsuk-u-margin-bottom-4">One to be taken each day - 28 tablet</p>
+      <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
       {% elif item == 'alogliptin' %}
       <p class="nhsuk-u-margin-bottom-0">Alogliptin 25mg tablets</p>
       <p class="nhs-app-secondary-text nhsuk-u-margin-bottom-0">One to be taken each day - 28 tablet</p>
-      <p class="nhs-app-secondary-text nhsuk-u-margin-bottom-4">Cannot order medicine until {{"10" | returnDate }}</p>
+      <p class="nhs-app-secondary-text">Cannot order medicine until {{"10" | returnDate }}</p>
       {% elif item == 'metformin' %}
       <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-2">
       <p class="nhsuk-u-margin-bottom-0">Metformin 500mg tablets</p>
@@ -97,11 +114,11 @@
               <p>If you need this medicine sooner, contact your GP surgery directly. For urgent medical advice, go to <a href="https://111.nhs.uk/">111.nhs.uk</a> or call 111.</p>
 
 
-                        {% if data['pkb'] == 'true' %}
-                        <p><a href="/app/prescriptions/v7/your-prescriptions-11">Go to your prescriptions</a></p>
-                        {% else %}
-                        <p><a href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Go to your prescriptions</a></p>
-                        {% endif %}
+              {% if data['SJR_PKB'] == 'True' %}
+                <p><a href="/app/prescriptions/v7/your-prescriptions-11">Go to your prescriptions</a></p>
+              {% else %}
+                <p><a href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Go to your prescriptions</a></p>
+              {% endif %}
 
     </div>
   </div>

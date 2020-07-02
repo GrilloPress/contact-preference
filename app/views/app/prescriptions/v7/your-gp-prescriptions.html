@@ -19,7 +19,7 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ routeHome }}">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11">Prescriptions</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/your-prescriptions-11">Back</a></p>
@@ -62,7 +62,7 @@
       {% if data['prescriptionConfirmed'] %}
 
       <li>
-        <a href="/{{ PROTOTYPEURL }}/v7/your-orders">
+        <a href="/{{ PROTOTYPEURL }}/v7/your-orders-2">
           <h2 class="nhsuk-heading-s">View your orders</h2>
             <p>See repeat prescriptions you have ordered</p>
         </a>
@@ -71,7 +71,7 @@
       {% else %}
 
       <li>
-        <a href="/{{ PROTOTYPEURL }}/v7/your-orders">
+        <a href="/{{ PROTOTYPEURL }}/v7/your-orders-2">
           <h2 class="nhsuk-heading-s">View your orders</h2>
             <p>See repeat prescriptions you have ordered</p>
         </a>
