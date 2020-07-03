@@ -2075,7 +2075,7 @@ main.nhs-app-thin {
   li a {
 
     font-weight: 600;
-    padding: 5px 4em 5px 4px;
+    padding: 10.5px 2em 4px 1em;
     min-height: 46px;
   }
 
@@ -2314,4 +2314,10 @@ nav.menu ul li b {
 
       }
 
+    }
+
+
+    .nhsuk-header__link--service-app-online:hover {
+        background-color: #003d78;
+        box-shadow: 0 0 0 4px #003d78;
     }
