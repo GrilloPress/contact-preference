@@ -2270,6 +2270,8 @@ nav.menu ul li b {
   .nhsuk-header__navigation-link-log-out:focus {
     color: #ffffff;
     outline: none;
+    background-color: transparent;
+    text-decoration: underline;
 }
   .nhsuk-header__navigation-link-log-out:active {
     background-color: #002f5c;
@@ -2306,7 +2308,6 @@ nav.menu ul li b {
       &:hover {
 
         background: none;
-        box-shadow: none;
 
         .nhsuk-header__service-name {
           text-decoration: underline;
