@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/records/v1" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
-{% set contentTitle = "Your GP health records" %}
+{% set contentTitle = "Your GP health record" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -45,7 +45,7 @@
         <li>test results that you may not have discussed with your doctor</li>
       </ul>
 
-      <form action="/{{ PROTOTYPEURL}}/your-record-restricted" method="get">
+      <form action="/{{ PROTOTYPEURL}}/your-record-summary" method="get">
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>

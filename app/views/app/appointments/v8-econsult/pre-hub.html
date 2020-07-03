@@ -23,6 +23,13 @@ $( document ).ready(function() {
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-desktop--show" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
+    </ol>
+  </div>
+</nav>
 {% endblock %}
 
 
@@ -37,7 +44,7 @@ $( document ).ready(function() {
 
     <ul class="list-menu">
       <li>
-       <a href="/{{ PROTOTYPEURL }}/GP-hub">
+       <a href="/{{ PROTOTYPEURL }}/appts-switched-off">
          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">GP surgery appointments</h2>
          <p>View and manage appointments at your surgery</p>
        </a>

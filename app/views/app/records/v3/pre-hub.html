@@ -40,7 +40,7 @@
 
       <ul class="list-menu">
         <li>
-          <a href="/{{ PROTOTYPEURL }}/index">
+          <a href="/app/records/v1/index">
             <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">GP health record</h2>
             <p>View your GP health record</p>
           </a>
@@ -59,15 +59,21 @@
 
 
         {% if data['SJR_PKB'] === 'True' %}
+
+        <li>
+          <a href="/app/PKB/terms-test-results">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Test results</h2>
+            <p>View test results from your hospital and other healthcare providers</p>
+          </a>
+        </li>
+
         <li>
           <a href="/app/PKB/terms-care-plan">
             <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Care plans</h2>
             <p>View your personalised care plans</p>
           </a>
         </li>
-        {% endif %}
 
-      {% if data['SJR_PKB'] === 'True' %}
         <li>
           <a href="/app/PKB/terms-track-health">
             <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Track your health</h2>

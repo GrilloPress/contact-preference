@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/doctorlink" %}
-{% set serviceName = "DoctorLink" %}
-{% set contentTitle = "This is a connected service" %}
+{% set serviceName = "Patients Know Best" %}
+{% set contentTitle = "This is a third party service" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -19,9 +19,9 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href='{{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v3/pre-hub" }}'>Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -38,7 +38,7 @@
               {{ contentTitle }}
             </h1>
             <p>
-              Your GP surgery has chosen this personal health record service provided by <strong>Patients Know Best</strong>.
+              Your GP surgery or hospital has chosen this personal health record service provided by <strong>Patients Know Best</strong>.
             </p>
             <form action="#" method="post">
               <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
