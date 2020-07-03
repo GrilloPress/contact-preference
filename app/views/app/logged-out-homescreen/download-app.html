@@ -136,28 +136,27 @@
 
 <!-- Footer goes inside this block -->
 {% block footer %}
+<div class="nhs-app-desktop--show">
   {{ footer({
+    "classes": "",
     "links": [
       {
-        "URL": "#",
-        "label": "NHS sites"
+        "URL": "https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/terms/",
+        "label": "Terms of use"
       },
       {
-        "URL": "#",
-        "label": "About us"
+        "URL": "https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/",
+        "label": "Privacy policy"
       },
       {
-        "URL": "#",
-        "label": "Contact us"
+        "URL": "https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/help/",
+        "label": "Help and support"
       },
       {
-        "URL": "#",
-        "label": "Sitemap"
-      },
-      {
-        "URL": "#",
-        "label": "Our policies"
+        "URL": "https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/accessibility/",
+        "label": "Accessibility statement"
       }
     ]
   })}}
+</div>
 {% endblock %}

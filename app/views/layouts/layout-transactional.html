@@ -29,7 +29,7 @@
 {% block header %}
   {{ header({
     "transactionalService": {
-        "name": "serviceName",
+        "name": "NHS App",
         "longName": "true",
         "href": headerHref
       },
@@ -46,16 +46,7 @@
 <!-- Footer goes inside this block -->
 
 {% block footer %}
-  {{ footer({
-    "links": [
-      {
-        "URL": "#",
-        "label": "Contact us"
-      },
-      {
-        "URL": "#",
-        "label": "Our policies"
-      }
-    ]
-  })}}
+
+{% include "./parts/_desktop-footer-2.html" %}
+
 {% endblock %}
