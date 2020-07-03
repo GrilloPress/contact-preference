@@ -38,6 +38,14 @@
 <!-- Header goes inside this block -->
 {% block header %}
 
+
+{% if data['experimentalHeaderDesktop'] === "True" %}
+{% include "./parts/_desktop-header-experimental.html" %}
+{% else %}
+{% include "./parts/_desktop-header.html" %}
+{% endif %}
+
+
   <header class="pull-header logged {% if appHeading %}{% else %}nhs-app-no-title{% endif %}">
     <div class="">
       <span class="logged nhs-app-header-link" style="">

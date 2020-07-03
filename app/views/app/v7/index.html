@@ -20,9 +20,9 @@
   <div class="nhsuk-width-container">
     <div class="nhsuk-grid-row">
       <div class="nhsuk-grid-column-two-thirds">
-        <ul class="list-menu covid-list">
+        <ul class="list-menu">
           <li>
-              <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">
+              <a class="covid" href="https://www.nhs.uk/conditions/coronavirus-covid-19/">
                 <p class="nhsuk-body-s"><strong>Coronavirus (COVID-19)</strong></p>
                 <p class="nhsuk-body-s">Get information about coronavirus on NHS.UK</p>
               </a>
@@ -110,20 +110,20 @@
       <ul class="list-menu nhs-app-message">
 
         <li>
-          <a href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v2/" }}'>Get health advice</a>
+          <a class="desktop" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v2/" }}'>Get health advice</a>
         </li>
 
         <li>
-          <a href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v6/pre-hub" }}'>Book and manage appointments</a>
+          <a class="desktop" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v6/pre-hub" }}'>Book and manage appointments</a>
         </li>
           <li>
-            <a href='{{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v7/your-prescriptions-11-no-pkb" }}'>Order a repeat prescription</a>
+            <a class="desktop" href='{{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v7/your-prescriptions-11-no-pkb" }}'>Order a repeat prescription</a>
           </li>
         <li>
-          <a href='{{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v1/" }}'>View your health record and preferences</a>
+          <a class="desktop" href='{{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v1/" }}'>View your health record and preferences</a>
         </li>
         <li class="nhs-app-message__item--unread">
-          <a href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/?messagingIcon=False&messageRead1=unread&pkbMessaging=False" }}'>
+          <a class="desktop" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/?messagingIcon=False&messageRead1=unread&pkbMessaging=False" }}'>
               View your messages
               {% if data['messageRead1'] !== "read" %}
               <span class="nhs-app-message__meta">
@@ -142,12 +142,12 @@
         {% else %}
         {% if not data['donationDecision'] %}
                 <li>
-                  <a href="/app/organ-donation/v2/register-decision-2">Manage your organ donation decision</a>
+                  <a class="desktop" href="/app/organ-donation/v2/register-decision-2">Manage your organ donation decision</a>
                 </li>
 
         {% else %}
         <li>
-          <a href="/app/organ-donation/v2/donates-home-2">Manage your organ donation decision</a>
+          <a class="desktop" href="/app/organ-donation/v2/donates-home-2">Manage your organ donation decision</a>
         </li>
 
         {% endif %}
@@ -158,12 +158,12 @@
         {% if data['linkedProfiles'] == "False" %}
         {% else %}
           <li>
-            <a href="/app/linked-profiles/profiles-list">Switch to a linked profile</a>
+            <a class="desktop" href="/app/linked-profiles/profiles-list">Switch to a linked profile</a>
           </li>
         {% endif %}
 
         <li>
-          <a href='{{ data["routeMore"] if data ["routeMore"] else "/app/more/experimental/index-2" }}'>See more NHS App services</a>
+          <a class="desktop" href='{{ data["routeMore"] if data ["routeMore"] else "/app/more/experimental/index-2" }}'>See more NHS App services</a>
         </li>
       </ul>
     </div>

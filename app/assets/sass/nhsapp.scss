@@ -1038,7 +1038,6 @@ hr {
   font-style: normal; }
 
 
-
 .info {
   margin-bottom: 0.5em; }
   .info ul li {
@@ -2054,6 +2053,9 @@ main.nhs-app-thin {
   }
 }
 
+
+
+
 .list-menu {
 
   @include mq($until: desktop) {
@@ -2073,7 +2075,7 @@ main.nhs-app-thin {
   li a {
 
     font-weight: 600;
-    padding: 10.5px 2em 4px 1em;
+    padding: 5px 4em 5px 4px;
     min-height: 46px;
   }
 
@@ -2231,3 +2233,85 @@ nav.menu ul li b {
       color: #FFFFFF;
     }
 }
+
+
+
+.list-menu li a.covid {
+  padding-left: 0 !important;
+}
+
+
+
+
+
+.list-menu li a.desktop {
+  @include mq($from: desktop) {
+   font-size: 1.375rem;
+   padding: 12px 2em 8px 1em;
+  }
+}
+
+
+
+.nhsuk-header__navigation-link-log-out {
+  color: #ffffff;
+  font-size: 17px;
+  line-height: normal;
+  display: inline;
+  padding: 8px;
+}
+  .nhsuk-header__navigation-link-log-out:visited {
+    color: #ffffff; }
+  .nhsuk-header__navigation-link-log-out:hover {
+    background-color: #003d78;
+    box-shadow: none;
+    text-decoration: underline;
+  }
+  .nhsuk-header__navigation-link-log-out:focus {
+    color: #ffffff;
+    outline: none;
+}
+  .nhsuk-header__navigation-link-log-out:active {
+    background-color: #002f5c;
+    color: #f0f4f5; }
+  .nhsuk-header__navigation-link-log-out.is-active {
+    background-color: #004b93; }
+
+
+
+
+    .nhsuk-header__link-app-online {
+      @include nhsuk-logo-size; /* [1] */
+      display: block;
+    }
+
+
+
+    .nhsuk-header__link--service-app-online {
+      height: auto;
+      margin-bottom: -(nhsuk-spacing(1));
+      text-decoration: none;
+      width: auto;
+
+
+      @include mq($from: tablet) {
+        -ms-flex-align: center;
+        align-items: center;
+        display: flex;
+        margin-bottom: 0;
+        width: auto;
+      }
+
+      &:focus,
+      &:hover {
+
+        background: none;
+        box-shadow: none;
+
+        .nhsuk-header__service-name {
+          text-decoration: underline;
+        }
+
+      }
+
+    }

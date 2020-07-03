@@ -40,7 +40,7 @@
       <div class="nhsuk-grid-column-two-thirds">
         <ul class="list-menu">
           <li>
-              <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">
+              <a class="covid" href="https://www.nhs.uk/conditions/coronavirus-covid-19/">
                 <p class="nhsuk-body-s"><strong>Coronavirus (COVID-19)</strong></p>
                 <p class="nhsuk-body-s">Get information about coronavirus on NHS.UK</p>
               </a>
@@ -61,6 +61,8 @@
       <h1>
         {{ contentTitle }}
       </h1>
+
+      <p>Use NHS App online to access services on your desktop or laptop computer, through your web browser. You do not need to install anything to get started.</p>
 
       <p>Use this service to:</p>
 
@@ -87,8 +89,8 @@
       }) }}
 
 
-      <form action="/app/v7/start" method="post">
-        <input class="nhsuk-button nhslogin-button" type="submit" value="Continue with NHS login">
+      <form action="/app/login/enter-email?experiment=True&SJR_PKB=True&cookies=on&routeHome=/app/v7/index&routeSymptoms=/app/symptoms/v4/index&routeAppointments=/app/appointments/v8-econsult/pre-hub&routeMore=/app/more/experimental/index-2&routeMessaging=/app/messaging/v3/index&routePrescriptions=/app/prescriptions/v7/your-prescriptions-11&linkedProfiles=False&organDonationShow=False&routeRecords=/app/records/v3/pre-hub&SJR_Engage=&SJR_DoctorLink=&econsult=True&econsultHub=index&experimentalHeader=True&experimentalFooter=True&experimentalHeaderDesktop=True&type=fingerprint&messageRead1=read&messageRead2=read" method="post">
+        <input class="nhsuk-button nhslogin-button nhs-app-u-button-full" type="submit" value="Continue with NHS login">
       </form>
 
       <div class="app-store nhs-app-desktop--hide nhsuk-panel--app">
