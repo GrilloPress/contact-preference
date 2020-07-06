@@ -4,14 +4,6 @@
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
-<script type="text/javascript">
-// This kills any row that is empty
-$('div.nhsuk-summary-list__row').each(function() {
-         if ($(this).text().trim() === "") {
-                   $(this).css('display','none');
-         }
-});
-</script>
 {% endblock %}
 
 
@@ -71,15 +63,6 @@ $('div.nhsuk-summary-list__row').each(function() {
   {% endset %}
 
 
-  {% set medication %}
-    {% if cheese == 'stringyCheese' %}
-      Medicine
-    {% elif cheese == 'hardCheese' %}
-      Medicines
-    {% else %}
-      Medicine
-    {% endif %}
-  {% endset %}
 
   {% set specialRequest %}
     {% if data['specialRequest'] %}
@@ -172,7 +155,7 @@ $('div.nhsuk-summary-list__row').each(function() {
         rows: [
           {
             key: {
-              html: medication,
+              text: "Medicine",
               "classes": "nhsuk-heading-s nhsuk-u-margin-bottom-3"
             },
             value: {
@@ -249,24 +232,10 @@ $('div.nhsuk-summary-list__row').each(function() {
 
 
 
-      {% if cheese == 'stringyCheese' %}
-      <form action="/app/prescriptions/v7/save" method="post">
-        <input type="submit" class="nhsuk-button" value="Confirm and order prescription">
-        </input>
-      </form>
-
-       {% elif cheese == 'hardCheese' %}
        <form action="/app/prescriptions/v7/save" method="post">
-         <input type="submit" class="nhsuk-button" value="Confirm and order prescriptions">
+         <input type="submit" class="nhsuk-button" value="Confirm and order">
          </input>
        </form>
-
-       {% else %}
-       <form action="/app/prescriptions/v7/save" method="post">
-         <input type="submit" class="nhsuk-button" value="Confirm and order prescription">
-         </input>
-       </form>
-       {% endif %}
 
 
              <p class="nhs-app-desktop--show">
