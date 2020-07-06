@@ -21,7 +21,7 @@
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href='{{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v3/pre-hub" }}'>Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href='{{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v7/your-prescriptions-11" }}'>Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -34,13 +34,13 @@
         <div class="app-interruption__wrapper">
           <div class="app-interruption__content">
             <h1 class="app-card__heading nhsuk-heading-xl nhsuk-u-margin-bottom-4">
-              <span class="app-interruption__caption nhsuk-caption-m nhsuk-caption--top">Track your health</span>
+              <span class="app-interruption__caption nhsuk-caption-m nhsuk-caption--top">Current medications</span>
               {{ contentTitle }}
             </h1>
             <p>
               Your GP surgery has chosen this personal health record service provider.
             </p>
-            <form action="#" method="post">
+            <form action="/app/prescriptions/v7/pkb-holding-page" method="post">
               <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
             </form>
             <p>

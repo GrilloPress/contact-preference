@@ -46,6 +46,20 @@
           </a>
         </li>
 
+
+
+
+        {% if data['SJR_PKB'] === 'True' %}
+
+        <li>
+          <a href="/app/PKB/terms-test-results">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Test results</h2>
+            <p>View test results from your hospital and other healthcare providers</p>
+          </a>
+        </li>
+
+        {% endif %}
+
         {% if data['experiment'] === 'True' %}
 
         <li>
@@ -57,15 +71,8 @@
 
         {% endif %}
 
-
         {% if data['SJR_PKB'] === 'True' %}
 
-        <li>
-          <a href="/app/PKB/terms-test-results">
-            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Test results</h2>
-            <p>View test results from your hospital and other healthcare providers</p>
-          </a>
-        </li>
 
         <li>
           <a href="/app/PKB/terms-care-plan">
