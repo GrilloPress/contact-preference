@@ -1,7 +1,8 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
 {% set contentTitle = "We cannot complete your order" %}
-{% set title = "Error submitting request" %}
+{% set title = "Error submitting request" + " - " + serviceName %}
+{% set prescriptionsActive = "active" %}
 {% block pageScripts %}
 {% endblock %}
 
