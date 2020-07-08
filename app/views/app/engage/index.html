@@ -26,6 +26,13 @@
         {{ contentTitle }}
       </h1>
 
+      {% from 'action-link/macro.njk' import actionLink %}
+
+      {{ actionLink({
+        "text": "Start Engage prototype",
+        "href": "/app/v4/start"
+      }) }}
+
       <h2>Service</h2>
       <h3>Who</h3>
       <ul>
