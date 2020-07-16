@@ -1,6 +1,6 @@
-{% set PROTOTYPEURL = "app/settings" %}
+{% set PROTOTYPEURL = "app/settings/errors" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Settings prototypes" %}
+{% set contentTitle = "Settings errors" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -27,39 +27,23 @@
         {{ contentTitle }}
       </h1>
 
-      <h2>Current prototypes</h2>
 
-      <h3>Errors</h3>
+
+      <h2>Notifications</h2>
 
       <ul>
         <li>
-          <a href="/{{ PROTOTYPEURL }}/errors/index">Settings error index</a>
+          <a href="/{{ PROTOTYPEURL }}/native-failure-toggle">NO01 error: Native failure when user toggles</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/api-error">NO02 error: Notifications api error</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/native-failure-access">NO04 error: Native failure when user tries to access Notifications page</a>
         </li>
       </ul>
 
 
-      <h3>v1</h3>
-      <ul>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/v1">Settings</a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/v1/notifications">Notifications</a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/v1/password">Face recognition</a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/v1/password-2">Fingerprint</a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/v1/login">Manage your NHS login</a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/v1/cookies">Cookies</a>
-        </li>
-
-      </ul>
 
 
     </div>
