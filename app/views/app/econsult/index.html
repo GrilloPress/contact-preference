@@ -31,17 +31,20 @@
       {% from 'action-link/macro.njk' import actionLink %}
 
       {{ actionLink({
-        "text": "Start eConsult prototype",
+        "text": "Start eConsult child journey (conjunctivitus)",
         "href": "/app/v5/start"
       }) }}
 
       <section>
         <h2>Online consultation jump off instances</h2>
-        <p><strong>Jump off title:</strong></p>
+        <h3>Jump off title:</h3>
         <p>Ask a health professional for advice</p>
         <ul>
           <li>
             <a href="/{{ PROTOTYPEURL }}/hub/v1/index">Get advice for yourself or your child</a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/child/v1/1_choose-condition">Symptom hub (conjunctivitus)</a>
           </li>
           <li>
             <a href="/{{ PROTOTYPEURL }}/hub/v1/index-no-child">Child journey not available</a>
@@ -51,7 +54,7 @@
           </li>
         </ul>
         <h3>Ask a health professional for advice for your child journey</h3>
-        <p><strong>Terms and conditions</strong></p>
+        <h3>Terms and conditions</h3>
         <ul>
           <li>
             <a href="/{{ PROTOTYPEURL }}/child/v1">Consent to use personal data</a>
@@ -60,7 +63,7 @@
             <a href="/{{ PROTOTYPEURL }}/child/v1/data-sharing">Consent to data sharing with eConsult</a>
           </li>
         </ul>
-        <p><strong>Pre-triage questions</strong></p>
+        <h3>Pre-triage questions</h3>
         <ul>
           <li>
             <a href="/{{ PROTOTYPEURL }}/child/v1/1_choose-condition">Choose a condition</a>
@@ -78,7 +81,7 @@
             <a href="/{{ PROTOTYPEURL }}/child/v1/5_your-dob">Example of parent information input</a>
           </li>
         </ul>
-        <p><strong>Condition triage example questions</strong></p>
+        <h3>Condition triage example questions</h3>
         <ul>
           <li>
             <a href="/{{ PROTOTYPEURL }}/child/v1/10_?econsultAchieve=">How much is this bothering your child?</a>
@@ -93,7 +96,7 @@
             <a href="/{{ PROTOTYPEURL }}/child/v1/45_a?">Provide detail about other medical conditions</a>
           </li>
         </ul>
-        <p><strong>End pages</strong></p>
+        <h3>End pages</h3>
         <ul>
           <li>
             <a href="/{{ PROTOTYPEURL }}/child/v1/55_?econsultYourEmail=">Would you like a copy of your answers?</a>
@@ -107,15 +110,15 @@
 
       <section>
         <h2>Admin request</h2>
-        <p><strong>Jump off title:</strong></p>
+        <h3>Jump off title:</h3>
         <p>Additional GP services</p>
-        <p><strong>Additional terms and conditions</strong></p>
+        <h3>Additional terms and conditions</h3>
         <ul>
           <li>
             <a href="/{{ PROTOTYPEURL }}/admin/v1/3?">I confirm I am submitting this request for myself</a>
           </li>
         </ul>
-        <p><strong>Admin journey flow</strong></p>
+        <h3>Admin journey flow</h3>
         <ul>
           <li>
             <a href="/{{ PROTOTYPEURL }}/admin/v1/8">List of admin journeys</a>
@@ -134,7 +137,7 @@
       </section>
 
       <h2>Changing the third-party warning on eConsult</h2>
-      <p><strong>Latest</strong></p>
+      <h3>Latest</h3>
       <ul>
         <li><a href="/{{ PROTOTYPEURL }}/NHSO-10065/interrupt?eConsultAdminJourney=">Interrupt page</a></li>
         <li><a href="/{{ PROTOTYPEURL }}/NHSO-10065/question?eConsultAdminJourney=">Data sharing question</a></li>
