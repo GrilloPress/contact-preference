@@ -36,13 +36,12 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
-      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+      <p class="nhsuk-caption-heading">Ask a health professional for advice about your child</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Please tell us the name of the GP you would like help from</h1>
 
       <form action="/{{ PROTOTYPEURL }}/child/v1/15_" method="get">
         {{ input({
           "label": {
-            "text": "Please tell us the name of the GP you would like help from",
             "isPageHeading": false,
             "classes": ""
           },

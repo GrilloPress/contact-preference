@@ -36,8 +36,8 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
-      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+      <p class="nhsuk-caption-heading">Ask a health professional for advice about your child</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Before we ask you detailed questions about your child's condition, please tell us what you would like to achieve from this consultation?</h1>
 
       <form action="/{{ PROTOTYPEURL }}/child/v1/10_" method="get">
 
@@ -49,7 +49,6 @@
               "html": 'For example, whether you would like to get a prescription for a particular medication'
             },
           "label": {
-            "text": "Before we ask you detailed questions about your child's condition, please tell us what would you like to achieve from this consultation?",
             "isPageHeading": false,
             "classes": ""
           }
