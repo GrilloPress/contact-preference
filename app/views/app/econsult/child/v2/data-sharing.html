@@ -1,0 +1,84 @@
+{% set PROTOTYPEURL = "app/econsult" %}
+{% set serviceName = "Engage" %}
+{% set contentTitle = "Ask a health professional for advice about your child" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+
+<div class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-third-party-container nhs-app-third-party-container--grey nhsuk-body-s nhsuk-u-margin-bottom-0">
+  <div class="nhsuk-width-container">
+    <strong>This service is provided by your GP surgery</strong>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <p class="nhsuk-caption-heading">Ask a health professional for advice about your child</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Before you start</h1>
+      <div class="nhsuk-u-padding-bottom-2"></div>
+
+      <p>We're about to ask you a few questions about your problem.</p>
+
+      <p>
+        Gledhow Practice will respond to you by phone or email
+        <strong>before 6:30pm on {{ "2" | returnDate }}</strong>.
+      </p>
+
+      <p>To find out more about how your personal data is used, please read the <a href="#">privacy notice</a>.</p>
+      <div class="nhsuk-u-padding-bottom-4"></div>
+
+      <form action="/{{ PROTOTYPEURL }}/child/v1/1_choose-condition" method="post">
+
+        {{ checkboxes({
+          "name": "econsultPrivacyNotice",
+          "items": [
+            {
+              "value": "true",
+              "html": "  I have read the privacy notice,
+                        and I consent to eConsult Health Ltd (an NHS-approved third-party organisation) using my personal and health data to provide an online consultation. I can withdraw my consent at any time by abandoning the form."
+            }
+          ]
+        }) }}
+
+        {{ checkboxes({
+          "name": "econsultDataNotice",
+          "items": [
+            {
+              "value": "true",
+              "html": "
+                        I consent to eConsult Health Ltd sharing my personal and health data with Gledhow Practice.
+                    "
+            }
+          ]
+        }) }}
+        <div class="nhsuk-u-padding-bottom-4"></div>
+        <input type="submit" class="nhsuk-button" value="Continue">
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% set PROTOTYPEURL = "app/econsult" %}
+{% set serviceName = "Engage" %}
+{% set contentTitle = "Ask a health professional for advice about your child" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ contentTitle }}</h1>
+
+      {{ careCard({
+        "type": "immediate",
+        "headingLevel": 2,
+        "heading": "You need medical help for the child now. Call 999 or go to your local A&E.",
+        "HTML": "
+        <p>If you decide to seek medical advice, <strong>your GP will not be notified and your practice will not contact you about this consultation.</strong>.</p>
+        "
+      }) }}
+
+      <form action="/{{ PROTOTYPEURL }}/child/v1/end/end-of-consultation-emergency" method="post">
+        {{ checkboxes({
+          "name": "econsultGetEmergHelpObject",
+          "items": [
+            {
+              "value": "true",
+              "text": "End my consultation, I will seek medical advice myself instead"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+
+    </div>
+  </div>
+{% endblock %}

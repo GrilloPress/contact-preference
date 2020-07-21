@@ -1,0 +1,69 @@
+{% set PROTOTYPEURL = "app/econsult" %}
+{% set serviceName = "eConsult" %}
+{% set contentTitle = "Ask a health professional for advice about your child" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+
+<div class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-third-party-container nhs-app-third-party-container--grey nhsuk-body-s nhsuk-u-margin-bottom-0">
+  <div class="nhsuk-width-container">
+    <strong>This service is provided by your GP surgery</strong>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+
+      <form action="/{{ PROTOTYPEURL }}/child/v1/14_" method="get">
+        {{ textarea({
+          "name": "econsultWhatTreatments",
+          "id": "econsult",
+          "classes": "nhsuk-u-margin-bottom-0",
+          "label": {
+            "text": "Please provide more details:",
+            "isPageHeading": false,
+            "classes": "nhsuk-u-margin-bottom-4"
+          }
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
