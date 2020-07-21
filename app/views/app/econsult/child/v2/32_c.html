@@ -36,8 +36,8 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
-      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+      <p class="nhsuk-caption-heading">Ask a health professional for advice about your child</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Has your child vomited blood or does it look like a dark coffee ground colour?</h1>
 
       <form action="" method="post">
         {{ radios({
@@ -45,7 +45,6 @@
           "name": "econsultSickColour",
           "fieldset": {
             "legend": {
-              "text": "Has your child vomited blood or does it look like a dark coffee ground colour?",
               "isPageHeading": false,
               "classes": ""
             }

@@ -36,8 +36,8 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
-      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+      <p class="nhsuk-caption-heading">Ask a health professional for advice about your child</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Do you have any concerns about your child's development?</h1>
 
       <form action="" method="post">
         {{ radios({
@@ -45,7 +45,6 @@
           "name": "econsultDevelopmentConcerns",
           "fieldset": {
             "legend": {
-              "text": "Do you have any concerns about your child's development?",
               "isPageHeading": false,
               "classes": ""
             }
