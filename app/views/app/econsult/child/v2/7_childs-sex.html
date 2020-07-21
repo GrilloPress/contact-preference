@@ -36,8 +36,9 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      <p class="nhsuk-caption-heading">Ask a health professional for advice about your child</p>
 
-      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">What is the child's sex?</h1>
 
       <form action="/{{ PROTOTYPEURL }}/child/v1/8_childs-dob" method="get">
         {{ radios({
@@ -45,7 +46,6 @@
           "name": "econsultChildsSex",
           "fieldset": {
             "legend": {
-              "text": "What is the child's sex?",
               "isPageHeading": false,
               "classes": ""
             }

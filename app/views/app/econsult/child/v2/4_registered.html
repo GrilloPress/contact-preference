@@ -36,8 +36,8 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
-      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+      <p class="nhsuk-caption-heading">Ask a health professional for advice about your child</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Are you and your child registered as patients at Geldhow Practice?</h1>
 
       <form action="" method="post">
         {{ radios({
@@ -45,8 +45,6 @@
           "name": "econsultRegistered",
           "fieldset": {
             "legend": {
-              "text": "Just to check: are you and your child registered
-  as patients at Gledow Practice?",
               "isPageHeading": false,
               "classes": ""
             }
