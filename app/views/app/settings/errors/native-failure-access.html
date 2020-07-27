@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/settings/errors" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Notifications" %}
+{% set contentTitle = "Notifications are turned off on your device" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -23,23 +23,22 @@
 
         <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-        <p>Notifications are turned off on your device.</p>
 
         <p>To turn on notifications:</p>
 
         <ol>
           <li>Go to your device settings and allow notifications</li>
-          <li>Return to the app and allow notifications</li>
+          <li>Return to the app and try again</li>
         </ol>
 
 
 
-        <form action="#" method="post">
+        <form action="/app/settings/v3/notifications" method="post">
           <input type="submit" class="nhsuk-button" value="Go to device settings">
         </input>
       </form>
 
-      <p><a href="#">Back to settings</a></p>
+      <p><a href="/app/settings/v3/">Back to settings</a></p>
 
     </div>
   </div>

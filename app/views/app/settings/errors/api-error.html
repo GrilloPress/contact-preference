@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/settings/errors" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Notifications error" %}
+{% set contentTitle = "Sorry, there is a problem with this service" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -23,11 +23,10 @@
 
         <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-        <h2>Sorry, there is a problem with the service</h2>
 
         <p>Go back to settings and try again.</p>
 
-        <p><a href="#">Back to settings</a></p>
+        <p><a href="/app/settings/v3/">Back to settings</a></p>
 
     </div>
   </div>
