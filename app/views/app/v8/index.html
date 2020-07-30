@@ -110,26 +110,24 @@
 
 
 
-        <ul class="list-menu">
+        <ul class="list-menu nhsuk-u-padding-bottom-4">
 
 
                 {% if data['pickPharmacy'] %}
 
+                <li>
+                  <a class="desktop" href="/app/prescriptions/v7/check-pharmacy">Order a repeat prescription</a>
+                </li>
 
 
-                  <li>
-                    <a href="/app/prescriptions/v7/check-pharmacy">
-                      <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Order a repeat prescription</h2>
-                   </a>
-                 </li>
 
                  {% else %}
 
-                 <li>
-                   <a href="/app/prescriptions/v7/not-nominated-pharmacy">
-                     <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Order a repeat prescription</h2>
-                  </a>
+
+                <li>
+                  <a class="desktop" href="/app/prescriptions/v7/not-nominated-pharmacy">Order a repeat prescription</a>
                 </li>
+
 
 
                 {% endif %}
@@ -140,21 +138,31 @@
                 {% if data["nominatedConfirmed"] %}
 
 
+
+
                 <li>
-                  <a href="/app/nominated-pharmacy/v4/your-nominated-pharmacy">
-                    <h2 class="nhsuk-heading-m">Your nominated pharmacy</h2>
-                  </a>
+                  <a class="desktop" href="/app/nominated-pharmacy/v4/change-2">Change your nominated pharmacy</a>
                 </li>
+
 
                 {% else %}
 
+
                 <li>
-                  <a href="/app/nominated-pharmacy/v4/card-nom-pharmacy-2">
-                    <h2 class="nhsuk-heading-m">Nominate a pharmacy</h2>
-                  </a>
+                  <a class="desktop" href="/app/nominated-pharmacy/v4/card-nom-pharmacy-2">Nominate a pharmacy</a>
                 </li>
 
               {% endif %}
+
+              {% if data['econsult'] === "True" %}
+
+
+              <li>
+                <a class="desktop" href="/app/econsult/hub/v1/index?advice=True">Ask a health professional for advice</a>
+              </li>
+
+              {% endif %}
+
 
             </ul>
 

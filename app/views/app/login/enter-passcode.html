@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/login" %}
 {% set serviceName = "NHS login" %}
-{% set contentTitle = "Enter your password" %}
+{% set contentTitle = "Check your mobile phone" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -36,36 +36,63 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      {{ backLink({
-  "href": "/app/login/enter-email",
-  "text": "Back to: Enter your email"
-}) }}
+
 
       <h1>
         {{ contentTitle }}
       </h1>
 
-      <p>Enter your password to log in.</p>
+      <p>Enter the 6 digit security code we've sent to •••••••1234.</p>
 
-      <form action="/{{ PROTOTYPEURL }}/enter-passcode" method="post">
+
+
+      <form action="/app/v8/index" method="post">
 
 
 
       {{ input({
         "label": {
-          "text": "Password"
+          "text": "Security code"
         },
         "id": "example",
         "name": "example",
         "classes": "nhsuk-input--width-20"
       }) }}
 
-      <p><a href="">Forgotten your password?</a></p>
+      {{ checkboxes({
+        "idPrefix": "example",
+        "name": "example",
+        "fieldset": {
+          "legend": {
+            "text": "",
+            "classes": "nhsuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        },
+        "items": [
+          {
+            "value": "email",
+            "text": "Remember this device and stop sending security codes"
+          }
+        ]
+      }) }}
+
+
+      {{ details({
+  "text": "What does remember this device mean?",
+  "HTML": "
+  <p>We can remember the device you are using now, so you won't need to enter a security code when you log in with this device in the future.</p>
+  <p>To keep your NHS login secure, you should only do this on your own personal or trusted devices.</p>
+  <p>We may ask if you still want us to remember this device in the future.</p>
+  "
+}) }}
+
 
       <input type="submit" class="nhsuk-button" value="Continue">
       </input>
     </form>
 
+<p>If you don't have access to your phone, you can <a href="#">change your phone number securely</a>.</p>
 
 
     </div>
