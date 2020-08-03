@@ -1,0 +1,55 @@
+{% set PROTOTYPEURL = "app/messaging" %}
+{% set serviceName = "Messages" %}
+{% set contentTitle = "Health information and updates" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/v3/messages-none">Messages</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+
+
+
+      <div class="nhs-app-panel-heading">
+        <h2 class="nhsuk-heading-m">Your messages</h2>
+      </div>
+
+      <ul class="list-menu list-menu_empty">
+
+            <li class="no-chevron">
+              <div class="list-menu_container">
+                <p>You have no messages. If you think this is wrong, <a href="https://www.nhs.uk/contact-us/nhs-app-contact-us">contact the NHS App team</a>.</p>
+              </div>
+            </li>
+
+      </ul>
+
+  </div>
+{% endblock %}
