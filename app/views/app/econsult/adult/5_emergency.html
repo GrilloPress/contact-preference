@@ -1,0 +1,106 @@
+{% set PROTOTYPEURL = "app/econsult" %}
+{% set serviceName = "eConsult" %}
+{% set contentTitle = "Ask a health professional for advice about your child" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+
+<div class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-third-party-container nhs-app-third-party-container--grey nhsuk-body-s nhsuk-u-margin-bottom-0">
+  <div class="nhsuk-width-container">
+    <strong>This service is provided by your GP surgery</strong>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <p class="nhsuk-caption-heading">Ask a health professional for advice about your child</p>
+
+      {{ warningCallout({
+        "heading": "Next, let's make sure this isn't an emergency. Are you currently experiencing any of the following?",
+        "HTML": "
+        <ul>
+          <li>
+            <strong>Signs of a heart attack</strong> - pain like a very tight band, heavy weight or squeezing in the centre of your chest or any pain that moves into your jaw or neck
+          </li>
+
+          <li>
+            <strong>Signs of a stroke</strong> - face drooping on one side, can't hold both arms up, difficult speaking, or weakness or numbness on one side of your body
+          </li>
+
+          <li>
+            <strong>Severe difficulty breathing</strong> - gasping, not being able to get words out, choking or lips turning blue
+          </li>
+
+          <li>
+            <strong>Heavy bleeding that won't stop</strong> - uncontrollable bleeding from any part of your body
+          </li>
+
+          <li>
+            <strong>Severe injuries</strong> - including deep cuts after a serious accident
+          </li>
+        </ul>
+          "
+      }) }}
+
+      <form action="#" method="post">
+        {{ radios({
+          "idPrefix": "econsult",
+          "name": "econsultAdultEmergency",
+          "fieldset": {
+            "legend": {
+              "text": "",
+              "isPageHeading": false,
+              "classes": ""
+            }
+          },
+          "items": [
+            {
+              "value": "no",
+              "text": "I'm NOT experiencing any of these"
+            },
+            {
+              "value": "yes",
+              "text": "I am experiencing some of these"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

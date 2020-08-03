@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/econsult" %}
-{% set serviceName = "NHS App" %}
-{% set contentTitle = "Ask a health professional for advice" %}
+{% set serviceName = "Engage" %}
+{% set contentTitle = "Ask a health professional for advice about your child" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -14,41 +14,36 @@
   {{ title }}
 {% endblock %}
 
-{% block beforeContent %}
 <!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/hub/index">Online consultations</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
 {% endblock %}
 
-
-
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
-      <p>Answer questions online and get a response from a health professional.</p>
-      <ul class="list-menu">
-        <li>
-      		<a href="/{{ PROTOTYPEURL }}/adult/1_choose-condition">
-      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Get advice for yourself</h2>
-      		</a>
-      	</li>
-      </ul>
-      <h2 class="nhsuk-heading-m">Get advice for your child</h2>
-      <p>
-        This service is not available online. If you need help for your child:
-      </p>
-      <ul>
-        <li>contact your GP surgery</li>
-        <li>go to <a href="#">111.nhs.uk</a> or call 111</li>
-      </ul>
+
+      <p class="nhsuk-caption-heading">Ask a health professional for advice about your child</p>
+
+      {{ careCard({
+        "type": "immediate",
+        "headingLevel": 2,
+        "heading": "You need medical help for the child now. Call 999 or go to your local A&E.",
+        "HTML": "
+        <p>If the child is experiencing serious symptoms, contacting your doctor online isn't appropriate.</p>
+        <p>You should seek urgent medical help right now.</p>
+        "
+      }) }}
+
+
     </div>
   </div>
 {% endblock %}

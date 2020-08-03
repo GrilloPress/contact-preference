@@ -1,0 +1,66 @@
+{% set PROTOTYPEURL = "app/econsult" %}
+{% set serviceName = "eConsult" %}
+{% set contentTitle = "Ask a health professional for advice about your child" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+
+<div class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-third-party-container nhs-app-third-party-container--grey nhsuk-body-s nhsuk-u-margin-bottom-0">
+  <div class="nhsuk-width-container">
+    <strong>This service is provided by your GP surgery</strong>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <p class="nhsuk-caption-heading">Get advice from your GP</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Agree to the privacy notice</h1>
+
+      <div class="nhsuk-warning-callout">
+        <h3 class="nhsuk-warning-callout__label">Important information about coronavirus (COVID-19)</h3>
+        <p>If you or someone you live with has a high temperature, a new continuous cough, or a loss or change to sense of smell or taste, please <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/self-isolation-and-treatment/when-to-self-isolate-and-what-to-do/">follow the NHS guidance on self-isolation.</a> To check if you need medical help, <a href="https://111.nhs.uk/covid-19">use the 111 coronavirus service.</a> <strong>DO NOT go to your GP surgery, hospital or pharmacy.</strong></p>
+        <p>We're about to ask you a few questions about your request. Your answers will be sent securely to your GP surgery unless urgent medical attention is needed. For such cases the online consultation service will direct you to other health services.</p>
+        <p>To start, please agree to the <a href="https://demo.econsulttest.health/staticLegalContent/privacyPolicy">GP online consultation services privacy notice</a>.</p>
+      </div>
+
+      <div class="nhsuk-checkboxes">
+        <div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            I have read the privacy notice. I understand the online consultation services provider will process my personal and health data on behalf of my GP surgery to provide an online consultation.
+          </label>
+        </div>
+      </div>
+      <div class="nhsuk-u-padding-bottom-4"></div>
+
+      <button class="nhsuk-button" type="submit">
+        Continue
+      </button>
+
+    </div>
+  </div>
+{% endblock %}

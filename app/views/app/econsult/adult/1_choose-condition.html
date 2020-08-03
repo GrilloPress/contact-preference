@@ -1,0 +1,209 @@
+{% set PROTOTYPEURL = "app/econsult" %}
+{% set serviceName = "eConsult" %}
+{% set contentTitle = "Ask a health professional for advice about your child" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+
+<div class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-third-party-container nhs-app-third-party-container--grey nhsuk-body-s nhsuk-u-margin-bottom-0">
+  <div class="nhsuk-width-container">
+    <strong>This service is provided by your GP surgery</strong>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+	  <p class="nhsuk-caption-heading">Get advice from a GP</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Choose your symptom or condition</h1>
+      <p>If you have more than 1 symptom, choose the one that's bothering you most today.</p>
+      <p>
+        <a href="#">I cannot find my condition</a>
+	  </p>
+	  
+	  <h3>Allergies</h3>
+      <ul class="list-menu">
+        <li><a href="#">Hay fever</a></li>
+		<li><a href="#">Hives</a></li>
+		<li><a href="#">Utricaria</a></li>
+	  </ul>
+	  
+	  <h3>Breathing problems</h3>
+	  <ul class="list-menu">
+        <li><a href="#">Breathing problems</a></li>
+        <li><a href="#">Cold or flu</a></li>
+        <li><a href="#">Coughs</a></li>
+        <li><a href="#">Flu</a></li>
+	  </ul>
+
+	  <h3>Ear problems</h3>
+	  <ul class="list-menu">
+        <li><a href="#">Earache</a></li>
+	  </ul>
+
+	  <h3>Eye problems</h3>
+	  <ul class="list-menu">
+		<li><a href="#">Conjunctivitus</a></li>
+		<li><a href="#">Eye problem</a></li>
+		<li><a href="#">Sticky eye</a></li>
+		<li><a href="#">Stye</a></li>
+	  </ul>
+
+	  <h3>Gut, bowel and stomach</h3>
+	  <ul class="list-menu">
+		<li><a href="#">Acid reflux</a></li>
+		<li><a href="#">Constipation</a></li>
+		<li><a href="#">Diarrhoea</a></li>
+		<li><a href="#">Food poisoning</a></li>
+		<li><a href="#">Gastritis</a></li>
+		<li><a href="#">Gastroenteritis</a></li>
+		<li><a href="#">Heartburn</a></li>
+		<li><a href="#">Indigestion</a></li>
+		<li><a href="#">Irritable bowel syndrome</a></li>
+		<li><a href="#">Piles</a></li>
+		<li><a href="#">Rectal bleeding</a></li>
+		<li><a href="#">Vomiting and Diarrhoea</a></li>
+	  </ul>
+
+	  <h3>Headaches</h3>
+	  <ul class="list-menu">
+		<li><a href="#">Head injury</a></li>
+		<li><a href="#">Headache</a></li>
+		<li><a href="#">Migraine</a></li>
+	  </ul>
+
+	  <h3>Joint pain</h3>
+	  <ul class="list-menu">
+		<li><a href="#">Ankle pain</a></li>
+		<li><a href="#">Back pain</a></li>
+		<li><a href="#">Elbow pain</a></li>
+		<li><a href="#">Foot pain</a></li>
+		<li><a href="#">Frozen shoulder</a></li>
+		<li><a href="#">Golfer's elbow</a></li>
+		<li><a href="#">Hand pain</a></li>
+		<li><a href="#">Hip pain</a></li>
+		<li><a href="#">Knee pain</a></li>
+		<li><a href="#">Neck pain</a></li>
+		<li><a href="#">Shin splints</a></li>
+		<li><a href="#">Shoulder pain</a></li>
+		<li><a href="#">Tennis elbow</a></li>
+		<li><a href="#">Whiplash</a></li>
+		<li><a href="#">Wrist pain</a></li>
+	  </ul>
+
+	  <h3>Men's health</h3>
+	  <ul class="list-menu">
+		<li><a href="#">Bladder infection in men</a></li>
+		<li><a href="#">Blood in the urine for men</a></li>
+		<li><a href="#">Breast problems in men</a></li>
+		<li><a href="#">Cystitis in men</a></li>
+		<li><a href="#">Difficulty passing urine</a></li>
+		<li><a href="#">Erection difficulties</a></li>
+		<li><a href="#">Genital herpes in men</a></li>
+		<li><a href="#">Genital warts in men</a></li>
+		<li><a href="#">Impotence</a></li>
+		<li><a href="#">Spots on penis</a></li>
+		<li><a href="#">Urine infection in men</a></li>
+	  </ul>
+
+	  <h3>Mental health</h3>
+	  <ul class="list-menu">
+		<li><a href="#">Anxiety</a></li>
+		<li><a href="#">Depression</a></li>
+		<li><a href="#">Low mood</a></li>
+		<li><a href="#">Panic attacks</a></li>
+	  </ul>
+
+	  <h3>Mouth problems</h3>
+	  <ul class="list-menu">
+		<li><a href="#">Cold sores</a></li>
+		<li><a href="#">Laryngitis</a></li>
+		<li><a href="#">Mouth ulcer</a></li>
+		<li><a href="#">Sore throat</a></li>
+		<li><a href="#">Tonsilitis</a></li>
+	  </ul>
+
+	  <h3>Nose problems</h3>
+	  <ul class="list-menu">
+		<li><a href="#">Sinusitis</a></li>
+	  </ul>
+
+	  <h3>Skin and nail</h3>
+	  <ul class="list-menu">
+		<li><a href="#">Acne</a></li>
+		<li><a href="#">Athletes foot</a></li>
+		<li><a href="#">Bites and stings</a></li>
+		<li><a href="#">Contact dermatitis</a></li>
+		<li><a href="#">Crabs</a></li>
+		<li><a href="#">Dandruff</a></li>
+		<li><a href="#">Eczema</a></li>
+		<li><a href="#">Excessive sweating</a></li>
+		<li><a href="#">Fungal foot infection</a></li>
+		<li><a href="#">Fungal nail infection</a></li>
+		<li><a href="#">Impetigo</a></li>
+		<li><a href="#">Pubic lice</a></li>
+		<li><a href="#">Rash</a></li>
+		<li><a href="#">Ringworm</a></li>
+		<li><a href="#">Rosacea</a></li>
+		<li><a href="#">Scabies</a></li>
+		<li><a href="#">Warts and verrucae</a></li>
+	  </ul>
+
+	  <h3>Sleep problems</h3>
+	  <ul class="list-menu">
+		<li><a href="#">Difficulty sleeping</a></li>
+		<li><a href="#">Insomnia</a></li>
+		<li><a href="#">Snoring</a></li>
+	  </ul>
+
+	  <h3>Travel</h3>
+	  <ul class="list-menu">
+		<li><a href="#">Travel</a></li>
+	  </ul>
+
+	  <h3>Women's health</h3>
+	  <ul class="list-menu">
+		<li><a href="#">Bacterial vaginosis</a></li>
+		<li><a href="#">Bladder infection in women</a></li>
+		<li><a href="#">Blood in urine for women</a></li>
+		<li><a href="#">Breast problems in women</a></li>
+		<li><a href="/{{PROTOTYPEURL}}/adult/2_help-type">Contraception</a></li>
+		<li><a href="#">Cystitis in women</a></li>
+		<li><a href="#">Genital herpes in women</a></li>
+		<li><a href="#">Genital warts in women</a></li>
+		<li><a href="#">Incontinence</a></li>
+		<li><a href="#">Mastitis</a></li>
+		<li><a href="#">Periods - delaying</a></li>
+		<li><a href="#">Periods - heavy</a></li>
+		<li><a href="#">Periods - painful</a></li>
+		<li><a href="#">Spots on vulva</a></li>
+		<li><a href="#">Thrush</a></li>
+		<li><a href="#">Urinary incontinence</a></li>
+		<li><a href="#">Urine infection in women</a></li>
+		<li><a href="#">Vaginal discharge</a></li>
+	  </ul>
+
+    </div>
+  </div>
+{% endblock %}
