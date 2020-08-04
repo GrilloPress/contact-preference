@@ -1012,23 +1012,17 @@ hr {
     display: inline !important;
     padding: 0 !important;
     font-weight: normal !important;
-
-    a:focus {
-        background-color: #ffb81C;
-        box-shadow: 0 0 0 4px #ffb81C;
-        color: #212b32;
-        outline: 4px solid transparent;
-        outline-offset: 4px;
-    }
-    a:hover {
-    background-color: #ffcd60;
-    box-shadow: 0 0 0 4px #ffcd60;
-    color: #212b32;
-    text-decoration: none;
-}
   }
 
 
+  a.list-menu_inline-link:hover, a.list-menu_inline-link:focus {
+    background-color: #ffcd60 !important;
+    box-shadow: 0 0 0 4px #ffcd60 !important;
+    color: #212b32;
+    text-decoration: none;
+    outline: 4px solid transparent !important;
+    outline-offset: 4px !important;
+  }
 
 
 
