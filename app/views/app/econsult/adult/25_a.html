@@ -36,29 +36,18 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <p class="nhsuk-caption-heading">Get advice from a GP</p>
+      <p class="nhsuk-caption-heading">Get advice from your GP</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">Have you missed any periods in the last 6 months?</h1>
 
       <form action="" method="post">
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultBleedingBetweenPeriods",
-          "fieldset": {
-            "legend": {
-              "isPageHeading": false,
-              "classes": ""
-            }
-          },
-          "items": [
-            {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No",
-              "text": "No"
-            }
-          ]
+        {{ textarea({
+          "name": "econsultMissedPeriodInfo",
+          "id": "econsult",
+          "classes": "nhsuk-u-margin-bottom-0",
+          "label": {
+            "isPageHeading": false,
+            "classes": "nhsuk-u-margin-bottom-4"
+          }
         }) }}
 
         <input type="submit" class="nhsuk-button" value="Continue">

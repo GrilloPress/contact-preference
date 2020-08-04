@@ -36,12 +36,12 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <p class="nhsuk-caption-heading">Get advice from a GP</p>
+      <p class="nhsuk-caption-heading">Get advice from your GP</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">When did you last take your contraception?</h1>
 
       <form action="/app/econsult/adult/22_" method="get">
         {{ textarea({
-          "name": "econsultLastPrescribed",
+          "name": "econsultLastTaken",
           "id": "econsult",
           "classes": "nhsuk-u-margin-bottom-0",
           "label": {

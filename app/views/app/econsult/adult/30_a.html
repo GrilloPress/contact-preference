@@ -36,29 +36,18 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <p class="nhsuk-caption-heading">Ask a health professional for advice about your child</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Does your child have any rash, redness, blisters or swelling of the skin beyond the eyelids or around the eye?</h1>
+      <p class="nhsuk-caption-heading">Get advice from your GP</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">What else do we need to know?</h1>
 
       <form action="" method="post">
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultRash",
-          "fieldset": {
-            "legend": {
-              "isPageHeading": false,
-              "classes": ""
-            }
-          },
-          "items": [
-            {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No",
-              "text": "No"
-            }
-          ]
+        {{ textarea({
+          "name": "econsultWhatElse",
+          "id": "econsult",
+          "classes": "nhsuk-u-margin-bottom-0",
+          "label": {
+            "isPageHeading": false,
+            "classes": "nhsuk-u-margin-bottom-4"
+          }
         }) }}
 
         <input type="submit" class="nhsuk-button" value="Continue">

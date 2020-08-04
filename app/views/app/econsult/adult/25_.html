@@ -36,13 +36,13 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <p class="nhsuk-caption-heading">Get advice from a GP</p>
+      <p class="nhsuk-caption-heading">Get advice from your GP</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">Have you missed any periods in the last 6 months?</h1>
 
       <form action="" method="post">
         {{ radios({
           "idPrefix": "econsult",
-          "name": "econsultBleedingBetweenPeriods",
+          "name": "econsultMissedPeriods",
           "fieldset": {
             "legend": {
               "isPageHeading": false,
