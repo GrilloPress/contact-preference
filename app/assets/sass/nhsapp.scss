@@ -1011,8 +1011,25 @@ hr {
   .list-menu_inline-link {
     display: inline !important;
     padding: 0 !important;
-    font-weight: normal !important; 
+    font-weight: normal !important;
+
+    a:focus {
+        background-color: #ffb81C;
+        box-shadow: 0 0 0 4px #ffb81C;
+        color: #212b32;
+        outline: 4px solid transparent;
+        outline-offset: 4px;
+    }
+    a:hover {
+    background-color: #ffcd60;
+    box-shadow: 0 0 0 4px #ffcd60;
+    color: #212b32;
+    text-decoration: none;
+}
   }
+
+
+
 
 
 .info p,
