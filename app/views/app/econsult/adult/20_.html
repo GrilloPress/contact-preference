@@ -39,7 +39,7 @@
       <p class="nhsuk-caption-heading">Get advice from your GP</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">Who provides your contraception prescription?</h1>
 
-      <form action="/app/econsult/adult/21_" method="get">
+      <form action="/app/econsult/adult/20_" method="post">
         {{ radios({
           "idPrefix": "econsult",
           "name": "econsultWhoProvidesPrescription",
@@ -65,9 +65,9 @@
           ]
         }) }}
 
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
-
+        {{ button({
+          "text": "Continue"
+        }) }}
       </form>
 
 

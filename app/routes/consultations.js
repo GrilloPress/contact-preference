@@ -1161,6 +1161,164 @@ router.post('/app/econsult/adult/17_', function (req, res) {
   }
 });
 
+router.post('/app/econsult/adult/20_', function (req, res) {
+  let answer = req.session.data.econsultWhoProvidesPrescription;
+
+  if (answer === 'Other') {
+
+    res.redirect('/app/econsult/adult/20_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/21_')
+
+  }
+});
+
+router.post('/app/econsult/adult/22_', function (req, res) {
+  let answer = req.session.data.econsultLastConsultation;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/22_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/23_')
+
+  }
+});
+
+router.post('/app/econsult/adult/23_', function (req, res) {
+  let answer = req.session.data.econsultSpecialMonitoring;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/23_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/24_')
+
+  }
+});
+
+router.post('/app/econsult/adult/25_', function (req, res) {
+  let answer = req.session.data.econsultMissedPeriods;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/25_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/26_')
+
+  }
+});
+
+router.post('/app/econsult/adult/29_', function (req, res) {
+  let answer = req.session.data.econsultPregnancyChance;
+
+  if (answer === 'No') {
+
+    res.redirect('/app/econsult/adult/30_')
+
+  } else  if (answer === 'Yes'){
+    res.redirect('/app/econsult/adult/end/pregnancy')
+  
+  } else {
+    res.redirect('/app/econsult/adult/29_a')
+
+  }
+});
+
+router.post('/app/econsult/adult/29_a', function (req, res) {
+  let answer = req.session.data.econsultUnprotectedSex;
+
+  if (answer === 'No') {
+
+    res.redirect('/app/econsult/adult/30_')
+
+  } else {
+    res.redirect('/app/econsult/adult/end/pregnancy')
+
+  }
+});
+
+router.post('/app/econsult/adult/30_', function (req, res) {
+  let answer = req.session.data.econsultAnythingElse;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/30_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/31_')
+
+  }
+});
+
+router.post('/app/econsult/adult/31_', function (req, res) {
+  let answer = req.session.data.econsultAdultOtherConditions;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/31_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/32_')
+
+  }
+});
+
+router.post('/app/econsult/adult/32_', function (req, res) {
+  let answer = req.session.data.econsultPrescribedDrugs;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/32_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/33_')
+
+  }
+});
+
+router.post('/app/econsult/adult/33_', function (req, res) {
+  let answer = req.session.data.econsultOtherDrugsPharmacist;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/33_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/34_')
+
+  }
+});
+
+router.post('/app/econsult/adult/34_', function (req, res) {
+  let answer = req.session.data.econsultOtherTreatment;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/34_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/35_')
+
+  }
+});
+
+router.post('/app/econsult/adult/35_', function (req, res) {
+  let answer = req.session.data.econsultAdultFamilyHistory;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/35_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/36_')
+
+  }
+});
 
 // ADMIN ROUTES
 
