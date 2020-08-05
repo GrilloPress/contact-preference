@@ -1031,31 +1031,6 @@ router.post('/app/econsult/child/v2/47_', function (req, res) {
 
 // ECONSULT adult routes - contraception
 
-router.post('/app/econsult/adult/3_privacy', function (req, res) {
-  let answer = req.session.data.econsultReadPrivacyNotice;
-
-  if (answer === 'Yes') {
-
-    res.redirect('/app/econsult/adult/4_yourself')
-
-  } else {
-    res.redirect('/app/econsult/adult/4_yourself')
-
-  }
-});
-
-router.post('/app/econsult/adult/4_yourself', function (req, res) {
-  let answer = req.session.data.econsultForMyself;
-
-  if (answer === 'Yes') {
-
-    res.redirect('/app/econsult/adult/4_yourself')
-
-  } else {
-    res.redirect('/app/econsult/adult/4_yourself')
-
-  }
-});
 
 router.post('/app/econsult/adult/5_emergency', function (req, res) {
   let answer = req.session.data.econsultAdultEmergency;

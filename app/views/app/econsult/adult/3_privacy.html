@@ -47,7 +47,7 @@
         <p>To start, please agree to the <a href="https://demo.econsulttest.health/staticLegalContent/privacyPolicy">GP online consultation services privacy notice</a>.</p>
       </div>
 
-      <form action="" method="post">
+      <form action="/app/econsult/adult/4_yourself" method="post">
       {{ checkboxes({
         "name": "econsultReadPrivacyNotice",
         "hint": {
@@ -62,13 +62,14 @@
           }
         ]
       }) }}
-      </form>
-      
-      <div class="nhsuk-u-padding-bottom-4"></div>
 
       <button class="nhsuk-button" type="submit">
         Continue
       </button>
+      </form>
+      
+      <div class="nhsuk-u-padding-bottom-4"></div>
+
 
     </div>
   </div>
