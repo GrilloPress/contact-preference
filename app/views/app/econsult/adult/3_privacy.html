@@ -47,14 +47,23 @@
         <p>To start, please agree to the <a href="https://demo.econsulttest.health/staticLegalContent/privacyPolicy">GP online consultation services privacy notice</a>.</p>
       </div>
 
-      <div class="nhsuk-checkboxes">
-        <div class="nhsuk-checkboxes__item">
-          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
-          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-            I have read the privacy notice. I understand the online consultation services provider will process my personal and health data on behalf of my GP surgery to provide an online consultation.
-          </label>
-        </div>
-      </div>
+      <form action="" method="post">
+      {{ checkboxes({
+        "name": "econsultReadPrivacyNotice",
+        "hint": {
+          "text": ""
+        },
+        "items": [
+          {
+            "value": "true",
+            "html": '
+            I have read the privacy notice. I understand the online consultation services provider will process my personal and health data on behalf of my GP surgery to provide an online consultation.</span>
+          '
+          }
+        ]
+      }) }}
+      </form>
+      
       <div class="nhsuk-u-padding-bottom-4"></div>
 
       <button class="nhsuk-button" type="submit">

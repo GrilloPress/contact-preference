@@ -1029,6 +1029,139 @@ router.post('/app/econsult/child/v2/47_', function (req, res) {
   }
 });
 
+// ECONSULT adult routes - contraception
+
+router.post('/app/econsult/adult/3_privacy', function (req, res) {
+  let answer = req.session.data.econsultReadPrivacyNotice;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/4_yourself')
+
+  } else {
+    res.redirect('/app/econsult/adult/4_yourself')
+
+  }
+});
+
+router.post('/app/econsult/adult/4_yourself', function (req, res) {
+  let answer = req.session.data.econsultForMyself;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/4_yourself')
+
+  } else {
+    res.redirect('/app/econsult/adult/4_yourself')
+
+  }
+});
+
+router.post('/app/econsult/adult/5_emergency', function (req, res) {
+  let answer = req.session.data.econsultAdultEmergency;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/end/emergency')
+
+  } else {
+    res.redirect('/app/econsult/adult/6_covid')
+
+  }
+});
+
+router.post('/app/econsult/adult/6_covid', function (req, res) {
+  let answer = req.session.data.consultAdultCOVID;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/end/covid')
+
+  } else {
+    res.redirect('/app/econsult/adult/7_registered')
+
+  }
+});
+
+router.post('/app/econsult/adult/7_registered', function (req, res) {
+  let answer = req.session.data.econsultAdultRegistered;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/8_sex')
+
+  } else {
+    res.redirect('/app/econsult/adult/end/registered')
+
+  }
+});
+
+router.post('/app/econsult/adult/8_sex', function (req, res) {
+  let answer = req.session.data.econsultAdultSex;
+
+  if (answer === 'Female') {
+
+    res.redirect('/app/econsult/adult/9_dob')
+
+  } else {
+    res.redirect('/app/econsult/adult/end/wrong-sex')
+
+  }
+});
+
+router.post('/app/econsult/adult/11_', function (req, res) {
+  let answer = req.session.data.econsultRequiredContraception;
+
+  if (answer === 'I am experiencing some side effects that I would like to discuss') {
+
+    res.redirect('/app/econsult/adult/12_')
+
+  } else {
+    res.redirect('/app/econsult/adult/12_')
+
+  }
+});
+
+router.post('/app/econsult/adult/13_', function (req, res) {
+  let answer = req.session.data.econsultParticularGP;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/13_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/14_using')
+
+  }
+});
+
+router.post('/app/econsult/adult/16_', function (req, res) {
+  let answer = req.session.data.econsultMissedPills;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/16_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/17_')
+
+  }
+});
+
+router.post('/app/econsult/adult/17_', function (req, res) {
+  let answer = req.session.data.eConsultWhyTaking;
+
+  if (answer === 'Other') {
+
+    res.redirect('/app/econsult/adult/17_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/18_')
+
+  }
+});
+
+
 // ADMIN ROUTES
 
 router.post('/app/econsult/admin/v1/4', function (req, res) {

@@ -39,10 +39,10 @@
       <p class="nhsuk-caption-heading">Get advice from your GP</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">Why are you taking contraception?</h1>
 
-      <form action="/app/econsult/adult/18_" method="get">
+      <form action="/app/econsult/adult/17_" method="post">
         {{ checkboxes({
-          "idPrefix": "example",
-          "name": "example",
+          "idPrefix": "eConsult",
+          "name": "eConsultWhyTaking",
           "fieldset": {
             "legend": {
               "classes": "nhsuk-fieldset__legend--l",
@@ -69,10 +69,12 @@
           ]
         }) }}
 
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
-
       </form>
+
+     {{ button({
+          "text": "Continue"
+      }) }}   
+
 
 
 

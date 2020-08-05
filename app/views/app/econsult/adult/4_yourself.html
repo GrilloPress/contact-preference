@@ -42,16 +42,23 @@
       <p>If you need help for your child, select their problem from <a href="#">this list of child conditions</a>.</p>
       <p>If you need help for someone you care for, contact the practice for advice.</p>
 
-      <div class="nhsuk-checkboxes">
-        <div class="nhsuk-checkboxes__item">
-          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
-          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-            I confirm I'm submitting this request for myself (not my child)
-          </label>
-        </div>
-      </div>
-      <div class="nhsuk-u-padding-bottom-4"></div>
-
+      <form action="" method="post">
+        {{ checkboxes({
+          "name": "econsultForMyself",
+          "hint": {
+            "text": ""
+          },
+          "items": [
+            {
+              "value": "true",
+              "html": '
+              I confirm I am submitting this request for myself (not my child)</span>
+            '
+            }
+          ]
+        }) }}
+        </form>
+      
       <button class="nhsuk-button" type="submit">
         Continue
       </button>
