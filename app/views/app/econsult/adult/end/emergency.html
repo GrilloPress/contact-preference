@@ -32,17 +32,33 @@
     <div class="nhsuk-grid-column-two-thirds">
 
       <p class="nhsuk-caption-heading">Get advice from your GP</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">You need medical help now</h1>
 
       {{ careCard({
         "type": "immediate",
         "headingLevel": 2,
-        "heading": "You need medical help for the child now. Call 999 or go to your local A&E.",
+        "heading": "You need medical help now. Call 999 or go to your local A&E.",
         "HTML": "
-        <p>If the child is experiencing serious symptoms, contacting your doctor online isn't appropriate.</p>
-        <p>You should seek urgent medical help right now.</p>
+        <p>If you decide to seek medical advice, <strong>your GP will not be notified and your practice will not contact you about this consultation.</strong></p>
         "
       }) }}
 
+      <div class="nhsuk-checkboxes">
+
+        <div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+            I will seek medical advice myself
+          </label>
+        </div>
+      </div>
+
+      <div class="nhsuk-u-padding-bottom-6"></div>
+
+      {{ button({
+        "text": "End my consultation"
+      }) }}
+      
 
     </div>
   </div>
