@@ -100,6 +100,31 @@ router.post('/app/engage/admin/v1/terms/nhs-login', function (req, res) {
 });
 
 
+// V3 Admin with Fit Note Journey
+router.post('/app/engage/admin/v3/fit-note/type', function (req, res) {
+  let answer = req.body.engageNewOrExtension;
+
+  if (answer === 'New') {
+
+    res.redirect('/app/engage/admin/v3/fit-note/new-request')
+
+  } else {
+    res.redirect('/app/engage/admin/v3/fit-note/start-date')
+  }
+});
+
+router.post('/app/engage/admin/v3/fit-note/new-request', function (req, res) {
+  let answer = req.body.engageFitLengthIllness;
+
+  if (answer === '7 days or less') {
+
+    res.redirect('/app/engage/admin/v3/fit-note/note-not-needed')
+
+  } else {
+    res.redirect('/app/engage/admin/v3/fit-note/start-date')
+  }
+});
+
 // ERROR privacy
 
 router.post('/app/engage/terms/v1/engage-privacy', function (req, res) {

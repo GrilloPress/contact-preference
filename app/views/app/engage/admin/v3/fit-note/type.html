@@ -36,10 +36,10 @@
       <h1>Is this a new request or extension of an existing fit note?</h1>
       
 
-      <form action="/app/engage/admin/v3/type" method="post">
+      <form action="/app/engage/admin/v3/fit-note/type" method="post">
         {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultMissedPills",
+          "idPrefix": "engage",
+          "name": "engageNewOrExtension",
           "fieldset": {
             "legend": {
               "isPageHeading": false,
@@ -48,7 +48,7 @@
           },
           "items": [
             {
-              "value": "New request",
+              "value": "New",
               "text": "New request"
             },
             {
