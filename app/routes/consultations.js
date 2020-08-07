@@ -1270,7 +1270,7 @@ router.post('/app/econsult/adult/33_', function (req, res) {
 });
 
 router.post('/app/econsult/adult/34_', function (req, res) {
-  let answer = req.session.data.econsultOtherTreatment;
+  let answer = req.session.data.econsultAdultOtherTreatment;
 
   if (answer === 'Yes') {
 
