@@ -1,0 +1,118 @@
+{% set PROTOTYPEURL = "app/engage" %}
+{% set serviceName = "Engage" %}
+{% set contentTitle = "How will we contact you?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% include "../../.././_parts/proxy-banner.html" %}
+{% include "../../.././_parts/silver-banner.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+    <form action="/{{ PROTOTYPEURL }}/admin/v2/confirm/done" method="get">
+
+      {{ input({
+        "label": {
+          "text": "Telephone",
+          "isPageHeading": false,
+          "classes": "nhsuk-label--m"
+        },
+        "hint": {
+          "html": "Check your telephone number is correct"
+      },
+      "autocomplete": "off",
+        "id": "engageTelephone",
+        "name": "engageTelephone",
+        "classes": "nhsuk-input--width-30",
+        "value":  data['engageTelephone'] or "07700 900000"
+      }) }}
+
+      {{ checkboxes({
+        "idPrefix": "nationality",
+        "name": "nationality",
+        "fieldset": {
+          "legend": {
+            "text": "Tell us if you do not want to use messaging",
+            "classes": "nhsuk-label--m",
+            "isPageHeading": false
+          }
+        },
+        "hint": {
+        "html": "<p>Where appropriate the practice would prefer to contact you via 2-way messaging, using our own safe and secure system.</p><p>If there is a message for you, you will receive a notification by email to login to your account.</p><p>If for any reason you do not wish to use the service as designed and prefer to be contacted by telephone please tick the box below.</p>"
+      },
+        "items": [
+          {
+            "value": "engageTelephoneOnly",
+            "text": "Contact me by telephone only"
+          }
+        ]
+      }) }}
+
+
+      {{ textarea({
+      "name": "more-detail",
+      "id": "more-detail",
+      "autocomplete": "off",
+      "hint": {
+        "text": "For example, if answering the phone is likely to be a problem"
+      },
+      "label": {
+        "classes": "nhsuk-label--m",
+        "text": "Do you have any specific requests about the way that we contact you today? (optional)"
+      }
+    }) }}
+
+    <h2>Before you submit</h2>
+    <p>We will endeavour to contact you back on the day of your request if you have submitted your request outside the same day response times</p>
+
+    {{ details({
+"classes": "nhsuk-expander",
+"text": "Same day response times",
+"HTML": '
+<table class="table table-responsive bottom-buffer">
+          <tbody><tr><th>Day</th><th>Start</th><th>Finish</th>
+          </tr></tbody><tbody>
+              <!-- ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Monday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Tuesday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Wednesday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Thursday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Friday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Saturday</td><td class="ng-binding">Closed</td><td class="ng-binding">Closed</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Sunday</td><td class="ng-binding">Closed</td><td class="ng-binding">Closed</td></tr><!-- end ngRepeat: hour in content.labels.hours -->
+          </tbody>
+      </table>'
+}) }}
+
+      <p>Please remember that it is always your responsibility to call for help by alternative methods if the situation deteriorates or you are worried for any reason. This should include the unlikely event that some unforeseen circumstance has delayed the response to your request and you feel that you need more urgent help.</p>
+
+      <input type="submit" class="nhsuk-button" value="Agree and send" name="engageAdminDone">
+      </input>
+    </form>
+
+  </div>
+</div>
+{% endblock %}
+
+
+{% block afterContent %}
+{% endblock %}

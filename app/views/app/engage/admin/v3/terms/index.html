@@ -1,0 +1,56 @@
+{% set PROTOTYPEURL = "app/engage" %}
+{% set serviceName = "Engage" %}
+{% set contentTitle = "This is a third party service" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="app-interruption">
+        <div class="app-interruption__wrapper">
+          <div class="app-interruption__content">
+            <h1 class="app-card__heading nhsuk-heading-xl nhsuk-u-margin-bottom-4">
+              <span class="app-interruption__caption nhsuk-caption-m nhsuk-caption--top">Additional GP services</span>
+              {{ contentTitle }}
+            </h1>
+            <p>
+              Your GP surgery has chosen this online consultation service provided by <strong>Engage Health Systems Limited</strong>.
+            </p>
+            <form action="/{{ PROTOTYPEURL }}/admin/v2/terms/nhs-login" method="post">
+              <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
+            </form>
+            <p>
+              <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/help/online-consultations/" target="_blank">Find out more about online consultation services</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% set PROTOTYPEURL = "app/engage" %}
+{% set serviceName = "Engage" %}
+{% set contentTitle = "What can we help you with today?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% include "../../.././_parts/proxy-banner.html" %}
+{% include "../../.././_parts/silver-banner.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <p class="nhsuk-caption-heading">Request a fit note</p>
+      <h1>How long do you think you have been or will be ill for?</h1>
+
+      
+
+      <form action="/app/engage/admin/v3/new-request" method="post">
+        {{ hint({
+          "text": "This includes days you do not usually work, such as weekends and bank holidays.",
+          "classes": "nhsuk-u-margin-bottom-2"
+        }) }}
+        <div class="nhsuk-u-padding-bottom-4"></div>
+        {{ radios({
+          "idPrefix": "econsult",
+          "name": "econsultMissedPills",
+          "fieldset": {
+            "legend": {
+              "isPageHeading": false,
+              "classes": ""
+            }
+          },
+          "items": [
+            {
+              "value": "7 days or less",
+              "text": "7 days or less"
+            },
+            {
+              "value": "More than 7 days",
+              "text": "More than 7 days"
+            }
+          ]
+        }) }}
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block afterContent %}
+{% endblock %}

@@ -1,0 +1,91 @@
+{% set PROTOTYPEURL = "app/engage" %}
+{% set serviceName = "Engage" %}
+{% set contentTitle = "Read and confirm" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% include "../../.././_parts/silver-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+      {% set checkboxWarning %}
+      {{ checkboxes({
+        "name": "engageMedicalWarning",
+        "items": [
+          {
+            "value": "true",
+            "text": "I understand"
+          }
+        ]
+      }) }}
+      {% endset %}
+
+      {% set checkboxWarningTwo %}
+      {{ checkboxes({
+        "name": "engageMedicalGetHelp",
+        "items": [
+          {
+            "value": "true",
+            "text": "I understand"
+          }
+        ]
+      }) }}
+      {% endset %}
+
+
+      <form class="" action="" method="post">
+
+        {{ warningCallout({
+          "heading": "Emergencies",
+          "HTML": "<p>Do not use this service to contact your GP in an emergency.</p><p> In the case of life threatening emergencies, please ring 999.</p><p>Serious symptoms to consider may include but are not limited to: Unexpected breathlessness, severe bleeding, crushing chest pain or pressure</p>" + checkboxWarning + "<p>You are responsible for seeking further medical help if the situation worsens or a medical condition deteriorates such that you consider immediate help may be required.</p>" + checkboxWarningTwo
+        }) }}
+
+
+        <p>By proceeding to use this service you accept the
+          <a href="#">end user license agreement</a>.
+        </p>
+
+          <input type="submit" class="nhsuk-button" value="Agree and continue">
+          </input>
+
+      </form>
+
+      <form action="#" method="get">
+        <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Decline">
+        </input>
+      </form>
+
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block afterContent %}
+{% endblock %}

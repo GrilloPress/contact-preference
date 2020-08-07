@@ -1,0 +1,75 @@
+{% set PROTOTYPEURL = "app/engage" %}
+{% set serviceName = "Engage" %}
+{% set contentTitle = "Check your message" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% include "../../.././_parts/proxy-banner.html" %}
+{% include "../../.././_parts/silver-banner.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+      <p>
+        Please read and review the request carefully before submitting your request
+      </p>
+
+      {{ summaryList({
+        classes: 'nhsuk-summary-list--no-border',
+        rows: [
+          {
+            key: {
+              text: "Your request"
+            },
+            value: {
+              html: data['engageAdminHowHelp'] or "I need my sick note renewing"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "message text"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <form action="/{{ PROTOTYPEURL }}/admin/v2/confirm/contact-you" method="get">
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block afterContent %}
+{% endblock %}
