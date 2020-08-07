@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/settings/v3" %}
 {% set serviceName = "Home" %}
-{% set contentTitle = "Prototypes" %}
+{% set contentTitle = "Manage notifications" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -29,9 +29,9 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Notifications</h1>
-      <p>You can choose whether to allow notifications on your device.</p>
-      <p>If you share this device with other people, they may be able to see your notifications.</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+      <p>You can choose whether to allow notifications on this device.</p>
+      <p>If you share this device with other people, they may be able to see your notifications. Read more about notifications in the <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">NHS App privacy policy</a>.</p>
 
       {% set checked %}
         {% if data['notifications'] == "True" %}
@@ -46,6 +46,7 @@
           <div class="nhs-app-card__inner" onclick="clickToggle()">
             <div>
               <label for="notifications">Allow notifications</label>
+              <p class="nhsuk-u-margin-bottom-1 nhsuk-u-margin-top-1">I accept the NHS App sending me notifications on this device</p>
               <input class="toggle" type="checkbox" id="notifications" name="notifications" value="on" {{ checked }}>
               <input class="nhsuk-u-visually-hidden" type="submit" value="Submit">
       			</div>
@@ -53,10 +54,8 @@
         </div>
       </form>
 
-      {{ actionLink({
-        "text": "Manage how notifications appear on your device",
-        "href": "#"
-      }) }}
+      <p><a href="#">Manage how notifications are shown on this device (opens your device settings)</a></p>
+
 
     </div>
   </div>

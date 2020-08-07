@@ -38,50 +38,46 @@
       <ul class="list-menu nhs-app-message">
 
         {% if data['messageRead2'] !== "read" %}
-                <li class="nhs-app-message__item nhs-app-message__item--unread">
-                  <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/message-pkb?messageRead2=read">
-                    <h2 class="nhsuk-heading-xs">
-                      <span class="nhsuk-u-visually-hidden">Messages from:</span>
-                      Patients Know Best
-                      <span class="nhsuk-u-visually-hidden">The last message was sent </span>
-                      <span class="nhs-app-message__date nhs-app-message__date--unread">Yesterday</span>
-                    </h2>
-                    <p class="nhs-app-message__subject-line">
-                      <span class="nhs-app-message__meta panel-link">
-                        <span class="nhsuk-u-visually-hidden">You have </span>
-                        <span class="nhs-app-message__count">1</span>
-                        <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
-                          unread messages from Patients Know Best
-                        </span>
-                      </span>
-                      <span class="nhsuk-u-visually-hidden">Latest message subject: </span>
-                      You can now use Patients Know Best with the NHS App
-                    </p>
 
 
-                                  <p class="nhs-app-message__subject-link">
-                                    View full message
-                                  </p>
-                  </a>
-                </li>
+        <li class="nhs-app-message__item nhs-app-message__item--unread">
+          <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/message-pkb?messageRead2=read">
+            <h2 class="nhsuk-heading-xs">
+              <span class="nhsuk-u-visually-hidden">Conversation with:</span>
+              Patients Know Best
+              <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+              <span class="nhs-app-message__date nhs-app-message__date--unread">Today</span>
+            </h2>
+            <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold">
+              <span class="nhsuk-u-visually-hidden">Subject: </span>
+              Blood test
+            <span class="nhs-app-message__meta panel-link">
+              <span class="nhsuk-u-visually-hidden">You have </span>
+              <span class="nhs-app-message__count">1</span>
+              <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                unread messages from Patients Know Best
+              </span>
+            </span>
+          </p>
+          </a>
+        </li>
+
 
                 {% else %}
 
+
                 <li class="nhs-app-message__item nhs-app-message__item--read">
-                  <a class="nhs-app-message__link" href="message-pkb">
+                  <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/message-pkb?messageRead2=read">
                     <h2 class="nhsuk-heading-xs">
-                      <span class="nhsuk-u-visually-hidden">Messages from:</span>
+                      <span class="nhsuk-u-visually-hidden">Conversation with:</span>
                       Patients Know Best
                       <span class="nhsuk-u-visually-hidden">The last message was sent </span>
-                      <span class="nhs-app-message__date">Yesterday</span>
+                      <span class="nhs-app-message__date nhs-app-message__date--unread">Today</span>
                     </h2>
-                    <p class="nhs-app-message__subject-line">
-                      <span class="nhsuk-u-visually-hidden">Latest message sent: </span>
-                      You can now use Patients Know Best with the NHS App
-                    </p>
-                    <p class="nhs-app-message__subject-link">
-                      View full message
-                    </p>
+                    <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold">
+                      <span class="nhsuk-u-visually-hidden">Subject: </span>
+                      Blood test
+                  </p>
                   </a>
                 </li>
 

@@ -86,6 +86,13 @@ router.post('/app/more/experimental/index-2', function (req, res) {
 
 });
 
+router.get('/app/v8/clear', function (req, res) {
+
+  req.session.data = {}
+  res.redirect('/app/v8/start')
+
+});
+
 
 // qualtrics message
 

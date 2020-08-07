@@ -41,7 +41,18 @@
       <h1 class="nhsuk-heading-xl nhs-app-xl">Read and agree to the privacy policy</h1>
 
       <p>To continue, you need to read and agree to the <a href="#">GP online consultation services privacy policy.</a></p>
+
+      {% if data['pNotification'] === "True" %}
+
       <form action="/app/econsult/hub/v1" method="get">
+
+        {% else %}
+
+      <form action="/app/econsult/hub/v1/index-no-child" method="get">
+
+        {% endif %}
+
+
         {{ checkboxes({
           "name": "econsultAgreeGPPolicy",
           "hint": {
@@ -60,7 +71,7 @@
         {{ button({
           "text": "Continue"
         }) }}
-      
+
       </form>
       {{ button({
         "text": "End my consultation",

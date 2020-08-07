@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/appointments/v8-econsult" %}
 {% set serviceName = "NHS App" %}
 {% set appointmentsActive = "active" %}
-{% set contentTitle = "Sorry, GP appointment booking is unavailable" %}
+{% set contentTitle = "Sorry, you cannot book a GP appointment online" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% if data["confirmed"] %}
@@ -44,43 +44,46 @@ $( document ).ready(function() {
       {{ contentTitle }}
     </h1>
 
-    <p>Online appointment booking has been turned off at your GP surgery. Contact your surgery for more information about appointments.</p>
-    
-    <p>For urgent medical advice, go to <a href="https://111.nhs.uk/">111.nhs.uk</a> or call 111.</p>
+    <p>Contact your GP surgery for more information. For urgent medical advice, go to <a href="https://111.nhs.uk/">111.nhs.uk</a> or call 111.</p>
 
-    <h2 class="nhsuk-heading-l">
-      What you can do next
-    </h2>
 
-    <ul class="list-menu">
 
-      {% if data['econsult'] === "True" %}
-      <li>
-        <a href="/app/econsult/hub/v1/index?appts=True&advice=" id="btn_111">
-          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Ask a health professional for advice</h2>
-          <p>Answer questions online and get a reply from your GP surgery</p>
-        </a>
-      </li>
+          <h2 class="nhsuk-heading-l">
+            What you can do next
+          </h2>
 
-      <li>
-        <a href="/app/econsult/admin/v1/1?appts=True&advice=">
-          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Additional GP services</h2>
-          <p>Get sick notes and GP letters or ask about recent tests</p>
-        </a>
-      </li>
 
-      {% endif %}
 
-      <li>
-        <a href="https://111.nhs.uk/" id="btn_111">
-          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Use NHS 111 online</h2>
-          <p>Check if you need urgent help and find out what to do next</p>
-        </a>
-      </li>
+          <ul class="list-menu">
 
-    </ul>
 
+
+                    {% if data['econsult'] === "True" %}
+                    <li>
+                      <a href="/app/econsult/adult/terms/start" id="btn_111">
+                        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Get advice from your GP</h2>
+                        <p>Answer questions online and get a response from a GP or health professional. You may be able to get advice for your child if it's available at your surgery</p>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="/app/econsult/admin/v1/1?appts=True&advice=">
+                        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Additional GP services</h2>
+                        <p>Get sick notes and GP letters or ask about recent tests</p>
+                      </a>
+                    </li>
+
+                    {% endif %}
+
+                    <li>
+                      <a href="https://111.nhs.uk/" id="btn_111">
+                        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Use NHS 111 online</h2>
+                        <p>Check if you need urgent help and find out what to do next</p>
+                      </a>
+                    </li>
+
+        </ul>
+
+    </div>
   </div>
-
-</div>
 {% endblock %}
