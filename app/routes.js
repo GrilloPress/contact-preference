@@ -94,6 +94,13 @@ router.get('/app/v8/clear', function (req, res) {
 });
 
 
+router.get('/app/v8/clear-desktop', function (req, res) {
+
+  req.session.data = {}
+  res.redirect('/app/logged-out-homescreen/download-app')
+
+});
+
 // qualtrics message
 
 
