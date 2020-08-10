@@ -73,8 +73,10 @@
       <p>Please call the practice on <strong>0113 496 0999</strong>. A member of staff will be able to update your record.</p>
 
       <p>
-        <a href="#">Back to home</a>
+        <a href='{{ data["routeHome"] if data ["routeHome"] else "/app/v8" }}'>Back to home</a>
       </p>
+
+
 
     </div>
   </div>
