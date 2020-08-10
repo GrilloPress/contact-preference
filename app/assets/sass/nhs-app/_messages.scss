@@ -35,8 +35,20 @@
   position: absolute;
   right: 42px;
 
+  &.panel-link_thin {
+    bottom: 19% !important;
+  }
+
+}
+
+.nhs-app-message__meta {
+
+  float: right;
+  position: absolute;
+  right: 42px;
+
   &.panel-link {
-    bottom: 15%;
+    bottom: 38% !important;
   }
 
 }

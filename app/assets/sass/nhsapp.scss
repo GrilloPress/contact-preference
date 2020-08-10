@@ -1442,6 +1442,49 @@ div.record-content {
   .toggle:checked:before {
     left: 46%; }
 
+
+    .toggle_notifications {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 5em;
+      height: 32px;
+      display: inline-block;
+      position: absolute;
+      right: 18px;
+      top: 15px;
+      border-radius: 50px;
+      overflow: hidden;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      background-color: #768692;
+      transition: background-color ease 0.3s; }
+      .toggle_notifications:before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: 2;
+        width: 28px;
+        height: 28px;
+        background: #fff;
+        left: 2px;
+        top: 2px;
+        border-radius: 50%;
+        font: 10px/28px Helvetica;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-indent: -22px;
+        word-spacing: 37px;
+        color: #fff;
+        text-shadow: -1px -1px rgba(0, 0, 0, 0.15);
+        white-space: nowrap;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s; }
+      .toggle_notifications:checked {
+        background-color: #11A918; }
+      .toggle_notifications:checked:before {
+        left: 46%; }
+
 /** Links */
 .nhsuk-icon__arrow-right-circle {
   display: inline-block;
@@ -2143,10 +2186,18 @@ main.nhs-app-thin {
   }
 }
 
-.toggle {
+.toggle_notifications {
 
   top: 40px;
 }
+
+
+.toggle {
+
+  top: 9px;
+}
+
+
 
 .toggle:focus {
 

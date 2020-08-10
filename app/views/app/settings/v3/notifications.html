@@ -43,18 +43,19 @@
 
       <form action="" method="post">
         <div class="nhs-app-card">
-          <div class="nhs-app-card__inner" onclick="clickToggle()">
+          <div class="nhs-app-card__inner" onclick="notificationToggle()">
             <div>
               <label for="notifications">Allow notifications</label>
               <p class="nhsuk-u-margin-bottom-1 nhsuk-u-margin-top-1">I accept the NHS App sending me notifications on this device</p>
-              <input class="toggle" type="checkbox" id="notifications" name="notifications" value="on" {{ checked }}>
+              <input class="toggle_notifications" type="checkbox" id="notifications" name="notifications" value="on" {{ checked }}>
               <input class="nhsuk-u-visually-hidden" type="submit" value="Submit">
       			</div>
           </div>
         </div>
       </form>
 
-      <p><a href="#">Manage how notifications are shown on this device (opens your device settings)</a></p>
+
+      <p><a href="javascript:void(0)">Manage how notifications are shown on this device (opens your device settings)</a></p>
 
 
     </div>
