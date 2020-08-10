@@ -152,6 +152,18 @@
 
 .nhs-app-chat__body {}
 
+.message-break_link {
+
+     word-wrap: break-word;
+     -ms-word-break: break-all;
+     word-break: break-all;
+     word-break: break-word;
+     -ms-hyphens: auto;
+     -webkit-hyphens: auto;
+     hyphens: auto;
+
+}
+
 .nhs-app-chat__date {
 
   @include nhsuk-typography-responsive(14);

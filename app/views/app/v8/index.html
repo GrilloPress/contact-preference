@@ -190,7 +190,7 @@
         <li class="nhs-app-message__item--unread">
           <a class="desktop" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/?messagingIcon=False&messageRead1=unread&pkbMessaging=False" }}'>
               View your messages
-              {% if data['messageRead2'] !== "read" %}
+              {% if (data['messageRead2'] == "unread") or (data['messageRead3'] == "unread") %}
               <span class="nhs-app-message__meta">
                 <span class="nhsuk-u-visually-hidden">You have </span>
                 <span class="nhs-app-message__count"></span>
@@ -231,10 +231,12 @@
           <a class="desktop" href='{{ data["routeMore"] if data ["routeMore"] else "/app/more/experimental/index-2" }}'>See more NHS App services</a>
         </li>
 
-        <li>
-          <a class="desktop" href="/app/v8/clear">Log out</a>
-        </li>
       </ul>
+
+      <form action="/app/v8/clear" method="post">
+        <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Log out">
+        </input>
+      </form>
     </div>
   </div>
 
