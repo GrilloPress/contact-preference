@@ -39,9 +39,9 @@
       <p class="nhsuk-caption-heading">Get advice from your GP</p>
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">Are you registered at the following practice?</h1>
-      <p><strong>Gledhow Practice</strong></p>
+      <p>Gledhow Practice</p>
       <p>100 Any Avenue, London, E11 9WU</p>
-      <form action="/{{ PROTOTYPEURL }}/adult/8_sex" method="get">
+      <form action="/app/econsult/adult/7_registered" method="post">
         {{ radios({
           "idPrefix": "econsult",
           "name": "econsultAdultRegistered",
