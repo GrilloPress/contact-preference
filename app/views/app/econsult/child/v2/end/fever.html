@@ -16,13 +16,12 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-mobile--hide" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -31,8 +30,13 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
+<<<<<<< HEAD
+      <p class="nhsuk-caption-heading">Get advice from your GP for your child</p>
+
+=======
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP for your child</p>
       
+>>>>>>> 44d2a0c4ac42d06d63f10bf9daf19bf31a33cba8
 
       {{ careCard({
         "type": "immediate",
