@@ -5,6 +5,15 @@
 {% block pageScripts %}
 {% endblock %}
 
+{% set firstNameInput %}
+{% if data['econsultAgreePrivacyPolicy'] == 'true' %}
+Betty Doyle
+{% else %}
+{% endif %}
+{% endset %}
+
+
+
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -48,6 +57,7 @@
           },
           "id": "econsult",
           "name": "econsultAdultFirstName",
+          "value": firstNameInput,
           "classes": ""
         }) }}
 

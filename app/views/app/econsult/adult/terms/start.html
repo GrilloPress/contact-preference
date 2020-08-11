@@ -1,5 +1,5 @@
 {% set PROTOTYPEURL = "app/econsult" %}
-{% set serviceName = "Engage" %}
+{% set serviceName = "eConsult" %}
 {% set contentTitle = "Ask a health professional for advice about your child" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -44,12 +44,12 @@
         <p>You may be able to get advice from a GP for your child if it's available at your surgery.</p>
         "
       }) }}
-      
+
       <h2>This service is provided by eConsult Health Ltd</h2>
       <p>This service is provided by an online consultation service provider on behalf of your GP surgery. <a href="#">Find out more about online consultation services.</a></p>
       <p>To save you typing in personal information the service needs, you can use the personal information we already hold as described in the <a href="#">NHS App privacy policy.</a></p>
-      
-      
+
+
       {% if data['pNotification'] === "True" %}
 
       <form action="/app/econsult/hub/v1" method="get">
@@ -59,6 +59,7 @@
       <form action="/app/econsult/hub/v1/index-no-child" method="get">
 
         {% endif %}
+
 
         {{ checkboxes({
           "name": "econsultAgreePrivacyPolicy",
@@ -79,14 +80,14 @@
           "text": "Continue"
         }) }}
 
-      
+
       </form>
-      
 
-  
 
-      
-      
+
+
+
+
     </div>
   </div>
 {% endblock %}
