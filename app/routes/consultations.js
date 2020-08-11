@@ -1071,7 +1071,7 @@ router.post('/app/econsult/adult/5_emergency', function (req, res) {
 });
 
 router.post('/app/econsult/adult/6_covid', function (req, res) {
-  let answer = req.session.data.consultAdultCOVID;
+  let answer = req.session.data.consultAdultCOVIDCheck;
 
   if (answer === 'Yes') {
 
