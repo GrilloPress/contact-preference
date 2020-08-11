@@ -37,33 +37,34 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading">Get advice from your GP</p>
-
-      <form action="" method="post">
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultAdultCOVID",
-          "fieldset": {
-            "legend": {
-              "html": '<div class="nhsuk-warning-callout nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-4">
+              
+  <div class="nhsuk-warning-callout nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-4">
   <h2 class="nhsuk-warning-callout__label">Is your query specifically about a new, continuous cough or high temperature?</h2>
   <p>Answering this question will help us limit the
-  spread of coronavirus (COVID-19). </p><p> A high temperature means you feel hot to the touch on your chest or back. A new continuous cough means you\'ve started coughing repeatedly.</p>
-</div>',
-              "isPageHeading": false,
-              "classes": ""
-            }
-          },
-          "items": [
-            {
-              "value": "yes",
-              "text": "Yes"
-            },
-            {
-              "value": "no",
-              "text": "No"
-            }
-          ]
-        }) }}
+  spread of coronavirus (COVID-19). </p><p> A high temperature means you feel hot to the touch on your chest or back. A new continuous cough means you've started coughing repeatedly.</p>
+</div>
+
+<form action="/app/econsult/adult/6_covid" method="post">
+  {{ radios({
+    "idPrefix": "econsult",
+    "name": "econsultAdultCOVID",
+    "fieldset": {
+      "legend": {
+        "isPageHeading": false,
+        "classes": ""
+      }
+    },
+    "items": [
+      {
+        "value": "Yes",
+        "text": "Yes"
+      },
+      {
+        "value": "No",
+        "text": "No"
+      }
+    ]
+  }) }}
 
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>

@@ -1060,9 +1060,9 @@ router.post('/app/econsult/child/v2/47_', function (req, res) {
 router.post('/app/econsult/adult/5_emergency', function (req, res) {
   let answer = req.session.data.econsultAdultEmergency;
 
-  if (answer === 'Yes') {
+  if (answer === 'I am experiencing some of these') {
 
-    res.redirect('/app/econsult/end/emergency')
+    res.redirect('/app/econsult/adult/end/emergency')
 
   } else {
     res.redirect('/app/econsult/adult/6_covid')
