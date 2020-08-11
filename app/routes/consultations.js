@@ -1071,7 +1071,7 @@ router.post('/app/econsult/adult/5_emergency', function (req, res) {
 });
 
 router.post('/app/econsult/adult/6_covid', function (req, res) {
-  let answer = req.session.data.consultAdultCOVIDCheck;
+  let answer = req.session.data.econsultAdultCOVIDCheck;
 
   if (answer === 'Yes') {
 
@@ -1222,7 +1222,7 @@ router.post('/app/econsult/adult/29_', function (req, res) {
 
   } else  if (answer === 'Yes'){
     res.redirect('/app/econsult/adult/end/pregnancy')
-  
+
   } else {
     res.redirect('/app/econsult/adult/29_a')
 
