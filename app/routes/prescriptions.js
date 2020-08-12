@@ -82,7 +82,7 @@ router.post('/app/prescriptions/v7/save', function (req, res) {
   // add what is saved later!
 
   req.session.data.prescriptionConfirmed = "True";
-  res.redirect('/app/prescriptions/v7/confirmed-3')
+  res.redirect('/app/prescriptions/v7/confirmed-4')
 
 });
 
