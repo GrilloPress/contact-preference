@@ -37,7 +37,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP for your child</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">Agree to the privacy notice</h1>
 
       <div class="nhsuk-warning-callout">
@@ -48,7 +48,7 @@
       <p>We're about to ask you a few questions about your request. Your answers will be sent securely to your GP surgery unless urgent medical attention is needed. For such cases the online consultation service will direct you to other health services.</p>
       <p>To start, please agree to the <a href="https://demo.econsulttest.health/staticLegalContent/privacyPolicy">GP online consultation services privacy notice</a>.</p>
 
-      <form action="/app/econsult/child/v2/child-privacy" method="post">
+      <form action="/app/econsult/child/v2/data-sharing" method="get">
       {{ checkboxes({
         "name": "econsultReadPrivacyNotice",
         "hint": {
