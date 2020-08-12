@@ -9,11 +9,11 @@
 
 
 $( document ).ready(function() {
-    jQuery.post( "/app/password", { messageReadApp: "read" } );
+    jQuery.post( "/app/password", { messageRead2: "read" } );
   });
 
   $( document ).ready(function() {
-      jQuery.post( "/app/password", { messageReadeconsult: "read" } );
+      jQuery.post( "/app/password", { messageRead3: "read" } );
     });
 
 
@@ -74,7 +74,7 @@ $( document ).ready(function() {
 
       <div class="nhs-app-chat">
         <ul class="nhs-app-chat__thread">
-          {% if data['messageReadApp'] === "read" %}
+          {% if data['messageRead2'] === "read" %}
           {% else %}
           <div class="nhs-app-chat__read-indicator" id="unread">
             <span class="nhs-app-chat__read-indicator-container">Unread message</span>
@@ -105,7 +105,7 @@ $( document ).ready(function() {
 
       <div class="nhs-app-chat">
         <ul class="nhs-app-chat__thread">
-          {% if data['messageReadeconsult'] === "read" %}
+          {% if data['messageRead3'] === "read" %}
           {% else %}
           <div class="nhs-app-chat__read-indicator" id="unread">
             <span class="nhs-app-chat__read-indicator-container">Unread message</span>
