@@ -2,6 +2,7 @@
 {% set serviceName = "Home" %}
 {% set contentTitle = "Health information and updates" %}
 {% set title = contentTitle + " - " + serviceName %}
+{% set messagingActive = "active" %}
 {% block pageScripts %}
 {% endblock %}
 
@@ -32,18 +33,20 @@
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <div class="nhs-app-panel-heading">
-        <h2 class="nhsuk-heading-m">Your messages</h2>
-      </div>
-      <ul class="list-menu nhs-app-message">
+
+          <div class="nhs-app-panel-heading">
+            <h2 class="nhsuk-heading-m">Your messages</h2>
+          </div>
+          <ul class="list-menu nhs-app-message">
 
 
 
-        {% if data['pNotification'] == "True" %}
+
+
         {% if data['messageRead3'] == "unread" %}
 
         <li class="nhs-app-message__item nhs-app-message__item--unread">
-          <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/message-econsult?messageRead3=read">
+          <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread?messageRead3=read">
             <h2 class="nhsuk-heading-xs">
               <span class="nhsuk-u-visually-hidden">Conversation with:</span>
               NHS App
@@ -65,11 +68,11 @@
         </li>
 
 
-                {% else %}
+        {% elif data['messageRead3'] == "read" %}
 
 
                 <li class="nhs-app-message__item nhs-app-message__item--read">
-                  <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/message-econsult?messageRead3=read">
+                  <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread?messageRead3=read">
                     <h2 class="nhsuk-heading-xs">
                       <span class="nhsuk-u-visually-hidden">Conversation with:</span>
                       NHS App
@@ -85,17 +88,6 @@
 
 
                 {% endif %}
-                {% endif %}
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -103,7 +95,7 @@
         {% if data['messageRead2'] == "unread" %}
 
         <li class="nhs-app-message__item nhs-app-message__item--unread">
-          <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/message-notifications?messageRead2=read">
+          <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread?messageRead2=read">
             <h2 class="nhsuk-heading-xs">
               <span class="nhsuk-u-visually-hidden">Conversation with:</span>
               NHS App
@@ -125,11 +117,11 @@
         </li>
 
 
-                {% else %}
+        {% elif data['messageRead2'] == "read" %}
 
 
                 <li class="nhs-app-message__item nhs-app-message__item--read">
-                  <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/message-notifications?messageRead2=read">
+                  <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread?messageRead2=read">
                     <h2 class="nhsuk-heading-xs">
                       <span class="nhsuk-u-visually-hidden">Conversation with:</span>
                       NHS App
@@ -150,22 +142,6 @@
 
 
 
-
-
-        <li class="nhs-app-message__item nhs-app-message__item--read">
-          <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/message">
-            <h2 class="nhsuk-heading-xs">
-              <span class="nhsuk-u-visually-hidden">Conversation with:</span>
-              NHS App
-              <span class="nhsuk-u-visually-hidden">The last message was sent </span>
-              <span class="nhs-app-message__date nhs-app-message__date--read">13/08/2020</span>
-            </h2>
-            <p class="nhs-app-message__subject-line nhs-app-message__subject-line">
-              <span class="nhsuk-u-visually-hidden">Subject: </span>
-              Welcome to the NHS App
-          </p>
-          </a>
-        </li>
 
 
 

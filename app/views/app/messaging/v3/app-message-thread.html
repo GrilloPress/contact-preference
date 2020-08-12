@@ -12,6 +12,10 @@ $( document ).ready(function() {
     jQuery.post( "/app/password", { messageReadApp: "read" } );
   });
 
+  $( document ).ready(function() {
+      jQuery.post( "/app/password", { messageReadeconsult: "read" } );
+    });
+
 
 </script>
 {% endblock %}
@@ -48,6 +52,38 @@ $( document ).ready(function() {
         <span class="nhsuk-caption-m nhsuk-caption--top">Messages from: </span>
         {{ sender }}
       </h2>
+
+      {% if data['pNotification'] == 'True' %}
+
+
+      <div class="nhs-app-chat">
+        <ul class="nhs-app-chat__thread">
+          {% if data['messageReadeconsult'] === "read" %}
+          {% else %}
+          <div class="nhs-app-chat__read-indicator" id="unread">
+            <span class="nhs-app-chat__read-indicator-container">Unread message</span>
+          </div>
+          {% endif %}
+          <li class="nhs-app-chat__item">
+            <div class="nhs-app-chat__sender">
+              {{ sender }}
+            </div>
+            <div class="nhs-app-chat__container">
+              <p class="nhs-app-chat__body">You can now get advice from your GP for your child.</p>
+              <p class="nhs-app-chat__body">Answer questions online about your child’s symptoms or condition and get a response from your GP surgery.</p>
+              <p class="nhs-app-chat__body">Find out more about getting advice for your child: <a class="message-break_link nhs-app-chat__body" href="/app/econsult/adult/terms/start">https://www.nhsapp.service.nhs.uk/appointments/gp-advice</a></p>
+            </div>
+            <div class="nhs-app-chat__date">
+              Sent 9:14am, 18 August 2020
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      {% endif %}
+
+
+
       <div class="nhs-app-chat">
         <ul class="nhs-app-chat__thread">
           {% if data['messageReadApp'] === "read" %}
@@ -67,11 +103,33 @@ $( document ).ready(function() {
               <a class="message-break_link nhs-app-chat__body" href="/app/settings/v3/notifications">https://www.nhsapp.service.nhs.uk/account/notifications/</a>
             </div>
             <div class="nhs-app-chat__date">
-              Sent 9:12am, 18 August 2020
+              Sent 7:12am, 18 August 2020
             </div>
           </li>
         </ul>
       </div>
+
+
+
+      <div class="nhs-app-chat">
+        <ul class="nhs-app-chat__thread">
+          <li class="nhs-app-chat__item">
+            <div class="nhs-app-chat__sender">
+              {{ sender }}
+            </div>
+            <div class="nhs-app-chat__container">
+              <p class="nhs-app-chat__body">Welcome to the NHS App</p>
+            </div>
+            <div class="nhs-app-chat__date">
+              Sent 10:17am, 13 August 2020
+            </div>
+          </li>
+        </ul>
+      </div>
+
+
+
+
 
     </div>
   </div>
