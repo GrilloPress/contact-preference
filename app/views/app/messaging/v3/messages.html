@@ -41,12 +41,13 @@
 
 
 
+        {% if data['pNotification'] == 'True' %}
 
 
         {% if data['messageRead3'] == "unread" %}
 
         <li class="nhs-app-message__item nhs-app-message__item--unread">
-          <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread?messageRead3=read">
+          <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread">
             <h2 class="nhsuk-heading-xs">
               <span class="nhsuk-u-visually-hidden">Conversation with:</span>
               NHS App
@@ -67,12 +68,13 @@
           </a>
         </li>
 
+        {% endif %}
 
-        {% elif data['messageRead3'] == "read" %}
+        {% if data['messageRead3'] == "read" %}
 
 
                 <li class="nhs-app-message__item nhs-app-message__item--read">
-                  <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread?messageRead3=read">
+                  <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread">
                     <h2 class="nhsuk-heading-xs">
                       <span class="nhsuk-u-visually-hidden">Conversation with:</span>
                       NHS App
@@ -88,15 +90,16 @@
 
 
                 {% endif %}
+                {% endif %}
 
 
-          {% if data['messageRead3'] %}
-          {% else %}
 
+        {% if data['pNotification'] == 'True' %}
+        {% else %}
         {% if data['messageRead2'] == "unread" %}
 
         <li class="nhs-app-message__item nhs-app-message__item--unread">
-          <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread?messageRead2=read">
+          <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread">
             <h2 class="nhsuk-heading-xs">
               <span class="nhsuk-u-visually-hidden">Conversation with:</span>
               NHS App
@@ -117,12 +120,16 @@
           </a>
         </li>
 
+        {% endif %}
+        {% endif %}
 
-        {% elif data['messageRead2'] == "read" %}
+        {% if data['pNotification'] == 'True' %}
+        {% else %}
+        {% if data['messageRead2'] == "read" %}
 
 
                 <li class="nhs-app-message__item nhs-app-message__item--read">
-                  <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread?messageRead2=read">
+                  <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread">
                     <h2 class="nhsuk-heading-xs">
                       <span class="nhsuk-u-visually-hidden">Conversation with:</span>
                       NHS App
