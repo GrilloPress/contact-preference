@@ -165,21 +165,21 @@
       <ul class="list-menu nhs-app-message">
 
         <li>
-          <a class="desktop" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v2/" }}'>Find health information and advice</a>
+          <a class="desktop" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v2/" }}'>Advice</a>
         </li>
 
         <li>
-          <a class="desktop" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v6/pre-hub" }}'>Book and manage appointments</a>
+          <a class="desktop" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v6/pre-hub" }}'>Appointments</a>
         </li>
           <li>
-            <a class="desktop" href='{{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v7/your-prescriptions-11-no-pkb" }}'>Manage your prescriptions</a>
+            <a class="desktop" href='{{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v7/your-prescriptions-11-no-pkb" }}'>Prescriptions</a>
           </li>
         <li>
-          <a class="desktop" href='{{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v1/" }}'>View your health record and donor services</a>
+          <a class="desktop" href='{{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v1/" }}'>Your health</a>
         </li>
         <li class="nhs-app-message__item--unread">
           <a class="desktop" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/?messagingIcon=False&messageRead1=unread&pkbMessaging=False" }}'>
-            View and send messages
+            Messages
               {% if (data['messageRead2'] == "unread") or (data['messageRead3'] == "unread") %}
               <span class="nhs-app-message__meta">
                 <span class="nhsuk-u-visually-hidden">You have </span>
@@ -218,7 +218,7 @@
         {% endif %}
 
         <li>
-          <a class="desktop" href='{{ data["routeMore"] if data ["routeMore"] else "/app/more/experimental/index-2" }}'>See more NHS App services</a>
+          <a class="desktop" href='{{ data["routeMore"] if data ["routeMore"] else "/app/more/experimental/index-2" }}'>More NHS App services</a>
         </li>
 
       </ul>
