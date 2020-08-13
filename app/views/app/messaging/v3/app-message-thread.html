@@ -17,6 +17,7 @@ $( document ).ready(function() {
     });
 
 
+
 </script>
 {% endblock %}
 
@@ -76,7 +77,7 @@ $( document ).ready(function() {
         <ul class="nhs-app-chat__thread">
           {% if data['messageRead2'] === "read" %}
           {% else %}
-          <div class="nhs-app-chat__read-indicator" id="unread">
+          <div class="nhs-app-chat__read-indicator" id="unread2">
             <span class="nhs-app-chat__read-indicator-container">Unread message</span>
           </div>
           {% endif %}
@@ -87,7 +88,7 @@ $( document ).ready(function() {
             <div class="nhs-app-chat__container">
               <p class="nhs-app-chat__body">You can get notifications from the NHS App on your device.</p>
               <p class="nhs-app-chat__body">Notifications may include information about new features and important health information updates, such as coronavirus updates.</p>
-              <p class="nhs-app-chat__body">Go to your settings to turn on notifications:</p>
+              <p class="nhs-app-chat__body">To turn on notifications, go to your notifications settings:</p>
               <a class="message-break_link nhs-app-chat__body" href="/app/settings/v3/notifications">https://www.nhsapp.service.nhs.uk/account/notifications/</a>
             </div>
             <div class="nhs-app-chat__date">
@@ -98,8 +99,6 @@ $( document ).ready(function() {
       </div>
 
 
-
-
       {% if data['pNotification'] == 'True' %}
 
 
@@ -107,7 +106,7 @@ $( document ).ready(function() {
         <ul class="nhs-app-chat__thread">
           {% if data['messageRead3'] === "read" %}
           {% else %}
-          <div class="nhs-app-chat__read-indicator" id="unread">
+          <div class="nhs-app-chat__read-indicator" id="unread3">
             <span class="nhs-app-chat__read-indicator-container">Unread message</span>
           </div>
           {% endif %}

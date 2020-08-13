@@ -155,9 +155,8 @@
               {% endif %}
 
               <li>
-                <a class="desktop" href="/app/records/v1/index">View your GP health record</a>
+                <a class="desktop" href="/app/econsult/adult/terms/start">Get advice from your GP</a>
               </li>
-
 
             </ul>
 
@@ -166,7 +165,7 @@
       <ul class="list-menu nhs-app-message">
 
         <li>
-          <a class="desktop" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v2/" }}'>Get health advice</a>
+          <a class="desktop" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v2/" }}'>Find health information and advice</a>
         </li>
 
         <li>
@@ -176,11 +175,11 @@
             <a class="desktop" href='{{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v7/your-prescriptions-11-no-pkb" }}'>Manage your prescriptions</a>
           </li>
         <li>
-          <a class="desktop" href='{{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v1/" }}'>View your health record and preferences</a>
+          <a class="desktop" href='{{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v1/" }}'>View your health record and donor services</a>
         </li>
         <li class="nhs-app-message__item--unread">
           <a class="desktop" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/?messagingIcon=False&messageRead1=unread&pkbMessaging=False" }}'>
-              View your messages
+            View and send messages
               {% if (data['messageRead2'] == "unread") or (data['messageRead3'] == "unread") %}
               <span class="nhs-app-message__meta">
                 <span class="nhsuk-u-visually-hidden">You have </span>
