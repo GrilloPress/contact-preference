@@ -6,11 +6,7 @@
 {% endblock %}
 
 {% set AddressInput %}
-{% if data['econsultAgreePrivacyPolicy'] == 'true' %}
-72 Guild Street, London, SE23 6FH
-{% else %}
-{% endif %}
-{% endset %}
+{% if data['econsultAgreePrivacyPolicy'] == 'true' %}72 Guild Street, London, SE23 6FH{% else %}{% endif %}{% endset %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
