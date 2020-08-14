@@ -10,6 +10,12 @@
 {% block pageScripts %}
 {% endblock %}
 
+{% set EmailAddressInput %}
+{% if data['econsultAgreePrivacyPolicy'] == 'true' %}
+betty.doyle@hotmail.com
+{% else %}
+{% endif %}
+{% endset %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -56,7 +62,7 @@
           },
           "id": "econsult",
           "name": "econsultYourEmail",
-          "value": "",
+          "value": EmailAddressInput,
           "classes": ""
         }) }}
 
