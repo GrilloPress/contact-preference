@@ -1,6 +1,11 @@
 {% set PROTOTYPEURL = "app/econsult" %}
-{% set serviceName = "NHS App" %}
+{% set serviceName = "eConsult" %}
 {% set contentTitle = "Online consultations are currently unavailable" %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% endif %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
