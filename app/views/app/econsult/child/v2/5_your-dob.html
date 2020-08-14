@@ -11,27 +11,6 @@
 {% endblock %}
 
 
-{% set ParentDayInput %} 
-{% if data['econsultAgreePrivacyPolicy'] == 'true' %}
-20
-{% else %}
-{% endif %}
-{% endset %}
-
-{% set ParentMonthInput %} 
-{% if data['econsultAgreePrivacyPolicy'] == 'true' %}
-09
-{% else %}
-{% endif %}
-{% endset %}
-
-{% set ParentYearInput %} 
-{% if data['econsultAgreePrivacyPolicy'] == 'true' %}
-1982
-{% else %}
-{% endif %}
-{% endset %}
-
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
 
@@ -65,7 +44,10 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/child/v1/6_legal-guardian" method="get">
+      <form action="/{{ PROTOTYPEURL }}/child/v2/6_legal-guardian" method="get">
+
+        {% if data['econsultAgreePrivacyPolicy'] == 'true' %}
+
         {{ dateInput({
           "id": "econsult",
           "namePrefix": "econsultYourDOB",
@@ -80,20 +62,51 @@
             {
               "name": "day",
               "classes": "nhsuk-input--width-2",
-              "value": ParentDayInput
+              value: 20
             },
             {
               "name": "month",
               "classes": "nhsuk-input--width-2",
-              "value": ParentMonthInput
+              value: 9
             },
             {
               "name": "year",
               "classes": "nhsuk-input--width-4",
-              "value": ParentYearInput
+              value: 1982
             }
           ]
         }) }}
+
+        {% else %}
+
+        {{ dateInput({
+          "id": "econsult",
+          "namePrefix": "econsultYourDOB",
+          "fieldset": {
+            "legend": {
+              "text": "Tell us your date of birth",
+              "isPageHeading": false,
+              "classes": ""
+            }
+          },
+          "items": [
+            {
+              "name": "day",
+              "classes": "nhsuk-input--width-2"
+            },
+            {
+              "name": "month",
+              "classes": "nhsuk-input--width-2"
+            },
+            {
+              "name": "year",
+              "classes": "nhsuk-input--width-4"
+            }
+          ]
+        }) }}
+
+        {% endif %}
+
 
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
