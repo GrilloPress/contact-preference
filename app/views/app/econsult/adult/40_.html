@@ -5,6 +5,12 @@
 {% block pageScripts %}
 {% endblock %}
 
+{% set AddressInput %}
+{% if data['econsultAgreePrivacyPolicy'] == 'true' %}
+72 Guild Street, London, SE23 6FH
+{% else %}
+{% endif %}
+{% endset %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -45,7 +51,7 @@
           "name": "econsultAdultAddress",
           "id": "econsult",
           "classes": "nhsuk-u-margin-bottom-0",
-          "value": "",
+          "value": AddressInput,
           "label": {
             "isPageHeading": false,
             "classes": ""

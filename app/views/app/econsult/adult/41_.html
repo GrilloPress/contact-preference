@@ -5,6 +5,12 @@
 {% block pageScripts %}
 {% endblock %}
 
+{% set PhoneNumberInput %}
+{% if data['econsultAgreePrivacyPolicy'] == 'true' %}
+07890 345 746
+{% else %}
+{% endif %}
+{% endset %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -51,7 +57,7 @@
           },
           "id": "econsult",
           "name": "econsultYourPhoneNumber",
-          "value": "",
+          "value": PhoneNumberInput,
           "classes": ""
         }) }}
 
