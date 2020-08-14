@@ -1,6 +1,11 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "eConsult" %}
 {% set contentTitle = "Get advice from your GP for your child" %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% endif %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -68,7 +73,7 @@
         Continue
       </button>
       </form>
-      
+
       <div class="nhsuk-u-padding-bottom-4"></div>
 
 

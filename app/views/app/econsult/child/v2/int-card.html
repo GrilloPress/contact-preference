@@ -1,6 +1,11 @@
 {% set PROTOTYPEURL = "app/econsult" %}
-{% set serviceName = "Engage" %}
+{% set serviceName = "eConsult" %}
 {% set contentTitle = "This is a third-party service" %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% endif %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
