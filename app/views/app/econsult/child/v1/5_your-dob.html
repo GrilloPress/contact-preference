@@ -5,6 +5,26 @@
 {% block pageScripts %}
 {% endblock %}
 
+{% set ParentDayInput %} 
+{% if data['econsultAgreePrivacyPolicy'] == 'true' %}
+20
+{% else %}
+{% endif %}
+{% endset %}
+
+{% set ParentMonthInput %} 
+{% if data['econsultAgreePrivacyPolicy'] == 'true' %}
+09
+{% else %}
+{% endif %}
+{% endset %}
+
+{% set ParentYearInput %} 
+{% if data['econsultAgreePrivacyPolicy'] == 'true' %}
+1982
+{% else %}
+{% endif %}
+{% endset %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -54,17 +74,17 @@
             {
               "name": "day",
               "classes": "nhsuk-input--width-2",
-              "value": "20"
+              "value": ParentDayInput
             },
             {
               "name": "month",
               "classes": "nhsuk-input--width-2",
-              "value": "1"
+              "value": ParentMonthInput
             },
             {
               "name": "year",
               "classes": "nhsuk-input--width-4",
-              "value": "1982"
+              "value": ParentYearInput
             }
           ]
         }) }}

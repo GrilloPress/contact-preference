@@ -6,6 +6,27 @@
 {% endblock %}
 
 
+{% set ParentDayInput %} 
+{% if data['econsultAgreePrivacyPolicy'] == 'true' %}
+20
+{% else %}
+{% endif %}
+{% endset %}
+
+{% set ParentMonthInput %} 
+{% if data['econsultAgreePrivacyPolicy'] == 'true' %}
+09
+{% else %}
+{% endif %}
+{% endset %}
+
+{% set ParentYearInput %} 
+{% if data['econsultAgreePrivacyPolicy'] == 'true' %}
+1982
+{% else %}
+{% endif %}
+{% endset %}
+
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
 
@@ -36,34 +57,35 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP for your child</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Tell us your date of birth</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/child/v2/6_legal-guardian" method="get">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+
+      <form action="/{{ PROTOTYPEURL }}/child/v1/6_legal-guardian" method="get">
         {{ dateInput({
           "id": "econsult",
           "namePrefix": "econsultYourDOB",
           "fieldset": {
             "legend": {
+              "text": "Tell us your date of birth",
               "isPageHeading": false,
               "classes": ""
             }
           },
-          "hint": {
-            "text": "For example, 31 3 1972"
-          },
           "items": [
             {
               "name": "day",
-              "classes": "nhsuk-input--width-2"
+              "classes": "nhsuk-input--width-2",
+              "value": ParentDayInput
             },
             {
               "name": "month",
-              "classes": "nhsuk-input--width-2"
+              "classes": "nhsuk-input--width-2",
+              "value": ParentMonthInput
             },
             {
               "name": "year",
-              "classes": "nhsuk-input--width-4"
+              "classes": "nhsuk-input--width-4",
+              "value": ParentYearInput
             }
           ]
         }) }}
