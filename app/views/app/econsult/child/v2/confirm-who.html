@@ -46,40 +46,24 @@
       <h1 class="nhsuk-heading-xl nhs-app-xl">Before you start</h1>
       <div class="nhsuk-u-padding-bottom-2"></div>
 
-      <p>We're about to ask you a few questions about your problem.</p>
+      <p>Please confirm you're submitting this request for your child.</p>
+      <p>If you need help for yourself, select your problem from <a href="/app/econsult/adult/1_choose-condition">this list of conditions.</a></p>
+      <p>If you need help for someone you care for, contact the practice for advice.</p>
 
-      <p>
-        Gledhow Practice will respond to you by phone or email
-        <strong>before 6:30pm on {{ "2" | returnDate }}</strong>.
-      </p>
-
-      <p>To find out more about how your personal data is used, please read the <a href="#">privacy notice</a>.</p>
       <div class="nhsuk-u-padding-bottom-4"></div>
 
-      <form action="/{{ PROTOTYPEURL }}/child/v2/1_choose-condition" method="post">
+      <form action="/{{ PROTOTYPEURL }}/child/v2/2_emergency" method="post">
 
         {{ checkboxes({
-          "name": "econsultPrivacyNotice",
+          "name": "econsultChildConfirmWho",
           "items": [
             {
               "value": "true",
-              "html": "  I have read the privacy notice,
-                        and I consent to eConsult Health Ltd (an NHS-approved third-party organisation) using my personal and health data to provide an online consultation. I can withdraw my consent at any time by abandoning the form."
+              "html": "I confirm I'm submitting this request for my child"
             }
           ]
         }) }}
 
-        {{ checkboxes({
-          "name": "econsultDataNotice",
-          "items": [
-            {
-              "value": "true",
-              "html": "
-                        I consent to eConsult Health Ltd sharing my personal and health data with Gledhow Practice.
-                    "
-            }
-          ]
-        }) }}
         <div class="nhsuk-u-padding-bottom-4"></div>
         <input type="submit" class="nhsuk-button" value="Continue">
       </form>
