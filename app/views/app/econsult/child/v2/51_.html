@@ -10,9 +10,9 @@
 {% block pageScripts %}
 {% endblock %}
 
-{% set firstNameInput %} 
+{% set firstNameInput %}
 {% if data['econsultAgreePrivacyPolicy'] == 'true' %}
-Betty 
+Betty
 {% else %}
 {% endif %}
 {% endset %}
@@ -59,7 +59,7 @@ Betty
           },
           "id": "econsult",
           "name": "econsultYourFirstName",
-          "value": FirstNameInput,
+          "value": firstNameInput,
           "classes": ""
         }) }}
 

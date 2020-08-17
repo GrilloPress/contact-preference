@@ -10,12 +10,7 @@
 {% block pageScripts %}
 {% endblock %}
 
-{% set LastNameInput %} 
-{% if data['econsultAgreePrivacyPolicy'] == 'true' %}
-Doyle 
-{% else %}
-{% endif %}
-{% endset %}
+{% set LastNameInput %}{% if data['econsultAgreePrivacyPolicy'] == 'true' %}Doyle{% else %}{% endif %}{% endset %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
