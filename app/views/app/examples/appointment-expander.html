@@ -1,0 +1,55 @@
+{% set PROTOTYPEURL = "app/examples" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Page title" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Saturday 10th October 2020
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+  <ul data-v-6ab1c3e8="" class="SlotList_selector-list_1iv2w nhsuk-u-padding-left-0">
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:09am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">9:09am</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+    <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+      <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+        <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">9:12am</span>
+        <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+      </span></a>
+    </li>
+
+  </ul>
+  </div>
+  </details>
+
+
+    </div>
+  </div>
+{% endblock %}
