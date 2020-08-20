@@ -33,10 +33,8 @@ $("textarea").focusout(function(){
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-l">
         <span class="nhsuk-caption-m nhsuk-caption--top"> {{ serviceName}}</span>
-        {{ contentTitle }}
+        Your GP appointment has been booked
       </h1>
-
-      <p>Check your appointment details before booking</p>
 
       <div class="app-card app-card--with-border">
         <div class="app-card__wrapper">
@@ -70,25 +68,7 @@ $("textarea").focusout(function(){
         </div>
       </div>
 
-        <h3>Give a reason for this appointment (optional)</h3>
-        {{ textarea({
-          "name": "appointmentReasons",
-          "id": "appointmentReasons",
-          "rows": "3",
-          "label": {
-            "text": "",
-            "isPageHeading": false
-          },
-          "hint": {
-            "html": "Text must be shorter than 150 characters (about 25 words).<br><br> This text may not be read by your GP or practice member until the day of your appointment. If it's urgent, contact your GP surgery before booking."
-          }
-        }) }}
-       
-        <form action="/app/appointments/flu-2020/appointment-booked" method="get">
-          <input type="submit" class="nhsuk-button" value="Confirm and book appointment"></input>
-        </form>
-
-
+      <a href="/app/appointments/flu-2020">Go to your appointments</a>
 
 
     </div>
