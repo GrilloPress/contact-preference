@@ -196,12 +196,14 @@ li {
     text-decoration: none;
     font-weight: 400;
     padding: 1em;
+
+      &:focus, &:hover {
+        background-color: transparent !important;
+        border-radius: 5px !important;
+     }
     }
 
-    &:focus {
-      background-color: none !important;
-      border-radius: 5px !important;
-   }
+
   }
 
 
