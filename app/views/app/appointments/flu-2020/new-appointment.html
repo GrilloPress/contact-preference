@@ -4,6 +4,19 @@
 {% set contentTitle = "Search for an appointment" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
+<script type="text/javascript">
+  $( "select[name='appointmentType']" ).on( "click", function() {
+  if ( $( "select[name='appointmentType']:true" ).val() === "flu") {
+    console.log( "flu" );
+    $( ".fluAppointments" ).addClass("app-u-display--none ")
+    $('.fluAppointments' ).find('input, textarea, button, select').attr('disabled', true);
+  } else {
+    console.log( "not-flu" );
+    $( ".fluAppointments" ).removeClass("app-u-display--none ")
+
+   }
+});
+</script>
 {% endblock %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -32,8 +45,7 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">
-        <span class="nhsuk-caption-m nhsuk-caption--top"> {{ serviceName}}</span>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
         Choose an appointment
       </h1>
 
@@ -158,7 +170,11 @@
       }) }}
       <div class="nhsuk-u-padding-bottom-6"></div>
       </section>
-      <section>
+
+
+
+
+      <section class="fluAppointments">
         <h2>Available appointments</h2>
         <div class="nhsuk-u-padding-bottom-2"></div>
         <details class="nhsuk-details nhsuk-expander">
@@ -169,16 +185,16 @@
           </summary>
           <div class="nhsuk-details__text">
     <ul data-v-6ab1c3e8="" class="SlotList_selector-list_1iv2w nhsuk-u-padding-left-0">
-  
+
     <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
-      <a data-v-41bf6868="" href="#?startTime=9:09am&sessionName=Flu clinic">
+      <a data-v-41bf6868="" href="/app/appointments/flu-2020/confirm-appointment?startTime=9:09am&sessionName=Flu clinic&date=Saturday 10th October 2020">
         <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">9:09am</span>
         <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
       </span></a>
     </li>
-  
+
       <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
-        <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+        <a data-v-41bf6868="" href="/app/appointments/flu-2020/confirm-appointment?startTime=9:12am&sessionName=Flu clinic&date=Saturday 10th October 2020">
           <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">9:12am</span>
           <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
         </span></a>
@@ -190,7 +206,7 @@
           <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
         </span></a>
       </li>
-    
+
         <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
           <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
             <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">10:42am</span>
@@ -204,7 +220,7 @@
             <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
           </span></a>
         </li>
-      
+
           <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
             <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
               <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">11:33am</span>
@@ -267,7 +283,7 @@
               <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
             </span></a>
           </li>
-  
+
     </ul>
     </div>
     </details>
@@ -315,7 +331,7 @@
         <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
       </span></a>
     </li>
-  
+
       <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
         <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
           <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">11:33am</span>
@@ -606,7 +622,6 @@
 </details>
 
   </section>
-
 
 
     </div>

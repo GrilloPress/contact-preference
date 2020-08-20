@@ -31,10 +31,11 @@ $("textarea").focusout(function(){
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">
-        <span class="nhsuk-caption-m nhsuk-caption--top"> {{ serviceName}}</span>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
         Your GP appointment has been booked
       </h1>
+
+
 
       <div class="app-card app-card--with-border">
         <div class="app-card__wrapper">
@@ -42,7 +43,7 @@ $("textarea").focusout(function(){
             <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
               {{ data["date"] }}
             </h3>
-            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ data["time"] }}</p>
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ data["startTime"] }}</p>
             {{ summaryList({
               classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
               rows: [
@@ -51,7 +52,7 @@ $("textarea").focusout(function(){
                     text: "Appointment type"
                   },
                   value: {
-                    html: data["type"] or "Flu clinic"
+                    html: data["sessionName"] or "Flu clinic"
                   }
                 },
                 {

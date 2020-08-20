@@ -26,17 +26,31 @@ $("textarea").focusout(function(){
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "#",
+      text: "Home"
+    }
+  ],
+  href: "index",
+  text: "Your appointments"
+}) }}
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">
-        <span class="nhsuk-caption-m nhsuk-caption--top"> {{ serviceName}}</span>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
         {{ contentTitle }}
       </h1>
 
       <p>Check your appointment details before booking</p>
+
+
+
+
 
       <div class="app-card app-card--with-border">
         <div class="app-card__wrapper">
@@ -44,7 +58,7 @@ $("textarea").focusout(function(){
             <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
               {{ data["date"] }}
             </h3>
-            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ data["time"] }}</p>
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ data["startTime"] }}</p>
             {{ summaryList({
               classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
               rows: [
@@ -53,7 +67,7 @@ $("textarea").focusout(function(){
                     text: "Appointment type"
                   },
                   value: {
-                    html: data["type"] or "Flu clinic"
+                    html: data["sessionName"] or "Flu clinic"
                   }
                 },
                 {
@@ -83,7 +97,7 @@ $("textarea").focusout(function(){
             "html": "Text must be shorter than 150 characters (about 25 words).<br><br> This text may not be read by your GP or practice member until the day of your appointment. If it's urgent, contact your GP surgery before booking."
           }
         }) }}
-       
+
         <form action="/app/appointments/flu-2020/appointment-booked" method="get">
           <input type="submit" class="nhsuk-button" value="Confirm and book appointment"></input>
         </form>
