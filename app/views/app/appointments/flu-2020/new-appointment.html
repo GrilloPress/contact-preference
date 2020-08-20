@@ -29,17 +29,16 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-{{ breadcrumb({
-  classes: "nhs-app-breadcrumb",
-  items: [
-    {
-      href: "#",
-      text: "Home"
-    }
-  ],
-  href: "index",
-  text: "Your appointments"
-}) }}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Appointments</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="index">Your appointments</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
 {% endblock %}
 
 {% block content %}
@@ -173,9 +172,9 @@
 
 
 
+      <h2>Available appointments</h2>
 
-      <section class="fluAppointments">
-        <h2>Available appointments</h2>
+      <section>
         <div class="nhsuk-u-padding-bottom-2"></div>
         <details class="nhsuk-details nhsuk-expander">
           <summary class="nhsuk-details__summary">
@@ -622,6 +621,14 @@
 </details>
 
   </section>
+
+
+
+<div class="nhsuk-warning-callout">
+  <h3 class="nhsuk-warning-callout__label">No appointments available</h3>
+  <p>Try to filter appointments by a different period or select "No preference" for the practice member. If you cannot find the appointment you need, call your GP surgery.</p>
+  <p>If it's urgent and you do not know what to do, call 111 to get help near you.</p>
+</div>
 
 
     </div>

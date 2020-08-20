@@ -1,16 +1,9 @@
 {% set PROTOTYPEURL = "app/appointments/v1" %}
 {% set serviceName = "NHS App" %}
 {% set appointmentsActive = "active" %}
-{% set contentTitle = "Your appointments" %}
+{% set contentTitle = "Your GP appointments" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
-{% if data["confirmed"] %}
-<script type="text/javascript">
-$( document ).ready(function() {
-    jQuery.post( "/app/password", { confirmed: "seen" } );
-  });
-</script>
-{% endif %}
 {% endblock %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -23,23 +16,33 @@ $( document ).ready(function() {
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Appointments</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="index">Your appointments</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      {% if data["confirmed"] %}
-        {% if data["confirmed"] != "seen" %}
-          <div class="nhsuk-panel-with-label nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-2">
-            <h2 class="nhsuk-panel-with-label__label">Appointment booked</h2>
-            <p>Your appointment has been booked. You can view details or cancel it</p>
-          </div>
-        {% endif %}
-      {% endif %}
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">
         {{ contentTitle }}
       </h1>
+
+      <div class="nhsuk-warning-callout">
+  <h3 class="nhsuk-warning-callout__label">Coronavirus</h3>
+  <p>Do not book a GP appointment if you think you might have coronavirus.</p>
+  <p>Stay at home and avoid close contact with other people.</p>
+  <p><a href="http://111.nhs.uk/">Use the 111 coronavirus service to see if you need medical help</a></p>
+</div>
+
 
       <form action="/app/appointments/flu-2020/appointment-interruption" method="get">
         <input type="submit" class="nhsuk-button" value="Book an appointment">
@@ -47,14 +50,15 @@ $( document ).ready(function() {
       </form>
 
       <h2 class="nhsuk-heading-m">Upcoming appointments</h2>
-      {% if data["confirmed"] %}
+
+      {% if data["apptconfirmed"] %}
       <div class="app-card app-card--with-border">
         <div class="app-card__wrapper">
           <div class="app-card__content">
             <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
               {{ data["date"] }}
             </h3>
-            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ data["time"] }}</p>
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ data["startTime"] }}</p>
             {{ summaryList({
               classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
               rows: [
@@ -63,7 +67,7 @@ $( document ).ready(function() {
                     text: "Appointment type"
                   },
                   value: {
-                    html: data["type"]
+                    html: data["sessionName"]
                   }
                 },
                 {
@@ -82,7 +86,7 @@ $( document ).ready(function() {
             </div>
 
             <div class="nhs-app-card-delete">
-              <a class="nhs-app-card-delete__link" href="#">Cancel this appointment</a>
+              <a class="nhs-app-card-delete__link" href="javascript:void(0)">Cancel this appointment</a>
             </div>
 
 
