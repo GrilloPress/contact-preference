@@ -1,20 +1,29 @@
 {% set PROTOTYPEURL = "app/appointments/v1" %}
 {% set serviceName = "Book new GP appointment" %}
 {% set appointmentsActive = "active" %}
-{% set contentTitle = "Search for an appointment" %}
+{% set contentTitle = "Book a GP appointment" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
-<script type="text/javascript">
-  $( "select[name='appointmentType']" ).on( "click", function() {
-  if ( $( "select[name='appointmentType']:true" ).val() === "flu") {
-    console.log( "flu" );
-    $( ".fluAppointments" ).addClass("app-u-display--none ")
-    $('.fluAppointments' ).find('input, textarea, button, select').attr('disabled', true);
-  } else {
-    console.log( "not-flu" );
-    $( ".fluAppointments" ).removeClass("app-u-display--none ")
+<script>
+$(document).ready(function(){
+  $("#appointmentType").change(function(){
+    var dropdownAnswer = $( "#appointmentType" ).val();
 
-   }
+    if (dropdownAnswer == "flu") {
+      console.log("flu");
+      $("#fluPanel").show();
+      $("#gpPanel").hide();
+
+    } else if (dropdownAnswer == "gp")  {
+      console.log("gp");
+      $("#fluPanel").hide();
+      $("#gpPanel").show();
+
+    } else {
+      return
+    }
+
+  });
 });
 </script>
 {% endblock %}
@@ -45,11 +54,10 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-xl nhs-app-xl">
-        Choose an appointment
+        {{ contentTitle }}
       </h1>
 
-      <section>
-
+      {% set expanderhtml %}
       {{ details({
         "classes": "nhsuk-expander",
         "text": "Which type of appointment do I need?",
@@ -59,15 +67,19 @@
           <li>asking for them at your GP surgery </li>
         </ul>"
       }) }}
-      </section>
+      {% endset %}
 
-      <section>
+
+
       {{ select({
         "id": "appointmentType",
         "name": "appointmentType",
         "classes": "nhs-app-select",
         "label": {
           "text": "Appointment type"
+        },
+        hint: {
+          html: expanderhtml
         },
         "items": [
           {
@@ -78,15 +90,7 @@
           },
           {
             "value": "gp",
-            "text": "General appointment in person"
-          },
-          {
-            "value": "phone",
-            "text": "Telephone appointment"
-          },
-          {
-            "value": "nurse",
-            "text": "Nurse appointment"
+            "text": "Online telephone triage"
           },
           {
             "value": "flu",
@@ -173,6 +177,8 @@
 
 
       <h2>Available appointments</h2>
+
+      <div id="fluPanel" style="display: none;">
 
       <section>
         <div class="nhsuk-u-padding-bottom-2"></div>
@@ -621,13 +627,16 @@
 </details>
 
   </section>
+</div>
 
 
 
+<div id="gpPanel" style="display: none;">
 <div class="nhsuk-warning-callout">
   <h3 class="nhsuk-warning-callout__label">No appointments available</h3>
   <p>Try to filter appointments by a different period or select "No preference" for the practice member. If you cannot find the appointment you need, call your GP surgery.</p>
   <p>If it's urgent and you do not know what to do, call 111 to get help near you.</p>
+</div>
 </div>
 
 
