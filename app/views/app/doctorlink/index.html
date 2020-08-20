@@ -27,29 +27,57 @@
         {{ contentTitle }}
       </h1>
 
-      <form action="#?econsult=True&econsultHub=index" method="get">
-        <input type="submit" class="nhsuk-button" value="Start Doctorlink prototype">
-        </input>
-      </form>
+      {% from 'action-link/macro.njk' import actionLink %}
 
-      <h2>Demo</h2>
+      {{ actionLink({
+        "text": "Start DoctorLink prototype",
+        "href": "/app/v6/start"
+      }) }}
 
-      <ul>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/iframe/index?messagingIcon=False">iFrame version</a>
-        </li>
-      </ul>
+      <section>
+        <h2>Jump off points</h2>
+        <ul>
+          <li>
+            <a href="/app/symptoms/v4/index">Answer questions online and get advice</a>
+          </li>
+          <li>
+            <a href="/app/appointments/v9-doctorlink/GP-hub">Book an appointment</a>
+          </li>
+          <li>
+            <a href="/app/more/v9_DL">Request a sick note</a>
+          </li>
+        </ul>
+      </section>
 
-      <h2>Online consultation hub</h2>
-      <ul>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/hub/v1/index">Hub</a>
-        </li>
-      </ul>
+      <section>
+        <h2>Terms and conditions</h2>
+        <ul>
+          <li>
+            <a href="/app/doctorlink/terms/v1/index">Answer questions online and get advice interrupt</a>
+          </li>
+          <li>
+            <a href="/app/doctorlink/terms/v1/appointments">Book an appointment interrupt</a>
+          </li>
+          <li>
+            <a href="/app/more/v9_DL/interrupt">Request a sick note interrupt</a>
+          </li>
+        </ul>
+      </section>
 
-      <h2>Ask a health professional for advice for your child</h2>
-
-      <h2>Admin request</h2>
+      <section>
+        <h2>iFrame start points</h2>
+        <ul>
+          <li>
+            <a href="/app/doctorlink/symptoms_iframe/index">Answer questions online and get advice iFrame</a>
+          </li>
+          <li>
+            <a href="/app/doctorlink/appointment-iframe/index">Book an appointment interrupt</a>
+          </li>
+          <li>
+            <a href="/app/more/v9_DL/iframe-sick-note">Request a sick note interrupt</a>
+          </li>
+        </ul>
+      </section>
 
 
     </div>

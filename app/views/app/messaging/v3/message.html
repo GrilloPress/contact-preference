@@ -1,7 +1,7 @@
-{% set PROTOTYPEURL = "app/messaging" %}
+{% set PROTOTYPEURL = "app/messaging/v3" %}
 {% set serviceName = "Home" %}
-{% set sender = "Woodrow Practice" %}
-{% set contentTitle = "Messages from " + sender %}
+{% set sender = "NHS App" %}
+{% set contentTitle = "Health information and updates" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -31,25 +31,24 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-l">
+
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+
+      <h2 class="nhsuk-heading-l">
         <span class="nhsuk-caption-m nhsuk-caption--top">Messages from: </span>
         {{ sender }}
-      </h1>
+      </h2>
       <div class="nhs-app-chat">
         <ul class="nhs-app-chat__thread">
-          <div class="nhs-app-chat__read-indicator" id="unread">
-            <span class="nhs-app-chat__read-indicator-container">Unread message</span>
-          </div>
           <li class="nhs-app-chat__item">
             <div class="nhs-app-chat__sender">
               {{ sender }}
             </div>
             <div class="nhs-app-chat__container">
-              <h2 class="nhs-app-chat__header">We've updated our terms and conditions</h2>
-              <p class="nhs-app-chat__body">This is some other words about that!</p>
+              <p class="nhs-app-chat__body">Welcome to the NHS App</p>
             </div>
             <div class="nhs-app-chat__date">
-              Sent today at 11.53am
+              Sent 10:17am, 13 August 2020
             </div>
           </li>
         </ul>

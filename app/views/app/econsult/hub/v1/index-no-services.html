@@ -1,6 +1,11 @@
 {% set PROTOTYPEURL = "app/econsult" %}
-{% set serviceName = "NHS App" %}
+{% set serviceName = "eConsult" %}
 {% set contentTitle = "Online consultations are currently unavailable" %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% endif %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -33,8 +38,8 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <h1>
-        <span class="nhsuk-caption-l nhsuk-caption--top"> Ask a health professional for advice </span>
-        {{ contentTitle }}
+        <span class="nhsuk-caption-l nhsuk-caption--top">Get advice from your GP</span>
+        Get advice from your GP
       </h1>
 
       <p>This service is normally available during your GP surgery’s opening hours.</p>
@@ -43,7 +48,7 @@
       <h2 class="nhsuk-heading-m">If you think you might have coronavirus</h2>
 
       <p>Stay at home and avoid close contact with other people.</p>
-      <p>Use the 111 coronavirus service to see if you need medical help</p>
+      <p><a href="#">Use the 111 coronavirus service to see if you need medical help</a>.</p>
 
     </div>
   </div>

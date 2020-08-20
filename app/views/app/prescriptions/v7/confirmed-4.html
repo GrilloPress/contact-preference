@@ -84,14 +84,8 @@
     {% endif %}
   {% endset %}
 
-{% if cheese == 'stringyCheese' %}
-  {% set contentTitle = "Your prescription has been ordered" %}
-{% elif cheese == 'hardCheese' %}
-  {% set contentTitle = "Your prescriptions have been ordered" %}
-{% else %}
-  {% set contentTitle = "Your prescription has been ordered" %}
-{% endif %}
 
+{% set contentTitle = "Your prescription has been ordered" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -128,21 +122,18 @@
       <h2 class="nhsuk-heading-l">What happens next</h2>
 
 
+      <p>
+         Your prescription request has been sent to your GP surgery.
+      </p>
+
       {% if data["pickPharmacy"] %}
 
 
-
-
-
-            {% if cheese == 'stringyCheese' %}
-            <p>
-               Your prescription request has been sent to your GP surgery.
-            </p>
             <p>
               Once a GP approves it, they'll send your prescription to your nominated pharmacy, {{ data["pickPharmacy"] or "Cameolord Pharmacy" }}.
             </p>
 
-                {% if data['pharmacyTypeOnline'] === "online" %}
+            {% if data['pharmacyTypeOnline'] === "online" %}
 
                 <p>
                   You may need to register with {{ data["pickPharmacy"] or "Echo" }} separately at <a href="" class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</a> or call them at {{ data["phoneNumber"] or "03069 990735" }}.
@@ -152,35 +143,11 @@
                   When the pharmacists have checked and prepared your prescription, {{ data["pickPharmacy"] or "Echo" }} will send it to you in the post.
                 </p>
 
+
                 {% endif %}
 
 
-
-            {% elif cheese == 'hardCheese' %}
-            <p>
-               Your prescription requests have been sent to your GP surgery.
-            </p>
-            <p>
-              Once a GP approves them, they'll send your prescriptions to your nominated pharmacy, {{ data["pickPharmacy"] or "Cameolord Pharmacy" }}.
-            </p>
-
-                  {% if data['pharmacyTypeOnline'] === "online" %}
-
-                  <p>
-                    You may need to register with {{ data["pickPharmacy"] or "Echo" }} separately at <a href="" class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</a> or call them at {{ data["phoneNumber"] or "03069 990735" }}.
-                  </p>
-
-                  <p>
-                    When the pharmacists have checked and prepared your prescriptions, {{ data["pickPharmacy"] or "Echo" }} will send them to you in the post.
-                  </p>
-                  {% endif %}
-
-            {% endif %}
-
-
-
-
-        {% if data['pharmacyTypeOnline'] === "community" %}
+              {% if data['pharmacyTypeOnline'] === "community" %}
 
 
 
@@ -197,29 +164,15 @@
       <p>Telephone: {{ data["phoneNumber"] or "0161 236 1445" }}</p>
 
 
-      {% endif %}
+            {% endif %}
 
       {% else %}
 
 
-
-      {% if cheese == 'stringyCheese' %}
-      <p>
-         Your prescription request has been sent to your GP surgery.
-      </p>
       <p>
         Once they approve your prescription, you'll need to collect it from your GP surgery.
       </p>
 
-      {% elif cheese == 'hardCheese' %}
-      <p>
-         Your prescription requests have been sent to your GP surgery.
-      </p>
-      <p>
-          Once they approve your prescriptions, you'll need to collect them from your GP surgery.
-      </p>
-
-      {% endif %}
 
       {% endif %}
 

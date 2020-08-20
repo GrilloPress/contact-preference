@@ -1008,6 +1008,24 @@ hr {
     padding-top: 0.5em;
     padding-bottom: 0em; }
 
+  .list-menu_inline-link {
+    display: inline !important;
+    padding: 0 !important;
+    font-weight: normal !important;
+  }
+
+
+  a.list-menu_inline-link:hover, a.list-menu_inline-link:focus {
+    background-color: #ffcd60 !important;
+    box-shadow: 0 0 0 4px #ffcd60 !important;
+    color: #212b32;
+    text-decoration: none;
+    outline: 4px solid transparent !important;
+    outline-offset: 4px !important;
+  }
+
+
+
 .info p,
 .list-menu li p {
   padding-bottom: 0.5em;
@@ -1423,6 +1441,49 @@ div.record-content {
     background-color: #11A918; }
   .toggle:checked:before {
     left: 46%; }
+
+
+    .toggle_notifications {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 5em;
+      height: 32px;
+      display: inline-block;
+      position: absolute;
+      right: 18px;
+      top: 15px;
+      border-radius: 50px;
+      overflow: hidden;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      background-color: #768692;
+      transition: background-color ease 0.3s; }
+      .toggle_notifications:before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: 2;
+        width: 28px;
+        height: 28px;
+        background: #fff;
+        left: 2px;
+        top: 2px;
+        border-radius: 50%;
+        font: 10px/28px Helvetica;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-indent: -22px;
+        word-spacing: 37px;
+        color: #fff;
+        text-shadow: -1px -1px rgba(0, 0, 0, 0.15);
+        white-space: nowrap;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s; }
+      .toggle_notifications:checked {
+        background-color: #11A918; }
+      .toggle_notifications:checked:before {
+        left: 46%; }
 
 /** Links */
 .nhsuk-icon__arrow-right-circle {
@@ -2125,10 +2186,18 @@ main.nhs-app-thin {
   }
 }
 
+.toggle_notifications {
+
+  top: 40px;
+}
+
+
 .toggle {
 
-  top: 6px;
+  top: 9px;
 }
+
+
 
 .toggle:focus {
 
@@ -2323,6 +2392,23 @@ nav.menu ul li b {
         box-shadow: 0 0 0 4px #003d78;
     }
 
-    .nhsuk-header__link--service-app-online:hover:focus {
-        box-shadow: 0 0 0 4px #ffb81C
+
+
+
+    .nhsuk-summary-list--long {
+
+      .nhsuk-summary-list__value {
+
+        width: 100%;
+
+      }
+
+    }
+
+    .nhsuk-summary-list__row--no-border {
+
+      .nhsuk-summary-list__key, .nhsuk-summary-list__value, .nhsuk-summary-list__actions {
+
+        border: none;
+      }
     }

@@ -22,33 +22,184 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-u-margin-bottom-4">
+      <h1 class="nhsuk-u-margin-bottom-7">
         <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
         {{ contentTitle }}
       </h1>
 
+
+      {% from 'action-link/macro.njk' import actionLink %}
+
       {{ actionLink({
-        "text": "Start eConsult prototype",
-        "href": "/app/v5/start?econsult=True&econsultHub=index"
+        "text": "Start eConsult child journey (conjunctivitus)",
+        "href": "/app/v5/start"
       }) }}
 
-      <h2>Online consultation hub</h2>
-      <ul>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/hub/v1/index">Hub</a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/hub/v1/index-no-child">Hub with no child journey</a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/hub/v1/index-no-services">Hub with no services</a>
-        </li>
-      </ul>
+      {{ actionLink({
+        "text": "Start eConsult adult journey (contraception)",
+        "href": "/app/v5/start"
+      }) }}
 
-      <h2>Ask a health professional for advice for your child</h2>
-      <hr>
-      <h2>Admin request</h2>
-      <hr>
+      <section>
+        <h2>Online consultation jump off instances</h2>
+        <h3>Jump off title:</h3>
+        <p>Get advice from a GP</p>
+        <ul>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/hub/v2/index">Get advice for yourself or your child</a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/hub/v2/index-no-child">Child journey not available</a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/hub/v2/index-no-services">Online consultations are currently unavailable</a>
+          </li>
+          <hr>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Get advice from a GP (child)</h2>
+        <h3>Terms and conditions</h3>
+        <ul>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/child/v2">Consent to use personal data</a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/child/v2/data-sharing">Consent to data sharing with eConsult</a>
+          </li>
+        </ul>
+        <h3>Pre-triage questions</h3>
+        <ul>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/child/v2/1_choose-condition">Choose a condition</a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/child/v2/2_emergency">Emergency check</a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/child/v2/3_covid">Coronavirus check</a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/child/v2/4_registered">GP surgery registration check</a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/child/v2/5_your-dob">Example of parent information input</a>
+          </li>
+        </ul>
+        <h3>Condition triage example questions</h3>
+        <ul>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/child/v2/10_?econsultAchieve=">How much is this bothering your child?</a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/child/v2/21_?">Is your child's eye painful?</a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/child/v2/45_">Does your child have any other medical conditions?</a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/child/v2/45_a?">Provide detail about other medical conditions</a>
+          </li>
+        </ul>
+        <h3>End pages</h3>
+        <ul>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/child/v2/55_?econsultYourEmail=">Would you like a copy of your answers?</a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/child/v2/56_end?">Confirmation page</a>
+          </li>
+        </ul>
+        <hr>
+      </section> 
+
+      <section>
+        <h2>Get advice from a GP (adult)</h2>
+        <h3>Terms and conditions</h3>
+        <ul>
+          <li>
+            <a href="/app/econsult/adult/terms/start">Service start page</a>
+          </li>
+          <li>
+            <a href="/app/econsult/adult/terms/privacy-policy">Privacy policy</a>
+          </li>
+        </ul>
+        <h3>Choose the type of help</h3>
+        <ul>
+          <li>
+            <a href="/app/econsult/adult/1_choose-condition">Choose a symptom or condition (Women's health > contraception)</a>
+          </li>
+          <li>
+            <a href="/app/econsult/adult/2_help-type">Help type wanted</a>
+          </li>
+          <li>
+            <a href="/app/econsult/adult/10_about">What would you like to ask your doctor about?</a>
+          </li>
+          <li>
+            <a href="/app/econsult/adult/11_">What advice about your contraception do you require?</a>
+          </li>
+        </ul>
+        <h3>Contraception triage example questions</h3>
+        <ul>
+          <li>
+            <a href="/app/econsult/adult/14_using">What contraception are you using?</a>
+          </li>
+          <li>
+            <a href="/app/econsult/adult/16_a">How many pills have you missed in your last pack and when did you miss them?</a>
+          </li>
+          <li>
+            <a href="/app/econsult/adult/17_">Why are you taking contraception?</a>
+          </li>
+          <li>
+            <a href="/app/econsult/adult/20_">Who provides your contraception prescription?</a>
+          </li>
+          <li>
+            <a href="/app/econsult/adult/26_">What was the date of the first day of your last period?</a>
+          </li>
+          <li>
+            <a href="/app/econsult/adult/29_">Do you think there is any chance that you might be pregnant now?</a>
+          </li>
+        </ul>
+        <h3>End pages</h3>
+        <ul>
+          <li>
+            <a href="/app/econsult/adult/end/registered">You must be registered at Gledhow Practice</a>
+          </li>
+          <li>
+           <a href="/app/econsult/adult/end/pregnancy">You cannot use the service if you are pregnant</a>
+          </li>
+        </ul>
+        <hr>
+      </section>
+
+      <section>
+        <h2>Admin request</h2>
+        <h3>Jump off title:</h3>
+        <p>Additional GP services</p>
+        <h3>Additional terms and conditions</h3>
+        <ul>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/admin/v1/3?">I confirm I am submitting this request for myself</a>
+          </li>
+        </ul>
+        <h3>Admin journey flow</h3>
+        <ul>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/admin/v1/8">List of admin journeys</a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/admin/v1/10">Request type</a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/admin/v1/15?">Fit note description</a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/admin/v1/25?">Confirmation</a>
+          </li>
+        </ul>
+        <hr>
+      </section>
 
       <h2>Changing the third-party warning on eConsult</h2>
       <h3>Latest</h3>

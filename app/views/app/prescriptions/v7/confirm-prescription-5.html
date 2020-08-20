@@ -4,14 +4,6 @@
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
-<script type="text/javascript">
-// This kills any row that is empty
-$('div.nhsuk-summary-list__row').each(function() {
-         if ($(this).text().trim() === "") {
-                   $(this).css('display','none');
-         }
-});
-</script>
 {% endblock %}
 
 
@@ -73,15 +65,6 @@ $('div.nhsuk-summary-list__row').each(function() {
   {% endset %}
 
 
-  {% set medication %}
-    {% if cheese == 'stringyCheese' %}
-      Medicine
-    {% elif cheese == 'hardCheese' %}
-      Medicines
-    {% else %}
-      Medicine
-    {% endif %}
-  {% endset %}
 
   {% set specialRequest %}
     {% if data['specialRequest'] %}
@@ -171,10 +154,11 @@ $('div.nhsuk-summary-list__row').each(function() {
 
 
       {{ summaryList({
+        "classes": "nhsuk-summary-list--long",
         rows: [
           {
             key: {
-              html: medication,
+              text: "Medicine",
               "classes": "nhsuk-heading-s nhsuk-u-margin-bottom-3"
             },
             value: {
@@ -221,7 +205,7 @@ $('div.nhsuk-summary-list__row').each(function() {
                 {% else %}
                 <form action="/app/prescriptions/v7/confirmed-4?prescriptionConfirmed=True" method="post">
               {% endif %}
-              <input type="submit" class="nhsuk-button" value="Confirm and order prescription">
+              <input type="submit" class="nhsuk-button" value="Confirm and order">
               </input>
             </form>
              {% elif cheese == 'hardCheese' %}
@@ -230,12 +214,12 @@ $('div.nhsuk-summary-list__row').each(function() {
                  {% else %}
                <form action="/app/prescriptions/v7/confirmed-4?prescriptionConfirmed=True" method="post">
                  {% endif %}
-               <input type="submit" class="nhsuk-button" value="Confirm and order prescriptions">
+               <input type="submit" class="nhsuk-button" value="Confirm and order">
                </input>
              </form>
              {% else %}
              <form action="/app/prescriptions/v7/confirmed-4?prescriptionConfirmed=True" method="post">
-               <input type="submit" class="nhsuk-button" value="Confirm and order prescription">
+               <input type="submit" class="nhsuk-button" value="Confirm and order">
                </input>
              </form>
              {% endif %}

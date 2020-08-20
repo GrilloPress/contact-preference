@@ -1,0 +1,629 @@
+{% set PROTOTYPEURL = "app/appointments/v1" %}
+{% set serviceName = "Book new GP appointment" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "Search for an appointment" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script type="text/javascript">
+  $( "select[name='appointmentType']" ).on( "click", function() {
+  if ( $( "select[name='appointmentType']:true" ).val() === "flu") {
+    console.log( "flu" );
+    $( ".fluAppointments" ).addClass("app-u-display--none ")
+    $('.fluAppointments' ).find('input, textarea, button, select').attr('disabled', true);
+  } else {
+    console.log( "not-flu" );
+    $( ".fluAppointments" ).removeClass("app-u-display--none ")
+
+   }
+});
+</script>
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{{ breadcrumb({
+  classes: "nhs-app-breadcrumb",
+  items: [
+    {
+      href: "#",
+      text: "Home"
+    }
+  ],
+  href: "index",
+  text: "Your appointments"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        Choose an appointment
+      </h1>
+
+      <section>
+
+      {{ details({
+        "classes": "nhsuk-expander",
+        "text": "Which type of appointment do I need?",
+        "HTML": "
+        <p>You can see your GP records by:</p>
+        <ul>
+          <li>asking for them at your GP surgery </li>
+        </ul>"
+      }) }}
+      </section>
+
+      <section>
+      {{ select({
+        "id": "appointmentType",
+        "name": "appointmentType",
+        "classes": "nhs-app-select",
+        "label": {
+          "text": "Appointment type"
+        },
+        "items": [
+          {
+            "value": "",
+            "text": "-- Select appointment type --",
+            "selected": true,
+            "disabled": true
+          },
+          {
+            "value": "gp",
+            "text": "General appointment in person"
+          },
+          {
+            "value": "phone",
+            "text": "Telephone appointment"
+          },
+          {
+            "value": "nurse",
+            "text": "Nurse appointment"
+          },
+          {
+            "value": "flu",
+            "text": "Flu clinic"
+          }
+        ]
+      }) }}
+
+      {{ select({
+        "id": "appointmentLocation",
+        "name": "appointmentLocation",
+        "classes": "nhs-app-select",
+        "label": {
+          "text": "Location"
+        },
+        "items": [
+          {
+            "value": "",
+            "text": "-- Select location --",
+            "disabled": true
+          },
+          {
+            "value": "gledhow",
+            "selected": true,
+            "text": "Gledhow GP Practice"
+          }
+        ]
+      }) }}
+
+      {{ select({
+        "id": "appointmentMember",
+        "name": "appointmentMember",
+        "classes": "nhs-app-select",
+        "label": {
+          "text": "Member of staff"
+        },
+        "items": [
+          {
+            "value": "no",
+            "text": "No preference",
+            "selected": true
+          },
+          {
+            "value": "nurse",
+            "text": "Leanna Leveille (Female)"
+          }
+        ]
+      }) }}
+
+      {{ select({
+        "id": "appointmentTimeframe",
+        "name": "appointmentTimeframe",
+        "classes": "nhs-app-select",
+        "label": {
+          "text": "Filter available appointments"
+        },
+        "items": [
+          {
+            "value": "week",
+            "text": "This week"
+          },
+          {
+            "value": "nextWeek",
+            "text": "Next week"
+          },
+          {
+            "value": "nextFourWeeks",
+            "text": "Next four weeks"
+          },
+          {
+            "value": "nextEightWeeks",
+            "text": "Next eight weeks"
+          },
+          {
+            "value": "nextSixteenWeeks",
+            "text": "Next sixteen weeks",
+            "selected": true
+          }
+        ]
+      }) }}
+      <div class="nhsuk-u-padding-bottom-6"></div>
+      </section>
+
+
+
+
+      <section class="fluAppointments">
+        <h2>Available appointments</h2>
+        <div class="nhsuk-u-padding-bottom-2"></div>
+        <details class="nhsuk-details nhsuk-expander">
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              Saturday 10th October 2020
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+    <ul data-v-6ab1c3e8="" class="SlotList_selector-list_1iv2w nhsuk-u-padding-left-0">
+
+    <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+      <a data-v-41bf6868="" href="/app/appointments/flu-2020/confirm-appointment?startTime=9:09am&sessionName=Flu clinic&date=Saturday 10th October 2020">
+        <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">9:09am</span>
+        <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+      </span></a>
+    </li>
+
+      <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+        <a data-v-41bf6868="" href="/app/appointments/flu-2020/confirm-appointment?startTime=9:12am&sessionName=Flu clinic&date=Saturday 10th October 2020">
+          <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">9:12am</span>
+          <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+        </span></a>
+      </li>
+
+      <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+        <a data-v-41bf6868="" href="#?startTime=9:09am&sessionName=Flu clinic">
+          <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">9:15am</span>
+          <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+        </span></a>
+      </li>
+
+        <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+          <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+            <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">10:42am</span>
+            <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+          </span></a>
+        </li>
+
+        <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+          <a data-v-41bf6868="" href="#?startTime=9:09am&sessionName=Flu clinic">
+            <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">11:30am</span>
+            <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+          </span></a>
+        </li>
+
+          <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+            <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+              <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">11:33am</span>
+              <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+            </span></a>
+          </li>
+
+          <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+            <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+              <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">11:36am</span>
+              <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+            </span></a>
+          </li>
+
+          <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+            <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+              <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">12:50pm</span>
+              <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+            </span></a>
+          </li>
+
+          <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+            <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+              <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">1:03pm</span>
+              <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+            </span></a>
+          </li>
+
+          <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+            <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+              <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">1:06pm</span>
+              <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+            </span></a>
+          </li>
+
+          <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+            <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+              <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">2:45pm</span>
+              <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+            </span></a>
+          </li>
+
+          <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+            <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+              <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">2:48pm</span>
+              <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+            </span></a>
+          </li>
+
+          <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+            <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+              <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">2:51pm</span>
+              <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+            </span></a>
+          </li>
+
+          <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+            <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+              <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">2:54pm</span>
+              <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+            </span></a>
+          </li>
+
+    </ul>
+    </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          Friday 16th October 2020
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+<ul data-v-6ab1c3e8="" class="SlotList_selector-list_1iv2w nhsuk-u-padding-left-0">
+
+<li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+  <a data-v-41bf6868="" href="#?startTime=9:09am&sessionName=Flu clinic">
+    <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">9:09am</span>
+    <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+  </span></a>
+</li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">9:12am</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:09am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">9:15am</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+    <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+      <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+        <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">10:42am</span>
+        <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+      </span></a>
+    </li>
+
+    <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+      <a data-v-41bf6868="" href="#?startTime=9:09am&sessionName=Flu clinic">
+        <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">11:30am</span>
+        <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+      </span></a>
+    </li>
+
+      <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+        <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+          <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">11:33am</span>
+          <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+        </span></a>
+      </li>
+
+      <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+        <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+          <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">11:36am</span>
+          <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+        </span></a>
+      </li>
+
+      <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+        <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+          <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">12:50pm</span>
+          <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+        </span></a>
+      </li>
+
+      <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+        <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+          <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">1:03pm</span>
+          <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+        </span></a>
+      </li>
+
+      <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+        <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+          <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">1:06pm</span>
+          <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+        </span></a>
+      </li>
+
+      <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+        <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+          <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">2:45pm</span>
+          <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+        </span></a>
+      </li>
+
+      <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+        <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+          <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">2:48pm</span>
+          <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+        </span></a>
+      </li>
+
+      <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+        <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+          <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">2:51pm</span>
+          <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+        </span></a>
+      </li>
+
+      <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+        <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+          <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">2:54pm</span>
+          <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+        </span></a>
+      </li>
+
+</ul>
+</div>
+</details>
+
+<details class="nhsuk-details nhsuk-expander">
+  <summary class="nhsuk-details__summary">
+    <span class="nhsuk-details__summary-text">
+      Saturday 24th October 2020
+    </span>
+  </summary>
+  <div class="nhsuk-details__text">
+<ul data-v-6ab1c3e8="" class="SlotList_selector-list_1iv2w nhsuk-u-padding-left-0">
+
+<li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+<a data-v-41bf6868="" href="#?startTime=9:09am&sessionName=Flu clinic">
+<span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">9:09am</span>
+<p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+</span></a>
+</li>
+
+<li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+<a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+  <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">9:12am</span>
+  <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+</span></a>
+</li>
+
+<li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+<a data-v-41bf6868="" href="#?startTime=9:09am&sessionName=Flu clinic">
+  <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">9:15am</span>
+  <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+</span></a>
+</li>
+
+<li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+  <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+    <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">10:42am</span>
+    <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+  </span></a>
+</li>
+
+<li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+  <a data-v-41bf6868="" href="#?startTime=9:09am&sessionName=Flu clinic">
+    <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">11:30am</span>
+    <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+  </span></a>
+</li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">11:33am</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">11:36am</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">12:50pm</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">1:03pm</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">1:06pm</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">2:45pm</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">2:48pm</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">2:51pm</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">2:54pm</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+</ul>
+</div>
+</details>
+
+<details class="nhsuk-details nhsuk-expander">
+  <summary class="nhsuk-details__summary">
+    <span class="nhsuk-details__summary-text">
+      Saturday 10th October 2020
+    </span>
+  </summary>
+  <div class="nhsuk-details__text">
+<ul data-v-6ab1c3e8="" class="SlotList_selector-list_1iv2w nhsuk-u-padding-left-0">
+
+<li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+<a data-v-41bf6868="" href="#?startTime=9:09am&sessionName=Flu clinic">
+<span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">9:09am</span>
+<p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+</span></a>
+</li>
+
+<li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+<a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+  <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">9:12am</span>
+  <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+</span></a>
+</li>
+
+<li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+<a data-v-41bf6868="" href="#?startTime=9:09am&sessionName=Flu clinic">
+  <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">9:15am</span>
+  <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+</span></a>
+</li>
+
+<li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+  <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+    <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">10:42am</span>
+    <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+  </span></a>
+</li>
+
+<li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+  <a data-v-41bf6868="" href="#?startTime=9:09am&sessionName=Flu clinic">
+    <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">11:30am</span>
+    <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+  </span></a>
+</li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">11:33am</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">11:36am</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">12:50pm</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">1:03pm</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">1:06pm</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">2:45pm</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">2:48pm</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">2:51pm</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+  <li data-v-41bf6868="" data-v-6ab1c3e8="" class="TimeSlot_timeSlot_2e4pG">
+    <a data-v-41bf6868="" href="#?startTime=9:12am&sessionName=Flu clinic">
+      <span data-v-41bf6868=""><span data-v-41bf6868="" class="TimeSlot_strong_2Hpoi">2:54pm</span>
+      <p class="appt_session_type" data-v-41bf6868="" class="nhsuk-u-margin-bottom-0">Flu clinic</p>
+    </span></a>
+  </li>
+
+</ul>
+</div>
+</details>
+
+  </section>
+
+
+    </div>
+  </div>
+{% endblock %}

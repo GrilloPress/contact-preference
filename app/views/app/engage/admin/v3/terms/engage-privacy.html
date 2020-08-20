@@ -1,0 +1,90 @@
+{% set PROTOTYPEURL = "app/engage" %}
+{% set serviceName = "Engage" %}
+{% set contentTitle = "Your data and privacy is important to us" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% include "../../.././_parts/proxy-banner.html" %}
+{% include "../../.././_parts/silver-banner.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+      <form class="" action="/{{ PROTOTYPEURL }}/admin/v3/telephone" method="get">
+
+        <h2>Please read our privacy policy</h2>
+        <p>Before continuing please make sure you fully ready and completely understand our <a href="#">privacy policy</a>.</p>
+
+        {{ checkboxes({
+          "name": "engagePrivacyPolicy",
+          "items": [
+            {
+              "value": "true",
+              "text": "I have fully read and agree to the privacy policy"
+            }
+          ]
+        }) }}
+
+        <h2>Can I control who sees my data?</h2>
+        <p>Yes, you can, we give users the following options:</p>
+
+        {{ checkboxes({
+          "name": "engageDataUse",
+          "items": [
+            {
+              "value": "trueShare",
+              "text": "I am happy for requests to be dealt with by NHS staff outside this organisation",
+              "hint": {
+                "html": "<a href='#'>Learn more about how your request might be shared</a>"
+              }
+            },
+            {
+              "value": "trueImprove",
+              "text": "You can use my data to help improve this service",
+              "hint": {
+                "html": "<a href='#'>Learn more about how your data might be used to improve this service</a>"
+              }
+            }
+          ]
+        }) }}
+
+
+
+          <input type="submit" class="nhsuk-button" value="Continue">
+          </input>
+
+      </form>
+
+
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block afterContent %}
+{% endblock %}

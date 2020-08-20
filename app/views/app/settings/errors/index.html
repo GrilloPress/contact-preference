@@ -1,0 +1,51 @@
+{% set PROTOTYPEURL = "app/settings/errors" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Settings errors" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+
+
+      <h2>Notifications</h2>
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/native-failure-toggle">NO01 error: Native failure when user toggles</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/api-error">NO02 error: Notifications api error</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/native-failure-access">NO04 error: Native failure when user tries to access Notifications page</a>
+        </li>
+      </ul>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

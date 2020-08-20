@@ -71,12 +71,36 @@ router.post('/app/settings/v3/logout', function (req, res) {
 });
 
 
+
 router.post('/app/more/experimental', function (req, res) {
 
   req.session.data = {}
   res.redirect('/app/v7/start')
 
 });
+
+router.post('/app/more/experimental/index-2', function (req, res) {
+
+  req.session.data = {}
+  res.redirect('/app/v8/start')
+
+});
+
+router.get('/app/v8/clear', function (req, res) {
+
+  req.session.data = {}
+  res.redirect('/app/v8/start')
+
+});
+
+
+router.get('/app/v8/clear-desktop', function (req, res) {
+
+  req.session.data = {}
+  res.redirect('/app/logged-out-homescreen/download-app')
+
+});
+
 // qualtrics message
 
 

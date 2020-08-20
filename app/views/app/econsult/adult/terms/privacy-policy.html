@@ -1,0 +1,90 @@
+{% set PROTOTYPEURL = "app/econsult" %}
+{% set serviceName = "eConsult" %}
+{% set contentTitle = "Get advice from your GP" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% endif %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+
+<div class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-third-party-container nhs-app-third-party-container--grey nhsuk-body-s nhsuk-u-margin-bottom-0">
+  <div class="nhsuk-width-container">
+    <strong>This service is provided by your GP surgery</strong>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Read and agree to the privacy policy</h1>
+
+      <p>To continue, you need to read and agree to the <a href="#">GP online consultation services privacy policy.</a></p>
+
+      {% if data['pNotification'] === "True" %}
+
+      <form action="/app/econsult/hub/v1" method="get">
+
+        {% else %}
+
+      <form action="/app/econsult/hub/v1/index-no-child" method="get">
+
+        {% endif %}
+
+
+        {{ checkboxes({
+          "name": "econsultAgreeGPPolicy",
+          "hint": {
+            "text": ""
+          },
+          "items": [
+            {
+              "value": "true",
+              "html": '
+                I have read the GP online consultation services privacy policy. I understand the online consultation service provider will process my personal and health data on behalf of my GP surgery to provide an online consultation.</span>
+            '
+            }
+          ]
+        }) }}
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+
+      </form>
+      {{ button({
+        "text": "End my consultation",
+        "classes": "nhsuk-button--secondary"
+      }) }}
+
+
+
+    </div>
+  </div>
+{% endblock %}

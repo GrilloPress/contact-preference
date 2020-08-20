@@ -35,8 +35,20 @@
   position: absolute;
   right: 42px;
 
+  &.panel-link_thin {
+    bottom: 19% !important;
+  }
+
+}
+
+.nhs-app-message__meta {
+
+  float: right;
+  position: absolute;
+  right: 42px;
+
   &.panel-link {
-    bottom: 38%;
+    bottom: 38% !important;
   }
 
 }
@@ -85,7 +97,7 @@
   font-weight: 600;
   background-color: #ffe609;
   border-radius: 14px;
-  padding: 3px 8px;
+  padding: 3px 10px;
   color: $nhsuk-text-color;
   border: 1px solid $nhsuk-text-color; // for object accessibility issues
 
@@ -151,6 +163,18 @@
 }
 
 .nhs-app-chat__body {}
+
+.message-break_link {
+
+     word-wrap: break-word;
+     -ms-word-break: break-all;
+     word-break: break-all;
+     word-break: break-word;
+     -ms-hyphens: auto;
+     -webkit-hyphens: auto;
+     hyphens: auto;
+
+}
 
 .nhs-app-chat__date {
 

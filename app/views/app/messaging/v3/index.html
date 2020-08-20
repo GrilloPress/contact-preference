@@ -43,7 +43,7 @@
             <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold">
                 <span class="nhs-app-message__meta panel-link">
                   <span class="nhsuk-u-visually-hidden">You have </span>
-                  <span class="nhs-app-message__count"><strong>&bull;</strong></span>
+                  <span class="nhs-app-message__count"></span>
                   <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
                     unread messages
                   </span>
@@ -81,13 +81,13 @@
         <li>
           <a href="messages">
             <h2 class="nhsuk-heading-s">Health information and updates</h2>
-            {% if data['messageRead2'] !== "read" %}
+            {% if (data['messageRead2'] == "unread") or (data['messageRead3'] == "unread") %}
             <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold">
                 <span class="nhs-app-message__meta panel-link">
                   <span class="nhsuk-u-visually-hidden">You have </span>
-                  <span class="nhs-app-message__count"><strong>&bull;</strong></span>
+                  <span class="nhs-app-message__count"></span>
                   <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
-                    unread messages from Patients Know Best
+                    unread messages from NHS App
                   </span>
                 </span>
                 </p>

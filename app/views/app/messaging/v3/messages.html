@@ -2,6 +2,7 @@
 {% set serviceName = "Home" %}
 {% set contentTitle = "Health information and updates" %}
 {% set title = contentTitle + " - " + serviceName %}
+{% set messagingActive = "active" %}
 {% block pageScripts %}
 {% endblock %}
 
@@ -32,84 +33,124 @@
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <div class="nhs-app-panel-heading">
-        <h2 class="nhsuk-heading-m">Your messages</h2>
-      </div>
-      <ul class="list-menu nhs-app-message">
 
-        {% if data['messageRead2'] !== "read" %}
-                <li class="nhs-app-message__item nhs-app-message__item--unread">
-                  <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/message-pkb?messageRead2=read">
-                    <h2 class="nhsuk-heading-xs">
-                      <span class="nhsuk-u-visually-hidden">Messages from:</span>
-                      Patients Know Best
-                      <span class="nhsuk-u-visually-hidden">The last message was sent </span>
-                      <span class="nhs-app-message__date nhs-app-message__date--unread">Yesterday</span>
-                    </h2>
-                    <p class="nhs-app-message__subject-line">
-                      <span class="nhs-app-message__meta panel-link">
-                        <span class="nhsuk-u-visually-hidden">You have </span>
-                        <span class="nhs-app-message__count">1</span>
-                        <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
-                          unread messages from Patients Know Best
-                        </span>
-                      </span>
-                      <span class="nhsuk-u-visually-hidden">Latest message subject: </span>
-                      You can now use Patients Know Best with the NHS App
-                    </p>
+          <div class="nhs-app-panel-heading">
+            <h2 class="nhsuk-heading-m">Your messages</h2>
+          </div>
+          <ul class="list-menu nhs-app-message">
 
 
-                                  <p class="nhs-app-message__subject-link">
-                                    View full message
-                                  </p>
-                  </a>
-                </li>
 
-                {% else %}
+        {% if data['pNotification'] == 'True' %}
+
+
+        {% if data['messageRead3'] == "unread" %}
+
+        <li class="nhs-app-message__item nhs-app-message__item--unread">
+          <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread#unread3">
+            <h2 class="nhsuk-heading-xs">
+              <span class="nhsuk-u-visually-hidden">Conversation with:</span>
+              NHS App
+              <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+              <span class="nhs-app-message__date nhs-app-message__date--unread">18/08/2020</span>
+            </h2>
+            <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold">
+              <span class="nhsuk-u-visually-hidden">Subject: </span>
+              You can now get advice from your GP for your child
+            <span class="nhs-app-message__meta panel-link_thin">
+              <span class="nhsuk-u-visually-hidden">You have </span>
+              <span class="nhs-app-message__count">1</span>
+              <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                unread messages from NHS App
+              </span>
+            </span>
+          </p>
+          </a>
+        </li>
+
+        {% endif %}
+
+        {% if data['messageRead3'] == "read" %}
+
 
                 <li class="nhs-app-message__item nhs-app-message__item--read">
-                  <a class="nhs-app-message__link" href="message-pkb">
+                  <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread">
                     <h2 class="nhsuk-heading-xs">
-                      <span class="nhsuk-u-visually-hidden">Messages from:</span>
-                      Patients Know Best
+                      <span class="nhsuk-u-visually-hidden">Conversation with:</span>
+                      NHS App
                       <span class="nhsuk-u-visually-hidden">The last message was sent </span>
-                      <span class="nhs-app-message__date">Yesterday</span>
+                      <span class="nhs-app-message__date nhs-app-message__date--read">18/08/2020</span>
                     </h2>
-                    <p class="nhs-app-message__subject-line">
-                      <span class="nhsuk-u-visually-hidden">Latest message sent: </span>
-                      You can now use Patients Know Best with the NHS App
-                    </p>
-                    <p class="nhs-app-message__subject-link">
-                      View full message
-                    </p>
+                    <p class="nhs-app-message__subject-line nhs-app-message__subject-line">
+                      <span class="nhsuk-u-visually-hidden">Subject: </span>
+                       You can now get advice from your GP for your child
+                  </p>
                   </a>
                 </li>
 
 
+                {% endif %}
+                {% endif %}
+
+
+
+        {% if data['pNotification'] == 'True' %}
+        {% else %}
+        {% if data['messageRead2'] == "unread" %}
+
+        <li class="nhs-app-message__item nhs-app-message__item--unread">
+          <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread#unread2">
+            <h2 class="nhsuk-heading-xs">
+              <span class="nhsuk-u-visually-hidden">Conversation with:</span>
+              NHS App
+              <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+              <span class="nhs-app-message__date nhs-app-message__date--unread">18/08/2020</span>
+            </h2>
+            <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold">
+              <span class="nhsuk-u-visually-hidden">Subject: </span>
+              You can get notifications from the NHS App on your device.
+            <span class="nhs-app-message__meta panel-link_thin">
+              <span class="nhsuk-u-visually-hidden">You have </span>
+              <span class="nhs-app-message__count">1</span>
+              <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                unread messages from NHS App
+              </span>
+            </span>
+          </p>
+          </a>
+        </li>
+
+        {% endif %}
+        {% endif %}
+
+        {% if data['pNotification'] == 'True' %}
+        {% else %}
+        {% if data['messageRead2'] == "read" %}
+
+
+                <li class="nhs-app-message__item nhs-app-message__item--read">
+                  <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread">
+                    <h2 class="nhsuk-heading-xs">
+                      <span class="nhsuk-u-visually-hidden">Conversation with:</span>
+                      NHS App
+                      <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+                      <span class="nhs-app-message__date nhs-app-message__date--read">18/08/2020</span>
+                    </h2>
+                    <p class="nhs-app-message__subject-line nhs-app-message__subject-line">
+                      <span class="nhsuk-u-visually-hidden">Subject: </span>
+                      You can get notifications from the NHS App on your device.
+                  </p>
+                  </a>
+                </li>
+
+
+                {% endif %}
                 {% endif %}
 
 
 
 
 
-
-        <li class="nhs-app-message__item nhs-app-message__item--read">
-          <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/message-with-two-messages">
-            <h2 class="nhsuk-heading-xs">
-              <span class="nhsuk-u-visually-hidden">Messages from:</span>
-              NHS App
-              <span class="nhsuk-u-visually-hidden">The last message was sent </span>
-              <span class="nhs-app-message__date">Thursday</span>
-            </h2>
-            <p class="nhs-app-message__subject-line">
-              <span class="nhsuk-u-visually-hidden">Latest message sent: </span>
-              We've updated our terms and conditions
-            </p>
-            <p class="nhs-app-message__subject-link">
-              View full message
-            </p>
-          </a>
-        </li>
 
 
 

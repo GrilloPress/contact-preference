@@ -46,16 +46,7 @@
           </a>
         </li>
 
-        {% if data['experiment'] === 'True' %}
 
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/preferences">
-            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Preferences</h2>
-            <p>Manage your donor and data sharing preferences</p>
-          </a>
-        </li>
-
-        {% endif %}
 
 
         {% if data['SJR_PKB'] === 'True' %}
@@ -66,6 +57,22 @@
             <p>View test results from your hospital and other healthcare providers</p>
           </a>
         </li>
+
+        {% endif %}
+
+        {% if data['experiment'] === 'True' %}
+
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/preferences">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Donor services</h2>
+            <p>Manage your organ donation preferences and register to be a blood donor</p>
+          </a>
+        </li>
+
+        {% endif %}
+
+        {% if data['SJR_PKB'] === 'True' %}
+
 
         <li>
           <a href="/app/PKB/terms-care-plan">
@@ -93,6 +100,13 @@
       </li>
 
       {% endif %}
+
+      <li>
+        <a href="/app/ndop/v3/overview">
+          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Choose if data from your health records is shared for research and planning</h2>
+          <p>Find out how the NHS uses your confidential patient information and choose whether or not it can be used for research and planning</p>
+        </a>
+      </li>
 
       </ul>
 

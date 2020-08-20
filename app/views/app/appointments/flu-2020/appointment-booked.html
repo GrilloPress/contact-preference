@@ -1,0 +1,77 @@
+{% set PROTOTYPEURL = "app/appointments/v1" %}
+{% set serviceName = "Book new GP appointment" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "Confirm your appointment" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script>
+// dirty hack to make the menu disappear when a textarea is being used
+$("textarea").focus(function(){
+  $(".menu").hide();
+});
+
+$("textarea").focusout(function(){
+  $(".menu").show();
+});
+</script>
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        Your GP appointment has been booked
+      </h1>
+
+
+
+      <div class="app-card app-card--with-border">
+        <div class="app-card__wrapper">
+          <div class="app-card__content">
+            <h3 class="app-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-0">
+              {{ data["date"] }}
+            </h3>
+            <p class="nhsuk-body-l nhsuk-u-margin-bottom-4">{{ data["startTime"] }}</p>
+            {{ summaryList({
+              classes: 'nhsuk-summary-list--no-border nhs-app-summary-list--card',
+              rows: [
+                {
+                  key: {
+                    text: "Appointment type"
+                  },
+                  value: {
+                    html: data["sessionName"] or "Flu clinic"
+                  }
+                },
+                {
+                  key: {
+                    text: "Location"
+                  },
+                  value: {
+                    text: "Gledhow Practice"
+                  }
+                }
+              ]
+            }) }}
+          </div>
+        </div>
+      </div>
+
+      <a href="/app/appointments/flu-2020">Go to your appointments</a>
+
+
+    </div>
+  </div>
+{% endblock %}

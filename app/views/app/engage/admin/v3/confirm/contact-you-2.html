@@ -1,0 +1,96 @@
+{% set PROTOTYPEURL = "app/engage" %}
+{% set serviceName = "Engage" %}
+{% set contentTitle = "Check how we will contact you before you send your message" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% include "../../.././_parts/proxy-banner.html" %}
+{% include "../../.././_parts/silver-banner.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+    <p>Once we've read your message we will reply by sending you a message or calling you.</p>
+    <p>If there is a message for you, you will get a notification by email to login to your account.</p>
+    <p>We will try to contact you back on the day of your request if you have submitted your request outside the same day response times</p>
+    {{ details({
+"classes": "",
+"text": "Same day response times",
+"HTML": '
+<table class="table table-responsive bottom-buffer">
+          <tbody><tr><th>Day</th><th>Start</th><th>Finish</th>
+          </tr></tbody><tbody>
+              <!-- ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Monday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Tuesday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Wednesday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Thursday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Friday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Saturday</td><td class="ng-binding">Closed</td><td class="ng-binding">Closed</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Sunday</td><td class="ng-binding">Closed</td><td class="ng-binding">Closed</td></tr><!-- end ngRepeat: hour in content.labels.hours -->
+          </tbody>
+      </table>'
+}) }}
+
+<p>If your situation deteriorates or you are worried for any reason call for help immediately</p>
+
+<h2>Check your contact details</h2>
+
+    <form action="/{{ PROTOTYPEURL }}/admin/v2/confirm/done" method="get">
+
+      {{ input({
+        "label": {
+          "text": "Telephone number",
+          "isPageHeading": false,
+          "classes": ""
+        },
+      "autocomplete": "off",
+        "id": "engageTelephone",
+        "name": "engageTelephone",
+        "classes": "nhsuk-input--width-30",
+        "value":  data['engageTelephone'] or "07700 900000"
+      }) }}
+
+
+      {{ textarea({
+      "name": "more-detail",
+      "id": "more-detail",
+      "autocomplete": "off",
+      "hint": {
+        "text": "For example, if answering the phone is likely to be a problem"
+      },
+      "label": {
+        "classes": "",
+        "text": "Tell us if you have specific requests about the way that we contact you (optional)"
+      }
+    }) }}
+
+      <input type="submit" class="nhsuk-button" value="Agree and send" name="engageAdminDone">
+      </input>
+    </form>
+
+  </div>
+</div>
+{% endblock %}
+
+
+{% block afterContent %}
+{% endblock %}

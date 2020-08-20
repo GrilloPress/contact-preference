@@ -136,9 +136,7 @@
       <ul class="list-menu nhs-app-message">
 
       {% if data['prescriptionConfirmed'] %}
-        {% if 'alogliptin' in data['choosePrescription'] %}
 
-        {% else %}
           {% if 'metformin' in data['choosePrescription'] %}
 
 
@@ -166,7 +164,7 @@
                   {% endif %}
 
 
-                  <!--{% if 'alogliptin' in data['choosePrescription'] %}
+                  {% if 'alogliptin' in data['choosePrescription'] %}
 
                   <li class="no-chevron no-chevron--subtle">
                     <div class="list-menu-container_prescriptions">
@@ -187,7 +185,7 @@
                     </div>
                 	</li>
 
-                  {% endif %}-->
+                  {% endif %}
 
                   {% if 'omeprazole' in data['choosePrescription'] %}
 
@@ -214,7 +212,6 @@
 
                   {% endif %}
 
-                  {% endif %}
                   {% endif %}
 
 
