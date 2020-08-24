@@ -1,5 +1,6 @@
 {% set PROTOTYPEURL = "app/doctorlink" %}
 {% set serviceName = "Patients Know Best" %}
+{% set prescriptionsActive = "active" %}
 {% set contentTitle = "This service is provided by Patients Know Best" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -43,8 +44,8 @@
 
             <div class="nhsuk-checkboxes nhsuk-checkboxes--small">
               <div class="nhsuk-checkboxes__item">
-                <input class="nhsuk-checkboxes__input" id="checkbox-example" name="checkbox-example" type="checkbox" value="DoNotShow">
-                <label class="nhsuk-label nhsuk-checkboxes__label" for="checkbox-example" font-colour="#ffffff">
+                <input class="nhsuk-checkboxes__input" id="checkbox-example" name="doNotShowCheckbox" type="checkbox" value="true">
+                <label class="nhsuk-label nhsuk-checkboxes__label checkbox-label_white" for="checkbox-example" font-colour="#ffffff">
                   Do not show me this again
                 </label>
               </div>
@@ -53,7 +54,7 @@
             <form action="#" method="post">
               <div class="nhsuk-checkboxes nhsuk-checkboxes--small">
                 <div class="nhsuk-checkboxes__item">
-                  <input class="nhsuk-checkboxes__input" id="checkbox-example" name="checkbox-example" type="checkbox" value="DoNotShow">
+                  <input class="nhsuk-checkboxes__input" id="checkbox-example" name="doNotShowCheckbox" type="checkbox" value="DoNotShow">
                   <label class="nhsuk-label nhsuk-checkboxes__label" for="checkbox-example" font-colour="#ffffff">
                     Do not show me this again
                   </label>

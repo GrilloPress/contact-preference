@@ -42,33 +42,127 @@
 
       <ul class="list-menu">
       {% if data['SJR_PKB'] === 'True' %}
-        <li>
-          <a href="/app/PKB/terms-symptoms">
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Symptoms</h2>
-            <p>Record your symptoms and check your symptom history</p>
-          </a>
-        </li>
+
+
+
+      {% if data['cardSeen'] === 'True' %}
+
+      <li>
+        <a href="/app/PKB/see-less-pattern/terms-symptoms-v2">
+          <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Symptoms</h2>
+          <p>Record your symptoms and check your symptom history</p>
+        </a>
+      </li>
+
+      {% elif data['cardSeen'] === 'False' %}
+
+      <li>
+        <a href="/app/PKB/terms-symptoms?cardSeen=True">
+          <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Symptoms</h2>
+          <p>Record your symptoms and check your symptom history</p>
+        </a>
+      </li>
       {% endif %}
 
-      {% if data['SJR_PKB'] === 'True' %}
-        <li>
-          <a href="/app/PKB/terms-measurements">
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Measurements</h2>
-            <p>Add your body and activity measurements</p>
-          </a>
-        </li>
+
+      {% if data['doNotShowCheckbox'] %}
+
+      <li>
+        <a href="/app/records/v3/pkb-symptoms">
+          <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Symptoms</h2>
+          <p>Record your symptoms and check your symptom history</p>
+        </a>
+      </li>
+
+
       {% endif %}
 
+      {% endif %}
+
+
+
+
       {% if data['SJR_PKB'] === 'True' %}
-        <li>
-          <a href="/app/PKB/terms-journal">
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Journal</h2>
-            <p>Record how you are feeling today</p>
-          </a>
-        </li>
+
+
+      {% if data['cardSeen'] === 'True' %}
+
+      <li>
+        <a href="/app/PKB/see-less-pattern/terms-measurements-v2">
+          <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Measurements</h2>
+          <p>Add your body and activity measurements</p>
+        </a>
+      </li>
+
+      {% elif data['cardSeen'] === 'False' %}
+
+      <li>
+        <a href="/app/PKB/terms-measurements?cardSeen=True">
+          <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Measurements</h2>
+          <p>Add your body and activity measurements</p>
+        </a>
+      </li>
+      {% endif %}
+
+
+      {% if data['doNotShowCheckbox'] %}
+
+      <li>
+        <a href="/app/records/v3/pkb-measurements">
+          <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Measurements</h2>
+          <p>Add your body and activity measurements</p>
+        </a>
+      </li>
+
+
+      {% endif %}
+
+      {% endif %}
+
+
+
+
+
+      {% if data['SJR_PKB'] === 'True' %}
+
+
+      {% if data['cardSeen'] === 'True' %}
+
+      <li>
+        <a href="/app/PKB/see-less-pattern/terms-journal-v2">
+          <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Journal</h2>
+          <p>Record how you are feeling today</p>
+        </a>
+      </li>
+
+      {% elif data['cardSeen'] === 'False' %}
+
+
+              <li>
+                <a href="/app/PKB/terms-journal?cardSeen=True">
+                  <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Journal</h2>
+                  <p>Record how you are feeling today</p>
+                </a>
+              </li>
+
+      {% endif %}
+
+
+      {% if data['doNotShowCheckbox'] %}
+
+      <li>
+        <a href="/app/records/v3/pkb-journal">
+          <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Journal</h2>
+          <p>Record how you are feeling today</p>
+        </a>
+      </li>
+
+
+      {% endif %}
+
       {% endif %}
       </ul>
-        
+
 
     </div>
   </div>

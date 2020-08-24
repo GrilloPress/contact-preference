@@ -51,14 +51,51 @@
 
         {% if data['SJR_PKB'] === 'True' %}
 
+
+        {% if data['cardSeen'] === 'True' %}
+
         <li>
-          <a href="/app/PKB/terms-test-results">
+          <a href="/app/PKB/see-less-pattern/terms-test-results-v2">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Test results</h2>
+            <p>View test results from your hospital and other healthcare providers</p>
+          </a>
+        </li>
+
+        {% elif data['cardSeen'] === 'False' %}
+
+        <li>
+          <a href="/app/PKB/terms-test-results?cardSeen=True">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Test results</h2>
+            <p>View test results from your hospital and other healthcare providers</p>
+          </a>
+        </li>
+        {% endif %}
+
+
+        {% if data['doNotShowCheckbox'] %}
+
+        <li>
+          <a href="/app/records/v3/pkb-test-results">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Test results</h2>
+            <p>View test results from your hospital and other healthcare providers</p>
+          </a>
+        </li>
+
+        {% elif data['doNotShowCheckbox'] === '' %}
+
+        <li>
+          <a href="/app/PKB/see-less-pattern/terms-test-results-v2">
             <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Test results</h2>
             <p>View test results from your hospital and other healthcare providers</p>
           </a>
         </li>
 
         {% endif %}
+
+
+        {% endif %}
+
+
 
         {% if data['experiment'] === 'True' %}
 
@@ -73,16 +110,49 @@
 
         {% if data['SJR_PKB'] === 'True' %}
 
+        {% if data['cardSeen'] === 'True' %}
 
         <li>
-          <a href="/app/PKB/terms-care-plan">
+          <a href="/app/PKB/see-less-pattern/terms-care-plan-v2">
             <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Care plans</h2>
             <p>View your personalised care plans</p>
           </a>
         </li>
 
+        {% elif data['cardSeen'] === 'False' %}
+
         <li>
-          <a href="/app/PKB/terms-track-health">
+          <a href="/app/PKB/terms-care-plan?cardSeen=True">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Care plans</h2>
+            <p>View your personalised care plans</p>
+          </a>
+        </li>
+        {% endif %}
+
+
+        {% if data['doNotShowCheckbox'] %}
+
+        <li>
+          <a href="/app/records/v3/pkb-care-plans">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Care plans</h2>
+            <p>View your personalised care plans</p>
+          </a>
+        </li>
+
+        {% elif data['doNotShowCheckbox'] === '' %}
+
+        <li>
+          <a href="/app/PKB/see-less-pattern/terms-care-plan-v2">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Care plans</h2>
+            <p>View your personalised care plans</p>
+          </a>
+        </li>
+
+        {% endif %}
+
+
+        <li>
+          <a href="/app/records/v3/track-your-health">
             <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Track your health</h2>
             <p>Record symptoms and add to your health journal</p>
           </a>
@@ -92,12 +162,47 @@
 
       {% if data['experiment'] === 'True' %}
 
+
+      {% if data['cardSeen'] === 'True' %}
+
       <li>
-        <a href="/app/PKB/terms-shared-links">
+        <a href="/app/PKB/see-less-pattern/terms-shared-links-v2">
           <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Your health library</h2>
           <p>View links your doctor or health professional has shared with you</p>
         </a>
       </li>
+
+      {% elif data['cardSeen'] === 'False' %}
+
+      <li>
+        <a href="/app/PKB/terms-shared-links?cardSeen=True">
+          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Your health library</h2>
+          <p>View links your doctor or health professional has shared with you</p>
+        </a>
+      </li>
+      {% endif %}
+
+
+      {% if data['doNotShowCheckbox'] %}
+
+      <li>
+        <a href="/app/records/v3/pkb-library">
+          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Your health library</h2>
+          <p>View links your doctor or health professional has shared with you</p>
+        </a>
+      </li>
+      {% elif data['doNotShowCheckbox'] === 'false' %}
+
+            <li>
+              <a href="/app/PKB/see-less-pattern/terms-shared-links-v2">
+                <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Your health library</h2>
+                <p>View links your doctor or health professional has shared with you</p>
+              </a>
+            </li>
+
+      {% endif %}
+
+
 
       {% endif %}
 

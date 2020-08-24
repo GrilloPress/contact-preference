@@ -2547,6 +2547,10 @@ $nhsuk-checkbox-hover-color: $color_nhsuk-grey-3;
     }
   }
 }
-.app-interruption__wrapper .nhsuk-checkboxes__label {
-  color: #fff;
+.app-interruption__wrapper .nhsuk-checkboxes__label::after {
+    color: $color_nhsuk-black;
+}
+
+.checkbox-label_white {
+  color: $color_nhsuk-white; 
 }
