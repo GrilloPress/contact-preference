@@ -22,11 +22,11 @@
 
 {% set messagesReadUnreadFooter %}
   {% if data['messageRead1'] !== 'read' %}
-  nhs-app-footer__icon--unread
+  nhs-app-footer__icon--read
   {% elif data['messageRead2'] !== 'read' %}
-  nhs-app-footer__icon--unread
+  nhs-app-footer__icon--read
   {% elif data['messageRead3'] !== 'read' %}
-  nhs-app-footer__icon--unread
+  nhs-app-footer__icon--read
   {% endif %}
 {% endset %}
 
