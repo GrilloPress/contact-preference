@@ -49,11 +49,11 @@
             <p>Ask your doctor or GP surgery a non-urgent question</p>
           </a>
         </li>
-        
+
         {% if data['econsult'] === "True" %}
         <li>
       		<a href="/app/econsult/v1/1">
-      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Additional GP service</h2>
+      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Additional GP services</h2>
       			<p>Get sick notes and GP letters or ask about recent tests</p>
       		</a>
       	</li>
@@ -64,7 +64,7 @@
          </a>
        </li>
        {% endif %}
-      
+
        {% if data['SJR_PKB'] === "True" %}
        <li>
         <a href="/app/PKB/terms-messages">
