@@ -97,17 +97,21 @@
 
 {% if data['experimentalHeaderDesktop'] === "True" %}
 {% include "./parts/_desktop-header-experimental.html" %}
+{% elif data['experimentalHeaderDesktop2'] === "True" %}
+{% include "./parts/_desktop-header-experimental-2.html" %}
 {% else %}
 {% include "./parts/_desktop-header.html" %}
 {% endif %}
 
-{% if data['messagingIcon'] == "True" %}
- {% include "./parts/_native-header-with-messaging-icon.html" %}
-{% elif data['experimentalHeader'] === "True" %}
+
+{% if data['experimentalHeader'] === "True" %}
   {% include "./parts/_native-header-with-more.html" %}
+{% elif data['experimentalHeader2'] === "True" %}
+{% include "./parts/_native-header-with-log-out.html" %}
 {% else %}
   {% include "./parts/_native-header.html" %}
 {% endif %}
+
 
 {% endblock %}
 
@@ -126,6 +130,8 @@
 
 {% if data['experimentalFooter'] === "True" %}
   {% include "./parts/_native-footer-with-messaging.html" %}
+{% elif data['experimentalFooter2'] === "True" %}
+  {% include "./parts/_native-footer-with-messaging-more.html" %}
 {% else %}
   {% include "./parts/_native-footer.html" %}
 {% endif %}

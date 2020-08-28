@@ -101,6 +101,21 @@ router.get('/app/v8/clear-desktop', function (req, res) {
 
 });
 
+
+router.get('/app/v9/clear', function (req, res) {
+
+  req.session.data = {}
+  res.redirect('/app/v9/start')
+
+});
+
+
+router.get('/app/v9/clear-desktop', function (req, res) {
+
+  req.session.data = {}
+  res.redirect('/app/logged-out-homescreen/download-app')
+
+});
 // qualtrics message
 
 
