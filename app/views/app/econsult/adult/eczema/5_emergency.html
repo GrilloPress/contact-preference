@@ -1,0 +1,118 @@
+{% set PROTOTYPEURL = "app/econsult" %}
+{% set serviceName = "eConsult" %}
+{% set contentTitle = "Get advice from your GP" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% endif %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
+{% if data['appts'] == 'True' %}
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v8-econsult/pre-hub" }}'>Appointments</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/appointments/v8-econsult/GP-hub">Your GP appointments</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+{% else %}
+{% if data['experiment'] === 'True' %}
+{% if data['advice'] === 'True' %}
+<li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Advice</a></li>
+{% else %}
+<li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Symptoms</a></li>
+{% endif %}
+{% endif %}
+</ol>
+<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+{% endif %}
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
+
+      {{ warningCallout({
+        "heading": "Next, let's make sure this isn't an emergency. Are you currently experiencing any of the following?",
+        "HTML": "
+        <ul>
+          <li>
+            <strong>Signs of a heart attack</strong> - pain like a very tight band, heavy weight or squeezing in the centre of your chest or any pain that moves into your jaw or neck
+          </li>
+
+          <li>
+            <strong>Signs of a stroke</strong> - face drooping on one side, can't hold both arms up, difficult speaking, or weakness or numbness on one side of your body
+          </li>
+
+          <li>
+            <strong>Severe difficulty breathing</strong> - gasping, not being able to get words out, choking or lips turning blue
+          </li>
+
+          <li>
+            <strong>Heavy bleeding that won't stop</strong> - uncontrollable bleeding from any part of your body
+          </li>
+
+          <li>
+            <strong>Severe injuries</strong> - including deep cuts after a serious accident
+          </li>
+        </ul>
+          "
+      }) }}
+
+      <form action="/app/econsult/adult/5_emergency" method="post">
+        {{ radios({
+          "idPrefix": "econsult",
+          "name": "econsultAdultEmergency",
+          "fieldset": {
+            "legend": {
+              "text": "",
+              "isPageHeading": false,
+              "classes": ""
+            }
+          },
+          "items": [
+            {
+              "value": "I'm NOT experiencing any of these",
+              "text": "I'm NOT experiencing any of these"
+            },
+            {
+              "value": "I am experiencing some of these",
+              "text": "I am experiencing some of these"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
