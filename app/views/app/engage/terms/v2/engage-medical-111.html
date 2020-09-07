@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Confirm it's not an emergency" %}
+{% set contentTitle = "Check and confirm it's not an emergency" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -61,7 +61,10 @@
 
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
-      <p>Do not use this service to contact your GP in an emergency</p>
+      <p>Do not use this service to contact your GP in an emergency.</p>
+
+      <p>You are responsible for seeking further medical help if your situation or condition gets worse and you feel you may need immediate help.</p>
+
 
       {{ careCard({
         "type": "immediate",
@@ -105,16 +108,6 @@
 
 
       <form class="" action="" method="post">
-
-        <p>You are responsible for seeking further medical help if the situation worsens or a medical condition deteriorates such that you consider immediate help may be required.</p>
-
-        <p>By continuing you:
-        </p>
-
-        <ul>
-          <li>confirm that you are physically located in the UK</li>
-          <li>accept the <a href="#">end user license agreement</a></li>
-        </ul>
 
           <input type="submit" class="nhsuk-button" value="I understand">
           </input>

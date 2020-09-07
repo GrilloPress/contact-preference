@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Your data and privacy is important to us" %}
+{% set contentTitle = "Confirm before you continue" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -48,47 +48,48 @@
 
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
+      <p>By using this service you confirm that you:</p>
+
+      <ul>
+        <li>are registered at Gledhow Practice</li>
+        <li>are currently in the UK</li>
+        <li>have read and agree to our <a href="#">privacy policy</a></li>
+        <li>accept the <a href="#">end user license agreement</a></li>
+      </ul>
+
+
+
       <form class="" action="" method="post">
 
-        <h2>Please read our privacy policy</h2>
-        <p>Before continuing please make sure you are fully ready and completely understand our <a href="#">privacy policy</a>.</p>
+        <h2>Choose how your data is used</h2>
 
         {{ checkboxes({
           "name": "engagePrivacyPolicy",
           "items": [
             {
               "value": "true",
-              "text": "I have fully read and agree to the privacy policy"
+              "text": "I am happy for requests to be dealt with by NHS staff outside this organisation"
             }
           ]
         }) }}
 
-        <h2>Can I control who sees my data?</h2>
-        <p>Yes, you can, we give users the following options:</p>
+        <p>Read about <a href="#">how your request might be shared</a>.</p>
+
 
         {{ checkboxes({
           "name": "engageDataUse",
           "items": [
             {
               "value": "trueShare",
-              "text": "I am happy for requests to be dealt with by NHS staff outside this organisation",
-              "hint": {
-                "html": "<a href='#'>Learn more about how your request might be shared</a>"
-              }
-            },
-            {
-              "value": "trueImprove",
-              "text": "You can use my data to help improve this service",
-              "hint": {
-                "html": "<a href='#'>Learn more about how your data might be used to improve this service</a>"
-              }
+              "text": "You can use my data to help improve this service"
             }
           ]
         }) }}
 
+        <p>Read about <a href="#">how your data might be used to improve this service</a>.</p>
 
 
-          <input type="submit" class="nhsuk-button" value="Continue">
+          <input type="submit" class="nhsuk-button" value="Confirm and continue">
           </input>
 
       </form>
