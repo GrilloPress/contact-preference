@@ -1,12 +1,12 @@
 {% set PROTOTYPEURL = "app/econsult" %}
-{% set serviceName = "NHS App" %}
-{% set contentTitle = "Choose who you want to get advice for" %}
+{% set serviceName = "eConsult" %}
+{% set contentTitle = "Ask your GP for advice" %}
+{% set title = contentTitle + " - " + serviceName %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
 {% elif data['advice'] == 'True' %}
 {% set symptomsActive = "active" %}
 {% endif %}
-{% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
 
@@ -19,73 +19,61 @@
   {{ title }}
 {% endblock %}
 
-{% block beforeContent %}
 <!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
 {% if data['appts'] == 'True' %}
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v8-econsult/pre-hub" }}'>Appointments</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/appointments/v8-econsult/GP-hub">Your GP appointments</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v8-econsult/pre-hub" }}'>Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
 {% else %}
 {% if data['experiment'] === 'True' %}
+{% if data['advice'] === 'True' %}
 <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Advice</a></li>
 {% else %}
 <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Symptoms</a></li>
 {% endif %}
+{% endif %}
 </ol>
-<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Back</a></p>
+<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
 {% endif %}
   </div>
 </nav>
 {% endblock %}
 
-
-
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Ask your GP for advice</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+      <ol>
+        <li>Answer questions online about your symptoms or condition. This takes around <b>10 minutes</b>.</li>
+        <li>Your answers will be sent securely to your GP surgery or you will get advice on what to do next.</li>
+        <li>Your surgery will usually respond within <b>2 working days</b> by phone, text or email.</li>
+      </ol>
+
+      <p>You may be able to use this service to get advice for your child if it's available at your GP surgery.</p>
+
+      <h2>Before you start</h2>
+
+      <p>You must be aged 16 and over to use this service.</p>
+      <p>This service is not for urgent queries. If you need advice now, go to <a href="https://111.nhs.uk/">111.nhs.uk</a> or call 111.</p>
 
 
-      <p>To get advice for your child you must be:</p>
-      <ul>
-        <li>the parent or the legal guardian of the child</li>
-        <li>registered at the same GP surgery as your child</li>
-      </ul>
 
-      <ul class="list-menu">
-        <li>
-      		<a href="/{{ PROTOTYPEURL }}/adult/1_choose-condition">
-      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Get advice for yourself</h2>
-      		</a>
-      	</li>
+      <form action="/app/econsult/adult/terms/data-sharing" method="get">
 
-        {% if data['ChildHub'] === "False" %}
-      </ul>
-        <h2 class="nhsuk-heading-m">Get advice for your child</h2>
-        <p>
-          This service is not available online. If you need help for your child:
-        </p>
-        <ul>
-          <li>contact your GP surgery</li>
-          <li>go to <a href="#">111.nhs.uk</a> or call 111</li>
-        </ul>
+            <input type="submit" class="nhsuk-button" value="Start now">
+            </input>
 
-        {% else  %}
+      </form>
 
-        <li>
-      		<a href="/{{ PROTOTYPEURL }}/child/v2/child-privacy">
-      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Get advice for your child</h2>
-      		</a>
-      	</li>
-        </ul>
 
-        {% endif %}
+
 
 
 
