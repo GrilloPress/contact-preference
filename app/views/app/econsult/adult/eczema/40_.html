@@ -49,31 +49,12 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Use this photo?</h1>
-      <details class="nhsuk-details">
-        <summary class="nhsuk-details__summary">
-          <span class="nhsuk-details__summary-text">
-            Image guidance
-          </span>
-        </summary>
-        <div class="nhsuk-details__text">
-          <p>Please keep in mind that any photos you upload:</p>
-          <ul>
-            <li>will be added to your clinical record and used for your clinical care</li>
-            <li>may be seen by make or female practice staff</li>
-            <li>should not be an intimate area (such as genitalia, anus, bottom or breasts), even if these are the problem area.</li>
-          </ul>
-      
-        </div>
-      </details>
-      
-      
-      
-      <form action="#" method="get">
-        <input type="submit" class="nhsuk-button" value="Continue"></input>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Do you know how many units of alcohol you drink each week? (1 pint of beer is approximately two units and one glass of wine is 1 unit)</h1>
+
+      <form action="/app/econsult/adult/37_" method="post">
         {{ radios({
           "idPrefix": "econsult",
-          "name": "econsultEczemaUsePhoto",
+          "name": "econsultAlcoholUnits",
           "fieldset": {
             "legend": {
               "isPageHeading": false,
@@ -82,17 +63,49 @@
           },
           "items": [
             {
-              "value": "Yes",
-              "text": "Yes"
+              "value": "Don't know",
+              "text": "Don't know"
             },
             {
-              "value": "No, I want to choose a different photo",
-              "text": "No, I want to choose a different photo"
+              "value": "Zero",
+              "text": "Zero"
+            },
+            {
+              "value": "1-7 units per week",
+              "text": "1-7 units per week"
+            },
+            {
+              "value": "8-14 units per week",
+              "text": "8-14 units per week"
+            },
+            {
+              "value": "15-21 units per week",
+              "text": "15-21 units per week"
+            },
+            {
+              "value": "22-28 units per week",
+              "text": "22-28 units per week"
+            },
+            {
+              "value": "29-35 units per week",
+              "text": "29-35 units per week"
+            },
+            {
+              "value": "36-69 units per week",
+              "text": "36-69 units per week"
+            },
+            {
+              "value": "More than 70 units per week",
+              "text": "More than 70 units per week"
             }
           ]
         }) }}
 
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
       </form>
+
 
 
 

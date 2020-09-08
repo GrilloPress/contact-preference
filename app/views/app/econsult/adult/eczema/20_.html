@@ -49,31 +49,16 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Use this photo?</h1>
-      <details class="nhsuk-details">
-        <summary class="nhsuk-details__summary">
-          <span class="nhsuk-details__summary-text">
-            Image guidance
-          </span>
-        </summary>
-        <div class="nhsuk-details__text">
-          <p>Please keep in mind that any photos you upload:</p>
-          <ul>
-            <li>will be added to your clinical record and used for your clinical care</li>
-            <li>may be seen by make or female practice staff</li>
-            <li>should not be an intimate area (such as genitalia, anus, bottom or breasts), even if these are the problem area.</li>
-          </ul>
-      
-        </div>
-      </details>
-      
-      
+      <h1 class="nhsuk-heading-xl nhs-app-xl">How would you rate your eczema?</h1>
+      <p><strong>Mild:</strong> Areas of dry skin, infrequent itching (with or without small areas of redness)</p>
+      <p><strong>Moderate:</strong> Areas of dry skin, frequent itching, redness (with or without scratch marks and some skin thickening)</p>
+      <p><strong>Severe:</strong> Widespread areas of dry skin, continuous itching, redness (with or without scratch marks, extensive skin thickening, skin colour changes, bleeding)</p>
       
       <form action="#" method="get">
         <input type="submit" class="nhsuk-button" value="Continue"></input>
         {{ radios({
           "idPrefix": "econsult",
-          "name": "econsultEczemaUsePhoto",
+          "name": "econsultEczemaRating",
           "fieldset": {
             "legend": {
               "isPageHeading": false,
@@ -82,24 +67,20 @@
           },
           "items": [
             {
-              "value": "Yes",
-              "text": "Yes"
+              "value": "Mild",
+              "text": "Mild"
             },
             {
-              "value": "No, I want to choose a different photo",
-              "text": "No, I want to choose a different photo"
+              "value": "Moderate",
+              "text": "Moderate"
+            },
+            {
+              "value": "Severe",
+              "text": "Severe"
             }
           ]
         }) }}
-
       </form>
-
-
-
-
-
-
-
 
     </div>
   </div>

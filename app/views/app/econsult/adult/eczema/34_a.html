@@ -49,57 +49,20 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Use this photo?</h1>
-      <details class="nhsuk-details">
-        <summary class="nhsuk-details__summary">
-          <span class="nhsuk-details__summary-text">
-            Image guidance
-          </span>
-        </summary>
-        <div class="nhsuk-details__text">
-          <p>Please keep in mind that any photos you upload:</p>
-          <ul>
-            <li>will be added to your clinical record and used for your clinical care</li>
-            <li>may be seen by make or female practice staff</li>
-            <li>should not be an intimate area (such as genitalia, anus, bottom or breasts), even if these are the problem area.</li>
-          </ul>
-      
-        </div>
-      </details>
-      
-      
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Please provide more details:</h1>
       
       <form action="#" method="get">
         <input type="submit" class="nhsuk-button" value="Continue"></input>
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultEczemaUsePhoto",
-          "fieldset": {
-            "legend": {
-              "isPageHeading": false,
-              "classes": ""
-            }
-          },
-          "items": [
-            {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No, I want to choose a different photo",
-              "text": "No, I want to choose a different photo"
-            }
-          ]
+        {{ textarea({
+          "name": "econsultEczemaAnythingElseDetails",
+          "id": "econsult",
+          "classes": "nhsuk-u-margin-bottom-0",
+          "label": {
+            "isPageHeading": false,
+            "classes": "nhsuk-u-margin-bottom-4"
+          }
         }) }}
-
       </form>
-
-
-
-
-
-
-
 
     </div>
   </div>

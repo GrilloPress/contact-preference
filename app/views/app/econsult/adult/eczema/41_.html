@@ -49,31 +49,12 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Use this photo?</h1>
-      <details class="nhsuk-details">
-        <summary class="nhsuk-details__summary">
-          <span class="nhsuk-details__summary-text">
-            Image guidance
-          </span>
-        </summary>
-        <div class="nhsuk-details__text">
-          <p>Please keep in mind that any photos you upload:</p>
-          <ul>
-            <li>will be added to your clinical record and used for your clinical care</li>
-            <li>may be seen by make or female practice staff</li>
-            <li>should not be an intimate area (such as genitalia, anus, bottom or breasts), even if these are the problem area.</li>
-          </ul>
-      
-        </div>
-      </details>
-      
-      
-      
-      <form action="#" method="get">
-        <input type="submit" class="nhsuk-button" value="Continue"></input>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Do you smoke?</h1>
+
+      <form action="/app/econsult/adult/38_" method="post">
         {{ radios({
           "idPrefix": "econsult",
-          "name": "econsultEczemaUsePhoto",
+          "name": "econsultSmoke",
           "fieldset": {
             "legend": {
               "isPageHeading": false,
@@ -82,17 +63,46 @@
           },
           "items": [
             {
-              "value": "Yes",
-              "text": "Yes"
+              "value": "No, I've never smoked",
+              "text": "No, I've never smoked"
             },
             {
-              "value": "No, I want to choose a different photo",
-              "text": "No, I want to choose a different photo"
+              "value": "No, but I used to smoke",
+              "text": "No, but I used to smoke"
+            },
+            {
+              "value": "Yes - less than 5 cigarettes a day",
+              "text": "Yes - less than 5 cigarettes a day"
+            },
+            {
+              "value": "Yes - 5 to 10 cigarettes a day",
+              "text": "Yes - 5 to 10 cigarettes a day"
+            },
+            {
+              "value": "Yes - between 11 and 20 cigarettes a day",
+              "text": "Yes - between 11 and 20 cigarettes a day"
+            },
+            {
+              "value": "Yes - between 21 and 40 cigarettes a day",
+              "text": "Yes - between 21 and 40 cigarettes a day"
+            },
+            {
+              "value": "Yes - more than 40 cigarettes a day",
+              "text": "Yes - more than 40 cigarettes a day"
+            },
+            {
+              "value": "I smoke other things: vapes, cigars or joints",
+              "text": "I smoke other things: vapes, cigars or joints"
             }
+            
           ]
         }) }}
 
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
       </form>
+
 
 
 
