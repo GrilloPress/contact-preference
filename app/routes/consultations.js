@@ -1320,6 +1320,139 @@ router.post('/app/econsult/adult/35_', function (req, res) {
   }
 });
 
+// eConsult Adult Eczema Route (SHOWS FILE UPLOAD)
+
+router.post('/app/econsult/adult/eczema/5_emergency', function (req, res) {
+  let answer = req.session.data.econsultAdultEczemaEmergency;
+
+  if (answer === 'I am experiencing some of these') {
+
+    res.redirect('/app/econsult/adult/end/emergency')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/6_covid')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/6_covid', function (req, res) {
+  let answer = req.session.data.econsultAdultCOVIDCheckEczema;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/end/covid')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/7_registered')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/7_registered', function (req, res) {
+  let answer = req.session.data.econsultAdultRegisteredEczema;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/8_sex')
+
+  } else {
+    res.redirect('/app/econsult/adult/end/registered')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/12_', function (req, res) {
+  let answer = req.session.data.econsultEczemaPast;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/12_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/13_')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/12_b', function (req, res) {
+  let answer = req.session.data.econsultEczemaPastSuccess;
+
+  if (answer === 'Somewhat') {
+
+    res.redirect('/app/econsult/adult/eczema/12_c')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/13_')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/13_', function (req, res) {
+  let answer = req.session.data.econsultEczemaTryingNow;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/13_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/14_')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/13_b', function (req, res) {
+  let answer = req.session.data.econsultEczemaTryingNowWorking;
+
+  if (answer === 'Somewhat') {
+
+    res.redirect('/app/econsult/adult/eczema/13_c')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/14_')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/14_', function (req, res) {
+  let answer = req.session.data.econsultEczemaTreatmentWanted;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/14_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/15_')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/15_', function (req, res) {
+  let answer = req.session.data.econsultEczemaParticularGP;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/15_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/16_')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/16_', function (req, res) {
+  let answer = req.session.data.econsultEczemaPreviousDiagnosis;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/16_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/17_')
+
+  }
+});
+
+
 // ADMIN ROUTES
 
 router.post('/app/econsult/admin/v1/4', function (req, res) {
