@@ -51,8 +51,8 @@
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">Do you have a high fever AND any of the following: a stiff neck / a rash that won't fade when you press it, or that looks like tiny bruises / it hurts to look at bright lights?</h1>
       
-      <form action="#" method="get">
-        <input type="submit" class="nhsuk-button" value="Continue"></input>
+      <form action="/app/econsult/adult/eczema/33_" method="get">
+        
         {{ radios({
           "idPrefix": "econsult",
           "name": "econsultEczemaFeverRashLights",
@@ -73,6 +73,7 @@
             }
           ]
         }) }}
+        <input type="submit" class="nhsuk-button" value="Continue"></input>
       </form>
 
     </div>

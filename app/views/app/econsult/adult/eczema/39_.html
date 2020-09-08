@@ -51,8 +51,8 @@
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">Do you have a family history of illness? For example: heart disease, cancer</h1>
       
-      <form action="#" method="get">
-        <input type="submit" class="nhsuk-button" value="Continue"></input>
+      <form action="/app/econsult/adult/eczema/39_" method="post">
+        
         {{ radios({
           "idPrefix": "econsult",
           "name": "econsultEczemaFamilyHistory",
@@ -73,6 +73,7 @@
             }
           ]
         }) }}
+        <input type="submit" class="nhsuk-button" value="Continue"></input>
       </form>
 
     </div>

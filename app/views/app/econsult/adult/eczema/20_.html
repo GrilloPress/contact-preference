@@ -54,8 +54,8 @@
       <p><strong>Moderate:</strong> Areas of dry skin, frequent itching, redness (with or without scratch marks and some skin thickening)</p>
       <p><strong>Severe:</strong> Widespread areas of dry skin, continuous itching, redness (with or without scratch marks, extensive skin thickening, skin colour changes, bleeding)</p>
       
-      <form action="#" method="get">
-        <input type="submit" class="nhsuk-button" value="Continue"></input>
+      <form action="/app/econsult/adult/eczema/21_" method="get">
+        
         {{ radios({
           "idPrefix": "econsult",
           "name": "econsultEczemaRating",
@@ -80,6 +80,7 @@
             }
           ]
         }) }}
+        <input type="submit" class="nhsuk-button" value="Continue"></input>
       </form>
 
     </div>

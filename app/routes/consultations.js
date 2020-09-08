@@ -1452,6 +1452,123 @@ router.post('/app/econsult/adult/eczema/16_', function (req, res) {
   }
 });
 
+router.post('/app/econsult/adult/eczema/31_', function (req, res) {
+  let answer = req.session.data.econsultEczemaFever;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/31_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/32_')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/33_', function (req, res) {
+  let answer = req.session.data.econsultEczemaSeen;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/33_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/34_')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/34_', function (req, res) {
+  let answer = req.session.data.econsultEczemaAnythingElse;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/34_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/34_')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/35_', function (req, res) {
+  let answer = req.session.data.econsultEczemaOtherMedical;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/35_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/36_')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/36_', function (req, res) {
+  let answer = req.session.data.econsultEczemaOtherPrescriptions;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/36_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/37_')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/37_', function (req, res) {
+  let answer = req.session.data.econsultEczemaOtherPharmacy;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/37_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/38_')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/38_', function (req, res) {
+  let answer = req.session.data.econsultEczemaOtherTreatment;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/38_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/39_')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/39_', function (req, res) {
+  let answer = req.session.data.econsultEczemaFamilyHistory;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/39_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/34_')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/42_', function (req, res) {
+  let answer = req.session.data.econsultEczemaFamilyAllergiesCream;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/42_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/43_')
+
+  }
+});
+
 
 // ADMIN ROUTES
 
