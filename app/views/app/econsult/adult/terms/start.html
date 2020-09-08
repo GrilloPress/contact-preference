@@ -68,15 +68,10 @@
       <p>To save you typing in personal information the service needs, you can use the personal information we already hold as described in the <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">NHS App privacy policy.</a></p>
 
 
-      {% if data['pNotification'] === "True" %}
 
       <form action="/app/econsult/hub/v1" method="get">
 
-        {% else %}
 
-      <form action="/app/econsult/hub/v1/index-no-child" method="get">
-
-        {% endif %}
 
 
         {{ checkboxes({
