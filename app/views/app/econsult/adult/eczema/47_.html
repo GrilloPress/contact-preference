@@ -10,6 +10,12 @@
 {% block pageScripts %}
 {% endblock %}
 
+{% set EmailAddressInput %}
+{% if data['econsultAgreePrivacyPolicy'] == 'true' %}
+betty.doyle@hotmail.com
+{% else %}
+{% endif %}
+{% endset %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -49,34 +55,30 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Is there any particular treatment you would like to try now?</h1>
-      
-      <form action="/{{ PROTOTYPEURL }}/adult/eczema/13_" method="get">
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultEczemaTreatmentWanted",
-          "fieldset": {
-            "legend": {
-              "isPageHeading": false,
-              "classes": ""
-            }
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Tell us your email address</h1>
+
+      <form action="/app/econsult/adult/43_" method="post">
+
+        {{ input({
+          "label": {
+            "isPageHeading": false,
+            "classes": ""
           },
-          "items": [
-            {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No",
-              "text": "No"
-            }
-          ]
+          "hint": {
+            "text": "We'll email you to confirm the submission of your request."
+          },
+          "id": "econsult",
+          "name": "econsultYourEmail",
+          "value": EmailAddressInput,
+          "classes": ""
         }) }}
+
 
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
 
       </form>
+
 
 
 

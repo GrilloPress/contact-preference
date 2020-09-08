@@ -53,14 +53,25 @@
       
       <form action="#" method="get">
         <input type="submit" class="nhsuk-button" value="Continue"></input>
-        {{ textarea({
-          "name": "econsultEczemaSeenDoctorNurse",
-          "id": "econsult",
-          "classes": "nhsuk-u-margin-bottom-0",
-          "label": {
-            "isPageHeading": false,
-            "classes": "nhsuk-u-margin-bottom-4"
-          }
+        {{ radios({
+          "idPrefix": "econsult",
+          "name": "econsultEczemaAnythingElse",
+          "fieldset": {
+            "legend": {
+              "isPageHeading": false,
+              "classes": ""
+            }
+          },
+          "items": [
+            {
+              "value": "Yes",
+              "text": "Yes"
+            },
+            {
+              "value": "No",
+              "text": "No"
+            }
+          ]
         }) }}
       </form>
 

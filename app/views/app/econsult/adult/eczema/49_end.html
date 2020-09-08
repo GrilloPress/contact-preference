@@ -49,39 +49,42 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Is there any particular treatment you would like to try now?</h1>
-      
-      <form action="/{{ PROTOTYPEURL }}/adult/eczema/13_" method="get">
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultEczemaTreatmentWanted",
-          "fieldset": {
-            "legend": {
-              "isPageHeading": false,
-              "classes": ""
-            }
-          },
-          "items": [
-            {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No",
-              "text": "No"
-            }
-          ]
-        }) }}
 
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Thank you, Betty. The answers to your consultation have been securely sent to your GPs at Gledhow Practice</h1>
 
-      </form>
+      <p>We've also emailed you a confirmation of your consultation</p>
 
+      <h3 class="nhsuk-heading-l">What happens next</h3>
 
+      <ul>
+        <li>One of your GPs will now review your consultation.</li>
+        <li>Your practice will respond to you by phone or email <strong>before 6:30pm on {{ "2" | returnDate }}</strong></li>
+      </ul>
 
+      <p><strong>Here are two important tips for ensuring you recieve a response:</strong></p>
 
+      <ul>
+        <li>A call from your practice may sometimes appear on your phone as "Blocked", "No caller ID" or "Private number"</li>
+        <li>Check your junk email folder</li>
+      </ul>
 
+      <h3 class="nhsuk-heading-l">What if I don't get a call or an email?</h3>
+
+      <p>In most cases you won't need to contact the practice <strong>before 6:30pm on {{ "2" | returnDate }}</strong>.</p>
+
+      <p>There is generally no need for you to contact the practice before 6:30pm on {{ "2" | returnDate }}. But if they're unable to reach you by then, please let them know by using the link in your confirmation email or by called the practice on <strong>0113 496 0999</strong>.</p>
+
+      <h3 class="nhsuk-heading-l">What if I'm given a prescription</h3>
+
+      <p>If your doctor decides you need a prescription you will be able to pick it up from the practice or your local pharmacy.</p>
+
+      <h3 class="nhsuk-heading-l">I think I made a mistake on my consultation! What do I do now?</h3>
+
+      <p>Please call the practice on <strong>0113 496 0999</strong>. A member of staff will be able to update your record.</p>
+
+      <p>
+        <a href='{{ data["routeHome"] if data ["routeHome"] else "/app/v8" }}'>Back to home</a>
+      </p>
 
 
 
