@@ -49,14 +49,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Would you like to upload a photo of your condition?</h1>
-      <p>You can upload 1 image.</p>
-      <p>Please keep in mind that any photos you upload:</p>
-      <ul>
-        <li>will be added to your clinical record and used for your clinical care</li>
-        <li>may be seen by make or female practice staff</li>
-        <li>should not be an intimate area (such as genitalia, anus, bottom or breasts), even if these are the problem area.</li>
-      </ul>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Do you want to upload a photo of your condition?</h1>
       <form action="/app/econsult/adult/eczema/19_" method="post">
         {{ radios({
           "idPrefix": "econsult",
@@ -69,8 +62,8 @@
           },
           "items": [
             {
-              "value": "Yes",
-              "text": "Yes"
+              "value": "Yes, I want to upload a photo",
+              "text": "Yes, I want to upload a photo"
             },
             {
               "value": "No",
