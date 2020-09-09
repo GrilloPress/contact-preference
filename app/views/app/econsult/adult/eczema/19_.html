@@ -49,7 +49,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Upload photos of your condition (optional)</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Would you like to upload a photo of your condition?</h1>
       <p>You can upload 1 image.</p>
       <p>Please keep in mind that any photos you upload:</p>
       <ul>
@@ -57,14 +57,27 @@
         <li>may be seen by make or female practice staff</li>
         <li>should not be an intimate area (such as genitalia, anus, bottom or breasts), even if these are the problem area.</li>
       </ul>
-      <form enctype="multipart/form-data">
-        <div class="nhsuk-form-group">
-          <input class="file-input nhs-app-form-input" type="file" id="attachment" name="msgAttachment" accept="image/png, image/jpeg">
-        </div>
-
-      </form>
-      
       <form action="#" method="get">
+        {{ radios({
+          "idPrefix": "econsult",
+          "name": "econsultEczemaPhotoUploadQuestion",
+          "fieldset": {
+            "legend": {
+              "isPageHeading": false,
+              "classes": ""
+            }
+          },
+          "items": [
+            {
+              "value": "Yes",
+              "text": "Yes"
+            },
+            {
+              "value": "No",
+              "text": "No"
+            }
+          ]
+        }) }}
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
 
