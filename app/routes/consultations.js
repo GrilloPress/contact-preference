@@ -1505,7 +1505,7 @@ router.post('/app/econsult/adult/eczema/33_', function (req, res) {
 });
 
 router.post('/app/econsult/adult/eczema/34_', function (req, res) {
-  let answer = req.session.econsultEczemaExtraInfo;
+  let answer = req.session.data.econsultEczemaExtraInfo;
 
   if (answer === 'Yes') {
 
