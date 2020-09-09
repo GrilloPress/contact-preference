@@ -1479,14 +1479,14 @@ router.post('/app/econsult/adult/eczema/33_', function (req, res) {
 });
 
 router.post('/app/econsult/adult/eczema/34_', function (req, res) {
-  let answer = req.session.data.econsultEczemaAnythingElse;
+  let answer = req.session.econsultEczemaAnythingElse;
 
   if (answer === 'Yes') {
 
     res.redirect('/app/econsult/adult/eczema/34_a')
 
   } else {
-    res.redirect('/app/econsult/adult/eczema/34_')
+    res.redirect('/app/econsult/adult/eczema/35_')
 
   }
 });
