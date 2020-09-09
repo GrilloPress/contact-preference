@@ -1465,6 +1465,19 @@ router.post('/app/econsult/adult/eczema/19_', function (req, res) {
   }
 });
 
+router.post('/app/econsult/adult/eczema/19_b', function (req, res) {
+  let answer = req.session.data.econsultEczemaUsePhoto;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/19_c')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/19_a')
+
+  }
+});
+
 router.post('/app/econsult/adult/eczema/31_', function (req, res) {
   let answer = req.session.data.econsultEczemaFever;
 
