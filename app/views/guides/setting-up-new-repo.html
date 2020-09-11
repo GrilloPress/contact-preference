@@ -1,0 +1,94 @@
+{% set PROTOTYPEURL = "guides" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Setting up a new repository on GitHub" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+  "href": "/guides/index",
+  "text": "Go back"
+}) }}
+
+      <h1>
+        {{ contentTitle }}
+      </h1>
+
+      <p>After cloning the master repo, you can create a new repo for the clone that's unique.</p>
+
+      <h2>1. Go to your GitHub profile</h2>
+
+      <p>Open GitHub and click on the profile icon in the top right hand corner.</p>
+
+
+
+      <h2>2. Go to your repositories</h2>
+
+      <p>Click the repositories tab.</p>
+
+
+      <h2>3. Create a new repo</h2>
+
+      <p>Click the green ‘New’ button.</p>
+
+
+      <h2>4. Name the repository, set privacy levels and then create </h2>
+
+
+      <p>Click create repository after doing this.</p>
+
+
+      <h2>5. Go to your terminal</h2>
+
+      <p>Run this command:</p>
+
+      <pre class="app-pre"><code class="app-code">git remote rm origin</code></pre>
+
+      <p>This will remove the connection to the previous repository you pushed to.</p>
+
+
+      <p>Then, run this command:</p>
+
+      <pre class="app-pre"><code class="app-code">git remote add origin URL</code></pre>
+
+      <p>The URL of your new repository will be available to you to copy on the GitHub page you have just created.</p>
+
+
+      <p>Then, run this command:</p>
+
+      <pre class="app-pre"><code class="app-code">git add .</code></pre>
+
+
+      <p>Then, run this command and add a description of the repo:</p>
+
+      <pre class="app-pre"><code class="app-code">git commit –m description here</code></pre>
+
+      <h2>5. Push the code</h2>
+
+      <p>Run this command:</p>
+
+      <pre class="app-pre"><code class="app-code">git push</code></pre>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
