@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Your request has been submitted" %}
+{% set contentTitle = "Sorry, this service is currently unavailable" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -16,28 +16,40 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-{% include "../.././_parts/silver-banner.html" %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% include ".././_parts/silver-banner.html" %}
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
+      {% if data['engageProxyJourney'] %}
+      <div class="app-proxy__container">
+        <ul class="list-menu">
+          <li>
+              <a href="/{{ PROTOTYPEURL }}/who/v2/index">
+                <p class="nhsuk-body-s">Acting on behalf of <br>
+                  <strong>{{ data['engageWho']}}</strong>
+                </p>
+              </a>
+          </li>
+        </ul>
+      </div>
+      {% endif %}
+
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
-      <h2>What happens next</h2>
+      <p>You will be able to use the service during your GP surgery’s same day response times.</p>
 
-      <p>
-        We have sent you an email confirming your request has been sent.
-      </p>
-      <p>
-        Your GP surgery will get back to you by message or phone.
-      </p>
-
-      <h2>Response times</h2>
-
-
-      <p>Your surgery will aim to contact you today if you have submitted your request during the same day response times.</p>
 
       {{ details({
   "classes": "nhsuk-expander",
@@ -51,18 +63,8 @@
         </table>'
   }) }}
 
-      <p>
-        <a href="/app/v6">Return to home</a>
-      </p>
+  <p>If you need urgent medical advice, go to <a href="#">111.nhs.uk</a> or call 111.</p>
 
-      <h2>Give feedback</h2>
-
-      <p>Your feedback is important to help make this service better.</p>
-
-      {{ actionLink({
-        "text": "Provide feedback",
-        "href": "#"
-      }) }}
 
     </div>
   </div>
