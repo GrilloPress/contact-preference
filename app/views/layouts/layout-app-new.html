@@ -65,6 +65,10 @@
   {{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/index?messagingIcon=False&messageRead1=unread" }}
 {% endset %}
 
+{% set routeGPServices %}
+  {{ data["routeGPServices"] if data ["routeGPServices"] else "/app/gp-services/v1/hub" }}
+{% endset %}
+
 {% block skipLink %}
 {% endblock %}
 
