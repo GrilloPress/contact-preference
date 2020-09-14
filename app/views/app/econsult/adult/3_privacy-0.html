@@ -1,0 +1,91 @@
+{% set PROTOTYPEURL = "app/econsult" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Ask your GP for advice" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% endif %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
+{% if data['appts'] == 'True' %}
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v8-econsult/pre-hub" }}'>Appointments</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/appointments/v8-econsult/GP-hub">Your GP appointments</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+{% else %}
+{% if data['experiment'] === 'True' %}
+{% if data['advice'] === 'True' %}
+<li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Advice</a></li>
+{% else %}
+<li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Symptoms</a></li>
+{% endif %}
+{% endif %}
+</ol>
+<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+{% endif %}
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-0">Ask your GP for advice</p>
+      <h1 class="nhsuk-heading-l nhs-app-xl nhsuk-u-padding-top-0">We're about to ask you a few questions about your request.</h1>
+
+<p>We will send your answers to your GP surgery, unless you need urgent medical help. In those cases, our service will tell you to use other health services.</p>
+
+<p>To start, please agree to the privacy notice applicable to online consultation services.</p>
+
+      <form action="/app/econsult/adult/1_choose-condition-0" method="post">
+      {{ checkboxes({
+        "name": "econsultReadPrivacyNotice",
+        "hint": {
+          "text": ""
+        },
+        "items": [
+          {
+            "value": "true",
+            "html": '
+            I have read the <a href="https://nhsapptest2.econsulttest.health/staticLegalContent/nhsAppPrivacyPolicy">GP online consultation services privacy notice.</a> I understand the online consultation service provider will process my personal and health data on behalf of my GP surgery to provide an online consultation.</span>
+          '
+          }
+        ]
+      }) }}
+
+      <button class="nhsuk-button" type="submit">
+        Continue
+      </button>
+      </form>
+
+      {{ button({
+  "text": "End my consultation",
+  "classes": "nhsuk-button--secondary"
+}) }}
+
+
+      <div class="nhsuk-u-padding-bottom-4"></div>
+
+
+    </div>
+  </div>
+{% endblock %}

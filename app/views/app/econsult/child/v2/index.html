@@ -1,5 +1,5 @@
 {% set PROTOTYPEURL = "app/econsult" %}
-{% set serviceName = "eConsult" %}
+{% set serviceName = "NHS App" %}
 {% set contentTitle = "Ask your GP for advice for your child" %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
@@ -85,7 +85,7 @@
         ]
       }) }}
 
-      <form action="/{{ PROTOTYPEURL }}/child/v2/data-sharing" method="post">
+      <form action="/{{ PROTOTYPEURL }}/child/v2/child-privacy" method="post">
         <input type="submit" class="nhsuk-button" value="Continue">
       </form>
 
