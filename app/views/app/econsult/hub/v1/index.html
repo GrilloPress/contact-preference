@@ -21,7 +21,7 @@
 
 {% block beforeContent %}
 <!-- Breadcrumb goes inside this block -->
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-mobile--hide" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
@@ -36,10 +36,11 @@
 <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Symptoms</a></li>
 {% endif %}
 </ol>
-<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Back</a></p>
 {% endif %}
   </div>
 </nav>
+{% include "../../_parts/silver-banner.html" %}
+
 {% endblock %}
 
 
