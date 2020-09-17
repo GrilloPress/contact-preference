@@ -29,7 +29,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v8-econsult/pre-hub" }}'>Appointments</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/appointments/v8-econsult/GP-hub">Your GP appointments</a></li>
     </ol>
-    
+
 {% else %}
 {% if data['experiment'] === 'True' %}
 {% if data['advice'] === 'True' %}
@@ -42,7 +42,8 @@
 
 {% endif %}
   </div>
-</nav>
+</nav>{% include "../../_parts/silver-banner.html" %}
+
 {% endblock %}
 
 {% block content %}
@@ -66,14 +67,14 @@
           </a>
          </li>
         <li>
-          <a href="/app/econsult/adult/eczema/3_privacy">
+          <a href="/app/econsult/adult/eczema/5_emergency">
             <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">I want treatment and advice from my GP</h2>
             <p>Consult your GP via a simple online form</p>
         </a>
         </li>
       </ul>
 
-      
+
     </div>
   </div>
 {% endblock %}

@@ -29,7 +29,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v8-econsult/pre-hub" }}'>Appointments</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/appointments/v8-econsult/GP-hub">Your GP appointments</a></li>
     </ol>
-    
+
 {% else %}
 {% if data['experiment'] === 'True' %}
 {% if data['advice'] === 'True' %}
@@ -42,7 +42,7 @@
 
 {% endif %}
   </div>
-</nav>
+</nav>{% include "../../_parts/silver-banner.html" %}
 {% endblock %}
 
 {% block content %}
@@ -60,7 +60,7 @@
       <p>We're about to ask you a few questions about your request. Your answers will be sent securely to your GP surgery unless urgent medical attention is needed. For such cases the online consultation service will direct you to other health services.</p>
       <p>To start, please agree to the <a href="https://demo.econsulttest.health/staticLegalContent/privacyPolicy">GP online consultation services privacy notice</a>.</p>
 
-      <form action="/app/econsult/adult/eczema/4_yourself" method="post">
+      <form action="/app/econsult/adult/eczema/emergency" method="post">
       {{ checkboxes({
         "name": "econsultReadPrivacyNotice",
         "hint": {
@@ -80,7 +80,7 @@
         Continue
       </button>
       </form>
-      
+
       <div class="nhsuk-u-padding-bottom-4"></div>
 
 

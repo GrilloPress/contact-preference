@@ -665,7 +665,7 @@ router.post('/app/econsult/child/v2/3_covid', function (req, res) {
     res.redirect('/app/econsult/child/v2/end/covid')
 
   } else {
-    res.redirect('/app/econsult/child/v2/4_registered')
+    res.redirect('/app/econsult/child/v2/5_your-dob')
   }
 });
 
@@ -1078,7 +1078,7 @@ router.post('/app/econsult/adult/6_covid', function (req, res) {
     res.redirect('/app/econsult/adult/end/covid')
 
   } else {
-    res.redirect('/app/econsult/adult/7_registered')
+    res.redirect('/app/econsult/adult/8_sex')
 
   }
 });
@@ -1343,7 +1343,7 @@ router.post('/app/econsult/adult/eczema/6_covid', function (req, res) {
     res.redirect('/app/econsult/adult/end/covid')
 
   } else {
-    res.redirect('/app/econsult/adult/eczema/7_registered')
+    res.redirect('/app/econsult/adult/eczema/8_sex')
 
   }
 });

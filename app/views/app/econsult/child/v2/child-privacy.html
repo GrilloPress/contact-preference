@@ -65,7 +65,7 @@
       <p>We're about to ask you a few questions about your request. Your answers will be sent securely to your GP surgery unless urgent medical attention is needed. For such cases the online consultation service will direct you to other health services.</p>
       <p>To start, please agree to the <a href="https://demo.econsulttest.health/staticLegalContent/privacyPolicy">GP online consultation services privacy notice</a>.</p>
 
-      <form action="/app/econsult/child/v2/confirm-who" method="get">
+      <form action="/app/econsult/child/v2/1_choose-condition" method="get">
       {{ checkboxes({
         "name": "econsultReadPrivacyNotice",
         "hint": {
@@ -86,6 +86,14 @@
       </button>
       </form>
 
+      <form action="{{ routeHome }}" method="get">
+        {{ button({
+          "text": "End my consultation",
+          "classes": "nhsuk-button--secondary"
+        }) }}
+
+
+      </form>
       <div class="nhsuk-u-padding-bottom-4"></div>
 
 

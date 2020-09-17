@@ -29,7 +29,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v8-econsult/pre-hub" }}'>Appointments</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/appointments/v8-econsult/GP-hub">Your GP appointments</a></li>
     </ol>
-    
+
 {% else %}
 {% if data['experiment'] === 'True' %}
 {% if data['advice'] === 'True' %}
@@ -42,19 +42,24 @@
 
 {% endif %}
   </div>
-</nav>
+</nav>{% include "../../_parts/silver-banner.html" %}
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Ask your GP for advice</p>
-              
-  <div class="nhsuk-warning-callout nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-4">
-  <h2 class="nhsuk-warning-callout__label">Is your query specifically about a new, continuous cough or high temperature?</h2>
-  <p>Answering this question will help us limit the
-  spread of coronavirus (COVID-19). </p><p> A high temperature means you feel hot to the touch on your chest or back. A new continuous cough means you've started coughing repeatedly.</p>
-</div>
+
+
+
+    {{ warningCallout({
+      "heading": "Is your query specifically about a new, continuous cough, high temperature or a loss or change to your sense of smell or taste?",
+      "HTML": "
+      <p>Answering this question will help us limit the
+      spread of coronavirus (COVID-19). </p><p>A high temperature means you feel hot to the touch on your chest or back. A new continuous cough means you've started coughing repeatedly. A loss or change to your sense of smell or taste means you've noticed you cannot smell or taste anything, or things smell or taste different to normal.</p>
+        "
+    }) }}
+
 
 <form action="/app/econsult/adult/eczema/6_covid" method="post">
   {{ radios({
