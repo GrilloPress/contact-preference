@@ -1,0 +1,88 @@
+{% set PROTOTYPEURL = "app/login" %}
+{% set serviceName = "NHS login" %}
+{% set contentTitle = "Enter your email address" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "",
+        "longName": "true",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+          <ol class="nhsuk-breadcrumb__list">
+            <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one"></a></li>
+          </ol>
+          <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">Back to: homepage</a></p>
+      </nav>
+
+      <h1>
+        NHS app
+      </h1>
+
+      <ul>
+        <li>book and manage appointments at your GP surgery</li>
+        <li>order repeat prescriptions</li>
+        <li>check symptoms and get instant advice</li>
+        <li>view your medical record securely</li>
+        </ul>
+        <br>
+        <p>To use this service you must be aged 13 and over.</p>
+        <br>
+        <button class="nhsuk-button nhslogin-button nhs-app-u-button-full" type="button" name="button" onclick="window.location='https://nhs-cid.herokuapp.com/create-account/v19/start?service=app5&serviceName=the%20NHS%20app&returnUrl=https://nhs-contact.herokuapp.com/app/v3/index'">Continue with NHS login</button>
+        <br>
+
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+<div class="">
+  {{ footer({
+    "classes": "",
+    "links": [
+      {
+        "URL": "#",
+        "label": "Terms of use"
+      },
+      {
+        "URL": "#",
+        "label": "Cookies"
+      },
+      {
+        "URL": "#",
+        "label": "Accessibility"
+      }
+    ]
+  })}}
+</div>
+{% endblock %}

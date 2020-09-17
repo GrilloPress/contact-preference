@@ -1802,16 +1802,24 @@ main.content {
   background: radial-gradient(#0072DF 0%, #0053A3 100%);
   min-height: 26em;
   box-sizing: border-box;
-  text-align: center;
+  text-align: right;
   box-shadow: inset 0em -0.375em 0.5em rgba(0, 0, 0, 0.15);
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center; }
+  align-items: right; }
+  header.home-header .home-header-help{
+    margin: 15px 5px 0 0;
+  }
+  header.home-header .home-header-help p a {
+    color:white;
+    margin:0px 15px 0 0;
+  }
   header.home-header .nhso_logo {
-    margin: auto;
-    box-sizing: border-box; }
+    margin: 130px auto auto auto;
+    box-sizing: border-box;
+  align-items: center; }
   header.home-header h1 {
     display: block;
     font-family: "FrutigerLTW01-55Roman", Arial, sans-serif;
@@ -1861,7 +1869,7 @@ header.logged {
 section.home-main {
   height: 9em;
   padding: 1em;
-  box-sizing: border-box; }
+  box-sizing: border-box;}
   section.home-main h2 {
     font-family: "FrutigerLTW01-65Bold", Arial, sans-serif;
     font-weight: 700;
@@ -1896,6 +1904,83 @@ section.home-main {
     display: block;
     padding-bottom: 0.5em;
     text-align: center; }
+
+//Full blue background on start page//
+    header.home-header-blue {
+    background: transparent;
+    min-height: 0em;
+    }
+
+  section.home-main-blue {
+    position:absolute;
+    background: radial-gradient(#0072DF 0%, #0053A3 100%);
+    box-sizing: border-box;
+    height: 100%;
+    width:100%;
+    padding: 1em;
+    box-shadow: inset 0em -0.375em 0.5em rgba(0, 0, 0, 0.15);
+    align-items: right;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+
+    section.home-main-blue .home-header-help{
+      position: absolute;
+      top: 11px;
+      right: 16px;
+      }
+
+    section.home-main-blue .home-header-help p a {
+      color:white;
+      margin:0px 15px 0 0;
+        }
+
+    section.home-main-blue h2 {
+      font-family: "FrutigerLTW01-65Bold", Arial, sans-serif;
+      font-weight: 700;
+      font-size: 1.375em;
+      line-height: 1.375em;
+      color: #ffffff;
+      margin-bottom: 0.750em;
+      font-size: 1.2em;
+      text-align: center;
+      padding-left: 0.3em;
+      padding-right: 0.3em; }
+      @supports (-webkit-overflow-scrolling: touch) {
+        main.home-main-blue h2 {
+          letter-spacing: -0.063em; } }
+
+    section.home-main-blue .nhso_logo {
+      margin: 130px auto 170px auto;
+      box-sizing: border-box;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    section.home-main-blue .version {
+      margin-bottom: 40px;
+    }
+
+      section.home-main-blue button{
+        width:100%;
+      }
+
+    section.home-main-blue p {
+      display: block;
+      font-weight: normal;
+      font-size: 1em;
+      line-height: 1.5em;
+      color: #ffffff;
+      font-size: 0.7em;
+      color: #ffffff;
+      padding-bottom: 0.5em;
+      text-align: center; }
+
+//End of full blue start page css//
 
 main.logged {
   height: 9em;

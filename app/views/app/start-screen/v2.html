@@ -22,42 +22,12 @@
 {% block header %}
 
   <header class="home-header">
-    <a class="help-link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 112" class="help">
-        <defs>
-        <style>
-          .a, .b {
-          fill: #fff;
-          stroke-miterlimit: 10;
-          }
-
-          .a, .b, .c {
-          stroke: #fff;
-          }
-
-          .a {
-          stroke-width: 3px;
-          }
-
-          .b {
-          stroke-width: 2px;
-          }
-
-          .c {
-          fill: none;
-          stroke-linejoin: round;
-          stroke-width: 7px;
-          }
-        </style>
-        </defs>
-        <title>icon_help2</title>
-        <g>
-        <path class="a" d="M35.74,42.23q1-8.7,6.38-13.43t14-4.74q8.82,0,14.5,4.86a15.45,15.45,0,0,1,5.67,12.24,16.47,16.47,0,0,1-1.65,7.15Q73,51.77,66.8,57.22c-3.15,2.8-5.12,5-5.94,6.62s-1.26,4.51-1.35,8.68H52.14a51.7,51.7,0,0,1,.37-7.27A14.47,14.47,0,0,1,54,60.78a18.18,18.18,0,0,1,3-4.12c1.22-1.28,2.92-2.88,5.12-4.79q4.2-3.73,5.25-5.85a9.64,9.64,0,0,0,1-4.31,10.62,10.62,0,0,0-3.55-7.9,12.08,12.08,0,0,0-8.66-3.41q-10.37,0-12.51,12.68Z"></path>
-        <rect class="b" x="51.63" y="82.16" width="8.78" height="8.78"></rect>
-        <circle class="c" cx="56" cy="56" r="52.5"></circle>
-        </g>
-      </svg>
-    </a>
+    <div class="home-header-help">
+      <a class="nhs-app-header__icon nhs-app-header__icon--right nhsuk-u-margin-right-3 footer-labels__link" href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/help/">
+        <img src="/images/Help.svg" alt="">
+        <div class="footer-labels footer-labels--help-start ">Help</div>
+      </a>
+    </div>
 
     <div class="nhso_logo">
       <svg style="height: 3em" viewBox="0 0 112 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -86,8 +56,6 @@
 
 
   <p style="text-align: center;">Version 1.38.3 (1.38.0)</p>
-
-
 
 	</section>
 {% endblock %}
