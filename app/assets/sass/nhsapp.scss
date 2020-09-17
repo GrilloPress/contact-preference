@@ -1912,10 +1912,11 @@ section.home-main {
     }
 
   section.home-main-blue {
+    position:absolute;
     background: radial-gradient(#0072DF 0%, #0053A3 100%);
     box-sizing: border-box;
-    height: 667px;
-    min-width:100%;
+    height: 100%;
+    width:100%;
     padding: 1em;
     box-shadow: inset 0em -0.375em 0.5em rgba(0, 0, 0, 0.15);
     align-items: right;
@@ -1926,9 +1927,11 @@ section.home-main {
     }
 
     section.home-main-blue .home-header-help{
-      margin: 0px 0px 0px 300px;
-      width:40px;
-        }
+      position: absolute;
+      top: 11px;
+      right: 16px;
+      }
+
     section.home-main-blue .home-header-help p a {
       color:white;
       margin:0px 15px 0 0;
