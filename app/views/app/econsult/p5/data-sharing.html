@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Ask your GP for advice" %}
+{% set contentTitle = "This service is provided by eConsult Health Ltd" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
@@ -44,39 +44,52 @@
 
 {% endif %}
   </div>
-</nav>{% include "../../_parts/silver-banner.html" %}
+</nav>{% include "../_parts/silver-banner.html" %}
+
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+
+
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Ask your GP for advice</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Do you have a family history of illness? For example: heart disease, cancer</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <form action="/app/econsult/adult/eczema/39_" method="post">
+            <p>This service is provided by an online consultation service provider on behalf of your GP surgery. <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/online-consultations/">Find out more about online consultation services</a>.</p>
+            <p>To save you typing in personal information the service needs, you can use the personal information we already hold as described in the <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">NHS App privacy policy.</a></p>
 
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultEczemaFamilyHistory",
-          "fieldset": {
-            "legend": {
-              "isPageHeading": false,
-              "classes": ""
-            }
-          },
-          "items": [
-            {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No",
-              "text": "No"
-            }
-          ]
-        }) }}
-        <input type="submit" class="nhsuk-button" value="Continue"></input>
-      </form>
+
+
+            <form action="/app/econsult/hub/v1" method="get">
+
+
+
+              {{ checkboxes({
+                "name": "econsultAgreePrivacyPolicy",
+                "hint": {
+                  "text": "(optional)"
+                },
+                "items": [
+                  {
+                    "value": "true",
+                    "html": '
+                     Use my name, date of birth and postal address with the online consultation service as described in the NHS App privacy policy</span>
+                  '
+                  }
+                ]
+              }) }}
+
+              {{ button({
+                "text": "Continue"
+              }) }}
+
+
+            </form>
+
+
+
+
 
     </div>
   </div>

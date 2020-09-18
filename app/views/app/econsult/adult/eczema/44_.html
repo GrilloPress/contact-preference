@@ -27,7 +27,7 @@ Doyle
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-mobile--hide" aria-label="Breadcrumb">
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
@@ -35,7 +35,8 @@ Doyle
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v8-econsult/pre-hub" }}'>Appointments</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/appointments/v8-econsult/GP-hub">Your GP appointments</a></li>
     </ol>
-    
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+
 {% else %}
 {% if data['experiment'] === 'True' %}
 {% if data['advice'] === 'True' %}
@@ -45,6 +46,7 @@ Doyle
 {% endif %}
 {% endif %}
 </ol>
+<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
 
 {% endif %}
   </div>
