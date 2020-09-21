@@ -16,12 +16,13 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-mobile--hide" aria-label="Breadcrumb">
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
     </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
 
@@ -35,13 +36,13 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">{{ contentTitle }}</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">We're about to ask you a few questions about your request.</h1>
 
-      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
-
-      <p>We're about to ask you a few questions about your request.</p>
-      <p>We will send your answers to your GP surgery unless you need urgent medical help. In those cases, our service will tell you to use other health services.</p>
+      <p>Your answers will be sent securely to your GP surgery unless urgent medical attention is needed. For such cases, the online consultation service will direct you to other health services.</p>
       <div class="nhsuk-u-padding-bottom-4"></div>
       <p>To start, please agree to the privacy notice applicable to online consultation services.</p>
+
 
     <form action="/{{ PROTOTYPEURL }}/admin/v1/3" method="get">
       {{ checkboxes({

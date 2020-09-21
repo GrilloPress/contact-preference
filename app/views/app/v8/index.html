@@ -106,12 +106,20 @@
 
 
 
-
+          <div class="nhs-app-panel-heading">
+            <h2 class="nhsuk-heading-m">Popular services</h2>
+          </div>
 
         <ul class="list-menu nhsuk-u-padding-bottom-4">
+
+
+
           <li>
-            <a class="desktop" href='{{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v1/" }}'>View your GP health record</a>
+            <a class="desktop" href="/app/records/v1/">View your GP health record</a>
           </li>
+
+
+
 
                 {% if data['pickPharmacy'] %}
 
@@ -137,24 +145,7 @@
                   <a class="desktop" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v6/appointment-interruption" }}'>Book an appointment</a>
                 </li>
 
-                {% if data["nominatedConfirmed"] %}
 
-
-
-
-                <li>
-                  <a class="desktop" href="/app/nominated-pharmacy/v4/change-2">Change your nominated pharmacy</a>
-                </li>
-
-
-                {% else %}
-
-
-                <li>
-                  <a class="desktop" href="/app/nominated-pharmacy/v4/card-nom-pharmacy-2">Nominate a pharmacy</a>
-                </li>
-
-              {% endif %}
 
 
 
@@ -166,12 +157,6 @@
             </ul>
 
 
-
-
-      <form action="/app/v8/clear" method="post">
-        <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Log out">
-        </input>
-      </form>
     </div>
   </div>
 

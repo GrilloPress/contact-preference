@@ -16,12 +16,13 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-mobile--hide" aria-label="Breadcrumb">
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
     </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
 
@@ -36,45 +37,23 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
-
-      <p>Please confirm that you're submitting this request for yourself.</p>
-      <p>If you need help for your child or someone you care for, contact the practice for advice.</p>
-      <div class="nhsuk-u-padding-bottom-4"></div>
-
-    <form action="/{{ PROTOTYPEURL }}/admin/v1/confirm-not-advice" method="get">
-      {{ checkboxes({
-        "idPrefix": "eConsult",
-        "name": "eConsultAdminRequest",
-        "fieldset": {
-          "legend": {
-            "classes": "nhsuk-fieldset__legend--xl",
-            "isPageHeading": true
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">{{ contentTitle }}</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Please tell us why you need a sick note (fit note)</h1>
+      <form action="/{{ PROTOTYPEURL }}/admin/v1/16" method="get">
+        {{ textarea({
+          "name": "eConsult",
+          "id": "eConsultAdminWhy",
+          "label": {
+            "text": ""
           }
-        },
-        "items": [
-          {
-            "value": "Opt In",
-            "text": "I confirm I'm submitting this request for myself (not my child)"
-          }
-        ]
-      }) }}
+        }) }}
 
-      <div class="nhsuk-u-padding-bottom-4"></div>
 
-      <input type="submit" class="nhsuk-button" value="Continue">
-      </input>
-    </form>
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
 
-    <div class="nhsuk-u-padding-bottom-2"></div>
+      </form>
 
-    <form action="/{{ PROTOTYPEURL }}/v6/index" method="get">
-
-      {{ button({
-        "text": "End my consultation",
-        "classes": "nhsuk-button--secondary"
-      }) }}
-    </form>
 
     </div>
   </div>

@@ -16,12 +16,13 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-mobile--hide" aria-label="Breadcrumb">
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
     </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
 
@@ -36,17 +37,16 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">{{ contentTitle }}</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Please confirm that you're submitting this request for yourself.</h1>
 
-      <p>We're about to ask you a few questions about your request.</p>
-      <p>We will send your answers to your GP surgery unless you need urgent medical help. In those cases, our service will tell you to use other health services.</p>
+      <p>You can only submit this request for yourself. If you need help for your child or someone you care for, <a href="javascript:void(0)">visit the practice homepage</a> to find out how to book an appointment instead.</p>
       <div class="nhsuk-u-padding-bottom-4"></div>
-      <p>To start, please agree to the privacy notice applicable to online consultation services.</p>
 
-    <form action="/{{ PROTOTYPEURL }}/admin/v1/3" method="get">
+    <form action="/{{ PROTOTYPEURL }}/admin/v1/4" method="get">
       {{ checkboxes({
         "idPrefix": "eConsult",
-        "name": "eConsultAdminPrivacyNotice",
+        "name": "eConsultAdminRequest",
         "fieldset": {
           "legend": {
             "classes": "nhsuk-fieldset__legend--xl",
@@ -56,7 +56,7 @@
         "items": [
           {
             "value": "Opt In",
-            "html": "I have read the <a href=\"https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/online-consultations/\">GP online consultation services privacy notice.</a> I understand the online consultation service provider will process my personal and health data on behalf of my GP surgery to provide an online consultation."
+            "text": "I confirm I'm submitting this request for myself, not someone else (like my child)"
           }
         ]
       }) }}

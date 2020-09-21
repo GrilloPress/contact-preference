@@ -1,0 +1,66 @@
+{% set PROTOTYPEURL = "app/econsult" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Additional GP services" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+
+<div class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-third-party-container nhs-app-third-party-container--grey nhsuk-body-s nhsuk-u-margin-bottom-0">
+  <div class="nhsuk-width-container">
+    <strong>This service is provided by your GP surgery</strong>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">{{ contentTitle }}</p>
+      <h1>Thank you, Bernard. Your request for admininistrative help has been securely sent to your GPs at Gledhow Practice.</h1>
+
+      <section id="what-happens-next">
+      <h2>What happens next?</h2>
+      <ul>
+        <li>One of your GPs will now review your request.</li>
+        <li>Your practice will respond to you by phone or email <strong>before 6:30 PM on 13 May 2020</strong>.</li>
+      </ul>
+      <p><strong>Here are two important tips for ensuring you receive a response:</strong></p>
+      <ul>
+        <li>A call from your practice may sometimes appear on your phone as "Blocked", "No caller ID or "Private number"</li>
+        <li>Check your junk email folder</li>
+      </ul>
+    </section>
+
+    <section id="no-response">
+      <h2>What if I don't get a call or email?</h2>
+      <p>In most cases you won't need to contact the practice <strong>before 6:30 PM on 13 May 2020</strong>.</p>
+      <p>But if they're unable to reach you by then, please let them know by using the link in your confirmation email or by calling the practice on 02079460999.</p>
+    </section>
+
+    <a href="/app/v5/index">Back to home</a>
+
+    </div>
+  </div>
+{% endblock %}
