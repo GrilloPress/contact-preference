@@ -32,7 +32,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">{{ contentTitle }}</p>
 
       {{ careCard({
         "type": "non-urgent",
@@ -41,9 +41,9 @@
         <p>If you're having to stay at home because of coronavirus, you can get a note from 111 to show your employer.</p>
         "
       }) }}
-      
 
-    <form action="/app/v5/index" method="get">
+
+    <form action="/{{ PROTOTYPEURL }}/admin/v2/end/end-consultation" method="get">
       {{ checkboxes({
         "idPrefix": "eConsult",
         "name": "eConsultAdminIsolationNote",
@@ -64,7 +64,7 @@
       <input type="submit" class="nhsuk-button" value="Continue">
       </input>
 </form>
-     
+
 
     </div>
   </div>

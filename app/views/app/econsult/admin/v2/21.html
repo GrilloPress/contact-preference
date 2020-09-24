@@ -1,5 +1,10 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% endif %}
 {% set contentTitle = "Additional GP services" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -40,7 +45,7 @@
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">{{ contentTitle }}</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">Your 10 digit NHS number</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/admin/v1/22" method="get">
+      <form action="/{{ PROTOTYPEURL }}/admin/v2/22" method="get">
         <div class="nhsuk-form-group">
 
           <span class="nhsuk-hint" id="example-hint">

@@ -1,5 +1,10 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% endif %}
 {% set contentTitle = "Additional GP services" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -55,7 +60,7 @@
 
       <div class="nhsuk-u-padding-bottom-4"></div>
 
-    <form action="/{{ PROTOTYPEURL }}/admin/v1/4" method="get">
+    <form action="/{{ PROTOTYPEURL }}/admin/v2/6" method="get">
       {{ checkboxes({
         "idPrefix": "eConsult",
         "name": "eConsultAdminRequest",
@@ -79,15 +84,7 @@
       </input>
     </form>
 
-    <div class="nhsuk-u-padding-bottom-2"></div>
 
-    <form action="/{{ PROTOTYPEURL }}/v6/index" method="get">
-
-      {{ button({
-        "text": "End my consultation",
-        "classes": "nhsuk-button--secondary"
-      }) }}
-    </form>
 
     </div>
   </div>

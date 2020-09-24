@@ -51,35 +51,18 @@
     </div>
 
     <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-2">{{ contentTitle }}</h1>
-    {{ summaryList({
-      classes: 'nhsuk-summary-list--no-border nhs-app-summary-list-inline',
-      rows: [
-        {
-          key: {
-            text: "Name:"
-          },
-          value: {
-            text: "Mr Bernard Doyle"
-          }
-        },
-        {
-          key: {
-            text: "Date of birth:"
-          },
-          value: {
-            text: "20 January 1982"
-          }
-        },
-        {
-          key: {
-            text: "NHS number:"
-          },
-          value: {
-            text: "123 456 7890"
-          }
-        }
-      ]
-    }) }}
+    <h2>Welcome, Betty Doyle </h2>
+    <div class="">
+      <p class="nhsuk-u-margin-bottom-0">
+        <strong>Date of birth:</strong>
+        20 January 1982
+      </p>
+      <p class="nhsuk-u-margin-bottom-4">
+        <strong>NHS number:</strong>
+        123 456 7890
+      </p>
+    </div>
+
 
       {% if data["confirmed"] %}
 
@@ -110,7 +93,7 @@
       <ul class="list-menu nhs-app-message">
 
         <li>
-          <a href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/" }}'>Check your symptoms</a>
+          <a href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/" }}'>Get health advice</a>
         </li>
 
         <li>

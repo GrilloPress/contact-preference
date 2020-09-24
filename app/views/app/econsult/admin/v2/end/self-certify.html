@@ -25,6 +25,7 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
+
 {% endblock %}
 
 {% block content %}
@@ -34,30 +35,15 @@
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">{{ contentTitle }}</p>
 
       {{ careCard({
-        "type": "immediate",
-        "headingLevel": 2,
-        "heading": "You need medical help for the child now. Call 999 or go to your local A&E.",
-        "HTML": "
-        <p>If you decide to seek medical advice, <strong>your GP will not be notified and your practice will not contact you about this consultation</strong>.</p>
-        "
+        "type": "non-urgent",
+        "heading": "You've chosen to end your consultation. Your practice hasn't been notified and won't contact you about your request. ",
+        "HTML": '
+        <p>To self-certify your illness, complete the statement of sickness form on the HMRC website. Give it to your employer as proof of illness and to claim your Statutory Sick Pay (SSP).</p>
+        <p class="nhsuk-body-l"><a href="https://www.gov.uk/government/publications/statutory-sick-pay-employees-statement-of-sickness-sc2">Take me to the HMRC website to self-certify my illness</a></p>
+        '
       }) }}
 
-      <form action="/{{ PROTOTYPEURL }}/child/v2/end/end-of-consultation-emergency" method="post">
-        {{ checkboxes({
-          "name": "econsultGetEmergHelpRash",
-          "items": [
-            {
-              "value": "true",
-              "text": "End my consultation, I will seek medical advice myself instead"
-            }
-          ]
-        }) }}
-
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
-
-      </form>
-
+      <p><a href="{{routeHome}}">Back to home</a></p>
 
 
 

@@ -1,12 +1,12 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Ask your GP for advice for your child" %}
+{% set contentTitle = "Ask your GP for advice" %}
+{% set title = contentTitle + " - " + serviceName %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
 {% elif data['advice'] == 'True' %}
 {% set symptomsActive = "active" %}
 {% endif %}
-{% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
 
@@ -19,8 +19,9 @@
   {{ title }}
 {% endblock %}
 
+<!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-mobile--hide" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
@@ -28,7 +29,6 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v8-econsult/pre-hub" }}'>Appointments</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/appointments/v8-econsult/GP-hub">Your GP appointments</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
 
 {% else %}
 {% if data['experiment'] === 'True' %}
@@ -39,59 +39,24 @@
 {% endif %}
 {% endif %}
 </ol>
-<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
 
 {% endif %}
   </div>
-</nav>
-<div class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-third-party-container nhs-app-third-party-container--grey nhsuk-body-s nhsuk-u-margin-bottom-0">
-  <div class="nhsuk-width-container">
-    <strong>This service is provided by your GP surgery</strong>
-  </div>
-</div>
+</nav>{% include "../../_parts/silver-banner.html" %}
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Ask your GP for advice for your child</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Is your child taking any other drugs?</h1>
 
-      <form action="" method="post">
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultOtherDrugs",
-          "fieldset": {
-            "legend": {
-              "isPageHeading": false,
-              "classes": ""
-            }
-          },
-          "hint": {
-            "html": "For example: over-the-counter medication from the pharmacist"
-          },
-          "items": [
-            {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No",
-              "text": "No"
-            }
-          ]
-        }) }}
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Ask your GP for advice</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">You need to be 18 or older to use this service</h1>
+      <p>Contact your GP surgery directly for advice.</p>
 
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
+      <p class="nhsuk-u-margin-bottom-0">Gledhow Medical Practice</p>
+      <p>01234 567 890</p>
 
-      </form>
-
-
-
-
-
-
+      <p>For urgent medical advice, go to <a href="https://111.nhs.uk/">111.nhs.uk</a> or call 111.</p>
 
 
 

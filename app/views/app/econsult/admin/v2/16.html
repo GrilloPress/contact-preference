@@ -1,5 +1,10 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% endif %}
 {% set contentTitle = "Additional GP services" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -39,7 +44,7 @@
 
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">{{ contentTitle }}</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">Do you know how many units of alcohol you drink each week? (1 pint of beer is approximately two units and one small glass of wine is 1 unit)</h1>
-      <form action="/{{ PROTOTYPEURL }}/admin/v1/17" method="get">
+      <form action="/{{ PROTOTYPEURL }}/admin/v2/17" method="get">
         {{ radios({
           "idPrefix": "eConsult",
           "name": "eConsultAdminAlcohol",

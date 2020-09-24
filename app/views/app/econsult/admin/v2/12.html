@@ -1,5 +1,10 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% endif %}
 {% set contentTitle = "Additional GP services" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -39,7 +44,7 @@
 
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">{{ contentTitle }}</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">Please tell us the start date required for this sick note.</h1>
-      <form action="/{{ PROTOTYPEURL }}/admin/v1/13" method="get">
+      <form action="/{{ PROTOTYPEURL }}/admin/v2/13" method="get">
 
         {{ dateInput({
           "id": "econsult",

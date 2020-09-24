@@ -1577,7 +1577,7 @@ router.post('/app/econsult/adult/eczema/39_', function (req, res) {
     res.redirect('/app/econsult/adult/eczema/39_a')
 
   } else {
-    res.redirect('/app/econsult/adult/eczema/34_')
+    res.redirect('/app/econsult/adult/eczema/40_')
 
   }
 });
@@ -1667,6 +1667,81 @@ router.post('/app/econsult/admin/v1/11', function (req, res) {
 
   } else {
     res.redirect('/app/econsult/admin/v1/12')
+  }
+});
+
+
+// admin v2
+
+router.post('/app/econsult/admin/v2/4', function (req, res) {
+  let answer = req.session.data.eConsultAdminNotEmergency;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/econsult/admin/v2/5')
+
+  } else {
+    res.redirect('/app/econsult/admin/v2/end/emergency')
+  }
+});
+
+router.post('/app/econsult/admin/v2/5', function (req, res) {
+  let answer = req.session.data.eConsultAdminCorona;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/econsult/admin/v2/end/covid')
+
+  } else {
+    res.redirect('/app/econsult/admin/v2/6')
+  }
+});
+
+router.post('/app/econsult/admin/v2/8', function (req, res) {
+  let answer = req.session.data.eConsultAdminService;
+
+  if (answer === 'Sick note') {
+
+    res.redirect('/app/econsult/admin/v2/9')
+
+  } else {
+    res.redirect('/app/econsult/admin/v2/8')
+  }
+});
+
+router.post('/app/econsult/admin/v2/9', function (req, res) {
+  let answer = req.session.data.eConsultAdminCoronaNote;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/admin/v2/end/isolation-note-needed')
+
+  } else {
+    res.redirect('/app/econsult/admin/v2/10')
+  }
+});
+
+router.post('/app/econsult/admin/v2/10', function (req, res) {
+  let answer = req.session.data.eConsultAdminNewNote;
+
+  if (answer === 'New request') {
+
+    res.redirect('/app/econsult/admin/v2/11')
+
+  } else {
+    res.redirect('/app/econsult/admin/v2/12')
+  }
+});
+
+router.post('/app/econsult/admin/v2/11', function (req, res) {
+  let answer = req.session.data.eConsultAdminLengthOfNote;
+
+  if (answer === '7 days or less') {
+
+    res.redirect('/app/econsult/admin/v2/end/note-denied')
+
+  } else {
+    res.redirect('/app/econsult/admin/v2/12')
   }
 });
 

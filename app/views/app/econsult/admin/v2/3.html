@@ -1,5 +1,10 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% endif %}
 {% set contentTitle = "Additional GP services" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -16,13 +21,12 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-mobile--hide" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
 
@@ -43,7 +47,7 @@
       <p>You can only submit this request for yourself. If you need help for your child or someone you care for, <a href="javascript:void(0)">visit the practice homepage</a> to find out how to book an appointment instead.</p>
       <div class="nhsuk-u-padding-bottom-4"></div>
 
-    <form action="/{{ PROTOTYPEURL }}/admin/v1/4" method="get">
+    <form action="/{{ PROTOTYPEURL }}/admin/v2/confirm-not-advice" method="get">
       {{ checkboxes({
         "idPrefix": "eConsult",
         "name": "eConsultAdminRequest",

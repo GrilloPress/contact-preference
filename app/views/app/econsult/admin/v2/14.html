@@ -1,5 +1,10 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% endif %}
 {% set contentTitle = "Additional GP services" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -40,7 +45,7 @@
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">{{ contentTitle }}</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">Have you recently been discharged from hospital or had a recent hospital procedure resulting in you not being able to work?</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/admin/v1/15" method="get">
+      <form action="/{{ PROTOTYPEURL }}/admin/v2/15" method="get">
         {{ radios({
           "idPrefix": "eConsult",
           "name": "eConsultAdminHospital",

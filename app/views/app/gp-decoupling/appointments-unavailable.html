@@ -58,36 +58,26 @@
             <p>Find out what to do if you think you have coronavirus</p>
           </a>
         </li>
-        <li>
-          <a href="/app/symptoms/v4/index">
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Send your GP surgery a message</h2>
-            <p>Ask your doctor or GP surgery a non-urgent question</p>
-          </a>
-        </li>
+
 
         {% if data['SJR_eConsult'] === "True" %}
+
         <li>
-      		<a href="/app/econsult/admin/v1/1">
-      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Additional GP services</h2>
-      			<p>Get sick notes and GP letters or ask about recent tests</p>
-      		</a>
-      	</li>
-        <li>
-         <a href="/app/econsult/adult/terms/start">
+         <a href="/app/econsult/adult/terms/start-v2">
            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Ask your GP for advice</h2>
            <p>Answer questions online and get a response from your GP surgery</p>
          </a>
        </li>
+        <li>
+      		<a href="/app/econsult/admin/v2/1">
+      			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Additional GP services</h2>
+      			<p>Get sick notes and GP letters or ask about recent tests</p>
+      		</a>
+      	</li>
+
        {% endif %}
 
        {% if data['SJR_Engage'] === "True" %}
-
-       <li>
-         <a href="/app/engage/admin/v3/terms">
-           <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Additional GP services</h2>
-           <p>Get sick notes and GP letters or ask about recent tests</p>
-         </a>
-       </li>
 
        <li>
          <a href="/app/engage/terms/v2/index" id="btn_111">
@@ -95,6 +85,14 @@
            <p>Answer questions online and get a response from your GP surgery</p>
          </a>
        </li>
+       <li>
+         <a href="/app/engage/admin/v3/terms">
+           <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Additional GP services</h2>
+           <p>Get sick notes and GP letters or ask your GP surgery about something else</p>
+         </a>
+       </li>
+
+
 
        {% endif %}
 

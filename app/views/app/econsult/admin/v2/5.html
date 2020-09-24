@@ -1,5 +1,10 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% endif %}
 {% set contentTitle = "Additional GP services" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -39,11 +44,13 @@
 
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">{{ contentTitle }}</p>
 
-      <div class="nhsuk-warning-callout">
-        <h3 class="nhsuk-warning-callout__label">Is your query specifically about a new, continuous cough or high temperature?</h3>
-        <p>Answering this question will help us limit the spread of coronavirus (COVID-19).</p>
-        <p>A high temperature means you feel hot to the touch on your chest or back. A new continuous cough means you've started coughing repeatedly.</p>
-      </div>
+      {{ warningCallout({
+        "heading": "Is your query specifically about a new, continuous cough, high temperature or a loss or change to your sense of smell or taste?",
+        "HTML": "
+        <p>Answering this question will help us limit the
+        spread of coronavirus (COVID-19). </p><p>A high temperature means you feel hot to the touch on your chest or back. A new continuous cough means you've started coughing repeatedly. A loss or change to your sense of smell or taste means you've noticed you cannot smell or taste anything, or things smell or taste different to normal.</p>
+          "
+      }) }}
 
     <form action="" method="post">
       {{ radios({
