@@ -418,22 +418,3 @@ li ul {
  *
  * 1. Prevent inline modifier being used with conditional reveals
  */
-
-.nhsuk-radios--inline_mobile {
-  @include mq ($from: mobile) {
-    @include clearfix;
-
-    .nhsuk-radios__item {
-      clear: none;
-      float: left;
-      margin-right: nhsuk-spacing(4);
-    }
-  }
-
-  &.nhsuk-radios--conditional { /* 1 */
-    .nhsuk-radios__item {
-      float: none;
-      margin-right: 0;
-    }
-  }
-}
