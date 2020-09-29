@@ -41,6 +41,56 @@
 
 
 
+            {% if data['messageRead1'] == "unread" %}
+
+            <li class="nhs-app-message__item nhs-app-message__item--unread">
+              <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread#unread3">
+                <h2 class="nhsuk-heading-xs">
+                  <span class="nhsuk-u-visually-hidden">Conversation with:</span>
+                  NHS App
+                  <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+                  <span class="nhs-app-message__date nhs-app-message__date--unread">18/08/2020</span>
+                </h2>
+                <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold">
+                  <span class="nhsuk-u-visually-hidden">Subject: </span>
+                  Plasma
+                <span class="nhs-app-message__meta panel-link_thin">
+                  <span class="nhsuk-u-visually-hidden">You have </span>
+                  <span class="nhs-app-message__count">1</span>
+                  <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                    unread messages from NHS App
+                  </span>
+                </span>
+              </p>
+              </a>
+            </li>
+
+            {% endif %}
+
+            {% if data['messageRead1'] == "read" %}
+
+
+                    <li class="nhs-app-message__item nhs-app-message__item--read">
+                      <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread">
+                        <h2 class="nhsuk-heading-xs">
+                          <span class="nhsuk-u-visually-hidden">Conversation with:</span>
+                          NHS App
+                          <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+                          <span class="nhs-app-message__date nhs-app-message__date--read">18/08/2020</span>
+                        </h2>
+                        <p class="nhs-app-message__subject-line nhs-app-message__subject-line">
+                          <span class="nhsuk-u-visually-hidden">Subject: </span>
+                           Plasma
+                      </p>
+                      </a>
+                    </li>
+
+
+                    {% endif %}
+
+
+
+
         {% if data['pNotification'] == 'True' %}
 
 
