@@ -98,16 +98,20 @@
         <li>
           <a href="messages">
             <h2 class="nhsuk-heading-s">Health information and updates</h2>
-            {% if (data['messageRead2'] == "unread") or (data['messageRead3'] == "unread") %}
-            <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold">
+            {% if (data['messageRead1'] == "unread") %}
                 <span class="nhs-app-message__meta panel-link">
                   <span class="nhsuk-u-visually-hidden">You have </span>
-                  <span class="nhs-app-message__count"></span>
                   <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
                     unread messages from NHS App
                   </span>
                 </span>
-                </p>
+                <div class="unread-message-dot-text">
+
+                <span class="nhs-app-message__count-red"></span>
+
+                <b class="unread-message-hint">Unread message</b>
+                </div>
+
             {% endif %}
             <p>View messages from health services and the NHS App</p>
           </a>
