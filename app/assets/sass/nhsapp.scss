@@ -2187,6 +2187,23 @@ a.app-lozenge-center svg {
 
 }
 
+.nhs-app-header__icon--unread-red::after {
+
+  content: '';
+    height: 10px;
+    width: 10px;
+    background: #DA291C;
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    transform: translateX(70%);
+    @include mq($from: desktop) {
+      right: 0;
+    }
+
+
+}
+
 .nhs-app-header__icon--right {
 
   float: right;
