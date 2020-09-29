@@ -73,7 +73,7 @@
     <div class="symptom_banner">
       <h2>How are you feeling today?</h2>
       <button class="button white" id="btn_home_symptoms">
-        Check symptoms
+        Get health advice
       </button>
     </div>
     </header>
@@ -85,21 +85,14 @@
 
   <h2>To access your NHS services</h2>
 
-  {% if data['pNotification'] == 'True' %}
 
-  <form
-    action="/app/login/enter-email?experiment=True&SJR_PKB=True&cookies=on&routeHome=/app/v8/index&routeSymptoms=/app/symptoms/v4/index&routeAppointments=/app/appointments/flu-2020/index&routeMore=/app/more/experimental/index-2&routeMessaging=/app/messaging/v3/index&routePrescriptions=/app/prescriptions/v7/your-prescriptions-11&linkedProfiles=False&organDonationShow=False&routeRecords=/app/records/v3/pre-hub&SJR_Engage=&SJR_DoctorLink=&SJR_eConsult=True&econsultHub=index&experimentalHeader=True&experimentalFooter=True&experimentalHeaderDesktop=True&type=fingerprint&messageRead1=read&messageRead2=read&messageRead3=unread" method="post">
+
+
+  <form action="/app/login/enter-email?experiment=True&SJR_PKB=True&cookies=on&routeHome=/app/v8/index&routeSymptoms=/app/symptoms/v4/index&routeAppointments=/app/appointments/v7-engage/pre-hub&routeMore=/app/more/experimental/index-2&routeMessaging=/app/messaging/v3/index&routePrescriptions=/app/prescriptions/v7/your-prescriptions-11&linkedProfiles=False&organDonationShow=False&routeRecords=/app/records/v3/pre-hub&SJR_Engage=True&SJR_DoctorLink=&SJR_eConsult=&experimentalHeader=True&experimentalFooter=True&experimentalHeaderDesktop=True&type=fingerprint&messageRead1=read&messageRead2=read&cardSeen=False" method="post">
     <input class="nhsuk-button nhslogin-button nhs-app-u-button-full" type="submit" value="Continue with NHS login">
   </form>
 
-  {% else %}
-
-
-  <form action="/app/login/enter-email?experiment=True&SJR_PKB=True&cookies=on&routeHome=/app/v8/index&routeSymptoms=/app/symptoms/v4/index&routeAppointments=/app/appointments/v8-econsult/pre-hub&routeMore=/app/more/experimental/index-2&routeMessaging=/app/messaging/v3/index&routePrescriptions=/app/prescriptions/v7/your-prescriptions-11&linkedProfiles=False&organDonationShow=False&routeRecords=/app/records/v3/pre-hub&SJR_Engage=&SJR_DoctorLink=&SJR_eConsult=True&econsultHub=index&experimentalHeader=True&experimentalFooter=True&experimentalHeaderDesktop=True&type=fingerprint&messageRead1=read&messageRead2=read&cardSeen=False" method="post">
-    <input class="nhsuk-button nhslogin-button nhs-app-u-button-full" type="submit" value="Continue with NHS login">
-  </form>
-
-  {% endif %}
+  <p style="text-align: center;">Version 1.38.3 (1.38.0)</p>
 
 
 	</section>

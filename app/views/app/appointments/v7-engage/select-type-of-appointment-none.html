@@ -1,0 +1,127 @@
+{% set PROTOTYPEURL = "app/appointments/v7-engage" %}
+{% set serviceName = "NHS App" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "What type of appointment would you like?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Appointments</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="index">Your appointments</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1>Appointments</h1>
+      <div class="nhsuk-warning-callout">
+        <h3 class="nhsuk-warning-callout__label">No appointments available</h3>
+        <p>There are currently no appointments available.</p>
+        <p>If it's urgent and you do not know what to do, call 111 to get help near you.</p>
+      </div>
+
+      <h2>Other things you can do</h2>
+
+      <ul class="list-menu">
+        <li>
+          <a href="https://111.nhs.uk/" id="btn_111" target="_blank">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Use NHS 111 online</h2>
+            <p>Check if you need urgent help and find out what to do next</p>
+          </a>
+        </li>
+        <li>
+          <a href="/app/engage/terms/v1/index" id="btn_111">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Ask your GP for advice</h2>
+            <p>Answer questions online and get a response from your GP surgery</p>
+          </a>
+        </li>
+        <li>
+          <a href="/app/engage/admin/v1/terms/">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Additional GP services</h2>
+            <p>Get sick notes and GP letters or ask about recent tests</p>
+          </a>
+        </li>
+      </ul>
+
+
+    </div>
+    <div class="nhsuk-grid-column-two-thirds" style="display:none">
+
+      <form action="/{{ PROTOTYPEURL}}/select-available-appointment" method="post">
+        {{ checkboxes({
+          "idPrefix": "appointmentType",
+          "name": "appointmentType",
+          "fieldset": {
+            "legend": {
+              "text": contentTitle,
+              "classes": "nhsuk-fieldset__legend--l",
+              "isPageHeading": true
+            }
+          },
+          "hint": {
+          "text": "Select all that apply"
+        },
+        "items": [
+          {
+            "value": "Slot",
+            "text": "Slot",
+            "checked": checked("appointmentType", "Slot")
+          },
+          {
+            "value": "21 Day On Line Appointment",
+            "text": "21 Day On Line Appointment",
+            "checked": checked("appointmentType", "21 Day On Line Appointment")
+          },
+          {
+            "value": "Blood tests only",
+            "text": "Blood tests only",
+            "checked": checked("appointmentType", "Blood tests only")
+          },
+          {
+            "value": "Smear",
+            "text": "Smear",
+            "checked": checked("appointmentType", "Smear")
+          },
+          {
+            "value": "Telephone",
+            "text": "Telephone",
+            "checked": checked("appointmentType", "Telephone")
+          }
+        ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
+
+
+      {{ details({
+        "text": "Information about booking appointments",
+        "HTML": "
+        <p>PLEASE NOTE IF YOU ARE BOOKING A TELEPHONE CONSULTATION IT COULD HAPPEN AT ANY TIME OF THE MORNING OR AFTERNOON-IT WON'T NECESSARILY BE AT THE TIME OF THE APPOINTMENT.</p>
+        <p>Please ensure you cancel your appointment if you are unable to attend.</p>
+        "
+      }) }}
+
+
+    </div>
+  </div>
+{% endblock %}

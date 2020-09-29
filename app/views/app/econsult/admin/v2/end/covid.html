@@ -1,0 +1,70 @@
+{% set PROTOTYPEURL = "app/econsult" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Additional GP services" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">{{ contentTitle }}</p>
+
+      {{ careCard({
+        "type": "immediate",
+        "heading": "You need to stay at home. Do not go to a GP surgery, pharmacy or hospital",
+        "headingLevel": 2,
+        "HTML": '
+
+        <ul>
+          <li>If you have symptoms of coronavirus, you\'ll need to stay at home for 7 days</li>
+          <li>If you live with someone who has symptoms, you\'ll need to stay at home for 14 days from the day the first person in the home started having symptoms</li>
+          <li>If you life with someone who is 70 or over, has a long-term condition, is pregnant or has a weakened immune system, try to find somewhere else for them to stay for 14 days.</li>
+          <li>If you have to stay at home together, try to keep away from each other as much as possible.</li>
+        </ul>
+
+        <p>If you have been told to self-isolate because of coronavirus and you need a note for your employer, you can <a href="#">get an isolation note from NHS 111</a></p>
+
+        <p>Find out more from <a href="#">GOV.UK guide to staying at home</a>.</p>
+
+        <p><strong>Use the NHS 111 online coronavirus service if:</strong></p>
+
+        <ul>
+          <li>you feel you cannot cope with your symptoms at home</li>
+          <li>your condition gets worse</li>
+          <li>your symptoms do not get better after 7 days</li>
+        </ul>
+
+        <a href="#">Use the 111 coronavirus service</a>
+        <p>Only call 111 if you cannot get help online.</p>
+
+        '
+      }) }}
+
+
+    </div>
+  </div>
+{% endblock %}

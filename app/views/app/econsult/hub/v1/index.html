@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Choose who you want to get advice for" %}
+{% set contentTitle = "Who needs advice?" %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
 {% elif data['advice'] == 'True' %}
@@ -61,7 +61,7 @@
 
       <ul class="list-menu">
         <li>
-      		<a href="/{{ PROTOTYPEURL }}/adult/1_choose-condition">
+      		<a href="/{{ PROTOTYPEURL }}/adult/3_privacy">
       			<h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Get advice for yourself</h2>
       		</a>
       	</li>

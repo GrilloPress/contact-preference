@@ -1,0 +1,72 @@
+{% set PROTOTYPEURL = "app/econsult" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Additional GP services" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">{{ contentTitle }}</p>
+
+      {{ careCard({
+        "type": "non-urgent",
+        "heading": "If you expect to be ill for seven days or less, your GP won't give you a free sick note. But you can still self-certify your illness.",
+        "HTML": "
+        <p>You can self-certify your illness by completing the statement of sickness form on the HMRC website.</p>
+        <p>If you decide to end your consultation, your GP will not be notified and your practice will not contact you about this request.</p>
+        "
+      }) }}
+
+
+    <form action="/{{ PROTOTYPEURL }}/admin/v2/end/self-certify" method="get">
+      {{ checkboxes({
+        "idPrefix": "eConsult",
+        "name": "eConsultAdminNoteDenied",
+        "fieldset": {
+          "legend": {
+            "classes": "nhsuk-fieldset__legend--xl",
+            "isPageHeading": true
+          }
+        },
+        "items": [
+          {
+            "value": "End",
+            "html": "End my consultation and tell me how I can self-certify my illness"
+          }
+        ]
+      }) }}
+
+      <input type="submit" class="nhsuk-button" value="Continue">
+      </input>
+</form>
+
+
+    </div>
+  </div>
+{% endblock %}

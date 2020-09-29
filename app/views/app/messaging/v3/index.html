@@ -61,12 +61,29 @@
 
         {% if data['SJR_Engage'] === "True" %}
         <li>
-          <a href="/app/engage/messaging/v2/engage-inbox">
+          <a href="/app/engage/messaging/v2/terms-messages">
             <h2 class="nhsuk-heading-s">Online consultations</h2>
             <p>View your online consultations and any responses from your GP surgery</p>
           </a>
         </li>
+
+        <li>
+          <a href="/app/engage/admin/v3/terms/">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Additional GP services</h2>
+            <p>Get sick notes and GP letters or ask your GP surgery about something else</p>
+          </a>
+        </li>
         {% endif %}
+
+        {% if data['SJR_eConsult'] === "True" %}
+
+        <li>
+         <a href="/app/econsult/admin/v2/1?appts=True">
+           <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Additional GP services</h2>
+           <p>Get sick notes and GP letters or ask about recent tests</p>
+         </a>
+       </li>
+       {% endif %}
 
         {% if data['SJR_PKB'] === "True" %}
         <li>

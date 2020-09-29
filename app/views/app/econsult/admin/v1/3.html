@@ -16,13 +16,12 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-mobile--hide" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
 
@@ -39,10 +38,11 @@
 
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
-      <p>Please confirm that you're submitting this request for yourself. You can only submit this request for yourself. If you need help for your child or someone you care for, <a href="javascript:void(0)">visit the practice homepage</a> to find out how to book an appointment instead.</p>
+      <p>Please confirm that you're submitting this request for yourself.</p>
+      <p>If you need help for your child or someone you care for, contact the practice for advice.</p>
       <div class="nhsuk-u-padding-bottom-4"></div>
 
-    <form action="/{{ PROTOTYPEURL }}/admin/v1/4" method="get">
+    <form action="/{{ PROTOTYPEURL }}/admin/v1/confirm-not-advice" method="get">
       {{ checkboxes({
         "idPrefix": "eConsult",
         "name": "eConsultAdminRequest",
@@ -55,7 +55,7 @@
         "items": [
           {
             "value": "Opt In",
-            "text": "I confirm I'm submitting this request for myself, not someone else (like my child)"
+            "text": "I confirm I'm submitting this request for myself (not my child)"
           }
         ]
       }) }}
@@ -65,7 +65,7 @@
       <input type="submit" class="nhsuk-button" value="Continue">
       </input>
     </form>
-      
+
     <div class="nhsuk-u-padding-bottom-2"></div>
 
     <form action="/{{ PROTOTYPEURL }}/v6/index" method="get">

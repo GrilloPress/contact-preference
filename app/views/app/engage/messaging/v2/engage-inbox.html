@@ -23,7 +23,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Messages</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/messaging/v3/index">Back</a></p>
   </div>
 </nav>
 {% include "../.././_parts/silver-banner.html" %}
@@ -42,6 +42,25 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-xl">{{ contentTitle }}</h1>
+
+      {{ checkboxes({
+  "idPrefix": "example",
+  "name": "example",
+  "fieldset": {
+    "legend": {
+      "text": "",
+      "classes": "nhsuk-fieldset__legend--l",
+      isPageHeading: true
+    }
+  },
+  "items": [
+    {
+      "value": "completed",
+      "text": "Show completed messages"
+    }
+  ]
+}) }}
+
 
         <div class="nhs-app-panel-heading">
           <h2 class="nhsuk-heading-m">Your messages</h2>

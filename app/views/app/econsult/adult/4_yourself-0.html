@@ -42,7 +42,7 @@
 
 {% endif %}
   </div>
-</nav>
+</nav>{% include "../_parts/silver-banner.html" %}
 {% endblock %}
 
 {% block content %}
@@ -74,11 +74,14 @@
         </form>
 
 
-        {{ button({
-    "text": "End my consultation",
-    "classes": "nhsuk-button--secondary"
-  }) }}
+        <form action="{{ routeHome }}" method="get">
+          {{ button({
+            "text": "End my consultation",
+            "classes": "nhsuk-button--secondary"
+          }) }}
 
+
+        </form>
 
 
 

@@ -104,13 +104,21 @@
           {% endif %}
 
 
+
+
           <div class="nhs-app-panel-heading">
             <h2 class="nhsuk-heading-m">Popular services</h2>
           </div>
 
-
-
         <ul class="list-menu nhsuk-u-padding-bottom-4">
+
+
+
+          <li>
+            <a class="desktop" href="/app/records/v1/">View your GP health record</a>
+          </li>
+
+
 
 
                 {% if data['pickPharmacy'] %}
@@ -133,100 +141,32 @@
                 {% endif %}
 
 
-
-
-                {% if data["nominatedConfirmed"] %}
-
-
-
-
                 <li>
-                  <a class="desktop" href="/app/nominated-pharmacy/v4/change-2">Change your nominated pharmacy</a>
+                  <a class="desktop" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v6/appointment-interruption" }}'>Book an appointment</a>
                 </li>
 
 
-                {% else %}
 
 
-                <li>
-                  <a class="desktop" href="/app/nominated-pharmacy/v4/card-nom-pharmacy-2">Nominate a pharmacy</a>
-                </li>
+              {% if data['SJR_Engage'] === "True" %}
+
+                            <li>
+                              <a class="desktop" href="/app/engage/terms/v2/index">Ask your GP for advice</a>
+                            </li>
+              {% endif %}
+
+
+              {% if data['SJR_eConsult'] === "True" %}
+              <li>
+                <a class="desktop" href="/app/econsult/adult/terms/start-v2">Ask your GP for advice</a>
+              </li>
 
               {% endif %}
 
-              <li>
-                <a class="desktop" href="/app/econsult/adult/terms/start">Ask your GP for advice</a>
-              </li>
 
             </ul>
 
 
-
-      <ul class="list-menu nhs-app-message">
-
-        <li>
-          <a class="desktop" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v2/" }}'>Find health information and advice</a>
-        </li>
-
-        <li>
-          <a class="desktop" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v6/pre-hub" }}'>Book and manage appointments</a>
-        </li>
-          <li>
-            <a class="desktop" href='{{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v7/your-prescriptions-11-no-pkb" }}'>Manage your prescriptions</a>
-          </li>
-        <li>
-          <a class="desktop" href='{{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v1/" }}'>View your health record and donor services</a>
-        </li>
-        <li class="nhs-app-message__item--unread">
-          <a class="desktop" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/?messagingIcon=False&messageRead1=unread&pkbMessaging=False" }}'>
-            View and send messages
-              {% if (data['messageRead2'] == "unread") or (data['messageRead3'] == "unread") %}
-              <span class="nhs-app-message__meta">
-                <span class="nhsuk-u-visually-hidden">You have </span>
-                <span class="nhs-app-message__count"></span>
-                <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
-                  unread messages
-                </span>
-              </span>
-              {% endif %}
-
-          </a>
-        </li>
-
-        {% if data['organDonationShow'] == "False" %}
-        {% else %}
-        {% if not data['donationDecision'] %}
-                <li>
-                  <a class="desktop" href="/app/organ-donation/v2/register-decision-2">Manage your organ donation decision</a>
-                </li>
-
-        {% else %}
-        <li>
-          <a class="desktop" href="/app/organ-donation/v2/donates-home-2">Manage your organ donation decision</a>
-        </li>
-
-        {% endif %}
-        {% endif %}
-
-
-
-        {% if data['linkedProfiles'] == "False" %}
-        {% else %}
-          <li>
-            <a class="desktop" href="/app/linked-profiles/profiles-list">Switch to a linked profile</a>
-          </li>
-        {% endif %}
-
-        <li>
-          <a class="desktop" href='{{ data["routeMore"] if data ["routeMore"] else "/app/more/experimental/index-2" }}'>More NHS App services</a>
-        </li>
-
-      </ul>
-
-      <form action="/app/v8/clear" method="post">
-        <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Log out">
-        </input>
-      </form>
     </div>
   </div>
 
