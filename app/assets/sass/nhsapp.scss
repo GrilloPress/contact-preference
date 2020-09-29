@@ -1947,18 +1947,20 @@ section.home-main {
       font-size: 1.2em;
       text-align: center;
       padding-left: 0.3em;
-      padding-right: 0.3em; }
+      padding-right: 0.3em;
+      @include mq($from: tablet) {
+        min-width: 550px;
+        font-size: 20pt;
+      }}
       @supports (-webkit-overflow-scrolling: touch) {
         main.home-main-blue h2 {
-          letter-spacing: -0.063em; } }
+          letter-spacing: -0.063em; }
+        }
 
     section.home-main-blue .nhso_logo {
-      margin: 130px auto 170px auto;
+      margin: 50% auto 50% auto;
       box-sizing: border-box;
       align-items: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
 
     section.home-main-blue .version {
