@@ -31,6 +31,39 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      <h1>Appointments</h1>
+      <div class="nhsuk-warning-callout">
+        <h3 class="nhsuk-warning-callout__label">No appointments available</h3>
+        <p>There are currently no appointments available.</p>
+        <p>If it's urgent and you do not know what to do, call 111 to get help near you.</p>
+      </div>
+
+      <h2>Other things you can do</h2>
+
+      <ul class="list-menu">
+        <li>
+          <a href="https://111.nhs.uk/" id="btn_111" target="_blank">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Use NHS 111 online</h2>
+            <p>Check if you need urgent help and find out what to do next</p>
+          </a>
+        </li>
+        <li>
+          <a href="/app/engage/terms/v1/index" id="btn_111">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Ask your GP for advice</h2>
+            <p>Answer questions online and get a response from your GP surgery</p>
+          </a>
+        </li>
+        <li>
+          <a href="/app/engage/admin/v1/terms/">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Additional GP services</h2>
+            <p>Get sick notes and GP letters or ask about recent tests</p>
+          </a>
+        </li>
+      </ul>
+
+
+    </div>
+    <div class="nhsuk-grid-column-two-thirds" style="display:none">
 
       <form action="/{{ PROTOTYPEURL}}/select-available-appointment" method="post">
         {{ checkboxes({
@@ -39,7 +72,7 @@
           "fieldset": {
             "legend": {
               "text": contentTitle,
-              "classes": "nhsuk-fieldset__legend--xl nhs-app-xl",
+              "classes": "nhsuk-fieldset__legend--l",
               "isPageHeading": true
             }
           },

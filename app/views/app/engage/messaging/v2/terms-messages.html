@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
-{% set serviceName = "Ask your GP for advice" %}
-{% set contentTitle = "This is a third party service" %}
+{% set serviceName = "Engage" %}
+{% set contentTitle = "This service is provided by Engage Health Systems Limited" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -19,10 +19,10 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/index" }}'>Messages</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/index" }}'>Back</a></p>
   </div>
 </nav>
 {% endblock %}
@@ -35,11 +35,13 @@
         <div class="app-interruption__wrapper">
           <div class="app-interruption__content">
             <h1 class="app-card__heading nhsuk-heading-xl nhsuk-u-margin-bottom-4">
-              <span class="app-interruption__caption nhsuk-caption-m nhsuk-caption--top">Ask your GP for advice</span>
-              The service is provided by Engage Health Systems Limited
+              <span class="app-interruption__caption nhsuk-caption-m nhsuk-caption--top">Online consultations</span>
+            {{ contentTitle }}
             </h1>
-            <p>Your GP surgery has chosen this online consultation service provider.</p>
-            <form action="/{{ PROTOTYPEURL }}/terms/v2/nhs-login" method="post">
+            <p>
+              Your GP surgery has chosen this online consultation service provider.
+            </p>
+            <form action="/{{ PROTOTYPEURL }}/messaging/v2/engage-inbox" method="post">
               <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
             </form>
             <p>

@@ -148,10 +148,20 @@
 
 
 
+              {% if data['SJR_Engage'] === "True" %}
 
+                            <li>
+                              <a class="desktop" href="/app/engage/terms/v2/index">Ask your GP for advice</a>
+                            </li>
+              {% endif %}
+
+
+              {% if data['SJR_eConsult'] === "True" %}
               <li>
                 <a class="desktop" href="/app/econsult/adult/terms/start-v2">Ask your GP for advice</a>
               </li>
+
+              {% endif %}
 
 
             </ul>
