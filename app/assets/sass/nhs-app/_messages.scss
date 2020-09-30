@@ -6,6 +6,7 @@
 
     h2.nhsuk-heading-xs {
       padding-right: 1em !important;
+      color:#425462;
     }
   }
 
@@ -24,9 +25,13 @@
 
 }
 
-.nhs-app-message__unread {
+.nhs-app-message__item--unread {
 
   font-size: 14px;
+
+  h2.nhsuk-heading-xs{
+    color:#005EB8 !important ;
+  }
 }
 
 .nhs-app-message__meta {

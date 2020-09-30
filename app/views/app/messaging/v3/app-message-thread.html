@@ -16,6 +16,9 @@ $( document ).ready(function() {
     jQuery.post( "/app/password", { messageRead3{{data['id']}}: "read" } );
     });
 
+    $( document ).ready(function() {
+      jQuery.post( "/app/password", { messageRead1{{data['id']}}: "read" } );
+      });
 
 
 </script>
@@ -75,7 +78,7 @@ $( document ).ready(function() {
 
       <div class="nhs-app-chat">
         <ul class="nhs-app-chat__thread">
-          {% if data['messageRead2'] === "read" %}
+          {% if data['messageRead1'] === "read" %}
           {% else %}
           <div class="nhs-app-chat__read-indicator" id="unread2">
             <span class="nhs-app-chat__read-indicator-container">Unread message</span>
