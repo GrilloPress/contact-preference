@@ -124,7 +124,7 @@ $( document ).ready(function() {
           </li>
 
           {% set read = 'messageRead' + data['id'] %}
-          {% if data[read] !== "read"  %}
+          {% if data[read] !== "unread"  %}
             <div class="nhs-app-chat__read-indicator" id="unread">
               <span class="nhs-app-chat__read-indicator-container">Unread message</span>
             </div>
