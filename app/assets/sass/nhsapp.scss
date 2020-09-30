@@ -1928,8 +1928,8 @@ section.home-main {
 
     section.home-main-blue .home-header-help{
       position: absolute;
-      top: 11px;
-      right: 16px;
+      top: 15px;
+      right: 20px;
       }
 
     section.home-main-blue .home-header-help p a {
@@ -2215,7 +2215,10 @@ a.app-lozenge-center svg {
 }
 
 .unread-message-dot-text{
-  padding-bottom:5px;
+  margin-bottom:5px;
+  display:flex;
+  align-items:center;
+  flex-direction:row;
 }
 
 main.nhs-app-thin {

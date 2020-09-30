@@ -104,14 +104,13 @@
 }
 
 .nhs-app-message__count-red {
-
-  font-size: 12px;
-  font-weight: 600;
+  display:inline-block;
   background-color: #DA291C;
-  border-radius: 13px;
-  padding: 2px 9px;
-  color: $nhsuk-text-color;
-
+  //border-radius: 13px;
+  //padding: 2px 9px;
+  height:15px;
+  width:15px;
+  border-radius: 50%;
 }
 
 // for messages over two digits. For example, 11
