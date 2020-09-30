@@ -2,6 +2,12 @@
 {% set serviceName = "Engage" %}
 {% set contentTitle = "Most people are happy with a response as soon as possible. Are you happy with this?" %}
 {% set title = contentTitle + " - " + serviceName %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% elif data['home'] == 'True' %}
+{% endif %}
 {% block pageScripts %}
 {% endblock %}
 

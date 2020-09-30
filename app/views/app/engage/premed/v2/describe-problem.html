@@ -2,6 +2,12 @@
 {% set serviceName = "Engage" %}
 {% set contentTitle = "Is this the first time you've contacted us about this condition?" %}
 {% set title = contentTitle + " - " + serviceName %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% elif data['home'] == 'True' %}
+{% endif %}
 {% block pageScripts %}
 {% endblock %}
 
@@ -50,12 +56,12 @@
 
       <ul class="list-menu">
         <li>
-          <a href="/{{ PROTOTYPEURL}}/category/v2/search?engageTypeOfProblem=New Problem">
+          <a href="/{{ PROTOTYPEURL}}/category/v2/search-v2?engageTypeOfProblem=New Problem">
            Yes, this is a new problem
           </a>
         </li>
         <li>
-          <a href="/{{ PROTOTYPEURL}}/category/v2/search?engageTypeOfProblem=My doctor has asked me to get back in touch">
+          <a href="/{{ PROTOTYPEURL}}/category/v2/search-v2?engageTypeOfProblem=My doctor has asked me to get back in touch">
            No
           </a>
         </li>

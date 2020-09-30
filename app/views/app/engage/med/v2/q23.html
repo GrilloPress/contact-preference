@@ -2,6 +2,12 @@
 {% set serviceName = "Engage" %}
 {% set contentTitle = "Is your stuffy or blocked nose present all the time or does it come and go?" %}
 {% set title = contentTitle + " - " + serviceName %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% elif data['home'] == 'True' %}
+{% endif %}
 {% block pageScripts %}
 {% endblock %}
 

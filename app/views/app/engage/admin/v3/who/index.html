@@ -2,6 +2,7 @@
 {% set serviceName = "Engage" %}
 {% set contentTitle = "Who would you like to access services for?" %}
 {% set title = contentTitle + " - " + serviceName %}
+{% set messagingActive = "active" %}
 {% block pageScripts %}
 {% endblock %}
 
@@ -39,7 +40,7 @@
         <ul class="list-menu">
           <li>
             <a href="/{{ PROTOTYPEURL}}/admin/v3/terms/engage-medical-111?engageAdminWho=Betty Doyle&engageProxyJourney=">
-              Betty Doyle (Self)
+              Betty Doyle (self)
             </a>
           </li>
           {% if data["engageProxyDone"] %}
@@ -50,11 +51,11 @@
           </li>
 
           {% endif %}
-          <li>
+          <!--<li>
             <a href="/{{ PROTOTYPEURL}}/admin/v2/proxy?engageAdminWho=else">
               Add someone else
             </a>
-          </li>
+          </li>-->
         </ul>
 
       </div>

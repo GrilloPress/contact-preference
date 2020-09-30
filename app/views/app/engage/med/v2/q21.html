@@ -2,6 +2,12 @@
 {% set serviceName = "Engage" %}
 {% set contentTitle = "Do you suffer from either head congestion or a stuffy nose during the allergy season?" %}
 {% set title = contentTitle + " - " + serviceName %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% elif data['home'] == 'True' %}
+{% endif %}
 {% block pageScripts %}
 {% endblock %}
 

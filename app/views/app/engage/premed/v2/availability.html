@@ -1,7 +1,13 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Tell us when you are available to recieve a call-back" %}
+{% set contentTitle = "Please tell us the times when you are available to receive a call-back" %}
 {% set title = contentTitle + " - " + serviceName %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% elif data['home'] == 'True' %}
+{% endif %}
 {% block pageScripts %}
 {% endblock %}
 
@@ -53,7 +59,7 @@
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
       <p>This is not an appointment booking. </p>
-      <p>Knowing your availability helps a GP or other member of staff to be able to plan a response to your request. We try to call promptly following a request within working hours but cannot always guarantee to do so, please bear with us.</p>
+      <p>Knowing your availability helps a GP or other member of staff to be able to plan a response to your request. We try to call promptly following a request within working hours but cannot always guarantee to do so, please bear with us. Engage Consult request times are listed below.</p>
 
       {{ details({
   "classes": "nhsuk-expander",

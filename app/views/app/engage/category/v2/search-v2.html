@@ -1,6 +1,12 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
 {% set contentTitle = "Describe the problem in one or two words" %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% elif data['home'] == 'True' %}
+{% endif %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -47,7 +53,7 @@
       </div>
       {% endif %}
 
-      <form action="/{{ PROTOTYPEURL }}/category/v2/review" method="get">
+      <form action="/{{ PROTOTYPEURL }}/category/v2/review-v2" method="get">
 
         {{ input({
           "label": {

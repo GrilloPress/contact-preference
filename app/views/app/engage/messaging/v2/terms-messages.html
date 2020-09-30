@@ -2,6 +2,8 @@
 {% set serviceName = "Engage" %}
 {% set contentTitle = "This service is provided by Engage Health Systems Limited" %}
 {% set title = contentTitle + " - " + serviceName %}
+{% set messagingActive = "active" %}
+
 {% block pageScripts %}
 {% endblock %}
 
@@ -25,6 +27,8 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/index" }}'>Back</a></p>
   </div>
 </nav>
+{% include "../.././_parts/silver-banner.html" %}
+
 {% endblock %}
 
 {% block content %}

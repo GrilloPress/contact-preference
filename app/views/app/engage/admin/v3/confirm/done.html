@@ -2,6 +2,7 @@
 {% set serviceName = "Engage" %}
 {% set contentTitle = "Your request has been submitted" %}
 {% set title = contentTitle + " - " + serviceName %}
+{% set messagingActive = "active" %}
 {% block pageScripts %}
 {% endblock %}
 
@@ -52,7 +53,7 @@
   }) }}
 
       <p>
-        <a href="/app/v6">Return to home</a>
+        <a href="{{routeHome}}">Return to home</a>
       </p>
 
       <h2>Give feedback</h2>

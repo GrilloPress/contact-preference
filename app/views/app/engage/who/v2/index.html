@@ -2,6 +2,12 @@
 {% set serviceName = "Engage" %}
 {% set contentTitle = "Who would you like to access services for?" %}
 {% set title = contentTitle + " - " + serviceName %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% elif data['home'] == 'True' %}
+{% endif %}
 {% block pageScripts %}
 {% endblock %}
 
@@ -22,8 +28,13 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
-  </div>
+    {% if data['appts'] == 'True' %}
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="{{ routeAppointments }}">Back</a></p>
+    {% elif data['advice'] == 'True' %}
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="{{ routeSymptoms }}">Back</a></p>
+    {% elif data['home'] == 'True' %}
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="{{ routeHome }}">Back</a></p>
+    {% endif %}  </div>
 </nav>
 
 {% include "../.././_parts/silver-banner.html" %}
@@ -39,13 +50,13 @@
 
         <ul class="list-menu">
           <li>
-            <a href="/{{ PROTOTYPEURL}}/terms/v2/engage-medical-111?engageWho=Betty Doyle&engageProxyJourney=">
-              Betty Doyle (Self)
+            <a href="/{{ PROTOTYPEURL}}/terms/v2/engage-medical?engageWho=Betty Doyle&engageProxyJourney=">
+              Betty Doyle (self)
             </a>
           </li>
           {% if data["engageProxyDone"] %}
           <li>
-            <a href="/{{ PROTOTYPEURL}}/terms/v2/engage-medical-111?engageWho={{ data['engageProxyfirstname']}} {{ data['engageProxyLastname']}}&engageProxyJourney=true">
+            <a href="/{{ PROTOTYPEURL}}/terms/v2/engage-medical?engageWho={{ data['engageProxyfirstname']}} {{ data['engageProxyLastname']}}&engageProxyJourney=true">
               {{ data['engageProxyfirstname'] | capitalize }} {{ data['engageProxyLastname'] | capitalize }} {{ "(Carer)" if data['engageProxyRelationship'] == "You are their carer" else "(Parent)" }}
             </a>
           </li>

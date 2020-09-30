@@ -2,6 +2,7 @@
 {% set serviceName = "Engage" %}
 {% set contentTitle = "Confirm it's not an emergency" %}
 {% set title = contentTitle + " - " + serviceName %}
+{% set messagingActive = "active" %}
 {% block pageScripts %}
 {% endblock %}
 
@@ -92,7 +93,7 @@
 
 
 
-      <form action="/app/engage/admin/v3/what/index" method="get">
+      <form action="/app/engage/admin/v3/telephone/index" method="get">
 
         <p>You are responsible for seeking further medical help if the situation worsens or a medical condition deteriorates such that you consider immediate help may be required.</p>
 

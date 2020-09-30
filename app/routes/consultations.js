@@ -253,6 +253,19 @@ router.post('/app/engage/terms/v2/engage-privacy', function (req, res) {
   }
 });
 
+// Add a problem routing
+
+router.post('/app/engage/category/v2/review-v2', function (req, res) {
+  let answer = req.body.anythingElse;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/engage/category/v2/search-v2')
+
+  } else {
+    res.redirect('/app/engage/med/v2/start')
+  }
+});
 
 ////////////////////////////////////////////////////////////////////////////////
 // ECONSULT routes

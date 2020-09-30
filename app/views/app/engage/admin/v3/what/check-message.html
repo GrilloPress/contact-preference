@@ -1,16 +1,14 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Would you like to attach a file to your request?" %}
+{% set contentTitle = "Check your message" %}
 {% set title = contentTitle + " - " + serviceName %}
-{% if data['appts'] == 'True' %}
-{% set appointmentsActive = "active" %}
-{% elif data['advice'] == 'True' %}
-{% set symptomsActive = "active" %}
-{% elif data['home'] == 'True' %}
-{% endif %}
+{% set messagingActive = "active" %}
 {% block pageScripts %}
 {% endblock %}
 
+
+
+{% set helpNeeded %}{% if data['helpNeeded'] %}{{ data['helpNeeded'] }}{% else %}{% endif %}{% endset %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -31,42 +29,37 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
-{% include "../.././_parts/silver-banner.html" %}
+{% include "../../.././_parts/proxy-banner.html" %}
+{% include "../../.././_parts/silver-banner.html" %}
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      {% if data['engageProxyJourney'] %}
-      <div class="app-proxy__container">
-        <ul class="list-menu">
-          <li>
-              <a href="/{{ PROTOTYPEURL }}/who/v2/index">
-                <p class="nhsuk-body-s">Acting on behalf of <br>
-                  <strong>{{ data['engageWho']}}</strong>
-                </p>
-              </a>
-          </li>
-        </ul>
-      </div>
-      {% endif %}
+      <h1>{{ contentTitle }}</p>
+      <p>Please read and review the request carefully before submitting your request</p>
 
-      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
-      <p>This could be a document or photograph.</p>
 
-      <ul class="list-menu">
-        <li>
-          <a href="#">
-            Yes, upload file
-          </a>
-        </li>
-        <li>
-          <a href="/{{ PROTOTYPEURL }}/med/v2/start">
-            No, thanks
-          </a>
-        </li>
-      </ul>
+      <form action="/app/engage/admin/v3/confirm/contact-you-3" method="get">
+
+      {{ textarea({
+  "name": "checkMessage",
+  "id": "example",
+  "rows": "3",
+  "value": data['helpNeeded'],
+  "label": {
+    "text": "Your request",
+    "classes": "nhsuk-label--s"
+  },
+  "value": helpNeeded
+}) }}
+
+
+      <input type="submit" class="nhsuk-button" value="Continue">
+      </input>
+
+  </form>
 
     </div>
   </div>

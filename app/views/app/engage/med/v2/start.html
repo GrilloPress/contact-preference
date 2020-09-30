@@ -1,7 +1,13 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Please answer a series of medical questions to help our clinical staff help you" %}
+{% set contentTitle = "Please answer a series of medical questions to help our clinical staff to help you" %}
 {% set title = contentTitle + " - " + serviceName %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% elif data['home'] == 'True' %}
+{% endif %}
 {% block pageScripts %}
 {% endblock %}
 
@@ -47,7 +53,9 @@
       {% endif %}
 
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
-      <p>Questionnaires generally take about 5 to 10 minutes to complete and it really helps us if you complete as much as you are able. When requests are submitted within the published response times (usually ending before the surgery closes each day), we will contact you on the number provided to discuss the next steps.</p>
+      <p>This will take about 5 to 10 minutes to complete. Please answer as much as you can.</p>
+
+      <p>If you submit a request within the same day response times, we will contact you on the number provided to discuss the next steps.</p>
 
       {{ details({
   "classes": "nhsuk-expander",

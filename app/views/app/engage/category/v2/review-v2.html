@@ -2,6 +2,12 @@
 {% set serviceName = "Engage" %}
 {% set contentTitle = "Add any further medical problems" %}
 {% set title = contentTitle + " - " + serviceName %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% elif data['home'] == 'True' %}
+{% endif %}
 {% block pageScripts %}
 {% endblock %}
 
@@ -58,9 +64,9 @@
             <dt class="">{{ data['engageProblemCat'] or "Blocked nose" }}</dt>
             <dd class="nhsuk-summary-list__actions">
               {% if data['engageProblemCatTwo'] %}
-              <a href="/{{ PROTOTYPEURL }}/category/v2/review?engageProblemCat=NIL">Remove</a>
+              <a href="/{{ PROTOTYPEURL }}/category/v2/review-v2?engageProblemCat=NIL">Remove</a>
               {% else  %}
-              <a href="/{{ PROTOTYPEURL }}/category/v2/search?engageProblemCat=">Remove</a>
+              <a href="/{{ PROTOTYPEURL }}/category/v2/search-v2?engageProblemCat=">Remove</a>
               {% endif %}
             </dd>
           </div>
@@ -76,18 +82,18 @@
           <div class="nhsuk-summary-list__row">
             <dt class="">{{ data['engageProblemCatTwo'] }}</dt>
             <dd class="nhsuk-summary-list__actions">
-              <a href="/{{ PROTOTYPEURL }}/category/v2/review?engageProblemCatTwo=">Remove</a>
+              <a href="/{{ PROTOTYPEURL }}/category/v2/review-v2?engageProblemCatTwo=">Remove</a>
             </dd>
           </div>
         </dl>
       </div>
       {% endif %}
 
-      <form action="/{{ PROTOTYPEURL }}/category/v2/warning" method="get">
+      <form action="/{{ PROTOTYPEURL }}/category/v2/review-v2" method="post">
 
         {{ radios({
-          "idPrefix": "gov",
-          "name": "gov",
+          "idPrefix": "add",
+          "name": "anythingElse",
           "fieldset": {
             "legend": {
               "text": "Is there anything else you want to tell us about?",

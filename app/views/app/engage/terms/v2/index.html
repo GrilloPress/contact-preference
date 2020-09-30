@@ -1,10 +1,15 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Ask your GP for advice" %}
-{% set contentTitle = "This is a third party service" %}
+{% set contentTitle = "The service is provided by Engage Health Systems Limited" %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% elif data['home'] == 'True' %}
+{% endif %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
-
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -23,8 +28,11 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+
   </div>
 </nav>
+{% include "../.././_parts/silver-banner.html" %}
+
 {% endblock %}
 
 {% block content %}
@@ -36,7 +44,7 @@
           <div class="app-interruption__content">
             <h1 class="app-card__heading nhsuk-heading-xl nhsuk-u-margin-bottom-4">
               <span class="app-interruption__caption nhsuk-caption-m nhsuk-caption--top">Ask your GP for advice</span>
-              The service is provided by Engage Health Systems Limited
+              {{ contentTitle }}
             </h1>
             <p>Your GP surgery has chosen this online consultation service provider.</p>
             <form action="/{{ PROTOTYPEURL }}/terms/v2/nhs-login" method="post">
