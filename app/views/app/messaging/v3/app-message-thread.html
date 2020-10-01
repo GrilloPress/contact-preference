@@ -79,11 +79,6 @@ $( document ).ready(function() {
       <div class="nhs-app-chat">
         <ul class="nhs-app-chat__thread">
           {% if data['messageRead1'] === "read" %}
-          {% else %}
-          <div class="nhs-app-chat__read-indicator" id="unread2">
-            <span class="nhs-app-chat__read-indicator-container">Unread message</span>
-          </div>
-          {% endif %}
           <li class="nhs-app-chat__item">
             <div class="nhs-app-chat__sender">
               {{ sender }}
@@ -95,7 +90,24 @@ $( document ).ready(function() {
               Sent 7:12am, 7 October 2020
             </div>
           </li>
-        </ul>
+
+          {% else %}
+          <div class="nhs-app-chat__read-indicator" id="unread2">
+            <span class="nhs-app-chat__read-indicator-container"><b>Unread message</b></span>
+          </div>
+          <li class="nhs-app-chat__item">
+            <div class="nhs-app-chat__sender-unread">
+              {{ sender }}
+            </div>
+            <div class="nhs-app-chat__container">
+              <p class="nhs-app-chat__body">Plasma message here</p>
+            </div>
+            <div class="nhs-app-chat__date">
+              Sent 7:12am, 7 October 2020
+            </div>
+          </li>
+          {% endif %}
+          </ul>
       </div>
 
 
