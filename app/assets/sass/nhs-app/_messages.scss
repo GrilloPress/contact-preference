@@ -217,6 +217,14 @@
   @include clearfix;
 }
 
+.nhs-app-chat__sender-unread {
+  color:#005EB8;
+  @include nhsuk-typography-responsive(16);
+  display: block;
+  margin-top: 0;
+  @include nhsuk-responsive-margin(1, 'bottom');
+  font-weight: 600;
+}
 .nhs-app-chat__date--reply {
   float: right;
 }
@@ -268,8 +276,8 @@
 
 }
 
-.nhs-app-chat__read-indicator-container {
-
+.nhs-app-chat__read-indicator-container b {
+  color:#DA291C !important ;
 }
 
 .nhs-app-navicon-messages--active {
