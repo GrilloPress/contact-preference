@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Is there anything else you would like to tell us? (optional)" %}
+{% set contentTitle = "What is your most recent blood pressure reading?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
@@ -31,7 +31,7 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
-{% include "../.././_parts/silver-banner.html" %}
+{% include "../../../_parts/silver-banner.html" %}
 {% endblock %}
 
 {% block content %}
@@ -52,22 +52,50 @@
       </div>
       {% endif %}
 
-      <form action="/{{ PROTOTYPEURL }}/med/v2/contact-you-3" method="get">
+      <h1 class="nhsuk-heading-l nhs-app-xl">{{ contentTitle }}</h1>
 
-        {{ textarea({
-        "name": "more-detail",
-        "id": "more-detail",
-        "autocomplete": "off",
-        "label": {
-          "classes": "nhsuk-label--xl",
-          "text": contentTitle,
-          "isPageHeading": true
-        }
-      }) }}
+      <ul class="list-menu">
+        <li>
+          <a href="/{{ PROTOTYPEURL}}/med/v2/headache/q19">
+           High
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL}}/med/v2/headache/q19">
+            Borderline high
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL}}/med/v2/headache/q19">
+            Normal on blood pressure medication
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL}}/med/v2/headache/q19">
+            Normal without any medication
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL}}/med/v2/headache/q19">
+            Low
+          </a>
+        </li>
+                <li>
+          <a href="/{{ PROTOTYPEURL}}/med/v2/headache/q19">
+            Don't Know
+          </a>
+        </li>
+      </ul>
 
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
-      </form>
+      <p>
+        <a href="/{{ PROTOTYPEURL}}/med/v2/headache/q19">Skip this question</a>
+      </p>
+
+      <hr class="nhsuk-u-margin-top-0">
+
+      <p>
+        <a href="/{{PROTOTYPEURL}}/med/v2/check-answers">Finish now</a>
+      </p>
 
     </div>
   </div>

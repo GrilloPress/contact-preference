@@ -1,11 +1,18 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Can we contact you in the NHS App as well as by phone?" %}
+{% set contentTitle = "How would you like us to contact you?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% set messagingActive = "active" %}
 {% block pageScripts %}
 {% endblock %}
 
+{% set contactYouAdmin %}
+{% if data["contactYouAdmin"] == "yes" %}
+Your GP surgery will get back to you by sending you a message in the NHS App or a phone call.
+{% else %}
+Your GP surgery will get back to you by sending you a message in the NHS App.
+{% endif %}
+{% endset %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -34,11 +41,11 @@
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
 
-
+    <form action="/{{ PROTOTYPEURL }}/admin/v3/confirm/done?engageAdminDone=True" method="get">
 
     {{ radios({
   "idPrefix": "example",
-  "name": "example",
+  "name": "contactYouAdmin",
   "fieldset": {
     "legend": {
       "text": contentTitle,
@@ -46,68 +53,51 @@
       "isPageHeading": true
     }
   },
+"hint": {
+"text": "Your GP surgery may respond by phone call or a message in the NHS App. You will get an email to let you know if you have a message."
+},
   "items": [
     {
       "value": "yes",
-      "text": "Yes, you can send me a message in the app"
+      "text": "Message in the app or phone call"
     },
     {
       "value": "no",
-      "text": "No, contact me by phone only"
+      "text": "Message in the app only"
     }
   ]
 }) }}
 
+<h2>Check we have the right contact details</h2>
 
 {{ input({
   "label": {
-    "text": "Telephone"
+    "text": "UK telephone number"
   },
   "id": "example",
   "name": "example",
   "value": "07890 345 746"
 }) }}
 
+<h2>Is there anything else we should know about how to contact you?</h2>
+
 {{ textarea({
 "name": "more-detail",
 "id": "more-detail",
 "autocomplete": "off",
 "hint": {
-  "text": "For example, is answering the phone likely to be a problem?"
-},
-"label": {
-  "classes": "",
-  "text": "Do you have any specific requests about the way that we contact you? (optional)"
+  "text": "For example, if answering the phone is a problem for you"
 }
 }) }}
 
 
-<h2>Before you submit</h2>
-
-<p>We aim to contact you back on the same day if you have submitted your request during these times:</p>
-
-{{ details({
-"classes": "nhsuk-expander",
-"text": "Same day response times",
-"HTML": '
-<table class="table table-responsive bottom-buffer">
-      <tbody><tr><th>Day</th><th>Start</th><th>Finish</th>
-      </tr></tbody><tbody>
-          <!-- ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Monday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Tuesday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Wednesday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Thursday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Friday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Saturday</td><td class="ng-binding">Closed</td><td class="ng-binding">Closed</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Sunday</td><td class="ng-binding">Closed</td><td class="ng-binding">Closed</td></tr><!-- end ngRepeat: hour in content.labels.hours -->
-      </tbody>
-  </table>'
-}) }}
-
-<p>It is your responsibility to get alternative help if the situation gets worse or you are worried for any reason. This includes if there is a delay in a response to your request and you feel you need more urgent help.</p>
-
-    <form action="/{{ PROTOTYPEURL }}/admin/v2/confirm/done" method="get">
 
 
 
-
-      <input type="submit" class="nhsuk-button" value="Agree and submit" name="engageAdminDone">
+      <input type="submit" class="nhsuk-button" value="Submit request">
       </input>
     </form>
+
 
   </div>
 </div>

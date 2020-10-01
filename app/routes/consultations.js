@@ -263,8 +263,67 @@ router.post('/app/engage/category/v2/review-v2', function (req, res) {
     res.redirect('/app/engage/category/v2/search-v2')
 
   } else {
-    res.redirect('/app/engage/med/v2/start')
+    res.redirect('/app/engage/category/v2/attention')
   }
+});
+
+
+// Covid error validation
+
+
+router.post('/app/engage/med/v2/multi-radio', function (req, res) {
+
+  let lossOfTaste = req.body.lossOfTaste;
+  let lossOfSmell = req.body.lossOfSmell;
+  let runnyNose = req.body.runnyNose;
+  let nausea = req.body.nausea;
+
+
+  if (lossOfTaste && lossOfSmell && runnyNose && nausea) {
+
+    res.redirect('/app/engage/med/v2/covid-household?covidError=')
+
+  } else {
+
+    var errorURL = "";
+
+    if (lossOfTaste) {
+
+      errorURL += " lossOfTasteError=&"
+
+    } else {
+       errorURL += "lossOfTasteError=True&"
+    }
+
+    if (lossOfSmell) {
+
+      errorURL += "lossOfSmellError=&"
+
+    } else {
+       errorURL += "lossOfSmellError=True&"
+    }
+
+    if (runnyNose) {
+
+      errorURL += "runnyNoseError=&"
+
+    } else {
+       errorURL += "runnyNoseError=True&"
+    }
+
+
+    if (nausea) {
+
+      errorURL += "nauseaError=&"
+
+    } else {
+       errorURL += "nauseaError=True&"
+    }
+
+
+    res.redirect('/app/engage/med/v2/multi-radio?' + errorURL )
+  }
+
 });
 
 ////////////////////////////////////////////////////////////////////////////////
