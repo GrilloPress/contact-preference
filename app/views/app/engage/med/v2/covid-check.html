@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Is there anything else you would like to tell us? (optional)" %}
+{% set contentTitle = "Do you have a new continuous cough? If you usually have a cough, this means your cough got worse. Continuous means coughing for more than an hour more than 3 times in 24 hours." %}
 {% set title = contentTitle + " - " + serviceName %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
@@ -52,22 +52,22 @@
       </div>
       {% endif %}
 
-      <form action="/{{ PROTOTYPEURL }}/med/v2/contact-you-3" method="get">
+      <h1 class="nhsuk-heading-l nhs-app-xl">{{ contentTitle }}</h1>
 
-        {{ textarea({
-        "name": "more-detail",
-        "id": "more-detail",
-        "autocomplete": "off",
-        "label": {
-          "classes": "nhsuk-label--xl",
-          "text": contentTitle,
-          "isPageHeading": true
-        }
-      }) }}
+      <ul class="list-menu">
+        <li>
+          <a href="/{{ PROTOTYPEURL}}/med/v2/fever">
+          Yes
+          </a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL}}/med/v2/fever">
+           No
+          </a>
+        </li>
+      </ul>
 
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
-      </form>
+
 
     </div>
   </div>

@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Do you have any of these symptoms?" %}
+{% set contentTitle = "Have you had any of the following along with your current illness?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
@@ -52,14 +52,39 @@
       </div>
       {% endif %}
 
+
+      {% if data['lossOfTasteError'] or data['lossOfSmellError'] or data['runnyNoseError'] or data['nauseaError'] == 'True' %}
+      {{ errorSummary({
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "Please select an answer for New loss of taste",
+            "href": "#taste"
+          } if data['lossOfTasteError'],
+          {
+            "text": "Please select an answer for New loss of smell",
+            "href": "#smell"
+          } if data['lossOfSmellError'],
+          {
+            "text": "Please select an answer for Runny nose",
+            "href": "#nose"
+          } if data['runnyNoseError'],
+          {
+            "text": "Please select an answer for Nausea",
+            "href": "#nausea"
+          } if data['nauseaError']
+        ]
+        }) }}
+      {% endif %}
+
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
       <form action="#" method="post">
 
 
       {{ radios({
-        "idPrefix": "example-inline",
-        "name": "example-inline",
+        "idPrefix": "taste",
+        "name": "lossOfTaste",
         "classes": "nhsuk-radios--inline app-radios--inline",
         "fieldset": {
           "legend": {
@@ -68,6 +93,9 @@
             "isPageHeading": true
           }
         },
+      "errorMessage": {
+          "text": "Please select an answer for New loss of taste"
+        } if data['lossOfTasteError'],
         "items": [
           {
             "value": "yes",
@@ -81,8 +109,8 @@
       }) }}
 
       {{ radios({
-        "idPrefix": "example-inline",
-        "name": "example-inline",
+        "idPrefix": "smell",
+        "name": "lossOfSmell",
         "classes": "nhsuk-radios--inline app-radios--inline",
         "fieldset": {
           "legend": {
@@ -91,6 +119,9 @@
             "isPageHeading": true
           }
         },
+      "errorMessage": {
+          "text": "Please select an answer for New loss of smell"
+        } if data['lossOfSmellError'],
         "items": [
           {
             "value": "yes",
@@ -104,8 +135,8 @@
       }) }}
 
       {{ radios({
-        "idPrefix": "example-inline",
-        "name": "example-inline",
+        "idPrefix": "nose",
+        "name": "runnyNose",
         "classes": "nhsuk-radios--inline app-radios--inline",
         "fieldset": {
           "legend": {
@@ -114,8 +145,10 @@
             "isPageHeading": true
           }
         },
-        "items": [
-          {
+        "errorMessage": {
+            "text": "Please select an answer for Runny nose"
+          } if data['runnyNoseError'],
+          "items": [          {
             "value": "yes",
             "text": "Yes"
           },
@@ -127,8 +160,8 @@
       }) }}
 
       {{ radios({
-        "idPrefix": "example-inline",
-        "name": "example-inline",
+        "idPrefix": "nausea",
+        "name": "nausea",
         "classes": "nhsuk-radios--inline app-radios--inline",
         "fieldset": {
           "legend": {
@@ -137,6 +170,9 @@
             "isPageHeading": true
           }
         },
+        "errorMessage": {
+            "text": "Please select an answer for Nausea"
+          } if data['nauseaError'],
         "items": [
           {
             "value": "yes",
@@ -157,14 +193,18 @@
 
 
       <p>
-        <a href="/{{ PROTOTYPEURL}}/med/v2/q4?engageMedQ3=">Skip this question</a>
+        <a href="/{{ PROTOTYPEURL}}/med/v2/covid-household">Skip this question</a>
       </p>
 
       <hr class="nhsuk-u-margin-top-0">
 
       <p>
-        <a href="#">Finish now</a>
+        <a href="/{{PROTOTYPEURL}}/med/v2/check-answers">Finish now</a>
       </p>
+
+
+
+
 
     </div>
   </div>

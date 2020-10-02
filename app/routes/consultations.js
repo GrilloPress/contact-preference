@@ -269,6 +269,7 @@ req.session.data['symptoms'] = symptoms
 // move to the summary page
 res.redirect('/app/engage/category/v2/review-v2')
 
+<<<<<<< HEAD
 });
 
 router.post('/app/engage/category/v2/review-v2', function (req, res) {
@@ -300,6 +301,72 @@ router.post('/remove', function (req, res) {
   // reload the page
   res.redirect('/app/engage/category/v2/review-v2')
 });
+=======
+  } else {
+    res.redirect('/app/engage/category/v2/attention')
+  }
+});
+
+
+// Covid error validation
+
+
+router.post('/app/engage/med/v2/multi-radio', function (req, res) {
+
+  let lossOfTaste = req.body.lossOfTaste;
+  let lossOfSmell = req.body.lossOfSmell;
+  let runnyNose = req.body.runnyNose;
+  let nausea = req.body.nausea;
+
+
+  if (lossOfTaste && lossOfSmell && runnyNose && nausea) {
+
+    res.redirect('/app/engage/med/v2/covid-household?covidError=')
+
+  } else {
+
+    var errorURL = "";
+
+    if (lossOfTaste) {
+
+      errorURL += " lossOfTasteError=&"
+
+    } else {
+       errorURL += "lossOfTasteError=True&"
+    }
+
+    if (lossOfSmell) {
+
+      errorURL += "lossOfSmellError=&"
+
+    } else {
+       errorURL += "lossOfSmellError=True&"
+    }
+
+    if (runnyNose) {
+
+      errorURL += "runnyNoseError=&"
+
+    } else {
+       errorURL += "runnyNoseError=True&"
+    }
+
+
+    if (nausea) {
+
+      errorURL += "nauseaError=&"
+
+    } else {
+       errorURL += "nauseaError=True&"
+    }
+
+
+    res.redirect('/app/engage/med/v2/multi-radio?' + errorURL )
+  }
+
+});
+
+>>>>>>> 5704ad3a5b3a83c264604a4fa625fbc5754e221c
 ////////////////////////////////////////////////////////////////////////////////
 // ECONSULT routes
 ////////////////////////////////////////////////////////////////////////////////
