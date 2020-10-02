@@ -255,18 +255,51 @@ router.post('/app/engage/terms/v2/engage-privacy', function (req, res) {
 
 // Add a problem routing
 
-router.post('/app/engage/category/v2/review-v2', function (req, res) {
-  let answer = req.body.anythingElse;
+router.post('/app/engage/category/v2/search-v2', function (req,res){
 
-  if (answer === 'yes') {
+// load in the array if it exists already
+let symptoms = req.session.data['symptoms'] || []
 
-    res.redirect('/app/engage/category/v2/search-v2')
+// push the value from the input field into the array
+symptoms.push(req.session.data['engageProblemCat'])
 
-  } else {
-    res.redirect('/app/engage/med/v2/start')
-  }
+// push the array back into the session data
+req.session.data['symptoms'] = symptoms
+
+// move to the summary page
+res.redirect('/app/engage/category/v2/review-v2')
+
 });
 
+router.post('/app/engage/category/v2/review-v2', function (req, res) {
+
+  // get the value from the radio button
+   let anythingElse = req.session.data['anythingElse']
+
+   // routing based on the answer
+   if (anythingElse == "yes"){
+     res.redirect('/app/engage/category/v2/search-v2')
+   } else {
+     res.redirect('/app/engage/med/v2/start')
+   }
+});
+
+
+// called from the form that wraps around the summary list
+router.post('/remove', function (req, res) {
+
+  // pull in the array values
+  var symptoms = req.session.data['symptoms']
+
+  // pick up the value of the specific remove link
+  let remove = req.session.data.remove
+
+  // remove 1 item from the array at the place indicated by the remove link
+  symptoms.splice(remove, 1);
+
+  // reload the page
+  res.redirect('/app/engage/category/v2/review-v2')
+});
 ////////////////////////////////////////////////////////////////////////////////
 // ECONSULT routes
 ////////////////////////////////////////////////////////////////////////////////

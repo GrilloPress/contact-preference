@@ -56,23 +56,30 @@
       <h2 class="nhsuk-heading-s">Medical problems entered</h2>
 
 
-      {% if data['engageProblemCat'] == "NIL" %}
-      {% else %}
-      <div>
+
+      <form action="/remove" method="post" role="form">
         <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-2">
+          {% if data['symptoms'].length %}
+
+          {# loop through the array #}
+          {% for i in range(0, data['symptoms'].length) -%}
           <div class="nhsuk-summary-list__row">
-            <dt class="">{{ data['engageProblemCat'] or "Blocked nose" }}</dt>
+            <dt class="">{{ data['symptoms'][i] or "Blocked nose" }}</dt>
             <dd class="nhsuk-summary-list__actions">
-              {% if data['engageProblemCatTwo'] %}
-              <a href="/{{ PROTOTYPEURL }}/category/v2/review-v2?engageProblemCat=NIL">Remove</a>
-              {% else  %}
-              <a href="/{{ PROTOTYPEURL }}/category/v2/search-v2?engageProblemCat=">Remove</a>
-              {% endif %}
+              <button class="unstyle-button" name="remove" value="{{ i }}">Remove</button>
             </dd>
           </div>
+
+          {% endfor %}
+
+          {% else %}
+
+            <p class="govuk-body">No problems entered</p>
+
+            {% endif %}
         </dl>
-      </div>
-      {% endif %}
+      </form>
+
 
 
 

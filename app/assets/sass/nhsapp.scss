@@ -2822,3 +2822,17 @@ $nhsuk-checkbox-hover-color: $color_nhsuk-grey-3;
         }
       }
     }
+
+    /* add some styling to the button element to make it look like a hyperlink */
+.unstyle-button {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  font-size: 16px;
+  color: #1d70b8;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.unstyle-button:hover {
+  color: #003078;
+}
