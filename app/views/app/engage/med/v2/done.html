@@ -5,6 +5,13 @@
 {% block pageScripts %}
 {% endblock %}
 
+{% set contactYouMed %}
+{% if data["contactYouMed"] == "yes" %}
+Your GP surgery will get back to you by sending you a message in the NHS App or a phone call.
+{% else %}
+Your GP surgery will get back to you by sending you a message in the NHS App.
+{% endif %}
+{% endset %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -31,28 +38,66 @@
         We have sent you an email confirming your request has been sent.
       </p>
       <p>
-        Your GP surgery will get back to you by message or phone.
+        {{contactYouMed}}
       </p>
 
       <h2>Response times</h2>
 
-
       <p>Your surgery will aim to contact you today if you have submitted your request during the same day response times.</p>
 
       {{ details({
-  "classes": "nhsuk-expander",
-  "text": "Same day response times",
-  "HTML": '
-  <table class="table table-responsive bottom-buffer">
-            <tbody><tr><th>Day</th><th>Start</th><th>Finish</th>
-            </tr></tbody><tbody>
-                <!-- ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Monday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Tuesday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Wednesday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Thursday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Friday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Saturday</td><td class="ng-binding">Closed</td><td class="ng-binding">Closed</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Sunday</td><td class="ng-binding">Closed</td><td class="ng-binding">Closed</td></tr><!-- end ngRepeat: hour in content.labels.hours -->
-            </tbody>
-        </table>'
-  }) }}
+      "classes": "nhsuk-expander nhsuk-u-margin-bottom-6",
+      "text": "Same day response times",
+      "HTML": '
+      <div class="nhsuk-table-responsive">
+  <table class="nhsuk-table">
+    <caption class="nhsuk-table__caption">Same day response times</caption>
+    <thead class="nhsuk-table__head">
+      <tr class="nhsuk-table__row">
+        <th class="nhsuk-table__header" scope="col">Day of the week</th>
+        <th class="nhsuk-table__header" scope="col">Response times</th>
+      </tr>
+    </thead>
+    <tbody class="nhsuk-table__body">
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell"><b>Monday</b></td>
+        <td class="nhsuk-table__cell ">midnight to 9:30pm</td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell"><b>Tuesday</b></td>
+        <td class="nhsuk-table__cell ">midnight to 9:30pm</td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell"><b>Wednesday</b></td>
+        <td class="nhsuk-table__cell ">midnight to 9:30pm</td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell"><b>Thursday</b></td>
+        <td class="nhsuk-table__cell ">midnight to 9:30pm</td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell"><b>Friday</b></td>
+        <td class="nhsuk-table__cell ">midnight to 9:30pm</td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell"><b>Saturday</b></td>
+        <td class="nhsuk-table__cell ">midnight to 9:00pm</td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell"><b>Sunday</b></td>
+        <td class="nhsuk-table__cell ">midnight to 9:00pm</td>
+      </tr>
+    </tbody>
+  </table>
+</div>'
+      }) }}
+
+      <h2>If things get worse or you don't hear back</h2>
+
+      <p>Contact your GP surgery directly. For urgent advice, go to <a href="https://111.nhs.uk/">111.nhs.uk</a> or call 111.</p>
 
       <p>
-        <a href="/app/v6">Return to home</a>
+        <a href="{{routeHome}}">Return to home</a>
       </p>
 
       <h2>Give feedback</h2>

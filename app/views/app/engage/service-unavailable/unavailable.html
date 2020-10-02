@@ -52,16 +52,51 @@
 
 
       {{ details({
-  "classes": "nhsuk-expander",
-  "text": "Same day response times",
-  "HTML": '
-  <table class="table table-responsive bottom-buffer">
-            <tbody><tr><th>Day</th><th>Start</th><th>Finish</th>
-            </tr></tbody><tbody>
-                <!-- ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Monday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Tuesday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Wednesday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Thursday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Friday</td><td class="ng-binding">07:00</td><td class="ng-binding">16:30</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Saturday</td><td class="ng-binding">Closed</td><td class="ng-binding">Closed</td></tr><!-- end ngRepeat: hour in content.labels.hours --><tr ng-repeat="hour in content.labels.hours" class="ng-scope"><td class="ng-binding">Sunday</td><td class="ng-binding">Closed</td><td class="ng-binding">Closed</td></tr><!-- end ngRepeat: hour in content.labels.hours -->
-            </tbody>
-        </table>'
-  }) }}
+      "classes": "nhsuk-expander nhsuk-u-margin-bottom-6",
+      "text": "Same day response times",
+      "HTML": '
+      <div class="nhsuk-table-responsive">
+  <table class="nhsuk-table">
+    <caption class="nhsuk-table__caption">Same day response times</caption>
+    <thead class="nhsuk-table__head">
+      <tr class="nhsuk-table__row">
+        <th class="nhsuk-table__header" scope="col">Day of the week</th>
+        <th class="nhsuk-table__header" scope="col">Response times</th>
+      </tr>
+    </thead>
+    <tbody class="nhsuk-table__body">
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell"><b>Monday</b></td>
+        <td class="nhsuk-table__cell ">midnight to 9:30pm</td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell"><b>Tuesday</b></td>
+        <td class="nhsuk-table__cell ">midnight to 9:30pm</td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell"><b>Wednesday</b></td>
+        <td class="nhsuk-table__cell ">midnight to 9:30pm</td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell"><b>Thursday</b></td>
+        <td class="nhsuk-table__cell ">midnight to 9:30pm</td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell"><b>Friday</b></td>
+        <td class="nhsuk-table__cell ">midnight to 9:30pm</td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell"><b>Saturday</b></td>
+        <td class="nhsuk-table__cell ">midnight to 9:00pm</td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell"><b>Sunday</b></td>
+        <td class="nhsuk-table__cell ">midnight to 9:00pm</td>
+      </tr>
+    </tbody>
+  </table>
+</div>'
+      }) }}
 
   <p>If you need urgent medical advice, go to <a href="#">111.nhs.uk</a> or call 111.</p>
 

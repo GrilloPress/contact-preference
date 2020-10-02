@@ -1,0 +1,65 @@
+{% set PROTOTYPEURL = "app/engage" %}
+{% set serviceName = "Engage" %}
+{% set contentTitle = "Attention" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% include "../.././_parts/silver-banner.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+      <p>This service may not be appropriate for you and you may need to
+                  <strong><u>seek urgent care</u></strong> elsewhere. By continuing, you are
+                  <strong>declaring that this does not apply.</strong>
+              </p>
+      <p>.</p>
+      <p><b>If you think that you may have <a href="https://www.gov.uk/guidance/coronavirus-covid-19-information-for-the-public/">coronavirus</a> DO NOT go to your GP surgery, hospital or pharmacy.</b></p>
+      <p><b>Please stay at home and avoid contact with other people.</b></p>
+      <p><b>Please use the <a href="https://111.nhs.uk/">NHS111</a> online service or call 111 for medical advice</b></p>
+      <p><b>A New Continuous Cough and/or a LOSS of taste or sense of smell and/or a fever/high temperature are important symptoms, if you have any of these you should visit <a href="https://111.nhs.uk/covid-19/">NHS111</a> to find out what to do</b></p>
+      <center><b>SOME HEADACHES REQUIRE IMMEDIATE TREATMENT.<br>
+<br></b></center>
+<p><b>Call 999 or go to A&amp;E if:</b></p>
+<p><b>* you injured your head badly - for example, from a fall or accident</b></p>
+<p><b>* the headache came on suddenly and is extremely painful</b></p>
+<p><b>You have an extremely painful headache and:</b></p>
+<p><b>* sudden problems speaking or remembering things</b></p>
+<p><b>* loss of vision</b></p>
+<p><b>* you're feeling drowsy or confused</b></p>
+<p><b>* you have a very high temperature, feel hot and shivery, and have a stiff neck or a rash</b></p>
+<p><b>* the white part of your eye is red</b></p>
+<p><b>See a GP urgently if you have a severe headache and:</b></p>
+<p><b>* your jaw hurts when eating</b></p>
+<p><b>* blurred or double vision</b></p>
+<p><b>* your scalp feels sore</b></p>
+<p><b>THIS NEEDS URGENT TREATMENT.</b></p>
+
+      <form action="/{{ PROTOTYPEURL }}/med/v2/start" method="post">
+
+      <input type="submit" class="nhsuk-button" value="Continue">
+      </input>
+    </form>
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block afterContent %}
+{% endblock %}

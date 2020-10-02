@@ -9,6 +9,13 @@
 </script>
 {% endblock %}
 
+{% set medicalProblems %}
+  {{ data['engageProblemCat'] if data['engageProblemCat'] else "Blocked nose" }}
+  {% if data['engageProblemCatTwo'] %}
+    {{ data['engageProblemCatTwo'] }}
+  {% endif %}
+{% endset %}
+
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -45,14 +52,13 @@
           {% if data['id'] == "3" %}
           <li class="nhs-app-chat__item nhs-app-chat__item--reply">
             <div class="nhs-app-chat__sender nhs-app-chat__sender--reply">
-              <span>You</span>
 
             </div>
 
             <div class="nhs-app-chat__container nhs-app-chat__container--reply">
 
               <p class="nhs-app-chat__body nhs-app-chat__header--reply">
-                {{ data['body'] | nl2br | safe }}
+                Medical report submitted for Betty Doyle. Problems reported: {{medicalProblems}}
               </p>
 
             </div>
