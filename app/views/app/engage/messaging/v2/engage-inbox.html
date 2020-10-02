@@ -67,10 +67,9 @@
         </div>
 
 
-
-        {% if data['engageAdminDone'] == True %}
-
         <ul class="list-menu nhs-app-message ">
+
+        {% if data['engageAdminDone'] === "True" %}
           <li id="messageID1" class="nhs-app-message__item nhs-app-message__item--unread">
             <a class="nhs-app-message__link" href="engage-view?id=4&from=Gledhow Practice">
               <h2 class="nhsuk-heading-xs">
@@ -86,7 +85,8 @@
                 </p></b>
               </a>
             </li>
-          {% elif data['engageMedDone'] == True %}
+            {% endif %}
+          {% if data['engageMedDone'] === "True" %}
 
           <li id="messageID2" class="nhs-app-message__item nhs-app-message__item--unread">
             <a class="nhs-app-message__link" href="engage-view-med?id=3&from=Gledhow Practice">
@@ -103,10 +103,14 @@
               </p></b>
             </a>
           </li>
-        </ul>
-        {% else %}
-        <p class="nhsuk-u-margin-top-2">You have no messages</p>
+          {% endif %}
+
+        {% if not data['engageAdminDone'] and not data['engageMedDone'] %}
+        <p class="nhsuk-u-margin-top-0 nhsuk-u-padding-left-4"><b>You currently have no messages.</b></p>
         {% endif %}
+
+
+      </ul>
 
 
   </div>
