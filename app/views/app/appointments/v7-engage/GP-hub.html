@@ -14,8 +14,8 @@ $( document ).ready(function() {
 {% endblock %}
 
 {% set showAppointmentType %}
-{% if data["type"] %}
-  {{ data["type"] }} <br> {{ data['sessionName'] or "Session" }}
+{% if data["apptType"] %}
+  {{ data["apptType"] }} <br> {{ data['sessionName'] or "Session" }}
 {% else %}
   Slot <br> Session
 {% endif %}
@@ -72,7 +72,7 @@ $( document ).ready(function() {
 
             {% if data["confirmed"] %}
             <li>
-          		<a href='/{{ PROTOTYPEURL }}/view/index?appViewDate={{ data["date"] or "5" | returnDate }}&appViewTime={{ data["time"] or "10.50am" }}&appViewLocation={{ data["location"] or "Gledhow Practice" }}&appViewType={{ data["type"] or "Slot" }}&appViewSession={{ data["sessionName"] or "Session" }}&appViewStaff={{ data["staffName"] or "Dr Sanjit Praneskear (Male)" }}'>
+          		<a href='/{{ PROTOTYPEURL }}/view/index?appViewDate={{ data["date"] or "5" | returnDate }}&appViewTime={{ data["time"] or "10.50am" }}&appViewLocation={{ data["location"] or "Gledhow Practice" }}&appViewType={{ data["apptType"] or "Slot" }}&appViewSession={{ data["sessionName"] or "Session" }}&appViewStaff={{ data["staffName"] or "Dr Sanjit Praneskear (Male)" }}'>
 
                 <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">{{ data["date"] or "5" | returnDate }}</h3>
                 <p class="nhsuk-u-margin-bottom-0 nhsuk-u-padding-bottom-0 nhsuk-u-padding-top-0">{{ data["time"] or "10:50am" }}</p>
