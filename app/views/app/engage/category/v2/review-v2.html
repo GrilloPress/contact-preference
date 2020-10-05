@@ -64,7 +64,7 @@
           {# loop through the array #}
           {% for i in range(0, data['symptoms'].length) -%}
           <div class="nhsuk-summary-list__row">
-            <dt class="">{{ data['symptoms'][i] or "Blocked nose" }}</dt>
+            <dt class="">{{ data['symptoms'][i] or "Headache" }}</dt>
             <dd class="nhsuk-summary-list__actions">
               <button class="unstyle-button" name="remove" value="{{ i }}">Remove</button>
             </dd>

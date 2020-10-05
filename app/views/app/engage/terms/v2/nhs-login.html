@@ -9,6 +9,13 @@
 {% elif data['home'] == 'True' %}
 {% endif %}
 {% block pageScripts %}
+{% if data["medLogin"] %}
+<script type="text/javascript">
+$( document ).ready(function() {
+    jQuery.post( "/app/password", { medLogin: "seen" } );
+  });
+</script>
+{% endif %}
 {% endblock %}
 
 
@@ -58,7 +65,7 @@
       <p>If you agree, read their terms of use and privacy policy to check how your information will be used.</p>
 
 
-      <form action="/{{ PROTOTYPEURL }}/who/v2/index?engageLoginAccepted=true" method="post">
+      <form action="/{{ PROTOTYPEURL }}/who/v2/index?engageLoginAccepted=true&medLogin=seen" method="post">
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>

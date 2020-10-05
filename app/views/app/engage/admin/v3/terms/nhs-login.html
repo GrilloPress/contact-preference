@@ -4,6 +4,13 @@
 {% set title = contentTitle + " - " + serviceName %}
 {% set messagingActive = "active" %}
 {% block pageScripts %}
+{% if data["adminLogin"] %}
+<script type="text/javascript">
+$( document ).ready(function() {
+    jQuery.post( "/app/password", { adminLogin: "seen" } );
+  });
+</script>
+{% endif %}
 {% endblock %}
 
 
@@ -53,7 +60,7 @@
 
       <p>If you agree, read their terms of use and privacy policy to check how your information will be used.</p>
 
-      <form action="/{{ PROTOTYPEURL }}/admin/v3/who/index?engageLoginAccepted=true" method="post">
+      <form action="/{{ PROTOTYPEURL }}/admin/v3/who/index?engageLoginAccepted=true&adminLogin=seen" method="post">
         <input type="submit" class="nhsuk-button" value="Agree and continue">
         </input>
       </form>
