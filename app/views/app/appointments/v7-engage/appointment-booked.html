@@ -16,8 +16,8 @@ $("textarea").focusout(function(){
 {% endblock %}
 
 {% set showAppointmentType %}
-{% if data["type"] %}
-  {{ data["type"] }} <br> {{ data['sessionName'] or "Session" }}
+{% if data["apptType"] %}
+  {{ data["apptType"] }} <br> {{ data['sessionName'] or "Session" }}
 {% else %}
   Slot <br> Session
 {% endif %}

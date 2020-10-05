@@ -6,10 +6,10 @@
 {% endblock %}
 
 {% set showAppointmentType %}
-{% if data["type"] == "Telephone appointment" %}
-  {{ data["type"] }} <br> Telephone
-{% elif data["type"] %}
-  {{ data["type"] }} <br> Face to face
+{% if data["apptType"] == "Telephone appointment" %}
+  {{ data["apptType"] }} <br> Telephone
+{% elif data["apptType"] %}
+  {{ data["apptType"] }} <br> Face to face
 {% else %}
   General appointment in person <br> Face to face
 {% endif %}
