@@ -1,0 +1,62 @@
+{% set PROTOTYPEURL = "guides" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "How to run your prototype locally" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+  "href": "/guides/index",
+  "text": "Go back"
+}) }}
+
+      <h1>
+        {{ contentTitle }}
+      </h1>
+
+      <h2>1. Make sure you're in the right folder</h2>
+
+      <p>If your prototype was named <code>practice-kit</code> for example, use the terminal to navigate to that folder. To do this, run:</p>
+
+      <pre class="app-pre"><code class="app-code">cd practice-kit</code></pre>
+
+
+      <h2>2. Run the kit</h2>
+
+      <p>Run this command:</p>
+
+      <pre class="app-pre"><code class="app-code">npm run watch</code></pre>
+
+
+
+      <h2>3. Open the local host link in your terminal</h2>
+
+
+      <p>Your prototype should now be running locally.</p>
+
+      <p>Your terminal should show a 'localhost' link. For example:</p>
+
+      <pre class="app-pre"><code class="app-code">http://localhost:3001</code></pre>
+
+      <p>Open that link in your browser.</p>
+
+    </div>
+  </div>
+{% endblock %}
