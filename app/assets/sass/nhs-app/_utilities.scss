@@ -306,6 +306,49 @@ a:visited {
 
 }
 
+
+.app-corona__container_home {
+
+  margin-bottom: -16px;
+
+  p {
+
+    padding: 0 !important;
+  }
+
+  li.no-chevron {
+
+    background-color: #ffeb3b;
+  }
+
+  .list-menu li {
+
+    background-color: #ffeb3b;
+  }
+
+}
+
+
+.app-corona__container_onboard {
+
+
+  p {
+
+    padding: 0 !important;
+  }
+
+  li.no-chevron {
+
+    background-color: #ffeb3b;
+  }
+
+  .list-menu li {
+
+    background-color: #ffeb3b;
+  }
+
+}
+
 .app-corona__container--desktop {
 
   background-color: #ffeb3b;
@@ -321,4 +364,14 @@ a:visited {
 .app-corona__container--desktop .list-menu li {
 
   border-bottom: 0;
+}
+
+
+.nhsuk-main-wrapper--s-home {
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.nhsuk-icon[_ngcontent-uop-c38] {
+    fill: #005db8;
 }

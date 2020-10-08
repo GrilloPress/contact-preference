@@ -2,13 +2,15 @@
 {% set serviceName = "Engage" %}
 {% set contentTitle = "Agree to share your NHS login information" %}
 {% set title = contentTitle + " - " + serviceName %}
-{% if data['appts'] == 'True' %}
-{% set appointmentsActive = "active" %}
-{% elif data['advice'] == 'True' %}
-{% set symptomsActive = "active" %}
-{% elif data['home'] == 'True' %}
-{% endif %}
+{% set messagingActive = "active" %}
 {% block pageScripts %}
+{% if data["messagingLogin"] %}
+<script type="text/javascript">
+$( document ).ready(function() {
+    jQuery.post( "/app/password", { messagingLogin: "seen" } );
+  });
+</script>
+{% endif %}
 {% endblock %}
 
 
@@ -58,7 +60,7 @@
       <p>If you agree, read their terms of use and privacy policy to check how your information will be used.</p>
 
 
-      <form action="/{{ PROTOTYPEURL }}/messaging/v2/engage-inbox?engageLoginAccepted=true" method="post">
+      <form action="/{{ PROTOTYPEURL }}/messaging/v2/engage-inbox?engageLoginAccepted=true&messagingLogin=seen" method="post">
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>

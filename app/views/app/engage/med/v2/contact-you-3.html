@@ -2,8 +2,12 @@
 {% set serviceName = "Engage" %}
 {% set contentTitle = "How would you like us to contact you?" %}
 {% set title = contentTitle + " - " + serviceName %}
-{% set messagingActive = "active" %}
-{% block pageScripts %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% elif data['home'] == 'True' %}
+{% endif %}{% block pageScripts %}
 {% endblock %}
 
 {% set contactYouMed %}

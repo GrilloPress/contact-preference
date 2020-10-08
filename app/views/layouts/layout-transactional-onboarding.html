@@ -1,0 +1,52 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends "layouts/layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+{% set mainClasses = 'nhsuk-main-wrapper--s-home' %}
+
+{% block headCSS %}
+  <link href="/css/main.css" rel="stylesheet">
+  <link href="/css/nhsapp.css" rel="stylesheet">
+{% endblock %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Transactional page layout
+{% endblock %}
+
+{% set headerHref %}
+  {% if PROTOTYPEURL === "see-how-data-is-shared/v1" %}
+    {{ "/" + PROTOTYPEURL + "/summary/index" }}
+  {% else %}
+    {{ "/" + PROTOTYPEURL }}
+  {% endif %}
+{% endset %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS App",
+        "longName": "true",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+
+{% include "./parts/_desktop-footer-2.html" %}
+
+{% endblock %}

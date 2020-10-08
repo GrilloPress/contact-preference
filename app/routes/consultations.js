@@ -140,6 +140,67 @@ router.post('/app/engage/terms/v1/engage-privacy', function (req, res) {
 });
 
 
+
+
+      // Covid error validation
+
+
+      router.post('/app/engage/med/v2/multi-radio', function (req, res) {
+
+        let lossOfTaste = req.body.lossOfTaste;
+        let lossOfSmell = req.body.lossOfSmell;
+        let runnyNose = req.body.runnyNose;
+        let nausea = req.body.nausea;
+
+
+        if (lossOfTaste && lossOfSmell && runnyNose && nausea) {
+
+          res.redirect('/app/engage/med/v2/covid-household?covidError=')
+
+        } else {
+
+          var errorURL = "";
+
+          if (lossOfTaste) {
+
+            errorURL += " lossOfTasteError=&"
+
+          } else {
+             errorURL += "lossOfTasteError=True&"
+          }
+
+          if (lossOfSmell) {
+
+            errorURL += "lossOfSmellError=&"
+
+          } else {
+             errorURL += "lossOfSmellError=True&"
+          }
+
+          if (runnyNose) {
+
+            errorURL += "runnyNoseError=&"
+
+          } else {
+             errorURL += "runnyNoseError=True&"
+          }
+
+
+          if (nausea) {
+
+            errorURL += "nauseaError=&"
+
+          } else {
+             errorURL += "nauseaError=True&"
+          }
+
+
+          res.redirect('/app/engage/med/v2/multi-radio?' + errorURL )
+        }
+
+      });
+
+
 //////// V2 ROUTES
 
 // OLC
@@ -239,6 +300,46 @@ router.post('/app/engage/admin/v2/terms/nhs-login', function (req, res) {
 });
 
 
+// NHS login routes - skips page if user has already seen the page
+router.post('/app/engage/admin/v3/terms/index', function (req, res) {
+  let answer = req.session.data.adminLogin;
+
+  if (answer === 'seen') {
+
+    res.redirect('/app/engage/admin/v3/who/index')
+
+  } else {
+    res.redirect('/app/engage/admin/v3/terms/nhs-login')
+  }
+});
+
+
+router.post('/app/engage/terms/v2/index', function (req, res) {
+  let answer = req.session.data.medLogin;
+
+  if (answer === 'seen') {
+
+    res.redirect('/app/engage/who/v2/index')
+
+  } else {
+    res.redirect('/app/engage/terms/v2/nhs-login')
+  }
+});
+
+
+router.post('/app/engage/messaging/v2/terms-messages', function (req, res) {
+  let answer = req.session.data.messagingLogin;
+
+  if (answer === 'seen') {
+
+    res.redirect('/app/engage/messaging/v2/engage-inbox')
+
+  } else {
+    res.redirect('/app/engage/messaging/v2/nhs-login')
+  }
+});
+
+
 
 
 
@@ -287,7 +388,7 @@ router.post('/app/engage/category/v2/review-v2', function (req, res) {
    if (anythingElse == "yes"){
      res.redirect('/app/engage/category/v2/search-v2')
    } else {
-     res.redirect('/app/engage/med/v2/start')
+     res.redirect('/app/engage/category/v2/attention')
    }
 });
 
@@ -307,6 +408,11 @@ router.post('/remove', function (req, res) {
   // reload the page
   res.redirect('/app/engage/category/v2/review-v2')
 });
+
+
+
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // ECONSULT routes
 ////////////////////////////////////////////////////////////////////////////////
