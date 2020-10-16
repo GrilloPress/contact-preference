@@ -41,6 +41,23 @@
 
 
 
+            <li class="nhs-app-message__item nhs-app-message__item--read">
+              <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/notification-message-2">
+                <h2 class="nhsuk-heading-xs">
+                  <span class="nhsuk-u-visually-hidden">Conversation with:</span>
+                  NHS App
+                  <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+                  <span class="nhs-app-message__date nhs-app-message__date--read">07/10/2020</span>
+                </h2>
+                <p class="nhs-app-message__subject-line nhs-app-message__subject-line">
+                  <span class="nhsuk-u-visually-hidden">Subject: </span>
+                   Don’t miss out on new messages in the NHS App.
+              </p>
+              </a>
+            </li>
+
+
+
             {% if data['messageRead1'] == "unread" %}
 
             <li class="nhs-app-message__item nhs-app-message__item--unread">
