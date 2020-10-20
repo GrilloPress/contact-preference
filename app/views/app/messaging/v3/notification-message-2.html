@@ -1,0 +1,86 @@
+{% set PROTOTYPEURL = "app/messaging/v3" %}
+{% set serviceName = "Home" %}
+{% set sender = "NHS App" %}
+{% set contentTitle = "Health information and updates" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% set messagingActive = "active" %}
+{% block pageScripts %}
+<script type="text/javascript">
+
+
+$( document ).ready(function() {
+  jQuery.post( "/app/password", { messageRead2{{data['id']}}: "read" } );
+  });
+
+  $( document ).ready(function() {
+    jQuery.post( "/app/password", { messageRead3{{data['id']}}: "read" } );
+    });
+
+    $( document ).ready(function() {
+      jQuery.post( "/app/password", { messageRead1{{data['id']}}: "read" } );
+      });
+
+
+</script>
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Messages</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/messages">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+
+      <h2 class="nhsuk-heading-l">
+        <span class="nhsuk-caption-m nhsuk-caption--top">Messages from: </span>
+        {{ sender }}
+      </h2>
+
+
+
+
+      <div class="nhs-app-chat">
+        <ul class="nhs-app-chat__thread">
+
+          <li class="nhs-app-chat__item">
+            <div class="nhs-app-chat__sender">
+              {{ sender }}
+            </div>
+            <div class="nhs-app-chat__container">
+              <p class="nhs-app-chat__body">Don’t miss out on new messages in the NHS App.</p>
+              <p class="nhs-app-chat__body">Turn on notifications and we’ll keep you up to date with important health information, such as winter health updates, and new features.</p>
+              <p class="nhs-app-chat__body">To turn on notifications, go to: <a class="nhs-app-chat__body message-break_link" href="https://www.nhsapp.service.nhs.uk/account/notifications/">www.nhsapp.service.nhs.uk/account/notifications/</a>.</p>
+            </div>
+            <div class="nhs-app-chat__date">
+              Sent 7 October 2020 at 7:12am
+            </div>
+          </li>
+
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
