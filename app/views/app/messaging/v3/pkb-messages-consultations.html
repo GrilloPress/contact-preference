@@ -1,10 +1,11 @@
-{% set PROTOTYPEURL = "app/PKB" %}
-{% set serviceName = "Patients Know Best" %}
-{% set contentTitle = "This service is provided by Patients Know Best" %}
+{% set PROTOTYPEURL = "app/messaging" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Messages" %}
+{% set messagingActive = "active" %}
+{% set contentTitle = "Messages and online consultations" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
-
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -25,32 +26,27 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/index" }}'>Back</a></p>
   </div>
 </nav>
+<div class="nhs-app-provider-banner">
+<div class="nhsuk-width-container">
+<strong>This service is provided by your GP surgery</strong>
+</div>
+</div>
 {% endblock %}
 
 {% block content %}
+
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <div class="app-interruption">
-        <div class="app-interruption__wrapper">
-          <div class="app-interruption__content">
-            <h1 class="app-card__heading nhsuk-heading-xl nhsuk-u-margin-bottom-4">
-              <span class="app-interruption__caption nhsuk-caption-m nhsuk-caption--top">Messages and online consultations</span>
-              This service is provided by Patients Know Best
-            </h1>
-            <p>
-              Your GP surgery has chosen this personal health record service provider.
-            </p>
-            <form action="/app/messaging/v3/pkb-messages-consultations" method="post">
-              <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
-            </form>
-            <p>
-              <a href="#">Find out more about personal health record services</a>
-            </p>
 
-          </div>
-        </div>
-      </div>
+
+<img class="calendar-images" src="/images/pkb-messages.png">
+
+
+      <p class="nhs-app-desktop--show">
+        <a href="javascript: window.history.go(-1)">Back</a>
+      </p>
+
 
 
     </div>
