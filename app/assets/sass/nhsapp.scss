@@ -2222,6 +2222,17 @@ a.app-lozenge-center svg {
   }
 }
 
+.nhs-app-logo_header-3 {
+
+  text-align: left;
+  padding-left: 6px;
+  svg {
+
+    height: 28px;
+    width: auto;
+  }
+}
+
 .nhs-app-header--app {
 
   padding: 13px 0;
@@ -2241,6 +2252,16 @@ a.app-lozenge-center svg {
   width: 31%;
 
 }
+
+.nhs-app-header__icon_header-3 {
+
+  display: inline-block;
+  width: 10%;
+  text-align: center;
+
+  }
+
+
 
 .nhs-app-header__icon--unread::after {
 

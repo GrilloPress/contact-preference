@@ -112,6 +112,8 @@
   {% include "./parts/_native-header-with-more.html" %}
 {% elif data['experimentalHeader2'] === "True" %}
 {% include "./parts/_native-header-with-log-out.html" %}
+{% elif data['experimentalHeader3'] === "True" %}
+{% include "./parts/_native-header-help-settings.html" %}
 {% else %}
   {% include "./parts/_native-header.html" %}
 {% endif %}
@@ -136,6 +138,8 @@
   {% include "./parts/_native-footer-with-messaging.html" %}
 {% elif data['experimentalFooter2'] === "True" %}
   {% include "./parts/_native-footer-with-messaging-more.html" %}
+{% elif data['experimentalFooter3'] === "True" %}
+  {% include "./parts/_native-footer-with-home.html" %}
 {% else %}
   {% include "./parts/_native-footer.html" %}
 {% endif %}
