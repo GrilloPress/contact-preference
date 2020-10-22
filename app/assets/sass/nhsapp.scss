@@ -329,6 +329,14 @@ svg {
       stroke-width: 1.5px;
       transition: all ease 0.5s; }
 
+      svg .menu_stroke_health {
+        fill: none;
+        stroke: #425563;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1px;
+        transition: all ease 0.5s; }
+
 .menu svg {
   width: auto;
   max-width: 1.6em;
@@ -362,7 +370,7 @@ svg {
   stroke: #ffffff; }
 .menu #btn_more.active svg .active {
   fill: #005EB8; }
-.menu #btn_home.active svg .menu_stroke_home {
+.menu #btn_home.active svg .menu_stroke_health {
     stroke: #005EB8; }
 
 main.content {
