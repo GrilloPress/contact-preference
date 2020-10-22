@@ -321,11 +321,19 @@ svg {
     stroke-width: 2px; }
   svg .icon-account {
     fill: none; }
+    svg .menu_stroke_home {
+      fill: none;
+      stroke: #425563;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.5px;
+      transition: all ease 0.5s; }
 
 .menu svg {
   width: auto;
   max-width: 1.6em;
   height: 2.2em; }
+
   .menu svg .menu_stroke {
     fill: none;
     stroke: #425563;
@@ -333,6 +341,7 @@ svg {
     stroke-linejoin: round;
     stroke-width: 5px;
     transition: all ease 0.5s; }
+
   .menu svg .symptoms_middle {
     fill: #425563; }
 .menu .active svg .menu_stroke {
@@ -348,11 +357,13 @@ svg {
 .menu #btn_prescriptions.active svg .active {
   fill: #005EB8; }
 .menu #btn_record.active svg .active {
-  fill: #005EB8; }
+  stroke: #005EB8; }
 .menu #btn_record.active svg .white {
   stroke: #ffffff; }
 .menu #btn_more.active svg .active {
   fill: #005EB8; }
+.menu #btn_home.active svg .menu_stroke_home {
+    stroke: #005EB8; }
 
 main.content {
   padding: 6.750em 1em 4.688em 1em;
