@@ -114,6 +114,8 @@
 {% include "./parts/_native-header-with-log-out.html" %}
 {% elif data['experimentalHeader3'] === "True" %}
 {% include "./parts/_native-header-help-settings.html" %}
+{% elif data['experimentalHeader4'] === "True" %}
+{% include "./parts/_native-header-help-more-2.html" %}
 {% else %}
   {% include "./parts/_native-header.html" %}
 {% endif %}
