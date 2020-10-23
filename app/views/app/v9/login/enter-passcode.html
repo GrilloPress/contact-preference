@@ -1,0 +1,122 @@
+{% set PROTOTYPEURL = "app/v9/login" %}
+{% set serviceName = "NHS login" %}
+{% set contentTitle = "Check your mobile phone" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS login",
+        "longName": "true",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+
+      <h1>
+        {{ contentTitle }}
+      </h1>
+
+      <p>Enter the 6 digit security code we've sent to •••••••1234.</p>
+
+
+
+      <form action="/app/v9/index" method="post">
+
+
+
+      {{ input({
+        "label": {
+          "text": "Security code"
+        },
+        "id": "example",
+        "name": "example",
+        "classes": "nhsuk-input--width-20"
+      }) }}
+
+      {{ checkboxes({
+        "name": "rememberDevice",
+        "fieldset": {
+          "legend": {
+            "text": "",
+            "classes": "nhsuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        },
+        "items": [
+          {
+            "value": "true",
+            "text": "Remember this device and stop sending security codes"
+          }
+        ]
+      }) }}
+
+
+
+      {{ details({
+  "text": "What does remember this device mean?",
+  "HTML": "
+  <p>We can remember the device you are using now, so you won't need to enter a security code when you log in with this device in the future.</p>
+  <p>To keep your NHS login secure, you should only do this on your own personal or trusted devices.</p>
+  <p>We may ask if you still want us to remember this device in the future.</p>
+  "
+}) }}
+
+
+      <input type="submit" class="nhsuk-button" value="Continue">
+      </input>
+    </form>
+
+<p>If you don't have access to your phone, you can <a href="javascript:void(0)">change your phone number securely</a>.</p>
+
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+<div class="">
+  {{ footer({
+    "classes": "",
+    "links": [
+      {
+        "URL": "#",
+        "label": "Terms of use"
+      },
+      {
+        "URL": "#",
+        "label": "Cookies"
+      },
+      {
+        "URL": "#",
+        "label": "Accessibility"
+      }
+    ]
+  })}}
+</div>
+{% endblock %}
