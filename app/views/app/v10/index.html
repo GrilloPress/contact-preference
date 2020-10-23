@@ -106,7 +106,7 @@
 
 
           <div class="nhs-app-panel-heading">
-            <h2 class="nhsuk-heading-m">Popular services</h2>
+            <h2 class="nhsuk-heading-m">Advice</h2>
           </div>
 
         <ul class="list-menu nhsuk-u-padding-bottom-4">
@@ -114,54 +114,22 @@
 
 
           <li>
-            <a class="desktop" href="/app/records/v1/">View your GP health record</a>
+            <a href="/app/symptoms/a-to-z">
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Search conditions and treatments</h2>
+            </a>
           </li>
 
+          <li>
+            <a href="https://111.nhs.uk/" id="btn_111">
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Use NHS 111 online</h2>
+            </a>
+          </li>
 
-
-
-                {% if data['pickPharmacy'] %}
-
-                <li>
-                  <a class="desktop" href="/app/prescriptions/v7/check-pharmacy">Order a repeat prescription</a>
-                </li>
-
-
-
-                 {% else %}
-
-
-                <li>
-                  <a class="desktop" href="/app/prescriptions/v7/not-nominated-pharmacy">Order a repeat prescription</a>
-                </li>
-
-
-
-                {% endif %}
-
-
-                <li>
-                  <a class="desktop" href="/app/appointments/v7-engage/select-type-of-appointment">Book an appointment</a>
-                </li>
-
-
-
-
-              {% if data['SJR_Engage'] === "True" %}
-
-                            <li>
-                              <a class="desktop" href="/app/engage/terms/v2/index?home=True&appts=&advice=">Ask your GP for advice</a>
-                            </li>
-              {% endif %}
-
-
-              {% if data['SJR_eConsult'] === "True" %}
-              <li>
-                <a class="desktop" href="/app/econsult/adult/terms/start-v2">Ask your GP for advice</a>
-              </li>
-
-              {% endif %}
-
+          <li>
+            <a href="/app/olc-hub/olc-hub">
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Ask your GP for advice</h2>
+            </a>
+          </li>
 
             </ul>
 
