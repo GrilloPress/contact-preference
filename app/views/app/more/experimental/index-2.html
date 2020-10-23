@@ -12,7 +12,11 @@
 
 {% set PROTOTYPEURL = "app/more/experimental" %}
 {% set serviceName = "NHS App" %}
+{% if data["experimentalHeader3"] == "True" %}
+{% set contentTitle = "Settings" %}
+{% else %}
 {% set contentTitle = "More" %}
+{% endif %}
 {% set moreActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
