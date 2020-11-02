@@ -4,13 +4,6 @@
 {% set contentTitle = "Ask your GP for advice" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
-{% if data["confirmed"] %}
-<script type="text/javascript">
-$( document ).ready(function() {
-    jQuery.post( "/app/password", { confirmed: "seen" } );
-  });
-</script>
-{% endif %}
 {% endblock %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -37,19 +30,56 @@ $( document ).ready(function() {
     </h1>
 
       <ul class="list-menu">
-        <li>
-         <a href="/{{ PROTOTYPEURL }}/GP-hub">
-           <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Online Consultations</h2>
-           <p>Answer questions online and get health advice from your GP.</p>
-         </a>
-       </li>
-        <li>
-      		<a href="/{{ PROTOTYPEURL }}/hospital-clinic-appts-hub">
-      			<h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Additional GP services</h2>
-      			<p>Get sick notes and GP letters or ask your GP about something else.</p>
-      		</a>
-      	</li>
-      </ul>
+
+              {% if data['SJR_DoctorLink'] === "True" %}
+
+
+              <li>
+                <a href="/app/doctorlink/terms/v1/index?home=&appts=True&advice=">
+                  <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Answer questions online and get advice</h2>
+                  <p>Answer questions about your symptoms and get advice on what to do next</p>
+                </a>
+              </li>
+
+              {% endif %}
+
+
+              {% if data['SJR_Engage'] === "True" %}
+                <li>
+                  <a href="/app/engage/terms/v2/index?home=&appts=True&advice=">
+                    <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Ask your GP for advice</h2>
+                    <p>Answer questions online and get a response from your GP surgery</p>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="/app/engage/admin/v3/terms?home=&appts=True&advice=">
+                    <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Additional GP services</h2>
+                    <p>Get sick notes and GP letters or ask about recent tests</p>
+                  </a>
+                </li>
+              {% endif %}
+
+
+              {% if data['SJR_eConsult'] === "True" %}
+              <li>
+                <a href="/app/econsult/adult/terms/start-v2?home=&appts=True&advice=">
+                  <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Ask your GP for advice</h2>
+                  <p>Answer questions online and get a response from your GP surgery. You may be able to get advice for your child if it’s available at your surgery</p>
+                </a>
+              </li>
+
+              <li>
+                <a href="/app/econsult/admin/v2/1?home=&appts=True&advice=">
+                  <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Additional GP services</h2>
+                  <p>Get sick notes and GP letters or ask about recent tests</p>
+                </a>
+              </li>
+
+              {% endif %}
+
+            </ul>
+
 
     </div>
   </div>
