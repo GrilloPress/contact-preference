@@ -20,11 +20,15 @@
 {% endblock %}
 
 {% block header %}
-  {{ header({
-      "showNav": "false",
-      "showSearch": "false"
-    })
-  }}
+{{ header({
+   "transactionalService": {
+       "name": "NHS App",
+       "href": headerHref
+     },
+     "showNav": "false",
+     "showSearch": "false"
+   })
+ }}
 {% endblock %}
 
 
@@ -58,11 +62,8 @@
   <p>Your information will only be used to contact you about the NHS App user research panel. It will not be shared with anyone else and you can unsubscribe at any time. <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">Read our privacy policy</a> to find out how we use and protect your data.</p>
 
 
-{% if data['experiment'] == 'True' %}
-  <form action="" method="get">
-{% else %}
+
   <form action="/app/p5/home?p5=True" method="get">
-{% endif %}
 
       {{ radios({
         "idPrefix": "example",

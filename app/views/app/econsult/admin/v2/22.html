@@ -10,6 +10,13 @@
 {% block pageScripts %}
 {% endblock %}
 
+{% set PhoneNumberInput %}
+{% if data['eConsultAdminOptIn'] == 'true' %}
+07890 345 746
+{% else %}
+{% endif %}
+{% endset %}
+
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -46,12 +53,22 @@
       <h1 class="nhsuk-heading-xl nhs-app-xl">Please tell us your contact phone number</h1>
 
       <form action="/{{ PROTOTYPEURL }}/admin/v2/23" method="get">
-        <div class="nhsuk-form-group">
-          <span class="nhsuk-hint" id="example-hint">
-            <p>Make sure this is a UK landline, UK mobile number or an international mobile number.</p>
-          </span>
-          <input class="nhsuk-input" id="example" name="example" type="text">
-        </div>
+
+        {{ input({
+          "label": {
+            "isPageHeading": false,
+            "classes": ""
+          },
+          "hint": {
+            "text": "Make sure this is a UK landline, UK mobile number or an international mobile number."
+          },
+          "id": "econsult",
+          "name": "econsultYourPhoneNumberAdmin",
+          "value": PhoneNumberInput,
+          "classes": ""
+        }) }}
+
+
         <div class="nhsuk-u-padding-bottom-4"></div>
 
         <input type="submit" class="nhsuk-button" value="Continue">

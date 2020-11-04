@@ -10,6 +10,8 @@
 {% block pageScripts %}
 {% endblock %}
 
+{% set AddressInput %}
+{% if data['eConsultAdminOptIn'] == 'true' %}72 Guild Street, London, SE23 6FH{% else %}{% endif %}{% endset %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -45,13 +47,19 @@
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">{{ contentTitle }}</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">Please tell us your full address, including your postcode</h1>
       <form action="/{{ PROTOTYPEURL }}/admin/v2/21" method="get">
-        {{ input({
+
+
+        {{ textarea({
+          "name": "econsultAdminAddress",
+          "id": "econsult",
+          "classes": "nhsuk-u-margin-bottom-0",
+          "value": AddressInput,
           "label": {
-            "text": ""
-          },
-          "id": "eConsult",
-          "name": "eConsultAdminLastName"
+            "isPageHeading": false,
+            "classes": ""
+          }
         }) }}
+
 
         <div class="nhsuk-u-padding-bottom-4"></div>
 
