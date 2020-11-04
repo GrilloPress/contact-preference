@@ -4,6 +4,11 @@
 {% set appLogin = true %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
+<script>
+       var timer = setTimeout(function() {
+           window.location='/app/start-screen/onboarding'
+       }, 2000);
+   </script>
 {% endblock %}
 
 

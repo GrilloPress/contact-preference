@@ -3,6 +3,7 @@
 {% set contentTitle = "Enter your email address" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
+
 {% endblock %}
 
 
@@ -12,8 +13,8 @@
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
   {{ title }}
-{% endblock %}
 
+{% endblock %}
 <!-- Header goes inside this block -->
 {% block header %}
   {{ header({
@@ -87,4 +88,5 @@
       </div>
     </div>
   </div>
+
 {% endblock %}
