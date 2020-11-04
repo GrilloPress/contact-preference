@@ -53,38 +53,47 @@
 
 
       <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-2">{{ contentTitle }}</h1>
-      <h2>Welcome, Mr Bernard Doyle </h2>
-      <div class="">
-      	<p>
-          <strong>Date of birth:</strong>
-          20 January 1982
-        </p>
-      </div>
-
-
-
+      {{ summaryList({
+        classes: 'nhsuk-summary-list--no-border nhs-app-summary-list-inline',
+        rows: [
+          {
+            key: {
+              text: "Name:"
+            },
+            value: {
+              text: "Mrs Betty Doyle"
+            }
+          },
+          {
+            key: {
+              text: "Date of birth:"
+            },
+            value: {
+              text: "20 September 1982"
+            }
+          }
+        ]
+      }) }}
 
       <ul class="list-menu">
         <li>
-          <a href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/home?messagingIcon=False&messageRead1=unread&pkbMessaging=true" }}'>View your messages</a>
+          <a href="#">
+            <h2 class="nhsuk-heading-s">Prove who you are</h2>
+              <p>To access services like ordering repeat prescriptions or viewing your health records, you’ll need to prove who you are</p>
+          </a>
         </li>
-      </ul>
+
+      <li>
+        <a href="/app/olc-hub/olc-hub">
+          <h2 class="nhsuk-heading-s">Ask your GP for advice</h2>
+            <p>Answer questions online and get a response from your GP surgery. You may be able to get advice for your child if it’s available at your surgery</p>
+        </a>
+      </li>
+
+    </ul>
 
 
 
-            <div class="app-interruption">
-              <div class="app-interruption__wrapper">
-                <div class="app-interruption__content">
-                  <h2 class="app-card__heading nhsuk-heading-l nhsuk-u-margin-bottom-4">
-                    Prove your identity to get full access
-                  </h2>
-                  <p>
-                    You'll need to prove who you are before you can book appointments, order repeat prescriptions, and view your health record.
-                  </p>
-                  <a href="https://nhs-cid.herokuapp.com/service-access/v19/service-access-start?service=app6&serviceName=the%20NHS%20app&devMode=undefined&lsId=undefined&lsAccess=undefined&lsStudy=true&emailAddress=undefined&mobileNum=&idType=undefined&formerror=undefined&hidehead=undefined&reason=pyi&result=undefined&manual=undefined&hideBack=true" class="nhsuk-button nhsuk-button--reverse" style="color: #212b32">Continue</a>
-                </div>
-              </div>
-            </div>
 
 
 
