@@ -25,6 +25,8 @@ router.use('/', require('./routes/consultations.js'))
 router.use('/', require('./routes/contact-preferences.js'))
 router.use('/', require('./routes/messaging.js'))
 router.use('/', require('./routes/prescriptions.js'))
+router.use('/', require('./routes/login.js'))
+
 
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -134,17 +136,19 @@ router.get('/app/v10/clear-desktop', function (req, res) {
 // qualtrics message
 
 
-router.post('/app/homepage/qualtrics-message', function (req, res) {
-  let answer = req.body.qualtrics;
 
-  if (answer === 'yes') {
+//router.post('/app/homepage/qualtrics-message', function (req, res) {
+  //let answer = req.body.qualtrics;
 
-    res.redirect('/app/homepage/qualtrics-email')
+  //if (answer === 'yes') {
 
-  } else {
-    res.redirect('/app/v4/')
-  }
-});
+  //  res.redirect('/app/homepage/qualtrics-email')
+
+//  } else {
+//    res.redirect('/app/v4/')
+//  }
+//});
+
 
 // NHS App AJAX routes
 
@@ -201,12 +205,7 @@ function emailLinkRoute(req, res, next) {
 router.get("/*", emailLinkRoute);
 
 
-router.post('/app/p5/terms', function (req, res) {
 
-  req.session.data.terms = "True"
-  res.redirect('/app/homepage/qualtrics-message?messageRead1=read&cookies=on&routeHome=/app/p5/home&routeSymptoms=/app/symptoms/v3/index&routeAppointments=/app/appointments/v6/p5-appointments&routePrescriptions=/app/prescriptions/v7/p5-prescriptions&routeMore=/app/more/p5-more&routeRecords=/app/records/v2/p5-records&routeMessaging=/app/messaging/v3/messages-none&messagingIcon=False&linkedProfiles=False&p5=True&econsult=False&manageLogin=False')
-
-});
 
 
 // Organ donation routing

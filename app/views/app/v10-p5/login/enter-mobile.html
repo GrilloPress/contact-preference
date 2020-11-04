@@ -1,0 +1,80 @@
+{% set PROTOTYPEURL = "app/v10-p5/login" %}
+{% set serviceName = "NHS login" %}
+{% set contentTitle = "Enter your mobile number" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Register for the NHS App",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+
+      <form action="/{{ PROTOTYPEURL }}/know-nhs-number" method="get">
+
+
+      {{ input({
+        "label": {
+          "text": "Enter your mobile number",
+          "classes": "nhsuk-label--xl nhs-app-xl ",
+          "isPageHeading": true
+        },
+          "hint": {
+          "text": "You must enter a UK mobile phone number so we can send you a 6 digit security code."
+        },
+        "id": "example-heading",
+        "name": "example-heading"
+      }) }}
+
+
+
+      <input type="submit" class="nhsuk-button" value="Continue">
+      </input>
+    </form>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

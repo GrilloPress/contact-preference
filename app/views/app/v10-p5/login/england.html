@@ -1,0 +1,89 @@
+{% set PROTOTYPEURL = "app/v10-p5/login" %}
+{% set serviceName = "NHS login" %}
+{% set contentTitle = "You need to register with a GP surgery in England before you can use the NHS App" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Register for the NHS App",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+
+      <ul class="list-menu">
+      <li>
+        <a href="#">
+          <h2 class="nhsuk-heading-s">Register with a GP surgery</h2>
+            <p>Find advice on NHS.UK on how to choose and register with a GP surgery</p>
+        </a>
+      </li>
+    </ul>
+
+    <h2>Other services you can use without logging in</h2>
+
+
+    <ul class="list-menu">
+      <li>
+        <a href="#">
+          <h2 class="nhsuk-heading-s">Get advice about coronavirus</h2>
+            <p>Find out what to do if you think you have coronavirus</p>
+        </a>
+      </li>
+
+    <li>
+      <a href="#">
+        <h2 class="nhsuk-heading-s">Search conditions and treatments</h2>
+          <p>Find trusted NHS information on hundreds of conditions</p>
+      </a>
+    </li>
+
+    <li>
+      <a href="#">
+        <h2 class="nhsuk-heading-s">Use NHS 111 online</h2>
+          <p>Check if you need urgent help and find out what to do next</p>
+      </a>
+    </li>
+  </ul>
+
+
+
+    </div>
+  </div>
+{% endblock %}
