@@ -1,12 +1,12 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Get advice from your GP for your child" %}
+{% set contentTitle = "Get advice from your GP" %}
+{% set title = contentTitle + " - " + serviceName %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
 {% elif data['advice'] == 'True' %}
 {% set symptomsActive = "active" %}
 {% endif %}
-{% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
 
@@ -44,24 +44,30 @@
 
 {% endif %}
   </div>
-</nav>
-<div class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-third-party-container nhs-app-third-party-container--grey nhsuk-body-s nhsuk-u-margin-bottom-0">
-  <div class="nhsuk-width-container">
-    <strong>This service is provided by your GP surgery</strong>
-  </div>
-</div>
+</nav>{% include "../../_parts/silver-banner.html" %}
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP for your child</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Which eye(s) is affected?</h1>
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Check your photo</h1>
+      <p>Your photo should not show your bottom (anus), breasts, vagina or penis, even if these are the problem area.</p>
 
-      <form action="/{{ PROTOTYPEURL }}/child/v2/19_" method="get">
+      <img class="nhsuk-u-margin-bottom-1" style="width: 140px; height: 140px;" src="/images/eczema_example.jpg">
+      <span class="nhsuk-hint">
+        img345.jpg
+      </span>
+
+      <div class="nhsuk-u-padding-bottom-4"></div>
+
+      <h2>Is this the photo you want to send?</h2>
+
+      <form action="/app/econsult/adult/eczema/19_b" method="post">
+
         {{ radios({
           "idPrefix": "econsult",
-          "name": "econsultWhichEye",
+          "name": "econsultEczemaUsePhoto",
           "fieldset": {
             "legend": {
               "isPageHeading": false,
@@ -70,25 +76,18 @@
           },
           "items": [
             {
-              "value": "Left",
-              "text": "Left"
+              "value": "Yes, this is the photo I want to send",
+              "text": "Yes, this is the photo I want to send"
             },
             {
-              "value": "Right",
-              "text": "Right"
-            },
-            {
-              "value": "Both",
-              "text": "Both"
+              "value": "No, I need to upload a different photo",
+              "text": "No, I need to upload a different photo"
             }
           ]
         }) }}
-
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
+        <input type="submit" class="nhsuk-button" value="Continue"></input>
 
       </form>
-
 
 
 

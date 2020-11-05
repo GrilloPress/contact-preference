@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Ask your GP for advice for your child" %}
+{% set contentTitle = "Get advice from your GP for your child" %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
 {% elif data['advice'] == 'True' %}
@@ -55,7 +55,7 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Ask your GP for advice for your child</p>
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP for your child</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">Are you the child's legal guardian?</h1>
 
       <form action="/{{ PROTOTYPEURL }}/child/v2/6_legal-guardian" method="post">
