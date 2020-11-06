@@ -329,6 +329,15 @@ svg {
       stroke-width: 1.5px;
       transition: all ease 0.5s; }
 
+  svg .menu_stroke_appointment {
+    fill:#425563;
+    stroke:#425563;
+    stroke-linecap:round;
+    stroke-miterlimit:10;
+    stroke-width:1.79px
+    transition: all ease 0.5s;
+  }
+
       svg .menu_stroke_health {
         fill: none;
         stroke: #425563;
@@ -2267,6 +2276,7 @@ a.app-lozenge-center svg {
 
   text-align: left;
   padding-left: 6px;
+  margin-top:3px;
   svg {
 
     height: 28px;
@@ -2276,7 +2286,7 @@ a.app-lozenge-center svg {
 
 .nhs-app-header--app {
 
-  padding: 13px 0;
+  padding: 10px 0;
   position: sticky;
   position: -webkit-sticky;
   top: 0;
@@ -2296,10 +2306,12 @@ a.app-lozenge-center svg {
 
 .nhs-app-header__icon_header-3 {
 
-  display: inline-block;
-  width: 10%;
+  display:inline-block;
+  width: 24px;
+  height:24px;
   text-align: center;
-
+  margin: 0px 18px 0px 5px;
+  float:right;
   }
 
 

@@ -1,0 +1,92 @@
+<nav class="menu nhs-app-desktop--hide">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+<ul>
+  <li class="{{ homeActive }}" id="btn_home">
+      <a class="footer-labels__link" href="{{ routeHome }}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+          <defs>
+          </defs>
+          <title>Home</title>
+        <path class="menu_stroke_home active" d="M16.39,9.7649h-.758v7.5288H10.4212V12.4959a.8517.8517,0,0,0-.8546-.8488H8.4293a.8477.8477,0,0,0-.85.8448v4.8018H2.3679V9.7649H1.61a.8536.8536,0,0,1-.6064-1.4587l7.39-7.2654a.8677.8677,0,0,1,1.2128,0l7.39,7.2654A.8536.8536,0,0,1,16.39,9.7649Z"/>
+        <path class="menu_stroke_home" d="M16.39,9.7649h-.758v7.5288H10.4212V12.4959a.8517.8517,0,0,0-.8546-.8488H8.4293a.8477.8477,0,0,0-.85.8448v4.8018H2.3679V9.7649H1.61a.8536.8536,0,0,1-.6064-1.4587l7.39-7.2654a.8677.8677,0,0,1,1.2128,0l7.39,7.2654A.8536.8536,0,0,1,16.39,9.7649Z"/>
+      </svg>
+      <div class="footer-labels">
+        <b>Home</b>
+      </div>
+      </a>
+      </li>
+
+  <li class="{{ appointmentsActive }}" id="btn_appointments">
+    <a href="{{ routeAppointments }}">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+        <defs>
+        </defs>
+        <title>Appointments</title>
+        {% if data['appointmentsActive'] === "active"  %}
+        <path d="M1,16H17v.5a.4951.4951,0,0,1-.5.5H1.5a.4951.4951,0,0,1-.5-.5Z"
+        style="fill:#005EB8;stroke:#005EB8;stroke-linecap:round;stroke-miterlimit:10;stroke-width:1.79px"/>
+        <path d="M17.9,1.97V15.5a.5.5,0,0,1-1,0V2.86H14.25v.39a.75.75,0,0,1-1.5,0V2.86H5.25v.39a.75.75,0,0,1-1.5,0V2.86H1.1V15.59a.5.5,0,0,1-1,0V1.97a.8963.8963,0,0,1,.9-.9H3.75V.81a.75.75,0,1,1,1.5,0v.26h7.5V.81a.75.75,0,0,1,1.5,0v.26H17A.8963.8963,0,0,1,17.9,1.97Z"
+        style="fill:#005EB8"/>
+        <rect x="2" y="5" width="3" height="3" rx="0.8874" style="fill:#005EB8"/>
+        {% else %}
+        <path d="M1,16H17v.5a.4951.4951,0,0,1-.5.5H1.5a.4951.4951,0,0,1-.5-.5Z"
+        style="fill:#425563;stroke:#425563;stroke-linecap:round;stroke-miterlimit:10;stroke-width:1.79px"/>
+        <path d="M17.9,1.97V15.5a.5.5,0,0,1-1,0V2.86H14.25v.39a.75.75,0,0,1-1.5,0V2.86H5.25v.39a.75.75,0,0,1-1.5,0V2.86H1.1V15.59a.5.5,0,0,1-1,0V1.97a.8963.8963,0,0,1,.9-.9H3.75V.81a.75.75,0,1,1,1.5,0v.26h7.5V.81a.75.75,0,0,1,1.5,0v.26H17A.8963.8963,0,0,1,17.9,1.97Z"
+        style="fill:#425563"/>
+        <rect x="2" y="5" width="3" height="3" rx="0.8874" style="fill:#425563"/>
+        {% endif %}
+      </svg>
+    <b>Appointments</b>
+  </a>
+  </li>
+
+  <li class="{{ prescriptionsActive }}" id="btn_prescriptions">
+    <a href="{{ routePrescriptions }}">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+        <defs>
+        </defs>
+        <title>Prescriptions</title>
+        <rect x="4.325" y="-0.5459" width="9.35" height="19.0919" rx="4.675" transform="translate(9 -3.7279) rotate(45)"
+        style="fill:none;stroke:#425563;stroke-miterlimit:10;stroke-width:1.5px"/>
+        <path d="M6,5.85c1.3714.5271,5.4857,4.7443,6,6.15"
+        style="fill:none;stroke:#425563;stroke-miterlimit:10;stroke-width:1.5px"/>
+        <ellipse cx="12.5" cy="2.5" rx="1.5" ry="0.5"
+        style="fill:#425563"/>
+      </svg>
+    <b>Prescriptions</b>
+    </a>
+  </li>
+
+  <li class="{{ recordActive }}" id="btn_record">
+    <a href="{{ routeRecords }}">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+        <defs>
+        </defs>
+        <title>Your Health</title>
+        <circle cx="9" cy="4.3322" r="3.5"
+        style="fill:none;stroke:#425563;stroke-miterlimit:10;stroke-width:1.5px"/>
+        <path d="M16.68,16.9678H1.32c.9022-3.7308,2.6785-6.5695,4.8478-7.5786a.9061.9061,0,0,1,.8114.0676,4.2513,4.2513,0,0,0,4.0431-.0008.9026.9026,0,0,1,.8084-.0675C14.0007,10.397,15.7776,13.2362,16.68,16.9678Z"
+        style="fill:none;stroke:#425563;stroke-miterlimit:10;stroke-width:1.5px"/>
+      </svg>
+    <b>Your health</b>
+    </a>
+  </li>
+
+  <li class="{{ messagingActive }} {{ messagesReadUnreadFooter}}">
+    <a class=" {{- messagesReadUnread -}} {{ 'nhs-app-header__icon--unread-red' if data['messageRead1'] !== 'read' }}" href="{{ routeMessaging }}">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18">
+        <g style="{{ "stroke:#005EB8;" if messagingActive == 'active' else "stroke:#425563;" }} {{ "fill:#005EB8;" if messagingActive == 'active' else "fill:transparent;" }}" id="Group-2" transform="translate(1.000000, 1.000000)" fill-rule="nonzero" stroke="#FFFFFF" stroke-width="1.6">
+        <path d="M17.25,3.0249v9.3205a.826.826,0,0,1-.8271.8249H9.3a.8286.8286,0,0,0-.53.1913l-3.9041,3.246a.8279.8279,0,0,1-1.3566-.64l.0129-1.9672a.826.826,0,0,0-.8271-.83H1.5771A.826.826,0,0,1,.75,12.3454v-9.32A.826.826,0,0,1,1.5771,2.2H16.4229A.826.826,0,0,1,17.25,3.0249Z"
+        style="fill:none;stroke:#425563;stroke-miterlimit:10;stroke-width:1.5px"/>
+      </svg>
+      <b>Messages</b>
+    </a>
+  </li>
+</ul>
+
+</div>
+</div>
+</div>
+</nav>
