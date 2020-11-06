@@ -5,10 +5,17 @@
 {% elif data['advice'] == 'True' %}
 {% set symptomsActive = "active" %}
 {% endif %}
-{% set contentTitle = "Additional GP services" %}
+{% set contentTitle = "Get admin help" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
+
+{% set EmailAddressInput %}
+{% if data['eConsultAdminOptIn'] == 'true' %}
+betty.doyle@hotmail.com
+{% else %}
+{% endif %}
+{% endset %}
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -45,13 +52,21 @@
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">{{ contentTitle }}</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">Please tell us your email address</h1>
       <form action="/{{ PROTOTYPEURL }}/admin/v2/24" method="get">
-        <div class="nhsuk-form-group">
 
-          <span class="nhsuk-hint" id="example-hint">
-            <p>We'll email you to confirm the submission of your request.</p>
-          </span>
-          <input class="nhsuk-input" id="example" name="example" type="text">
-        </div>
+                {{ input({
+                  "label": {
+                    "isPageHeading": false,
+                    "classes": ""
+                  },
+                  "hint": {
+                    "text": "We'll email you to confirm the submission of your request."
+                  },
+                  "id": "econsult",
+                  "name": "econsultYourEmailAdmin",
+                  "value": EmailAddressInput,
+                  "classes": ""
+                }) }}
+
         <div class="nhsuk-u-padding-bottom-4"></div>
 
         <input type="submit" class="nhsuk-button" value="Continue">

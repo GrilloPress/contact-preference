@@ -19,11 +19,15 @@
 {% endblock %}
 
 {% block header %}
-  {{ header({
-      "showNav": "false",
-      "showSearch": "false"
-    })
-  }}
+{{ header({
+   "transactionalService": {
+       "name": "NHS App",
+       "href": headerHref
+     },
+     "showNav": "false",
+     "showSearch": "false"
+   })
+ }}
 {% endblock %}
 
 {% block content %}

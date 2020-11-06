@@ -300,6 +300,21 @@ router.post('/app/engage/admin/v2/terms/nhs-login', function (req, res) {
 });
 
 
+// Terms page - redirects user to correct use my data page depending on if it's a p5 user or not
+
+router.post('/app/econsult/adult/terms/start-v2', function (req, res) {
+  let p5 = req.session.data.p5;
+
+  if (p5 === 'true') {
+
+    res.redirect('/app/econsult/adult/terms/data-sharing-p5')
+
+  } else {
+    res.redirect('/app/econsult/adult/terms/data-sharing')
+    }
+});
+
+
 // NHS login routes - skips page if user has already seen the page
 router.post('/app/engage/admin/v3/terms/index', function (req, res) {
   let answer = req.session.data.adminLogin;
@@ -1481,6 +1496,8 @@ router.post('/app/econsult/adult/35_', function (req, res) {
 
 // eConsult Adult Eczema Route (SHOWS FILE UPLOAD)
 
+
+
 router.post('/app/econsult/adult/eczema/5_emergency', function (req, res) {
   let answer = req.session.data.econsultAdultEczemaEmergency;
 
@@ -1494,16 +1511,23 @@ router.post('/app/econsult/adult/eczema/5_emergency', function (req, res) {
   }
 });
 
+
+
+
 router.post('/app/econsult/adult/eczema/6_covid', function (req, res) {
   let answer = req.session.data.econsultAdultCOVIDCheckEczema;
+  let p5 = req.session.data.p5;
 
   if (answer === 'Yes') {
 
     res.redirect('/app/econsult/adult/end/covid')
 
   } else {
+    if (p5 === 'true') {
+      res.redirect('/app/econsult/adult/eczema/7_registered')
+      } else {
     res.redirect('/app/econsult/adult/eczema/8_sex')
-
+    }
   }
 });
 

@@ -5,7 +5,7 @@
 {% elif data['advice'] == 'True' %}
 {% set symptomsActive = "active" %}
 {% endif %}
-{% set contentTitle = "Additional GP services" %}
+{% set contentTitle = "Get admin help" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -43,35 +43,71 @@
     <div class="nhsuk-grid-column-two-thirds">
 
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">{{ contentTitle }}</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Tell us your date of birth</h1>
 
       <form action="/{{ PROTOTYPEURL }}/admin/v2/8" method="get">
 
-        {{ dateInput({
-          "id": "econsult",
-          "namePrefix": "eConsultAdminDOB",
-          "fieldset": {
-            "legend": {
-              "text": "",
-              "isPageHeading": false,
-              "classes": ""
-            }
-          },
-          "items": [
-            {
-              "name": "day",
-              "classes": "nhsuk-input--width-2"
-            },
-            {
-              "name": "month",
-              "classes": "nhsuk-input--width-2"
-            },
-            {
-              "name": "year",
-              "classes": "nhsuk-input--width-4"
-            }
-          ]
-        }) }}
+
+
+{% if data['eConsultAdminOptIn'] == 'true' %}
+
+{{ dateInput({
+  "id": "econsult",
+  "namePrefix": "econsultAdminDOB",
+  "fieldset": {
+    "legend": {
+      "text": "Tell us your date of birth",
+      "classes": "nhsuk-label--xl",
+      "isPageHeading": true
+    }
+  },
+  "items": [
+    {
+      "name": "day",
+      "classes": "nhsuk-input--width-2",
+      value: 20
+    },
+    {
+      "name": "month",
+      "classes": "nhsuk-input--width-2",
+      value: 9
+    },
+    {
+      "name": "year",
+      "classes": "nhsuk-input--width-4",
+      value: 1982
+    }
+  ]
+}) }}
+
+{% else %}
+
+{{ dateInput({
+  "id": "econsult",
+  "namePrefix": "econsultAdminDOB",
+  "fieldset": {
+    "legend": {
+      "text": "Tell us your date of birth",
+      "classes": "nhsuk-label--xl",
+      "isPageHeading": true
+    }
+  },
+  "items": [
+    {
+      "name": "day",
+      "classes": "nhsuk-input--width-2"
+    },
+    {
+      "name": "month",
+      "classes": "nhsuk-input--width-2"
+    },
+    {
+      "name": "year",
+      "classes": "nhsuk-input--width-4"
+    }
+  ]
+}) }}
+
+{% endif %}
 
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>

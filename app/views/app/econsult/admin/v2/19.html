@@ -5,11 +5,17 @@
 {% elif data['advice'] == 'True' %}
 {% set symptomsActive = "active" %}
 {% endif %}
-{% set contentTitle = "Additional GP services" %}
+{% set contentTitle = "Get admin help" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
 
+{% set LastNameInput %}
+{% if data['eConsultAdminOptIn'] == 'true' %}
+Doyle
+{% else %}
+{% endif %}
+{% endset %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -47,10 +53,13 @@
       <form action="/{{ PROTOTYPEURL }}/admin/v2/20" method="get">
         {{ input({
           "label": {
-            "text": ""
+            "isPageHeading": false,
+            "classes": ""
           },
-          "id": "eConsult",
-          "name": "eConsultAdminLastName"
+          "id": "econsult",
+          "name": "eConsultAdminLastName",
+          "value": LastNameInput,
+          "classes": ""
         }) }}
 
         <div class="nhsuk-u-padding-bottom-4"></div>

@@ -19,19 +19,37 @@ router.post('/app/v10-p5/login/know-nhs-number', function (req, res) {
 });
 
 
-router.post('/nhsuk-to-prescription/nhsuk/england', function (req, res) {
-  let answer = req.body.england;
 
-  if (answer === 'not sure') {
+router.post('/app/v10-p5/login/registered-with-gp', function (req, res) {
+  let answer = req.body.registeredWithGP;
 
-    res.redirect('/nhsuk-to-prescription/nhsuk/england-not-sure')
+  if (answer === 'yes') {
 
-  } else if (answer === 'no') {
-
-    res.redirect('/nhsuk-to-prescription/nhsuk/england-no')
+    res.redirect('/app/v10-p5/login/enter-email')
 
   } else {
-    res.redirect('/nhsuk-to-prescription/nhsuk/has-prescription')
+    res.redirect('/app/v10-p5/login/where-do-you-live')
+  }
+});
+
+
+router.post('/app/v10-p5/login/where-do-you-live', function (req, res) {
+  let answer = req.body.whereLive;
+
+  if (answer === 'england') {
+
+    res.redirect('/app/v10-p5/login/england')
+
+  } else if (answer === 'northernI') {
+
+    res.redirect('/app/v10-p5/login/northern-ireland')
+
+  } else if (answer === 'scotland') {
+
+    res.redirect('/app/v10-p5/login/scotland')
+
+  } else {
+    res.redirect('/app/v10-p5/login/wales')
   }
 });
 

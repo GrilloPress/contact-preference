@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Ask your GP for advice" %}
+{% set contentTitle = "Get advice from your GP" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
@@ -50,22 +50,53 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Ask your GP for advice</p>
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">Tell us your date of birth</h1>
 
 
       <form action="/{{ PROTOTYPEURL }}/adult/10_about" method="get">
+        {% if data['econsultAgreePrivacyPolicy'] == 'true' %}
+
         {{ dateInput({
           "id": "econsult",
-          "namePrefix": "econsultAdultDOB",
+          "namePrefix": "econsultAdultDOBEczema",
           "fieldset": {
             "legend": {
-              "isPageHeading": false,
-              "classes": ""
+              "text": contentTitle,
+              "classes": "nhsuk-label--xl",
+              "isPageHeading": true
             }
           },
-          "hint": {
-            "text": "For example, 31 3 1990"
+          "items": [
+            {
+              "name": "day",
+              "classes": "nhsuk-input--width-2",
+              value: 20
+            },
+            {
+              "name": "month",
+              "classes": "nhsuk-input--width-2",
+              value: 9
+            },
+            {
+              "name": "year",
+              "classes": "nhsuk-input--width-4",
+              value: 1982
+            }
+          ]
+        }) }}
+
+        {% else %}
+
+        {{ dateInput({
+          "id": "econsult",
+          "namePrefix": "econsultAdultDOBEczema",
+          "fieldset": {
+            "legend": {
+              "text": contentTitle,
+              "classes": "nhsuk-label--xl",
+              "isPageHeading": true
+            }
           },
           "items": [
             {
@@ -82,6 +113,10 @@
             }
           ]
         }) }}
+
+        {% endif %}
+
+
 
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>

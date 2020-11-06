@@ -1,0 +1,101 @@
+{% set PROTOTYPEURL = "app/econsult" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Get advice from your GP" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% endif %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
+{% if data['appts'] == 'True' %}
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v8-econsult/pre-hub" }}'>Appointments</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/appointments/v8-econsult/GP-hub">Your GP appointments</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+
+{% else %}
+{% if data['experiment'] === 'True' %}
+{% if data['advice'] === 'True' %}
+<li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Advice</a></li>
+{% else %}
+<li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Symptoms</a></li>
+{% endif %}
+{% endif %}
+</ol>
+<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+
+{% endif %}
+  </div>
+</nav>{% include "../../_parts/silver-banner.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Check your photo</h1>
+      <p>Your photo should not show your bottom (anus), breasts, vagina or penis, even if these are the problem area.</p>
+
+      <img class="nhsuk-u-margin-bottom-1" style="width: 140px; height: 140px;" src="/images/eczema_example.jpg">
+      <span class="nhsuk-hint">
+        img345.jpg
+      </span>
+
+      <div class="nhsuk-u-padding-bottom-4"></div>
+
+      <h2>Is this the photo you want to send?</h2>
+
+      <form action="/app/econsult/adult/eczema/19_b" method="post">
+
+        {{ radios({
+          "idPrefix": "econsult",
+          "name": "econsultEczemaUsePhoto",
+          "fieldset": {
+            "legend": {
+              "isPageHeading": false,
+              "classes": ""
+            }
+          },
+          "items": [
+            {
+              "value": "Yes, this is the photo I want to send",
+              "text": "Yes, this is the photo I want to send"
+            },
+            {
+              "value": "No, I need to upload a different photo",
+              "text": "No, I need to upload a different photo"
+            }
+          ]
+        }) }}
+        <input type="submit" class="nhsuk-button" value="Continue"></input>
+
+      </form>
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

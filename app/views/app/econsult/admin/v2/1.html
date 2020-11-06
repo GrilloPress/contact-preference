@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Additional GP services" %}
+{% set contentTitle = "Get admin help" %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
 {% elif data['advice'] == 'True' %}
@@ -68,11 +68,13 @@
       },
         "items": [
           {
-            "value": "Opt In",
+            "value": "true",
             "html": "Use my name, date of birth, NHS number and postal address with the online consultation service as described in the <a href=\"https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/\">NHS App privacy policy.</a>"
           }
         ]
       }) }}
+
+
 
       <input type="submit" class="nhsuk-button" value="Continue">
       </input>

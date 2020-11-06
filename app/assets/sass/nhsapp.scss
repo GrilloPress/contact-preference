@@ -2082,6 +2082,7 @@ section.home-main {
 .onboarding-contents button {
   margin-top:40px;
   margin-bottom: 24px;
+  width:100%;
 }
 
 .onboarding-button {
@@ -2480,6 +2481,18 @@ nav.nhs-app-breadcrumb {
     position: sticky;
     position: -webkit-sticky;
     top: 54px;
+    z-index: 2;
+  }
+}
+
+nav.nhs-app-breadcrumb_sticky {
+
+  box-shadow: 0 2px 0 0 #d8dde0;
+  padding: 8px 0;
+
+  @include mq($until: desktop) {
+    position: -webkit-sticky;
+    top: 0px;
     z-index: 2;
   }
 }

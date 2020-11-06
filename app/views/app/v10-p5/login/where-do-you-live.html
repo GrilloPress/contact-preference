@@ -45,13 +45,13 @@
     <div class="nhsuk-grid-column-two-thirds">
 
 
-      <form action="/{{ PROTOTYPEURL }}/create-password" method="post">
+      <form action="/{{ PROTOTYPEURL }}/where-do-you-live" method="post">
 
 
 
         {{ radios({
           "idPrefix": "example",
-          "name": "example",
+          "name": "whereLive",
           "fieldset": {
             "legend": {
               "text": contentTitle,
@@ -61,19 +61,19 @@
           },
           "items": [
             {
-              "value": "yes",
+              "value": "england",
               "text": "England"
             },
             {
-              "value": "no",
+              "value": "northernI",
               "text": "Northern Ireland"
             },
             {
-              "value": "no",
+              "value": "scotland",
               "text": "Scotland"
             },
             {
-              "value": "no",
+              "value": "wales",
               "text": "Wales"
             }
           ]
