@@ -30,8 +30,9 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
-      <p>You can choose whether to allow notifications on this device.</p>
-      <p>If you share this device with other people, they may be able to see your notifications. Read more about notifications in the <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">NHS App privacy policy</a>.</p>
+      <p>These may include new features and public health updates.</p>
+      <p>If you share this device with other people, they may see your notifications. The settings will apply to everyone who logs in to the NHS App on this device.</p>
+      <p>More information is available in the <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">NHS App privacy policy</a>.</p>
 
       {% set checked %}
         {% if data['notifications'] == "True" %}
@@ -45,17 +46,14 @@
         <div class="nhs-app-card">
           <div class="nhs-app-card__inner" onclick="notificationToggle()">
             <div>
-              <label for="notifications">Allow notifications</label>
-              <p class="nhsuk-u-margin-bottom-1 nhsuk-u-margin-top-1">I accept the NHS App sending me notifications on this device</p>
+              <label for="notifications">Allow notifications</h2></label>
+              <p class="nhsuk-u-margin-bottom-1 nhsuk-u-margin-top-1 nhsuk-u-margin-right-7">I accept the NHS App sending notifications on this device</p>
               <input class="toggle_notifications" type="checkbox" id="notifications" name="notifications" value="on" {{ checked }}>
               <input class="nhsuk-u-visually-hidden" type="submit" value="Submit">
-      			</div>
+            </div>
           </div>
         </div>
       </form>
-
-
-      <p><a href="javascript:void(0)">Manage how notifications are shown on this device (opens your device settings)</a></p>
 
 
     </div>

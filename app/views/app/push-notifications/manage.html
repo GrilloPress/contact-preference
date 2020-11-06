@@ -1,12 +1,14 @@
-{% set PROTOTYPEURL = "app/v9" %}
-{% set serviceName = "Home" %}
+{% set PROTOTYPEURL = "app" %}
+{% set serviceName = "NHS App" %}
 {% set contentTitle = "Manage notifications" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
 
+
+
 <!-- Extends the layout from /app/views/layouts/layout.html -->
-{% extends 'layouts/layout-app-new.html' %}
+{% extends "layouts/layout-transactional.html" %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -15,46 +17,63 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
-  <div class="nhsuk-width-container">
-    <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Settings</a></li>
-    </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
-  </div>
-</nav>
 {% endblock %}
 
+{% block header %}
+{{ header({
+   "transactionalService": {
+       "name": "NHS App",
+       "href": headerHref
+     },
+     "showNav": "false",
+     "showSearch": "false"
+   })
+ }}
+{% endblock %}
+
+
 {% block content %}
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
-      <p>These may include new features and public health updates.</p>
-      <p>If you share this device with other people, they may see your notifications. The settings will apply to everyone who logs in to the NHS App on this device.</p>
-      <p>More information is available in the <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">NHS App privacy policy</a>.</p>
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+    <p>These may include new features and public health updates.</p>
+    <p>If you share this device with other people, they may see your notifications. The settings will apply to everyone who logs in to the NHS App on this device.</p>
+    <p>More information is available in the <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">NHS App privacy policy</a>.</p>
 
-      {% set checked %}
-        {% if data['notifications'] == "True" %}
-          Checked
-        {% else %}
-          nope
-        {% endif %}
-      {% endset %}
+    {% set checked %}
+      {% if data['notifications'] == "True" %}
+        Checked
+      {% else %}
+        nope
+      {% endif %}
+    {% endset %}
 
-      <form action="" method="post">
-        <div class="nhs-app-card">
-          <div class="nhs-app-card__inner" onclick="notificationToggle()">
-            <div>
-              <label for="notifications">Allow notifications</h2></label>
-              <p class="nhsuk-u-margin-bottom-1 nhsuk-u-margin-top-1">I accept the NHS App sending notifications on this device</p>
-              <input class="toggle_notifications" type="checkbox" id="notifications" name="notifications" value="on" {{ checked }}>
-              <input class="nhsuk-u-visually-hidden" type="submit" value="Submit">
-      			</div>
+    <form action="#" method="post">
+      <div class="nhs-app-card">
+        <div class="nhs-app-card__inner" onclick="notificationToggle()">
+          <div>
+            <label for="notifications">Allow notifications</h2></label>
+            <p class="nhsuk-u-margin-bottom-1 nhsuk-u-margin-top-1 nhsuk-u-margin-right-7">I accept the NHS App sending notifications on this device</p>
+            <input class="toggle_notifications" type="checkbox" id="notifications" name="notifications" value="on" {{ checked }}>
+            <input class="nhsuk-u-visually-hidden" type="submit" value="Submit">
           </div>
         </div>
-      </form>
+      </div>
+    </form>
 
-    </div>
+    <form action="/app/p5/home" method="post">
+
+          <input type="submit" class="nhsuk-button" value="Continue">
+          </input>
+
+        </form>
+
+
+
+
   </div>
+</div>
+{% endblock %}
+
+{% block footer %}
 {% endblock %}
