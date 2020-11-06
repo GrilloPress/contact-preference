@@ -97,7 +97,7 @@
 
   <li class="{{ messagingActive }} {{ messagesReadUnreadFooter}}">
     <a class=" {{- messagesReadUnread -}} {{ 'nhs-app-header__icon--unread-red' if data['messageRead1'] !== 'read' }}" href="{{ routeMessaging }}">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.9 18">
         <g style="{{ "stroke:#005EB8;" if messagingActive == 'active' else "stroke:#425563;" }} {{ "fill:#005EB8;" if messagingActive == 'active' else "fill:transparent;" }}" id="Group-2" transform="translate(1.000000, 1.000000)" fill-rule="nonzero" stroke="#FFFFFF" stroke-width="1.6">
           {% if messagingActive === "active"  %}
           <path d="M17.25,3.0249v9.3205a.826.826,0,0,1-.8271.8249H9.3a.8286.8286,0,0,0-.53.1913l-3.9041,3.246a.8279.8279,0,0,1-1.3566-.64l.0129-1.9672a.826.826,0,0,0-.8271-.83H1.5771A.826.826,0,0,1,.75,12.3454v-9.32A.826.826,0,0,1,1.5771,2.2H16.4229A.826.826,0,0,1,17.25,3.0249Z"
