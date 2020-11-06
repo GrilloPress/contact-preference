@@ -48,12 +48,21 @@
         <defs>
         </defs>
         <title>Prescriptions</title>
+        {% if data['prescriptionsActive'] === "active"  %}
+        <rect x="4.325" y="-0.5459" width="9.35" height="19.0919" rx="4.675" transform="translate(9 -3.7279) rotate(45)"
+        style="fill:none;stroke:#005EB8;stroke-miterlimit:10;stroke-width:1.5px"/>
+        <path d="M6,5.85c1.3714.5271,5.4857,4.7443,6,6.15"
+        style="fill:none;stroke:#005EB8;stroke-miterlimit:10;stroke-width:1.5px"/>
+        <ellipse cx="12.5" cy="2.5" rx="1.5" ry="0.5"
+        style="fill:#005EB8"/>
+        {% else %}
         <rect x="4.325" y="-0.5459" width="9.35" height="19.0919" rx="4.675" transform="translate(9 -3.7279) rotate(45)"
         style="fill:none;stroke:#425563;stroke-miterlimit:10;stroke-width:1.5px"/>
         <path d="M6,5.85c1.3714.5271,5.4857,4.7443,6,6.15"
         style="fill:none;stroke:#425563;stroke-miterlimit:10;stroke-width:1.5px"/>
         <ellipse cx="12.5" cy="2.5" rx="1.5" ry="0.5"
         style="fill:#425563"/>
+        {% endif %}
       </svg>
     <b>Prescriptions</b>
     </a>
@@ -65,10 +74,17 @@
         <defs>
         </defs>
         <title>Your Health</title>
+        {% if data['recordActive'] === "active"  %}
+        <circle cx="9" cy="4.3322" r="3.5"
+        style="fill:none;stroke:#005EB8;stroke-miterlimit:10;stroke-width:1.5px"/>
+        <path d="M16.68,16.9678H1.32c.9022-3.7308,2.6785-6.5695,4.8478-7.5786a.9061.9061,0,0,1,.8114.0676,4.2513,4.2513,0,0,0,4.0431-.0008.9026.9026,0,0,1,.8084-.0675C14.0007,10.397,15.7776,13.2362,16.68,16.9678Z"
+        style="fill:none;stroke:#005EB8;stroke-miterlimit:10;stroke-width:1.5px"/>
+        {% else %}
         <circle cx="9" cy="4.3322" r="3.5"
         style="fill:none;stroke:#425563;stroke-miterlimit:10;stroke-width:1.5px"/>
         <path d="M16.68,16.9678H1.32c.9022-3.7308,2.6785-6.5695,4.8478-7.5786a.9061.9061,0,0,1,.8114.0676,4.2513,4.2513,0,0,0,4.0431-.0008.9026.9026,0,0,1,.8084-.0675C14.0007,10.397,15.7776,13.2362,16.68,16.9678Z"
         style="fill:none;stroke:#425563;stroke-miterlimit:10;stroke-width:1.5px"/>
+        {% endif %}
       </svg>
     <b>Your health</b>
     </a>
@@ -78,8 +94,13 @@
     <a class=" {{- messagesReadUnread -}} {{ 'nhs-app-header__icon--unread-red' if data['messageRead1'] !== 'read' }}" href="{{ routeMessaging }}">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18">
         <g style="{{ "stroke:#005EB8;" if messagingActive == 'active' else "stroke:#425563;" }} {{ "fill:#005EB8;" if messagingActive == 'active' else "fill:transparent;" }}" id="Group-2" transform="translate(1.000000, 1.000000)" fill-rule="nonzero" stroke="#FFFFFF" stroke-width="1.6">
+          {% if data['messagingActive'] === "active"  %}
+          <path d="M17.25,3.0249v9.3205a.826.826,0,0,1-.8271.8249H9.3a.8286.8286,0,0,0-.53.1913l-3.9041,3.246a.8279.8279,0,0,1-1.3566-.64l.0129-1.9672a.826.826,0,0,0-.8271-.83H1.5771A.826.826,0,0,1,.75,12.3454v-9.32A.826.826,0,0,1,1.5771,2.2H16.4229A.826.826,0,0,1,17.25,3.0249Z"
+          style="fill:none;stroke:#005EB8;stroke-miterlimit:10;stroke-width:1.5px"/>
+          {% else %}
         <path d="M17.25,3.0249v9.3205a.826.826,0,0,1-.8271.8249H9.3a.8286.8286,0,0,0-.53.1913l-3.9041,3.246a.8279.8279,0,0,1-1.3566-.64l.0129-1.9672a.826.826,0,0,0-.8271-.83H1.5771A.826.826,0,0,1,.75,12.3454v-9.32A.826.826,0,0,1,1.5771,2.2H16.4229A.826.826,0,0,1,17.25,3.0249Z"
         style="fill:none;stroke:#425563;stroke-miterlimit:10;stroke-width:1.5px"/>
+        {% endif %}
       </svg>
       <b>Messages</b>
     </a>
