@@ -2078,6 +2078,11 @@ section.home-main {
 .onboarding-contents {
   height:100%;
   width:100%;
+
+  @include mq($from: tablet) {
+    width: 375px;
+    height: auto;
+  }
 }
 .onboarding-contents button {
   margin-top:40px;
@@ -2088,7 +2093,11 @@ section.home-main {
 .onboarding-button {
   border:none;
   background:none;
+
+
 }
+
+
 .logged-out-services {
   margin-left:20px;
 }
