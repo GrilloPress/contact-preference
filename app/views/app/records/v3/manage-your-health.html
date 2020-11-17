@@ -1,7 +1,7 @@
-{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set PROTOTYPEURL = "app/records/v3" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
-{% set contentTitle = "Shared health links" %}
+{% set contentTitle = "Manage your health" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -25,27 +25,50 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
-<div class="nhs-app-provider-banner">
-<div class="nhsuk-width-container">
-<strong>This service is provided by your GP surgery</strong>
-</div>
-</div>
 {% endblock %}
 
 {% block content %}
-
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+
+      <ul class="list-menu">
+
+
+        {% if data['SJR_PKB'] === 'True' %}
+
+                <li>
+                  <a href="/app/pkb/terms-care-plan">
+                    <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Care plans</h2>
+                    <p>View your personalised care plans</p>
+                  </a>
+                </li>
 
 
 
-<img class="calendar-images" src="/images/Library.png">
+
+                <li>
+                  <a href="/app/records/v3/track-your-health">
+                    <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Track your health</h2>
+                    <p>Record symptoms and add to your health journal</p>
+                  </a>
+                </li>
 
 
-      <p class="nhs-app-desktop--show">
-        <a href="javascript: window.history.go(-1)">Back</a>
-      </p>
 
+
+              <li>
+                <a href="/app/pkb/terms-shared-links">
+                  <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Shared health links</h2>
+                  <p>View links your doctor or health professional has shared with you</p>
+                </a>
+              </li>
+        {% endif %}
+
+
+      </ul>
 
 
     </div>

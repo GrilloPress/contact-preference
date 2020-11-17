@@ -1,7 +1,7 @@
-{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set PROTOTYPEURL = "app/records/v3" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
-{% set contentTitle = "Shared health links" %}
+{% set contentTitle = "Health records" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -25,27 +25,45 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
-<div class="nhs-app-provider-banner">
-<div class="nhsuk-width-container">
-<strong>This service is provided by your GP surgery</strong>
-</div>
-</div>
 {% endblock %}
 
 {% block content %}
-
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+
+      <ul class="list-menu">
+
+        <li>
+          <a href="/app/records/v1/index">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">GP health record</h2>
+            <p>View allergies, medicines, test results and more in your GP health record</p>
+          </a>
+        </li>
+
+        {% if data['SJR_PKB'] === 'True' %}
 
 
+        <li>
+          <a href="/app/pkb/terms-test-results">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Test results</h2>
+            <p>View test results from your hospital and other healthcare providers</p>
+          </a>
+        </li>
 
-<img class="calendar-images" src="/images/Library.png">
+        <li>
+          <a href="/app/pkb/terms-record-sharing">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Record sharing</h2>
+            <p>Choose information to share with health professionals or your family and friends</p>
+          </a>
+        </li>
+
+        {% endif %}
 
 
-      <p class="nhs-app-desktop--show">
-        <a href="javascript: window.history.go(-1)">Back</a>
-      </p>
-
+      </ul>
 
 
     </div>
