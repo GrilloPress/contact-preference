@@ -50,14 +50,15 @@ $("textarea").focusout(function(){
         {% call fieldset({
           "legend": {
             "text": contentTitle,
-            "classes": "nhsuk-fieldset__legend--l",
+            "classes": "nhsuk-fieldset__legend--xl nhs-app-xl",
             "isPageHeading": true
           }
         }) %}
 
         {{ hint({
-          "html": 'For advice now, phone or visit your GP surgery, visit <a href="https://111.nhs.uk">111.nhs.uk</a> or <a href="tel:111">call 111</a>.'
+          "html": 'For advice now, contact your GP surgery directly, go to <a href="https://111.nhs.uk">111.nhs.uk</a> or call 111.'
         })}}
+
 
         <div class="govuk-character-count">
         {{ textarea({
@@ -65,7 +66,7 @@ $("textarea").focusout(function(){
           "id": "msgBody",
           "classes": "nhsuk-u-margin-bottom-0",
           "hint": {
-              "html": '<div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1"></div>'
+              "html": '<div class="nhsuk-hint nhsuk-u-margin-bottom-1">Text must be shorter than 450 characters (about 75 words).</div>'
             },
           "label": {
             "text": "Message",
