@@ -43,7 +43,7 @@
         <li>
           <a href="/app/records/v3/health-records">
             <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Health records</h2>
-            <p>Description text</p>
+            <p>View your GP health record, test results and choose who to share your record with</p>
           </a>
         </li>
 
@@ -52,7 +52,7 @@
                 <li>
                   <a href="/app/records/v3/manage-your-health">
                     <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Manage your health</h2>
-                    <p>Description text</p>
+                    <p>View your care plans and health information, or track your health</p>
                   </a>
                 </li>
 
@@ -75,7 +75,44 @@
 
 
 
-                {% else %}
+                      {% elif data['SJR_Substrakt'] === 'True' %}
+
+                      <li>
+                        <a href="/app/records/v3/health-records">
+                          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Health records</h2>
+                          <p>View your GP health record, and update your personal details</p>
+                        </a>
+                      </li>
+
+
+
+                              <li>
+                                <a href="/app/records/v3/manage-your-health">
+                                  <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Manage your health</h2>
+                                  <p>View and monitor your health information or conditions</p>
+                                </a>
+                              </li>
+
+
+
+                                    <li>
+                                      <a href="/app/organ-donation/v2/register-decision-2">
+                                        <h2 class="nhsuk-heading-s">Manage your organ donation decision</h2>
+                                        <p>Help save thousands of lives in the UK every year by signing up to become a donor on the NHS Organ Donor Register</p>
+                                      </a>
+                                    </li>
+
+
+                                    <li>
+                                      <a href="/app/ndop/v3/overview">
+                                        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Choose if data from your health records is shared for research and planning</h2>
+                                        <p>Find out how the NHS uses your confidential patient information and choose whether or not it can be used for research and planning</p>
+                                      </a>
+                                    </li>
+
+
+                      {% else %}
+
 
 
                 <li>

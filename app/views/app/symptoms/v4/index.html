@@ -85,10 +85,19 @@
 
         {% if data['SJR_eConsult'] === "True" %}
         <li>
-          <a href="/app/econsult/adult/terms/start-v2?advice=True&appts=" id="btn_111">
+          <a href="/app/econsult/adult/terms/start-v2?advice=True&appts=">
             <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Ask your GP for advice</h2>
             <p>Answer questions online and get a response from your GP surgery. You may be able to get advice for your child if it’s available at your surgery</p>
-            <p><b>Provided by eConsult Ltd</b></p>
+          </a>
+        </li>
+
+        {% endif %}
+
+        {% if data['SJR_Substrakt'] === "True" %}
+        <li>
+          <a href="#">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Symptom checker</h2>
+            <p>Answer questions about your symptoms to get health advice</p>
           </a>
         </li>
 

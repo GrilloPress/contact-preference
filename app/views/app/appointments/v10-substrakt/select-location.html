@@ -1,0 +1,75 @@
+{% set PROTOTYPEURL = "app/appointments/v10-substrakt" %}
+{% set serviceName = "NHS App" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "Where would you like to have your appointment?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Appointments</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="index">Your appointments</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="/{{ PROTOTYPEURL}}/select-available-appointment" method="post">
+        {{ checkboxes({
+          "idPrefix": "appointmentLocation",
+          "name": "appointmentLocation",
+          "fieldset": {
+            "legend": {
+              "text": contentTitle,
+              "classes": "nhsuk-fieldset__legend--l",
+              "isPageHeading": true
+            }
+          },
+          "hint": {
+          "text": "Select all that apply"
+        },
+          "items": [
+            {
+              "value": "Gledhow Practice",
+              "text": "Gledhow Practice"
+            },
+            {
+              "value": "Lidgett Surgery",
+              "text": "Lidgett Surgery"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
+
+      {{ details({
+        "text": "Information about booking appointments",
+        "HTML": "
+        <p>PLEASE NOTE IF YOU ARE BOOKING A TELEPHONE CONSULTATION IT COULD HAPPEN AT ANY TIME OF THE MORNING OR AFTERNOON-IT WON'T NECESSARILY BE AT THE TIME OF THE APPOINTMENT.</p>
+        <p>Please ensure you cancel your appointment if you are unable to attend.</p>
+        "
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}
