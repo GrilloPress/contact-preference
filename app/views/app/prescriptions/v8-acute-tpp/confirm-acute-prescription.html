@@ -1,0 +1,197 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Check your prescription request before you order" %}
+{% set prescriptionsActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+{% set whatMedication %}
+  {% if data['whatMedication'] %}
+     {{ data['whatMedication'] }}
+{% else %}
+    No medication added
+  {% endif %}
+{% endset %}
+
+{% set pastPrescription %}
+  {% if data['pastPrescription'] == 'yes' %}
+
+  <p class="nhsuk-u-margin-bottom-0">Yes</p>
+
+  {% else %}
+
+  <p class="nhsuk-u-margin-bottom-0">No</p>
+
+  {% endif %}
+
+{% endset %}
+
+{% set whoPrescribed %}
+  {% if data['whoPrescribed'] == 'GP' %}
+
+  <p class="nhsuk-u-margin-bottom-0">GP Surgery</p>
+
+  {% elif data['whoPrescribed'] == 'hospital' %}
+
+  <p class="nhsuk-u-margin-bottom-0">Hospital</p>
+
+    {% else %}
+
+  <p class="nhsuk-u-margin-bottom-0">Other</p>
+
+  {% endif %}
+
+{% endset %}
+
+{% set whyMedication %}
+  {% if data['whyMedication'] %}
+     {{ data['whyMedication'] }}
+{% else %}
+    No notes added
+  {% endif %}
+{% endset %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% if data['SJR_PKB'] == 'True' %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11">Prescriptions</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v8-acute-tpp/your-gp-prescriptions">GP repeat prescriptions</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/select-medicine-to-renew-mandatory">Back</a></p>
+  </div>
+</nav>
+{% else %}
+
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+<div class="nhsuk-width-container">
+<ol class="nhsuk-breadcrumb__list">
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Prescriptions</a></li>
+</ol>
+<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Back</a></p>
+</div>
+</nav>
+{% endif %}
+{% endblock %}
+
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "What medication would you like to request",
+              "classes": "nhsuk-heading-s nhsuk-u-margin-bottom-3"
+            },
+            value: {
+              text: data['whatMedication'] | placeholder('No medication requested')
+            },
+            actions: {
+              items: [
+                {
+                  href: "/app/prescriptions/v8-acute-tpp/whatMedication",
+                  text: "Change",
+                  visuallyHiddenText: "what medication would you like to request?"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Have you had this medication before?",
+              "classes": "nhsuk-heading-s nhsuk-u-margin-bottom-3"
+            },
+            value: {
+              html: pastPrescription or '<h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhs-app-secondary-text">Omeprazole 40mg gastro-resistant capsules</h3>
+              <p>N/A</p>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/app/prescriptions/v8-acute-tpp/pastPrescription",
+                  text: "Change",
+                  visuallyHiddenText: "Have you had this medication before?"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Who prescribed you this medication?",
+              "classes": "nhsuk-heading-s nhsuk-u-margin-bottom-3"
+            },
+            value: {
+              html: whoPrescribed or '<h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhs-app-secondary-text">Omeprazole 40mg gastro-resistant capsules</h3>
+              <p>N/A</p>'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/app/prescriptions/v8-acute-tpp/whoPrescribed",
+                  text: "Change",
+                  visuallyHiddenText: "Who prescribed this medication?"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Why do you need this medication",
+              "classes": "nhsuk-heading-s"
+            },
+            value: {
+              text: data['whyMedication'] | placeholder('No notes added')
+            },
+            actions: {
+              items: [
+                {
+                  href: "/app/prescriptions/v8-acute-tpp/whyMedication",
+                  text: "Change",
+                  visuallyHiddenText: "why do you need this medication"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+
+
+       <form action="/app/prescriptions/v8-acute-tpp/save" method="post">
+         <input type="submit" class="nhsuk-button" value="Confirm and order">
+         </input>
+       </form>
+
+
+             <p class="nhs-app-desktop--show">
+               <a href="javascript: window.history.go(-1)">Back</a>
+             </p>
+
+
+
+    </div>
+  </div>
+{% endblock %}
