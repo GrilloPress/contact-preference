@@ -1,7 +1,7 @@
-{% set PROTOTYPEURL = "app/records/v3" %}
+{% set PROTOTYPEURL = "app/appointments" %}
 {% set serviceName = "NHS App" %}
-{% set recordActive = "active" %}
-{% set contentTitle = "Health assessments" %}
+{% set appointmentsActive = "active" %}
+{% set contentTitle = "Appointments" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -25,29 +25,27 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
+<div class="nhs-app-provider-banner">
+<div class="nhsuk-width-container">
+<strong>This service is provided by your GP surgery</strong>
+</div>
+</div>
 {% endblock %}
 
 {% block content %}
+
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl nhs-app-xl">
-        {{ contentTitle }}
-      </h1>
-
-      <ul class="list-menu">
 
 
 
-                <li>
-                  <a href="#">
-                    <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Asthma assessment</h2>
-                    <p>Complete an asthma review for your GP</p>
-                  </a>
-                </li>
+<img class="calendar-images" src="/images/pkb-appointments.png">
 
 
+      <p class="nhs-app-desktop--show">
+        <a href="javascript: window.history.go(-1)">Back</a>
+      </p>
 
-      </ul>
 
 
     </div>

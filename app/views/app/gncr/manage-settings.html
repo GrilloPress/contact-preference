@@ -1,0 +1,114 @@
+{% set PROTOTYPEURL = "app/gncr" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Manage your settings for this service" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Settings</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+
+      {{ insetText({
+        "HTML": "<p>These settings do not apply to all NHS App services. They only apply to Great North Care Record service in the app.</p>"
+      }) }}
+
+
+
+      {% set checked %}
+        {% if data['notifications'] == "True" %}
+          Checked
+        {% else %}
+          nope
+        {% endif %}
+      {% endset %}
+
+      <form action="" method="post">
+        <div class="nhs-app-card">
+          <div class="nhs-app-card__inner" onclick="notificationToggle()">
+            <div>
+              <h2 class="nhsuk-heading-s">How should we notify you about hospital appointments and medical record information?</h2>
+              <h3 class="nhsuk-heading-xs">In-app notifications</h3>
+              <input class="toggle_notifications toggle_inappnotifications" type="checkbox" id="notifications" name="notifications" value="on" {{ checked }}>
+              <input class="nhsuk-u-visually-hidden" type="submit" value="Submit">
+              <h3 class="nhsuk-heading-xs">Text message</h3>
+              <input class="toggle_notifications toggle_textnotifications" type="checkbox" id="notifications" name="notifications" value="on" {{ checked }}>
+              <input class="nhsuk-u-visually-hidden" type="submit" value="Submit">
+              <h3 class="nhsuk-heading-xs">Email</h3>
+              <input class="toggle_notifications toggle_emailnotifications" type="checkbox" id="notifications" name="notifications" value="on" {{ checked }}>
+              <input class="nhsuk-u-visually-hidden" type="submit" value="Submit">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="nhs-app-card">
+          <div class="nhs-app-card__inner" onclick="notificationToggle()">
+            <div>
+              <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Go paperless</h3>
+              <input class="toggle_notifications toggle_paperlessnotifications" type="checkbox" id="notifications" name="notifications" value="on" {{ checked }}>
+              <input class="nhsuk-u-visually-hidden" type="submit" value="Submit">
+            </div>
+          </div>
+        </div>
+
+        <div class="nhs-app-card">
+          <div class="nhs-app-card__inner" onclick="notificationToggle()">
+            <div>
+              <h2 class="nhsuk-heading-s">Share data for research and planning</h2>
+              <p class="gncr-data-link"><a href="#">Find out why your data is important to us</a></p>
+              <input class="toggle_notifications toggle_datalinknotifications" type="checkbox" id="notifications" name="notifications" value="on" {{ checked }}>
+              <input class="nhsuk-u-visually-hidden" type="submit" value="Submit">
+            </div>
+          </div>
+        </div>
+
+      <ul class="list-menu" style="margin-bottom: 0;">
+      <li>
+        <a href="#">
+          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Cookie policy</h2>
+        </a>
+      </li>
+    </ul>
+      <div class="nhs-app-card">
+        <div class="nhs-app-card__inner" onclick="notificationToggle()">
+          <div>
+            <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Allow cookies</h3>
+            <input class="toggle_notifications toggle_paperlessnotifications" type="checkbox" id="notifications" name="notifications" value="on" {{ checked }}>
+            <input class="nhsuk-u-visually-hidden" type="submit" value="Submit">
+          </div>
+        </div>
+      </div>
+
+
+      <input type="submit" class="nhsuk-button" value="Save and continue">
+      </input>
+    </form>
+
+
+
+    </div>
+  </div>
+{% endblock %}
