@@ -42,13 +42,15 @@
             <p>Manage your GP repeat prescriptions and your nominated pharmacy</p>
         </a>
       </li>
-
+      {% if data['SJR_PKB'] === "True" %}
       <li>
         <a href="/app/PKB/terms-medications">
           <h2 class="nhsuk-heading-s">Hospital and other prescriptions</h2>
             <p>See your current and past prescriptions</p>
         </a>
       </li>
+      {% endif %}
+
 
 
 
