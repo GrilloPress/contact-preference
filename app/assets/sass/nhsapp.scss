@@ -2479,6 +2479,35 @@ main.nhs-app-thin {
 }
 
 
+
+.toggle_inappnotifications {
+
+  top: 113px;
+}
+
+.toggle_textnotifications {
+
+  top: 153px;
+}
+
+.toggle_emailnotifications {
+
+  top: 193px;
+}
+
+.toggle_paperlessnotifications {
+
+  top: 8.5px;
+}
+
+.toggle_datalinknotifications {
+
+  top: 57px;
+}
+
+
+
+
 .toggle {
 
   top: 9px;
@@ -2489,6 +2518,11 @@ main.nhs-app-thin {
 .toggle:focus {
 
   box-shadow: 0 0 0 $nhsuk-box-shadow-link $nhsuk-focus-color;
+}
+
+
+.gncr-data-link {
+  margin-right: 75px !important;
 }
 
 nav.nhs-app-breadcrumb {
