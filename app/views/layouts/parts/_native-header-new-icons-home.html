@@ -7,8 +7,11 @@
           <a href="{{ routeHome }}">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
               <title>Home</title>
-            <path d="M16.39,9.7649h-.758v7.5288H10.4212V12.4959a.8517.8517,0,0,0-.8546-.8488H8.4293a.8477.8477,0,0,0-.85.8448v4.8018H2.3679V9.7649H1.61a.8536.8536,0,0,1-.6064-1.4587l7.39-7.2654a.8677.8677,0,0,1,1.2128,0l7.39,7.2654A.8536.8536,0,0,1,16.39,9.7649Z"
-            style="fill:none;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px"/>
+              {% if homeActive === "active"  %}
+            <path d="M16.9309,9.8657h-.8134v7.43A.7047.7047,0,0,1,15.4129,18h-4.18a.7081.7081,0,0,1-.7081-.7081V12.609a.71.71,0,0,0-.71-.71H8.18a.7054.7054,0,0,0-.7054.7054v4.6828A.7125.7125,0,0,1,6.7623,18H2.593a.7105.7105,0,0,1-.71-.7106V9.8657H1.0691A.923.923,0,0,1,.4183,8.29L8.3492.44a.927.927,0,0,1,1.3016,0l7.9309,7.85A.923.923,0,0,1,16.9309,9.8657Z" style="fill:#ffffff"/>
+              {% else %}
+              <path d="M16.39,9.7649h-.758v7.5288H10.85V12.5456a.8985.8985,0,0,0-.8985-.8985H8.0549a.9049.9049,0,0,0-.9049.9049v4.7417H2.3679V9.7649H1.61a.8536.8536,0,0,1-.6064-1.4587l7.39-7.2654a.8677.8677,0,0,1,1.2128,0l7.39,7.2654A.8536.8536,0,0,1,16.39,9.7649Z" style="fill:none;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px"/>
+              {% endif %}
           </svg>
           <b class="header-labels">Home</b>
           </a>
@@ -30,10 +33,17 @@
           <a href="{{ routeMore }}">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
               <title>More</title>
-              <rect x="0.9" y="7.5" width="3" height="3" rx="0.8977" style="fill:#ffffff;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.5px"/>
-              <rect x="7.5" y="7.5" width="3" height="3" rx="0.8963" style="fill:#ffffff;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.5px"/>
-              <rect x="14.1" y="7.5" width="3" height="3" rx="0.8895" style="fill:#ffffff;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.5px"/>
-            </svg>
+              {% if moreActive === "active" %}
+              <rect x="0.9" y="7.5" width="3" height="3" rx="0.8952" style="fill:#ffffff;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.5px"/>
+              <rect x="7.5" y="7.5" width="3" height="3" rx="0.9012" style="fill:#ffffff;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.5px"/>
+              <rect x="14.1" y="7.5" width="3" height="3" rx="0.9017" style="fill:#ffffff;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.5px"/>
+
+              {% else %}
+            <rect x="0.9" y="7.5" width="3" height="3" rx="0.8952" style="fill:none;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.5px"/>
+            <rect x="7.5" y="7.5" width="3" height="3" rx="0.9012" style="fill:none;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.5px"/>
+            <rect x="14.1" y="7.5" width="3" height="3" rx="0.9017" style="fill:none;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.5px"/>
+            {% endif %}
+          </svg>
               <b class="header-labels">More</b>
             </a>
         </div>
