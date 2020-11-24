@@ -111,6 +111,18 @@
         <ul class="list-menu nhsuk-u-padding-bottom-4">
 
 
+          <li>
+            <a class="desktop" href="/app/messaging/v3/index">View your messages</a>
+          </li>
+
+
+                  {% if data['linkedProfiles'] === "True" %}
+                  <li>
+                    <a class="desktop" href="/app/linked-profiles/profiles-list">Switch to a linked profile</a>
+                  </li>
+                  {% else %}
+                  {% endif %}
+
 
           <li>
             <a class="desktop" href="/app/records/v1/">View your GP health record</a>
@@ -122,7 +134,7 @@
                 {% if data['pickPharmacy'] %}
 
                 <li>
-                  <a class="desktop" href="/app/prescriptions/v7/check-pharmacy">Order a repeat prescription</a>
+                  <a class="desktop" href="/app/prescriptions/v8-acute-tpp/check-pharmacy">Order a repeat prescription</a>
                 </li>
 
 
@@ -131,7 +143,7 @@
 
 
                 <li>
-                  <a class="desktop" href="/app/prescriptions/v7/not-nominated-pharmacy">Order a repeat prescription</a>
+                  <a class="desktop" href="/app/prescriptions/v8-acute-tpp/not-nominated-pharmacy">Order a repeat prescription</a>
                 </li>
 
 
@@ -139,27 +151,8 @@
                 {% endif %}
 
 
-                <li>
-                  <a class="desktop" href="/app/appointments/v7-engage/select-type-of-appointment">Book an appointment</a>
-                </li>
 
 
-
-
-              {% if data['SJR_Engage'] === "True" %}
-
-                            <li>
-                              <a class="desktop" href="/app/engage/terms/v2/index?home=True&appts=&advice=">Ask your GP for advice</a>
-                            </li>
-              {% endif %}
-
-
-              {% if data['SJR_eConsult'] === "True" %}
-              <li>
-                <a class="desktop" href="/app/econsult/adult/terms/start-v2">Ask your GP for advice</a>
-              </li>
-
-              {% endif %}
 
 
             </ul>

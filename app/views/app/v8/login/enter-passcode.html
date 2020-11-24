@@ -44,6 +44,12 @@
 
       <p>Enter the 6 digit security code we've sent to •••••••1234.</p>
 
+      {{ details({
+  "text": "Not received your security code?",
+  "HTML": '
+  <p><a href="#">Request a new security code</a></p>
+  '
+}) }}
 
 
       <form action="/app/v8/index" method="post">
@@ -54,6 +60,9 @@
         "label": {
           "text": "Security code"
         },
+        "hint": {
+        "text": "The code is 6 numbers"
+      },
         "id": "example",
         "name": "example",
         "classes": "nhsuk-input--width-20"
@@ -88,11 +97,18 @@
 }) }}
 
 
+      {{ details({
+  "text": "Do not have access to your mobile phone?",
+  "HTML": '
+  <p>If you do not have access to your phone, you can <a href="#">change your phone number securely</a>.</p>
+  '
+}) }}
+
+
       <input type="submit" class="nhsuk-button" value="Continue">
       </input>
     </form>
 
-<p>If you don't have access to your phone, you can <a href="javascript:void(0)">change your phone number securely</a>.</p>
 
 
     </div>
