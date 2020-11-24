@@ -1,0 +1,163 @@
+{% set PROTOTYPEURL = "app/more/experimental" %}
+{% set serviceName = "Substrakt" %}
+{% set contentTitle = "Check your answers and submit your request" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+{% set subHowOftenAnswer %}
+  {% if data['subHowOften'] == 'regularly' %}
+    Regularly
+  {% elif data['subHowOften'] == 'occasionally' %}
+    Occasionally
+  {% else %}
+    Very rarely
+  {% endif %}
+{% endset %}
+
+
+{% set subMobileAnswer %}
+  {% if data['subMobile'] %}
+    <p>data['subMobile']</p>
+    {% else %}
+    {% endif %}
+{% endset %}
+
+{% set subHomeAnswer %}
+    {% if data['subHome'] %}
+      data['subHome']
+      {% else %}
+      {% endif %}
+  {% endset %}
+
+  {% set subEmailAnswer %}
+      {% if data['subEmail'] %}
+        data['subEmail']
+        {% else %}
+        {% endif %}
+  {% endset %}
+
+
+
+
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+<div class="nhs-app-provider-banner">
+<div class="nhsuk-width-container">
+<strong>This service is provided by your GP surgery</strong>
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+      <h1 class="app-card__heading nhsuk-heading-xl nhsuk-u-margin-bottom-4">
+        <span class="app-interruption__caption nhsuk-caption-m nhsuk-caption--top">Join patient participation group</span>
+      {{ contentTitle }}
+      </h1>
+
+
+            <form action="/{{ PROTOTYPEURL }}/substrakt-ppg/confirmation" method="post">
+              {{ summaryList({
+                rows: [
+                  {
+                    key: {
+                      text: "What are your preferred contact details?"
+                    },
+                    value: {
+                      html: '<p>' + subMobileAnswer + '<p>' + '<p>' + subHomeAnswer + '<p>' + '<p>' + subEmailAnswer + '<p>'
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "/app/more/experimental/substrakt-ppg/preferred-contact-details",
+                          text: "Change",
+                          visuallyHiddenText: "your preferred contact details"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    key: {
+                      text: "What is your gender?"
+                    },
+                    value: {
+                      text: data['subGender'] | placeholder('Female')
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "/app/more/experimental/substrakt-ppg/gender",
+                          text: "Change",
+                          visuallyHiddenText: "your gender"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    key: {
+                      text: "What is your ethnic origin?"
+                    },
+                    value: {
+                      text: data['subGender'] | placeholder('Black British')
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "/app/more/experimental/substrakt-ppg/ethic-origin",
+                          text: "Change",
+                          visuallyHiddenText: "your ethnic origin"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    key: {
+                      text: "How often do you come to the practice?"
+                    },
+                    value: {
+                      html: subHowOftenAnswer
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "/app/more/experimental/substrakt-ppg/how-often",
+                          text: "Change",
+                          visuallyHiddenText: "how often you come to the practice"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }) }}
+
+
+              <input type="submit" class="nhsuk-button" value="Submit request">
+            </form>
+
+
+    </div>
+  </div>
+{% endblock %}

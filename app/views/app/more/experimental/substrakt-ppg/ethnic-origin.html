@@ -1,7 +1,6 @@
-{% set PROTOTYPEURL = "app/symptoms/v4" %}
+{% set PROTOTYPEURL = "app/more/experimental" %}
 {% set serviceName = "Substrakt" %}
-{% set symptomsActive = "active" %}
-{% set contentTitle = "This service is provided by Substrakt Health" %}
+{% set contentTitle = "What is your ethnic origin?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -25,32 +24,40 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
+<div class="nhs-app-provider-banner">
+<div class="nhsuk-width-container">
+<strong>This service is provided by your GP surgery</strong>
+</div>
+</div>
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <div class="app-interruption">
-        <div class="app-interruption__wrapper">
-          <div class="app-interruption__content">
-            <h1 class="app-card__heading nhsuk-heading-xl nhsuk-u-margin-bottom-4">
-              <span class="app-interruption__caption nhsuk-caption-m nhsuk-caption--top">Symptom checker</span>
-              This service is provided by Substrakt Health
-            </h1>
-            <p>
-              Your GP surgery or hospital has chosen this personal health record service provider.
-            </p>
-            <form action="/{{ PROTOTYPEURL }}/substrakt-symptoms-1" method="post">
-              <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
-            </form>
-            <p>
-              <a href="#">Find out more about personal health record services</a>
-            </p>
 
-          </div>
-        </div>
-      </div>
+            <h1 class="app-card__heading nhsuk-heading-xl nhsuk-u-margin-bottom-4">
+              <span class="app-interruption__caption nhsuk-caption-m nhsuk-caption--top">Join patient participation group</span>
+            {{ contentTitle }}
+            </h1>
+
+
+
+            <form action="/{{ PROTOTYPEURL }}/substrakt-ppg/how-often" method="post">
+
+              {{ input({
+            "label": {
+            },
+            "id": "example",
+            "name": "subEthnic",
+            "value": data['subEthnic']
+          }) }}
+
+
+
+
+              <input type="submit" class="nhsuk-button" value="Continue">
+            </form>
 
 
     </div>
