@@ -72,10 +72,10 @@
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11">Prescriptions</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-gp-prescriptions">GP repeat prescriptions</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v8-acute-tpp/your-prescriptions-11">Prescriptions</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v8-acute-tpp/your-gp-prescriptions">GP repeat prescriptions</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/your-gp-prescriptions">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
   </div>
 </nav>
 {% else %}
@@ -84,9 +84,9 @@
 <div class="nhsuk-width-container">
 <ol class="nhsuk-breadcrumb__list">
   <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
-  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Prescriptions</a></li>
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v8-acute-tpp/your-prescriptions-11-no-pkb">Prescriptions</a></li>
 </ol>
-<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Back</a></p>
+<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
 </div>
 </nav>
 {% endif %}
@@ -148,7 +148,9 @@
                         <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">
                                     Metformin 500mg tablets
                                 </h3>
-                                <p class="nhsuk-body-s nhsuk-u-padding-bottom-0">One to be taken 4 times a day with food - 112 tablet Last Issued: {{ 20 | returnPastDate }} Cannot order medication until the current request has been processed Last requested {{ "today" | returnDate }}, status Undetermined</p>
+                                <p class="nhsuk-body-s nhsuk-u-padding-bottom-2">One to be taken 4 times a day with food - 112 tablet Last Issued: {{ 20 | returnPastDate }} Cannot order medication until the current request has been processed Last requested {{ "today" | returnDate }}, status Undetermined</p>
+                                <p class="nhsuk-body-s nhsuk-u-padding-bottom-0"><a href="/{{ PROTOTYPEURL }}/v8-acute-tpp/add-reminder-metformin" style="padding: 0 0 0 0; text-decoration: underline;">Add a reminder to order Metformin 500mg tablets again</a><p>
+
                               </div>
                               </li>
 
@@ -167,7 +169,9 @@
                                 <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">
                       Alogliptin 25mg tablets
                     </h3>
-                      <p class="nhsuk-body-s nhsuk-u-padding-bottom-0">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Cannot order medication until the current request has been processed Last requested {{ "today" | returnDate }}, status Undetermined</p>
+                      <p class="nhsuk-body-s nhsuk-u-padding-bottom-2">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Cannot order medication until the current request has been processed Last requested {{ "today" | returnDate }}, status Undetermined</p>
+                      <p class="nhsuk-body-s nhsuk-u-padding-bottom-0"><a href="/{{ PROTOTYPEURL }}/v8-acute-tpp/add-reminder-alogliptin" style="padding: 0 0 0 0; text-decoration: underline;">Add a reminder to order Alogliptin 25mg tablets again</a><p>
+
                     </div>
                   </li>
 
@@ -186,7 +190,9 @@
                                 <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">
                                         Omeprazole 40mg gastro-resistant capsules
                                       </h3>
-                                      <p class="nhsuk-body-s nhsuk-u-padding-bottom-0">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Cannot order medication until the current request has been processed Last requested {{ "today" | returnDate }}, status Undetermined</p>
+                                      <p class="nhsuk-body-s nhsuk-u-padding-bottom-2">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Cannot order medication until the current request has been processed Last requested {{ "today" | returnDate }}, status Undetermined</p>
+                                      <p class="nhsuk-body-s nhsuk-u-padding-bottom-0"><a href="/{{ PROTOTYPEURL }}/v8-acute-tpp/add-reminder-omeprazole" style="padding: 0 0 0 0; text-decoration: underline;">Add a reminder to order Omeprazole 40mg gastro-resistant capsules again</a><p>
+
                                     </div>
                                     </li>
 
@@ -209,7 +215,8 @@
                                 <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">
                                   Omeprazole 40mg gastro-resistant capsules
                                 </h3>
-                                <p class="nhsuk-body-s nhsuk-u-padding-bottom-0">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
+                                <p class="nhsuk-body-s nhsuk-u-padding-bottom-2">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
+                                <p class="nhsuk-body-s nhsuk-u-padding-bottom-0"><a href="/{{ PROTOTYPEURL }}/v8-acute-tpp/add-reminder-omeprazole" style="padding: 0 0 0 0; text-decoration: underline;">Add a reminder to order Omeprazole 40mg gastro-resistant capsules again</a><p>
                               </div>
                             </li>
                             {% endif %}
@@ -219,7 +226,8 @@
                                           <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">
                                             Omeprazole 40mg gastro-resistant capsules
                                           </h3>
-                                          <p class="nhsuk-body-s nhsuk-u-padding-bottom-0">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
+                                          <p class="nhsuk-body-s nhsuk-u-padding-bottom-2">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
+                                          <p class="nhsuk-body-s nhsuk-u-padding-bottom-0"><a href="/{{ PROTOTYPEURL }}/v8-acute-tpp/add-reminder-omeprazole" style="padding: 0 0 0 0; text-decoration: underline;">Add a reminder to order Omeprazole 40mg gastro-resistant capsules again</a><p>
                                         </div>
                                       </li>
                                       {% endif %}
@@ -234,7 +242,9 @@
                                             <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">
                                               Metformin 500mg tablets
                                             </h3>
-                                            <p class="nhsuk-body-s nhsuk-u-padding-bottom-0">One to be taken 4 times a day with food - 112 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
+                                            <p class="nhsuk-body-s nhsuk-u-padding-bottom-2">One to be taken 4 times a day with food - 112 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
+                                            <p class="nhsuk-body-s nhsuk-u-padding-bottom-0"><a href="/{{ PROTOTYPEURL }}/v8-acute-tpp/add-reminder-metformin" style="padding: 0 0 0 0; text-decoration: underline;">Add a reminder to order Metformin 500mg tablets again</a><p>
+
                                           </div>
                                         </li>
                                       {% endif %}
@@ -244,7 +254,8 @@
                                                     <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">
                                                       Metformin 500mg tablets
                                                     </h3>
-                                                    <p class="nhsuk-body-s nhsuk-u-padding-bottom-0">One to be taken 4 times a day with food - 112 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
+                                                    <p class="nhsuk-body-s nhsuk-u-padding-bottom-2">One to be taken 4 times a day with food - 112 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
+                                                    <p class="nhsuk-body-s nhsuk-u-padding-bottom-0"><a href="/{{ PROTOTYPEURL }}/v8-acute-tpp/add-reminder-metformin" style="padding: 0 0 0 0; text-decoration: underline;">Add a reminder to order Metformin 500mg tablets again</a><p>
                                                   </div>
                                                 </li>
                                       {% endif %}
@@ -260,7 +271,8 @@
                                                     <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">
                                                       Alogliptin 25mg tablets
                                                     </h3>
-                                                    <p class="nhsuk-body-s nhsuk-u-padding-bottom-0">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
+                                                    <p class="nhsuk-body-s nhsuk-u-padding-bottom-2">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
+                                                    <p class="nhsuk-body-s nhsuk-u-padding-bottom-0"><a href="/{{ PROTOTYPEURL }}/v8-acute-tpp/add-reminder-alogliptin" style="padding: 0 0 0 0; text-decoration: underline;">Add a reminder to order Alogliptin 25mg tablets again</a><p>
                                                   </div>
                                                 </li>
                                                 {% endif %}
@@ -270,7 +282,8 @@
                                                         <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-1">
                                                           Alogliptin 25mg tablets
                                                         </h3>
-                                                        <p class="nhsuk-body-s nhsuk-u-padding-bottom-0">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
+                                                        <p class="nhsuk-body-s nhsuk-u-padding-bottom-2">One to be taken each day - 28 tablet Last Issued: {{ 20 | returnPastDate }} Last requested {{ 23 | returnPastDate }}, status Issued</p>
+                                                        <p class="nhsuk-body-s nhsuk-u-padding-bottom-0"><a href="/{{ PROTOTYPEURL }}/v8-acute-tpp/add-reminder-alogliptin" style="padding: 0 0 0 0; text-decoration: underline;">Add a reminder to order Alogliptin 25mg tablets again</a><p>
                                                       </div>
                                                     </li>
                                                   {% endif %}

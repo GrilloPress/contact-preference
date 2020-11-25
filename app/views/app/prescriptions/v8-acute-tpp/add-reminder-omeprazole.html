@@ -1,10 +1,11 @@
-{% set PROTOTYPEURL = "app/nominated-pharmacy" %}
+{% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "Why do you need this medication?" %}
+{% set contentTitle = "Add a reminder to order Omeprazole 40mg gastro-resistant capsules to your calendar" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
+
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -16,16 +17,15 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-{% if data['pkb'] == 'true' %}
+{% if data['SJR_PKB'] == 'True' %}
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5/">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v8-acute-tpp/your-prescriptions-11">Prescriptions</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v8-acute-tpp/your-gp-prescriptions">GP repeat prescriptions</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11">Prescriptions</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-gp-prescriptions">GP repeat prescriptions</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
-
   </div>
 </nav>
 {% else %}
@@ -33,16 +33,14 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
 <div class="nhsuk-width-container">
 <ol class="nhsuk-breadcrumb__list">
-  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5/">Home</a></li>
-  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v8-acute-tpp/your-prescriptions-11-no-pkb">Prescriptions</a></li>
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Prescriptions</a></li>
 </ol>
 <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
-
 </div>
 </nav>
 {% endif %}
 {% endblock %}
-
 
 
 {% block content %}
@@ -53,27 +51,13 @@
         {{ contentTitle }}
       </h1>
 
-        <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/confirm-acute-prescription" method="post">
+      <p>You should remove your calendar reminder if you no longer need it.</p>
 
-  {{ textarea({
-    "name": "whyMedication",
-    "id": "prescriptionReasoning",
-    "value": data['whyMedication'],
-    "label": {
-      "text": "Can you provide more detail?"
-    },
-    "hint": {
-      "text": "Do not include personal or financial information, for example, your National Insurance number or credit card details."
-    }
-  }) }}
+      <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/add-to-calendar/calendar-permissions" method="post">
+      <input type="submit" class="nhsuk-button" value="Add to calendar">
+      </input>
+    </form>
 
-
-
-
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
-
-      </form>
 
       <p class="nhs-app-desktop--show">
         <a href="javascript: window.history.go(-1)">Back</a>
