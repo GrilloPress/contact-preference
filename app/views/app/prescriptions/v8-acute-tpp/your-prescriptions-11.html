@@ -33,28 +33,79 @@
       </h1>
 
 
+      {% if data['pickPharmacy'] %}
 
       <ul class="list-menu">
+        <li>
+          <a href="/{{ PROTOTYPEURL}}/v7/check-pharmacy">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Order a repeat prescription</h2>
+         </a>
+       </li>
+      </ul>
 
-      <li>
-        <a href="/{{ PROTOTYPEURL }}/v7/your-gp-prescriptions">
-          <h2 class="nhsuk-heading-s">GP repeat prescriptions</h2>
-            <p>Manage your GP repeat prescriptions and your nominated pharmacy</p>
-        </a>
-      </li>
+      {% else %}
 
-      {% if data['SJR_PKB'] === "True" %}
-      <li>
-        <a href="/app/PKB/terms-medications">
-          <h2 class="nhsuk-heading-s">Hospital and other prescriptions</h2>
-            <p>See your current and past prescriptions</p>
-        </a>
-      </li>
+      <ul class="list-menu">
+        <li>
+          <a href="/{{ PROTOTYPEURL}}/v7/not-nominated-pharmacy">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0">Order a repeat prescription</h2>
+         </a>
+       </li>
+      </ul>
+
       {% endif %}
 
 
+      <ul class="list-menu">
+      {% if data['prescriptionConfirmed'] %}
+
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v8-acute-tpp/your-orders-tpp-2">
+          <h2 class="nhsuk-heading-s">View your orders</h2>
+            <p>See repeat prescriptions you have ordered</p>
+        </a>
+      </li>
+
+      {% else %}
+
+      <li>
+        <a href="/{{ PROTOTYPEURL }}/v8-acute-tpp/your-orders-tpp-2">
+          <h2 class="nhsuk-heading-s">View your orders</h2>
+            <p>See repeat prescriptions you have ordered</p>
+        </a>
+      </li>
+
+      {% endif %}
+
+        {% if data["nominatedConfirmed"] %}
+
+      	<li>
+      		<a href="/app/nominated-pharmacy/v4/your-nominated-pharmacy">
+            <h2 class="nhsuk-heading-s">Your nominated pharmacy</h2>
+            <p>{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
+          </a>
+      	</li>
+
+        {% else %}
+
+      <li>
+        <a href="/app/nominated-pharmacy/v4/card-nom-pharmacy-2">
+          <h2 class="nhsuk-heading-s">Nominate a pharmacy</h2>
+          <p>Choose a pharmacy for your prescriptions to be sent to</p>
+        </a>
+      </li>
+
+      {% endif %}
 
 
+            {% if data['SJR_PKB'] === "True" %}
+            <li>
+              <a href="/app/PKB/terms-medications">
+                <h2 class="nhsuk-heading-s">Hospital and other prescriptions</h2>
+                  <p>See your current and past prescriptions</p>
+              </a>
+            </li>
+            {% endif %}
 
     </ul>
 
