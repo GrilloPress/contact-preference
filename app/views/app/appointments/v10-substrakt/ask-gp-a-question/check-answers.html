@@ -1,8 +1,16 @@
-{% set PROTOTYPEURL = "app/more/experimental" %}
+{% set PROTOTYPEURL = "app/appointments/v10-substrakt" %}
 {% set serviceName = "Substrakt" %}
 {% set contentTitle = "Check your answers and submit your request" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
+<script type="text/javascript">
+// This kills any row that is empty
+$('div.nhsuk-summary-list__row').each(function() {
+         if ($(this).text().trim() === "") {
+                   $(this).css('display','none');
+         }
+});
+</script>
 {% endblock %}
 
 
@@ -17,20 +25,48 @@
 {% endset %}
 
 
-{% set preferredContact %}
-  {% if data['subMobile'] %}
-  <p>{{ data['subMobile'] }}</p>
-  {% endif %}
-  {% if data['subHome'] %}
-  <p>{{ data['subMobile'] }}</p>
-  {% endif %}
-  {% if data['subEmail'] %}
-  <p>{{ data['subMobile'] }}</p>
-  {% endif %}
-  {% endset %}
 
 
 
+  {% set preferredContact %}
+    {% if data['subMobile'] %}
+    <p>{{ data['subMobile'] }}</p>
+    {% endif %}
+    {% if data['subHome'] %}
+    <p>{{ data['subMobile'] }}</p>
+    {% endif %}
+    {% if data['subEmail'] %}
+    <p>{{ data['subMobile'] }}</p>
+    {% endif %}
+    {% endset %}
+
+
+    {% set substraktStartDate %}
+      {% if (data['startDate-day']) and (data['startDate-month']) and (data['startDate-year']) %}
+        {{ data['startDate-day'] + " " + data['startDate-month'] | monthToWord + " " + data['startDate-year'] }}
+      {% else %}
+        3 December 2020
+      {% endif %}
+    {% endset %}
+
+    {% set substraktEndDate %}
+      {% if (data['endDate-day']) and (data['endDate-month']) and (data['endDate-year'])  %}
+        {{ data['endDate-day'] + " " + data['endDate-month'] | monthToWord + " " + data['endDate-year'] }}
+      {% else %}
+       28 November 2020
+      {% endif %}
+    {% endset %}
+
+    {% set reasons %}
+      {% if data['reasonWhy'] %}
+      <p>{{ data['reasonWhy'] }}</p>
+      {% else %}
+
+      {% endif %}
+      {% if data['urgentReason'] %}
+      <p>{{ data['urgentReason'] }}</p>
+      {% endif %}
+      {% endset %}
 
 
 
@@ -65,12 +101,13 @@
 
 
       <h1 class="app-card__heading nhsuk-heading-xl nhsuk-u-margin-bottom-4">
-        <span class="app-interruption__caption nhsuk-caption-m nhsuk-caption--top">Join patient participation group</span>
+        <span class="app-interruption__caption nhsuk-caption-m nhsuk-caption--top">Request a sick note (fit note)</span>
       {{ contentTitle }}
       </h1>
 
 
-            <form action="/{{ PROTOTYPEURL }}/substrakt-ppg/confirmation" method="post">
+
+            <form action="/{{ PROTOTYPEURL }}/ask-gp-a-question/confirmation" method="post">
               {{ summaryList({
                 rows: [
                   {
@@ -83,7 +120,7 @@
                     actions: {
                       items: [
                         {
-                          href: "/app/more/experimental/substrakt-ppg/preferred-contact-details",
+                          href: "/app/appointments/v10-substrakt/ask-gp-a-question/preferred-contact-details",
                           text: "Change",
                           visuallyHiddenText: "your preferred contact details"
                         }
@@ -92,32 +129,49 @@
                   },
                   {
                     key: {
-                      text: "What is your gender?"
+                      text: "What date did your last sick note expire? (optional)"
                     },
                     value: {
-                      text: data['subGender'] | placeholder('Female')
+                      text: substraktEndDate
                     },
                     actions: {
                       items: [
                         {
-                          href: "/app/more/experimental/substrakt-ppg/gender",
+                          href: "/app/appointments/v10-substrakt/ask-gp-a-question/end-date",
                           text: "Change",
-                          visuallyHiddenText: "your gender"
+                          visuallyHiddenText: "the date your last sick note expired"
                         }
                       ]
                     }
-                  },
+                  } if data['recentlyHad'] === "yes",
                   {
                     key: {
-                      text: "What is your ethnic origin?"
+                      text: "What date do you need the sick note to start from?"
                     },
                     value: {
-                      text: data['subGender'] | placeholder('Black British')
+                      text: substraktStartDate
                     },
                     actions: {
                       items: [
                         {
-                          href: "/app/more/experimental/substrakt-ppg/ethic-origin",
+                          href: "/app/appointments/v10-substrakt/ask-gp-a-question/start-date",
+                          text: "Change",
+                          visuallyHiddenText: "the date you need the sick note to start from"
+                        }
+                      ]
+                    }
+                  } if data['recentlyHad'] === "no",
+                  {
+                    key: {
+                      text: "How long do you need the note to cover?"
+                    },
+                    value: {
+                      text: data['howLong']
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "/app/appointments/v10-substrakt/ask-gp-a-question/how-long",
                           text: "Change",
                           visuallyHiddenText: "your ethnic origin"
                         }
@@ -126,17 +180,17 @@
                   },
                   {
                     key: {
-                      text: "How often do you come to the practice?"
+                      text: "What is the sick note for?"
                     },
                     value: {
-                      html: subHowOftenAnswer
+                      html: reasons | placeholder('I have a bad back')
                     },
                     actions: {
                       items: [
                         {
-                          href: "/app/more/experimental/substrakt-ppg/how-often",
+                          href: "/app/appointments/v10-substrakt/ask-gp-a-question/what-for",
                           text: "Change",
-                          visuallyHiddenText: "how often you come to the practice"
+                          visuallyHiddenText: "what the sick note is for"
                         }
                       ]
                     }
