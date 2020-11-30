@@ -114,6 +114,12 @@ router.post('/app/prescriptions/v4/nominate-interrupt', function (req, res) {
 });
 
 
+// prescriptions v8
+router.post('/app/prescriptions/v8-acute-tpp/save', function (req, res) {
+  // add what is saved later!
+  req.session.data.prescriptionConfirmed = "True";
+  res.redirect('/app/prescriptions/v8-acute-tpp/confirmed-4')
+});
 
 // Nominated pharmacy routing
 

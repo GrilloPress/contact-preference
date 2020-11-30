@@ -37,9 +37,13 @@
 
   <p class="nhsuk-u-margin-bottom-0">Hospital</p>
 
-    {% else %}
+{% elif data['whoPrescribed'] == 'other' %}
 
   <p class="nhsuk-u-margin-bottom-0">Other</p>
+
+  {% else %}
+
+  <p class="nhsuk-u-margin-bottom-0">null</p>
 
   {% endif %}
 
@@ -124,7 +128,7 @@
               "classes": "nhsuk-heading-s nhsuk-u-margin-bottom-3"
             },
             value: {
-              html: pastPrescription or '<h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhs-app-secondary-text">Omeprazole 40mg gastro-resistant capsules</h3>
+              html: pastPrescription or '<h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhs-app-secondary-text">null</h3>
               <p>N/A</p>'
             },
             actions: {
@@ -143,7 +147,7 @@
               "classes": "nhsuk-heading-s nhsuk-u-margin-bottom-3"
             },
             value: {
-              html: whoPrescribed or '<h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhs-app-secondary-text">Omeprazole 40mg gastro-resistant capsules</h3>
+              html: whoPrescribed or '<h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhs-app-secondary-text">null</h3>
               <p>N/A</p>'
             },
             actions: {

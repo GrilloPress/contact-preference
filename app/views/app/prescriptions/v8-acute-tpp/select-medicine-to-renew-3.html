@@ -100,11 +100,21 @@ $("textarea").focusout(function(){
           ]
         }) }}
 
+        {{ details({
+          "text": "My prescription is missing from this list",
+          "HTML": '
+          <p>Your prescription could be missing because:
+            <ul>
+              <li>you need a medicine review before you can order again</li>
+                <li>it is too early to order your medicine</li>
+                  <li>your GP practise is a dispensing practise</li>
+                    <li>it is an acute (one-off) prescription that is not on repeat. <a href="#"> Link here </a> </li>
+                    </ul>
 
-
-
-
-
+                    Contact your GP surgery for more information. For urgent medical advice, go to <a href="#"> 111.nhs.uk </a> or call 111.
+                  </p>
+          '
+        }) }}
 
 
         {{ textarea({

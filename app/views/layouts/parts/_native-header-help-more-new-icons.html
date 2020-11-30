@@ -1,4 +1,4 @@
-<header class="nhsuk-header nhsuk-header--transactional nhs-app-header--app nhs-app-desktop--hide" role="banner">
+m<header class="nhsuk-header nhsuk-header--transactional nhs-app-header--app nhs-app-desktop--hide" role="banner">
   <div class="nhsuk-width-container">
 
     <div class="nhsuk-grid-row">
@@ -19,9 +19,16 @@
           <a href="{{ routeMore }}">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
               <title>More</title>
-              <rect x="0.9" y="7.5" width="3" height="3" rx="0.8977" style="fill:#ffffff;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.5px"/>
-              <rect x="7.5" y="7.5" width="3" height="3" rx="0.8963" style="fill:#ffffff;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.5px"/>
-              <rect x="14.1" y="7.5" width="3" height="3" rx="0.8895" style="fill:#ffffff;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.5px"/>
+              {% if moreActive === "active" %}
+              <rect x="0.9" y="7.5" width="3" height="3" rx="0.8952" style="fill:#ffffff;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.5px"/>
+              <rect x="7.5" y="7.5" width="3" height="3" rx="0.9012" style="fill:#ffffff;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.5px"/>
+              <rect x="14.1" y="7.5" width="3" height="3" rx="0.9017" style="fill:#ffffff;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.5px"/>
+
+              {% else %}
+            <rect x="0.9" y="7.5" width="3" height="3" rx="0.8952" style="fill:none;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.5px"/>
+            <rect x="7.5" y="7.5" width="3" height="3" rx="0.9012" style="fill:none;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.5px"/>
+            <rect x="14.1" y="7.5" width="3" height="3" rx="0.9017" style="fill:none;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.5px"/>
+            {% endif %}
             </svg>
               <b class="header-labels">More</b>
             </a>

@@ -1,4 +1,4 @@
-{% set PROTOTYPEURL = "app/nominated-pharmacy" %}
+{% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
 {% set prescriptionsActive = "active" %}
 {% set contentTitle = "Who prescribed you this medication?" %}
@@ -50,7 +50,7 @@
     <div class="nhsuk-grid-column-two-thirds">
 
 
-        <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/repeat-or-acute" method="post">
+        <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/whyMedication" method="post">
 
         {{ radios({
           "idPrefix": "nhs",
