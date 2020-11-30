@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "Why do you need this medication?" %}
+{% set contentTitle = "Why do you need this item?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -60,10 +60,10 @@
     "id": "prescriptionReasoning",
     "value": data['whyMedication'],
     "label": {
-      "text": "Can you provide more detail?"
+      "text": "You may be asked to make an appointment with your GP surgery to confirm if you need this item."
     },
     "hint": {
-      "text": "Do not include personal or financial information, for example, your National Insurance number or credit card details."
+      "text": ""
     }
   }) }}
 

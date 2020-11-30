@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "What medication do you need?" %}
+{% set contentTitle = "What prescription item do you need?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -51,7 +51,7 @@
         {{ contentTitle }}
       </h1>
 
-        <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/pastPrescription" method="post">
+        <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/pastPrescription" method="get">
 
   {{ textarea({
     "name": "whatMedication",
@@ -59,11 +59,10 @@
     "value": data['whatMedication'],
     "rows": "2",
     "label": {
-      "text": "Can you provide more detail?"
+      "text": "List the item name and amount needed, or describe the type of item."
     },
     "hint": {
-      "text": "You can add a note about your prescription here. Your note may not be seen or replied to, so if you have an important request for this prescription, contact your GP surgery.</p>
-      <p>No more than 1,000 characters."
+      "text": "For example, eczema cream"
     }
   }) }}
 

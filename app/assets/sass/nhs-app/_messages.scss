@@ -34,6 +34,15 @@
   }
 }
 
+.nhs-app-message__item--unread-home {
+
+  font-size: 16px;
+
+  h2.nhsuk-heading-s{
+    color:#005EB8 !important ;
+  }
+}
+
 .nhs-app-message__meta {
 
   float: right;
@@ -117,6 +126,17 @@
   height:15px;
   width:15px;
   border-radius: 50%;
+}
+
+.nhs-app-message__count-red-home {
+  display:inline-block;
+  background-color: #DA291C;
+  //border-radius: 13px;
+  //padding: 2px 9px;
+  height:15px;
+  width:15px;
+  border-radius: 50%;
+  margin-top:4px;
 }
 
 // for messages over two digits. For example, 11

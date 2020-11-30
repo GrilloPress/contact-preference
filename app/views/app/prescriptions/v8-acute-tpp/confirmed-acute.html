@@ -13,11 +13,11 @@
 {% set pastPrescription %}
   {% if data['pastPrescription'] == 'yes' %}
 
-  <p class="nhsuk-u-margin-bottom-0">Yes</p>
+  Yes
 
   {% else %}
 
-  <p class="nhsuk-u-margin-bottom-0">No</p>
+  No
 
   {% endif %}
 
@@ -26,16 +26,19 @@
 {% set whoPrescribed %}
   {% if data['whoPrescribed'] == 'GP' %}
 
-  <p class="nhsuk-u-margin-bottom-0">GP Surgery</p>
+  GP Surgery
 
   {% elif data['whoPrescribed'] == 'hospital' %}
 
-  <p class="nhsuk-u-margin-bottom-0">Hospital</p>
+Hospital
+
+  {% elif data['whoPrescribed'] == 'other' %}
+
+    {{ data['whoPrescribedOther'] }}
 
     {% else %}
 
-  <p class="nhsuk-u-margin-bottom-0">Other</p>
-
+  null
   {% endif %}
 
 {% endset %}
@@ -50,10 +53,18 @@
 
 
 
-{% set contentTitle = "Your prescription request has been sent" %}
+{% set contentTitle = "Your prescription request has been sent to your GP surgery" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
+<script type="text/javascript">
+// This kills any row that is empty
+$('div.nhsuk-summary-list__row').each(function() {
+         if ($(this).text().trim() === "") {
+                   $(this).css('display','none');
+         }
+});
+</script>
 {% endblock %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -100,77 +111,30 @@
 
 
 
-      <p>You have ordered:</p>
+      <h2 class="nhsuk-heading-l">Your request</h2>
 
       <div class="app-card">
         <div class="app-card__wrapper">
 
-        {% if data['whatMedication'] %}
-
             <div class="app-card__content">
-          <b>What medication do you want to order?</b>
-        {{ data['whatMedication'] }}
-      </div>
+          <p class="nhsuk-u-margin-bottom-1"><b>What medication do you want to order?</b></p>
+        <p>{{ whatMedication }}</p>
 
-        {% else %}
 
-            <div class="app-card__content">
-              <b>What medication do you want to order?</b>
-        <p class="nhsuk-u-margin-bottom-0">No medication added</p>
-      </div>
+              <p class="nhsuk-u-margin-bottom-1"> <b>Have you had this medication before?</b></p>
+              <p>{{ pastPrescription }} </p>
 
-      {% endif %}
+              {% if data['pastPrescription'] === "yes" %}
+              <p class="nhsuk-u-margin-bottom-1"><b>Who prescribed this medication?</b></p>
+              <p>{{ whoPrescribed }}</p>
+              {% endif %}
 
-        {% if data['pastPrescription']  == 'yes' %}
 
-            <div class="app-card__content">
-              <b>Have you had this medication before?</b>
-        <p class="nhsuk-u-margin-bottom-0">Yes</p>
-      </div>
-
-        {% else %}
-            <div class="app-card__content">
-              <b>Have you had this medication before?</b>
-        <p class="nhsuk-u-margin-bottom-0">No</p>
-      </div>
-
-      {% endif %}
-
-        {% if data['whoPrescribed']  == 'GP' %}
-            <div class="app-card__content">
-              <b>Who prescribed this medication?</b>
-        <p class="nhsuk-u-margin-bottom-0">GP surgery</p>
-      </div>
-
-      {% elif data['whoPrescribed']  == 'hospital' %}
-          <div class="app-card__content">
-            <b>Who prescribed this medication?</b>
-      <p class="nhsuk-u-margin-bottom-0">Hospital</p>
-      </div>
-
-        {% else %}
-            <div class="app-card__content">
-              <b>Who prescribed this medication?</b>
-        <p class="nhsuk-u-margin-bottom-0">Other</p>
-      </div>
-
-      {% endif %}
-
-      {% if data['whyMedication'] %}
-      <b>Why do you need this medication?</b>
-          <div class="app-card__content">
-      {{ data['whyMedication'] }}
+      <p class="nhsuk-u-margin-bottom-1"><b>Why do you need this medication?</b></p>
+      <p>{{ whyMedication }}</p>
     </div>
 
-      {% else %}
-          <div class="app-card__content">
-            <b>Why do you need this medication?</b>
-      <p class="nhsuk-u-margin-bottom-0">No notes added</p>
     </div>
-    {% endif %}
-    </div>
-    <br>n
-    <p>Sent 12:31pm, 17 November 2020</p>
     </div>
 
 
@@ -179,14 +143,16 @@
 
 
       <p>
-         Your prescription request has been sent to your GP surgery.
+         Your prescription request has been sent to your GP surgery, and can take 2 to 3 working days.
       </p>
+      <p>You may be asked to make an appointment with your GP to get this prescription item.
+        </p>
 
       {% if data["pickPharmacy"] %}
 
 
             <p>
-              Once a GP approves it, they'll send your prescription to your nominated pharmacy, {{ data["pickPharmacy"] or "Cameolord Pharmacy" }}.
+              Once your request is approved, it will be sent to your nominated pharmacy to collect. {{ data["pickPharmacy"] or "Cameolord Pharmacy" }}.
             </p>
 
             {% if data['pharmacyTypeOnline'] === "online" %}
@@ -205,19 +171,17 @@
 
               {% if data['pharmacyTypeOnline'] === "community" %}
 
+                <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
 
 
-      <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
+                <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or data["onlineUrl"] or "16 Oxford S" }}</p>
+
+                <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Manchester" }}</p>
+
+                <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "M1 5AE" }}</p>
 
 
-      <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or data["onlineUrl"] or "16 Oxford S" }}</p>
-
-      <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Manchester" }}</p>
-
-      <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "M1 5AE" }}</p>
-
-
-      <p>Telephone: {{ data["phoneNumber"] or "0161 236 1445" }}</p>
+                <p>Telephone: {{ data["phoneNumber"] or "0161 236 1445" }}</p>
 
 
             {% endif %}
@@ -226,17 +190,11 @@
 
 
       <p>
-        Once they approve your prescription, you'll need to collect it from your GP surgery.
+        Once your request is approved, it will be sent to your GP surgery to collect.
       </p>
 
 
       {% endif %}
-
-
-      <p><a href="/app/prescriptions/v8-acute-tpp/your-orders-tpp-2">Go to your prescription orders</a></p>
-
-
-
 
     </div>
   </div>

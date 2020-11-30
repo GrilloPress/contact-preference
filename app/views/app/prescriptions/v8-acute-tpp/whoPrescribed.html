@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "Who prescribed you this medication?" %}
+{% set contentTitle = "Who prescribed this item to you?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -46,13 +46,22 @@
 
 
 {% block content %}
+{% set otherConditional %}
+{{ input({
+  "label": {
+  },
+  "id": "inputnhsnumber",
+  "name": "whoPrescribedOther",
+  "classes": "nhsuk-input--width-30"
+}) }}
+{% endset %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
 
         <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/whyMedication" method="post">
 
-        {{ radios({
+        {{ conditionalRadios({
           "idPrefix": "nhs",
           "name": "whoPrescribed",
           "fieldset": {
@@ -80,8 +89,8 @@
             {
               "value": "other",
               "text": "Other",
-              "hint": {
-                "text": ""
+              "conditional": {
+                "html": otherConditional 
               }
             }
           ]

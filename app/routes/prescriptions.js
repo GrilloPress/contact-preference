@@ -121,6 +121,13 @@ router.post('/app/prescriptions/v8-acute-tpp/save', function (req, res) {
   res.redirect('/app/prescriptions/v8-acute-tpp/confirmed-4')
 });
 
+router.post('/app/prescriptions/v8-acute-tpp/save-acute', function (req, res) {
+  // add what is saved later!
+  req.session.data.prescriptionConfirmedAcute = "True";
+  req.session.data.messageRead6 = "unread";
+  res.redirect('/app/prescriptions/v8-acute-tpp/confirmed-acute')
+});
+
 // Nominated pharmacy routing
 
 
@@ -459,7 +466,19 @@ router.post('/app/prescriptions/v7/select-medicine-to-renew-4', function (req, r
 
 });
 
+//acute prescription journey
 
+router.post('/app/prescriptions/v8-acute-tpp/pastPrescription', function (req, res) {
+  let answer = req.body.pastPrescription;
+
+  if (answer === 'yes') {
+
+    res.redirect('/app/prescriptions/v8-acute-tpp/whoPrescribed')
+
+  } else {
+    res.redirect('/app/prescriptions/v8-acute-tpp/whyMedication')
+  }
+});
 
 
 module.exports = router;

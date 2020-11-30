@@ -1,9 +1,17 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Check your prescription request before you order" %}
+{% set contentTitle = "Confirm your prescription request" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
+<script type="text/javascript">
+// This kills any row that is empty
+$('div.nhsuk-summary-list__row').each(function() {
+         if ($(this).text().trim() === "") {
+                   $(this).css('display','none');
+         }
+});
+</script>
 {% endblock %}
 
 
@@ -39,7 +47,8 @@
 
 {% elif data['whoPrescribed'] == 'other' %}
 
-  <p class="nhsuk-u-margin-bottom-0">Other</p>
+  <p class="nhsuk-u-margin-bottom-0">{{ data['whoPrescribedOther'] }}</p>
+
 
   {% else %}
 
@@ -100,7 +109,8 @@
       <h1 class="nhsuk-heading-xl nhs-app-xl">
         {{ contentTitle }}
       </h1>
-
+      <p>Check and confirm your request before ordering.</p>
+       <form action="/app/prescriptions/v8-acute-tpp/save-acute" method="post">
 
       {{ summaryList({
         rows: [
@@ -159,7 +169,7 @@
                 }
               ]
             }
-          },
+          } if data['pastPrescription'] === "yes",
           {
             key: {
               text: "Why do you need this medication",
@@ -181,10 +191,6 @@
         ]
       }) }}
 
-
-
-
-       <form action="/app/prescriptions/v8-acute-tpp/save" method="post">
          <input type="submit" class="nhsuk-button" value="Confirm and order">
          </input>
        </form>

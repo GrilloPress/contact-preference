@@ -20,6 +20,10 @@ $( document ).ready(function() {
       jQuery.post( "/app/password", { messageRead1{{data['id']}}: "read" } );
       });
 
+      $( document ).ready(function() {
+        jQuery.post( "/app/password", { messageRead6{{data['id']}}: "read" } );
+        });
+
 
 </script>
 {% endblock %}
@@ -112,6 +116,51 @@ $( document ).ready(function() {
               Sent 7:12am, 7 October 2020
             </div>
           </li>
+          {% endif %}
+
+          {% if (data['prescriptionConfirmedAcute'] === "True") and (data['acuteMessage'] ==='True') %}
+          {% if data['messageRead6'] === "read" %}
+          <li class="nhs-app-chat__item">
+            <div class="nhs-app-chat__sender">
+              {{ sender }}
+            </div>
+            <div class="nhs-app-chat__container">
+              <p class="nhs-app-chat__body">We have sent your prescription request to your GP surgery.</p>
+              <p class="nhs-app-chat__body">What happens next?</p>
+              <p class="nhs-app-chat__body">Your request can take 2 to 3 working days.</p>
+              <p class="nhs-app-chat__body">You may be asked to make an appointment with your GP to get this prescription item.</p>
+              <p class="nhs-app-chat__body">Once approved it will be sent to your nominated pharmacy to collect. If you do not have one, you can collect the prescription from your GP surgery.</p>
+              <p class="nhs-app-chat__body">If you need the item urgently, contact your GP surgery or nominated pharmacy.</p>
+              <p class="nhs-app-chat__body">If you cannot contact them, go to <a href="#"> 111.nhs.uk/emergency-prescription</a> or call 111 to request an emergency supply of the prescription item.</p>
+            </div>
+            <div class="nhs-app-chat__date">
+              Sent 9:12am, 3 December 2020
+            </div>
+          </li>
+
+          {% else %}
+          <div class="nhs-app-chat__read-indicator" id="unread6">
+            <span class="nhs-app-chat__read-indicator-container"><b>Unread message</b></span>
+          </div>
+          <li class="nhs-app-chat__item">
+            <div class="nhs-app-chat__sender-unread">
+              {{ sender }}
+            </div>
+            <div class="nhs-app-chat__container">
+              <p class="nhs-app-chat__body">We have sent your prescription request to your GP surgery.</p>
+              <p class="nhs-app-chat__body">What happens next?</p>
+              <p class="nhs-app-chat__body">Your request can take 2 to 3 working days.</p>
+              <p class="nhs-app-chat__body">You may be asked to make an appointment with your GP to get this prescription item.</p>
+              <p class="nhs-app-chat__body">Once approved it will be sent to your nominated pharmacy to collect. If you do not have one, you can collect the prescription from your GP surgery.</p>
+              <p class="nhs-app-chat__body">If you need the item urgently, contact your GP surgery or nominated pharmacy.</p>
+              <p class="nhs-app-chat__body">If you cannot contact them, go to <a href="#"> 111.nhs.uk/emergency-prescription</a> or call 111 to request an emergency supply of the prescription item.</p>
+            </div>
+            <div class="nhs-app-chat__date">
+              Sent 9:12am, 3 December 2020
+            </div>
+          </li>
+          {% endif %}
+
           {% endif %}
           </ul>
       </div>

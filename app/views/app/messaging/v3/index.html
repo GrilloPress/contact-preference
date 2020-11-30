@@ -66,7 +66,7 @@
             <p>View your medical and admin requests, and any responses from your GP surgery</p>
           </a>
         </li>
-  
+
         {% endif %}
 
 
@@ -84,7 +84,8 @@
         <li>
           <a href="messages">
             <h2 class="nhsuk-heading-s">Health information and updates</h2>
-            {% if (data['messageRead1'] == "unread") %}
+              {% if (data['prescriptionConfirmedAcute'] === "True") and (data['acuteMessage'] ==='True') %}
+            {% if (data['messageRead6'] == "unread") %}
                 <span class="nhs-app-message__meta panel-link">
                   <span class="nhsuk-u-visually-hidden">You have </span>
                   <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
@@ -98,6 +99,7 @@
                 <b class="unread-message-hint">Unread message</b>
                 </div>
 
+            {% endif %}
             {% endif %}
             <p>View messages from health services and the NHS App</p>
           </a>

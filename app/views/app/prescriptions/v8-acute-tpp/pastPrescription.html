@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "Have you had this medication before?" %}
+{% set contentTitle = "Have you had this item prescribed to you before?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -47,15 +47,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-        {% if data['pastPrescription'] == 'yes' %}
-
-        <form action= "/{{ PROTOTYPEURL }}/v8-acute-tpp/whoPrescribed" method="post">
-
-        {% else %}
-          <form action= "/{{ PROTOTYPEURL }}/v8-acute-tpp/whyMedication" method="post">
-
-            {% endif %}
-
+        <form action= "/{{ PROTOTYPEURL }}/v8-acute-tpp/pastPrescription" method="post">
 
         {{ radios({
           "idPrefix": "nhs",
