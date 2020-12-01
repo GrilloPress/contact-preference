@@ -10,19 +10,6 @@
   {% endif %}
 {% endset %}
 
-{% set pastPrescription %}
-  {% if data['pastPrescription'] == 'yes' %}
-
-  Yes
-
-  {% else %}
-
-  No
-
-  {% endif %}
-
-{% endset %}
-
 {% set whoPrescribed %}
   {% if data['whoPrescribed'] == 'GP' %}
 
@@ -35,6 +22,10 @@ Hospital
   {% elif data['whoPrescribed'] == 'other' %}
 
     {{ data['whoPrescribedOther'] }}
+
+{% elif data['whoPrescribed'] == 'notPrescribed' %}
+
+  I have not had this item before
 
     {% else %}
 
@@ -117,20 +108,15 @@ $('div.nhsuk-summary-list__row').each(function() {
         <div class="app-card__wrapper">
 
             <div class="app-card__content">
-          <p class="nhsuk-u-margin-bottom-1"><b>What medication do you want to order?</b></p>
+          <p class="nhsuk-u-margin-bottom-1"><b>What prescription item do you need?</b></p>
         <p>{{ whatMedication }}</p>
 
-
-              <p class="nhsuk-u-margin-bottom-1"> <b>Have you had this medication before?</b></p>
-              <p>{{ pastPrescription }} </p>
-
-              {% if data['pastPrescription'] === "yes" %}
-              <p class="nhsuk-u-margin-bottom-1"><b>Who prescribed this medication?</b></p>
+              <p class="nhsuk-u-margin-bottom-1"><b>Who prescribed this item to you?</b></p>
               <p>{{ whoPrescribed }}</p>
-              {% endif %}
+            
 
 
-      <p class="nhsuk-u-margin-bottom-1"><b>Why do you need this medication?</b></p>
+      <p class="nhsuk-u-margin-bottom-1"><b>Why do you need this item?</b></p>
       <p>{{ whyMedication }}</p>
     </div>
 
@@ -152,7 +138,7 @@ $('div.nhsuk-summary-list__row').each(function() {
 
 
             <p>
-              Once your request is approved, it will be sent to your nominated pharmacy to collect. {{ data["pickPharmacy"] or "Cameolord Pharmacy" }}.
+              Once your request is approved, it will be sent to <a href="/app/nominated-pharmacy/v4/your-nominated-pharmacy-acute"> your nominated pharmacy </a> to collect.
             </p>
 
             {% if data['pharmacyTypeOnline'] === "online" %}
@@ -164,27 +150,8 @@ $('div.nhsuk-summary-list__row').each(function() {
                 <p>
                   When the pharmacists have checked and prepared your prescription, {{ data["pickPharmacy"] or "Echo" }} will send it to you in the post.
                 </p>
-
-
                 {% endif %}
 
-
-              {% if data['pharmacyTypeOnline'] === "community" %}
-
-                <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
-
-
-                <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or data["onlineUrl"] or "16 Oxford S" }}</p>
-
-                <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Manchester" }}</p>
-
-                <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "M1 5AE" }}</p>
-
-
-                <p>Telephone: {{ data["phoneNumber"] or "0161 236 1445" }}</p>
-
-
-            {% endif %}
 
       {% else %}
 
@@ -195,7 +162,7 @@ $('div.nhsuk-summary-list__row').each(function() {
 
 
       {% endif %}
-
+      <p><a href="your-prescriptions-11">Go back to your prescriptions</a></p>
     </div>
   </div>
 {% endblock %}

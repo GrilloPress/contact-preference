@@ -64,9 +64,9 @@
               <p>Collect your prescriptions from {{ data["pickPharmacy"] or "Cameolord Pharmacy" }} when they are ready to collect.</p>
 
             {% if data['pkb'] == 'true' %}
-            <p><a href="/app/prescriptions/v7/your-prescriptions-11">Go to your prescriptions</a></p>
-            {% else %}
             <p><a href="/app/prescriptions/v8-acute-tpp/your-prescriptions-11">Go to your prescriptions</a></p>
+            {% else %}
+            <p><a href="/app/prescriptions/v8-acute-tpp/your-prescriptions-11-no-pkb">Go to your prescriptions</a></p>
             {% endif %}
             {% endif %}
 

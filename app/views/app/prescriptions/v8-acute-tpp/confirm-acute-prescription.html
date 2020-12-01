@@ -23,18 +23,6 @@ $('div.nhsuk-summary-list__row').each(function() {
   {% endif %}
 {% endset %}
 
-{% set pastPrescription %}
-  {% if data['pastPrescription'] == 'yes' %}
-
-  <p class="nhsuk-u-margin-bottom-0">Yes</p>
-
-  {% else %}
-
-  <p class="nhsuk-u-margin-bottom-0">No</p>
-
-  {% endif %}
-
-{% endset %}
 
 {% set whoPrescribed %}
   {% if data['whoPrescribed'] == 'GP' %}
@@ -49,6 +37,9 @@ $('div.nhsuk-summary-list__row').each(function() {
 
   <p class="nhsuk-u-margin-bottom-0">{{ data['whoPrescribedOther'] }}</p>
 
+  {% elif data['whoPrescribed'] == 'notPrescribed' %}
+
+    <p class="nhsuk-u-margin-bottom-0">I have not had this item before</p>
 
   {% else %}
 
@@ -116,7 +107,7 @@ $('div.nhsuk-summary-list__row').each(function() {
         rows: [
           {
             key: {
-              text: "What medication would you like to request",
+              text: "What prescription item do you need?",
               "classes": "nhsuk-heading-s nhsuk-u-margin-bottom-3"
             },
             value: {
@@ -134,26 +125,7 @@ $('div.nhsuk-summary-list__row').each(function() {
           },
           {
             key: {
-              text: "Have you had this medication before?",
-              "classes": "nhsuk-heading-s nhsuk-u-margin-bottom-3"
-            },
-            value: {
-              html: pastPrescription or '<h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhs-app-secondary-text">null</h3>
-              <p>N/A</p>'
-            },
-            actions: {
-              items: [
-                {
-                  href: "/app/prescriptions/v8-acute-tpp/pastPrescription",
-                  text: "Change",
-                  visuallyHiddenText: "Have you had this medication before?"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Who prescribed you this medication?",
+              text: "Who prescribed this item to you?",
               "classes": "nhsuk-heading-s nhsuk-u-margin-bottom-3"
             },
             value: {
@@ -169,10 +141,10 @@ $('div.nhsuk-summary-list__row').each(function() {
                 }
               ]
             }
-          } if data['pastPrescription'] === "yes",
+          },
           {
             key: {
-              text: "Why do you need this medication",
+              text: "Why do you need this item?",
               "classes": "nhsuk-heading-s"
             },
             value: {

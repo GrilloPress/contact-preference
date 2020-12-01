@@ -4,6 +4,23 @@
 {% set contentTitle = "Who prescribed this item to you?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
+<script type="text/javascript">
+function characterCount(id, textMax) {
+  var text_max = textMax;
+  $(id).html('You have ' + text_max + ' characters remaining');
+  $('textarea').keyup(function() {
+      var text_length = $('textarea').val().length;
+      var text_remaining = text_max - text_length;
+      if (text_length > text_max) {
+        var text_reverse_negative =- text_remaining;
+        $(id).html('You have ' + text_reverse_negative + ' characters too many').addClass('nhsuk-error-message').removeClass('nhsuk-hint');
+      } else {
+        $(id).html('You have ' + text_remaining + ' characters remaining').removeClass('nhsuk-error-message').addClass('nhsuk-hint');
+      }
+  });
+}
+  characterCount("#textarea_feedback", 35);
+</script>
 {% endblock %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -47,14 +64,20 @@
 
 {% block content %}
 {% set otherConditional %}
-{{ input({
+{{ textarea({
+  "rows": "1",
   "label": {
   },
   "id": "inputnhsnumber",
   "name": "whoPrescribedOther",
   "classes": "nhsuk-input--width-30"
 }) }}
+<div class="nhsuk-hint" id="msgBody-hint">
+      <div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1" style="
+  margin-bottom:40px !important ">You have 35 characters remaining</div>
+    </div>
 {% endset %}
+
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
@@ -90,12 +113,18 @@
               "value": "other",
               "text": "Other",
               "conditional": {
-                "html": otherConditional 
+                "html": otherConditional
+              }
+            },
+            {
+              "value": "notPrescribed",
+              "text": "I have not had this item before",
+              "hint": {
+                "text": ""
               }
             }
           ]
         }) }}
-
 
 
 

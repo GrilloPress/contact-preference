@@ -4,6 +4,23 @@
 {% set contentTitle = "What prescription item do you need?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
+<script type="text/javascript">
+function characterCount(id, textMax) {
+  var text_max = textMax;
+  $(id).html('You have ' + text_max + ' characters remaining');
+  $('textarea').keyup(function() {
+      var text_length = $('textarea').val().length;
+      var text_remaining = text_max - text_length;
+      if (text_length > text_max) {
+        var text_reverse_negative =- text_remaining;
+        $(id).html('You have ' + text_reverse_negative + ' characters too many').addClass('nhsuk-error-message').removeClass('nhsuk-hint');
+      } else {
+        $(id).html('You have ' + text_remaining + ' characters remaining').removeClass('nhsuk-error-message').addClass('nhsuk-hint');
+      }
+  });
+}
+  characterCount("#textarea_feedback", 200);
+</script>
 {% endblock %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -51,7 +68,7 @@
         {{ contentTitle }}
       </h1>
 
-        <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/pastPrescription" method="get">
+        <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/whoPrescribed" method="get">
 
   {{ textarea({
     "name": "whatMedication",
@@ -62,9 +79,14 @@
       "text": "List the item name and amount needed, or describe the type of item."
     },
     "hint": {
-      "text": "For example, eczema cream"
+      "html": '
+      <p>For example, eczema cream</p>'
     }
   }) }}
+  <div class="nhsuk-hint" id="msgBody-hint">
+        <div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1" style="
+    margin-bottom:40px !important ">You have 200 characters remaining</div>
+      </div>
 
 
 
