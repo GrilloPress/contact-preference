@@ -89,6 +89,14 @@
               </input>
             </form>
 
+    {% elif data["acuteMessage"] == "True" %}
+
+    <form action="/app/v8/message-clear" method="post">
+      <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Log out">
+      </input>
+    </form>
+
+
      {% elif data["v9"] == "True" %}
 
      <form action="/app/v9/clear" method="post">
@@ -104,12 +112,20 @@
             </input>
           </form>
 
-     {% else %}
 
-     <form action="/app/v10-p5/clear" method="post">
-       <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Log out">
-       </input>
-     </form>
+      {% elif data["p5"] == "True" %}
+
+          <form action="/app/v10-p5/clear" method="post">
+            <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Log out">
+            </input>
+          </form>
+
+        {% else %}
+
+        <form action="/app/v10/clear" method="post">
+          <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Log out">
+          </input>
+        </form>
 
      {% endif %}
 
