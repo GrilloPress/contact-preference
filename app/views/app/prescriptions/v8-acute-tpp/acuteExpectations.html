@@ -52,12 +52,16 @@
 
         <p>If you have not had this item prescribed to you before, or your GP needs to review the request with you, you will need to make an appointment with your GP surgery.</p>
 
-        <p>Once your request is approved, it will be sent to your nominated pharmacy to collect. If you do not have one, you can collect the presciption from your GP surgery.</p>
+        <p>Once your request is approved, it will be sent to your nominated pharmacy to collect. If you do not have one, you can collect the prescription from your GP surgery.</p>
+        {{ details({
+          "text": "I need this item urgently",
+          "HTML": '
+          <p>If you need an item urgently, contact your GP surgery or nominated pharmacy.</p>
 
-        <p>If you need an item urgently, contact your GP surgery or nominated pharmacy.</p>
+          <p>If you cannot contact them, go to <a href="https://111.nhs.uk/emergency-prescription">111.nhs.uk/emergency-prescription</a> or call 111 to request an emergency supply of the prescription item.</p>
 
-        <p>If you cannot contact them, go to <a href="https://111.nhs.uk/emergency-prescription">111.nhs.uk/emergency-prescription</a> or call 111 to request an emergency supply of the prescription item.</p>
-
+          '
+        }) }}
 
       <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/whatMedication" method="get">
         <input type="submit" class="nhsuk-button" value="Continue">

@@ -39,6 +39,53 @@
           </div>
           <ul class="list-menu nhs-app-message">
 
+            {% if data['messageRead7'] == "unread" %}
+
+            <li class="nhs-app-message__item nhs-app-message__item--unread">
+              <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread#unread6">
+                <h2 class="nhsuk-heading-xs">
+                  <span class="nhsuk-u-visually-hidden">Conversation with:</span>
+                  NHS App
+                  <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+                  <span class="nhs-app-message__date nhs-app-message__date--unread">03/12/2020</span>
+                </h2>
+                <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold">
+                  <span class="nhsuk-u-visually-hidden">Subject: </span>
+                  You can now add calendar reminders to your device
+                <span class="nhs-app-message__meta panel-link_thin">
+                  <span class="nhsuk-u-visually-hidden">You have </span>
+                  <span class="unread-red"><b>Unread</b></span>
+                  <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                    unread messages from NHS App
+                  </span>
+                </span>
+              </p>
+              </a>
+            </li>
+
+            {% endif %}
+
+            {% if data['messageRead7'] == "read" %}
+
+
+                    <li class="nhs-app-message__item nhs-app-message__item--read">
+                      <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread">
+                        <h2 class="nhsuk-heading-xs">
+                          <span class="nhsuk-u-visually-hidden">Conversation with:</span>
+                          NHS App
+                          <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+                          <span class="nhs-app-message__date nhs-app-message__date--read">03/12/2020</span>
+                        </h2>
+                        <p class="nhs-app-message__subject-line nhs-app-message__subject-line">
+                          <span class="nhsuk-u-visually-hidden">Subject: </span>
+                          You can now add calendar reminders to your device
+                      </p>
+                      </a>
+                    </li>
+
+
+                    {% endif %}
+
             {% if (data['prescriptionConfirmedAcute'] === "True") and (data['acuteMessage'] ==='True') %}
             {% if data['messageRead6'] == "unread" %}
 

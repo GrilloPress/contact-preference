@@ -24,6 +24,10 @@ $( document ).ready(function() {
         jQuery.post( "/app/password", { messageRead6{{data['id']}}: "read" } );
         });
 
+        $( document ).ready(function() {
+          jQuery.post( "/app/password", { messageRead7{{data['id']}}: "read" } );
+          });
+
 
 </script>
 {% endblock %}
@@ -161,6 +165,39 @@ $( document ).ready(function() {
           </li>
           {% endif %}
 
+          {% endif %}
+
+
+          {% if data['messageRead7'] === "read" %}
+          <li class="nhs-app-chat__item">
+            <div class="nhs-app-chat__sender">
+              {{ sender }}
+            </div>
+            <div class="nhs-app-chat__container">
+              <p class="nhs-app-chat__body">You can now add calendar reminders to your device for repeat prescriptions.</p>
+              <a class="nhs-app-chat__body" href="/app/prescriptions/v8-acute-tpp/manage-gp-prescriptions"> https://www.nhsapp.service.nhs<br>.uk/prescriptions/manage-gp-prescriptions</a>
+                </div>
+            <div class="nhs-app-chat__date">
+              Sent 9:12am, 3 December 2020
+            </div>
+          </li>
+
+          {% else%}
+          <div class="nhs-app-chat__read-indicator" id="unread6">
+            <span class="nhs-app-chat__read-indicator-container"><b>Unread message</b></span>
+          </div>
+          <li class="nhs-app-chat__item">
+            <div class="nhs-app-chat__sender-unread">
+              {{ sender }}
+            </div>
+            <div class="nhs-app-chat__container">
+              <p class="nhs-app-chat__body">You can now add calendar reminders to your device for repeat prescriptions.</p>
+              <a class="nhs-app-chat__body" href="/app/prescriptions/v8-acute-tpp/manage-gp-prescriptions"> https://www.nhsapp.service.nhs<br>.uk/prescriptions/manage-gp-prescriptions</a>
+            </div>
+            <div class="nhs-app-chat__date">
+              Sent 9:12am, 3 December 2020
+            </div>
+          </li>
           {% endif %}
           </ul>
       </div>

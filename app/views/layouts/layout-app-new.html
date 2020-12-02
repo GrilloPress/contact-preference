@@ -29,6 +29,8 @@
   nhs-app-footer__icon--read
   {% elif data['messageRead6'] !== 'read' %}
   nhs-app-footer__icon--read
+  {% elif data['messageRead7'] !== 'read' %}
+  nhs-app-footer__icon--read
   {% endif %}
 {% endset %}
 
@@ -97,6 +99,8 @@
   nhs-app-header__icon--unread
   {% elif data['messageRead6'] !== 'read' %}
     nhs-app-header__icon--unread
+    {% elif data['messageRead7'] !== 'read' %}
+      nhs-app-header__icon--unread
 {% else %}
   nhs-app-header__icon
 {% endif %}

@@ -115,8 +115,7 @@
           <li class="nhs-app-message__item--unread-home">
             <a class="desktop" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/?messagingIcon=False&messageRead1=unread&pkbMessaging=False" }}'>
               View your messages
-                {% if (data['prescriptionConfirmedAcute'] === "True") and (data['acuteMessage'] ==='True') %}
-                {% if (data['messageRead6'] == "unread") %}
+                {% if (data['messageRead7'] == "unread") %}
                 <span class="nhs-app-message__meta">
                   <span class="nhsuk-u-visually-hidden">You have </span>
                   <span class="nhs-app-message__count-red-home"></span>
@@ -124,7 +123,6 @@
                     unread messages
                   </span>
                 </span>
-                {% endif %}
                 {% endif %}
 
             </a>

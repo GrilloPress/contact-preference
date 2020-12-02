@@ -95,8 +95,7 @@
         <li>
           <a href="messages">
             <h2 class="nhsuk-heading-s">Health information and updates</h2>
-              {% if (data['prescriptionConfirmedAcute'] === "True") and (data['acuteMessage'] ==='True') %}
-            {% if (data['messageRead6'] == "unread") %}
+            {% if (data['messageRead7'] == "unread") %}
                 <span class="nhs-app-message__meta panel-link">
                   <span class="nhsuk-u-visually-hidden">You have </span>
                   <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
@@ -111,7 +110,7 @@
                 </div>
 
             {% endif %}
-            {% endif %}
+      
             <p>View messages from health services and the NHS App</p>
           </a>
         </li>
