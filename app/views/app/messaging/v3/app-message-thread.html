@@ -168,6 +168,8 @@ $( document ).ready(function() {
           {% endif %}
 
 
+          {% if data['messageHide'] === "True" %}
+          {% else %}
           {% if data['messageRead7'] === "read" %}
           <li class="nhs-app-chat__item">
             <div class="nhs-app-chat__sender">
@@ -182,7 +184,7 @@ $( document ).ready(function() {
             </div>
           </li>
 
-          {% else%}
+          {% else %}
           <div class="nhs-app-chat__read-indicator" id="unread6">
             <span class="nhs-app-chat__read-indicator-container"><b>Unread message</b></span>
           </div>
@@ -198,6 +200,7 @@ $( document ).ready(function() {
               Sent 9:12am, 3 December 2020
             </div>
           </li>
+          {% endif %}
           {% endif %}
           </ul>
       </div>
