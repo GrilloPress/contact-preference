@@ -44,32 +44,48 @@
 
 {% endif %}
   </div>
-</nav>{% include "../../_parts/silver-banner.html" %}
+</nav>
+<div class="nhs-app-provider-banner">
+<div class="nhsuk-width-container">
+<strong>This service is provided by your GP surgery</strong>
+</div>
+</div>
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
-
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Upload a photo of your condition</h1>
-      <p>You can upload 1 photo.</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Have you developed a new rash over the last 48 hours?</h1>
 
+      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/16_new-rash" method="post">
+        {{ radios({
+          "idPrefix": "econsult",
+          "name": "econsultNewRash",
+          "fieldset": {
+            "legend": {
+              "isPageHeading": false,
+              "classes": ""
+            }
+          },
+          "items": [
+            {
+              "value": "Yes",
+              "text": "Yes"
+            },
+            {
+              "value": "No",
+              "text": "No"
+            }
+          ]
+        }) }}
 
-        <form action="/app/econsult/adult/eczema/19_b2">
-          <button style="display:inline;width:104px; height:21px;" onclick="document.getElementById('getFile').click()">Choose photo</button>
-
-
-          <input type='file' id="getFile" style="display:none"> <span class="nhsuk-body-s" style="display: inline;"> No photo chosen </span>
-        </form>
-        <br>
-
-        <form action="/app/econsult/adult/eczema/19_b2" method="get">
-          <input type="submit" class="nhsuk-button" value="Upload">
-          </input>
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
 
       </form>
+
+
 
 
 

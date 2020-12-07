@@ -21,7 +21,7 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-mobile--hide" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
@@ -29,7 +29,6 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v8-econsult/pre-hub" }}'>Appointments</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/appointments/v8-econsult/GP-hub">Your GP appointments</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
 
 {% else %}
 {% if data['experiment'] === 'True' %}
@@ -40,7 +39,6 @@
 {% endif %}
 {% endif %}
 </ol>
-<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
 
 {% endif %}
   </div>
@@ -51,29 +49,46 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Upload a photo of your condition</h1>
-      <p>You can upload 1 photo.</p>
+
+      <form action="/app/econsult/adult/end/end-of-consultation-rash" method="post">
 
 
-        <form action="/app/econsult/adult/eczema/19_b2">
-          <button style="display:inline;width:104px; height:21px;" onclick="document.getElementById('getFile').click()">Choose photo</button>
-
-
-          <input type='file' id="getFile" style="display:none"> <span class="nhsuk-body-s" style="display: inline;"> No photo chosen </span>
-        </form>
-        <br>
-
-        <form action="/app/econsult/adult/eczema/19_b2" method="get">
-          <input type="submit" class="nhsuk-button" value="Upload">
-          </input>
-
-      </form>
+      {{ careCard({
+        "type": "urgent",
+        "heading": "You need to seek medical advice soon. Call the practice for medical advice or call 111.",
+        "headingLevel": 2,
+        "HTML": '
+        <p>If you decide to seek medical advice, <strong>your GP will not be notified and your practice will not contact you about this consultation.</strong></p>
+        '
+      }) }}
 
 
 
+      {{ checkboxes({
+        "idPrefix": "example",
+        "name": "example",
+        "fieldset": {
+          "legend": {
+            "text": "",
+            "classes": "nhsuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        },
+        "items": [
+          {
+            "value": "end",
+            "text": "End my consultation, I will seek medical advice myself instead"
+          }
+        ]
+      }) }}
 
+      <input type="submit" class="nhsuk-button" value="Continue">
+      </input>
+
+    </form>
+
+      <p><a href="{{routeHome}}">Back to home</a></p>
 
 
     </div>

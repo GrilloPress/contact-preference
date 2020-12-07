@@ -44,32 +44,76 @@
 
 {% endif %}
   </div>
-</nav>{% include "../../_parts/silver-banner.html" %}
+</nav>
+<div class="nhs-app-provider-banner">
+<div class="nhsuk-width-container">
+<strong>This service is provided by your GP surgery</strong>
+</div>
+</div>
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
-
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Upload a photo of your condition</h1>
-      <p>You can upload 1 photo.</p>
 
+      {{ warningCallout({
+        "heading": "Next, let's make sure this isn't an emergency. Are you currently experiencing any of the following?",
+        "HTML": "
+        <ul>
+          <li>
+            <strong>Signs of a heart attack</strong> - pain like a very tight band, heavy weight or squeezing in the centre of your chest or any pain that moves into your jaw or neck
+          </li>
 
-        <form action="/app/econsult/adult/eczema/19_b2">
-          <button style="display:inline;width:104px; height:21px;" onclick="document.getElementById('getFile').click()">Choose photo</button>
+          <li>
+            <strong>Signs of a stroke</strong> - face drooping on one side, can't hold both arms up, difficult speaking, or weakness or numbness on one side of your body
+          </li>
 
+          <li>
+            <strong>Severe difficulty breathing</strong> - gasping, not being able to get words out, choking or lips turning blue
+          </li>
 
-          <input type='file' id="getFile" style="display:none"> <span class="nhsuk-body-s" style="display: inline;"> No photo chosen </span>
-        </form>
-        <br>
+          <li>
+            <strong>Heavy bleeding that won't stop</strong> - uncontrollable bleeding from any part of your body
+          </li>
 
-        <form action="/app/econsult/adult/eczema/19_b2" method="get">
-          <input type="submit" class="nhsuk-button" value="Upload">
-          </input>
+          <li>
+            <strong>Severe injuries</strong> - including deep cuts after a serious accident
+          </li>
+        </ul>
+          "
+      }) }}
+
+      <form action="/app/econsult/adult/eczema/v2/5_emergency" method="post">
+        {{ radios({
+          "idPrefix": "econsult",
+          "name": "econsultAdultEczemaEmergency",
+          "fieldset": {
+            "legend": {
+              "text": "",
+              "isPageHeading": false,
+              "classes": ""
+            }
+          },
+          "items": [
+            {
+              "value": "I'm NOT experiencing any of these",
+              "text": "I'm NOT experiencing any of these"
+            },
+            {
+              "value": "I am experiencing some of these",
+              "text": "I am experiencing some of these"
+            }
+          ]
+        }) }}
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
 
       </form>
+
+
+
 
 
 
