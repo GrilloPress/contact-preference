@@ -35,38 +35,38 @@
 {% endset %}
 
 {% set routeHome %}
-  {{ data["routeHome"] if data ["routeHome"] else "/app/v6" }}
+  {{ data["routeHome"] if data ["routeHome"] else "/app/generic/index" }}
 {% endset %}
 
 
 {% set routeAppointments %}
-  {{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v9-doctorlink/pre-hub" }}
+  {{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/flu-2020/index" }}
 {% endset %}
 
 {% set routeRecords %}
-  {{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v1/" }}
+  {{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v3/pre-hub" }}
 {% endset %}
 
 {% set routeSymptoms %}
-  {{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v3/" }}
+  {{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/" }}
 {% endset %}
 
 {% set routeMore %}
-  {{ data["routeMore"] if data ["routeMore"] else "/app/more/v10/" }}
+  {{ data["routeMore"] if data ["routeMore"] else "/app/more/v10/index" }}
 {% endset %}
 
 {% set routeSettings %}
-  {{ data["routeSettings"] if data ["routeSettings"] else "/app/settings/v3/" }}
+  {{ data["routeSettings"] if data ["routeSettings"] else "/app/settings/v2/" }}
 {% endset %}
 
 
 {% set routePrescriptions %}
-  {{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v7/your-prescriptions-11-no-pkb" }}
+  {{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v7/your-prescriptions-11-live" }}
 {% endset %}
 
 
 {% set routeMessaging %}
-  {{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/index?messagingIcon=False&messageRead1=unread" }}
+  {{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/index?messagingIcon=False" }}
 {% endset %}
 
 {% set routeGPServices %}
