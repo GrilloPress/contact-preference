@@ -1,0 +1,114 @@
+{% set PROTOTYPEURL = "app/engage" %}
+{% set serviceName = "Engage" %}
+{% set contentTitle = "We have found an existing account with the same NHS number" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% elif data['home'] == 'True' %}
+{% endif %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% include "../.././_parts/silver-banner.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {% if data['engageProxyJourney'] %}
+      <div class="app-proxy__container">
+        <ul class="list-menu">
+          <li>
+              <a href="/{{ PROTOTYPEURL }}/who/v2/index">
+                <p class="nhsuk-body-s">Acting on behalf of <br>
+                  <strong>{{ data['engageWho']}}</strong>
+                </p>
+              </a>
+          </li>
+        </ul>
+      </div>
+      {% endif %}
+
+      {{ errorSummary({
+  "titleText": "There is a problem",
+  "errorList": [
+    {
+      "text": "Select an option",
+      "href": "#example-error-1"
+    }
+  ]
+}) }}
+
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+
+      <p>
+        You appear to have used the Engage Consult service before, probably on your GP surgery's website.
+      </p>
+      <p>
+        You can merge this existing account with your NHS login. If you merge your account you will only be able to log in to Engage Consult using your NHS login.
+      </p>
+
+
+      <form action="/{{ PROTOTYPEURL }}/med/v2/done?engageMedDone=True" method="post">
+
+      {{ radios({
+        "idPrefix": "example",
+        "id": "example-error-1",
+        "name": "example-error-1",
+        "errorMessage": {
+  "text": "Select an option"
+},
+        "fieldset": {
+          "legend": {
+            "text": "Do you want to merge your accounts?",
+            "classes": "nhsuk-fieldset__legend--l nhs-app-xl",
+            "isPageHeading": false
+          }
+        },
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes, merge my NHS login and Engage accounts"
+          },
+          {
+            "value": "no",
+            "text": "No, do not merge my accounts"
+          }
+        ]
+      }) }}
+
+
+            <input type="submit" class="nhsuk-button" value="Continue">
+            </input>
+          </form>
+
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block afterContent %}
+{% endblock %}
