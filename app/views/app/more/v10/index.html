@@ -32,14 +32,14 @@
             <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold nhsuk-u-padding-bottom-0">
                 <span class="nhs-app-message__meta panel-link">
                   <span class="nhsuk-u-visually-hidden">You have </span>
-                  <span class="nhs-app-message__count"><strong>&bull;</strong></span>
+                  <span class="nhs-app-message__count"></span>
                   <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
                     unread messages
                   </span>
                 </span>
                 </p>
             {% endif %}
-            <p>Send or view messages from your GP surgery and other health services</p>
+            <p>View messages from health services and the NHS App</p>
       		</a>
       	</li>
 
@@ -70,12 +70,7 @@
     		</li>
         {% endif %}
 
-        <li>
-      		<a href="/app/organ-donation/v2/register-decision">
-      			<h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Manage your organ donation decision</h2>
-      			<p>Help save thousands of lives in the UK every year by signing up to become a donor on the NHS Organ Donor Register</p>
-      		</a>
-      	</li>
+
 
         {% if data['SJR_PKB'] === 'True' %}
         <li>
@@ -86,12 +81,6 @@
         </li>
         {% endif %}
 
-        <li>
-          <a href="/app/ndop/v3/overview">
-      			<h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Choose if data from your health records is shared for research and planning</h2>
-      			<p>Find out how the NHS uses your confidential patient information and choose whether or not it can be used for research and planning</p>
-      		</a>
-      	</li>
       </ul>
     </div>
   </div>

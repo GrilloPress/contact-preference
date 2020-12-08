@@ -1779,6 +1779,97 @@ router.post('/app/econsult/adult/eczema/42_', function (req, res) {
 });
 
 
+// eConsult Adult Eczema Route V2 (SHOWS FILE UPLOAD)
+
+
+router.post('/app/econsult/adult/eczema/v2/5_emergency', function (req, res) {
+  let answer = req.session.data.econsultAdultEczemaEmergency;
+
+  if (answer === 'I am experiencing some of these') {
+
+    res.redirect('/app/econsult/adult/end/emergency')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/6_covid')
+
+  }
+});
+
+
+
+
+router.post('/app/econsult/adult/eczema/v2/6_covid', function (req, res) {
+  let answer = req.session.data.econsultAdultCOVIDCheckEczema;
+  let p5 = req.session.data.p5;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/end/covid')
+
+  } else {
+    if (p5 === 'true') {
+      res.redirect('/app/econsult/adult/eczema/v2/7_registered')
+      } else {
+    res.redirect('/app/econsult/adult/eczema/v2/8_sex')
+    }
+  }
+});
+
+router.post('/app/econsult/adult/eczema/v2/7_registered', function (req, res) {
+  let answer = req.session.data.econsultAdultRegisteredEczema;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/v2/8_sex')
+
+  } else {
+    res.redirect('/app/econsult/adult/end/registered')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/v2/12_', function (req, res) {
+  let answer = req.session.data.econsultEczemaPast;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/v2/12_a')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/12_any-particular')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/v2/12_any-particular', function (req, res) {
+  let answer = req.session.data.econsultAnyParticular;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/v2/12_any-particular-yes')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/13_describe-symptoms')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/v2/16_new-rash', function (req, res) {
+  let answer = req.session.data.econsultNewRash;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/v2/16_disappear-rash')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/16_difficulty-breathing')
+
+  }
+});
+
+
+
+
 // ADMIN ROUTES
 
 router.post('/app/econsult/admin/v1/4', function (req, res) {

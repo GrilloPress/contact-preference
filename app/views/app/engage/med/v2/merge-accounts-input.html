@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/engage" %}
 {% set serviceName = "Engage" %}
-{% set contentTitle = "Who would you like to access services for?" %}
+{% set contentTitle = "Enter your Engage Consult details to merge your accounts" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
@@ -28,18 +28,9 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
     </ol>
-    {% if data['appts'] == 'True' %}
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="{{ routeAppointments }}">Back</a></p>
-    {% elif data['advice'] == 'True' %}
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="{{ routeSymptoms }}">Back</a></p>
-    {% elif data['home'] == 'True' %}
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="{{ routeHome }}">Back</a></p>
-    {% else %}
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
-    {% endif %}
   </div>
 </nav>
-
 {% include "../.././_parts/silver-banner.html" %}
 {% endblock %}
 
@@ -47,32 +38,48 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1>{{ contentTitle }}</h1>
-
-      <div class="nhsuk-form-group">
-
+      {% if data['engageProxyJourney'] %}
+      <div class="app-proxy__container">
         <ul class="list-menu">
           <li>
-            <a href="/{{ PROTOTYPEURL}}/terms/v2/engage-medical?engageWho=Betty Doyle&engageProxyJourney=">
-              Betty Doyle (self)
-            </a>
+              <a href="/{{ PROTOTYPEURL }}/who/v2/index">
+                <p class="nhsuk-body-s">Acting on behalf of <br>
+                  <strong>{{ data['engageWho']}}</strong>
+                </p>
+              </a>
           </li>
-          {% if data["engageProxyDone"] %}
-          <li>
-            <a href="/{{ PROTOTYPEURL}}/terms/v2/engage-medical?engageWho={{ data['engageProxyfirstname']}} {{ data['engageProxyLastname']}}&engageProxyJourney=true">
-              {{ data['engageProxyfirstname'] | capitalize }} {{ data['engageProxyLastname'] | capitalize }} {{ "(Carer)" if data['engageProxyRelationship'] == "You are their carer" else "(Parent)" }}
-            </a>
-          </li>
-
-          {% endif %}
-          <!--<li>
-            <a href="/{{ PROTOTYPEURL}}/proxy/index?engageProxyReturnURL=v2">
-              Add someone else
-            </a>
-          </li>-->
         </ul>
-
       </div>
+      {% endif %}
+
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+
+
+      <form action="/{{ PROTOTYPEURL }}/med/v2/done?engageMedDone=True" method="post">
+
+        {{ input({
+      "label": {
+        "text": "Username or email address"
+      },
+      "id": "example",
+      "name": "example"
+    }) }}
+
+
+    {{ input({
+  "label": {
+    "text": "Password"
+  },
+  "id": "example",
+  "name": "example"
+}) }}
+
+
+
+            <input type="submit" class="nhsuk-button" value="Confirm">
+            </input>
+          </form>
+
 
     </div>
   </div>

@@ -44,30 +44,51 @@
 
 {% endif %}
   </div>
-</nav>{% include "../../_parts/silver-banner.html" %}
+</nav>
+<div class="nhs-app-provider-banner">
+<div class="nhsuk-width-container">
+<strong>This service is provided by your GP surgery</strong>
+</div>
+</div>
 {% endblock %}
+
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Please tell us what those treatments were</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/adult/eczema/12_b" method="get">
-        {{ textarea({
-          "name": "econsultEczemaPastDetail",
-          "id": "econsult",
-          "classes": "nhsuk-u-margin-bottom-0",
-          "label": {
-            "isPageHeading": false,
-            "classes": "nhsuk-u-margin-bottom-4"
-          }
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Are you registered at the following practice?</h1>
+      <p>Gledhow Practice</p>
+      <p>100 Any Avenue, London, E11 9WU</p>
+
+      <form action="/app/econsult/adult/eczema/v2/7_registered" method="post">
+        {{ radios({
+          "idPrefix": "econsult",
+          "name": "econsultAdultRegisteredEczema",
+          "fieldset": {
+            "legend": {
+              "isPageHeading": false,
+              "classes": ""
+            }
+          },
+          "items": [
+            {
+              "value": "Yes",
+              "text": "Yes"
+            },
+            {
+              "value": "No",
+              "text": "No"
+            }
+          ]
         }) }}
 
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
 
       </form>
+
 
 
 
