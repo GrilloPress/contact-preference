@@ -1,0 +1,64 @@
+{% set PROTOTYPEURL = "app/onboarding" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Onboarding prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+      <h2>Current prototypes</h2>
+
+      <ul>
+        <li>
+          <a href="#">Before you start (TBC)</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/registered-with-gp">Are you registered with a GP surgery in England</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/england">User says no to being registered with a GP surgery in England</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/where-do-you-live">Where do you live?</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/scotland">User selects Scotland</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/wales">User selects Wales</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/northern-ireland">User selects Northern Ireland</a>
+        </li>
+      </ul>
+
+
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
