@@ -1,0 +1,130 @@
+{% set PROTOTYPEURL = "app/symptoms/v4" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Advice" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+<header class="app-interruption-header" style="margin-bottom: 0; border-top: none; background-color: #005eb8;">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds chevron-left">
+        <a href="/app/start-screen/start-screen-new">
+          <svg width="0.58em" height="1.2em" viewBox="0 0 8 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="padding-top: 11px; padding-bottom: 5px;">
+              <title>icon_arrow_left</title>
+              <desc>Created with Sketch.</desc>
+              <defs></defs>
+              <g id="Style-guide" stroke="#ffffff" stroke-width="0.5" stroke-linecap="round" fill="#ffffff" fill-rule="evenodd" transform="translate(-924.000000, -4555.000000)">
+                  <g id="Group-18" transform="translate(571.000000, 4404.000000)" fill="#ffffff" fill-rule="nonzero">
+                      <g id="icon_arrow_left" transform="translate(357.000000, 158.500000) rotate(360.000000) translate(-357.000000, -158.500000) translate(353.000000, 151.000000)">
+                          <path d="M7.47266881,15 C7.61414791,15 7.74276527,14.9482759 7.84565916,14.8448276 C8.05144695,14.637931 8.05144695,14.3017241 7.84565916,14.0948276 L1.28617363,7.5 L7.84565916,0.905172414 C8.05144695,0.698275862 8.05144695,0.362068966 7.84565916,0.155172414 C7.63987138,-0.0517241379 7.30546624,-0.0517241379 7.09967846,0.155172414 L0.154340836,7.125 C-0.0514469453,7.33189655 -0.0514469453,7.66810345 0.154340836,7.875 L7.09967846,14.8448276 C7.20257235,14.9482759 7.33118971,15 7.47266881,15 Z" id="Shape"></path>
+                      </g>
+                  </g>
+              </g>
+          </svg>
+
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+      <ul class="list-menu">
+      <li>
+        <a href="https://111.nhs.uk/service/COVID-19/">
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Get advice about coronavirus</h2>
+        <p>Find out what to do if you think you have coronavirus</p>
+        </a>
+      </li>
+
+
+
+
+
+        {% if data['SJR_DoctorLink'] === "True" %}
+
+
+        <li>
+          <a href="/app/doctorlink/terms/v1/index">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Answer questions online and get advice</h2>
+            <p>Answer questions about your symptoms and get advice on what to do next</p>
+          </a>
+        </li>
+
+        {% endif %}
+
+
+        <li>
+          <a href="/app/symptoms/a-to-z">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Search conditions and treatments</h2>
+            <p>Find trusted NHS information on hundreds of conditions</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://111.nhs.uk/" id="btn_111">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Use NHS 111 online</h2>
+            <p>Check if you need urgent help and find out what to do next</p>
+          </a>
+        </li>
+
+        {% if data['SJR_Engage'] === "True" %}
+          <li>
+            <a href="/app/engage/terms/v2/index?home=&appts=&advice=True" id="btn_111">
+              <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Ask your GP for advice</h2>
+              <p>Answer questions online and get a response from your GP surgery</p>
+            </a>
+          </li>
+        {% endif %}
+
+
+        {% if data['SJR_eConsult'] === "True" %}
+        <li>
+          <a href="/app/econsult/adult/terms/start-v2?advice=True&appts=">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Ask your GP for advice</h2>
+            <p>Answer questions online and get a response from your GP surgery. You may be able to get advice for your child if it’s available at your surgery</p>
+          </a>
+        </li>
+
+        {% endif %}
+
+        {% if data['SJR_Substrakt'] === "True" %}
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/terms-symptoms">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Symptom checker</h2>
+            <p>Answer questions about your symptoms to get health advice</p>
+          </a>
+        </li>
+
+        {% endif %}
+
+
+      </ul>
+
+    </div>
+  </div>
+  {% endblock %}
