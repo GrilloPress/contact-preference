@@ -1845,9 +1845,10 @@ main.content {
     margin:0px 15px 0 0;
   }
   header.home-header .nhso_logo {
-    margin: 130px auto auto auto;
+    margin: 10% auto 20% auto;
     box-sizing: border-box;
-  align-items: center; }
+    align-items: center;
+  }
   header.home-header h1 {
     display: block;
     font-family: "FrutigerLTW01-55Roman", Arial, sans-serif;
@@ -1859,7 +1860,7 @@ main.content {
       header.home-header h1 {
         letter-spacing: -0.063em; } }
   header.home-header .help-link {
-    position: fixed;
+    position: relative;
     right: 0;
     top: 0;
     cursor: pointer; }
@@ -1932,6 +1933,13 @@ section.home-main {
     display: block;
     padding-bottom: 0.5em;
     text-align: center; }
+
+    section.home-main p.version-live {
+      display: block;
+      line-height: 1.5em;
+      display: block;
+      padding-bottom: 0.5em;
+      text-align: center; }
 
 //Full blue background on start page//
     header.home-header-blue {
