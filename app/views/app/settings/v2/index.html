@@ -23,6 +23,15 @@
     <div class="nhsuk-grid-column-two-thirds">
       <h1 class="nhsuk-heading-xl nhs-app-xl">Settings</h1>
       <ul class="list-menu">
+        {% if data['linkedProfiles'] === "True" %}
+        <li>
+          <a href="/app/linked-profiles/profiles-list">Linked profiles</a>
+        </li>
+        {% else %}
+        <li>
+          <a href="/app/linked-profiles/no-linked-profiles">Linked profiles</a>
+        </li>
+        {% endif %}
         <li>
           <a href="/{{ PROTOTYPEURL }}/cookies">Cookies</a>
         </li>
