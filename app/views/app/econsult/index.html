@@ -31,20 +31,11 @@
       {% from 'action-link/macro.njk' import actionLink %}
 
       {{ actionLink({
-        "text": "Start eConsult child journey (conjunctivitus)",
-        "href": "/app/v6/start?SJR_eConsult=True"
-      }) }}
-
-      {{ actionLink({
-        "text": "Start eConsult adult journey (contraception)",
-        "href": "/app/v6/start?SJR_eConsult=True"
+        "text": "Start eConsult (child functionality on)",
+        "href": "/app/v8/index?SJR_eConsult=True"
       }) }}
 
 
-            {{ actionLink({
-              "text": "Start eConsult adult journey (eczema)",
-              "href": "/app/v6/start?SJR_eConsult=True"
-            }) }}
 
 
             <h2>Jump off heading and paragraph content:</h2>
@@ -351,6 +342,36 @@
                 </li>
                 <li>
                   <a href="/app/econsult/adult/eczema/file-upload-errors/19_error">User does not select an answer for do you want to upload a photo of your condition</a>
+                </li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>Paediatrics MVP</h2>
+              <ul>
+                <li>
+                  <a href="/app/econsult/child/mvp/index">Advice hub with jump off point</a>
+                </li>
+                <li>
+                  <a href="/app/econsult/child/mvp/data-sharing">Consent to use personal data</a>
+                </li>
+                <li>
+                  <a href="/app/econsult/child/mvp/who-needs-advice">Do you need advice for yourself or your child?</a>
+                </li>
+                <li>
+                  <a href="/app/econsult/child/mvp/privacy-policy">Agree to the privacy policy</a>
+                </li>
+                <li>
+                  <a href="/app/econsult/child/mvp/your-dob">Tell us your date of birth</a>
+                </li>
+                <li>
+                  <a href="/app/econsult/child/mvp/choose-condition">Choose symptom or condition</a>
+                </li>
+                <li>
+                  <a href="/app/econsult/child/mvp/choose-condition-for-child">Choose symptom or condition for your child</a>
+                </li>
+                <li>
+                  <a href="/app/econsult/child/mvp/yourself-adult-only">Confirm you're submitting this request for yourself (only appears if paediatrics is unavailable)</a>
                 </li>
               </ul>
             </section>
