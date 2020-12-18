@@ -1,0 +1,75 @@
+{% set PROTOTYPEURL = "app/econsult/child/mvp" %}
+{% set serviceName = "NHS App" %}
+{% set symptomsActive = "active" %}
+{% set contentTitle = "Advice" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-desktop--show" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
+    </ol>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+      <ul class="list-menu">
+      <li>
+        <a href="https://111.nhs.uk/service/COVID-19/">
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Get advice about coronavirus</h2>
+        <p>Find out what to do if you think you have coronavirus</p>
+        </a>
+      </li>
+
+
+
+
+
+        <li>
+          <a href="/app/symptoms/a-to-z">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Search conditions and treatments</h2>
+            <p>Find trusted NHS information on hundreds of conditions</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://111.nhs.uk/" id="btn_111">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Use NHS 111 online</h2>
+            <p>Check if you need urgent help and find out what to do next</p>
+          </a>
+        </li>
+
+
+
+        <li>
+          <a href="/app/econsult/child/mvp/data-sharing">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Ask your GP for advice</h2>
+            <p>Answer questions online and get a response from your GP surgery. You may be able to get advice for your child if it’s available at your surgery</p>
+          </a>
+        </li>
+
+
+
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}
