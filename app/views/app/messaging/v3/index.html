@@ -39,7 +39,7 @@
         <li>
           <a href="/app/send-a-message/v5/index?pkbim=true">
             <h2 class="nhsuk-heading-s">GP surgery messages</h2>
-            {% if data['messageRead4'] !== "read" %}
+            {% if data['messageRead4'] === "unread" %}
             <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold">
                 <span class="nhs-app-message__meta panel-link">
                   <span class="nhsuk-u-visually-hidden">You have </span>
@@ -110,7 +110,7 @@
                 </div>
 
             {% endif %}
-      
+
             <p>View messages from health services and the NHS App</p>
           </a>
         </li>

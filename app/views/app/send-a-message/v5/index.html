@@ -72,17 +72,17 @@
                         + "messageRead2=" + "read" + "&" | safe -}}
             {% endset %}
 
-            <li id="messageID5" class="nhs-app-message__item {{ 'nhs-app-message__item--unread' if data['messageRead5'] !== 'read' }} {{ 'app-display--none' if data['deleteID'] == '5'  }}">
+            <li id="messageID5" class="nhs-app-message__item {{ 'nhs-app-message__item--unread' if data['messageRead5'] === 'unread' }} {{ 'app-display--none' if data['deleteID'] == '5'  }}">
           		<a class="nhs-app-message__link" href="{{- queryFor2 | safe -}}">
                 <h2 class="nhsuk-heading-xs">
                   <span class="nhsuk-u-visually-hidden">Messages from:</span>
                   {{ data['msgFrom']}}
                   <span class="nhsuk-u-visually-hidden">The last message was sent </span>
-                  <span class="nhs-app-message__date {{ 'nhs-app-message__date--unread' if data['messageRead5'] !== 'read' }} ">{{ data.msgDate | capitalize }}</span>
+                  <span class="nhs-app-message__date {{ 'nhs-app-message__date--unread' if data['messageRead5'] === 'unread' }} ">{{ data.msgDate | capitalize }}</span>
                 </h2>
 
 
-                  {% if data['messageRead5'] !== 'read' %}
+                  {% if data['messageRead5'] === 'unread' %}
                   <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold">
                   <span class="nhs-app-message__meta">
                     <span class="nhsuk-u-visually-hidden">You have </span>
@@ -146,16 +146,16 @@
 
           {% else %}
 
-            <li id="messageID4" class="nhs-app-message__item {{ 'nhs-app-message__item--unread' if data['messageRead4'] !== 'read' }} {{ 'app-display--none' if data['deleteID'] == '4'  }}">
+            <li id="messageID4" class="nhs-app-message__item {{ 'nhs-app-message__item--unread' if data['messageRead4'] === 'unread' }} {{ 'app-display--none' if data['deleteID'] == '4'  }}">
           		<a class="nhs-app-message__link" href="message?id=4&from=Sister Leanna Leveille&sent=Yesterday&time=4.55pm&body=We have booked you a telephone appointment on the 4.06.20 at around 16:00, is this suitable?">
                 <h2 class="nhsuk-heading-xs">
                   <span class="nhsuk-u-visually-hidden">Conversation with:</span>
                   Sister Leanna Leveille
                   <span class="nhsuk-u-visually-hidden">The last message was sent </span>
-                  <span class="nhs-app-message__date {{ 'nhs-app-message__date--unread' if data['messageRead4'] !== 'read' }} ">1 June 2020</span>
+                  <span class="nhs-app-message__date {{ 'nhs-app-message__date--unread' if data['messageRead4'] === 'unread' }} ">1 June 2020</span>
                 </h2>
 
-                  {% if data['messageRead4'] !== 'read' %}
+                  {% if data['messageRead4'] === 'unread' %}
                   <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold">
                   <span class="nhs-app-message__meta">
                     <span class="nhsuk-u-visually-hidden">You have </span>
