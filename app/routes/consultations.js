@@ -1868,6 +1868,325 @@ router.post('/app/econsult/adult/eczema/v2/16_new-rash', function (req, res) {
 });
 
 
+router.post('/app/econsult/adult/eczema/v2/16_disappear-rash', function (req, res) {
+  let answer = req.session.data.econsultRashDisappear;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/v2/16_difficulty-breathing')
+
+  } else {
+    res.redirect('/app/econsult/adult/end/seek-medical-advice')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/v2/16_difficulty-breathing', function (req, res) {
+  let answer = req.session.data.econsultDifficultyBreathing;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/end/seek-medical-advice')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/17_swelling')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/v2/17_swelling', function (req, res) {
+  let answer = req.session.data.econsultSwelling;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/end/seek-medical-advice')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/18_face-swelling')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/v2/18_face-swelling', function (req, res) {
+  let answer = req.session.data.econsultFaceSwelling;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/end/seek-medical-advice')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/19_high-temp')
+
+  }
+});
+
+
+router.post('/app/econsult/adult/eczema/v2/20_shivering', function (req, res) {
+  let answer = req.session.data.econsultShiver;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/end/seek-medical-advice')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/21_bright-lights')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/v2/21_bright-lights', function (req, res) {
+  let answer = req.session.data.econsultBrightLights;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/end/seek-medical-advice')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/22_stiff-neck')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/v2/22_stiff-neck', function (req, res) {
+  let answer = req.session.data.econsultStiffNeck;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/end/seek-medical-advice')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/23_chemo')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/v2/23_chemo', function (req, res) {
+  let answer = req.session.data.econsultChemo;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/end/seek-medical-advice')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/24_dizzy')
+
+  }
+});
+
+
+router.post('/app/econsult/adult/eczema/v2/25_sweaty', function (req, res) {
+  let answer = req.session.data.econsultSweaty;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/end/seek-medical-advice')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/26_mottled')
+
+  }
+});
+
+
+router.post('/app/econsult/adult/eczema/v2/26_mottled', function (req, res) {
+  let answer = req.session.data.econsultMottled;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/end/seek-medical-advice')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/27_drowsy')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/v2/27_drowsy', function (req, res) {
+  let answer = req.session.data.econsultDrowsy;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/end/seek-medical-advice')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/28_confused')
+
+  }
+});
+
+
+router.post('/app/econsult/adult/eczema/v2/28_confused', function (req, res) {
+  let answer = req.session.data.econsultConfused;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/end/seek-medical-advice')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/29_speech')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/v2/29_speech', function (req, res) {
+  let answer = req.session.data.econsultSpeech;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/end/seek-medical-advice')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/30_urine')
+
+  }
+});
+
+
+router.post('/app/econsult/adult/eczema/v2/30_urine', function (req, res) {
+  let answer = req.session.data.econsultUrine;
+
+  if (answer === 'No') {
+    res.redirect('/app/econsult/adult/end/seek-medical-advice')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/31_fluids')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/v2/31_fluids', function (req, res) {
+  let answer = req.session.data.econsultFluids;
+
+  if (answer === 'no') {
+
+    res.redirect('/app/econsult/adult/end/seek-medical-advice')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/32_problems')
+
+  }
+});
+
+
+
+router.post('/app/econsult/adult/eczema/v2/32_problems', function (req, res) {
+  let answer = req.session.data.econsultProblemsCheckboxes;
+
+  if (answer) {
+
+    if (answer.includes('spreading')) {
+      res.redirect('/app/econsult/adult/end/seek-medical-advice')
+    } else if (answer.includes('redHot')) {
+      res.redirect('/app/econsult/adult/end/seek-medical-advice')
+    } else if (answer.includes('sore')) {
+      res.redirect('/app/econsult/adult/end/seek-medical-advice')
+    } else if (answer.includes('leaking')) {
+      res.redirect('/app/econsult/adult/end/seek-medical-advice')
+    } else {
+      res.redirect('/app/econsult/adult/eczema/v2/33_come-and-go')
+  }}
+
+
+});
+
+
+
+router.post('/app/econsult/adult/eczema/v2/34_pattern', function (req, res) {
+  let answer = req.session.data.econsultPattern;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/v2/34_pattern-what')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/35_contact-rash')
+
+  }
+});
+
+
+
+router.post('/app/econsult/adult/eczema/v2/35_contact-rash', function (req, res) {
+  let answer = req.session.data.econsultContactRash;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/v2/35_contact-rash-yes')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/36_anything-else')
+
+  }
+});
+
+
+router.post('/app/econsult/adult/eczema/v2/36_anything-else', function (req, res) {
+  let answer = req.session.data.econsultAnythingElse2;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/v2/36_anything-else-yes')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/37_drugs')
+
+  }
+});
+
+
+router.post('/app/econsult/adult/eczema/v2/37_drugs', function (req, res) {
+  let answer = req.session.data.econsultDrugs;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/v2/37_drugs-yes')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/38_alcohol')
+
+  }
+});
+
+
+router.post('/app/econsult/adult/eczema/v2/40_allergies', function (req, res) {
+  let answer = req.session.data.econsultAllergies;
+  let econsultAdultSexEczema = req.session.data.econsultAdultSexEczema;
+
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/v2/40_allergies-yes')
+
+  } else {
+    if (econsultAdultSexEczema === 'Female') {
+      res.redirect('/app/econsult/adult/eczema/v2/41_pregnant')
+      } else {
+    res.redirect('/app/econsult/adult/eczema/v2/43_')
+    }
+  }
+});
+
+router.post('/app/econsult/adult/eczema/v2/40_allergies-yes', function (req, res) {
+  let answer = req.session.data.econsultEczemaWhatAllergies;
+  let econsultAdultSexEczema = req.session.data.econsultAdultSexEczema;
+
+  if (econsultAdultSexEczema === 'Female') {
+
+    res.redirect('/app/econsult/adult/eczema/v2/41_pregnant')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/43_')
+
+  }
+});
+
+
+
+
+
+
+
+
 
 
 // ADMIN ROUTES
