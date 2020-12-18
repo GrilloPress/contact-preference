@@ -10,6 +10,12 @@
 {% block pageScripts %}
 {% endblock %}
 
+{% set EmailAddressInput %}
+{% if data['econsultAgreePrivacyPolicy'] == 'true' %}
+betty.doyle@hotmail.com
+{% else %}
+{% endif %}
+{% endset %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -56,38 +62,30 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Does the rash disappear when you press on it?</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Tell us your email address</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/16_disappear-rash" method="post">
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultRashDisappear",
-          "fieldset": {
-            "legend": {
-              "isPageHeading": false,
-              "classes": ""
-            }
+      <form action="/app/econsult/adult/eczema/48_" method="get">
+
+        {{ input({
+          "label": {
+            "isPageHeading": false,
+            "classes": ""
           },
-          "items": [
-            {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No",
-              "text": "No"
-            },
-            {
-              "value": "Don't know",
-              "text": "Don't know"
-            }
-          ]
+          "hint": {
+            "text": "We'll email you to confirm the submission of your request."
+          },
+          "id": "econsult",
+          "name": "econsultYourEmail",
+          "value": EmailAddressInput,
+          "classes": ""
         }) }}
+
 
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
 
       </form>
+
 
 
 

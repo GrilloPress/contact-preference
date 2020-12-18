@@ -56,34 +56,62 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Does the rash disappear when you press on it?</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/16_disappear-rash" method="post">
-        {{ radios({
+
+      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/32_problems" method="post">
+        {{ checkboxes({
           "idPrefix": "econsult",
-          "name": "econsultRashDisappear",
+          "name": "econsultProblemsCheckboxes",
           "fieldset": {
             "legend": {
-              "isPageHeading": false,
-              "classes": ""
+              "text": "Do you have any of these problems with the rash or skin problem? Please select all that apply",
+              "classes": "nhsuk-fieldset__legend--xl nhs-app-xl",
+              isPageHeading: true
             }
           },
           "items": [
             {
-              "value": "Yes",
-              "text": "Yes"
+              "value": "spreading",
+              "text": "It's spreading"
             },
             {
-              "value": "No",
-              "text": "No"
+              "value": "redHot",
+              "text": "It's red and hot"
             },
             {
-              "value": "Don't know",
-              "text": "Don't know"
+              "value": "sore",
+              "text": "It's sore to touch"
+            },
+            {
+              "value": "bleeding",
+              "text": "It's bleeding"
+            },
+            {
+              "value": "leaking",
+              "text": "It's leaking yellow or green pus"
+            },
+            {
+              "value": "yellowCrusty",
+              "text": "It's yellow and crusty"
+            },
+            {
+              "value": "itchy",
+              "text": "It's very itchy"
+            },
+            {
+              "value": "blistering",
+              "text": "It's blistering"
+            },
+            {
+              "value": "other",
+              "text": "Other"
+            },
+            {
+              "value": "none",
+              "text": "None of the above"
             }
           ]
         }) }}
-
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
 

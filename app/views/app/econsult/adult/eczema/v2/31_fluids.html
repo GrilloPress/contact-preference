@@ -56,12 +56,13 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Does the rash disappear when you press on it?</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Have you been able to drink fluids in the last 12 hours?</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/16_disappear-rash" method="post">
+
+      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/31_fluids" method="post">
         {{ radios({
           "idPrefix": "econsult",
-          "name": "econsultRashDisappear",
+          "name": "econsultFluids",
           "fieldset": {
             "legend": {
               "isPageHeading": false,
@@ -70,16 +71,16 @@
           },
           "items": [
             {
-              "value": "Yes",
-              "text": "Yes"
+              "value": "normal",
+              "text": "Yes, I can drink as normal"
             },
             {
-              "value": "No",
-              "text": "No"
+              "value": "smallAmounts",
+              "text": "Yes, I can drink but only small amounts"
             },
             {
-              "value": "Don't know",
-              "text": "Don't know"
+              "value": "no",
+              "text": "No, I can't drink fluids at all"
             }
           ]
         }) }}

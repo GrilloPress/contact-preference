@@ -56,44 +56,25 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Does the rash disappear when you press on it?</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">What pattern(s) or trigger(s) have you noticed with your skin problem?</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/16_disappear-rash" method="post">
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultRashDisappear",
-          "fieldset": {
-            "legend": {
-              "isPageHeading": false,
-              "classes": ""
-            }
-          },
-          "items": [
-            {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No",
-              "text": "No"
-            },
-            {
-              "value": "Don't know",
-              "text": "Don't know"
-            }
-          ]
+      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/35_contact-rash" method="get">
+
+        {{ textarea({
+          "name": "econsultEczemaWhatPattern",
+          "id": "econsult",
+          "rows": "2",
+          "classes": "nhsuk-u-margin-bottom-0",
+          "label": {
+            "isPageHeading": false,
+            "classes": "nhsuk-u-margin-bottom-4"
+          }
         }) }}
 
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
 
       </form>
-
-
-
-
-
-
 
 
     </div>

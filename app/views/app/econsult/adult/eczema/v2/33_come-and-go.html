@@ -56,12 +56,13 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Does the rash disappear when you press on it?</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Is the skin problem there all the time or does it come and go?</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/16_disappear-rash" method="post">
+
+      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/34_pattern" method="get">
         {{ radios({
           "idPrefix": "econsult",
-          "name": "econsultRashDisappear",
+          "name": "econsultComeAndGo",
           "fieldset": {
             "legend": {
               "isPageHeading": false,
@@ -70,16 +71,12 @@
           },
           "items": [
             {
-              "value": "Yes",
-              "text": "Yes"
+              "value": "allTime",
+              "text": "All the time"
             },
             {
-              "value": "No",
-              "text": "No"
-            },
-            {
-              "value": "Don't know",
-              "text": "Don't know"
+              "value": "ComesGoes",
+              "text": "Comes and goes"
             }
           ]
         }) }}

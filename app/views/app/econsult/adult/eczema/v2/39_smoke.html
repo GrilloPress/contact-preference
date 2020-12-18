@@ -56,12 +56,12 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Does the rash disappear when you press on it?</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Do you smoke?</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/16_disappear-rash" method="post">
+      <form action="/app/econsult/adult/eczema/v2/40_allergies" method="get">
         {{ radios({
           "idPrefix": "econsult",
-          "name": "econsultRashDisappear",
+          "name": "econsultSmoke",
           "fieldset": {
             "legend": {
               "isPageHeading": false,
@@ -70,17 +70,42 @@
           },
           "items": [
             {
-              "value": "Yes",
-              "text": "Yes"
+              "value": "No, I've never smoked",
+              "text": "No, I've never smoked"
             },
             {
-              "value": "No",
-              "text": "No"
+              "value": "No, but I used to smoke",
+              "text": "No, but I used to smoke"
             },
             {
-              "value": "Don't know",
-              "text": "Don't know"
+              "value": "Yes - less than 5 cigarettes a day",
+              "text": "Yes - less than 5 cigarettes a day"
+            },
+            {
+              "value": "Yes - 5 to 10 cigarettes a day",
+              "text": "Yes - 5 to 10 cigarettes a day"
+            },
+            {
+              "value": "Yes - 11 to 20 cigarettes a day",
+              "text": "Yes - 11 to 20 cigarettes a day"
+            },
+            {
+              "value": "Yes - 21 to 40 cigarettes a day",
+              "text": "Yes - 21 to 40 cigarettes a day"
+            },
+            {
+              "value": "Yes - more than 40 cigarettes a day",
+              "text": "Yes - more than 40 cigarettes a day"
+            },
+            {
+              "value": "I smoke other things: vapes, cigars or joints",
+              "text": "I smoke other things: vapes, cigars or joints"
+            },
+            {
+              "value": "Prefer not to say",
+              "text": "Prefer not to say"
             }
+
           ]
         }) }}
 
@@ -88,6 +113,7 @@
         </input>
 
       </form>
+
 
 
 

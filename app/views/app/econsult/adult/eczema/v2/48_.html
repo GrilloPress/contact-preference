@@ -56,38 +56,48 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Does the rash disappear when you press on it?</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">One last thing: please let us know whether you'd like a copy of your answers and whether you would like to take a survey</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/16_disappear-rash" method="post">
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultRashDisappear",
+      <form action="/app/econsult/adult/eczema/49_end" method="get">
+
+
+        {{ checkboxes({
+          "name": "econsultEndOfJourney",
           "fieldset": {
             "legend": {
-              "isPageHeading": false,
-              "classes": ""
+              "classes": "",
+              "isPageHeading": false
             }
+          },
+          "hint": {
+            "text": "(optional)"
           },
           "items": [
             {
-              "value": "Yes",
-              "text": "Yes"
+              "value": "econsultEmailCopy",
+              "text": "Email me a copy of my consultation answers"
             },
             {
-              "value": "No",
-              "text": "No"
+              "value": "econsultEmailEczemaGuide",
+              "text": "Email me my GP's guide to eczema"
             },
             {
-              "value": "Don't know",
-              "text": "Don't know"
+              "value": "econsultOneTimeSurvey",
+              "text": "I'd like to take a one-time survey to help improve this service",
+              "hint": {
+                "text": "We will email you the survey a few days after your consultation"
+              }
+
             }
           ]
         }) }}
+
 
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
 
       </form>
+
 
 
 

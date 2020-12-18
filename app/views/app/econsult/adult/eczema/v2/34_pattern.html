@@ -21,7 +21,7 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-mobile--hide" aria-label="Breadcrumb">
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
@@ -29,6 +29,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v8-econsult/pre-hub" }}'>Appointments</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/appointments/v8-econsult/GP-hub">Your GP appointments</a></li>
     </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
 
 {% else %}
 {% if data['experiment'] === 'True' %}
@@ -39,56 +40,57 @@
 {% endif %}
 {% endif %}
 </ol>
+<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
 
 {% endif %}
   </div>
-</nav>{% include "../../_parts/silver-banner.html" %}
+</nav>
+<div class="nhs-app-provider-banner">
+<div class="nhsuk-width-container">
+<strong>This service is provided by your GP surgery</strong>
+</div>
+</div>
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-
-      <form action="/app/econsult/adult/end/end-of-consultation-rash" method="post">
-
-
-      {{ careCard({
-        "type": "urgent",
-        "heading": "You need to seek medical advice soon. Call the practice for medical advice or call 111.",
-        "headingLevel": 2,
-        "HTML": '
-        <p>If you decide to seek medical advice, <strong>your GP will not be notified and your practice will not contact you about this consultation.</strong></p>
-        '
-      }) }}
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Have you noticed a particular pattern(s) or trigger(s) with your skin problem?</h1>
 
 
+      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/34_pattern" method="post">
+        {{ radios({
+          "idPrefix": "econsult",
+          "name": "econsultPattern",
+          "fieldset": {
+            "legend": {
+              "isPageHeading": false,
+              "classes": ""
+            }
+          },
+          "items": [
+            {
+              "value": "Yes",
+              "text": "Yes"
+            },
+            {
+              "value": "No",
+              "text": "No"
+            }
+          ]
+        }) }}
 
-      {{ checkboxes({
-        "idPrefix": "example",
-        "name": "example",
-        "fieldset": {
-          "legend": {
-            "text": "",
-            "classes": "nhsuk-fieldset__legend--l",
-            isPageHeading: true
-          }
-        },
-        "items": [
-          {
-            "value": "end",
-            "text": "End my consultation, I will seek medical advice myself instead"
-          }
-        ]
-      }) }}
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
 
-      <input type="submit" class="nhsuk-button" value="Continue">
-      </input>
+      </form>
 
-    </form>
 
-      <p><a href="{{routeHome}}">Back to home</a></p>
+
+
+
+
 
 
     </div>

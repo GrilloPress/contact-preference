@@ -44,48 +44,48 @@
 
 {% endif %}
   </div>
-</nav>
-<div class="nhs-app-provider-banner">
-<div class="nhsuk-width-container">
-<strong>This service is provided by your GP surgery</strong>
-</div>
-</div>
+</nav>{% include "../../_parts/silver-banner.html" %}
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Does the rash disappear when you press on it?</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Check your photo</h1>
+      <p>Your photo should not show your bottom (anus), breasts, vagina or penis, even if these are the problem area.</p>
 
-      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/16_disappear-rash" method="post">
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultRashDisappear",
-          "fieldset": {
-            "legend": {
-              "isPageHeading": false,
-              "classes": ""
-            }
-          },
-          "items": [
-            {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No",
-              "text": "No"
-            },
-            {
-              "value": "Don't know",
-              "text": "Don't know"
-            }
-          ]
-        }) }}
+      <img class="nhsuk-u-margin-bottom-1" style="width: 140px; height: 140px;" src="/images/eczema_image-1-arm.png">
+      <span class="nhsuk-hint">
+        IMG_5267.PNG
+      </span>
 
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
+      <div class="nhsuk-u-padding-bottom-2"></div>
+
+      <form action="#">
+        <button style="display:inline;width:104px; height:21px;" onclick="document.getElementById('getFile').click()">Choose photo</button>
+
+
+        <input type='file' id="getFile" style="display:none"> <span class="nhsuk-body-s" style="display: inline;"> IMG_5267.PNG </span>
+      </form>
+
+            <hr class="nhsuk-u-margin-bottom-5 nhsuk-u-margin-top-5">
+
+
+            {{ textarea({
+              "name": "example-longer",
+              "id": "example-longer",
+              "rows": "5",
+              "label": {
+                  "text": "Describe what this photo is showing",
+                  "classes": "nhsuk-label--l",
+                  "isPageHeading": true
+                }
+            }) }}
+
+      <form action="/app/econsult/adult/eczema/19_d" method="post">
+
+        <input type="submit" class="nhsuk-button" value="Continue"></input>
+
 
       </form>
 

@@ -56,12 +56,13 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Does the rash disappear when you press on it?</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Have you been in contact with anyone with a similar rash or skin problem?</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/16_disappear-rash" method="post">
+
+      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/35_contact-rash" method="post">
         {{ radios({
           "idPrefix": "econsult",
-          "name": "econsultRashDisappear",
+          "name": "econsultContactRash",
           "fieldset": {
             "legend": {
               "isPageHeading": false,

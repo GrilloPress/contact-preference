@@ -56,12 +56,12 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Does the rash disappear when you press on it?</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Do you know how many units of alcohol you drink each week? (1 pint of beer is approximately two units and one glass of wine is 1 unit)</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/16_disappear-rash" method="post">
+      <form action="/app/econsult/adult/eczema/v2/39_smoke" method="get">
         {{ radios({
           "idPrefix": "econsult",
-          "name": "econsultRashDisappear",
+          "name": "econsultAlcoholUnits",
           "fieldset": {
             "legend": {
               "isPageHeading": false,
@@ -70,16 +70,28 @@
           },
           "items": [
             {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No",
-              "text": "No"
-            },
-            {
               "value": "Don't know",
               "text": "Don't know"
+            },
+            {
+              "value": "Zero",
+              "text": "0 units per week"
+            },
+            {
+              "value": "1-7 units per week",
+              "text": "1-7 units per week"
+            },
+            {
+              "value": "8-14 units per week",
+              "text": "8-14 units per week"
+            },
+            {
+              "value": "15 units or more per week",
+              "text": "15 units or more per week"
+            },
+            {
+              "value": "Prefer not to say",
+              "text": "Prefer not to say"
             }
           ]
         }) }}
@@ -88,6 +100,7 @@
         </input>
 
       </form>
+
 
 
 
