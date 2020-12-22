@@ -128,6 +128,24 @@ router.post('/app/prescriptions/v8-acute-tpp/save-acute', function (req, res) {
   res.redirect('/app/prescriptions/v8-acute-tpp/confirmed-acute')
 });
 
+router.post('/app/prescriptions/v8-acute-tpp/save-acute-nom', function (req, res) {
+  // add what is saved later!
+  req.session.data.prescriptionConfirmedAcute = "True";
+  req.session.data.messageRead6 = "unread";
+  res.redirect('/app/prescriptions/v8-acute-tpp/confirmed-7-acute')
+});
+
+
+//repeats journey to confirmed page
+
+router.post('/app/prescriptions/v8-acute-tpp/save-repeat', function (req, res) {
+
+  // add what is saved later!
+
+  req.session.data.prescriptionConfirmed = "True";
+  res.redirect('/app/prescriptions/v8-acute-tpp/confirmed-7')
+
+});
 
 // Nominated pharmacy routing
 

@@ -4,7 +4,23 @@
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
-<script>
+<script type="text/javascript">
+function characterCount(id, textMax) {
+  var text_max = textMax;
+  $(id).html('You have ' + text_max + ' characters remaining');
+  $('textarea').keyup(function() {
+      var text_length = $('textarea').val().length;
+      var text_remaining = text_max - text_length;
+      if (text_length > text_max) {
+        var text_reverse_negative =- text_remaining;
+        $(id).html('You have ' + text_reverse_negative + ' characters too many').addClass('nhsuk-error-message').removeClass('nhsuk-hint');
+      } else {
+        $(id).html('You have ' + text_remaining + ' characters remaining').removeClass('nhsuk-error-message').addClass('nhsuk-hint');
+      }
+  });
+}
+  characterCount("#textarea_feedback", 500);
+
 // dirty hack to make the menu disappear when a textarea is being used
 $("textarea").focus(function(){
   $(".menu").hide();
@@ -60,8 +76,12 @@ $("textarea").focusout(function(){
         {{ contentTitle }}
       </h1>
 
+      {% if data['pickPharmacy'] %}
+      <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/confirm-prescription-7" method="post">
+      {% else %}
+        <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/not-nominated-pharmacy-1" method="post">
+      {% endif %}
 
-      <form action="confirm-prescription-6" method="get">
         {{ checkboxes({
           "idPrefix": "prescription",
           "name": "choosePrescription",
@@ -128,14 +148,14 @@ $("textarea").focusout(function(){
             "classes": "nhsuk-label--l"
           },
           "hint": {
-            "html": "<p>You can add a note about your prescription here. Your note may not be seen or replied to, so if you have an important request for this prescription, contact your GP surgery.</p>
-            <p>No more than 1,000 characters.</p>"
+            "html": "<p>You can add a note about your prescription here. Your note may not be seen or replied to, so if you have an important request for this prescription, contact your GP surgery.</p>"
           }
         }) }}
 
-
-
-
+        <div class="nhsuk-hint" id="msgBody-hint">
+              <div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1" style="
+          margin-bottom:40px !important ">You have 500 characters remaining</div>
+            </div>
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
 

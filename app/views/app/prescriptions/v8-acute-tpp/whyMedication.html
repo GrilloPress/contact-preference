@@ -19,7 +19,7 @@ function characterCount(id, textMax) {
       }
   });
 }
-  characterCount("#textarea_feedback", 200);
+  characterCount("#textarea_feedback", 175);
 </script>
 {% endblock %}
 
@@ -70,7 +70,11 @@ function characterCount(id, textMax) {
         {{ contentTitle }}
       </h1>
 
-        <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/confirm-acute-prescription" method="post">
+      {% if data['pickPharmacy'] %}
+      <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/confirm-prescription-7-acute" method="post">
+      {% else %}
+      <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/not-nominated-pharmacy-v2"  method="post">
+      {% endif %}
 
   {{ textarea({
     "name": "whyMedication",
@@ -86,7 +90,7 @@ function characterCount(id, textMax) {
 
   <div class="nhsuk-hint" id="msgBody-hint">
         <div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1" style="
-    margin-bottom:40px !important ">You have 200 characters remaining</div>
+    margin-bottom:40px !important ">You have 175 characters remaining</div>
       </div>
 
 

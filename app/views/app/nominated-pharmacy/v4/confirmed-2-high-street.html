@@ -52,7 +52,13 @@
 
             {% if data['inJourney'] == "true" %}
 
-            <form action="/app/prescriptions/v7/confirm-prescription-5" method="get">
+            <form action="/app/prescriptions/v8-acute-tpp/confirm-prescription-7-acute" method="get">
+              <input type="submit" class="nhsuk-button" value="Continue to your order">
+            </form>
+
+            {% elif data['inJourneyRepeat'] == "true" %}
+
+            <form action="/app/prescriptions/v8-acute-tpp/confirm-prescription-7" method="get">
               <input type="submit" class="nhsuk-button" value="Continue to your order">
             </form>
 

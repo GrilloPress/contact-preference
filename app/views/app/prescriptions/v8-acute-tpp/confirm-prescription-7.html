@@ -85,6 +85,8 @@
 
                <p>Telephone: {{ data["phoneNumber"] or "03069 990735" }}</p>
 
+               <a href="/app/nominated-pharmacy/v4/change-2?inJourneyRepeat=true&change=true">Change</a>
+
 
           {% elif data['pharmacyTypeOnline'] === "community" %}
 
@@ -97,6 +99,13 @@
                 <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "M1 5AE" }}</p>
 
                 <p>Telephone: {{ data["phoneNumber"] or "0161 236 1445" }}</p>
+
+                <a href="/app/nominated-pharmacy/v4/change-2?inJourneyRepeat=true&change=true">Change</a>
+
+
+          {% else %}
+          <p>You do not have a nominated pharmacy. Collect your paper prescription from your GP surgery when it's ready.</p>
+          <a href="/app/nominated-pharmacy/v4/change-2?inJourneyRepeat=true">Nominate a pharmacy</a>
 
           {% endif %}
         {% endif %}
@@ -215,15 +224,6 @@
             },
             value: {
               html: nomPharmDetails
-            },
-            actions: {
-              items: [
-                {
-                  href: "/app/nominated-pharmacy/v4/change-2?inJourney=true&change=true",
-                  text: "Change",
-                  visuallyHiddenText: "your nominated pharmacy"
-                }
-              ]
             }
           } if data['pickPharmacy']
         ]
@@ -232,7 +232,7 @@
 
 
 
-       <form action="/app/prescriptions/v7/save" method="post">
+       <form action="/app/prescriptions/v8-acute-tpp/save-repeat" method="post">
          <input type="submit" class="nhsuk-button" value="Confirm and order">
          </input>
        </form>
