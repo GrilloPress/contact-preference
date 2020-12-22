@@ -55,26 +55,38 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+
+      {% if data['photoOneDelete'] == 'True' %}
+      <div id="deletePhotoOne" class="moj-banner moj-banner--success">
+          <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25"><path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z"></path></svg>
+        <div class="moj-banner__message">
+          <span class="moj-banner__assistive">Success</span>File named IMG_5267.PNG has been deleted</div>
+      </div>
+      {% else %}
+      {% endif %}
+
+
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Please tell us more about who you've been in contact with and what you know about their rash or skin problem.</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Upload a photo of your condition</h1>
 
-      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/file-upload/1_upload-choice" method="get">
 
-        {{ textarea({
-          "name": "econsultEczemaContactRashYes",
-          "id": "econsult",
-          "rows": "2",
-          "classes": "nhsuk-u-margin-bottom-0",
-          "label": {
-            "isPageHeading": false,
-            "classes": "nhsuk-u-margin-bottom-4"
-          }
-        }) }}
+        <form action="">
+          <button style="display:inline;width:104px; height:21px;" onclick="document.getElementById('getFile').click()">Choose photo</button>
 
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
+
+          <input type='file' id="getFile" style="display:none"> <span class="nhsuk-body-s" style="display: inline;"> No photo chosen </span>
+        </form>
+        <br>
+
+        <form action="/app/econsult/adult/eczema/v2/file-upload/4_check-photo" method="get">
+          <input type="submit" class="nhsuk-button" value="Upload">
+          </input>
 
       </form>
+
+
+
+
 
 
     </div>

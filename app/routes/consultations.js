@@ -2114,7 +2114,7 @@ router.post('/app/econsult/adult/eczema/v2/35_contact-rash', function (req, res)
     res.redirect('/app/econsult/adult/eczema/v2/35_contact-rash-yes')
 
   } else {
-    res.redirect('/app/econsult/adult/eczema/v2/36_anything-else')
+    res.redirect('/app/econsult/adult/eczema/v2/file-upload/1_upload-choice')
 
   }
 });
@@ -2181,7 +2181,31 @@ router.post('/app/econsult/adult/eczema/v2/40_allergies-yes', function (req, res
 });
 
 
+router.post('/app/econsult/adult/eczema/v2/file-upload/1_upload-choice', function (req, res) {
+  let answer = req.session.data.econsultEczemaPhotoUploadQuestion;
 
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/v2/file-upload/2_before-you-upload')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/36_anything-else')
+
+  }
+});
+
+router.post('/app/econsult/adult/eczema/v2/file-upload/5_photos-added', function (req, res) {
+  let answer = req.session.data.anotherPhoto;
+
+  if (answer === 'Yes') {
+
+    res.redirect('/app/econsult/adult/eczema/v2/file-upload/3_choose-photo')
+
+  } else {
+    res.redirect('/app/econsult/adult/eczema/v2/36_anything-else')
+
+  }
+});
 
 
 

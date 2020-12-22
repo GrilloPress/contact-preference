@@ -56,25 +56,50 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Please tell us more about who you've been in contact with and what you know about their rash or skin problem.</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Check your photo</h1>
+      <p>Your photo should not show your bottom (anus), breasts, vagina or penis, even if these are the problem area.</p>
 
-      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/file-upload/1_upload-choice" method="get">
+      <img class="nhsuk-u-margin-bottom-1" style="width: 140px; height: 140px;" src="/images/eczema_image-1-arm.png">
+      <span class="nhsuk-hint">
+        IMG_5267.PNG
+      </span>
 
-        {{ textarea({
-          "name": "econsultEczemaContactRashYes",
-          "id": "econsult",
-          "rows": "2",
-          "classes": "nhsuk-u-margin-bottom-0",
-          "label": {
-            "isPageHeading": false,
-            "classes": "nhsuk-u-margin-bottom-4"
-          }
-        }) }}
+      <div class="nhsuk-u-padding-bottom-2"></div>
 
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
+      <form action="#">
+        <button style="display:inline;width:104px; height:21px;" onclick="document.getElementById('getFile').click()">Choose photo</button>
+
+
+        <input type='file' id="getFile" style="display:none"> <span class="nhsuk-body-s" style="display: inline;"> IMG_5267.PNG </span>
+      </form>
+
+            <hr class="nhsuk-u-margin-bottom-5 nhsuk-u-margin-top-5">
+
+
+            <form action="/app/econsult/adult/eczema/v2/file-upload/5_photos-added" method="get">
+
+            {{ textarea({
+              "name": "eczemaDescriptionInput",
+              "id": "eczemaDescription",
+              "rows": "5",
+              "label": {
+                  "text": "Describe what this photo is showing",
+                  "classes": "nhsuk-label--l",
+                  "isPageHeading": false
+                }
+            }) }}
+
+
+        <input type="submit" class="nhsuk-button" value="Continue"></input>
+
 
       </form>
+
+
+
+
+
+
 
 
     </div>

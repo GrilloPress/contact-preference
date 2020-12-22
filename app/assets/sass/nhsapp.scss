@@ -2771,6 +2771,61 @@ nav.menu ul li b {
       }
     }
 
+
+    .nhsuk-summary-list__actions-list-item {
+        display: block;
+    }
+
+
+
+
+    .moj-banner {
+        border: 5px solid #1d70b8;
+        color: #1d70b8;
+        font-size: 0;
+        margin-bottom: 30px;
+        padding: 10px;
+    }
+
+
+        .moj-banner--success {
+            border-color: #00703c;
+            color: #00703c;
+        }
+
+        .moj-banner__icon {
+    fill: currentColor;
+    float: left;
+    margin-right: 10px;
+}
+
+.moj-banner__message {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #0b0c0c;
+    display: block;
+    overflow: hidden;
+}
+
+
+.moj-banner__assistive {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    border: 0 !important;
+    white-space: nowrap !important;
+}
+
     $nhsuk-touch-target-size: 44px;
 $nhsuk-checkboxes-size: 40px;
 $nhsuk-small-checkboxes-size: 24px;

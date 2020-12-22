@@ -56,25 +56,38 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Please tell us more about who you've been in contact with and what you know about their rash or skin problem.</h1>
-
-      <form action="/{{ PROTOTYPEURL }}/adult/eczema/v2/file-upload/1_upload-choice" method="get">
-
-        {{ textarea({
-          "name": "econsultEczemaContactRashYes",
-          "id": "econsult",
-          "rows": "2",
-          "classes": "nhsuk-u-margin-bottom-0",
-          "label": {
-            "isPageHeading": false,
-            "classes": "nhsuk-u-margin-bottom-4"
-          }
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Do you want to upload a photo of your condition?</h1>
+      <form action="/app/econsult/adult/eczema/v2/file-upload/1_upload-choice" method="post">
+        {{ radios({
+          "idPrefix": "econsult",
+          "name": "econsultEczemaPhotoUploadQuestion",
+          "fieldset": {
+            "legend": {
+              "isPageHeading": false,
+              "classes": ""
+            }
+          },
+          "items": [
+            {
+              "value": "Yes",
+              "text": "Yes, I want to upload a photo"
+            },
+            {
+              "value": "No",
+              "text": "No"
+            }
+          ]
         }) }}
-
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
 
       </form>
+
+
+
+
+
+
 
 
     </div>
