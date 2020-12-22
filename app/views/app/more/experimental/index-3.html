@@ -120,6 +120,14 @@
             </input>
           </form>
 
+      {% elif data["v11"] == "True" %}
+
+              <form action="/app/v11/clear" method="post">
+                <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Log out">
+                </input>
+              </form>
+
+
         {% else %}
 
         <form action="/app/v10/clear" method="post">

@@ -147,6 +147,13 @@ router.get('/app/v10-p5/clear', function (req, res) {
   res.redirect('/app/v10-p5/splash')
 
 });
+
+router.get('/app/v11/clear', function (req, res) {
+
+  req.session.data = {}
+  res.redirect('/app/v11/splash')
+
+});
 // qualtrics message
 
 
