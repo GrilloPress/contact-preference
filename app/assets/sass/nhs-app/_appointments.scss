@@ -212,3 +212,22 @@ li {
   margin-bottom: 0 !important;
   display: block;
 }
+
+
+
+.nhsuk-do-dont-list__label-red {
+    font-size: 20px;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    background-color: #d5281b;
+    color: #ffffff;
+    display: inline-block;
+    margin: 0 -24px 8px;
+    padding: 8px 32px;
+    position: relative;
+    top: -16px;
+}
+
+.nhsuk-list-panel__box--with-label-red {
+  border-top: 2px solid #d5281b;
+}
