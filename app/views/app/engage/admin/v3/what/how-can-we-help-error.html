@@ -34,11 +34,24 @@
     <div class="nhsuk-grid-column-two-thirds">
 
 
+      {{ errorSummary({
+        "titleText": "There is a problem",
+        "errorList": [
+          {
+            "text": "You must provide a request",
+            "href": "#help"
+          }
+        ]
+      }) }}
+
             <form action="/app/engage/admin/v3/what/check-message" method="post">
 
       {{ textarea({
         "name": "helpNeeded",
         "id": "help",
+        "errorMessage": {
+          "text": "You must provide a request"
+        },
         "label": {
           "text": contentTitle,
           "isPageHeading": true,
