@@ -6,6 +6,8 @@
 {% set appointmentsActive = "active" %}
 {% elif data['advice'] == 'True' %}
 {% set symptomsActive = "active" %}
+{% else %}
+{% set symptomsActive = "active" %}
 {% endif %}
 {% block pageScripts %}
 {% endblock %}
