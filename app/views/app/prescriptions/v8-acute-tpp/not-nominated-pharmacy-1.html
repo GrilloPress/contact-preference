@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "You have not nominated a pharmacy" %}
+{% set contentTitle = "Do you want to nominate a pharmacy?" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -43,6 +43,7 @@
 {% endblock %}
 
 {% block content %}
+
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
@@ -50,12 +51,28 @@
         {{ contentTitle }}
       </h1>
 
-      <p>If you nominate a pharmacy, your prescription will be sent there.</p>
-      <p>Explain what pharmacy nomination is and how it works. Whats the alternative? (GP surgery).</p>
-      <p><a href="/app/nominated-pharmacy/v4/card-nom-pharmacy-2?inJourneyRepeat=true">Nominate a pharmacy</a></p>
+      <p>If you nominate a pharmacy, you’ll collect your prescriptions from your chosen pharmacy each time you order. You can change your nominated pharmacy at any time.
+      </p>
+      <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/not-nominated-pharmacy-1" method="post">
 
+      {% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "nominatePharmacy",
+  "name": "nominatePharmacy",
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes"
+    },
+    {
+      "value": "no",
+      "text": "No"
+    }
+  ]
+}) }}
       <br>
-      <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/confirm-prescription-7" method="get">
+
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>

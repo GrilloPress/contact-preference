@@ -156,6 +156,15 @@ router.post('/app/prescriptions/v8-acute-tpp/not-nominated-pharmacy-v2', functio
   }
 });
 
+router.post('/app/prescriptions/v8-acute-tpp/not-nominated-pharmacy-1', function (req, res) {
+  let answer = req.body.nominatePharmacy;
+  if (answer === 'yes') {
+    res.redirect('/app/nominated-pharmacy/v4/card-nom-pharmacy-2?inJourneyRepeat=true')
+  } else {
+    res.redirect('/app/prescriptions/v8-acute-tpp/confirm-prescription-7')
+  }
+});
+
 // Nominated pharmacy routing
 
 

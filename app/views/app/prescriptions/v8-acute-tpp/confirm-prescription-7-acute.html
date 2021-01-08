@@ -104,10 +104,10 @@ $('div.nhsuk-summary-list__row').each(function() {
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11">Prescriptions</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ data['routePrescriptions'] }}">Prescriptions</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-gp-prescriptions">GP repeat prescriptions</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/select-medicine-to-renew-mandatory">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="{{ data['routePrescriptions'] }}">Back</a></p>
   </div>
 </nav>
 {% else %}
@@ -116,9 +116,9 @@ $('div.nhsuk-summary-list__row').each(function() {
 <div class="nhsuk-width-container">
 <ol class="nhsuk-breadcrumb__list">
   <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
-  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Prescriptions</a></li>
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ data['routePrescriptions'] }}">Prescriptions</a></li>
 </ol>
-<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Back</a></p>
+<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="{{ data['routePrescriptions'] }}">Back</a></p>
 </div>
 </nav>
 {% endif %}
@@ -208,7 +208,7 @@ $('div.nhsuk-summary-list__row').each(function() {
 
     <dd class="nhsuk-summary-list__actions">
       {% if data['pickPharmacy'] %}
-      <a href="/app/nominated-pharmacy/v4/card-nom-pharmacy-2?inJourney=true">
+      <a href="/app/nominated-pharmacy/v4/change-2?inJourney=true">
         Change<span class="nhsuk-u-visually-hidden">your nominated pharmacy</span>
       </a>
       {% else %}

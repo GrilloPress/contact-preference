@@ -12,23 +12,23 @@
 {% set choosePrescription %}
   {% if data['choosePrescription'] == 'omeprazole' %}
 
-  Omeprazole 40mg gastro-resistant capsules
-  One to be taken each day - 28 tablet
+  <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+  <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
 
   {% elif data['choosePrescription'] == 'alogliptin' %}
 
-  Alogliptin 25mg tablets
-  One to be taken each day - 28 tablet
+  <p class="nhsuk-u-margin-bottom-0">Alogliptin 25mg tablets</p>
+  <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
 
   {% elif data['choosePrescription'] == 'metformin' %}
 
-  Metformin 500mg tablets
-  One to be taken 4 times a day with food - 112 tablet
+  <p class="nhsuk-u-margin-bottom-0">Metformin 500mg tablets</p>
+  <p class="nhs-app-secondary-text">One to be taken 4 times a day with food - 112 tablet</p>
 
   {% else %}
 
-  Omeprazole 40mg gastro-resistant capsules
-  One to be taken each day - 28 tablet
+  <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+  <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
 
   {% endif %}
 
@@ -75,17 +75,15 @@
 
 
   {% set nomPharmDetails %}
-
-      {% if data["pickPharmacy"] %}
-	       {% if data['pharmacyTypeOnline'] === "online" %}
+  {% if data['pickPharmacy'] %}
+      {% if data["nominatedConfirmed"] === "true"  %}
+         {% if data['pharmacyTypeOnline'] === "online" %}
 
                <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Echo" }}</p>
 
                <p class="nhsuk-u-margin-bottom-0">{{ data["onlineUrl"] or "www.echo.co.uk" }}</p>
 
                <p>Telephone: {{ data["phoneNumber"] or "03069 990735" }}</p>
-
-               <a href="/app/nominated-pharmacy/v4/change-2?inJourneyRepeat=true&change=true">Change</a>
 
 
           {% elif data['pharmacyTypeOnline'] === "community" %}
@@ -100,14 +98,10 @@
 
                 <p>Telephone: {{ data["phoneNumber"] or "0161 236 1445" }}</p>
 
-                <a href="/app/nominated-pharmacy/v4/change-2?inJourneyRepeat=true&change=true">Change</a>
-
-
-          {% else %}
-          <p>You do not have a nominated pharmacy. Collect your paper prescription from your GP surgery when it's ready.</p>
-          <a href="/app/nominated-pharmacy/v4/change-2?inJourneyRepeat=true">Nominate a pharmacy</a>
-
           {% endif %}
+        {% endif %}
+        {% else %}
+        <p>You do not have a nominated pharmacy. Collect your paper prescription from your GP surgery when it's ready.</p>
         {% endif %}
     {% endset %}
 
@@ -130,10 +124,10 @@
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11">Prescriptions</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ data['routePrescriptions'] }}">Prescriptions</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-gp-prescriptions">GP repeat prescriptions</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/select-medicine-to-renew-mandatory">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="{{ data['routePrescriptions'] }}">Back</a></p>
   </div>
 </nav>
 {% else %}
@@ -142,9 +136,9 @@
 <div class="nhsuk-width-container">
 <ol class="nhsuk-breadcrumb__list">
   <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
-  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Prescriptions</a></li>
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ data['routePrescriptions'] }}">Prescriptions</a></li>
 </ol>
-<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Back</a></p>
+<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="{{ data['routePrescriptions'] }}">Back</a></p>
 </div>
 </nav>
 {% endif %}
@@ -166,7 +160,7 @@
    Medicine
  </dt>
  <dd class="nhsuk-summary-list__value">
-   {{ chosenMedication }}
+   {{ chosenMedication | safe }}
  </dd>
 
  <dd class="nhsuk-summary-list__actions">
@@ -184,7 +178,7 @@
    Special requests relating to your order (optional)
  </dt>
  <dd class="nhsuk-summary-list__value">
-   {{ specialRequest }}
+   {{ specialRequest | safe }}
  </dd>
 
  <dd class="nhsuk-summary-list__actions">
@@ -202,20 +196,16 @@
     Your nominated pharmacy
   </dt>
   <dd class="nhsuk-summary-list__value">
-    {% if pickPharmacy %}
-    {{ nomPharmDetails }}
-    {% else %}
-    You do not have a nominated pharmacy. Collect your paper prescription from your GP surgery when it's ready.
-    {% endif %}
+    {{ nomPharmDetails | safe }}
   </dd>
 
   <dd class="nhsuk-summary-list__actions">
-    {% if pickPharmacy %}
-    <a href="/app/nominated-pharmacy/v4/change-2?inJourneyRepeat=true&change=true">
+    {% if data['pickPharmacy'] %}
+    <a href="/app/nominated-pharmacy/v4/change-2?inJourneyRepeat=true">
       Change<span class="nhsuk-u-visually-hidden">your nominated pharmacy</span>
     </a>
     {% else %}
-    <a href="/app/nominated-pharmacy/v4/change-2?inJourneyRepeat=true">
+    <a href="/app/nominated-pharmacy/v4/card-nom-pharmacy-2?inJourneyRepeat=true">
       Nominate a pharmacy<span class="nhsuk-u-visually-hidden"></span>
     </a>
     {% endif %}
@@ -223,6 +213,7 @@
   </dd>
 
 </div>
+
 </dl>
 
 
