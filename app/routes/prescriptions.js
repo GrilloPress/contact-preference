@@ -147,6 +147,15 @@ router.post('/app/prescriptions/v8-acute-tpp/save-repeat', function (req, res) {
 
 });
 
+router.post('/app/prescriptions/v8-acute-tpp/not-nominated-pharmacy-v2', function (req, res) {
+  let answer = req.body.nominatePharmacy;
+  if (answer === 'yes') {
+    res.redirect('/app/nominated-pharmacy/v4/card-nom-pharmacy-2?inJourney=true')
+  } else {
+    res.redirect('/app/prescriptions/v8-acute-tpp/confirm-prescription-7-acute')
+  }
+});
+
 // Nominated pharmacy routing
 
 

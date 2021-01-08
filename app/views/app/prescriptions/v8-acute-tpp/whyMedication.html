@@ -71,9 +71,9 @@ function characterCount(id, textMax) {
       </h1>
 
       {% if data['pickPharmacy'] %}
-      <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/confirm-prescription-7-acute" method="post">
+      <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/confirm-prescription-7-acute" method="get">
       {% else %}
-      <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/not-nominated-pharmacy-v2"  method="post">
+      <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/not-nominated-pharmacy-v2"  method="get">
       {% endif %}
 
   {{ textarea({

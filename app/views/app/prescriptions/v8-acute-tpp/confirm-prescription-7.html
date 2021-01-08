@@ -12,23 +12,23 @@
 {% set choosePrescription %}
   {% if data['choosePrescription'] == 'omeprazole' %}
 
-  <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
-  <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+  Omeprazole 40mg gastro-resistant capsules
+  One to be taken each day - 28 tablet
 
   {% elif data['choosePrescription'] == 'alogliptin' %}
 
-  <p class="nhsuk-u-margin-bottom-0">Alogliptin 25mg tablets</p>
-  <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+  Alogliptin 25mg tablets
+  One to be taken each day - 28 tablet
 
   {% elif data['choosePrescription'] == 'metformin' %}
 
-  <p class="nhsuk-u-margin-bottom-0">Metformin 500mg tablets</p>
-  <p class="nhs-app-secondary-text">One to be taken 4 times a day with food - 112 tablet</p>
+  Metformin 500mg tablets
+  One to be taken 4 times a day with food - 112 tablet
 
   {% else %}
 
-  <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
-  <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+  Omeprazole 40mg gastro-resistant capsules
+  One to be taken each day - 28 tablet
 
   {% endif %}
 
@@ -159,75 +159,72 @@
         {{ contentTitle }}
       </h1>
 
+      <dl class="nhsuk-summary-list">
 
-      {{ summaryList({
-        rows: [
-          {
-            key: {
-              text: "Medicine",
-              "classes": "nhsuk-heading-s nhsuk-u-margin-bottom-3"
-            },
-            value: {
-              html: chosenMedication or '<h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0 nhs-app-secondary-text">Omeprazole 40mg gastro-resistant capsules</h3>
-              <p>One to be taken each day - 28 tablet</p>'
-            },
-            actions: {
-              items: [
-                {
-                  href: "/app/prescriptions/v7/select-medicine-to-renew-2",
-                  text: "Change",
-                  visuallyHiddenText: "medicine"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Special requests relating to your order (optional)",
-              "classes": "nhsuk-heading-s"
-            },
-            value: {
-              text: data['specialRequest'] | placeholder('No requests added')
-            },
-            actions: {
-              items: [
-                {
-                  href: "/app/prescriptions/v7/select-medicine-to-renew-2",
-                  text: "Change",
-                  visuallyHiddenText: "special requests relating to this order (optional)"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Your nominated pharmacy",
-              "classes": "nhsuk-heading-s"
-            },
-            value: {
-              html: "<p>You do not have a nominated pharmacy. Collect your paper prescription from your GP surgery when it's ready.</p>"
-            },
-            actions: {
-              items: [
-                {
-                  href: "/app/nominated-pharmacy/v4/card-nom-pharmacy-2?inJourney=true",
-                  text: "Nominate a pharmacy",
-                  visuallyHiddenText: "Nominate a pharmacy"
-                }
-              ]
-            }
-          } if not data['pickPharmacy'],
-          {
-            key: {
-              text: "Your nominated pharmacy",
-              "classes": "nhsuk-heading-s"
-            },
-            value: {
-              html: nomPharmDetails
-            }
-          } if data['pickPharmacy']
-        ]
-      }) }}
+<div class="nhsuk-summary-list__row">
+ <dt class="nhsuk-summary-list__key">
+   Medicine
+ </dt>
+ <dd class="nhsuk-summary-list__value">
+   {{ chosenMedication }}
+ </dd>
+
+ <dd class="nhsuk-summary-list__actions">
+
+   <a href="/app/prescriptions/v7/select-medicine-to-renew-2">
+     Change<span class="nhsuk-u-visually-hidden">medicine</span>
+   </a>
+
+ </dd>
+
+</div>
+
+<div class="nhsuk-summary-list__row">
+ <dt class="nhsuk-summary-list__key">
+   Special requests relating to your order (optional)
+ </dt>
+ <dd class="nhsuk-summary-list__value">
+   {{ specialRequest }}
+ </dd>
+
+ <dd class="nhsuk-summary-list__actions">
+
+   <a href="/app/prescriptions/v7/select-medicine-to-renew-2">
+     Change<span class="nhsuk-u-visually-hidden">special requests relating to this order (optional</span>
+   </a>
+
+ </dd>
+
+</div>
+
+<div class="nhsuk-summary-list__row">
+  <dt class="nhsuk-summary-list__key">
+    Your nominated pharmacy
+  </dt>
+  <dd class="nhsuk-summary-list__value">
+    {% if pickPharmacy %}
+    {{ nomPharmDetails }}
+    {% else %}
+    You do not have a nominated pharmacy. Collect your paper prescription from your GP surgery when it's ready.
+    {% endif %}
+  </dd>
+
+  <dd class="nhsuk-summary-list__actions">
+    {% if pickPharmacy %}
+    <a href="/app/nominated-pharmacy/v4/change-2?inJourneyRepeat=true&change=true">
+      Change<span class="nhsuk-u-visually-hidden">your nominated pharmacy</span>
+    </a>
+    {% else %}
+    <a href="/app/nominated-pharmacy/v4/change-2?inJourneyRepeat=true">
+      Nominate a pharmacy<span class="nhsuk-u-visually-hidden"></span>
+    </a>
+    {% endif %}
+
+  </dd>
+
+</div>
+</dl>
+
 
 
 
