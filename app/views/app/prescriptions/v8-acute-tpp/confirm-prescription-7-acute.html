@@ -142,7 +142,7 @@ $('div.nhsuk-summary-list__row').each(function() {
       What prescription item do you need?
     </dt>
     <dd class="nhsuk-summary-list__value">
-      {{ whatMedication }}
+      {{ whatMedication | safe }}
     </dd>
 
     <dd class="nhsuk-summary-list__actions">
@@ -161,7 +161,7 @@ $('div.nhsuk-summary-list__row').each(function() {
     </dt>
     <dd class="nhsuk-summary-list__value">
       {% if whoPrescribed %}
-      {{ whoPrescribed }}
+      {{ whoPrescribed | safe }}
       {% else %}
       No notes added
       {% endif %}
@@ -183,7 +183,7 @@ $('div.nhsuk-summary-list__row').each(function() {
     </dt>
     <dd class="nhsuk-summary-list__value">
       {% if whoPrescribed %}
-      {{ whyMedication }}
+      {{ whyMedication | safe }}
       {% else %}
       No notes added
       {% endif %}

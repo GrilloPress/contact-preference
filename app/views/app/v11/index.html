@@ -110,12 +110,32 @@
           </div>
 
         <ul class="list-menu nhsuk-u-padding-bottom-4">
+          {% if (data['messageRead7'] == "unread") %}
+            <li class="nhs-app-message__item--unread-home">
+              <a class="desktop" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/?messagingIcon=False&messageRead1=unread&pkbMessaging=False" }}'>
+                View your messages
+                  {% if (data['messageRead7'] == "unread") %}
+                  <span class="nhs-app-message__meta">
+                    <span class="nhsuk-u-visually-hidden">You have </span>
+                    <span class="nhs-app-message__count-red-home"></span>
+                    <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                      unread messages
+                    </span>
+                  </span>
+                  {% endif %}
+
+              </a>
+            </li>
+
+            {% else %}
 
           <li class="no-chevron">
             <div class="list-menu_container">
               <p>You have no updates.</p>
             </div>
           </li>
+
+          {% endif %}
 
             </ul>
 

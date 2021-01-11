@@ -42,7 +42,7 @@
 
             {% if data['messageHide'] === "True" %}
             {% else %}
-            {% if data['messageRead7'] == "unread" %}
+            {% if data['messageRead6'] == "unread" %}
 
             <li class="nhs-app-message__item nhs-app-message__item--unread">
               <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread#unread6">
@@ -68,7 +68,7 @@
 
             {% endif %}
 
-            {% if data['messageRead7'] == "read" %}
+            {% if data['messageRead6'] == "read" %}
 
 
                     <li class="nhs-app-message__item nhs-app-message__item--read">
@@ -92,7 +92,7 @@
 
 
             {% if (data['prescriptionConfirmedAcute'] === "True") and (data['acuteMessage'] ==='True') %}
-            {% if data['messageRead6'] == "unread" %}
+            {% if data['messageRead7'] == "unread" %}
 
             <li class="nhs-app-message__item nhs-app-message__item--unread">
               <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread#unread6">
@@ -100,7 +100,7 @@
                   <span class="nhsuk-u-visually-hidden">Conversation with:</span>
                   NHS App
                   <span class="nhsuk-u-visually-hidden">The last message was sent </span>
-                  <span class="nhs-app-message__date nhs-app-message__date--unread">03/12/2020</span>
+                  <span class="nhs-app-message__date nhs-app-message__date--unread">21/01/2021</span>
                 </h2>
                 <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold">
                   <span class="nhsuk-u-visually-hidden">Subject: </span>
@@ -118,7 +118,7 @@
 
             {% endif %}
 
-            {% if data['messageRead6'] == "read" %}
+            {% if data['messageRead7'] == "read" %}
 
 
                     <li class="nhs-app-message__item nhs-app-message__item--read">
@@ -127,7 +127,7 @@
                           <span class="nhsuk-u-visually-hidden">Conversation with:</span>
                           NHS App
                           <span class="nhsuk-u-visually-hidden">The last message was sent </span>
-                          <span class="nhs-app-message__date nhs-app-message__date--read">03/12/2020</span>
+                          <span class="nhs-app-message__date nhs-app-message__date--read">21/01/2021</span>
                         </h2>
                         <p class="nhs-app-message__subject-line nhs-app-message__subject-line">
                           <span class="nhsuk-u-visually-hidden">Subject: </span>

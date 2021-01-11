@@ -202,7 +202,7 @@
 
 
             <p>
-              Once a GP approves it, they'll send your prescription to your nominated pharmacy, {{ data["pickPharmacy"] or "Cameolord Pharmacy" }}.
+              Once a GP approves it, they'll send your prescription to <a href="/app/nominated-pharmacy/v4/your-nominated-pharmacy-acute">your nominated pharmacy</a> to collect.
             </p>
 
             {% if data['pharmacyTypeOnline'] === "online" %}

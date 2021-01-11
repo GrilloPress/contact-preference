@@ -124,14 +124,14 @@ router.post('/app/prescriptions/v8-acute-tpp/save', function (req, res) {
 router.post('/app/prescriptions/v8-acute-tpp/save-acute', function (req, res) {
   // add what is saved later!
   req.session.data.prescriptionConfirmedAcute = "True";
-  req.session.data.messageRead6 = "unread";
+  req.session.data.messageRead7 = "unread";
   res.redirect('/app/prescriptions/v8-acute-tpp/confirmed-acute')
 });
 
 router.post('/app/prescriptions/v8-acute-tpp/save-acute-nom', function (req, res) {
   // add what is saved later!
   req.session.data.prescriptionConfirmedAcute = "True";
-  req.session.data.messageRead6 = "unread";
+  req.session.data.messageRead7 = "unread";
   res.redirect('/app/prescriptions/v8-acute-tpp/confirmed-7-acute')
 });
 
