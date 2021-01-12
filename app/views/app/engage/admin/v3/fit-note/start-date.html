@@ -32,8 +32,8 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <p class="nhsuk-caption-heading">Request a fit note</p>
-      <h1>What date do you need this note to start from?</h1> 
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-0">Request a fit note</p>
+      <h1 class="nhs-app-xl">What date do you need this note to start from?</h1>
       <form action="/app/engage/admin/v3/fit-note/end-date" method="get">
         {{ dateInput({
           "id": "engage",

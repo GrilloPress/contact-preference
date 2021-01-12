@@ -32,17 +32,13 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <p class="nhsuk-caption-heading">Request a fit note</p>
-      <h1>How long do you think you have been or will be ill for?</h1>
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-0">Request a fit note</p>
+      <h1 class="nhs-app-xl">How long do you think you have been or will be ill for?</h1>
 
-      
+
 
       <form action="/app/engage/admin/v3/fit-note/new-request" method="post">
-        {{ hint({
-          "text": "This includes days you do not usually work, such as weekends and bank holidays",
-          "classes": "nhsuk-u-margin-bottom-2"
-        }) }}
-        <div class="nhsuk-u-padding-bottom-4"></div>
+
         {{ radios({
           "idPrefix": "engage",
           "name": "engageFitLengthIllness",
@@ -51,6 +47,9 @@
               "isPageHeading": false,
               "classes": ""
             }
+          },
+          "hint": {
+            "text": "This includes days you do not usually work, such as weekends and bank holidays"
           },
           "items": [
             {
