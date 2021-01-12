@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Get advice from your GP" %}
+{% set contentTitle = "Ask your GP for advice" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
@@ -49,7 +49,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Ask your GP for advice</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">You must be registered with Gledhow Medical Practice to use this service</h1>
       <p>You can <a href="/{{ PROTOTYPEURL }}/adult/end/econsult-website">check if your own GP surgery offers this service</a>.</p>
 
