@@ -66,7 +66,6 @@
       <form action="/app/econsult/adult/eczema/19_" method="post">
         {{ radios({
   "idPrefix": "example-error",
-  "id": "uploadYesNo",
   "name": "example-error",
   "errorMessage": {
     "text": "Select an option"
@@ -81,7 +80,8 @@
   "items": [
   {
     "value": "Yes",
-    "text": "Yes, I want to upload a photo"
+    "text": "Yes, I want to upload a photo",
+    "id": "uploadYesNo"
   },
   {
     "value": "No",
