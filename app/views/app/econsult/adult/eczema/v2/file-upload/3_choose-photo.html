@@ -1,13 +1,13 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Get advice from your GP" %}
+{% set contentTitle = "Ask your GP for advice" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
 {% elif data['advice'] == 'True' %}
-{% set symptomsActive = "active" %}
+{% set symptomsActive = "active" %}{% else %}{% set symptomsActive = "active" %}
 {% else %}
-{% set symptomsActive = "active" %}
+{% set symptomsActive = "active" %}{% else %}{% set symptomsActive = "active" %}
 {% endif %}
 {% block pageScripts %}
 {% endblock %}
@@ -68,7 +68,7 @@
       {% endif %}
 
 
-      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Ask your GP for advice</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">Upload a photo of your condition</h1>
 
 

@@ -1,11 +1,11 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Get advice from your GP" %}
+{% set contentTitle = "Ask your GP for advice" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
 {% elif data['advice'] == 'True' %}
-{% set symptomsActive = "active" %}
+{% set symptomsActive = "active" %}{% else %}{% set symptomsActive = "active" %}
 {% endif %}
 {% block pageScripts %}
 {% endblock %}
@@ -52,12 +52,12 @@
     <div class="nhsuk-grid-column-two-thirds">
 
 
-      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Get advice from your GP</p>
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Ask your GP for advice</p>
       <h1 class="nhsuk-heading-xl nhs-app-xl">Upload a photo of your condition</h1>
       <p>You can upload 1 photo.</p>
 
 
-        <form action="/app/econsult/adult/eczema/19_b2">
+        <form action="/app/econsult/adult/eczema/19_b-photo-selected">
           <button style="display:inline;width:104px; height:21px;" onclick="document.getElementById('getFile').click()">Choose photo</button>
 
 
@@ -65,7 +65,7 @@
         </form>
         <br>
 
-        <form action="/app/econsult/adult/eczema/19_b2" method="get">
+        <form action="/app/econsult/adult/eczema/19_b-photo-selected" method="get">
           <input type="submit" class="nhsuk-button" value="Upload">
           </input>
 

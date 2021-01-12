@@ -1,12 +1,14 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Ask your GP for advice for your child" %}
+{% set contentTitle = "Ask your GP for advice" %}
+{% set title = contentTitle + " - " + serviceName %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
 {% elif data['advice'] == 'True' %}
 {% set symptomsActive = "active" %}
+{% else %}
+{% set symptomsActive = "active" %}
 {% endif %}
-{% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
 
@@ -19,6 +21,7 @@
   {{ title }}
 {% endblock %}
 
+<!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
@@ -43,50 +46,63 @@
 
 {% endif %}
   </div>
-</nav>
-<div class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-third-party-container nhs-app-third-party-container--grey nhsuk-body-s nhsuk-u-margin-bottom-0">
-  <div class="nhsuk-width-container">
-    <strong>This service is provided by your GP surgery</strong>
-  </div>
-</div>
+</nav>{% include "../../../_parts/silver-banner.html" %}
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Ask your GP for advice for your child</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Is your child taking any other drugs?</h1>
 
-      <form action="" method="post">
-        {{ radios({
-          "idPrefix": "econsult",
-          "name": "econsultOtherDrugs",
-          "fieldset": {
-            "legend": {
-              "isPageHeading": false,
-              "classes": ""
-            }
-          },
-          "hint": {
-            "html": "For example: over-the-counter medication from the pharmacist"
-          },
-          "items": [
-            {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No",
-              "text": "No"
-            }
-          ]
-        }) }}
+      {{ errorSummary({
+  "titleText": "There's a problem",
+    "errorList": [
+    {
+      "text": "Answer the question",
+      "href": "#uploadYesNo"
+    }
+  ]
+}) }}
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Ask your GP for advice</p>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Check your photo</h1>
+      <p>Your photo should not show your bottom (anus), breasts, vagina or penis, even if these are the problem area.</p>
 
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
+      <img class="nhsuk-u-margin-bottom-1" style="width: 140px; height: 140px;" src="/images/eczema_image-1-arm.png">
+      <span class="nhsuk-hint">
+        IMG_5267.PNG
+      </span>
 
+      <div class="nhsuk-u-padding-bottom-2"></div>
+
+      <form action="#">
+        <button style="display:inline;width:104px; height:21px;" onclick="document.getElementById('getFile').click()">Choose photo</button>
+
+
+        <input type='file' id="getFile" style="display:none"> <span class="nhsuk-body-s" style="display: inline;"> IMG_5267.PNG </span>
       </form>
 
+            <hr class="nhsuk-u-margin-bottom-5 nhsuk-u-margin-top-5">
+
+
+            {{ textarea({
+              "name": "example-longer",
+              "id": "example-longer",
+              "rows": "5",
+              "label": {
+                  "text": "Describe what this photo is showing",
+                  "classes": "nhsuk-label--l",
+                  "isPageHeading": true
+                },
+                "errorMessage": {
+                "text": "Answer the question"
+              }
+            }) }}
+
+      <form action="/app/econsult/adult/eczema/19_d" method="post">
+
+        <input type="submit" class="nhsuk-button" value="Continue"></input>
+
+
+      </form>
 
 
 

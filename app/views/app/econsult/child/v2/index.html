@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Get advice from your GP for your child" %}
+{% set contentTitle = "Ask your GP for advice for your child" %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
 {% elif data['advice'] == 'True' %}
@@ -55,7 +55,7 @@
     <div class="nhsuk-grid-column-two-thirds">
 
       <h1 class="app-card__heading nhsuk-heading-xl nhsuk-u-margin-bottom-4">
-        Get advice from your GP for your child
+        Ask your GP for advice for your child
       </h1>
 
       {{ warningCallout({
