@@ -2112,8 +2112,15 @@ section.home-main {
 .onboarding-button {
   border:none;
   background:none;
+  margin-top:30px;
+  margin-bottom: 24px;
+  width:100%;
+}
 
-
+.logged-out-advice {
+  width:70%;
+  margin: auto;
+  text-align: center;
 }
 
 
