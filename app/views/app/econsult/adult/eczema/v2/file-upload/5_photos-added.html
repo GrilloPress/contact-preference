@@ -5,9 +5,9 @@
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
 {% elif data['advice'] == 'True' %}
-{% set symptomsActive = "active" %}{% else %}{% set symptomsActive = "active" %}
+{% set symptomsActive = "active" %}
 {% else %}
-{% set symptomsActive = "active" %}{% else %}{% set symptomsActive = "active" %}
+{% set symptomsActive = "active" %}
 {% endif %}
 {% block pageScripts %}
 <script>
@@ -49,17 +49,10 @@ $( "#photoTwo" ).click(function() {
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
 
-{% else %}
-{% if data['experiment'] === 'True' %}
-{% if data['advice'] === 'True' %}
-<li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Advice</a></li>
-{% else %}
-<li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Symptoms</a></li>
-{% endif %}
-{% endif %}
-</ol>
-<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
-
+    {% else %}
+    <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Advice</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
 {% endif %}
   </div>
 </nav>
@@ -82,8 +75,7 @@ $( "#photoTwo" ).click(function() {
 
 
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Ask your GP for advice</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Upload a photo of your condition</h1>
-      <h2 class="nhsuk-heading-l nhs-app-xl">Photos added</h2>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Photos added</h1>
 
 
     <dl id="photoOneDetails" class="nhsuk-summary-list nhsuk-summary-list--no-border">
@@ -92,8 +84,21 @@ $( "#photoTwo" ).click(function() {
     <dt class="nhsuk-summary-list__key">
       Photo 1
     </dt>
+    <img class="nhsuk-u-margin-bottom-1 nhs-app-tablet--hide nhs-app-desktop--hide" style="width: 140px; height: 140px;" src="/images/eczema_image-1-arm.png">
+
     <dd class="nhsuk-summary-list__value">
-      IMG_5267.PNG
+
+      <img class="nhs-app-mobile--hide" style="width: 140px; height: 140px;" src="/images/eczema_image-1-arm.png">
+<br><span class="">IMG_5267.PNG</span>
+    </dd>
+
+
+    <dd class="nhsuk-summary-list__actions">
+
+      <a href="/app/econsult/adult/eczema/v2/file-upload/4_check-photo#change-photo">
+        Change<span class="nhsuk-u-visually-hidden"> name</span>
+      </a>
+
     </dd>
 
 
@@ -107,38 +112,56 @@ $( "#photoTwo" ).click(function() {
       {{ descriptionPhoto }}
     </dd>
 
-    <dd class="nhsuk-summary-list__actions nhsuk-u-margin-bottom-0">
+    <dd class="nhsuk-summary-list__actions">
 
-      <a href="/app/econsult/adult/eczema/v2/file-upload/4_check-photo" class="nhsuk-summary-list__actions-list-item nhsuk-u-margin-bottom-4">
-        Change<span class="nhsuk-u-visually-hidden"> photo 1</span>
+      <a href="/app/econsult/adult/eczema/v2/file-upload/4_check-photo#change-description" class="nhsuk-summary-list__actions-list-item nhsuk-u-margin-bottom-4">
+        Change<span class="nhsuk-u-visually-hidden"> photo 1 description</span>
       </a>
 
 
-      <a href="/app/econsult/adult/eczema/v2/file-upload/3_choose-photo?photoOneDelete=True" id="photoOne" class="nhs-app-card-delete__link">
-        Delete<span class="nhsuk-u-visually-hidden"> photo 1</span>
-      </a>
 
     </dd>
 
   </div>
 
 
+
+  <dd class="nhsuk-summary-list__actions-file-upload">
+
+
+    <a href="/app/econsult/adult/eczema/v2/file-upload/3_choose-photo?photoOneDelete=True" id="photoOne" class="nhs-app-card-delete__link">
+      Remove<span class="nhsuk-u-visually-hidden"> photo 1</span>
+    </a>
+
+  </dd>
+
+
 </dl>
 
+<hr class="nhsuk-u-margin-bottom-5 nhsuk-u-margin-top-5">
 
 
 
 
 <dl id="photoTwoDetails" class="nhsuk-summary-list nhsuk-summary-list--no-border">
 
-  <hr class="nhsuk-u-margin-bottom-5 nhsuk-u-margin-top-5">
 
 <div class="nhsuk-summary-list__row">
 <dt class="nhsuk-summary-list__key">
   Photo 2
 </dt>
+<img class="nhsuk-u-margin-bottom-1 nhs-app-tablet--hide nhs-app-desktop--hide" style="width: 140px; height: 140px;" src="/images/eczema_image-2-arm.png">
+
 <dd class="nhsuk-summary-list__value">
   IMG_5268.PNG
+</dd>
+
+<dd class="nhsuk-summary-list__actions">
+
+  <a href="/app/econsult/adult/eczema/v2/file-upload/4_check-photo#change-photo">
+    Change<span class="nhsuk-u-visually-hidden"> name</span>
+  </a>
+
 </dd>
 
 
@@ -149,24 +172,31 @@ $( "#photoTwo" ).click(function() {
   Description
 </dt>
 <dd class="nhsuk-summary-list__value">
-  descriptionPhoto2
+  {{ descriptionPhoto }}
 </dd>
 
-<dd class="nhsuk-summary-list__actions nhsuk-u-margin-bottom-0">
+<dd class="nhsuk-summary-list__actions">
 
-  <a href="/app/econsult/adult/eczema/v2/file-upload/4_check-photo" class="nhsuk-summary-list__actions-list-item nhsuk-u-margin-bottom-4">
-    Change<span class="nhsuk-u-visually-hidden"> photo 2</span>
-  </a>
-
-
-  <a href="/app/econsult/adult/eczema/v2/file-upload/3_choose-photo" id="photoTwo" class="nhs-app-card-delete__link">
-    Delete<span class="nhsuk-u-visually-hidden"> photo 2</span>
+  <a href="/app/econsult/adult/eczema/v2/file-upload/4_check-photo#change-description" class="nhsuk-summary-list__actions-list-item nhsuk-u-margin-bottom-4">
+    Change<span class="nhsuk-u-visually-hidden"> photo 2 description</span>
   </a>
 
 </dd>
 
 </div>
 
+<img class="nhs-app-mobile--hide nhsuk-u-margin-bottom-1" style="width: 140px; height: 140px;" src="/images/eczema_image-2-arm.png">
+
+
+
+<dd class="nhsuk-summary-list__actions-file-upload">
+
+
+  <a href="/app/econsult/adult/eczema/v2/file-upload/3_choose-photo?photoOneDelete=True" id="photoOne" class="nhs-app-card-delete__link">
+    Remove<span class="nhsuk-u-visually-hidden"> photo 1</span>
+  </a>
+
+</dd>
 
 </dl>
 

@@ -2781,8 +2781,15 @@ nav.menu ul li b {
 
     .nhsuk-summary-list__actions-list-item {
         display: block;
+        @include mq($until: desktop) {
+           display: block;
+        }
     }
 
+    .nhsuk-summary-list__actions-file-upload {
+        margin-left: 0px;
+        padding-right: 0px;
+    }
 
 
 

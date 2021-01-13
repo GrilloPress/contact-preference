@@ -5,9 +5,9 @@
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
 {% elif data['advice'] == 'True' %}
-{% set symptomsActive = "active" %}{% else %}{% set symptomsActive = "active" %}
+{% set symptomsActive = "active" %}
 {% else %}
-{% set symptomsActive = "active" %}{% else %}{% set symptomsActive = "active" %}
+{% set symptomsActive = "active" %}
 {% endif %}
 {% block pageScripts %}
 {% endblock %}
@@ -33,17 +33,10 @@
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
 
-{% else %}
-{% if data['experiment'] === 'True' %}
-{% if data['advice'] === 'True' %}
-<li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Advice</a></li>
-{% else %}
-<li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Symptoms</a></li>
-{% endif %}
-{% endif %}
-</ol>
-<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
-
+    {% else %}
+    <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Advice</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
 {% endif %}
   </div>
 </nav>
@@ -69,7 +62,7 @@
       <div class="nhsuk-u-padding-bottom-2"></div>
 
       <form action="#">
-        <button style="display:inline;width:104px; height:21px;" onclick="document.getElementById('getFile').click()">Choose photo</button>
+        <button id="change-photo" style="display:inline;width:104px; height:21px;" onclick="document.getElementById('getFile').click()">Choose photo</button>
 
 
         <input type='file' id="getFile" style="display:none"> <span class="nhsuk-body-s" style="display: inline;"> IMG_5267.PNG </span>
@@ -82,7 +75,7 @@
 
             {{ textarea({
               "name": "eczemaDescriptionInput",
-              "id": "eczemaDescription",
+              "id": "change-description",
               "rows": "5",
               "label": {
                   "text": "Describe what this photo is showing",

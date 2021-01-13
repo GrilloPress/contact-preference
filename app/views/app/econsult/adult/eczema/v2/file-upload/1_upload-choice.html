@@ -5,9 +5,9 @@
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
 {% elif data['advice'] == 'True' %}
-{% set symptomsActive = "active" %}{% else %}{% set symptomsActive = "active" %}
+{% set symptomsActive = "active" %}
 {% else %}
-{% set symptomsActive = "active" %}{% else %}{% set symptomsActive = "active" %}
+{% set symptomsActive = "active" %}
 {% endif %}
 {% block pageScripts %}
 {% endblock %}
@@ -34,16 +34,9 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
 
 {% else %}
-{% if data['experiment'] === 'True' %}
-{% if data['advice'] === 'True' %}
 <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Advice</a></li>
-{% else %}
-<li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Symptoms</a></li>
-{% endif %}
-{% endif %}
 </ol>
 <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
-
 {% endif %}
   </div>
 </nav>
