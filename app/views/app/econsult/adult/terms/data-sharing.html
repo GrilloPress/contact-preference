@@ -5,7 +5,7 @@
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
 {% elif data['advice'] == 'True' %}
-{% set symptomsActive = "active" %}
+{% set symptomsActive = "active" %}{% else %}{% set symptomsActive = "active" %}
 {% endif %}
 {% block pageScripts %}
 {% endblock %}
@@ -61,7 +61,7 @@
 
 
 
-            <form action="/app/econsult/hub/v1" method="get">
+            <form action="/app/econsult/hub/v1/index-2" method="get">
 
 
 

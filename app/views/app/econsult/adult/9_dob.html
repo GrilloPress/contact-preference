@@ -1,11 +1,11 @@
 {% set PROTOTYPEURL = "app/econsult" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Ask your GP for advice" %}
+{% set contentTitle = "Tell us your date of birth" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
 {% elif data['advice'] == 'True' %}
-{% set symptomsActive = "active" %}
+{% set symptomsActive = "active" %}{% else %}{% set symptomsActive = "active" %}
 {% endif %}
 {% block pageScripts %}
 {% endblock %}
@@ -51,7 +51,6 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Ask your GP for advice</p>
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Tell us your date of birth</h1>
 
 
       <form action="/{{ PROTOTYPEURL }}/adult/10_about" method="get">
@@ -63,7 +62,7 @@
           "fieldset": {
             "legend": {
               "text": contentTitle,
-              "classes": "nhsuk-label--xl",
+              "classes": "nhsuk-label--xl nhs-app-xl",
               "isPageHeading": true
             }
           },

@@ -4,7 +4,7 @@
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
 {% elif data['advice'] == 'True' %}
-{% set symptomsActive = "active" %}
+{% set symptomsActive = "active" %}{% else %}{% set appointmentsActive = "active" %}
 {% endif %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
