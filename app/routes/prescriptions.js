@@ -152,7 +152,7 @@ router.post('/app/prescriptions/v8-acute-tpp/not-nominated-pharmacy-v2', functio
   if (answer === 'yes') {
     res.redirect('/app/nominated-pharmacy/v4/card-nom-pharmacy-2?inJourney=true')
   } else {
-    res.redirect('/app/prescriptions/v8-acute-tpp/confirm-prescription-7-acute')
+    res.redirect('/app/prescriptions/v8-acute-tpp/whatMedication')
   }
 });
 
@@ -161,9 +161,29 @@ router.post('/app/prescriptions/v8-acute-tpp/not-nominated-pharmacy-1', function
   if (answer === 'yes') {
     res.redirect('/app/nominated-pharmacy/v4/card-nom-pharmacy-2?inJourneyRepeat=true')
   } else {
-    res.redirect('/app/prescriptions/v8-acute-tpp/confirm-prescription-7')
+    res.redirect('/app/prescriptions/v8-acute-tpp/select-medicine-to-renew-3')
   }
 });
+
+
+router.post('/app/prescriptions/v8-acute-tpp/nominated-pharmacy-v2', function (req, res) {
+  let answer = req.body.nominatePharmacy;
+  if (answer === 'yes') {
+    res.redirect('/app/prescriptions/v8-acute-tpp/whatMedication')
+  } else {
+    res.redirect('/app/nominated-pharmacy/v4/change-2?inJourney=true')
+  }
+});
+
+router.post('/app/prescriptions/v8-acute-tpp/nominated-pharmacy-1', function (req, res) {
+  let answer = req.body.nominatePharmacy;
+  if (answer === 'yes') {
+    res.redirect('/app/prescriptions/v8-acute-tpp/select-medicine-to-renew-3')
+  } else {
+  res.redirect('/app/nominated-pharmacy/v4/change-2?inJourneyRepeat=true')
+  }
+});
+
 
 // Nominated pharmacy routing
 

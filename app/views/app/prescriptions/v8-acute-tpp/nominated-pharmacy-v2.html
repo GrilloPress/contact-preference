@@ -1,0 +1,246 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Do you want to collect your prescription from your nominated pharmacy?" %}
+{% set prescriptionsActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% if data['SJR_PKB'] == 'True' %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11">Prescriptions</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-gp-prescriptions">GP repeat prescriptions</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
+{% else %}
+
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+<div class="nhsuk-width-container">
+<ol class="nhsuk-breadcrumb__list">
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Prescriptions</a></li>
+</ol>
+<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+</div>
+</nav>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+  <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">Your nominated pharmacy</h2>
+
+
+
+      {% if data['pharmacyTypeOnline'] === "online" %}
+
+      <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Echo" }}</p>
+
+      <p class="nhsuk-u-margin-bottom-1">
+        <a href="" class="nhsuk-u-margin-bottom-1">{{ data["onlineUrl"] or "www.echo.co.uk" }}</a>
+      </p>
+
+
+        <p>Telephone: {{ data["phoneNumber"] or "03069 990735" }}</p>
+
+
+
+        {% elif data['pharmacyTypeOnline'] === "community" %}
+
+
+        <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
+
+        <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or "16 Oxford St" }}</p>
+
+        <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Manchester" }}</p>
+
+        <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "M1 5AE" }}</p>
+
+
+        <p>Telephone: {{ data["phoneNumber"] or "0161 236 1445" }}</p>
+
+
+
+
+
+
+      {% else %}
+
+
+      <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
+
+      <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or "16 Oxford St" }}</p>
+
+      <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Manchester" }}</p>
+
+      <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "M1 5AE" }}</p>
+
+
+      <p>Telephone: {{ data["phoneNumber"] or "0161 236 1445" }}</p>
+
+
+
+      {% endif %}
+
+
+      {% if data['pharmacyTypeOnline'] === "community" %}
+
+
+
+    <div class="nhsuk-expander-group nhsuk-u-margin-bottom-4">
+    {{ details({
+    "classes": "nhsuk-expander",
+    "text": "Opening times",
+    "HTML": "
+    <table>
+      <tbody>
+        <tr>
+          <th><strong>Day of the week</strong></th>
+          <th><strong>Opening hours</strong></th>
+        </tr>
+        <tr>
+          <th>Monday</th>
+          <td>9am to 6pm</td>
+        </tr>
+        <tr>
+          <th>Tuesday</th>
+          <td>9am to 6pm</td>
+        </tr>
+        <tr>
+          <th>Wednesday</th>
+          <td>9am to 6pm</td>
+        </tr>
+        <tr>
+          <th>Thursday</th>
+          <td>9am to 6pm</td>
+        </tr>
+        <tr>
+          <th>Friday</th>
+          <td>9am to 6pm</td>
+        </tr>
+        <tr>
+          <th>Saturday</th>
+          <td>9am to 1pm</td>
+        </tr>
+        <tr>
+          <th>Sunday</th>
+          <td>Closed</td>
+        </tr>
+      </tbody>
+    </table>"
+    }) }}
+
+    </div>
+
+
+    {% elif data['pharmacyTypeOnline'] === "online" %}
+
+
+
+    {% else %}
+
+
+
+
+    <div class="nhsuk-expander-group nhsuk-u-margin-bottom-4">
+    {{ details({
+    "classes": "nhsuk-expander",
+    "text": "Opening times",
+    "HTML": "
+    <table>
+    <tbody>
+    <tr>
+    <th><strong>Day of the week</strong></th>
+    <th><strong>Opening hours</strong></th>
+    </tr>
+    <tr>
+    <th>Monday</th>
+    <td>9am to 6pm</td>
+    </tr>
+    <tr>
+    <th>Tuesday</th>
+    <td>9am to 6pm</td>
+    </tr>
+    <tr>
+    <th>Wednesday</th>
+    <td>9am to 6pm</td>
+    </tr>
+    <tr>
+    <th>Thursday</th>
+    <td>9am to 6pm</td>
+    </tr>
+    <tr>
+    <th>Friday</th>
+    <td>9am to 6pm</td>
+    </tr>
+    <tr>
+    <th>Saturday</th>
+    <td>9am to 1pm</td>
+    </tr>
+    <tr>
+    <th>Sunday</th>
+    <td>Closed</td>
+    </tr>
+    </tbody>
+    </table>"
+    }) }}
+
+    </div>
+
+
+    {% endif %}
+      <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/nominated-pharmacy-v2" method="post">
+
+        {% from 'radios/macro.njk' import radios %}
+
+    {{ radios({
+    "idPrefix": "nominatePharmacy",
+    "name": "nominatePharmacy",
+    "items": [
+      {
+        "value": "yes",
+        "text": "Yes, send it to this pharmacy"
+      },
+      {
+        "value": "no",
+        "text": "No, I want to choose a different pharmacy"
+      }
+    ]
+    }) }}
+        <br>
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
+
+
+
+            <p class="nhs-app-desktop--show">
+              <a href="javascript: window.history.go(-1)">Back</a>
+            </p>
+
+
+
+    </div>
+  </div>
+{% endblock %}

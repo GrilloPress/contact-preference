@@ -191,29 +191,6 @@
 
 </div>
 
-<div class="nhsuk-summary-list__row">
-  <dt class="nhsuk-summary-list__key">
-    Your nominated pharmacy
-  </dt>
-  <dd class="nhsuk-summary-list__value">
-    {{ nomPharmDetails | safe }}
-  </dd>
-
-  <dd class="nhsuk-summary-list__actions">
-    {% if data['pickPharmacy'] %}
-    <a href="/app/nominated-pharmacy/v4/change-2?inJourneyRepeat=true">
-      Change<span class="nhsuk-u-visually-hidden">your nominated pharmacy</span>
-    </a>
-    {% else %}
-    <a href="/app/nominated-pharmacy/v4/card-nom-pharmacy-2?inJourneyRepeat=true">
-      Nominate a pharmacy<span class="nhsuk-u-visually-hidden"></span>
-    </a>
-    {% endif %}
-
-  </dd>
-
-</div>
-
 </dl>
 
 

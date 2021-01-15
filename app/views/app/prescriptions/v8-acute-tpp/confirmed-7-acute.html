@@ -66,29 +66,7 @@ No notes added
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-{% if data['SJR_PKB'] == 'True' %}
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
-  <div class="nhsuk-width-container">
-    <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11">Prescriptions</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-gp-prescriptions">GP repeat prescriptions</a></li>
-    </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
-  </div>
-</nav>
-{% else %}
 
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
-  <div class="nhsuk-width-container">
-    <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Prescriptions</a></li>
-    </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
-  </div>
-</nav>
-{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -118,20 +96,6 @@ No notes added
           <p class="nhsuk-u-margin-bottom-1">Why do you need this item?</p>
           <p class="nhs-app-secondary-text">{{ whyMedication }}</p>
           <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-2">
-
-          {% if data["pickPharmacy"] %}
-          <p class="nhsuk-u-margin-bottom-1">Your nominated pharmacy</p>
-          <p class="nhs-app-secondary-text">
-            {{ data["pickPharmacy"] or "Cameolord Pharmacy" }}<br>
-            {{ data["address"] or "16 Oxford St" }}<br>
-            {{ data["city"] or "Manchester" }}<br>
-            {{ data["postcode"] or "M1 5AE" }}</p>
-
-          <p class="nhs-app-secondary-text">Telephone: {{ data["phoneNumber"] or "0161 236 1445" }}</p>
-
-          {% else %}
-          <p class="nhs-app-secondary-text">Collect your paper prescription from your GP surgery when it’s ready.</p>
-          {% endif %}
         </div>
 
       </div>

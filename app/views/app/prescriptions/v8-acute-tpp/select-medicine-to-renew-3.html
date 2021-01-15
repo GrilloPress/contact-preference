@@ -76,11 +76,7 @@ $("textarea").focusout(function(){
         {{ contentTitle }}
       </h1>
 
-      {% if data['pickPharmacy'] %}
       <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/confirm-prescription-7" method="post">
-      {% else %}
-        <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/not-nominated-pharmacy-1" method="get">
-      {% endif %}
 
         {{ checkboxes({
           "idPrefix": "prescription",

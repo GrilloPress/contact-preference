@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "Who last prescribed this item to you?" %}
+{% set contentTitle = "What prescription item do you need?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 <script type="text/javascript">
@@ -19,7 +19,7 @@ function characterCount(id, textMax) {
       }
   });
 }
-  characterCount("#textarea_feedback", 35);
+  characterCount("#textarea_feedback", 175);
 </script>
 {% endblock %}
 
@@ -42,7 +42,6 @@ function characterCount(id, textMax) {
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v8-acute-tpp/your-gp-prescriptions">GP repeat prescriptions</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
-
   </div>
 </nav>
 {% else %}
@@ -54,7 +53,6 @@ function characterCount(id, textMax) {
   <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v8-acute-tpp/your-prescriptions-11-no-pkb">Prescriptions</a></li>
 </ol>
 <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
-
 </div>
 </nav>
 {% endif %}
@@ -63,73 +61,35 @@ function characterCount(id, textMax) {
 
 
 {% block content %}
-{% set otherConditional %}
-{{ textarea({
-  "rows": "1",
-  "label": {
-  },
-  "id": "inputnhsnumber",
-  "name": "whoPrescribedOther",
-  "classes": "nhsuk-input--width-30"
-}) }}
-<div class="nhsuk-hint" id="msgBody-hint">
-      <div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1" style="
-  margin-bottom:40px !important ">You have 35 characters remaining</div>
-    </div>
-{% endset %}
-
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
 
-        <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/whyMedication" method="post">
+        <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/confirm-prescription-7-acute" method="get">
 
-        {{ conditionalRadios({
-          "idPrefix": "nhs",
-          "name": "whoPrescribed",
-          "fieldset": {
-            "legend": {
-              "html": '<h1 class="nhsuk-fieldset__heading">' + contentTitle + '</h1>',
-              "classes": "nhsuk-fieldset__legend--xl nhsuk-u-margin-bottom-4",
-              "isPageHeading": true
-            }
-          },
-          "items": [
-            {
-              "value": "GP",
-              "text": "GP surgery",
-              "checked": checked("whoPrescribed", "GP"),
-              "hint": {
-                "text": ""
-              }
-            },
-            {
-              "value": "hospital",
-              "text": "Hospital",
-              "checked": checked("whoPrescribed", "hospital"),
-              "hint": {
-                "text": ""
-              }
-            },
-            {
-              "value": "notPrescribed",
-              "text": "I have not had this item before",
-              "checked": checked("whoPrescribed", "notPrescribed"),
-              "hint": {
-                "text": ""
-              }
-            },
-            {
-              "value": "other",
-              "text": "Other",
-              "checked": checked("whoPrescribed", "other"),
-              "conditional": {
-                "html": otherConditional
-              }
-            }
-          ]
-        }) }}
-        <br>
+  {{ textarea({
+    "name": "whatMedication",
+    "id": "medicationSpecified",
+    "value": data['whatMedication'],
+    "rows": "2",
+    "label": {
+      "text": "List the item name and amount needed, or describe the type of item."
+    },
+    "hint": {
+      "html": '
+      <p>For example, eczema cream</p>'
+    }
+  }) }}
+  <div class="nhsuk-hint" id="msgBody-hint">
+        <div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1" style="
+    margin-bottom:40px !important ">You have 200 characters remaining</div>
+      </div>
+
+
+
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
 

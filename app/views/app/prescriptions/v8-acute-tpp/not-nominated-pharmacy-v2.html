@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/prescriptions" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Do you want to nominate a pharmacy?" %}
+{% set contentTitle = "Do you want to nominate a pharmacy to collect your prescriptions from?" %}
 {% set prescriptionsActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -49,9 +49,6 @@
       <h1 class="nhsuk-heading-xl nhs-app-xl">
         {{ contentTitle }}
       </h1>
-
-      <p>If you nominate a pharmacy, you’ll collect your prescriptions from your chosen pharmacy each time you order. You can change your nominated pharmacy at any time.
-      </p>
       <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/not-nominated-pharmacy-v2" method="post">
 
       {% from 'radios/macro.njk' import radios %}
@@ -66,7 +63,7 @@
     },
     {
       "value": "no",
-      "text": "No"
+      "text": "No, I'll collect my prescriptions from my GP surgery or have them delivered by an online pharmacy"
     }
   ]
 }) }}

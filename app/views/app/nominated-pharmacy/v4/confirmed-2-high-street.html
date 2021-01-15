@@ -50,19 +50,6 @@
             <p>Telephone: {{ data["phoneNumber"] or "0161 236 1445" }}</p>
 
 
-            {% if data['inJourney'] == "true" %}
-
-            <form action="/app/prescriptions/v8-acute-tpp/confirm-prescription-7-acute" method="get">
-              <input type="submit" class="nhsuk-button" value="Continue to your order">
-            </form>
-
-            {% elif data['inJourneyRepeat'] == "true" %}
-
-            <form action="/app/prescriptions/v8-acute-tpp/confirm-prescription-7" method="get">
-              <input type="submit" class="nhsuk-button" value="Continue to your order">
-            </form>
-
-            {% else %}
             <h2 class="nhsuk-heading-l">What happens next</h2>
 
               <p>Your prescriptions will be sent to {{ data["pickPharmacy"] or "Cameolord Pharmacy" }} from now on.</p>
@@ -70,11 +57,11 @@
               <p>Collect your prescriptions from {{ data["pickPharmacy"] or "Cameolord Pharmacy" }} when they are ready to collect.</p>
 
             {% if data['pkb'] == 'true' %}
-            <p><a href="/app/prescriptions/v7/your-prescriptions-11">Go to your prescriptions</a></p>
+            <p><a href="/app/prescriptions/v8-acute-tpp/your-prescriptions-11">Go to your prescriptions</a></p>
             {% else %}
             <p><a href="/app/prescriptions/v8-acute-tpp/your-prescriptions-11">Go to your prescriptions</a></p>
             {% endif %}
-            {% endif %}
+        
 
 
     </div>
