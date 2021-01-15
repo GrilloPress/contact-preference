@@ -432,6 +432,22 @@ router.post('/remove', function (req, res) {
 // ECONSULT routes
 ////////////////////////////////////////////////////////////////////////////////
 
+
+router.post('/app/econsult/hub/v1/index-2', function (req, res) {
+  let answer = req.session.data.eConsultYourselfOrChild;
+
+  if (answer === 'child') {
+
+    res.redirect('/app/econsult/child/v2/child-privacy')
+
+  } else {
+    res.redirect('/app/econsult/adult/3_privacy')
+  }
+});
+
+
+
+
 router.post('/app/econsult/child/v1/3_covid', function (req, res) {
   let answer = req.session.data.econsultCOVID;
 

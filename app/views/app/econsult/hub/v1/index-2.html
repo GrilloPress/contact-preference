@@ -1,0 +1,103 @@
+{% set PROTOTYPEURL = "app/econsult" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Who needs advice?" %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% endif %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+{% block beforeContent %}
+<!-- Breadcrumb goes inside this block -->
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-mobile--hide" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
+{% if data['appts'] == 'True' %}
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v8-econsult/pre-hub" }}'>Appointments</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href='{{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/v8-econsult/pre-hub" }}'>Back</a></p>
+{% else %}
+{% if data['experiment'] === 'True' %}
+<li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Advice</a></li>
+{% else %}
+<li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/index" }}'>Symptoms</a></li>
+{% endif %}
+</ol>
+{% endif %}
+  </div>
+</nav>
+{% include "../../_parts/silver-banner.html" %}
+
+{% endblock %}
+
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <p class="nhsuk-caption-heading nhsuk-u-margin-bottom-1">Ask your GP for advice</p>
+      <form action="/app/econsult/hub/v1/index-2" method="post">
+      {% call fieldset({
+
+        legend: {
+          "text": contentTitle,
+          "classes": "nhsuk-fieldset__legend--xl nhs-app-xl",
+          "isPageHeading": true
+        }
+        }) %}
+        {{ hint({
+          "html": '<p>To get advice for your child you must be:</p>
+          <ul><li>the parent or legal guardian of the child</li>
+              <li>registered at the same GP surgery as your child</li></ul>',
+          "classes": "nhsuk-u-margin-bottom-2"
+        }) }}
+        {{ radios({
+          "idPrefix": "example-hints",
+          "name": "eConsultYourselfOrChild",
+          "items": [
+        {
+          "value": "myself",
+          "text": "I need advice for myself"
+        },
+        {
+          "value": "child",
+          "text": "I need advice for my child"
+        }
+      ]
+      }) }}
+
+
+
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+      {% endcall %}
+
+      <form action="{{ routeHome }}" method="get">
+        {{ button({
+          "text": "End my consultation",
+          "classes": "nhsuk-button--secondary"
+        }) }}
+
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
