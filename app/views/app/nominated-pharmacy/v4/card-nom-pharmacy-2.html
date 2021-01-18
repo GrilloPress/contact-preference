@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/nominated-pharmacy" %}
 {% set serviceName = "NHS App" %}
 {% set prescriptionsActive = "active" %}
-{% set contentTitle = "The pharmacy you choose is where your prescriptions will be sent" %}
+{% set contentTitle = "Nominate a pharmacy to collect your prescriptions from" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -49,6 +49,7 @@
 
 
                               <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-4">{{ contentTitle }}</h1>
+                              <p>You’ll collect your prescriptions from your chosen pharmacy each time you order. You can change your nominated pharmacy at any time. </p>
 
                               <form action="/{{ PROTOTYPEURL }}/v4/type-of-pharmacy-no-online" method="get">
                                 <input type="submit" class="nhsuk-button" value="Continue">
