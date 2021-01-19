@@ -135,8 +135,12 @@ $( document ).ready(function() {
               <p class="nhs-app-chat__body">Your request can take 2 to 3 working days to be approved.</p>
               <p class="nhs-app-chat__body">Your GP surgery may contact you about your request or ask you to make an appointment.</p><br>
               <b class="nhs-app-chat__body">Collecting your prescription</b><br>
-              <p class="nhs-app-chat__body">Once your request is approved it will be sent to <a href="#">your nominated pharmacy</a> to collect.</p>
-              <p class="nhs-app-chat__body">Find out more about <a href="#">collecting your prescription</a>.</p>
+              {% if data["pickPharmacy"] %}
+              <p class="nhs-app-chat__body">Once your request is approved it will be sent to <a href="/app/nominated-pharmacy/v4/your-nominated-pharmacy-acute">your nominated pharmacy</a> to collect.</p>
+              {% else %}
+              <p class="nhs-app-chat__body">Once your request is approved, you can collect your prescription from your GP surgery.</p>
+              {% endif %}
+              <p class="nhs-app-chat__body">Find out more about <a href="https://www.nhs.uk/nhs-services/online-services/nhs-app/nhs-app-help-and-support/repeat-prescriptions/">collecting your prescription</a>.</p>
             </div>
             <div class="nhs-app-chat__date">
               Sent 9:12am, 21 January 2021
@@ -158,8 +162,12 @@ $( document ).ready(function() {
               <p class="nhs-app-chat__body">Your request can take 2 to 3 working days to be approved.</p>
               <p class="nhs-app-chat__body">Your GP surgery may contact you about your request or ask you to make an appointment.</p><br>
               <b class="nhs-app-chat__body">Collecting your prescription</b><br>
-              <p class="nhs-app-chat__body">Once your request is approved it will be sent to <a href="#">your nominated pharmacy</a> to collect.</p>
-              <p class="nhs-app-chat__body">Find out more about <a href="#">collecting your prescription</a>.</p>
+              {% if data["pickPharmacy"] %}
+              <p class="nhs-app-chat__body">Once your request is approved it will be sent to <a href="/app/nominated-pharmacy/v4/your-nominated-pharmacy-acute">your nominated pharmacy</a> to collect.</p>
+              {% else %}
+              <p class="nhs-app-chat__body">Once your request is approved, you can collect your prescription from your GP surgery.</p>
+              {% endif %}
+              <p class="nhs-app-chat__body">Find out more about <a href="https://www.nhs.uk/nhs-services/online-services/nhs-app/nhs-app-help-and-support/repeat-prescriptions/">collecting your prescription</a>.</p>
             </div>
             <div class="nhs-app-chat__date">
               Sent 9:12am, 21 January 2021

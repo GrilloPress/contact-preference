@@ -107,7 +107,7 @@ $('div.nhsuk-summary-list__row').each(function() {
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ data['routePrescriptions'] }}">Prescriptions</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-gp-prescriptions">GP repeat prescriptions</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="{{ data['routePrescriptions'] }}">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
   </div>
 </nav>
 {% else %}
@@ -118,7 +118,7 @@ $('div.nhsuk-summary-list__row').each(function() {
   <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
   <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ data['routePrescriptions'] }}">Prescriptions</a></li>
 </ol>
-<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="{{ data['routePrescriptions'] }}">Back</a></p>
+<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
 </div>
 </nav>
 {% endif %}
@@ -157,7 +157,7 @@ $('div.nhsuk-summary-list__row').each(function() {
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">
-      Who prescribed this item to you?
+      Who last prescribed this item to you?
     </dt>
     <dd class="nhsuk-summary-list__value">
       {% if whoPrescribed %}
