@@ -152,7 +152,7 @@ router.post('/app/prescriptions/v8-acute-tpp/not-nominated-pharmacy-v2', functio
   if (answer === 'yes') {
     res.redirect('/app/nominated-pharmacy/v4/card-nom-pharmacy-2?inJourney=true')
   } else {
-    res.redirect('/app/prescriptions/v8-acute-tpp/whatMedication')
+    res.redirect('/app/prescriptions/v8-acute-tpp/acuteExpectations')
   }
 });
 
@@ -169,7 +169,7 @@ router.post('/app/prescriptions/v8-acute-tpp/not-nominated-pharmacy-1', function
 router.post('/app/prescriptions/v8-acute-tpp/nominated-pharmacy-v2', function (req, res) {
   let answer = req.body.nominatePharmacy;
   if (answer === 'yes') {
-    res.redirect('/app/prescriptions/v8-acute-tpp/whatMedication')
+    res.redirect('/app/prescriptions/v8-acute-tpp/acuteExpectations')
   } else {
     res.redirect('/app/nominated-pharmacy/v4/change-2?inJourney=true')
   }
