@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/appointments/v8-econsult" %}
 {% set serviceName = "NHS App" %}
 {% set appointmentsActive = "active" %}
-{% set contentTitle = "No referrals for Betty Doyle" %}
+{% set contentTitle = "Your referral appointments" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% if data["confirmed"] %}
@@ -43,8 +43,20 @@ $( document ).ready(function() {
     <h1 class="nhsuk-heading-xl nhs-app-xl">
       {{ contentTitle }}
     </h1>
+    <div class="nhsuk-warning-callout nhsuk-u-margin-bottom-6 nhsuk-u-margin-top-6">
+<h3 class="nhsuk-warning-callout__label">
+  <span role="text">
+    <span class="nhsuk-u-visually-hidden">Important</span>
+    Important
+  </span>
+</h3>
+<p> You can only manage your first referral appointment in the NHS App. You cannot manage any further appointments for an existing referral.</p>
+<p> <a href="https://www.nhs.uk/nhs-services/online-services/nhs-app/nhs-app-help-and-support/using-the-e-referral-service-in-the-nhs-app/">Find out more about managing referrals in the NHS App</a></p>
+</div>
 
-    <p>You currently have no outstanding referrals. If you think this is wrong, contact your referring organisation</p>
+    <h2>Upcoming appointments</h2>
+    <p>You have no first referral appointments to manage.</p>
+    <p>If you think this is wrong, contact the healthcare provider who referred you.</p>
 
     </div>
   </div>
