@@ -81,15 +81,19 @@ function characterCount(id, textMax) {
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-
-        <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/confirm-prescription-7-acute" method="post">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+        <div class="nhsuk-hint">If you have not had this item prescribed to you before, your GP surgery may ask you to make an appointment.
+      </div>
+        <form action="/{{ PROTOTYPEURL }}/v9-acute-tpp/confirm-prescription-7-acute" method="post">
 
         {{ conditionalRadios({
           "idPrefix": "nhs",
           "name": "whoPrescribed",
           "fieldset": {
             "legend": {
-              "html": '<h1 class="nhsuk-fieldset__heading">' + contentTitle + '</h1>',
+              "html": '',
               "classes": "nhsuk-fieldset__legend--xl nhsuk-u-margin-bottom-4",
               "isPageHeading": true
             }
@@ -107,14 +111,6 @@ function characterCount(id, textMax) {
               "value": "hospital",
               "text": "Hospital",
               "checked": checked("whoPrescribed", "hospital"),
-              "hint": {
-                "text": ""
-              }
-            },
-            {
-              "value": "notPrescribed",
-              "text": "I have not had this item before",
-              "checked": checked("whoPrescribed", "notPrescribed"),
               "hint": {
                 "text": ""
               }

@@ -19,7 +19,7 @@ function characterCount(id, textMax) {
       }
   });
 }
-  characterCount("#textarea_feedback", 175);
+  characterCount("#textarea_feedback", 50);
 </script>
 {% endblock %}
 
@@ -61,45 +61,45 @@ function characterCount(id, textMax) {
 
 
 {% block content %}
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-heading-xl nhs-app-xl">
-        {{ contentTitle }}
-      </h1>
+    <h1 class="nhsuk-heading-xl nhs-app-xl">
+      {{ contentTitle }}
+    </h1>
 
-        <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/confirm-prescription-7-acute" method="get">
+      <form action="/{{ PROTOTYPEURL }}/v9-acute-tpp/confirm-prescription-7-acute" method="get">
 
-  {{ textarea({
-    "name": "whatMedication",
-    "id": "medicationSpecified",
-    "value": data['whatMedication'],
-    "rows": "2",
-    "label": {
-      "text": "List the item name and amount needed, or describe the type of item."
-    },
-    "hint": {
-      "html": '
-      <p>For example, eczema cream</p>'
-    }
-  }) }}
-  <div class="nhsuk-hint" id="msgBody-hint">
-        <div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1" style="
-    margin-bottom:40px !important ">You have 200 characters remaining</div>
-      </div>
-
-
-
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
-
-      </form>
-
-      <p class="nhs-app-desktop--show">
-        <a href="javascript: window.history.go(-1)">Back</a>
-      </p>
-
-
+{{ textarea({
+  "name": "whatMedication",
+  "id": "medicationSpecified",
+  "value": data['whatMedication'],
+  "rows": "1",
+  "label": {
+    "text": "List the item name, quantity and dosage, or describe the type of item you need."
+  },
+  "hint": {
+    "html": '
+    <p>For example, eczema cream</p>'
+  }
+}) }}
+<div class="nhsuk-hint" id="msgBody-hint">
+      <div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1" style="
+  margin-bottom:40px !important ">You have 50 characters remaining</div>
     </div>
+
+
+
+      <input type="submit" class="nhsuk-button" value="Continue">
+      </input>
+
+    </form>
+
+    <p class="nhs-app-desktop--show">
+      <a href="javascript: window.history.go(-1)">Back</a>
+    </p>
+
+
   </div>
+</div>
 {% endblock %}

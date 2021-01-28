@@ -63,45 +63,45 @@ function characterCount(id, textMax) {
 
 
 {% block content %}
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-heading-xl nhs-app-xl">
-        {{ contentTitle }}
-      </h1>
+    <h1 class="nhsuk-heading-xl nhs-app-xl">
+      {{ contentTitle }}
+    </h1>
+    <form action="/{{ PROTOTYPEURL }}/v9-acute-tpp/confirm-prescription-7-acute" method="get">
 
-      <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/confirm-prescription-7-acute" method="get">
+{{ textarea({
+  "name": "whyMedication",
+  "id": "prescriptionReasoning",
+  "value": data['whyMedication'],
+  "rows": "3",
+  "label": {
+    "text": "Your GP may contact you about your request."
+  },
+  "hint": {
+    "text": ""
+  }
+}) }}
 
-  {{ textarea({
-    "name": "whyMedication",
-    "id": "prescriptionReasoning",
-    "value": data['whyMedication'],
-    "label": {
-      "text": "You may be asked to make an appointment with your GP surgery to confirm if you need this item."
-    },
-    "hint": {
-      "text": ""
-    }
-  }) }}
-
-  <div class="nhsuk-hint" id="msgBody-hint">
-        <div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1" style="
-    margin-bottom:40px !important ">You have 175 characters remaining</div>
-      </div>
-
-
-
-
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
-
-      </form>
-
-      <p class="nhs-app-desktop--show">
-        <a href="javascript: window.history.go(-1)">Back</a>
-      </p>
-
-
+<div class="nhsuk-hint" id="msgBody-hint">
+      <div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1" style="
+  margin-bottom:40px !important ">You have 175 characters remaining</div>
     </div>
+
+
+
+
+      <input type="submit" class="nhsuk-button" value="Continue">
+      </input>
+
+    </form>
+
+    <p class="nhs-app-desktop--show">
+      <a href="javascript: window.history.go(-1)">Back</a>
+    </p>
+
+
   </div>
+</div>
 {% endblock %}
