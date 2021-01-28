@@ -1,0 +1,94 @@
+{% set PROTOTYPEURL = "app/v12/login" %}
+{% set serviceName = "NHS login" %}
+{% set contentTitle = "Enter your email address" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "NHS login",
+        "longName": "true",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l">
+        {{ contentTitle }}
+      </h1>
+
+      <form action="/{{ PROTOTYPEURL }}/enter-password" method="post">
+
+
+
+      {{ input({
+        "label": {
+          "text": "Email address"
+          },
+        "id": "example",
+        "name": "example",
+        "classes": "nhsuk-input--width-20"
+      }) }}
+
+      <input type="submit" class="nhsuk-button" value="Continue">
+      </input>
+    </form>
+
+    {{ insetText({
+      "HTML": '<h2>What is NHS login?</h2><p>You can use your NHS login to access health websites and apps that have the NHS login button. If you do not have an NHS login, enter your email address to set one up.</p>'
+    }) }}
+
+    {{ warningCallout({
+      "heading": "Coronavirus (COVID-19)",
+      "HTML": '<p>For health information and advice, read <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">NHS guidance about coronavirus.</a></p>'
+    }) }}
+
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+<div class="">
+  {{ footer({
+    "classes": "",
+    "links": [
+      {
+        "URL": "#",
+        "label": "Terms of use"
+      },
+      {
+        "URL": "#",
+        "label": "Cookies"
+      },
+      {
+        "URL": "#",
+        "label": "Accessibility"
+      }
+    ]
+  })}}
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% set PROTOTYPEURL = "app" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "You can set up fingerprint login anytime in your settings" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-screenshot.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<a href="{{ routeHome }}">
+    <a href="/app/prescriptions/v8-acute-tpp/manage-gp-prescriptions"><img class="calendar-images" src="/images/prescriptions-native-calendar.png"></a>
+
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

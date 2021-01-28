@@ -1,0 +1,105 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set prescriptionsActive = "active" %}
+{% set contentTitle = "What prescription item do you need?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script type="text/javascript">
+function characterCount(id, textMax) {
+  var text_max = textMax;
+  $(id).html('You have ' + text_max + ' characters remaining');
+  $('textarea').keyup(function() {
+      var text_length = $('textarea').val().length;
+      var text_remaining = text_max - text_length;
+      if (text_length > text_max) {
+        var text_reverse_negative =- text_remaining;
+        $(id).html('You have ' + text_reverse_negative + ' characters too many').addClass('nhsuk-error-message').removeClass('nhsuk-hint');
+      } else {
+        $(id).html('You have ' + text_remaining + ' characters remaining').removeClass('nhsuk-error-message').addClass('nhsuk-hint');
+      }
+  });
+}
+  characterCount("#textarea_feedback", 175);
+</script>
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% if data['pkb'] == 'true' %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v8-acute-tpp/your-prescriptions-11">Prescriptions</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v8-acute-tpp/your-gp-prescriptions">GP repeat prescriptions</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
+{% else %}
+
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+<div class="nhsuk-width-container">
+<ol class="nhsuk-breadcrumb__list">
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v5/">Home</a></li>
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v8-acute-tpp/your-prescriptions-11-no-pkb">Prescriptions</a></li>
+</ol>
+<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+</div>
+</nav>
+{% endif %}
+{% endblock %}
+
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+
+        <form action="/{{ PROTOTYPEURL }}/v8-acute-tpp/confirm-prescription-7-acute" method="get">
+
+  {{ textarea({
+    "name": "whatMedication",
+    "id": "medicationSpecified",
+    "value": data['whatMedication'],
+    "rows": "2",
+    "label": {
+      "text": "List the item name and amount needed, or describe the type of item."
+    },
+    "hint": {
+      "html": '
+      <p>For example, eczema cream</p>'
+    }
+  }) }}
+  <div class="nhsuk-hint" id="msgBody-hint">
+        <div id="textarea_feedback" class="nhsuk-hint nhsuk-u-margin-bottom-1" style="
+    margin-bottom:40px !important ">You have 200 characters remaining</div>
+      </div>
+
+
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+
+      </form>
+
+      <p class="nhs-app-desktop--show">
+        <a href="javascript: window.history.go(-1)">Back</a>
+      </p>
+
+
+    </div>
+  </div>
+{% endblock %}

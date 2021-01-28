@@ -1,0 +1,83 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Do you want to nominate a pharmacy to collect your prescriptions from?" %}
+{% set prescriptionsActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% if data['SJR_PKB'] == 'True' %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v8-acute-tpp/your-prescriptions-11">Prescriptions</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v8-acute-tpp/your-gp-prescriptions">GP repeat prescriptions</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
+{% else %}
+
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+<div class="nhsuk-width-container">
+<ol class="nhsuk-breadcrumb__list">
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-prescriptions-11-no-pkb">Prescriptions</a></li>
+</ol>
+<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+</div>
+</nav>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+      <form action="/{{ PROTOTYPEURL }}/v9-acute-tpp/not-nominated-pharmacy-1" method="post">
+
+      {% from 'radios/macro.njk' import radios %}
+
+{{ radios({
+  "idPrefix": "nominatePharmacy",
+  "name": "nominatePharmacy",
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes"
+    },
+    {
+      "value": "no",
+      "text": "No, I collect my prescriptions from my GP surgery or have them delivered by an online pharmacy"
+    }
+  ]
+}) }}
+      <br>
+
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
+
+            <p class="nhs-app-desktop--show">
+              <a href="javascript: window.history.go(-1)">Back</a>
+            </p>
+
+    </div>
+  </div>
+{% endblock %}

@@ -184,6 +184,51 @@ router.post('/app/prescriptions/v8-acute-tpp/nominated-pharmacy-1', function (re
   }
 });
 
+// v9-acute-tpp prescription routing
+
+router.post('/app/prescriptions/v9-acute-tpp/not-nominated-pharmacy-1', function (req, res) {
+  let answer = req.body.nominatePharmacy;
+  if (answer === 'yes') {
+    res.redirect('/app/nominated-pharmacy/v4/card-nom-pharmacy-2?inJourney=true')
+  } else {
+    res.redirect('/app/prescriptions/v9-acute-tpp/repeat-or-acute')
+  }
+});
+
+router.post('/app/prescriptions/v9-acute-tpp/nominated-pharmacy-1', function (req, res) {
+  let answer = req.body.nominatePharmacy;
+  if (answer === 'yes') {
+    res.redirect('/app/prescriptions/v9-acute-tpp/repeat-or-acute')
+  } else {
+    res.redirect('/app/nominated-pharmacy/v4/change-2?inJourney=true')
+  }
+});
+
+router.post('/app/prescriptions/v9-acute-tpp/repeat-or-acute', function (req, res) {
+let answer = req.body.prescriptionType;
+  if (answer === 'repeat') {
+    res.redirect('/app/prescriptions/v9-acute-tpp/select-medicine-to-renew-3')
+  }
+  else if (answer === 'acute'){
+    res.redirect('/app/prescriptions/v9-acute-tpp/urgentWarning')
+  }
+  else {
+    res.redirect('/app/prescriptions/v9-acute-tpp/acuteNonTPP')
+  }
+});
+
+router.post('/app/prescriptions/v9-acute-tpp/save-acute-nom', function (req, res) {
+  // add what is saved later!
+  req.session.data.prescriptionConfirmedAcute = "True";
+  req.session.data.messageRead7 = "unread";
+  res.redirect('/app/prescriptions/v9-acute-tpp/confirmed-7-acute')
+});
+
+router.post('/app/prescriptions/v9-acute-tpp/save-repeat', function (req, res) {
+  // add what is saved later!
+  req.session.data.prescriptionConfirmed = "True";
+  res.redirect('/app/prescriptions/v9-acute-tpp/confirmed-7')
+});
 
 // Nominated pharmacy routing
 

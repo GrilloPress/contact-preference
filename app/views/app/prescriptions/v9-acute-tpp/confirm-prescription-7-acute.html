@@ -1,0 +1,216 @@
+{% set PROTOTYPEURL = "app/prescriptions" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Check and confirm your prescription request" %}
+{% set prescriptionsActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script type="text/javascript">
+// This kills any row that is empty
+$('div.nhsuk-summary-list__row').each(function() {
+         if ($(this).text().trim() === "") {
+                   $(this).css('display','none');
+         }
+});
+</script>
+{% endblock %}
+
+
+{% set whatMedication %}
+  {% if data['whatMedication'] %}
+     {{ data['whatMedication'] }}
+{% else %}
+    No medication requested
+  {% endif %}
+{% endset %}
+
+
+{% set whoPrescribed %}
+  {% if data['whoPrescribed'] == 'GP' %}
+
+  <p class="nhsuk-u-margin-bottom-0">GP Surgery</p>
+
+  {% elif data['whoPrescribed'] == 'hospital' %}
+
+  <p class="nhsuk-u-margin-bottom-0">Hospital</p>
+
+{% elif data['whoPrescribed'] == 'other' %}
+
+  <p class="nhsuk-u-margin-bottom-0">{{ data['whoPrescribedOther'] }}</p>
+
+  {% elif data['whoPrescribed'] == 'notPrescribed' %}
+
+    <p class="nhsuk-u-margin-bottom-0">I have not had this item before</p>
+
+  {% else %}
+
+  Null
+
+  {% endif %}
+
+{% endset %}
+
+{% set whyMedication %}
+  {% if data['whyMedication'] %}
+     {{ data['whyMedication'] }}
+{% else %}
+    No notes added
+  {% endif %}
+{% endset %}
+
+{% set nomPharmDetails %}
+{% if data['pickPharmacy'] %}
+    {% if data["nominatedConfirmed"] === "true"  %}
+       {% if data['pharmacyTypeOnline'] === "online" %}
+
+             <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Echo" }}</p>
+
+             <p class="nhsuk-u-margin-bottom-0">{{ data["onlineUrl"] or "www.echo.co.uk" }}</p>
+
+             <p>Telephone: {{ data["phoneNumber"] or "03069 990735" }}</p>
+
+
+        {% elif data['pharmacyTypeOnline'] === "community" %}
+
+              <p class="nhsuk-u-margin-bottom-0">{{ data["pickPharmacy"] or "Cameolord Pharmacy" }}</p>
+
+              <p class="nhsuk-u-margin-bottom-0">{{ data["address"] or "16 Oxford St" }}</p>
+
+              <p class="nhsuk-u-margin-bottom-0">{{ data["city"] or "Manchester" }}</p>
+
+              <p class="nhsuk-u-margin-bottom-0">{{ data["postcode"] or "M1 5AE" }}</p>
+
+              <p>Telephone: {{ data["phoneNumber"] or "0161 236 1445" }}</p>
+
+        {% endif %}
+      {% endif %}
+      {% else %}
+      <p>You do not have a nominated pharmacy. Collect your paper prescription from your GP surgery when it's ready.</p>
+      {% endif %}
+
+  {% endset %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% if data['SJR_PKB'] == 'True' %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ data['routePrescriptions'] }}">Prescriptions</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/prescriptions/v7/your-gp-prescriptions">GP repeat prescriptions</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+  </div>
+</nav>
+{% else %}
+
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+<div class="nhsuk-width-container">
+<ol class="nhsuk-breadcrumb__list">
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v5" }}'>Home</a></li>
+  <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ data['routePrescriptions'] }}">Prescriptions</a></li>
+</ol>
+<p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="#" onClick='window.history.go(-1)'>Back</a></p>
+</div>
+</nav>
+{% endif %}
+{% endblock %}
+
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+
+       <form action="/app/prescriptions/v9-acute-tpp/save-acute-nom" method="post">
+
+         <dl class="nhsuk-summary-list">
+
+           <div class="nhsuk-summary-list__row">
+             <dt class="nhsuk-summary-list__key">
+               Who last prescribed this item to you?
+             </dt>
+             <dd class="nhsuk-summary-list__value">
+               {% if whoPrescribed %}
+               {{ whoPrescribed | safe }}
+               {% else %}
+               No notes added
+               {% endif %}
+             </dd>
+
+             <dd class="nhsuk-summary-list__actions">
+
+               <a href="/app/prescriptions/v9-acute-tpp/whoPrescribed-change">
+                 Change<span class="nhsuk-u-visually-hidden">Who prescribed this medication</span>
+               </a>
+
+             </dd>
+
+           </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      What prescription item do you need?
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      {{ whatMedication | safe }}
+    </dd>
+
+    <dd class="nhsuk-summary-list__actions">
+
+      <a href="/app/prescriptions/v9-acute-tpp/whatMedication-change">
+        Change<span class="nhsuk-u-visually-hidden">what prescription item you would like</span>
+      </a>
+
+    </dd>
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Why do you need this item?
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      {% if whoPrescribed %}
+      {{ whyMedication | safe }}
+      {% else %}
+      No notes added
+      {% endif %}
+    </dd>
+
+    <dd class="nhsuk-summary-list__actions">
+
+      <a href="/app/prescriptions/v9-acute-tpp/whyMedication-change">
+        Change<span class="nhsuk-u-visually-hidden">why do you need this medication</span>
+      </a>
+
+    </dd>
+
+  </div>
+  </dl>
+
+
+      <input type="submit" class="nhsuk-button" value="Confirm and order prescription">
+      </input>
+     </form>
+
+             <p class="nhs-app-desktop--show">
+               <a href="javascript: window.history.go(-1)">Back</a>
+             </p>
+
+
+
+    </div>
+  </div>
+{% endblock %}
