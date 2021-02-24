@@ -116,6 +116,8 @@ $("textarea").focusout(function(){
           ]
         }) }}
 
+        {% if data['nonTPP']==="True" %}
+
         {{ details({
           "text": "My prescription is missing from this list",
           "HTML": '
@@ -124,13 +126,33 @@ $("textarea").focusout(function(){
               <li>you need a medicine review before you can order again</li>
                 <li>it is too early to order your medicine</li>
                   <li>your GP surgery is a dispensing surgery</li>
-                    <li>the prescription is not signed off for repeated use, <a href="acuteExpectations">request a prescription item instead</a> </li>
+                  <li>the prescription is not signed off for repeated use</li>
+                  </ul>
+
+                    Contact your GP surgery for more information. For urgent medical advice, go to <a href="#"> 111.nhs.uk </a> or call 111.
+                  </p>
+          '
+        }) }}
+
+        {% else %}
+
+        {{ details({
+          "text": "My prescription is missing from this list",
+          "HTML": '
+          <p>Your prescription could be missing because:
+            <ul>
+              <li>you need a medicine review before you can order again</li>
+                <li>it is too early to order your medicine</li>
+                  <li>your GP surgery is a dispensing surgery</li>
+                    <li>the prescription is not signed off for repeated use, <a href="urgentWarning">request a non-repeat prescription instead</a> </li>
                     </ul>
 
                     Contact your GP surgery for more information. For urgent medical advice, go to <a href="#"> 111.nhs.uk </a> or call 111.
                   </p>
           '
         }) }}
+
+        {% endif %}
 
 
         {{ textarea({

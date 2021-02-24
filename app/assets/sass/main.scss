@@ -25,6 +25,47 @@ a:visited {
 ///////////////////////////////////////////
 // Add your custom CSS/Sass styles below...
 ///////////////////////////////////////////
+//If its over 401px we don't want the mobile view to show
+@media only screen and (min-width: 501px) {
+  .start-screen-mobile {
+display: none;
+  }
+}
+//If its under 400px we don't want the desktop version to show
+@media only screen and (max-width: 500px) {
+  .start-screen-desktop {
+    display: none;
+  }
+}
+
+.nhsuk-details__summary:hover {
+background-color: #ffeb3b !important;
+box-shadow: 0 0 0 8px #ffeb3b !important;
+}
+.nhsuk-expander .nhsuk-details__summary:hover {
+    box-shadow: 0 0 0 4px #ffeb3b !important;
+    background-color: transparent !important;
+}
+
+a:hover {
+    background-color: #ffeb3b !important;
+    box-shadow: 0 0 0 4px #ffeb3b !important;
+    color: #000000 !important;
+    text-decoration: none;
+}
+.list-menu li a:focus, .list-menu li a:hover{
+  box-shadow: 0 0 0 4px #ffeb3b !important;
+  background-color: transparent !important;
+  color:#005eb8 !important;
+}
+
+nav.menu li a:hover{
+  background-color: transparent !important;
+  box-shadow: transparent !important;
+  color: #000000 !important;
+  text-decoration: none;
+
+}
 
 li ul {
   margin-bottom: 0;
@@ -120,8 +161,8 @@ li ul {
     outline-offset: 4px
 }
 .nhsuk-global-alert a:hover {
-    background-color: #005eb8;
-    box-shadow: 0 0 0 4px #005eb8;
+    background-color: #ffeb3b;
+    box-shadow: 0 0 0 4px #ffeb3b;
     color: #fff
 }
 .nhsuk-global-alert a:active {
