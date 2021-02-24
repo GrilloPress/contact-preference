@@ -2112,6 +2112,21 @@ section.home-main {
 .onboarding-button {
   border:none;
   background:none;
+  @media only screen and (min-width: 769px) {
+    width:350px;
+    margin-bottom: 24px;
+    margin-top:30px;
+    display:block;
+    .cls-1{
+      fill:#003087;
+    }
+    .cls-2{
+      fill:#005eb8;
+    }
+    .cls-3{
+      fill:#fff;
+    }
+  }
 }
 
 .desktop-button {
