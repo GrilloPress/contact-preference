@@ -1947,6 +1947,12 @@ section.home-main {
     min-height: 0em;
     }
 
+ .nhsuk-grid-row .start-screen{
+   display:flex;
+ }
+
+
+
   section.home-main-blue {
     position:absolute;
     background: radial-gradient(#0072DF 0%, #0053A3 100%);
@@ -1959,8 +1965,9 @@ section.home-main {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content:space-around;
     }
+
 
     section.home-main-blue .home-header-help{
       position: absolute;
@@ -2000,8 +2007,8 @@ section.home-main {
       align-items: center;
     }
 
-    section.home-main-blue .version {
-      margin-bottom: 25px;
+    section.home-main-blue .version p {
+      margin-bottom: 0px;
     }
 
     section.home-main-blue .version a {
@@ -2017,6 +2024,10 @@ section.home-main {
 
       section.home-main-blue button{
         width:100%;
+        @media (min-width:550px) {
+          width:65%;
+
+        }
       }
 
     section.home-main-blue p {
