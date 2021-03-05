@@ -1,0 +1,63 @@
+{% set PROTOTYPEURL = "app/settings/v3" %}
+{% set serviceName = "Home" %}
+{% set contentTitle = "Notification preferences" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Settings</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+      <p>You can choose whether to allow notifications on this device.</p>
+      <p>If you share this device with other people, they may be able to see your notification.<br>
+      Read more about notifications in the <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/privacy/">NHS App privacy policy</a>.</p>
+
+      {% set checked %}
+        {% if data['notifications'] == "True" %}
+          Checked
+        {% else %}
+          nope
+        {% endif %}
+      {% endset %}
+
+      <form action="" method="post">
+        <div class="nhs-app-card">
+          <div class="nhs-app-card__inner" onclick="notificationToggle()">
+            <div>
+              <label for="notifications"><h2>Allow notifications</h2></label>
+              <p class="nhsuk-u-margin-bottom-1 nhsuk-u-margin-top-1 nhsuk-u-margin-right-7">I accept the NHS App sending notifications on this device</p>
+              <input class="toggle_notifications" type="checkbox" id="notifications" name="notifications" value="on" {{ checked }}>
+              <input class="nhsuk-u-visually-hidden" type="submit" value="Submit">
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <p><a href="#">Manage how notifications are shown on this device (opens your device settings)</a></p>
+
+
+    </div>
+  </div>
+{% endblock %}

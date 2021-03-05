@@ -39,18 +39,34 @@ display: none;
 }
 
 .nhsuk-details__summary:hover {
-background-color: #ffeb3b !important;
-box-shadow: 0 0 0 8px #ffeb3b !important;
+background-color: transparent !important;
+box-shadow: none !important;
+color: #7C2855 !important;
 }
 .nhsuk-expander .nhsuk-details__summary:hover {
-    box-shadow: 0 0 0 4px #ffeb3b !important;
-    background-color: transparent !important;
+    box-shadow: transparent !important;
+    background-color: none !important;
+    color: #7C2855 !important;
 }
 
+.nhsuk-details__summary-text:hover {
+  color: #7C2855 !important;
+}
+
+.nhsuk-details__summary:focus {
+  box-shadow: none !important;
+  background-color: #ffeb3b !important;
+  color: #000000 !important;
+  border-bottom: 3px solid #000000;
+}
+
+
+
+
 a:hover {
-    background-color: #ffeb3b !important;
-    box-shadow: 0 0 0 4px #ffeb3b !important;
-    color: #000000 !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    color: #7C2855 !important;
     text-decoration: none;
 }
 .list-menu li a:focus, .list-menu li a:hover{

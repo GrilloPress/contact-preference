@@ -206,10 +206,11 @@ router.post('/app/prescriptions/v9-acute-tpp/nominated-pharmacy-1', function (re
 
 router.post('/app/prescriptions/v9-acute-tpp/repeat-or-acute', function (req, res) {
 let answer = req.body.prescriptionType;
+let nontpp = req.session.data.nonTPP;
   if (answer === 'repeat') {
     res.redirect('/app/prescriptions/v9-acute-tpp/select-medicine-to-renew-3')
   }
-  else if (answer === 'acute'){
+  else if (answer === 'acute' && nontpp === 'False'){
     res.redirect('/app/prescriptions/v9-acute-tpp/urgentWarning')
   }
   else {

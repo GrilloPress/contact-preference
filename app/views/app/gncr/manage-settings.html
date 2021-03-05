@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/gncr" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Manage your settings for this service" %}
+{% set contentTitle = "Manage your preferences for this service" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -22,8 +22,13 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Settings</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
-  </div>
+    </div>
 </nav>
+<div class="nhsuk-width-container">
+<div class="nhs-app-provider-banner">
+<strong>This service is provided by your hospital</strong>
+</div>
+</div>
 {% endblock %}
 
 {% block content %}
