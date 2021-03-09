@@ -34,8 +34,11 @@ $('div.nhsuk-summary-list__row').each(function() {
   <p class="nhsuk-u-margin-bottom-0">Hospital</p>
 
 {% elif data['whoPrescribed'] == 'other' %}
-
+  {% if data['whoPrescribedOther'] %}
   <p class="nhsuk-u-margin-bottom-0">{{ data['whoPrescribedOther'] }}</p>
+  {% else %}
+  <p class="nhsuk-u-margin-bottom-0">Other</p>
+  {% endif %}
 
   {% elif data['whoPrescribed'] == 'notPrescribed' %}
 

@@ -19,9 +19,12 @@ GP Surgery
 Hospital
 
 {% elif data['whoPrescribed'] == 'other' %}
+{% if data['whoPrescribedOther']  %}
 
 {{ data['whoPrescribedOther'] }}
-
+{% else %}
+Other
+{% endif %}
 {% elif data['whoPrescribed'] == 'notPrescribed' %}
 
 I have not had this item before
