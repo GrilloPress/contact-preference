@@ -154,6 +154,13 @@ router.get('/app/v11/clear', function (req, res) {
   res.redirect('/app/v11/splash')
 
 });
+
+router.get('/app/covid-status/clear', function (req, res) {
+
+  req.session.data = {}
+  res.redirect('/app/covid-status/splash')
+
+});
 // qualtrics message
 
 

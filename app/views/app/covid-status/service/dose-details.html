@@ -1,0 +1,84 @@
+{% set PROTOTYPEURL = "app/covid-status/service" %}
+{% set serviceName = "NHS App" %}
+{% set recordActive = "active" %}
+{% set contentTitle = "You have had 1 coronavirus vaccination dose" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ routeHome }}">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ routeRecords }}">Your health</a></li>
+
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" onClick="window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+
+
+      <div class="nhs-app-panel-heading">
+        <h2 class="nhsuk-heading-l">Dose details</h2>
+      </div>
+
+      <ul class="list-menu nhs-app-message">
+
+
+        <li class="no-chevron no-chevron--subtle">
+                    <div class="list-menu-container_prescriptions">
+                      <dl class="nhsuk-summary-list nhsuk-summary-list--no-border">
+                        <h3 class="nhsuk-heading-m">Dose 1 of 2</h3>
+
+
+                <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                Date of vaccination
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                {{ "-14" | returnDate }}
+                </dd>
+
+
+
+                </div>
+
+                <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                Manufacturer
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                Pfizer BioNTech
+                </dd>
+
+
+
+                </div>
+
+                </dl>
+                            </div>
+                            </li>
+
+
+
+    </div>
+  </div>
+{% endblock %}

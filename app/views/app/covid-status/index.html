@@ -1,0 +1,185 @@
+{% set PROTOTYPEURL = "app/v8" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Home" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% set homeActive = "active" %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<div class="app-corona__container app-corona__container--desktop nhs-app-desktop--show" style="margin-top:0px;">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <ul class="list-menu">
+          <li>
+              <a class="covid" href="/app/nhs-uk-screens/get-advice-covid">
+                <p class="nhsuk-body-s"><strong>Coronavirus (COVID-19)</strong></p>
+                <p class="nhsuk-body-s">Get information about coronavirus on NHS.UK</p>
+              </a>
+          </li>
+        </ul>
+  </div>
+  </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+    <div class="app-corona__container nhs-app-desktop--hide">
+      <ul class="list-menu">
+        <li>
+            <a href="/app/nhs-uk-screens/get-advice-covid">
+              <p class="nhsuk-body-s"><strong>Coronavirus (COVID-19)</strong></p>
+              <p class="nhsuk-body-s">Get information about coronavirus on NHS.UK</p>
+            </a>
+        </li>
+      </ul>
+    </div>
+
+    <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-2">{{ contentTitle }}</h1>
+    {{ summaryList({
+      classes: 'nhsuk-summary-list--no-border nhs-app-summary-list-inline',
+      rows: [
+        {
+          key: {
+            text: "Name:"
+          },
+          value: {
+            text: "Mrs Betty Doyle"
+          }
+        },
+        {
+          key: {
+            text: "Date of birth:"
+          },
+          value: {
+            text: "20 September 1982"
+          }
+        },
+        {
+          key: {
+            text: "NHS number:"
+          },
+          value: {
+            text: "123 456 7890"
+          }
+        }
+      ]
+    }) }}
+
+      {% if data["confirmed"] %}
+
+      <div class="nhs-app-panel-heading">
+        <h2 class="nhsuk-heading-m">Your next GP appointment</h2>
+      </div>
+
+      <ul class="list-menu list-menu-gp-appointment">
+
+            <li>
+              <a href='/app/appointments/v6/view/index?appViewDate={{ data["date"] or "5" | returnDate }}&appViewTime={{ data["time"] or "10.50am" }}&appViewLocation={{ data["location"] or "Gledhow Practice" }}&appViewType={{ data["type"] or "Slot" }}&appViewSession={{ data["sessionName"] or "Session" }}&appViewStaff={{ data["staffName"] or "Dr Sanjit Praneskear (Male)" }}'>
+
+                <h3 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">{{ data["date"] or "5" | returnDate }}</h3>
+                <p class="nhsuk-u-margin-bottom-0 nhsuk-u-padding-bottom-0 nhsuk-u-padding-top-0">{{ data["time"] or "10:50am" }}</p>
+                <p class="nhsuk-u-padding-bottom-2 nhsuk-u-padding-top-0">{{ data['location'] or "Gledhow Practice" }}</p>
+
+              </a>
+            </li>
+
+          </ul>
+
+          {% endif %}
+
+
+
+
+          <div class="nhs-app-panel-heading">
+            <h2 class="nhsuk-heading-m">Popular services</h2>
+          </div>
+
+        <ul class="list-menu nhsuk-u-padding-bottom-4">
+
+
+          <li class="nhs-app-message__item--unread-home">
+            <a class="desktop" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/?messagingIcon=False&messageRead1=unread&pkbMessaging=False" }}'>
+              View your messages
+                {% if (data['messageRead7'] == "unread") %}
+                <span class="nhs-app-message__meta">
+                  <span class="nhsuk-u-visually-hidden">You have </span>
+                  <span class="nhs-app-message__count-red-home"></span>
+                  <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                    unread messages
+                  </span>
+                </span>
+                {% endif %}
+
+            </a>
+          </li>
+
+
+                  {% if data['linkedProfiles'] === "True" %}
+                  <li>
+                    <a class="desktop" href="/app/linked-profiles/profiles-list">Linked profiles</a>
+                  </li>
+                  {% else %}
+                  <li>
+                    <a class="desktop" href="/app/linked-profiles/no-linked-profiles">Linked profiles</a>
+                  </li>
+                  {% endif %}
+
+
+          <li>
+            <a class="desktop" href="/app/records/v1/">View your GP health record</a>
+          </li>
+
+
+
+
+                {% if data['pickPharmacy'] %}
+
+                <li>
+                  <a class="desktop" href="/app/prescriptions/v7/check-pharmacy">Order a repeat prescription</a>
+                </li>
+
+
+
+                 {% else %}
+
+
+                <li>
+                  <a class="desktop" href="/app/prescriptions/v7/not-nominated-pharmacy">Order a repeat prescription</a>
+                </li>
+
+
+
+                {% endif %}
+
+
+
+
+
+
+            </ul>
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+{% endblock %}
