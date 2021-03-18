@@ -3229,3 +3229,36 @@ $nhsuk-checkbox-hover-color: $color_nhsuk-grey-3;
 .nhsuk-action-link__link-covid {
   padding: 4px 2em 4px 2.5em!important;
 }
+
+
+
+.nhsuk-card {
+  margin-bottom: 40px;
+  background: #ffffff;
+  border: 1px solid #d8dde0;
+  position: relative;
+  width: 100%; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-card {
+      margin-bottom: 48px; } }
+.nhsuk-card__img {
+  border-bottom: 1px solid #f0f4f5;
+  display: block;
+  width: 100%; }
+  @media print {
+    .nhsuk-card__img {
+      display: none; } }
+.nhsuk-card__content {
+  padding: 24px;
+  position: relative; }
+  .nhsuk-card__content > *:first-child {
+    margin-top: 0; }
+  .nhsuk-card__content > *:last-child {
+    margin-bottom: 0; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-card__content {
+      padding: 32px; } }
+.nhsuk-card__heading,
+.nhsuk-card__metadata,
+.nhsuk-card__description {
+  margin-bottom: 16px; }
