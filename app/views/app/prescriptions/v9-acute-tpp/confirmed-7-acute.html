@@ -79,27 +79,44 @@ No notes added
       {{ contentTitle }}
     </h1>
 
-
-
     <h2 class="nhsuk-heading-l">Your request</h2>
 
-    <div class="app-card" aria-label="Confirmation of what we sent to your GP">
+    <div class="app-card">
       <div class="app-card__wrapper">
-
-          <div class="app-card__content">
-        <p class="nhsuk-u-margin-bottom-1">Who last prescribed this item to you?</p>
-        <p class="nhs-app-secondary-text">{{ whoPrescribed }}</p>
-        <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-2">
-
-          <p class="nhsuk-u-margin-bottom-1">What prescription item do you need?</p>
-          <p class="nhs-app-secondary-text">{{ whatMedication }}</p>
-          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-2">
-
-          <p class="nhsuk-u-margin-bottom-1">Why do you need this item?</p>
-          <p class="nhs-app-secondary-text">{{ whyMedication }}</p>
-          <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-2">
+        <div class="app-card__content">
+        <dl class="nhsuk-summary-list">
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+          <p class="nhsuk-u-margin-bottom-1">Who last prescribed this item to you?</p>
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+      <p class="nhs-app-secondary-text">{{ whoPrescribed }}</p>
+        </dd>
+        <br>
         </div>
 
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+        <p class="nhsuk-u-margin-bottom-1">What prescription item do you need?</p>
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+          <p class="nhs-app-secondary-text">{{ whatMedication }}</p>
+          </dd>
+          <br>
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+            <p class="nhsuk-u-margin-bottom-1">Why do you need this item?</p>
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+            <p class="nhs-app-secondary-text">{{ whyMedication }}</p>
+            </dd>
+            <br>
+            </div>
+            </dl>
+
+        </div>
       </div>
     </div>
 

@@ -8,9 +8,16 @@
   <div class="app-card">
     <div class="app-card__wrapper">
       <div class="app-card__content">
+        <dl class="nhsuk-summary-list">
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
   <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+  </dt>
+  <dd class="nhsuk-summary-list__value">
   <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
-  <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-2">
+</dd>
+</div>
+</dl>
 </div>
 </div>
 </div>
@@ -20,9 +27,16 @@
   <div class="app-card">
     <div class="app-card__wrapper">
       <div class="app-card__content">
+        <dl class="nhsuk-summary-list">
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
   <p class="nhsuk-u-margin-bottom-0">Alogliptin 25mg tablets</p>
+  </dt>
+  <dd class="nhsuk-summary-list__value">
   <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
-  <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-2">
+  </dd>
+  </div>
+  </dl>
 </div>
 </div>
 </div>
@@ -32,9 +46,16 @@
   <div class="app-card">
     <div class="app-card__wrapper">
       <div class="app-card__content">
+        <dl class="nhsuk-summary-list">
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
   <p class="nhsuk-u-margin-bottom-0">Metformin 500mg tablets</p>
+  </dt>
+  <dd class="nhsuk-summary-list__value">
   <p class="nhs-app-secondary-text">One to be taken 4 times a day with food - 112 tablet</p>
-  <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-2">
+  </dd>
+  </div>
+  </dl>
 </div>
 </div>
 </div>
@@ -44,9 +65,16 @@
   <div class="app-card">
     <div class="app-card__wrapper">
       <div class="app-card__content">
+        <dl class="nhsuk-summary-list">
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
   <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+  </dt>
+  <dd class="nhsuk-summary-list__value">
   <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
-  <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-2">
+  </dd>
+  </div>
+  </dl>
 </div>
 </div>
 </div>
@@ -66,25 +94,47 @@
     <div class="app-card">
       <div class="app-card__wrapper">
         <div class="app-card__content">
+          <dl class="nhsuk-summary-list">
       {% for item in data['choosePrescription'] %}
       {% if item == 'omeprazole' %}
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
       <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+      </dt>
+      <dd class="nhsuk-summary-list__value">
       <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+      </dd>
+      </div>
       {% elif item == 'alogliptin' %}
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
       <p class="nhsuk-u-margin-bottom-0">Alogliptin 25mg tablets</p>
+      </dt>
+      <dd class="nhsuk-summary-list__value">
       <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
-      <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-2">
+      </dd>
+      </div>
       {% elif item == 'metformin' %}
-      <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-2">
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
       <p class="nhsuk-u-margin-bottom-0">Metformin 500mg tablets</p>
+      </dt>
+      <dd class="nhsuk-summary-list__value">
       <p class="nhs-app-secondary-text">One to be taken 4 times a day with food - 112 tablet</p>
+      </dd>
+      </div>
       {% else %}
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
       <p class="nhsuk-u-margin-bottom-0">Omeprazole 40mg gastro-resistant capsules</p>
+      </dt>
+      <dd class="nhsuk-summary-list__value">
       <p class="nhs-app-secondary-text">One to be taken each day - 28 tablet</p>
+      </dd>
+      </div>
       {% endif %}
       {% endfor %}
-      <hr class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-2">
-
+      </dl>
     </div>
   </div>
 </div>
