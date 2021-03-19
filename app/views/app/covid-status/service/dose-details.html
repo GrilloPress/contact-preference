@@ -1,0 +1,109 @@
+{% set PROTOTYPEURL = "app/covid-status/service" %}
+{% set serviceName = "NHS App" %}
+{% set recordActive = "active" %}
+{% set contentTitle = "You have had 1 coronavirus vaccine dose" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ routeHome }}">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ routeRecords }}">Your health</a></li>
+
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" onClick="window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+
+
+            <h2>Vaccine details</h2>
+
+            <div class="nhsuk-card">
+              <div class="nhsuk-card__content">
+                <h3 class="nhsuk-card__heading">First dose</h3>
+                <div class="nhsuk-card__description">
+                  <dl class="nhsuk-summary-list nhsuk-summary-list--no-border">
+                    <div class="nhsuk-summary-list__row">
+                      <dt class="nhsuk-summary-list__key">
+                        Date of vaccine
+                      </dt>
+                      <dd class="nhsuk-summary-list__value">
+                        Monday 6 February 2021
+                      </dd>
+                    </div>
+                    <div class="nhsuk-summary-list__row">
+                      <dt class="nhsuk-summary-list__key">
+                        Name of vaccine
+                      </dt>
+                      <dd class="nhsuk-summary-list__value">
+                        Pfizer BioNTech
+                      </dd>
+                    </div>
+                    <div class="nhsuk-summary-list__row">
+                      <dt class="nhsuk-summary-list__key">
+                        Batch number
+                      </dt>
+                      <dd class="nhsuk-summary-list__value">
+                        ABC12345
+                      </dd>
+                    </div>
+                    <div class="nhsuk-summary-list__row">
+                      <dt class="nhsuk-summary-list__key">
+                        Administering centre
+                      </dt>
+                      <dd class="nhsuk-summary-list__value">
+                        NHS England - 1542 Dapdune House Surgery
+                      </dd>
+                    </div>
+                  </dl>
+
+                  <div class="nhsuk-action-link nhsuk-u-margin-bottom-0">
+                    <a class="nhsuk-action-link__link" href="/app/covid-status/mhra">
+                      <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+                      </svg>
+                      <span class="nhsuk-action-link__text">Report a side effect of the coronavirus vaccine</span>
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="nhsuk-card">
+              <div class="nhsuk-card__content">
+                <h3 class="nhsuk-card__heading">
+                  Second dose
+                </h3>
+                <p class="nhsuk-card__description">You have not had your second dose yet.</a></p>
+              </div>
+            </div>
+            
+            <p><a href="/app/covid-status/what-expect-covid">Find out what to expect after your COVID-19 vaccination at GOV.UK</a></p>
+
+    </div>
+  </div>
+{% endblock %}

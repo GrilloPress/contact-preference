@@ -1,0 +1,53 @@
+{% set PROTOTYPEURL = "app/covid-status" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Check your coronavirus vaccine record" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        {{ contentTitle }}
+      </h1>
+
+
+
+
+<h2 class="nhsuk-heading-m">Versions</h2>
+
+
+            <ul>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/stakeholder-demo/iframe-live">Stakeholder demo iframe view</a>
+              </li>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/stakeholder-demo/start-live-icons">Stakeholder demo no iframe</a>
+              </li>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/iframe">Usability testing iframe</a>
+              </li>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/start-screen-new">Usability testing no iframe</a>
+              </li>
+            </ul>
+
+
+    </div>
+  </div>
+{% endblock %}

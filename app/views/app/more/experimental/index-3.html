@@ -71,7 +71,7 @@
         </li>
 
         <li>
-          <a href="https://www.nhs.uk/using-the-nhs/nhs-services/the-nhs-app/help/">
+          <a href="/app/nhs-uk-screens/app-help-support">
             <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Help and support</h2>
             </a>
         </li>
@@ -126,6 +126,14 @@
                 <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Log out">
                 </input>
               </form>
+
+
+              {% elif data["Covid_Status"] == "True" %}
+
+                      <form action="/app/covid-status/clear" method="post">
+                        <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Log out">
+                        </input>
+                      </form>
 
 
         {% else %}
