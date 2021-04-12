@@ -1,0 +1,88 @@
+{% set PROTOTYPEURL = "app/covid-status/status-service" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Delivery options" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script>
+function myFunction() {
+  document.getElementById("email-sent").innerHTML = "Email has been successfully sent";
+}
+</script>
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="">Coronavirus (COVID-19) hub</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+<div class="nhs-app-provider-banner">
+<div class="nhsuk-width-container">
+<strong>Department of Health and Social Care provide this service</strong>
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+
+
+      <p>You have successfully created a QR code to show your covid status to a 3rd party. You can download it as a .pdf, or we can email it to you. Alternatively, you can request a keycode to give a 3rd party access to your covid test and vaccination record.</p>
+
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Download as a .pdf
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>Store on your phone or print-out, as you prefer.</p>
+          <form action="/{{ PROTOTYPEURL }}/qr-code" method="post">
+          <button class="nhsuk-button" type="submit">
+        Download
+      </button>
+      </form>
+        </div>
+      </details>
+
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+          Receive by email
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>We'll send it to your email address - please confirm the address you want us to use:</p>
+          <div class="nhsuk-form-group">
+            <input class="nhsuk-input nhsuk-input--width-20" id="input-width-20" name="test-width-20" type="text" value="kevin.leach@emails.com">
+          </div>
+          <button class="nhsuk-button" onclick="myFunction()" type="submit">
+            Send to email
+      </button>
+      <p id="email-sent"></p>
+      </details>
+
+
+    </div>
+  </div>
+{% endblock %}

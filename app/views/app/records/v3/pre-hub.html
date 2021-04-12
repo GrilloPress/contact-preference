@@ -35,7 +35,11 @@
       <ul class="list-menu">
 
 
-
+        {% if data['Covid_Status'] === 'True' %}
+          <li>
+            <a class="desktop" href="/app/covid-status/covid-hub">Coronavirus (COVID-19) hub</a>
+          </li>
+        {% endif %}
 
 
         {% if data['SJR_PKB'] === 'True' %}
@@ -122,15 +126,7 @@
                   </a>
                 </li>
 
-                {% if data['Covid_Status'] === 'True' %}
 
-                <li>
-                  <a href="/app/covid-status/service/dose-details">
-                    <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Check your coronavirus vaccine record</h2>
-                    <p>Find out which vaccine you had, when you had it and how many doses</p>
-                  </a>
-                </li>
-                {% endif %}
 
 
       <li>

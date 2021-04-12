@@ -280,6 +280,33 @@ router.post('/app/organ-donation/v2/change-radios', function (req, res) {
 });
 
 
+
+router.post('/app/covid-status/status-service/accept-terms', function (req, res) {
+
+  let acceptCovidTerms = req.body.acceptCovidTerms;
+
+  if (acceptCovidTerms) {
+
+    res.redirect('/app/covid-status/status-service/covid-records?acceptCovidTermsError=')
+
+  } else {
+
+    var errorURL = "";
+
+    if (acceptCovidTerms) {
+
+      errorURL += "acceptCovidTermsError=&"
+
+    } else {
+       errorURL += "acceptCovidTermsError=True&"
+    }
+
+    res.redirect('/app/covid-status/status-service/accept-terms?' + errorURL )
+  }
+
+});
+
+
 //////   IMPORTANT  /////////////////////////////////////////////////////////////////
 //
 //           !Your routes have moved!

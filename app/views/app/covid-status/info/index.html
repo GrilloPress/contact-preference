@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/covid-status" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Check your coronavirus vaccine record" %}
+{% set contentTitle = "Covid status prototypes" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -27,25 +27,76 @@
       </h1>
 
 
+      <hr>
+
+      <h2 class="nhsuk-heading-m">Versions</h2>
+
+                  <ul>
+                    <li>
+                      <a href="/{{ PROTOTYPEURL }}/stakeholder-demo/iframe-live">Stakeholder demo iframe view</a>
+                    </li>
+                    <li>
+                      <a href="/{{ PROTOTYPEURL }}/stakeholder-demo/start-live-icons">Stakeholder demo no iframe</a>
+                    </li>
+                    <li>
+                      <a href="/{{ PROTOTYPEURL }}/iframe">Usability testing iframe</a>
+                    </li>
+                    <li>
+                      <a href="/{{ PROTOTYPEURL }}/start-screen-new">Usability testing no iframe</a>
+                    </li>
+                  </ul>
 
 
-<h2 class="nhsuk-heading-m">Versions</h2>
+      <h2>Check your COVID-19 record</h2>
 
 
-            <ul>
-              <li>
-                <a href="/{{ PROTOTYPEURL }}/stakeholder-demo/iframe-live">Stakeholder demo iframe view</a>
-              </li>
-              <li>
-                <a href="/{{ PROTOTYPEURL }}/stakeholder-demo/start-live-icons">Stakeholder demo no iframe</a>
-              </li>
-              <li>
-                <a href="/{{ PROTOTYPEURL }}/iframe">Usability testing iframe</a>
-              </li>
-              <li>
-                <a href="/{{ PROTOTYPEURL }}/start-screen-new">Usability testing no iframe</a>
-              </li>
-            </ul>
+      <h3>Current versions</h3>
+
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/service/dose-details">Dose details</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/service/hub">Hub exploration</a>
+        </li>
+      </ul>
+
+      <hr>
+
+      <h2>Share your COVID-19 status</h2>
+
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/status-service/covid-hub">Covid hub</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/status-service/terms">Blue interrupt card</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/status-service/agree-to-share">Agree to share your NHS login information</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/status-service/accept-terms">Accept terms</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/status-service/covid-records">Your covid records</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/status-service/delivery-options">Delivery options</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/status-service/qr-code">QR code</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/status-service/no-record">Find a missing record</a>
+        </li>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/status-service/cannot-create-code">Cannot create code</a>
+        </li>
+      </ul>
+
 
 
     </div>

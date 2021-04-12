@@ -1,0 +1,95 @@
+{% set PROTOTYPEURL = "app/covid-status/status-service" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Your covid records" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="">Coronavirus (COVID-19) hub</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+<div class="nhs-app-provider-banner">
+<div class="nhsuk-width-container">
+<strong>Department of Health and Social Care provide this service</strong>
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+
+
+      <p>Find test results and any records of vaccination we hold, below. If you have a valid test result or vaccination, you can create a QR code or sharing code.</p>
+
+
+      <p><a href="/{{ PROTOTYPEURL }}/no-record">Can't find a covid record?</a></p>
+
+
+      <form action="/{{ PROTOTYPEURL }}/delivery-options" method="post">
+        <input type="submit" class="nhsuk-button" value="Request code">
+        </input>
+      </form>
+
+
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h3 class="nhsuk-card__heading nhsuk-heading-s">19 March 2021 at 14:00  <span class="nhsuk-body-s pcr">PCR</span></h3>
+          <div class="nhsuk-card__description">
+
+        <p class="nhsuk-body-s">    <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+                  <path stroke-width="4" stroke-linecap="round" stroke="#007f3b" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+                </svg>Negative test. Covid not detected.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="nhsuk-card">
+  <div class="nhsuk-card__content">
+    <h3 class="nhsuk-card__heading nhsuk-heading-s">18 March 2021 at 6:00  <span class="nhsuk-body-s pcr">PCR</span></h3>
+    <div class="nhsuk-card__description">
+
+  <p class="nhsuk-body-s">    <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+            <path stroke-width="4" stroke-linecap="round" stroke="#007f3b" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+          </svg>Negative test. Covid not detected.</p>
+    </div>
+  </div>
+</div>
+
+<div class="nhsuk-card">
+  <div class="nhsuk-card__content">
+    <h3 class="nhsuk-card__heading nhsuk-heading-s">18 March 2021 at 5:00  <span class="nhsuk-body-s pcr">PCR</span></h3>
+    <div class="nhsuk-card__description">
+
+  <p class="nhsuk-body-s">    <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+            <path stroke-width="4" stroke-linecap="round" stroke="#007f3b" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+          </svg>Negative test. Covid not detected.</p>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+{% endblock %}

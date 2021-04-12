@@ -1,0 +1,87 @@
+{% set PROTOTYPEURL = "app/covid-status/status-service" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "We're unable to create a code for you" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="">Coronavirus (COVID-19) hub</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+<div class="nhs-app-provider-banner">
+<div class="nhsuk-width-container">
+<strong>Department of Health and Social Care provide this service</strong>
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+
+            <div class="nhsuk-u-reading-width">
+              <p class="nhsuk-body">It looks like we can't issue a QR code. This may be bacause you have not met the requirements, or because we have the wrong details for you. Check what you can do, below:</p>
+
+          </div>
+
+          <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Check your covid status is valid
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              <p>To get a code, you must meet the current requirements. You cannot create a code if you have tested positive for covid in the last 10 days, or if you have no valid test or vaccine records. You can visit the .gov website <a href="">to review the current requirements in full.</a></p>
+            </div>
+          </details>
+
+          <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Check your details
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              <p>Compare the details you've given us with the details on each test result or vaccination card you hold:</p>
+              <ul>
+                <li>Name: <strong>Kevin LEACH</strong></li>
+                <li>Details: <strong>kevin.leach@emails.com</strong></li>
+                <li>Date of birth: <strong>08 Aug 1921</strong></li>
+              </ul>
+              <p>If you need to try again with different details, use the end session button above to start again with the details shown in your test results or on your vaccination card.</p>
+            </div>
+          </details>
+
+          <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Not yet tested or vaccinated?
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              <p>If you have not taken a test recently and have not been vaccinated, you will be unable to create a code. You can <a href="">arrange a covid test</a> or find our more about <a href="">your eligibility for a vaccine.</a></p>
+            </div>
+          </details>
+
+    </div>
+  </div>
+{% endblock %}

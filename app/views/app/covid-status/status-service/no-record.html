@@ -1,0 +1,94 @@
+{% set PROTOTYPEURL = "app/covid-status/status-service" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Find a missing record" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="">Coronavirus (COVID-19) hub</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+<div class="nhs-app-provider-banner">
+<div class="nhsuk-width-container">
+<strong>Department of Health and Social Care provide this service</strong>
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+
+
+
+
+              <p>Firstly, check the details you have entered here match the details shown in your test results message or on your vaccination card:</p>
+
+              <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information:</span>
+        <p class="nhsuk-u-margin-bottom-2">Do your details match the details on your results message or card?</p>
+        <p class="nhsuk-u-margin-bottom-2"><strong>Name: Kevin Leach</strong></p>
+        <p class="nhsuk-u-margin-bottom-2"><strong>Details: kevin.leach@emails.com</strong></p>
+        <p class="nhsuk-u-margin-bottom-2"><strong>Date of birth: 08 Aug 1921</strong></p>
+        <p class="nhsuk-u-margin-bottom-2"><strong>NHS number: 9658218881</strong></p>
+      </div>
+
+
+      <p>If there's a mismatch, please use the end session button to clear your data, and start again with the correct details.</p>
+
+      <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            I have been tested or vaccinated but this app found no record
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>First, confirm that the details above match the details shown in your test results message or your vaccination card. If they do, it might be missing from NHS records. Please refer to your tester or vaccine provider for more information. You can <a href="">arrange a covid test</a>, <a href="">arrange an antibody test</a> or find out more about <a href="">your eligibility for a vaccine.</a></p>
+        </div>
+      </details>
+
+      <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            I can only see some of my covid records
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>If you registered for your testing or vaccination using different registration details, the details you've entered will not reveal those. Check each result message or vaccination card. You can log out and re-login using different details. You can <a href="">arrange a covid test</a>, <a href="">arrange an antibody test</a> or find out more about <a href="">your eligibility for a vaccine.</a></p>
+        </div>
+      </details>
+
+      <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            I have not been tested or vaccinated, yet
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>For testing <a href="">refer to the guidance about NHS testing.</a> For vaccination, <a href="">refer to the guidance about getting the coronavirus vaccine.</a> Then log back in with the correct details.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+{% endblock %}

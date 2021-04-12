@@ -3262,3 +3262,44 @@ $nhsuk-checkbox-hover-color: $color_nhsuk-grey-3;
 .nhsuk-card__metadata,
 .nhsuk-card__description {
   margin-bottom: 16px; }
+
+
+  .pcr {
+  float: right;
+  font-weight:normal;
+}
+
+.nhsuk-icon__tick {
+    stroke: #007f3b;
+    margin-bottom: -10px;
+}
+
+
+.app-email {
+
+  max-width: 600px;
+  margin: 0 auto;
+
+  .nhsuk-width-container {
+
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.app-email__body {
+
+  background-color: #fdfdfd;
+}
+
+
+.screenshot {
+
+  max-width: 100%;
+  height: auto;
+
+  @include mq($from: tablet) {
+    height: auto;
+  }
+
+}
