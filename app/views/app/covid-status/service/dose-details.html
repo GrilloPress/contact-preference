@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/covid-status/service" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
-{% set contentTitle = "You have had 1 coronavirus vaccine dose" %}
+{% set contentTitle = "Your COVID-19 vaccines" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -35,12 +35,8 @@
         {{ contentTitle }}
       </h1>
 
-
-            <h2>Vaccine details</h2>
-
-            <div class="nhsuk-card">
-              <div class="nhsuk-card__content">
-                <h3 class="nhsuk-card__heading">First dose</h3>
+            <div class="nhsuk-card nhsuk-u-margin-bottom-4">
+              <div class="nhsuk-card__content nhsuk-u-padding-bottom-0">
                 <div class="nhsuk-card__description">
                   <dl class="nhsuk-summary-list nhsuk-summary-list--no-border">
                     <div class="nhsuk-summary-list__row">
@@ -69,7 +65,7 @@
                     </div>
                     <div class="nhsuk-summary-list__row">
                       <dt class="nhsuk-summary-list__key">
-                        Administering centre
+                        Location
                       </dt>
                       <dd class="nhsuk-summary-list__value">
                         NHS England - 1542 Dapdune House Surgery
@@ -82,15 +78,6 @@
             </div>
 
 
-
-            <div class="nhsuk-card">
-              <div class="nhsuk-card__content">
-                <h3 class="nhsuk-card__heading">
-                  Second dose
-                </h3>
-                <p class="nhsuk-card__description">You have not had your second dose yet.</a></p>
-              </div>
-            </div>
 
             <p><a href="/app/covid-status/mhra">Report a side effect of the coronavirus vaccine</a></p>
 
