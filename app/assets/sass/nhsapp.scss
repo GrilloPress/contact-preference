@@ -3303,3 +3303,80 @@ $nhsuk-checkbox-hover-color: $color_nhsuk-grey-3;
   }
 
 }
+
+
+
+
+.covid-record {
+  border-top: 1px #D8DDE0 solid;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1em;
+  font-size: 1em;
+
+
+
+
+   li {
+      background-color: white !important;
+      margin-bottom: .2em;
+      border-bottom: 1px #D8DDE0 solid;
+      margin-left: 0em;
+      box-sizing: border-box;
+      background: #f0f4f5;
+      background-position: right 1em center;
+      position: relative;
+      font-weight: 600;
+      padding: 10.5px 2em 4px 1em;
+      min-height: 46px;
+      display: block;
+
+
+      a {
+        margin-bottom: 0;
+        color: #212b32;
+        text-decoration: none  !important;
+        margin: 0em;
+        font-weight: 600;
+        min-height: 46px;
+        display: block;
+      }
+      a:hover {
+      box-shadow: 0 0 0 4px #ffeb3b !important;
+      background-color: transparent !important;
+      color: #005eb8 !important;
+    }
+    a:focus {
+    box-shadow: 0 0 0 4px #ffeb3b !important;
+    background-color: transparent !important;
+    color: #005eb8 !important;
+  }
+  a:hover h2 {
+  text-decoration: underline;
+}
+
+  }
+
+  p {
+    margin-bottom: 0;
+    padding-right: 3em;
+    color: #212b32;
+    text-decoration: none  !important;
+    padding-bottom: 6px;
+    font-weight: 500;
+  }
+
+
+  h2 {
+    margin: 0em;
+    padding-right: 1em;
+    padding-bottom: 6px;
+    color: #005eb8;
+}
+}
+
+@media (max-width: 48.0525em) {
+.covid-record {
+    margin: 0 -1em 0;
+}
+}
