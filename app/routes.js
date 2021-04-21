@@ -306,6 +306,31 @@ router.post('/app/covid-status/status-service/accept-terms', function (req, res)
 
 });
 
+router.post('/app/covid-status/status-service-v2/accept-terms', function (req, res) {
+
+  let acceptCovidTerms = req.body.acceptCovidTerms;
+
+  if (acceptCovidTerms) {
+
+    res.redirect('/app/covid-status/status-service-v2/covid-records?acceptCovidTermsError=')
+
+  } else {
+
+    var errorURL = "";
+
+    if (acceptCovidTerms) {
+
+      errorURL += "acceptCovidTermsError=&"
+
+    } else {
+       errorURL += "acceptCovidTermsError=True&"
+    }
+
+    res.redirect('/app/covid-status/status-service-v2/accept-terms?' + errorURL )
+  }
+
+});
+
 
 //////   IMPORTANT  /////////////////////////////////////////////////////////////////
 //

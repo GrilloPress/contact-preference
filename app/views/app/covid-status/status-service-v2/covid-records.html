@@ -1,0 +1,107 @@
+{% set PROTOTYPEURL = "app/covid-status/status-service-v2" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Your COVID-19 test and vaccine records" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="">Coronavirus (COVID-19) hub</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+<div class="nhs-app-provider-banner">
+<div class="nhsuk-width-container">
+<strong>Department of Health and Social Care provide this service</strong>
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+
+
+      <div class="nhsuk-u-reading-width">
+          <p class="nhsuk-body">View details of your COVID-19 test results and vaccinations.</p>
+
+          <h2>Share your COVID-19 status</h2>
+
+          <p>You can get a QR code to share proof of your COVID-19 status with travel and event organisers.</p>
+
+          <p>To get a QR code, you must have:</p>
+
+          <ul>
+            <li>a recent negative COVID-19 test result (within the last 48 hours) showing COVID-19 not detected; or</li>
+            <li>been given both COVID-19 vaccine doses, with the 2nd dose given over 21 days ago</li>
+          </ul>
+
+
+      </div>
+
+
+      <form action="/{{ PROTOTYPEURL }}/delivery-options" method="post">
+        <input type="submit" class="nhsuk-button" value="Get a QR code">
+        </input>
+      </form>
+
+
+        <h2>Your records</h2>
+
+        <p><a href="/app/covid-status/status-service-v2/no-record">Missing test or vaccine records</a></p>
+
+
+
+<div class="nhsuk-card">
+  <div class="nhsuk-card__content">
+    <h3 class="nhsuk-card__heading">27 December 2020 at 9.13am</h3>
+    <div class="nhsuk-card__description">
+        <p class="nhsuk-u-margin-bottom-2">Vaccination</p>
+        <p class="nhsuk-u-margin-bottom-0">Pfizer-BioNTech COVID-19 vaccine</p>
+    </div>
+  </div>
+</div>
+
+<div class="nhsuk-card">
+  <div class="nhsuk-card__content">
+    <h3 class="nhsuk-card__heading">7 April 2021 at 10am</h3>
+    <div class="nhsuk-card__description">
+        <p class="nhsuk-u-margin-bottom-2">Negative test result (COVID-19 not detected)</p>
+        <p class="nhsuk-u-margin-bottom-0">PCR</p>
+    </div>
+  </div>
+</div>
+
+<div class="nhsuk-card">
+  <div class="nhsuk-card__content">
+    <h3 class="nhsuk-card__heading">7 April 2021 at 10.30am</h3>
+    <div class="nhsuk-card__description">
+        <p class="nhsuk-u-margin-bottom-2">Positive test result (COVID-19 detected)</p>
+        <p class="nhsuk-u-margin-bottom-0">Lateral flow test</p>
+    </div>
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+{% endblock %}
