@@ -37,7 +37,9 @@
 
       <h1>Saving your information</h1>
       <div class="nhsuk-loader">
-        <p class="nhsuk-loader__text_please-wait">Please wait...</p>
+        <p class="nhsuk-loader__text_done">      <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+      </svg><br>Saved</p>
         <span class="nhsuk-loader__spinner"></span>
       </div>
 
@@ -51,7 +53,7 @@
     $(document).ready(function () {
         // Handler for .ready() called.
         window.setTimeout(function () {
-            location.href = "/app/covid-status/new-user-flow/p9/saving-done";
+            location.href = "/app/covid-status/new-user-flow/p9/thank-you";
         }, 2500);
     });
   </script>

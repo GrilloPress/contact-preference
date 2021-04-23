@@ -1,5 +1,6 @@
 {% set PROTOTYPEURL = "app/covid-status/status-service-v2" %}
 {% set serviceName = "NHS App" %}
+{% set recordActive = "active" %}
 {% set contentTitle = "Get a QR code" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -74,7 +75,7 @@ function myFunction() {
         <div class="nhsuk-details__text">
           <p>Please confirm your email address:</p>
           <div class="nhsuk-form-group">
-            <input class="nhsuk-input nhsuk-input--width-20" id="input-width-20" name="test-width-20" type="text" value="kevin.leach@emails.com">
+            <input class="nhsuk-input nhsuk-input--width-20" id="input-width-20" name="test-width-20" type="text" value="betty.doyle@hotmail.com">
           </div>
           <button class="nhsuk-button" onclick="myFunction()" type="submit">
             Confirm and send email

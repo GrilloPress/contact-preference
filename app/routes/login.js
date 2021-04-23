@@ -61,7 +61,7 @@ router.post('/app/covid-status/new-user-flow/login/know-nhs-number', function (r
 
   if (answer === 'yes') {
 
-    res.redirect('/app/covid-status/new-user-flow/login/enter-nhs-number')
+    res.redirect('/app/covid-status/new-user-flow/login/enter-date-of-birth')
 
   } else {
     res.redirect('/app/covid-status/new-user-flow/login/enter-full-name')

@@ -1,7 +1,11 @@
 {% set PROTOTYPEURL = "app/covid-status/service" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
+{% if data['vaccinated'] === 'True' %}
 {% set contentTitle = "Your COVID-19 vaccine record" %}
+{% else %}
+{% set contentTitle = "We could not find your vaccination details" %}
+{% endif %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -35,51 +39,14 @@
         {{ contentTitle }}
       </h1>
 
+      {% if data['vaccinated'] === 'True' %}
+
       <div class="nhs-app-panel-heading">
         <h2 class="nhsuk-heading-l">Your vaccinations</h2>
       </div>
 
 
-
-
             <ul class="covid-record nhsuk-u-margin-bottom-6">
-            <li>
-              <dl class="nhsuk-summary-list nhsuk-summary-list--no-border nhsuk-u-margin-bottom-0">
-                <div class="nhsuk-summary-list__row">
-                  <dt class="nhsuk-summary-list__key">
-                    Date of vaccine
-                  </dt>
-                  <dd class="nhsuk-summary-list__value">
-                      Friday 19 March 2021
-                  </dd>
-                </div>
-                <div class="nhsuk-summary-list__row">
-                  <dt class="nhsuk-summary-list__key">
-                    Name of vaccine
-                  </dt>
-                  <dd class="nhsuk-summary-list__value">
-                    Pfizer BioNTech
-                  </dd>
-                </div>
-                <div class="nhsuk-summary-list__row">
-                  <dt class="nhsuk-summary-list__key">
-                    Batch number
-                  </dt>
-                  <dd class="nhsuk-summary-list__value">
-                    ABC12345
-                  </dd>
-                </div>
-                <div class="nhsuk-summary-list__row">
-                  <dt class="nhsuk-summary-list__key">
-                    Location
-                  </dt>
-                  <dd class="nhsuk-summary-list__value">
-                    NHS England - 1542 Dapdune House Surgery
-                  </dd>
-                </div>
-              </dl>
-            </li>
-
             <li>
               <dl class="nhsuk-summary-list nhsuk-summary-list--no-border nhsuk-u-margin-bottom-0">
                 <div class="nhsuk-summary-list__row">
@@ -142,6 +109,27 @@
                 </a>
               </li>
             </ul>
+
+
+            {% else %}
+
+
+                  <p>This can be for one of the following reasons:</p>
+
+                  <ul>
+                    <li>we cannot find your vaccine record</li>
+                    <li>your vaccine record is not up to date</li>
+                    <li>you have not had a vaccine in England</li>
+                    <li>you had a vaccine as part of a trial</li>
+                    <li>you have not had a vaccine</li>
+                  </ul>
+
+                  <p><a href="#">Contact us</a></p>
+
+
+
+            {% endif %}
+
 
 
     </div>

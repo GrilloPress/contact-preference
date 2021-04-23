@@ -44,7 +44,7 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb_sticky_sticky" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
@@ -63,51 +63,66 @@
       <form action="/{{ PROTOTYPEURL }}/know-nhs-number?experiment=True&p5=true&Covid_Status=True&SJR_PKB=&SJR_Substrakt=&cookies=on&routeHome=/app/covid-status/new-user-flow/index&routeSymptoms=/app/symptoms/v4/index&routeAppointments=/app/p5/appointments&routeMore=/app/p5/more&routeMessaging=/app/messaging/v3/index&routePrescriptions=/app/p5/prescriptions&linkedProfiles=False&organDonationShow=False&routeRecords=/app/p5/your-health&SJR_Engage=&SJR_DoctorLink=&SJR_eConsult=&experimentalHeader6=True&experimentalFooter6=True&experimentalHeaderDesktop=True&type=face&messageRead1=read&messageRead2=read&cardSeen=False&messageRead4=read&messageRead5=read&messageRead6=read&messageRead7=read&messageHide=True&pickPharmacy=Boots&address=32 Market St&city=Manchester&postcode=M1 1PL&phoneNumber=0161 832 6533&miles=0.2&nominatedConfirmed=true&pharmacyTypeOnline=community" method="post">
 
 
-        <h1 class="nhs-app-xl">
-          {{ contentTitle }}
-        </h1>
+
+          <div class="nhsuk-form-group">
+
+            <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+              <h1 class="nhsuk-fieldset__heading nhsuk-u-margin-bottom-4">Do you know your NHS number?</h1>
+              <p>Your NHS number is a 10 digit number, like 485 777 3456.</p>
+
+                                      <p>You can find it:</p>
+
+                                      <ul style="font-weight:normal;" class="nhsuk-u-margin-bottom-0">
+                                        <li>on any letter the NHS has sent you</li>
+                                        <li>on a prescription</li>
+                                        <li>by logging in to a GP surgery online service</li>
+                                      </ul>
+
+            </legend>
+
+            <div class="nhsuk-radios" data-module="radios">
+
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="nhs-1" name="knowNHSNumber" type="radio" value="yes" aria-controls="conditional-nhs-1" aria-expanded="false">
+                <label class="nhsuk-label nhsuk-radios__label" for="nhs-1">
+                Yes - I know my NHS number
+                </label>
+              </div>
+
+                <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-nhs-1">
 
 
-        {{ details({
-          "text": "How to find your NHS number",
-          "HTML": "
-          <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
-            <p>You can find your NHS number by logging in to a GP online service or on any document the NHS has sent you, such as your:</p>
-            <ul>
-                <li>prescriptions</li>
-                <li>test results</li>
-                <li>hospital referral letters</li>
-                <li>appointment letters</li>
-            </ul>
-            <p>Ask your GP surgery for help if you can't find your NHS number.</p>
-          "
-        }) }}
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label--m nhsuk-u-margin-bottom-2" for="example">
+              NHS number
+            </label>
+            <div class="nhsuk-hint" id="example-with-hint-text-hint">
+                Example: 485 777 3456
+              </div>
+            <input class="nhsuk-input" id="example" name="example" type="text">
+          </div>
 
-        {{ radios({
-  "idPrefix": "p5",
-  "name": "knowNHSNumber",
-  "fieldset": {
-    "legend": {
-    }
-  },
-  "items": [
-    {
-      "value": "yes",
-      "text": "Yes"
-    },
-    {
-      "value": "no",
-      "text": "No, continue without my NHS number"
-    }
-  ]
-}) }}
+                </div>
 
 
+              <div class="nhsuk-radios__item">
+                <input class="nhsuk-radios__input" id="nhs-2" name="knowNHSNumber" type="radio" value="no" aria-controls="conditional-nhs-2" aria-expanded="false">
+                <label class="nhsuk-label nhsuk-radios__label" for="nhs-2">
+                  No - continue another way
+                </label>
+              </div>
 
 
-      <input type="submit" class="nhsuk-button full-width" value="Continue">
-      </input>
-    </form>
+            </div>
+            </fieldset>
+
+          </div>
+
+
+          <input type="submit" class="nhsuk-button full-width" style= "text-align: center;" value="Continue">
+          </input>
+        </form>
 
 
 

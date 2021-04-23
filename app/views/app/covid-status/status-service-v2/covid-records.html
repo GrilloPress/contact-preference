@@ -1,5 +1,6 @@
 {% set PROTOTYPEURL = "app/covid-status/status-service-v2" %}
 {% set serviceName = "NHS App" %}
+{% set recordActive = "active" %}
 {% set contentTitle = "Your COVID-19 test and vaccine records" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -70,7 +71,7 @@
 
         <div class="nhsuk-card">
           <div class="nhsuk-card__content">
-            <h3 class="nhsuk-card__heading">7 April 2021 at 10am</h3>
+            <h3 class="nhsuk-card__heading">23 April 2021 at 10am</h3>
             <div class="nhsuk-card__description">
                 <p class="nhsuk-u-margin-bottom-2">Negative test result (COVID-19 not detected)</p>
                 <p class="nhsuk-u-margin-bottom-0">PCR</p>
@@ -78,16 +79,18 @@
           </div>
         </div>
 
-
+        {% if data['vaccinated'] === 'True' %}
 <div class="nhsuk-card">
   <div class="nhsuk-card__content">
-    <h3 class="nhsuk-card__heading">27 December 2020 at 9.13am</h3>
+    <h3 class="nhsuk-card__heading">6 February 2021 at 10.26am</h3>
     <div class="nhsuk-card__description">
         <p class="nhsuk-u-margin-bottom-2">Vaccination</p>
         <p class="nhsuk-u-margin-bottom-0">Pfizer-BioNTech COVID-19 vaccine</p>
     </div>
   </div>
 </div>
+{% else %}
+{% endif %}
 
 
 
