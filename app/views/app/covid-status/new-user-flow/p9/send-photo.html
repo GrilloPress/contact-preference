@@ -1,0 +1,155 @@
+{% set PROTOTYPEURL = "app/covid-status/new-user-flow/login" %}
+{% set serviceName = "NHS login" %}
+{% set contentTitle = "Send a photo of your ID" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+
+</header>
+
+  {{ header({
+    "transactionalService": {
+        "name": "",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="first-item">
+
+
+
+<p><a href="/app/covid-status/new-user-flow/p9/how-to-prove" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> How to prove who you are</a></p>
+
+
+      <div class="reading-width">
+
+
+
+        <form action="/app/covid-status/new-user-flow/p9/choose-how" method="post">
+
+
+        <h1 class="nhs-app-xl"><span class="heading-secondary">Step 1 of 3 </span>Send a photo of your I.D.</h1>
+
+
+
+
+        <div class="nhsuk-form-group">
+
+  <fieldset class="nhsuk-fieldset">
+    <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m">
+      <h2 class="nhsuk-fieldset__heading">
+        Choose the I.D. you want to use
+      </h2>
+    </legend>
+
+    <div class="nhsuk-radios">
+
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-1" name="send-photo" type="radio" value="passport">
+        <label class="nhsuk-label nhsuk-radios__label" style="font-size: 20px;" for="example-1">
+          Passport
+        </label>
+      </div>
+
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-2" name="send-photo" type="radio" value="driving">
+        <label class="nhsuk-label nhsuk-radios__label" style="font-size: 20px;" for="example-2">
+          UK driving licence (full or provisional)
+        </label>
+      </div>
+
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-2" name="send-photo" type="radio" value="european">
+        <label class="nhsuk-label nhsuk-radios__label" style="font-size: 20px;" for="example-2">
+          European driving licence (full)
+        </label>
+        <p class="form-label__hint" id="hintId" style="padding: 0px 12px 4px;">You will need to send 2 photos - 1 of the front and 1 of the back</p>
+      </div>
+
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-2" name="send-photo" type="radio" value="national-identity">
+        <label class="nhsuk-label nhsuk-radios__label" style="font-size: 20px;" for="example-2">
+          European national identity card
+        </label>
+        <p class="form-label__hint" id="hintId" style="padding: 0px 12px 4px;">You will need to send 2 photos - 1 of the front and 1 of the back</p>
+      </div>
+
+    </div>
+  </fieldset>
+
+</div>
+
+
+            <input type="submit" class="nhsuk-button full-width" style="font-size: 20px; text-align: center;" value="Continue">
+            </input>
+          </form>
+
+          <p class="login-link"><a href="#">How to prove who you are without sending a photo of your I.D.</a></p>
+
+          </div>
+
+        </form>
+
+
+        <!--<p class=""><a href="service-access-no-documents?service=undefined&amp;serviceName=undefined&amp;emailAddress=undefined&amp;mobileNum=undefined&amp;formerror=undefined&amp;idType=undefined&amp;hidehead=undefined&amp;devMode=undefined&amp;returnUrl=undefined&amp;genericButton=undefined&amp;manual=undefined&amp;uplift=undefined">I don't have a photo ID document.</a></p>-->
+
+
+
+      </div>
+
+    </div>
+
+    </div>
+  </div>
+  {% endblock %}
+
+  {% block footer %}
+
+  <footer role="contentinfo" style="position: relative;">
+  <div class="global-footer">
+    <div class="global-footer__inner__no-logo ">
+      <ul class="link-list">
+
+        <li>
+          <a href="https://nhs-login.herokuapp.com/set-up/v8/legal/terms?service=app6&amp;serviceName=NHS app&amp;lsId=undefined&amp;lsAccess=undefined&amp;lsStudy=undefined&amp;devMode=false&amp;returnUrl=undefined&amp;mobileNum=&amp;system=undefined&amp;hidehead=undefined&amp;loggedin=undefined&amp;manual=undefined&amp;uplift=true" target="_blank" title="Terms of use">Terms of use</a>
+        </li>
+        <li>
+          <a href="https://nhs-login.herokuapp.com/set-up/v8/legal/cookies?service=app6&amp;serviceName=NHS app&amp;lsId=undefined&amp;lsAccess=undefined&amp;lsStudy=undefined&amp;devMode=false&amp;returnUrl=undefined&amp;mobileNum=&amp;system=undefined&amp;hidehead=undefined&amp;loggedin=undefined&amp;manual=undefined&amp;uplift=true" target="_blank" title="Cookies">Cookies</a>
+        </li>
+        <li>
+          <a href="/terms-of-use/v2/accessibility?service=app6&amp;serviceName=NHS app&amp;lsId=undefined&amp;lsAccess=undefined&amp;lsStudy=undefined&amp;devMode=false&amp;returnUrl=undefined&amp;mobileNum=&amp;system=undefined&amp;hidehead=undefined&amp;loggedin=undefined&amp;manual=undefined&amp;uplift=true" title="Accessibility">Accessibility</a>
+        </li>
+        <li>
+          <a href="https://help.login.nhs.uk/" title="Help Centre">Help Centre</a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</footer>
+{% endblock %}

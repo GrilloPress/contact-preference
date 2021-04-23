@@ -32,20 +32,21 @@
 
 
       <ul class="list-menu">
+        {% if data['Covid_Status'] === "True" %}
+        <li>
+          <a href="/app/covid-status/new-user-flow/p9/prove-you-are">
+            <h2 class="nhsuk-heading-s">Prove who you are</h2>
+              <p>You’ll need to prove who you are before you can book appointments</p>
+          </a>
+        </li>
+        {% else %}
         <li>
           <a href="#">
             <h2 class="nhsuk-heading-s">Prove who you are</h2>
               <p>You’ll need to prove who you are before you can book appointments</p>
           </a>
         </li>
-
-      <li>
-        <a href="/app/olc-hub/olc-hub">
-          <h2 class="nhsuk-heading-s">Ask your GP for advice</h2>
-            <p>Get advice from your GP about your symptoms or get admin help</p>
-        </a>
-      </li>
-
+        {% endif %}
     </ul>
 
 

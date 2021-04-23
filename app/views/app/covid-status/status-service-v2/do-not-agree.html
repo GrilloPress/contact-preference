@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/covid-status/status-service-v2" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Agree to share your NHS login information" %}
+{% set contentTitle = "You need to accept terms and conditions to continue" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -25,36 +25,22 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
+<div class="nhs-app-provider-banner">
+<div class="nhsuk-width-container">
+<strong>Department of Health and Social Care provide this service</strong>
+</div>
+</div>
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+
+                <p>You cannot use this service if you have not accepted the terms and conditions<p>
 
 
-
-      <p>To continue, you need to agree to share your NHS login information with <strong>‘Share your COVID-19 status’</strong>.</p>
-
-      <p><strong>'Share your COVID-19 status'</strong> will use your:</p>
-      <ul>
-        <li>NHS number</li>
-        <li>date of birth</li>
-        <li>first name</li>
-        <li>last name</li>
-        <li>email address</li>
-        <li>mobile number</li>
-      </ul>
-
-      <p>Read the terms of use and privacy policy for this service to check how your information will be used.</p>
-
-      <form action="/{{ PROTOTYPEURL }}/accept-terms" method="get">
-        <input type="submit" class="nhsuk-button" value="I agree">
-        </input>
-      </form>
-
-      <p><a href="">I do not agree to share this information</a></p>
 
     </div>
   </div>

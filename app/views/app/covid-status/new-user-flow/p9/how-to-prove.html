@@ -1,0 +1,116 @@
+{% set PROTOTYPEURL = "app/covid-status/new-user-flow/login" %}
+{% set serviceName = "NHS login" %}
+{% set contentTitle = "Enter your full name" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+
+</header>
+
+  {{ header({
+    "transactionalService": {
+        "name": "",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="page-section">
+
+
+  <div class="first-item">
+
+
+  <div class="first-item">
+
+
+
+
+  	<p><a href="/app/covid-status/new-user-flow/p9/prove-you-are" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> You need to prove who you are</a></p>
+
+
+
+
+  	<div class="reading-width">
+  		<h1 class="nhs-app-xl">How to prove who you are</h1>
+  		<p class="login_p">You will need 1 of the following types of photo I.D:</p>
+  		<ul class="login_p">
+  			<li>passport</li>
+  			<li>UK driving licence (full or provisional)</li>
+  			<li>European driving licence (full)</li>
+  			<li>European national identity card</li>
+  		</ul>
+  		<p class="login_p">We will help you send a photo of your I.D. online, to prove who you are.</p>
+
+  		<p class="login-link"><a href="#">How to prove who you are without sending a photo of your I.D.</a></p>
+  	</div>
+
+
+
+    <form action="/app/covid-status/new-user-flow/p9/please-wait-2" method="post">
+
+    <input type="submit" class="nhsuk-button full-width" style="font-size: 20px; text-align: center;" value="Choose the I.D. you want to use">
+    </input>
+  </form>
+
+  </div>
+
+
+  </div>
+
+
+      </div>
+
+    </div>
+  </div>
+  {% endblock %}
+
+  {% block footer %}
+
+  <footer role="contentinfo" style="position: relative;">
+  <div class="global-footer">
+    <div class="global-footer__inner__no-logo ">
+      <ul class="link-list">
+
+        <li>
+          <a href="https://nhs-login.herokuapp.com/set-up/v8/legal/terms?service=app6&amp;serviceName=NHS app&amp;lsId=undefined&amp;lsAccess=undefined&amp;lsStudy=undefined&amp;devMode=false&amp;returnUrl=undefined&amp;mobileNum=&amp;system=undefined&amp;hidehead=undefined&amp;loggedin=undefined&amp;manual=undefined&amp;uplift=true" target="_blank" title="Terms of use">Terms of use</a>
+        </li>
+        <li>
+          <a href="https://nhs-login.herokuapp.com/set-up/v8/legal/cookies?service=app6&amp;serviceName=NHS app&amp;lsId=undefined&amp;lsAccess=undefined&amp;lsStudy=undefined&amp;devMode=false&amp;returnUrl=undefined&amp;mobileNum=&amp;system=undefined&amp;hidehead=undefined&amp;loggedin=undefined&amp;manual=undefined&amp;uplift=true" target="_blank" title="Cookies">Cookies</a>
+        </li>
+        <li>
+          <a href="/terms-of-use/v2/accessibility?service=app6&amp;serviceName=NHS app&amp;lsId=undefined&amp;lsAccess=undefined&amp;lsStudy=undefined&amp;devMode=false&amp;returnUrl=undefined&amp;mobileNum=&amp;system=undefined&amp;hidehead=undefined&amp;loggedin=undefined&amp;manual=undefined&amp;uplift=true" title="Accessibility">Accessibility</a>
+        </li>
+        <li>
+          <a href="https://help.login.nhs.uk/" title="Help Centre">Help Centre</a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</footer>
+{% endblock %}

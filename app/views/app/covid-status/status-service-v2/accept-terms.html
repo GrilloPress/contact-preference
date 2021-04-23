@@ -36,50 +36,48 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      {% if data['acceptCovidTermsError'] == 'True' %}
-      {{ errorSummary({
-        "titleText": "There is a problem",
-        "errorList": [
-          {
-            "text": "Accept terms and conditions",
-            "href": "#acceptCovidTerms"
-          } if data['acceptCovidTermsError']
-        ]
-        }) }}
-      {% endif %}
+            {% if data['acceptCovidTermsTwoError'] == 'True' %}
+            {{ errorSummary({
+              "titleText": "There is a problem",
+              "errorList": [
+                {
+                  "text": "Accept terms and conditions",
+                  "href": "#acceptCovidTermsTwo"
+                } if data['acceptCovidTermsTwoError']
+              ]
+              }) }}
+            {% endif %}
 
 
-      <form action="/{{ PROTOTYPEURL }}/accept-terms" method="post">
+            <form action="/{{ PROTOTYPEURL }}/accept-terms" method="post">
+
+            {{ checkboxes({
+              "idPrefix": "acceptCovidTermsTwo",
+              "name": "acceptCovidTermsTwo",
+              "fieldset": {
+                "legend": {
+                  "text": contentTitle,
+                  "classes": "nhsuk-fieldset__legend--xl nhs-app-xl",
+                  isPageHeading: true
+                }
+              },
+              "errorMessage": {
+                  "text": "Accept terms and conditions"
+                } if data['acceptCovidTermsTwoError'],
+              "items": [
+                {
+                  "value": "yes",
+                  "text": "I understand and accept the terms of use and privacy policy"
+                }
+              ]
+            }) }}
 
 
+              <input type="submit" class="nhsuk-button" value="Continue">
+              </input>
+            </form>
 
-      {{ checkboxes({
-        "idPrefix": "acceptCovidTerms",
-        "name": "acceptCovidTerms",
-        "fieldset": {
-          "legend": {
-            "text": contentTitle,
-            "classes": "nhsuk-fieldset__legend--xl nhs-app-xl",
-            isPageHeading: true
-          }
-        },
-        "errorMessage": {
-            "text": "Accept terms and conditions"
-          } if data['acceptCovidTermsError'],
-        "items": [
-          {
-            "value": "yes",
-            "text": "I understand and accept the terms and conditions"
-          }
-        ]
-      }) }}
-
-
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
-      </form>
-
-      <p><a href="">I do not accept</a></p>
+            <p><a href="/{{ PROTOTYPEURL }}/do-not-agree">I do not agree</a></p>
 
     </div>
   </div>

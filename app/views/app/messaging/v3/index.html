@@ -33,6 +33,10 @@
 
       <ul class="list-menu nhs-app-message-hub">
 
+
+        {% if data['Covid_Status'] === "True" %}
+        {% else %}
+
         {% if data['SJR_IM1_Messaging'] === "False" %}
 
         {% else %}
@@ -58,6 +62,8 @@
           </a>
         </li>
         {% endif %}
+        {% endif %}
+
 
         {% if data['SJR_Engage'] === "True" %}
         <li>
@@ -93,7 +99,7 @@
 
 
         <li>
-          <a href="messages">
+          <a href="/app/messaging/v3/messages-none">
             <h2 class="nhsuk-heading-s">Health information and updates</h2>
             {% if (data['messageRead7'] == "unread") %}
                 <span class="nhs-app-message__meta panel-link">

@@ -3380,3 +3380,409 @@ $nhsuk-checkbox-hover-color: $color_nhsuk-grey-3;
     margin: 0 -1em 0;
 }
 }
+
+@media (min-width: 20em) {
+.nhsuk-button.full-width {
+    width: 100%;
+}
+}
+@media (max-width: 40.0525em) {
+.nhsuk-button {
+    padding: 8px 16px;
+}
+}
+@media (min-width: 40.0625em) {
+.nhsuk-button.full-width {
+    width: auto;
+}
+}
+
+
+
+.nhsuk-loader {
+  @include nhsuk-responsive-margin(4, bottom);
+  @include nhsuk-responsive-margin(6, top);
+
+  position: relative;
+  text-align: center;
+}
+
+.nhsuk-loader__text {
+  left: 42.5%;
+  position: absolute;
+  top: 42%;
+  z-index: 1;
+}
+
+.nhsuk-loader__text_done {
+  left: 44.5%;
+  position: absolute;
+  top: 32%;
+  z-index: 1;
+}
+
+.nhsuk-loader__text_please-wait {
+  left: 36.5%;
+  position: absolute;
+  top: 42%;
+  z-index: 1;
+}
+
+.nhsuk-loader__spinner {
+  animation: spin 2s linear infinite;
+  background-color: $color_nhsuk-white;
+  border: nhsuk-spacing(3) solid darken(#f0f4f5, 10%);
+  border-radius: 50%;
+  border-top: nhsuk-spacing(3) solid tint($color_nhsuk-green, 15%);
+  display: inline-block;
+  height: 12em;
+  margin: auto;
+  width: 12em;
+
+
+  @include mq($from: tablet) {
+    height: 15em;
+    width: 15em;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+.intructions {
+    background-color: #005eb8;
+    padding: 16px;
+    color: #fff;
+}
+
+
+.global-footer {
+    background-color: #d8dde0;
+    border-top: 4px solid #005EB8;
+    color: #425563;
+    width: 100%;
+}
+
+.global-footer__inner__no-logo {
+    margin: 0 16px;
+    max-width: 960px;
+    padding-bottom: 96px;
+    padding-top: 32px;
+}
+
+.global-footer * {
+    font-family: Frutiger W01;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-transform: none;
+}
+
+.link-list {
+    list-style: none;
+    padding-left: 0;
+}
+.global-footer a:active, .global-footer a:hover, .global-footer a:link, .global-footer a:visited {
+    color: #425563;
+}
+
+.intructions .heading-large {
+    color: #fff;
+    padding-bottom: 16px;
+}
+
+.intructions_details {
+    font-family: Frutiger W01;
+    font-size: 20px !important;
+    font-weight: 400;
+    line-height: 32px;
+    text-transform: none;
+}
+
+
+.intructions p {
+    font-family: Frutiger W01;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    text-transform: none;
+}
+
+.intructions b {
+    color: #fff;
+}
+
+.intructions a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.button--information {
+  font-family: Frutiger W01;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 32px;
+      text-transform: none;
+      -webkit-font-smoothing: antialiased;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-color: #fff;
+      border: 0;
+      -webkit-box-shadow: 0 2px 0 #d9d9d9;
+      box-shadow: 0 2px 0 #d9d9d9;
+      cursor: pointer;
+      display: inline-block;
+      letter-spacing: .5px;
+      line-height: 1.25;
+      outline: 1px solid transparent;
+      outline-offset: -1px;
+      padding: 12px 24px;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      width: 100%;
+      border-radius: 0;
+      color: #231f20 !important;
+}
+
+.link-back {
+    display: inline-block;
+    position: relative;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 14px;
+    line-height: 1.1428571429;
+    padding-left: 14px;
+    color: #0b0c0c!important;
+    text-decoration: none;
+    border-bottom: 1px solid #0b0c0c;
+}
+
+.link-back:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-right: 6px solid #0b0c0c;
+    border-bottom: 5px solid transparent;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -6px;
+}
+
+.login-link {
+    font-family: Frutiger W01;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32px;
+    text-transform: none;
+}
+
+.login_p {
+    font-family: Frutiger W01;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32px;
+    text-transform: none;
+}
+
+
+.button {
+    font-family: Frutiger W01;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 32px;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #007f3b;
+    border: 0;
+    -webkit-box-shadow: 0 2px 0 #003317;
+    box-shadow: 0 2px 0 #003317;
+    cursor: pointer;
+    display: inline-block;
+    letter-spacing: .5px;
+    line-height: 1.25;
+    outline: 1px solid transparent;
+    outline-offset: -1px;
+    padding: 12px 24px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    border-radius: 0;
+    color: #fff;
+}
+a.button {
+    display: block;
+    font-family: "FrutigerLTW01-55Roman", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.125em;
+    line-height: 1.125em;
+    color: #ffffff;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.625em;
+    background-color: #005EB8;
+    border: none;
+    border-radius: 0.125em;
+    box-shadow: 0em 0.125em 0em 0em #003087;
+    margin-bottom: 1.250em;
+    outline: none;
+    transition: all ease 0.5s;
+    cursor: pointer;
+}
+.button:before {
+    background: transparent;
+    content: "";
+    display: block;
+    height: 110%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+
+.heading-secondary {
+    padding-top: 4px;
+    padding-bottom: 6px;
+    font-size: 24px;
+    line-height: 1.11111;
+    font-family: nta,Arial,sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    display: block;
+    color: #6f777b;
+}
+
+legend {
+    display: block;
+}
+
+legend {
+    font-family: Frutiger W01;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32px;
+    text-transform: none;
+    color: #231f20;
+    display: table;
+    padding: 0;
+}
+
+
+.block-label.selection-button-radio {
+    position: relative;
+    width: 100%;
+}
+
+.block-label {
+    display: block;
+    position: relative;
+    width: auto;
+    padding: 7px 0 7px 50px;
+    margin: 16px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.summary {
+    font-family: Frutiger W01;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32px;
+    text-transform: none;
+    color: #005eb8;
+    cursor: pointer;
+    display: inline-block;
+    padding-left: 28px;
+    margin-bottom: em(5);
+    position: relative;
+}
+
+.summary_white {
+    font-family: Frutiger W01;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32px;
+    text-transform: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    padding-left: 28px;
+    margin-bottom: em(5);
+    position: relative;
+}
+
+.callout--infonew {
+    background-color: transparent;
+    max-width: 44em;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.callout--instructions {
+    background-color: transparent;
+    border-left: 12px solid #fff;
+    border-color: #fff;
+    padding: 0 32px;
+}
+
+
+
+
+.summary:before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+    -webkit-clip-path: polygon(0 0,100% 50%,0 100%);
+    clip-path: polygon(0 0,100% 50%,0 100%);
+    border-width: 7px 0 7px 12.124px;
+    border-left-color: #005eb8;
+}
+
+.details__summary {
+    text-decoration: underline;
+}
+
+.callout--friendly {
+    border-left: 12px solid #005eb8;
+    max-width: 44em;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    padding: 16px;
+}
+
+
+.intructions .heading-secondary {
+    color: hsla(0,0%,100%,.8);
+}
+
+.heading-secondary {
+    padding-top: 4px;
+    padding-bottom: 6px;
+    font-size: 24px;
+    line-height: 1.11111;
+    font-family: nta,Arial,sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    display: block;
+    color: #6f777b;
+}

@@ -1,0 +1,116 @@
+{% set PROTOTYPEURL = "app/covid-status/new-user-flow/login" %}
+{% set serviceName = "NHS login" %}
+{% set contentTitle = "Do you know your NHS number?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+<header class="app-interruption-header" style="margin-bottom: 0; border-top: none; background-color: #005eb8;">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <a href="/app/v10-p5/clear">
+          <svg class="nhsuk-icon nhsuk-icon__close app-icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style=" fill: #fff;">
+                    <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
+                  </svg>
+                  <span style="color: #fff; position: absolute;padding-top: 18px;padding-left: 4px;"> Close </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+  {{ header({
+    "transactionalService": {
+        "name": "Register for the NHS App",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+      <form action="/{{ PROTOTYPEURL }}/know-nhs-number?experiment=True&p5=true&Covid_Status=True&SJR_PKB=&SJR_Substrakt=&cookies=on&routeHome=/app/covid-status/new-user-flow/index&routeSymptoms=/app/symptoms/v4/index&routeAppointments=/app/p5/appointments&routeMore=/app/p5/more&routeMessaging=/app/messaging/v3/index&routePrescriptions=/app/p5/prescriptions&linkedProfiles=False&organDonationShow=False&routeRecords=/app/p5/your-health&SJR_Engage=&SJR_DoctorLink=&SJR_eConsult=&experimentalHeader6=True&experimentalFooter6=True&experimentalHeaderDesktop=True&type=face&messageRead1=read&messageRead2=read&cardSeen=False&messageRead4=read&messageRead5=read&messageRead6=read&messageRead7=read&messageHide=True&pickPharmacy=Boots&address=32 Market St&city=Manchester&postcode=M1 1PL&phoneNumber=0161 832 6533&miles=0.2&nominatedConfirmed=true&pharmacyTypeOnline=community" method="post">
+
+
+        <h1 class="nhs-app-xl">
+          {{ contentTitle }}
+        </h1>
+
+
+        {{ details({
+          "text": "How to find your NHS number",
+          "HTML": "
+          <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
+            <p>You can find your NHS number by logging in to a GP online service or on any document the NHS has sent you, such as your:</p>
+            <ul>
+                <li>prescriptions</li>
+                <li>test results</li>
+                <li>hospital referral letters</li>
+                <li>appointment letters</li>
+            </ul>
+            <p>Ask your GP surgery for help if you can't find your NHS number.</p>
+          "
+        }) }}
+
+        {{ radios({
+  "idPrefix": "p5",
+  "name": "knowNHSNumber",
+  "fieldset": {
+    "legend": {
+    }
+  },
+  "items": [
+    {
+      "value": "yes",
+      "text": "Yes"
+    },
+    {
+      "value": "no",
+      "text": "No, continue without my NHS number"
+    }
+  ]
+}) }}
+
+
+
+
+      <input type="submit" class="nhsuk-button full-width" value="Continue">
+      </input>
+    </form>
+
+
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,110 @@
+{% set PROTOTYPEURL = "app/covid-status/new-user-flow/login" %}
+{% set serviceName = "NHS login" %}
+{% set contentTitle = "Take a photo of your passport" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+
+</header>
+
+  {{ header({
+    "transactionalService": {
+        "name": "",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="page-section">
+
+
+
+<p><a href="/app/covid-status/new-user-flow/p9/choose-how" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Choose how to send a photo of your I.D.</a></p>
+
+
+  	<div class="reading-width">
+
+              <form action="/app/covid-status/new-user-flow/p9/open-camera" method="post">
+
+                <h1 class="nhs-app-xl">Take a photo of your passport</h1>
+
+              <p class="login_p">We need a clear photo of the page in your passport that has your name and face on it.</p>
+
+                <p class="login_p">When you take your photo make sure:</p>
+
+
+                <ul class="">
+                  <li class="login_p">your photo is of the whole page</li>
+                  <li class="login_p">you can see all words, numbers and codes</li>
+                  <li class="login_p">there is no reflection or shine from a bright light</li>
+                  <li class="login_p">the text is not blurred</li>
+                </ul>
+
+                  <input type="submit" class="nhsuk-button full-width" style="font-size: 20px; text-align: center;" value="Open camera">
+                  </input>
+                </form>
+
+                </div>
+
+              </form>
+  </div>
+
+
+  </div>
+
+
+      </div>
+
+    </div>
+  </div>
+  {% endblock %}
+
+  {% block footer %}
+
+  <footer role="contentinfo" style="position: relative;">
+  <div class="global-footer">
+    <div class="global-footer__inner__no-logo ">
+      <ul class="link-list">
+
+        <li>
+          <a href="https://nhs-login.herokuapp.com/set-up/v8/legal/terms?service=app6&amp;serviceName=NHS app&amp;lsId=undefined&amp;lsAccess=undefined&amp;lsStudy=undefined&amp;devMode=false&amp;returnUrl=undefined&amp;mobileNum=&amp;system=undefined&amp;hidehead=undefined&amp;loggedin=undefined&amp;manual=undefined&amp;uplift=true" target="_blank" title="Terms of use">Terms of use</a>
+        </li>
+        <li>
+          <a href="https://nhs-login.herokuapp.com/set-up/v8/legal/cookies?service=app6&amp;serviceName=NHS app&amp;lsId=undefined&amp;lsAccess=undefined&amp;lsStudy=undefined&amp;devMode=false&amp;returnUrl=undefined&amp;mobileNum=&amp;system=undefined&amp;hidehead=undefined&amp;loggedin=undefined&amp;manual=undefined&amp;uplift=true" target="_blank" title="Cookies">Cookies</a>
+        </li>
+        <li>
+          <a href="/terms-of-use/v2/accessibility?service=app6&amp;serviceName=NHS app&amp;lsId=undefined&amp;lsAccess=undefined&amp;lsStudy=undefined&amp;devMode=false&amp;returnUrl=undefined&amp;mobileNum=&amp;system=undefined&amp;hidehead=undefined&amp;loggedin=undefined&amp;manual=undefined&amp;uplift=true" title="Accessibility">Accessibility</a>
+        </li>
+        <li>
+          <a href="https://help.login.nhs.uk/" title="Help Centre">Help Centre</a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</footer>
+{% endblock %}
