@@ -1,0 +1,113 @@
+{% set PROTOTYPEURL = "app/covid-status/service" %}
+{% set serviceName = "NHS App" %}
+{% set recordActive = "active" %}
+{% set contentTitle = "Your COVID-19 vaccine record" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ routeHome }}">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="{{ routeRecords }}">Your health</a></li>
+
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" onClick="window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+
+
+      <div class="nhs-app-panel-heading">
+        <h2 class="nhsuk-heading-l">Your vaccinations</h2>
+      </div>
+
+
+            <ul class="covid-record nhsuk-u-margin-bottom-6">
+            <li>
+              <dl class="nhsuk-summary-list nhsuk-summary-list--no-border nhsuk-u-margin-bottom-0">
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Date of vaccine
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    Monday 6 February 2021
+                  </dd>
+                </div>
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Name of vaccine
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    Pfizer BioNTech
+                  </dd>
+                </div>
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Batch number
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    CBA54321
+                  </dd>
+                </div>
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Location
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    NHS England - 1542 Dapdune House Surgery
+                  </dd>
+                </div>
+              </dl>
+            </li>
+
+          </ul>
+
+
+          <h2>What you can do next</h2>
+
+
+
+            <ul class="list-menu">
+              <li>
+                <a href="/app/covid-status/status-service-v2/terms">
+                <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Share your COVID-19 status</h2>
+                <p>Get a QR code to share your COVID-19 status with travel and event organisers</p>
+                </a>
+              </li>
+              <li>
+                <a href="/app/covid-status/mhra">
+                <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Report a side effect of the coronavirus vaccine</h2>
+                </a>
+              </li>
+              <li>
+                <a href="/app/covid-status/what-expect-covid">
+                <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Find out what to expect after your COVID-19 vaccination at GOV.UK</h2>
+                </a>
+              </li>
+            </ul>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
