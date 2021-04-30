@@ -37,11 +37,23 @@
 
         {% if data['Covid_Status'] === 'True' %}
 
+        {% if data['stakeholderDemo'] === 'True' %}
+
+        <li>
+          <a href="/app/covid-status/stakeholder-demo/service/dose-details-2-dose">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Check your COVID-19 vaccine record</h2>
+            <p>View your vaccination details, like the name and batch number, and report any side effects you have experienced</p>
+          </a>
+        </li>
+
+        {% else %}
+
           <li>
             <a href="/app/covid-status/covid-hub">
               <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Coronavirus (COVID-19) services</h2>
             </a>
           </li>
+        {% endif %}
         {% endif %}
 
 
