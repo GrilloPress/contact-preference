@@ -1,0 +1,132 @@
+{% set PROTOTYPEURL = "app/covid-status/status-service-v3" %}
+{% set serviceName = "NHS App" %}
+{% set recordActive = "active" %}
+{% set contentTitle = "Your COVID-19 status" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script>
+$("#showEmail").click(function(){
+ $(".email").toggleClass("show");
+ $(".card-with-chevron-up-expanded").toggleClass("rotate");
+});
+</script>
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="">Coronavirus (COVID-19) hub</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+<div class="nhs-app-provider-banner">
+<div class="nhsuk-width-container">
+<strong>Department of Health and Social Care provide this service</strong>
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+
+
+      <div class="nhsuk-u-reading-width">
+          <p class="nhsuk-body">You need to show this when asked by officials. Check the entry requirements for your destination before you travel.</p>
+          <p class="nhsuk-body">It is your responsibility to ensure data is correct and to not undertake activities based on data known to be inaccurate.</p>
+
+
+      </div>
+
+
+
+
+        <div class="nhsuk-card_no-bottom-border nhsuk-u-margin-bottom-0">
+          <div class="nhsuk-card__content">
+            <h3 class="nhsuk-card__heading nhsuk-u-margin-bottom-1">Betty Doyle</h3>
+            <p>Date of birth: 20 September 1982</p>
+          </div>
+        </div>
+
+        <div class="nhsuk-card_green">
+
+
+
+          <div class="nhsuk-card__content-extra-padding card-with-chevron-right-white">
+
+            <a class="covid-link" href="/{{ PROTOTYPEURL }}/your-details">
+
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Colour-scheme" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-tick">
+            <circle id="Oval" fill="#FFFFFF" cx="13" cy="13" r="13"></circle>
+            <polyline id="Path" stroke="#007F3B" stroke-width="4" stroke-linecap="round" points="19.8 9 11.3 17.4 7 13.2"></polyline>
+        </g>
+    </g>
+</svg>
+<h3 class="nhsuk-card__heading covid-status_heading">Show details</h3>
+
+</a>
+
+</div>
+
+          </div>
+
+
+
+        <div class="nhsuk-card nhsuk-u-margin-bottom-2">
+          <div class="nhsuk-card__content_less-padding">
+            <a class="covid-link" href="/{{ PROTOTYPEURL }}/qr-code">
+            <h3 class="nhsuk-card__heading-covid nhsuk-heading-s nhsuk-u-margin-bottom-1">Download PDF copy</h3>
+          </a>
+          </div>
+        </div>
+
+
+
+
+
+        <div class="nhsuk-card nhsuk-u-margin-bottom-2">
+          <div class="nhsuk-card__content_less-padding card-with-chevron-down-expanded">
+            <a id="showEmail" class="covid-link card-with-chevron-down-expanded nhsuk-link--no-visited-state" href="javascript:void(0);">
+            <h3 class="nhsuk-card__heading-covid nhsuk-heading-s nhsuk-u-margin-bottom-1">Receive an offline copy by email</h3>
+          </a>
+
+          <div class="email nhsuk-u-margin-top-4">
+          <div class="nhsuk-card__description covid-card__description">
+            <div class="nhsuk-form-group">
+              <label class="nhsuk-label covid-label" for="input-width-20">
+                Please confirm your email address:
+              </label>
+              <input class="nhsuk-input nhsuk-input--width-20" id="input-width-20" name="test-width-20" type="text">
+            </div>
+            <button class="nhsuk-button nhsuk-u-margin-bottom-1" type="submit">
+              Confirm and send email
+            </button>
+          </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+{% endblock %}

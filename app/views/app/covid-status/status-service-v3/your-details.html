@@ -1,0 +1,290 @@
+{% set PROTOTYPEURL = "app/covid-status/status-service-v3" %}
+{% set serviceName = "NHS App" %}
+{% set recordActive = "active" %}
+{% set contentTitle = "Your details" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script>
+function myFunction() {
+  document.getElementById("email-sent").innerHTML = "Email has been successfully sent";
+}
+</script>
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="">Coronavirus (COVID-19) hub</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+<div class="nhs-app-provider-banner">
+<div class="nhsuk-width-container">
+<strong>Department of Health and Social Care provide this service</strong>
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+      {{ summaryList({
+        classes: 'nhsuk-summary-list--no-border nhs-app-summary-list-inline',
+        rows: [
+          {
+            key: {
+              text: "Name:"
+            },
+            value: {
+              text: "Mrs Betty Doyle"
+            }
+          },
+          {
+            key: {
+              text: "Date of birth:"
+            },
+            value: {
+              text: "20 September 1982"
+            }
+          }
+        ]
+      }) }}
+
+      <div class="nhsuk-u-margin-bottom-4" style="text-align: center;">
+      <img src="/images/qr-code-image.png" alt="Image of a QR code" width="200" height="200">
+    </div>
+
+      <div class="nhsuk-card nhsuk-u-margin-bottom-0">
+        <div class="nhsuk-card__content_less-padding-black card-with-chevron-down-expanded">
+          <h3 class="nhsuk-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-1">Pfizer-BioNTech COVID-19 vaccine</h3>
+          <p>Dose 2 of 2</p>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-u-margin-bottom-4" style="border-top: none;">
+        <div class="nhsuk-card__content_less-padding-black">
+          <p class="nhsuk-u-margin-bottom-0">2 April 2021</p>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="nhsuk-card nhsuk-u-margin-bottom-0">
+        <div class="nhsuk-card__content_less-padding-black card-with-chevron-up-expanded">
+          <h3 class="nhsuk-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-1">Pfizer-BioNTech COVID-19 vaccine</h3>
+          <p>Dose 2 of 2</p>
+          <dl class="nhsuk-summary-list nhsuk-summary-list nhs-app-summary-list-inline_covid">
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Vaccine
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  mRNA
+                </dd>
+
+              </div>
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Batch number
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  BA 3849 9830D
+                </dd>
+
+              </div>
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Certificate issuer
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  NHS
+                </dd>
+
+              </div>
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Certificate ID
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  67 564GL
+                </dd>
+
+              </div>
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Disease targeted
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  COVID-19
+                </dd>
+
+              </div>
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Country of vaccination
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  UK
+                </dd>
+
+              </div>
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Administering centre
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  Centre of Vac
+                </dd>
+
+              </div>
+
+          </dl>
+        </div>
+      </div>
+
+
+
+      <div class="nhsuk-card nhsuk-u-margin-bottom-4" style="border-top: none;">
+        <div class="nhsuk-card__content_less-padding-black">
+          <p class="nhsuk-u-margin-bottom-0">2 April 2021</p>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="nhsuk-card nhsuk-u-margin-bottom-0">
+        <div class="nhsuk-card__content_less-padding-black card-with-chevron-down-expanded">
+          <h3 class="nhsuk-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-1">Pfizer-BioNTech COVID-19 vaccine</h3>
+          <p>Dose 1 of 2</p>
+        </div>
+      </div>
+      <div class="nhsuk-card nhsuk-u-margin-bottom-4" style="border-top: none;">
+        <div class="nhsuk-card__content_less-padding-black">
+          <p class="nhsuk-u-margin-bottom-0">8 February 2021</p>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="nhsuk-card nhsuk-u-margin-bottom-0">
+        <div class="nhsuk-card__content_less-padding-black card-with-chevron-up-expanded">
+          <h3 class="nhsuk-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-1">Pfizer-BioNTech COVID-19 vaccine</h3>
+          <p>Dose 1 of 2</p>
+          <dl class="nhsuk-summary-list nhsuk-summary-list nhs-app-summary-list-inline_covid">
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Vaccine
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  mRNA
+                </dd>
+
+              </div>
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Batch number
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  BA 6573 9350G
+                </dd>
+
+              </div>
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Certificate issuer
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  NHS
+                </dd>
+
+              </div>
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Certificate ID
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  98 567GL
+                </dd>
+
+              </div>
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Disease targeted
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  COVID-19
+                </dd>
+
+              </div>
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Country of vaccination
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  UK
+                </dd>
+
+              </div>
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Administering centre
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  Centre of Vac
+                </dd>
+
+              </div>
+
+          </dl>
+        </div>
+      </div>
+
+
+
+      <div class="nhsuk-card nhsuk-u-margin-bottom-4" style="border-top: none;">
+        <div class="nhsuk-card__content_less-padding-black">
+          <p class="nhsuk-u-margin-bottom-0">8 February 2021</p>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

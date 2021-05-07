@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px"  viewBox="0 0 3 3" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="Colour-scheme" stroke="556773" stroke-width="0.5" stroke-linecap="round" fill="#556773" fill-rule="evenodd">
+        <g id="down-chevron" transform="translate(1.250125, 1.111142)" fill="#556773" fill-rule="nonzero" stroke="#556773" stroke-width="0.2">
+            <g id="icon_arrow_left" transform="translate(0.290000, 0.543750) rotate(360.000000) translate(-0.290000, -0.543750) translate(-0.000000, -0.000000)">
+                <path d="M0.541768489,1.0875 C0.552025723,1.0875 0.561350482,1.08375 0.568810289,1.07625 C0.583729904,1.06125 0.583729904,1.036875 0.568810289,1.021875 L0.0932475882,0.54375 L0.568810289,0.065625 C0.583729904,0.050625 0.583729904,0.02625 0.568810289,0.01125 C0.553890675,-0.00375 0.529646302,-0.00375 0.514726688,0.01125 L0.0111897106,0.5165625 C-0.00372990353,0.5315625 -0.00372990353,0.5559375 0.0111897106,0.5709375 L0.514726688,1.07625 C0.522186495,1.08375 0.531511254,1.0875 0.541768489,1.0875 Z" id="Shape" transform="translate(0.290000, 0.543750) rotate(-90.000000) translate(-0.290000, -0.543750) "></path>
+            </g>
+        </g>
+    </g>
+</svg>
