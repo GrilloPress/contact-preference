@@ -49,14 +49,13 @@ $("#showEmail").click(function(){
 
       <div class="nhsuk-u-reading-width">
 
-        {% if data['vaccinated'] === 'True' %}
 
-          <p class="nhsuk-body">You need to show this when asked by officials. Check the entry requirements for your destination before you travel.</p>
-          <p class="nhsuk-body">It is your responsibility to ensure data is correct and to not undertake activities based on data known to be inaccurate.</p>
-
-          {% else %}
-          <p class="nhsuk-body">You need to show this when asked by officials. Check the entry requirements for your destination before you travel.</p>
-          {% endif %}
+          <p class="nhsuk-body">You need to show this when asked by officials.</p>
+          <p class="nhsuk-body">Before you travel you'll need to:</p>
+           <ul class="nhsuk-body">
+             <li>check the entry requirements for your destination</li>
+             <li>make sure your vaccination information is correct</li>
+           </ul>
 
       </div>
 
