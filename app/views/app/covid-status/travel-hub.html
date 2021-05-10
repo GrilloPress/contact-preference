@@ -1,11 +1,10 @@
-{% set PROTOTYPEURL = "app/covid-status/status-service-v3" %}
+{% set PROTOTYPEURL = "app/covid-status" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
-{% set contentTitle = "Agree to share your NHS login information" %}
+{% set contentTitle = "View your COVID-19 status" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
-
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
@@ -31,32 +30,25 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
 
-      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+      <p>Share proof of your status if you're travelling.</p>
+
+      <ul class="list-menu">
 
 
 
-      <p>To continue, you need to agree to share your NHS login information with <strong>'NHS COVID-19 vaccination status'</strong>.</p>
+                      <li>
+                        <a href="/app/covid-status/status-service-v3/covid-status">
+                          <h2 class="nhsuk-heading-s">Travel</h2>
+                          <p>You will need to share your COVID-19 status when travelling</p>
+                        </a>
+                      </li>
 
-      <p><strong>'NHS COVID-19 vaccination status'</strong> will use your:</p>
-      <ul>
-        <li>NHS number</li>
-        <li>date of birth</li>
-        <li>last name</li>
-        <li>identity level</li>
-        <li>first names</li>
-        <li>email address</li>
-        <li>mobile phone number</li>
       </ul>
 
-      <p>Read the terms of use and privacy policy for <strong>'NHS COVID-19 vaccination status'</strong> to check how your information will be used.</p>
-
-      <form action="/{{ PROTOTYPEURL }}/start-page" method="get">
-        <input type="submit" class="nhsuk-button" value="I agree">
-        </input>
-      </form>
-
-      <p><a href="">I do not agree to share this information</a></p>
 
     </div>
   </div>

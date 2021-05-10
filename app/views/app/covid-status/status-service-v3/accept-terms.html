@@ -37,14 +37,14 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-            {% if data['acceptCovidTermsTwoError'] == 'True' %}
+            {% if data['acceptCovidTermsThreeError'] == 'True' %}
             {{ errorSummary({
               "titleText": "There is a problem",
               "errorList": [
                 {
                   "text": "Accept terms and conditions",
-                  "href": "#acceptCovidTermsTwo"
-                } if data['acceptCovidTermsTwoError']
+                  "href": "#acceptCovidTermsThree"
+                } if data['acceptCovidTermsThreeError']
               ]
               }) }}
             {% endif %}
@@ -53,8 +53,8 @@
             <form action="/{{ PROTOTYPEURL }}/accept-terms" method="post">
 
             {{ checkboxes({
-              "idPrefix": "acceptCovidTermsTwo",
-              "name": "acceptCovidTermsTwo",
+              "idPrefix": "acceptCovidTermsThree",
+              "name": "acceptCovidTermsThree",
               "fieldset": {
                 "legend": {
                   "text": contentTitle,
@@ -64,7 +64,7 @@
               },
               "errorMessage": {
                   "text": "Accept terms and conditions"
-                } if data['acceptCovidTermsTwoError'],
+                } if data['acceptCovidTermsThreeError'],
               "items": [
                 {
                   "value": "yes",

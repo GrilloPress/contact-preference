@@ -7,7 +7,7 @@
 <script>
 $("#showEmail").click(function(){
  $(".email").toggleClass("show");
- $(".card-with-chevron-up-expanded").toggleClass("rotate");
+ $(".card-with-chevron-down-expanded").toggleClass("rotate");
 });
 </script>
 {% endblock %}
@@ -48,9 +48,15 @@ $("#showEmail").click(function(){
 
 
       <div class="nhsuk-u-reading-width">
+
+        {% if data['vaccinated'] === 'True' %}
+
           <p class="nhsuk-body">You need to show this when asked by officials. Check the entry requirements for your destination before you travel.</p>
           <p class="nhsuk-body">It is your responsibility to ensure data is correct and to not undertake activities based on data known to be inaccurate.</p>
 
+          {% else %}
+          <p class="nhsuk-body">You need to show this when asked by officials. Check the entry requirements for your destination before you travel.</p>
+          {% endif %}
 
       </div>
 
@@ -64,15 +70,20 @@ $("#showEmail").click(function(){
           </div>
         </div>
 
+
+        {% if data['vaccinated'] === 'True' %}
+
+
         <div class="nhsuk-card_green">
 
 
 
           <div class="nhsuk-card__content-extra-padding card-with-chevron-right-white">
 
+            <div class="covid-green-container">
             <a class="covid-link" href="/{{ PROTOTYPEURL }}/your-details">
 
-<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg class="covid-status-tick" width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g id="Colour-scheme" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="icon-tick">
             <circle id="Oval" fill="#FFFFFF" cx="13" cy="13" r="13"></circle>
@@ -85,6 +96,7 @@ $("#showEmail").click(function(){
 </a>
 
 </div>
+</div>
 
           </div>
 
@@ -93,6 +105,15 @@ $("#showEmail").click(function(){
         <div class="nhsuk-card nhsuk-u-margin-bottom-2">
           <div class="nhsuk-card__content_less-padding">
             <a class="covid-link" href="/{{ PROTOTYPEURL }}/qr-code">
+              <svg class="covid-status-icons" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <title>file_download_blue</title>
+                  <g id="Colour-scheme" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <g id="file_download_blue">
+                          <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+                          <path d="M19,9 L15,9 L15,3 L9,3 L9,9 L5,9 L12,16 L19,9 Z M5,18 L5,20 L19,20 L19,18 L5,18 Z" id="Shape" fill="#005EB8" fill-rule="nonzero"></path>
+                      </g>
+                  </g>
+              </svg>
             <h3 class="nhsuk-card__heading-covid nhsuk-heading-s nhsuk-u-margin-bottom-1">Download PDF copy</h3>
           </a>
           </div>
@@ -104,7 +125,16 @@ $("#showEmail").click(function(){
 
         <div class="nhsuk-card nhsuk-u-margin-bottom-2">
           <div class="nhsuk-card__content_less-padding card-with-chevron-down-expanded">
-            <a id="showEmail" class="covid-link card-with-chevron-down-expanded nhsuk-link--no-visited-state" href="javascript:void(0);">
+            <a id="showEmail" class="card-with-chevron-down-expanded nhsuk-link--no-visited-state" href="javascript:void(0);">
+              <svg class="covid-status-icons" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <title>email-icon</title>
+                  <g id="Colour-scheme" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <g id="mail_blue">
+                          <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+                          <path d="M20,4 L4,4 C2.9,4 2.01,4.9 2.01,6 L2,18 C2,19.1 2.9,20 4,20 L20,20 C21.1,20 22,19.1 22,18 L22,6 C22,4.9 21.1,4 20,4 Z M20,8 L12,13 L4,8 L4,6 L12,11 L20,6 L20,8 Z" id="Shape" fill="#005EB8" fill-rule="nonzero"></path>
+                      </g>
+                  </g>
+              </svg>
             <h3 class="nhsuk-card__heading-covid nhsuk-heading-s nhsuk-u-margin-bottom-1">Receive an offline copy by email</h3>
           </a>
 
@@ -124,6 +154,28 @@ $("#showEmail").click(function(){
 
         </div>
       </div>
+
+      {% else %}
+
+
+
+      <div class="nhsuk-card_yellow">
+
+
+
+        <div class="nhsuk-card__content-extra-padding">
+
+          <div class="covid-yellow-container">
+<h3 class="nhsuk-card__heading covid-status_heading-black">No COVID-19 <br>records found</h3>
+</div>
+</div>
+
+        </div>
+
+        <p><a href="/{{ PROTOTYPEURL }}/why-no-records">Why am I seeing this message?</a></p>
+
+
+      {% endif %}
 
 
 

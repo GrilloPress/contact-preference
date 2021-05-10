@@ -102,9 +102,17 @@
         <ul class="list-menu nhsuk-u-padding-bottom-4">
 
 
+
+
           <li>
-            <a class="desktop" href="/app/covid-status/covid-hub">Coronavirus (COVID-19) services</a>
+            <a href="/app/covid-status/status-service-v3/agree-to-share">
+              <h2 class="nhsuk-heading-xs">Share your COVID-19 status</h2>
+              <p style="font-size: 15.5px;">View and share proof of your COVID-19 status for travel</p>
+            </a>
           </li>
+
+
+
           <li class="nhs-app-message__item--unread-home">
             <a class="desktop" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/?messagingIcon=False&messageRead1=unread&pkbMessaging=False" }}'>
               View your messages

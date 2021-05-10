@@ -334,6 +334,33 @@ router.post('/app/covid-status/status-service-v2/accept-terms', function (req, r
 });
 
 
+router.post('/app/covid-status/status-service-v3/accept-terms', function (req, res) {
+
+  let acceptCovidTermsThree = req.body.acceptCovidTermsThree;
+
+  if (acceptCovidTermsThree) {
+
+    res.redirect('/app/covid-status/travel-hub?acceptCovidTermsThreeError=')
+
+  } else {
+
+    var errorURL = "";
+
+    if (acceptCovidTermsThree) {
+
+      errorURL += "acceptCovidTermsThreeError=&"
+
+    } else {
+       errorURL += "acceptCovidTermsThreeError=True&"
+    }
+
+    res.redirect('/app/covid-status/status-service-v3/accept-terms?' + errorURL )
+  }
+
+});
+
+
+
 
 
 //////   IMPORTANT  /////////////////////////////////////////////////////////////////

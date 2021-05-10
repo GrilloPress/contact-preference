@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/covid-status/status-service-v3" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
-{% set contentTitle = "Agree to share your NHS login information" %}
+{% set contentTitle = "Why am I seeing this message?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -26,6 +26,11 @@
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
 </nav>
+<div class="nhs-app-provider-banner">
+<div class="nhsuk-width-container">
+<strong>Department of Health and Social Care provide this service</strong>
+</div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -36,27 +41,15 @@
 
 
 
-      <p>To continue, you need to agree to share your NHS login information with <strong>'NHS COVID-19 vaccination status'</strong>.</p>
+      <div class="nhsuk-u-reading-width">
 
-      <p><strong>'NHS COVID-19 vaccination status'</strong> will use your:</p>
-      <ul>
-        <li>NHS number</li>
-        <li>date of birth</li>
-        <li>last name</li>
-        <li>identity level</li>
-        <li>first names</li>
-        <li>email address</li>
-        <li>mobile phone number</li>
-      </ul>
 
-      <p>Read the terms of use and privacy policy for <strong>'NHS COVID-19 vaccination status'</strong> to check how your information will be used.</p>
+          <p class="nhsuk-body">If you have any questions about your vaccination records please visit the NHS website for more information: <a href="/app/nhs-uk-screens/covid-vaccination">www.nhs.uk/covid-vaccination</a> or telephone 119 free of charge, 7 days a week.</p>
 
-      <form action="/{{ PROTOTYPEURL }}/start-page" method="get">
-        <input type="submit" class="nhsuk-button" value="I agree">
-        </input>
-      </form>
+      </div>
 
-      <p><a href="">I do not agree to share this information</a></p>
+
+
 
     </div>
   </div>

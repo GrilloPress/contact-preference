@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/covid-status/status-service-v3" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
-{% set contentTitle = "Agree to share your NHS login information" %}
+{% set contentTitle = "Share your COVID-19 status" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -36,27 +36,23 @@
 
 
 
-      <p>To continue, you need to agree to share your NHS login information with <strong>'NHS COVID-19 vaccination status'</strong>.</p>
+      <p>Share proof of your COVID-19 status for travel.</p>
 
-      <p><strong>'NHS COVID-19 vaccination status'</strong> will use your:</p>
+      <h2>Use this service to:</h2>
+
       <ul>
-        <li>NHS number</li>
-        <li>date of birth</li>
-        <li>last name</li>
-        <li>identity level</li>
-        <li>first names</li>
-        <li>email address</li>
-        <li>mobile phone number</li>
+        <li>View your COVID-19 vaccinations</li>
       </ul>
 
-      <p>Read the terms of use and privacy policy for <strong>'NHS COVID-19 vaccination status'</strong> to check how your information will be used.</p>
+      <p>By using this service you agree to <a href="">terms and conditions</a>.</p>
 
-      <form action="/{{ PROTOTYPEURL }}/start-page" method="get">
-        <input type="submit" class="nhsuk-button" value="I agree">
+
+      <form action="/app/covid-status/travel-hub" method="get">
+        <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>
 
-      <p><a href="">I do not agree to share this information</a></p>
+      <p>Find out <a href="#">more about this service</a> or read more <a href="#">about coronavirus, testing and vaccination on the NHS website.</a></p>
 
     </div>
   </div>
