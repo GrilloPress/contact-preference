@@ -64,21 +64,21 @@ color: #7C2855 !important;
 
 
 a:hover {
-    background-color: transparent !important;
-    box-shadow: none !important;
-    color: #7C2855 !important;
+    background-color: transparent;
+    box-shadow: none;
+    color: #7C2855;
     text-decoration: none;
 }
 .list-menu li a:focus, .list-menu li a:hover{
-  box-shadow: 0 0 0 4px #ffeb3b !important;
-  background-color: transparent !important;
-  color:#005eb8 !important;
+  box-shadow: 0 0 0 4px #ffeb3b;
+  background-color: transparent;
+  color:#005eb8;
 }
 
 nav.menu li a:hover{
-  background-color: transparent !important;
-  box-shadow: transparent !important;
-  color: #000000 !important;
+  background-color: transparent;
+  box-shadow: transparent;
+  color: #000000;
   text-decoration: none;
 
 }

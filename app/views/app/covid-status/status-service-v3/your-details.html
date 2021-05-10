@@ -52,7 +52,7 @@ $("#dose1").click(function(){
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
       {{ summaryList({
-        classes: 'nhsuk-summary-list--no-border nhs-app-summary-list-inline',
+        classes: 'nhsuk-summary-list--no-border nhs-app-summary-list-inline_covid-personal',
         rows: [
           {
             key: {
@@ -69,6 +69,14 @@ $("#dose1").click(function(){
             value: {
               text: "20 September 1982"
             }
+          },
+          {
+            key: {
+              text: "Expiration date:"
+            },
+            value: {
+              text: "20 June 2021"
+            }
           }
         ]
       }) }}
@@ -78,8 +86,8 @@ $("#dose1").click(function(){
     </div>
 
       <div class="nhsuk-card nhsuk-u-margin-bottom-0">
-        <div class="nhsuk-card__content_less-padding-black card-with-chevron-down-expanded">
-          <a id="dose2" class="card-with-chevron-down-expanded nhsuk-link--no-visited-state-black no-focus" href="javascript:void(0);">
+        <div class="nhsuk-card__content_less-padding-black">
+          <a id="dose2" class="card-with-chevron-down-expanded nhsuk-link--no-visited-state-black link-block" href="javascript:void(0);" style="display: block;">
           <h3 class="nhsuk-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-1">Pfizer-BioNTech COVID-19 vaccine</h3>
         </a>
           <p>Dose 2</p>
@@ -90,60 +98,10 @@ $("#dose1").click(function(){
 
                         <div class="nhsuk-summary-list__row">
                           <dt class="nhsuk-summary-list__key">
-                            Vaccine
+                            Dose
                           </dt>
                           <dd class="nhsuk-summary-list__value">
-                            mRNA
-                          </dd>
-
-                        </div>
-
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Batch number
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                            BA 3849 9830D
-                          </dd>
-
-                        </div>
-
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Certificate issuer
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                            NHS
-                          </dd>
-
-                        </div>
-
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Certificate ID
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                            67 564GL
-                          </dd>
-
-                        </div>
-
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Disease targeted
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                            COVID-19
-                          </dd>
-
-                        </div>
-
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Country of vaccination
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                            UK
+                            2
                           </dd>
 
                         </div>
@@ -153,7 +111,57 @@ $("#dose1").click(function(){
                             Administering centre
                           </dt>
                           <dd class="nhsuk-summary-list__value">
-                            Centre of Vac
+                            -
+                          </dd>
+
+                        </div>
+
+                        <div class="nhsuk-summary-list__row">
+                          <dt class="nhsuk-summary-list__key">
+                            Manufacturer
+                          </dt>
+                          <dd class="nhsuk-summary-list__value">
+                            -
+                          </dd>
+
+                        </div>
+
+                        <div class="nhsuk-summary-list__row">
+                          <dt class="nhsuk-summary-list__key">
+                            Procedure code
+                          </dt>
+                          <dd class="nhsuk-summary-list__value">
+                            -
+                          </dd>
+
+                        </div>
+
+                        <div class="nhsuk-summary-list__row">
+                          <dt class="nhsuk-summary-list__key">
+                            Procedure term
+                          </dt>
+                          <dd class="nhsuk-summary-list__value">
+                            -
+                          </dd>
+
+                        </div>
+
+                        <div class="nhsuk-summary-list__row">
+                          <dt class="nhsuk-summary-list__key">
+                            Batch number
+                          </dt>
+                          <dd class="nhsuk-summary-list__value">
+                              BA 3849 9830D
+                          </dd>
+
+                        </div>
+
+                        <div class="nhsuk-summary-list__row">
+                          <dt class="nhsuk-summary-list__key">
+                            Country of vaccination
+                          </dt>
+                          <dd class="nhsuk-summary-list__value">
+                          UK
                           </dd>
 
                         </div>
@@ -174,8 +182,8 @@ $("#dose1").click(function(){
 
 
       <div class="nhsuk-card nhsuk-u-margin-bottom-0">
-        <div class="nhsuk-card__content_less-padding-black card-with-chevron-down-expanded-2">
-          <a id="dose1" class="card-with-chevron-down-expanded-2 nhsuk-link--no-visited-state-black" href="javascript:void(0);">
+        <div class="nhsuk-card__content_less-padding-black">
+          <a id="dose1" class="card-with-chevron-down-expanded-2 nhsuk-link--no-visited-state-black link-block" href="javascript:void(0);">
           <h3 class="nhsuk-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-1">Pfizer-BioNTech COVID-19 vaccine</h3>
         </a>
           <p>Dose 1</p>
@@ -184,75 +192,75 @@ $("#dose1").click(function(){
           <div class="dosediv1">
                     <dl class="nhsuk-summary-list nhsuk-summary-list nhs-app-summary-list-inline_covid">
 
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Vaccine
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                            mRNA
-                          </dd>
+                      <div class="nhsuk-summary-list__row">
+                        <dt class="nhsuk-summary-list__key">
+                          Dose
+                        </dt>
+                        <dd class="nhsuk-summary-list__value">
+                          1
+                        </dd>
 
-                        </div>
+                      </div>
 
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Batch number
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                            BA 3849 9830D
-                          </dd>
+                      <div class="nhsuk-summary-list__row">
+                        <dt class="nhsuk-summary-list__key">
+                          Administering centre
+                        </dt>
+                        <dd class="nhsuk-summary-list__value">
+                          -
+                        </dd>
 
-                        </div>
+                      </div>
 
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Certificate issuer
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                            NHS
-                          </dd>
+                      <div class="nhsuk-summary-list__row">
+                        <dt class="nhsuk-summary-list__key">
+                          Manufacturer
+                        </dt>
+                        <dd class="nhsuk-summary-list__value">
+                          -
+                        </dd>
 
-                        </div>
+                      </div>
 
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Certificate ID
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                            67 564GL
-                          </dd>
+                      <div class="nhsuk-summary-list__row">
+                        <dt class="nhsuk-summary-list__key">
+                          Procedure code
+                        </dt>
+                        <dd class="nhsuk-summary-list__value">
+                          -
+                        </dd>
 
-                        </div>
+                      </div>
 
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Disease targeted
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                            COVID-19
-                          </dd>
+                      <div class="nhsuk-summary-list__row">
+                        <dt class="nhsuk-summary-list__key">
+                          Procedure term
+                        </dt>
+                        <dd class="nhsuk-summary-list__value">
+                          -
+                        </dd>
 
-                        </div>
+                      </div>
 
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Country of vaccination
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                            UK
-                          </dd>
+                      <div class="nhsuk-summary-list__row">
+                        <dt class="nhsuk-summary-list__key">
+                          Batch number
+                        </dt>
+                        <dd class="nhsuk-summary-list__value">
+                            BA 3049 9870D
+                        </dd>
 
-                        </div>
+                      </div>
 
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Administering centre
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                            Centre of Vac
-                          </dd>
+                      <div class="nhsuk-summary-list__row">
+                        <dt class="nhsuk-summary-list__key">
+                          Country of vaccination
+                        </dt>
+                        <dd class="nhsuk-summary-list__value">
+                        UK
+                        </dd>
 
-                        </div>
+                      </div>
 
                     </dl>
                   </div>

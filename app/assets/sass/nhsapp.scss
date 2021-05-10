@@ -3303,6 +3303,10 @@ $nhsuk-checkbox-hover-color: $color_nhsuk-grey-3;
   text-align: center;
   color: #FFFFFF;
   font-size: 24px;
+  &:focus {
+   color: #212b32 !important;
+  }
+
 }
 
 .covid-status_heading-black {
@@ -3422,21 +3426,20 @@ $nhsuk-checkbox-hover-color: $color_nhsuk-grey-3;
       a {
         margin-bottom: 0;
         color: #212b32;
-        text-decoration: none  !important;
+        text-decoration: none;
         margin: 0em;
         font-weight: 600;
         min-height: 46px;
         display: block;
       }
       a:hover {
-      box-shadow: 0 0 0 4px #ffeb3b !important;
-      background-color: transparent !important;
-      color: #005eb8 !important;
+      box-shadow: 0 0 0 4px #ffeb3b;
+      color: #005eb8;
     }
     a:focus {
-    box-shadow: 0 0 0 4px #ffeb3b !important;
-    background-color: transparent !important;
-    color: #005eb8 !important;
+    box-shadow: 0 0 0 4px #ffeb3b;
+    background-color: transparent;
+    color: #005eb8;
   }
   a:hover h2 {
   text-decoration: underline;
@@ -3911,7 +3914,11 @@ legend {
 
 .covid-link {
   text-decoration: none;
-  color: $color_nhsuk-blue;
+  display: block;
+
+  &:focus {
+   color: #212b32 !important;
+  }
 
   &:hover {
     box-shadow: 0 0 0 4px $color_nhsuk-yellow;
@@ -3937,28 +3944,31 @@ legend {
 
 
 .card-with-chevron-down {
-  background-color: $color_nhsuk-white;
   background-image: url(../images/icon_arrow_down.svg);
   background-position: right 1em center;
   background-repeat: no-repeat;
 }
 
 .card-with-chevron-down-expanded {
-  background-color: $color_nhsuk-white;
   background-image: url(../images/icon_arrow_down.svg);
   background-position: right 1em top 0.7em;
   background-repeat: no-repeat;
 }
+
 
 .card-with-chevron-down-expanded-2 {
-  background-color: $color_nhsuk-white;
   background-image: url(../images/icon_arrow_down.svg);
   background-position: right 1em top 0.7em;
   background-repeat: no-repeat;
 }
 
+.link-block {
+  background-position: right center;
+  display: block;
+}
+
+
 .card-with-chevron-up-expanded {
-  background-color: $color_nhsuk-white;
   background-image: url(../images/icon_arrow_up.svg);
   background-position: right 1em top 0.7em;
   background-repeat: no-repeat;
@@ -3972,17 +3982,20 @@ legend {
 
 
 .card-with-chevron-down-expanded.rotate {
-  background-color: $color_nhsuk-white;
   background-image: url(../images/icon_arrow_up.svg);
   background-position: right 1em top 0.7em;
   background-repeat: no-repeat;
 }
 
+
 .card-with-chevron-down-expanded-2.rotate {
-  background-color: $color_nhsuk-white;
   background-image: url(../images/icon_arrow_up.svg);
   background-position: right 1em top 0.7em;
   background-repeat: no-repeat;
+}
+.link-block.rotate {
+  background-position: right center;
+  display: block;
 }
 
 
@@ -4081,8 +4094,8 @@ legend {
 
       }
 
-    }
   }
+}
 
 .covid-collapse {
   color: #f0f4f5;
@@ -4166,4 +4179,51 @@ legend {
   @include mq($until: tablet) {
     text-align: center;
   }
+}
+
+
+.nhs-app-summary-list-inline_covid-personal {
+
+  margin-bottom: nhsuk-spacing(3);
+
+  @include mq($until: tablet) {
+
+    .nhsuk-summary-list__row {
+      margin-bottom: 0;
+    }
+
+    .nhsuk-summary-list__key {
+
+      display: inline-block;
+      width: 42%;
+    }
+
+    .nhsuk-summary-list__value {
+
+      display: inline-block;
+      margin-bottom: nhsuk-spacing(1);
+      vertical-align: baseline;
+    }
+
+  }
+
+
+  @include mq($from: tablet) {
+
+    .nhsuk-summary-list__key {
+
+      width: 16%;
+    }
+
+    .nhsuk-summary-list__key, .nhsuk-summary-list__value {
+
+      padding-top: 0;
+      padding-bottom: nhsuk-spacing(1);
+
+    }
+
+  }
+
+
+
 }
