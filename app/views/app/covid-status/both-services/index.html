@@ -103,10 +103,18 @@
 
 
           <li>
-            <a class="desktop" href="/app/covid-status/covid-hub">Coronavirus (COVID-19) services</a>
+            <a class="desktop" href="/app/covid-status/status-service-v3/agree-to-share">Share your COVID-19 status
+            <p class="home-panel-link-description">View and share proof of your COVID-19 status for travel</p>
+            </a>
           </li>
 
+          <li>
+            <a class="desktop" href="/app/covid-status/service/dose-details-1-dose">Check your COVID-19 vaccine record
+            <p class="home-panel-link-description">View your vaccination details, like the name and batch number, and report any side effects you have experienced</p>
+            </a>
+          </li>
 
+  
 
           <li class="nhs-app-message__item--unread-home">
             <a class="desktop" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/?messagingIcon=False&messageRead1=unread&pkbMessaging=False" }}'>
