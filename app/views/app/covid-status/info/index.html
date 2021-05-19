@@ -36,6 +36,22 @@
       </ul>
 
 
+      <h3>Exiting user flow</h3>
+
+                  <ul>
+                    <li>
+                      <a href="/{{ PROTOTYPEURL }}/both-services/iframe?iFrame=True">iframe and no vaccine data</a>
+                    </li>
+                    <li>
+                      <a href="/{{ PROTOTYPEURL }}/both-services/iframe?vaccinated=True&iFrame=True">iframe and vaccine data present</a>
+                    </li>
+                    <li>
+                      <a href="/{{ PROTOTYPEURL }}/both-services/start-screen-new">No iframe and no vaccine data</a>
+                    </li>
+                    <li>
+                      <a href="/{{ PROTOTYPEURL }}/both-services/start-screen-new?vaccinated=True">No iframe and vaccine data present</a>
+                    </li>
+                  </ul>
 
 
 
@@ -137,10 +153,10 @@
             <h3>v3</h3>
             <ul>
               <li>
-                <a href="/{{ PROTOTYPEURL }}/status-service-v3/terms">Blue interrupt card</a>
+                <a href="/{{ PROTOTYPEURL }}/status-service-v3/agree-to-share">Agree to share your NHS login information</a>
               </li>
               <li>
-                <a href="/{{ PROTOTYPEURL }}/status-service-v3/agree-to-share">Agree to share your NHS login information</a>
+                <a href="/{{ PROTOTYPEURL }}/status-service-v3/do-not-agree">Do not agree to share your NHS login information</a>
               </li>
               <li>
                 <a href="/{{ PROTOTYPEURL }}/status-service-v3/start-page">Start page</a>

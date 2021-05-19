@@ -20,7 +20,7 @@ $("#dose1").click(function(){
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
-{% extends 'layouts/layout-app-new.html' %}
+{% extends 'layouts/layout-app-new-covid-status.html' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -29,25 +29,21 @@ $("#dose1").click(function(){
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
-  <div class="nhsuk-width-container">
-    <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="">Coronavirus (COVID-19) hub</a></li>
-    </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
-  </div>
-</nav>
-<div class="nhs-app-provider-banner">
-<div class="nhsuk-width-container">
-<strong>Department of Health and Social Care provide this service</strong>
-</div>
-</div>
+
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+
+
+            <div class="nhsuk-back-link">
+              <a class="nhsuk-back-link__link" href="javascript: window.history.go(-1)">
+                <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+                </svg>
+                Go back</a>
+            </div>
 
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
@@ -88,85 +84,46 @@ $("#dose1").click(function(){
       <div class="nhsuk-card nhsuk-u-margin-bottom-0">
         <div class="nhsuk-card__content_less-padding-black">
           <a id="dose2" class="card-with-chevron-down-expanded nhsuk-link--no-visited-state-black link-block" href="javascript:void(0);" style="display: block;">
-          <h3 class="nhsuk-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-1">Pfizer-BioNTech COVID-19 vaccine</h3>
+          <h3 class="nhsuk-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-1">COVID-19 Vaccine Moderna vaccine</h3>
         </a>
           <p>Dose 2</p>
 
 
           <div class="dosediv2">
-                    <dl class="nhsuk-summary-list nhsuk-summary-list nhs-app-summary-list-inline_covid">
+            <table class="nhsuk-table-covid">
+              <caption class="nhsuk-table__caption">Dose 2</caption>
 
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Dose
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                            2
-                          </dd>
-
-                        </div>
-
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Administering centre
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                            -
-                          </dd>
-
-                        </div>
-
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Manufacturer
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                            -
-                          </dd>
-
-                        </div>
-
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Procedure code
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                            -
-                          </dd>
-
-                        </div>
-
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Procedure term
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                            -
-                          </dd>
-
-                        </div>
-
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Batch number
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                              BA 3849 9830D
-                          </dd>
-
-                        </div>
-
-                        <div class="nhsuk-summary-list__row">
-                          <dt class="nhsuk-summary-list__key">
-                            Country of vaccination
-                          </dt>
-                          <dd class="nhsuk-summary-list__value">
-                          UK
-                          </dd>
-
-                        </div>
-
-                    </dl>
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Manufacturer</strong></td>
+                  <td class="nhsuk-table__cell ">Moderna Biotech Spain S.L</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Disease targeted</strong></td>
+                  <td class="nhsuk-table__cell ">COVID-19</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Vaccine</strong></td>
+                  <td class="nhsuk-table__cell ">SARS Cov-2 mRNA Vaccine</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Vaccine product</strong></td>
+                  <td class="nhsuk-table__cell ">COVID-19 Vaccine Moderna</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Batch number</strong></td>
+                  <td class="nhsuk-table__cell ">AB43421</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Country of vaccination</strong></td>
+                  <td class="nhsuk-table__cell ">GB</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Authority</strong></td>
+                  <td class="nhsuk-table__cell ">NHS Digital</td>
+                </tr>
+              </tbody>
+            </table>
                   </div>
 
 
@@ -175,7 +132,7 @@ $("#dose1").click(function(){
 
       <div class="nhsuk-card nhsuk-u-margin-bottom-4" style="border-top: none;">
         <div class="nhsuk-card__content_less-padding-black">
-          <p class="nhsuk-u-margin-bottom-0">Date of dose: 2 April 2021</p>
+          <p class="nhsuk-u-margin-bottom-0">Date of vaccination: 2 April 2021</p>
         </div>
       </div>
 
@@ -184,96 +141,72 @@ $("#dose1").click(function(){
       <div class="nhsuk-card nhsuk-u-margin-bottom-0">
         <div class="nhsuk-card__content_less-padding-black">
           <a id="dose1" class="card-with-chevron-down-expanded-2 nhsuk-link--no-visited-state-black link-block" href="javascript:void(0);">
-          <h3 class="nhsuk-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-1">Pfizer-BioNTech COVID-19 vaccine</h3>
+            <h3 class="nhsuk-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-1">COVID-19 Vaccine Moderna vaccine</h3>
         </a>
           <p>Dose 1</p>
 
 
           <div class="dosediv1">
-                    <dl class="nhsuk-summary-list nhsuk-summary-list nhs-app-summary-list-inline_covid">
 
-                      <div class="nhsuk-summary-list__row">
-                        <dt class="nhsuk-summary-list__key">
-                          Dose
-                        </dt>
-                        <dd class="nhsuk-summary-list__value">
-                          1
-                        </dd>
 
-                      </div>
 
-                      <div class="nhsuk-summary-list__row">
-                        <dt class="nhsuk-summary-list__key">
-                          Administering centre
-                        </dt>
-                        <dd class="nhsuk-summary-list__value">
-                          -
-                        </dd>
+                            <table class="nhsuk-table-covid">
+                              <caption class="nhsuk-table__caption">Dose 1</caption>
 
-                      </div>
+                              <tbody class="nhsuk-table__body">
+                                <tr role="row" class="nhsuk-table__row">
+                                  <td class="nhsuk-table__cell"><strong>Manufacturer</strong></td>
+                                  <td class="nhsuk-table__cell ">Moderna Biotech Spain S.L</td>
+                                </tr>
+                                <tr role="row" class="nhsuk-table__row">
+                                  <td class="nhsuk-table__cell"><strong>Disease targeted</strong></td>
+                                  <td class="nhsuk-table__cell ">COVID-19</td>
+                                </tr>
+                                <tr role="row" class="nhsuk-table__row">
+                                  <td class="nhsuk-table__cell"><strong>Vaccine</strong></td>
+                                  <td class="nhsuk-table__cell ">SARS Cov-2 mRNA Vaccine</td>
+                                </tr>
+                                <tr role="row" class="nhsuk-table__row">
+                                  <td class="nhsuk-table__cell"><strong>Vaccine product</strong></td>
+                                  <td class="nhsuk-table__cell ">COVID-19 Vaccine Moderna</td>
+                                </tr>
+                                <tr role="row" class="nhsuk-table__row">
+                                  <td class="nhsuk-table__cell"><strong>Batch number</strong></td>
+                                  <td class="nhsuk-table__cell ">AB12434</td>
+                                </tr>
+                                <tr role="row" class="nhsuk-table__row">
+                                  <td class="nhsuk-table__cell"><strong>Country of vaccination</strong></td>
+                                  <td class="nhsuk-table__cell ">GB</td>
+                                </tr>
+                                <tr role="row" class="nhsuk-table__row">
+                                  <td class="nhsuk-table__cell"><strong>Authority</strong></td>
+                                  <td class="nhsuk-table__cell ">NHS Digital</td>
+                                </tr>
+                              </tbody>
+                            </table>
 
-                      <div class="nhsuk-summary-list__row">
-                        <dt class="nhsuk-summary-list__key">
-                          Manufacturer
-                        </dt>
-                        <dd class="nhsuk-summary-list__value">
-                          -
-                        </dd>
-
-                      </div>
-
-                      <div class="nhsuk-summary-list__row">
-                        <dt class="nhsuk-summary-list__key">
-                          Procedure code
-                        </dt>
-                        <dd class="nhsuk-summary-list__value">
-                          -
-                        </dd>
-
-                      </div>
-
-                      <div class="nhsuk-summary-list__row">
-                        <dt class="nhsuk-summary-list__key">
-                          Procedure term
-                        </dt>
-                        <dd class="nhsuk-summary-list__value">
-                          -
-                        </dd>
-
-                      </div>
-
-                      <div class="nhsuk-summary-list__row">
-                        <dt class="nhsuk-summary-list__key">
-                          Batch number
-                        </dt>
-                        <dd class="nhsuk-summary-list__value">
-                            BA 3049 9870D
-                        </dd>
-
-                      </div>
-
-                      <div class="nhsuk-summary-list__row">
-                        <dt class="nhsuk-summary-list__key">
-                          Country of vaccination
-                        </dt>
-                        <dd class="nhsuk-summary-list__value">
-                        UK
-                        </dd>
-
-                      </div>
-
-                    </dl>
-                  </div>
-
+                          </div>
 
         </div>
       </div>
 
       <div class="nhsuk-card nhsuk-u-margin-bottom-4" style="border-top: none;">
         <div class="nhsuk-card__content_less-padding-black">
-          <p class="nhsuk-u-margin-bottom-0">Date of dose: 8 February 2021</p>
+          <p class="nhsuk-u-margin-bottom-0">Date of vaccination: 8 February 2021</p>
         </div>
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

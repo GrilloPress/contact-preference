@@ -17,22 +17,7 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<div class="app-corona__container app-corona__container--desktop nhs-app-desktop--show" style="margin-top:0px;">
-  <div class="nhsuk-width-container">
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-two-thirds">
-        <ul class="list-menu">
-          <li>
-              <a class="covid" href="/app/nhs-uk-screens/get-advice-covid">
-                <p class="nhsuk-body-s"><strong>Coronavirus (COVID-19)</strong></p>
-                <p class="nhsuk-body-s">Get information about coronavirus on NHS.UK</p>
-              </a>
-          </li>
-        </ul>
-  </div>
-  </div>
-  </div>
-</div>
+
 {% endblock %}
 
 {% block content %}
@@ -109,12 +94,12 @@
           </li>
 
           <li>
-            <a class="desktop" href="/app/covid-status/service/dose-details-1-dose">Check your COVID-19 vaccine record
+            <a class="desktop" href="/app/covid-status/service/dose-details-2-dose">Check your COVID-19 vaccine record
             <p class="home-panel-link-description">View your vaccination details, like the name and batch number, and report any side effects you have experienced</p>
             </a>
           </li>
 
-  
+
 
           <li class="nhs-app-message__item--unread-home">
             <a class="desktop" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/?messagingIcon=False&messageRead1=unread&pkbMessaging=False" }}'>

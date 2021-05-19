@@ -1,0 +1,188 @@
+<!-- This layout is setup for transactional pages -->
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends "layouts/layout.html" %}
+
+<!-- Adds a custom class to the <main> wrapper -->
+<!-- nhsuk-main-wrapper--s reduces top and bottom padding of the page -->
+
+{% if appHeading %}
+  {% set mainClasses = 'nhs-app-main' %}
+{% elif appLogin %}
+  {% set mainClasses = 'nhs-app-main nhs-app-main-login' %}
+{% else %}
+  {% set mainClasses = 'nhs-app-thin' %}
+{% endif %}
+{% set html_style = 'background-color: #f0f4f5;' %}
+{% block headCSS %}
+
+  <link href="/css/main.css" rel="stylesheet">
+  <link href="/css/nhsapp.css" rel="stylesheet">
+{% endblock %}
+
+{% set messagesReadUnreadFooter %}
+  {% if data['messageRead1'] !== 'read' %}
+  nhs-app-footer__icon--read
+  {% elif data['messageRead2'] !== 'read' %}
+  nhs-app-footer__icon--read
+  {% elif data['messageRead3'] !== 'read' %}
+  nhs-app-footer__icon--read
+  {% elif data['messageRead6'] !== 'read' %}
+  nhs-app-footer__icon--read
+  {% elif data['messageRead7'] !== 'read' %}
+  nhs-app-footer__icon--read
+  {% endif %}
+{% endset %}
+
+{% set routeHome %}
+  {{ data["routeHome"] if data ["routeHome"] else "/app/v8/index" }}
+{% endset %}
+
+
+{% set routeAppointments %}
+  {{ data["routeAppointments"] if data ["routeAppointments"] else "/app/appointments/flu-2020/index" }}
+{% endset %}
+
+{% set routeRecords %}
+  {{ data["routeRecords"] if data ["routeRecords"] else "/app/records/v3/pre-hub" }}
+{% endset %}
+
+{% set routeSymptoms %}
+  {{ data["routeSymptoms"] if data ["routeSymptoms"] else "/app/symptoms/v4/" }}
+{% endset %}
+
+{% set routeMore %}
+  {{ data["routeMore"] if data ["routeMore"] else "/app/more/v10/index" }}
+{% endset %}
+
+{% set routeSettings %}
+  {{ data["routeSettings"] if data ["routeSettings"] else "/app/settings/v2/" }}
+{% endset %}
+
+
+{% set routePrescriptions %}
+  {{ data["routePrescriptions"] if data ["routePrescriptions"] else "/app/prescriptions/v7/your-prescriptions-11-live" }}
+{% endset %}
+
+
+{% set routeMessaging %}
+  {{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/index?messagingIcon=False" }}
+{% endset %}
+
+{% set routeGPServices %}
+  {{ data["routeGPServices"] if data ["routeGPServices"] else "/app/gp-services/v1/hub" }}
+{% endset %}
+
+{% block skipLink %}
+{% endblock %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  Transactional page layout
+{% endblock %}
+
+{% set headerHref %}
+  {% if PROTOTYPEURL === "see-how-data-is-shared/v1" %}
+    {{ "/" + PROTOTYPEURL + "/summary/index" }}
+  {% else %}
+    {{ routeHome }}
+  {% endif %}
+{% endset %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+
+{% set messagesReadUnread %}
+{% if data['messageRead1'] !== 'read' %}
+  nhs-app-header__icon--unread
+{% elif data['messageRead1'] !== 'read' %}
+  nhs-app-header__icon--unread
+  {% elif data['messageRead6'] !== 'read' %}
+    nhs-app-header__icon--unread
+    {% elif data['messageRead7'] !== 'read' %}
+      nhs-app-header__icon--unread
+{% else %}
+  nhs-app-header__icon
+{% endif %}
+{% endset %}
+
+
+{% if data['experimentalHeaderDesktop'] === "True" %}
+{% include "./parts/_desktop-header-experimental.html" %}
+{% elif data['experimentalHeaderDesktop2'] === "True" %}
+{% include "./parts/_desktop-header-experimental-2.html" %}
+{% else %}
+{% include "./parts/_desktop-header.html" %}
+{% endif %}
+
+
+{% if data['experimentalHeader'] === "True" %}
+  {% include "./parts/_native-header-with-more.html" %}
+{% elif data['experimentalHeader2'] === "True" %}
+{% include "./parts/_native-header-with-log-out.html" %}
+{% elif data['experimentalHeader3'] === "True" %}
+{% include "./parts/_native-header-help-settings.html" %}
+{% elif data['experimentalHeader4'] === "True" %}
+{% include "./parts/_native-header-help-more-2.html" %}
+{% elif data['experimentalHeader5'] === "True" %}
+{% include "./parts/_native-header-help-more-new-icons.html" %}
+{% elif data['experimentalHeader6'] === "True" %}
+{% include "./parts/_native-header-new-icons-home.html" %}
+{% else %}
+  {% include "./parts/_native-header.html" %}
+{% endif %}
+
+
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+
+{% block afterContent %}
+{% endblock %}
+
+<!-- Footer goes inside this block -->
+
+{% block footer %}
+
+<footer role="contentinfo"><div class="nhsuk-footer nhsuk-u-margin-bottom-9" id="nhsuk-footer">
+  <div class="nhsuk-width-container-fluid"><h1 class="nhsuk-u-visually-hidden">Support links</h1>
+    <ul class="nhsuk-footer__list">
+      <li class="nhsuk-footer__list-item">
+      <a class="nhsuk-footer__list-item-link" href="#" title="Privacy notice - NHS">Privacy notice</a>
+    </li>
+    <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="#" title="COVID-19 status certification terms of use - NHS">Terms and conditions</a></li>
+    <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="#" title="Accessibility statement - NHS">Accessibility statement</a></li><li class="nhsuk-footer__list-item">
+        <a title="Cookie policy - NHS" class="nhsuk-footer__list-item-link" href="#">Cookie Policy</a>
+      </li>
+      <li class="nhsuk-footer__list-item"><p class="nhsuk-footer__list-item-version">release v1.0.1</p>
+      </li>
+    </ul>
+    <p class="nhsuk-footer__copyright">© Crown copyright</p></div></div>
+  </footer>
+
+
+{% if data['experimentalFooter'] === "True" %}
+  {% include "./parts/_native-footer-with-messaging.html" %}
+{% elif data['experimentalFooter2'] === "True" %}
+  {% include "./parts/_native-footer-with-messaging-more.html" %}
+{% elif data['experimentalFooter3'] === "True" %}
+  {% include "./parts/_native-footer-with-home.html" %}
+  {% elif data['experimentalFooter4'] === "True" %}
+    {% include "./parts/_native-footer-with-home-new-icons.html" %}
+    {% elif data['experimentalFooter5'] === "True" %}
+      {% include "./parts/_native-footer-new-icons-home.html" %}
+      {% elif data['experimentalFooter6'] === "True" %}
+        {% include "./parts/_native-footer-new-icons-advice.html" %}
+{% else %}
+  {% include "./parts/_native-footer.html" %}
+{% endif %}
+
+{% include "./parts/_desktop-footer-2.html" %}
+
+
+
+
+{% endblock %}

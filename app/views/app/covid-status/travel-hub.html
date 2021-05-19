@@ -7,7 +7,7 @@
 {% endblock %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
-{% extends 'layouts/layout-app-new.html' %}
+{% extends 'layouts/layout-app-new-covid-status.html' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -16,38 +16,51 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
-  <div class="nhsuk-width-container">
-    <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="">Coronavirus (COVID-19) hub</a></li>
-    </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
-  </div>
-</nav>
+
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="nhsuk-back-link">
+        <a class="nhsuk-back-link__link" href="javascript: window.history.go(-1)">
+          <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+          </svg>
+          Go back</a>
+      </div>
+
+
       <h1 class="nhsuk-heading-xl nhs-app-xl">
         {{ contentTitle }}
       </h1>
 
-      <p>Share proof of your status if you're travelling.</p>
-
-      <ul class="list-menu">
+      <p class="nhsuk-u-margin-bottom-6">Share proof of your status if you're travelling.</p>
 
 
+      <div class="nhsuk-card nhsuk-card--clickable">
+  <div class="nhsuk-card__content">
+    <h2 class="nhsuk-card__heading nhsuk-heading-m">
+      <a class="nhsuk-card__link" href="/app/covid-status/status-service-v3/covid-status">Travel</a>
+    </h2>
+    <p class="nhsuk-card__description">You will need to share your COVID-19 status when travelling.</p>
+  </div>
+</div>
 
-                      <li>
-                        <a href="/app/covid-status/status-service-v3/covid-status">
-                          <h2 class="nhsuk-heading-s">Travel</h2>
-                          <p>You will need to share your COVID-19 status when travelling</p>
-                        </a>
-                      </li>
 
-      </ul>
+<div class="nhsuk-card nhsuk-card--clickable">
+<div class="nhsuk-card__content">
+<h2 class="nhsuk-card__heading nhsuk-heading-m">
+<a class="nhsuk-card__link" href="/app/covid-status/status-service-v3/covid-status">Events</a>
+</h2>
+<p class="nhsuk-card__description">You will need to share your COVID-19 status for selected UK events.</p>
+</div>
+</div>
+
+
+
+
 
 
     </div>

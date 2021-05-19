@@ -1,0 +1,74 @@
+{% set PROTOTYPEURL = "app/covid-status/status-service-v3" %}
+{% set serviceName = "NHS App" %}
+{% set recordActive = "active" %}
+{% set contentTitle = "NHS COVID-19 Vaccination Status: Terms of Use" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new-covid-status.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+            <div class="nhsuk-back-link">
+              <a class="nhsuk-back-link__link" href="javascript: window.history.go(-1)">
+                <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+                </svg>
+                Go back</a>
+            </div>
+
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+      <p class="nhsuk-body">By using this Service, you agree to these Terms.</p>
+
+
+<div class="terms-and-conditions-list"><ol class="terms-and-conditions-list__overall-list"><li class="terms-and-conditions-list__list-item">Introduction<ol><li class="terms-and-conditions-list__list-item__sub-item">Welcome to the terms of use (“Terms”) for the NHS COVID-19 Vaccination Status Service (“Service”), which is available through the NHS App and&nbsp;<a target="_blank" href="https://covid-status.service.nhsx.nhs.uk/" class="nhsuk-link nhsuk-link--no-visited-state-link external-link">https://covid-status.service.nhsx.nhs.uk/</a>&nbsp;from a web browser.</li><li class="terms-and-conditions-list__list-item__sub-item">The Department of Health and Social Care (‘DHSC’, ‘we’, ‘our’) has overall responsibility for the Service, which has been developed by, and will be operated by, NHSX (a joint working arrangement between DHSC and NHS England). For the purposes of clause 7 ‘we’ is deemed to include NHS Digital with respect to liability for NHS Digital’s role as the certifying authority.</li>
+  <li class="terms-and-conditions-list__list-item__sub-item">NHS Digital is the certifying authority, which means it certifies that it has provided the information about your vaccination history to the Service, on behalf of NHS England, for the vaccination database it operates (the Approved Source System). This contains vaccination information supplied from the COVID-19 vaccine point of care systems approved by NHS England, who is the controller for and operates the COVID-19 Vaccination Programme in England.</li>
+  <li class="terms-and-conditions-list__list-item__sub-item">These Terms apply to the Service only. There are separate terms of use that apply to: (i) the NHS App; and (ii) NHS login. For the purposes of the NHS login, the Service is a “Connected Service”, for the purposes of the NHS App the Service is a “Platform Service”.</li></ol></li><li class="terms-and-conditions-list__list-item">Purpose of the Service<ol><li class="terms-and-conditions-list__list-item__sub-item">The purpose of the Service is to allow you to produce a digital ‘COVID-19 vaccination status’, which includes a 2D barcode.  This Service allows you to demonstrate your COVID-19 vaccination history. The Service can be used to demonstrate your COVID-19 vaccination status for the purposes of international travel as some countries may require you to provide them with evidence that you have been vaccinated before you are allowed to enter their country, and potentially for some domestic purposes, which the Government may approve from time to time.</li>
+    <li class="terms-and-conditions-list__list-item__sub-item">The Service is not intended to be used by employers for the purpose of testing the COVID-19 vaccination status of their employees, or for any other purpose not approved in Government guidance.</li><li class="terms-and-conditions-list__list-item__sub-item">The Service is provided by DHSC free of charge, and it is expressly prohibited to attempt to sell or license use of the Service to any person, or to include the Service as part of a paid-for service or product.</li>
+  </ol>
+</li>
+<li class="terms-and-conditions-list__list-item">How to use the Service <ol>
+  <li class="terms-and-conditions-list__list-item__sub-item">To use the Service, you must either i) first download the NHS App, which you can do here: <a target="_blank" href="https://www.nhs.uk/nhs-services/online-services/nhs-app/" class="nhsuk-link nhsuk-link--no-visited-state-link external-link">https://www.nhs.uk/nhs-services/online-services/nhs-app/</a>or ii) you can visit&nbsp;<a target="_blank" href="https://covid-status.service.nhsx.nhs.uk/" class="nhsuk-link nhsuk-link--no-visited-state-link external-link">https://covid-status.service.nhsx.nhs.uk/</a>&nbsp;from a web browser.</li>
+  <li class="terms-and-conditions-list__list-item__sub-item">If it is your first time using the Service then you will need to set up NHS login credentials and prove who you are.  In order to use the Service for international travel, you will need to complete the highest level of identity verification.  This involves an online or offline identity verification process where physical comparison between you and a photographic form of identity has occurred.</li><li class="terms-and-conditions-list__list-item__sub-item">It is important that you keep your NHS login credentials confidential and do not share these with any other person.</li><li class="terms-and-conditions-list__list-item__sub-item nhsuk-u-font-weight-bold">We strongly recommend that you test the Service at home, prior to using it in a live setting, to ensure it works correctly and to give you time to discuss any issues with us (see the contact information provided below) or to consider alternative options to using the Service (such as taking a coronavirus test) where these are available.</li>
+</ol></li>
+<li class="terms-and-conditions-list__list-item">How the Service works<ol>
+  <li class="terms-and-conditions-list__list-item__sub-item">The Service works by establishing whether you have received both doses of the same COVID-19 vaccine.</li><li class="terms-and-conditions-list__list-item__sub-item">The Service does this by using your NHS login credentials to verify your identity, and to retrieve your Covid-19 vaccination data (if applicable) from the Approved Source System. It is important to note that the Service is dependent on external data sources, and on data sharing permissions, including those given to your GP. If in doubt, please refer to 119.</li>
+</ol></li>
+<li class="terms-and-conditions-list__list-item">Privacy<ol><li class="terms-and-conditions-list__list-item__sub-item">Please refer to the <a href="#" class="nhsuk-link nhsuk-link--no-visited-state-link">Privacy Notice</a> for further information about how the Service processes personal data and respects your rights of privacy and confidentiality under data protection laws or contact <a target="_blank" href="mailto: dataprotection@dhsc.gov.uk" class="nhsuk-link nhsuk-link--no-visited-state-link external-link">dataprotection@dhsc.gov.uk</a></li>
+</ol></li>
+<li class="terms-and-conditions-list__list-item">Your right to use the Service<ol><li class="terms-and-conditions-list__list-item__sub-item">The Service and its content belongs to DHSC, NHS England or their respective licensors as appropriate, and are protected by intellectual property laws.  As long as you comply with these Terms, you have a personal, perpetual, non-exclusive, non-transferable, revocable, limited licence to use the Service for your own personal use.  We reserve all other licence rights not expressly permitted under these Terms.</li>
+  <li class="terms-and-conditions-list__list-item__sub-item">For the avoidance of doubt, any reproduction, representation, distribution, modification, adaptation or translation of the Service and its content, in whole or in part, is prohibited, except within the limit of these Terms or with the express authorisation of DHSC.</li></ol></li><li class="terms-and-conditions-list__list-item">Our liability to you<ol><li class="terms-and-conditions-list__list-item__sub-item">We will use reasonable efforts to keep the Service up-to-date and functioning as intended.</li>
+    <li class="terms-and-conditions-list__list-item__sub-item">However, the Service is provided on an "as is" basis and, to the extent permitted by law, we make no other representations, warranties or guarantees, whether express or implied that the Service will be accurate at all times.  We also cannot guarantee that the Service will be uninterrupted, secure or error or virus free, or that defects will be corrected.</li><li class="terms-and-conditions-list__list-item__sub-item">We will not be liable to you for:<ol>
+      <li class="terms-and-conditions-list__list-item__sub-item">any use of the Service that does not comply with these Terms;</li>
+      <li class="terms-and-conditions-list__list-item__sub-item">any business loss (including but not limited to loss of profits, revenue, contracts, anticipated savings, data, goodwill or wasted expenditure);</li><li class="terms-and-conditions-list__list-item__sub-item">any loss or damage arising from an inability to access and/or use the Service;</li><li class="terms-and-conditions-list__list-item__sub-item">any indirect or consequential losses that were not foreseeable to both you and us when you commenced using the Service; or</li>
+      <li class="terms-and-conditions-list__list-item__sub-item">any loss or damage caused by a virus or other technologically harmful material that may infect your device or data due to your use of the Service.</li></ol></li><li class="terms-and-conditions-list__list-item__sub-item">This clause 7 does not affect any legal rights you may have as a consumer in relation to defective services or software.  Advice about your legal rights is available from your local Citizen's Advice or Trading Standards Office.</li>
+      <li class="terms-and-conditions-list__list-item__sub-item">Nothing in this clause 7 excludes or limits our liability for death or personal injury arising from our negligence, or our fraud or fraudulent misrepresentation, or any other liability that cannot be excluded or limited by law.</li></ol></li><li class="terms-and-conditions-list__list-item">Continuity of the Service<ol><li class="terms-and-conditions-list__list-item__sub-item">We reserve the right to suspend, terminate or otherwise alter access to some or all of the Service at any time and without notice.</li>
+      </ol></li>
+      <li class="terms-and-conditions-list__list-item">Security<ol><li class="terms-and-conditions-list__list-item__sub-item">If you discover a potential security vulnerability or suspect a security incident related to this service, please follow the vulnerability disclosure programme for the NHS COVID-19 Vaccination Status Service and infrastructure. You can read our Vulnerability Disclosure Policy at <a target="_blank" href="https://www.nhsx.nhs.uk/covid-19-response/covid-19-vaccination-status-vulnerability-disclosure-policy" class="nhsuk-link nhsuk-link--no-visited-state-link external-link">www.nhsx.nhs.uk/</a></li><li class="terms-and-conditions-list__list-item__sub-item">You can report a vulnerability in the app, backend infrastructure or on the website by emailing <a target="_blank" href="mailto: covid-status.security@nhs.net" class="nhsuk-link nhsuk-link--no-visited-state-link external-link">covid-status.security@nhs.net</a></li>
+        <li class="terms-and-conditions-list__list-item__sub-item">The Service has been and will continue to be subjected to security audits.</li></ol></li><li class="terms-and-conditions-list__list-item">Complaints <ol><li class="terms-and-conditions-list__list-item__sub-item">If you have complaints or concerns about the Service, please contact <a target="_blank" href="mailto: covid-status.complaints@nhs.net" class="nhsuk-link nhsuk-link--no-visited-state-link external-link">covid-status.complaints@nhs.net</a></li>
+        </ol></li>
+        <li class="terms-and-conditions-list__list-item">Miscellaneous <ol>
+          <li class="terms-and-conditions-list__list-item__sub-item">We may revise these Terms of Use at any time and your continued use of the Service will be deemed acceptance of such revised Terms of Use. Any such revisions take effect when this page is published.</li><li class="terms-and-conditions-list__list-item__sub-item">These Terms of Use are governed by the laws of England and Wales</li><li class="terms-and-conditions-list__list-item__sub-item">These Terms do not provide rights to, and may not be enforced by, any third party.</li>
+          <li class="terms-and-conditions-list__list-item__sub-item">Each of the clauses in these Terms operates separately.  If any part of these Terms is determined to be invalid or unenforceable then the remainder of these Terms will remain in full force and effect.</li></ol></li></ol></div>
+
+<p class="nhsuk-body nhsuk-u-margin-top-2">Last updated: 17 May 2021</p>
+    </div>
+  </div>
+{% endblock %}

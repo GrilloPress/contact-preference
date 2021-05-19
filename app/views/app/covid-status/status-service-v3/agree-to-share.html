@@ -8,7 +8,7 @@
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
-{% extends 'layouts/layout-app-new.html' %}
+{% extends 'layouts/layout-app-new-covid-status.html' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -17,28 +17,29 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
-  <div class="nhsuk-width-container">
-    <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="">Coronavirus (COVID-19) hub</a></li>
-    </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
-  </div>
-</nav>
+
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
+      <div class="nhsuk-back-link">
+        <a class="nhsuk-back-link__link" href="javascript: window.history.go(-1)">
+          <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+          </svg>
+          Go back</a>
+      </div>
+
+
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
 
 
-      <p>To continue, you need to agree to share your NHS login information with <strong>'NHS COVID-19 vaccination status'</strong>.</p>
+      <p>To continue, you need to agree to share your NHS login information with <strong>'NHS COVID-19 Vaccination status'</strong>. This service is provided by the Department of Health and Social Care.</p>
 
-      <p><strong>'NHS COVID-19 vaccination status'</strong> will use your:</p>
+      <p><strong>'NHS COVID-19 Vaccination status'</strong> will use your:</p>
       <ul>
         <li>NHS number</li>
         <li>date of birth</li>
@@ -49,14 +50,13 @@
         <li>mobile phone number</li>
       </ul>
 
-      <p>Read the terms of use and privacy policy for <strong>'NHS COVID-19 vaccination status'</strong> to check how your information will be used.</p>
 
       <form action="/{{ PROTOTYPEURL }}/start-page" method="get">
-        <input type="submit" class="nhsuk-button" value="I agree">
+        <input type="submit" class="nhsuk-button full-width" value="I agree">
         </input>
       </form>
 
-      <p><a href="">I do not agree to share this information</a></p>
+      <p><a href="/{{ PROTOTYPEURL }}/do-not-agree">I do not agree to share this information</a></p>
 
     </div>
   </div>

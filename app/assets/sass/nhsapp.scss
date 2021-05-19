@@ -3282,6 +3282,8 @@ $nhsuk-checkbox-hover-color: $color_nhsuk-grey-3;
   margin-bottom: 16px; }
 
 
+
+
   .nhsuk-card_no-bottom-border {
     margin-bottom: 40px;
     background: #ffffff;
@@ -3294,16 +3296,18 @@ $nhsuk-checkbox-hover-color: $color_nhsuk-grey-3;
         margin-bottom: 48px; } }
 
 
-          .nhsuk-card_green {
-            margin-bottom: 40px;
-            background: #0C7342;
-            border: 1px solid #0C7342;
-            border-bottom: none;
-            position: relative;
-            width: 100%; }
-            @media (min-width: 40.0625em) {
-              .nhsuk-card {
-                margin-bottom: 48px; } }
+
+                  .nhsuk-card_green {
+                    margin-bottom: 40px;
+                    background: #0C7342;
+                    border: 1px solid #0C7342;
+                    border-bottom: none;
+                    position: relative;
+                    width: 100%; }
+                    @media (min-width: 40.0625em) {
+                      .nhsuk-card {
+                        margin-bottom: 48px; } }
+
 
 
                 .nhsuk-card_yellow {
@@ -3334,11 +3338,6 @@ $nhsuk-checkbox-hover-color: $color_nhsuk-grey-3;
 }
 
 
-.covid-status-tick {
-  position: absolute;
-  margin-top: 2px;
-  margin-left: 15px;
-}
 
 
 
@@ -4080,19 +4079,22 @@ legend {
 
       .nhsuk-summary-list__row {
         margin-bottom: 1;
+
       }
 
       .nhsuk-summary-list__key {
 
         display: inline-block;
-        width: 46%;
+        width: 38%;
       }
 
       .nhsuk-summary-list__value {
 
         display: inline-block;
+        position: relative;
         margin-bottom: nhsuk-spacing(1);
         vertical-align: baseline;
+
       }
 
     }
@@ -4169,6 +4171,8 @@ legend {
    &:hover {
      color: #212B32 !important;
      text-decoration: none !important;
+     background-color: #ffeb3b;
+     box-shadow: 0 -2px #ffeb3b, 0 4px #212b32;
    }
 
    &:visited {
@@ -4194,9 +4198,7 @@ legend {
 }
 
 .covid-qr-image {
-  @include mq($until: tablet) {
     text-align: center;
-  }
 }
 
 
@@ -4244,4 +4246,91 @@ legend {
 
 
 
+}
+
+
+.covid-green-container--netco {
+  text-align: center;
+}
+
+.covid-link--arrow,
+.covid-link--arrow:visited {
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.covid-link--arrow:hover {
+  text-decoration: underline;
+  color: #212b32;
+}
+
+.covid-link:hover {
+    box-shadow: 0 0 0 4px #ffeb3b;
+    color: #005eb8;
+    background-color: #ffeb3b;
+    outline: 4px solid transparent;
+    outline-offset: 4px;
+
+}
+
+.covid-link:focus {
+    box-shadow: 0 0 0 4px #ffeb3b;
+    color: #005eb8;
+    background-color: #ffeb3b!important;
+}
+
+.covid-link--arrow:focus #down-chevron {
+  stroke: #000;
+  background-color: #ffeb3b;
+box-shadow: 0 -2px #ffeb3b, 0 4px #212b32;
+color: #212b32;
+outline: 4px solid transparent;
+text-decoration: none;
+
+}
+
+.covid-link--arrow__icon {
+  vertical-align: -8px;
+}
+
+.download-link--netco {
+  font-weight: bold;
+}
+
+.card-with-chevron-down-expanded--netco,
+.card-with-chevron-down-expanded--netco.rotate {
+  background-position: right;
+  font-weight: bold;
+}
+
+
+.covid-status-tick {
+  text-align: center;
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+
+.nhsuk-footer__list-item-version {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #4c6272;
+    font-weight: 400;
+}
+
+.nhsuk-table-covid {
+    margin-bottom: 40px;
+    margin-top: 40px;
+    border-spacing: 0;
+    vertical-align: top;
+    width: 100%;
+    margin: 0px 0px 2px 0px;
+}
+
+.nhsuk-table__cell {
+  padding: 6px 0px 6px 0px;
+  vertical-align: top;
 }
