@@ -76,7 +76,13 @@ $("#dose1").click(function(){
 
     <h2 class="nhsuk-heading-s">2D barcode expiry</h2>
 
-    <p>Your 2D barcode will refresh every 28 days. Check you have the latest version before you travel.</p>
+
+              {% if data['events'] === 'True' %}
+              <p>Your 2D barcode automatically refreshes every 28 days to protect your data. Check the expiration date before you go to the event.</p>
+               {% else %}
+               <p>Your 2D barcode automatically refreshes every 28 days to protect your data. Check the expiration date before you travel.</p>
+               {% endif %}
+
 
       <div class="nhsuk-card nhsuk-u-margin-bottom-0">
         <div class="nhsuk-card__content_less-padding-black">
