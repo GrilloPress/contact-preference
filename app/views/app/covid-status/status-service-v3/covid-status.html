@@ -39,7 +39,7 @@ $("#showEmail").click(function(){
           Go back</a>
       </div>
 
-      
+
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
 
@@ -48,11 +48,25 @@ $("#showEmail").click(function(){
 
 
           <p class="nhsuk-body">You need to show this when asked by officials.</p>
-          <p class="nhsuk-body">Before you travel you'll need to:</p>
+
+          {% if data['events'] === 'True' %}
+
+          <p class="nhsuk-body">Before you go to the event you'll need to:</p>
            <ul class="nhsuk-body">
-             <li>check the entry requirements for your destination</li>
-             <li>make sure your vaccination information is correct</li>
+             <li>check the entry requirements of the event</li>
+             <li>make sure your information is correct</li>
            </ul>
+
+           {% else %}
+
+           <p class="nhsuk-body">Before you travel you'll need to:</p>
+            <ul class="nhsuk-body">
+              <li>check the entry requirements for your destination</li>
+              <li>make sure your vaccination information is correct</li>
+            </ul>
+
+           {% endif %}
+
 
       </div>
 

@@ -16,6 +16,10 @@ if ('serviceWorker' in navigator) {
 }
 
 */
+
+
+
+
 UpUp.addSettings({ scope: './' });
 UpUp.start({
   'content-url': '/offline',

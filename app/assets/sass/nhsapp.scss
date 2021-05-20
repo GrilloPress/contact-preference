@@ -4334,3 +4334,41 @@ text-decoration: none;
   padding: 6px 0px 6px 0px;
   vertical-align: top;
 }
+
+$card-border-width: 1px;
+$card-border-bottom-width: nhsuk-spacing(1);
+$card-border-color: $color_nhsuk-grey-4;
+$card-border-hover-color: $color_nhsuk-grey-3;
+
+// Focus
+$nhsuk-focus-color: $color_nhsuk-yellow;
+$nhsuk-focus-text-color: $color_nhsuk-black;
+
+.nhsuk-card--clickable {
+  border-bottom-width: $card-border-bottom-width;
+
+  &:hover,
+  &:active {
+    cursor: pointer;
+
+    .nhsuk-card__heading a,
+    .nhsuk-card__link {
+      color: $nhsuk-link-hover-color;
+      text-decoration: none;
+
+      &:focus {
+        color: $nhsuk-focus-text-color;
+      }
+    }
+
+  }
+
+  &:hover {
+    border-color: $card-border-hover-color;
+  }
+
+  &:active {
+    border-color: $card-border-hover-color;
+    bottom: - $card-border-width; /* [3] */
+  }
+}

@@ -3,8 +3,7 @@
 {% set recordActive = "active" %}
 {% set contentTitle = "View your COVID-19 status" %}
 {% set title = contentTitle + " - " + serviceName %}
-{% block pageScripts %}
-{% endblock %}
+
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new-covid-status.html' %}
@@ -36,27 +35,30 @@
         {{ contentTitle }}
       </h1>
 
-      <p class="nhsuk-u-margin-bottom-6">Share proof of your status if you're travelling.</p>
+      <p class="nhsuk-u-margin-bottom-6">Share proof of your status if you're travelling or going to an event.</p>
+
+
+
+
+      <div class="nhsuk-card nhsuk-card--clickable">
+      <div class="nhsuk-card__content">
+      <h2 class="nhsuk-card__heading nhsuk-heading-m">
+      <a class="nhsuk-card__link" href="/app/covid-status/status-service-v3/covid-status?events=True">Events</a>
+      </h2>
+      <p class="nhsuk-card__description">You will need to share your COVID-19 status when going to an event.</p>
+      </div>
+      </div>
 
 
       <div class="nhsuk-card nhsuk-card--clickable">
   <div class="nhsuk-card__content">
     <h2 class="nhsuk-card__heading nhsuk-heading-m">
-      <a class="nhsuk-card__link" href="/app/covid-status/status-service-v3/covid-status">Travel</a>
+      <a class="nhsuk-card__link" href="/app/covid-status/status-service-v3/covid-status?events=">Travel</a>
     </h2>
     <p class="nhsuk-card__description">You will need to share your COVID-19 status when travelling.</p>
   </div>
 </div>
 
-
-<div class="nhsuk-card nhsuk-card--clickable">
-<div class="nhsuk-card__content">
-<h2 class="nhsuk-card__heading nhsuk-heading-m">
-<a class="nhsuk-card__link" href="/app/covid-status/status-service-v3/covid-status">Events</a>
-</h2>
-<p class="nhsuk-card__description">You will need to share your COVID-19 status for selected UK events.</p>
-</div>
-</div>
 
 
 
@@ -65,4 +67,19 @@
 
     </div>
   </div>
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+// Loops through dom and finds all elements with nhsuk-card--clickable class
+document.querySelectorAll('.nhsuk-card--clickable').forEach((panel) => {
+  // Check if panel has a link within it
+  if (panel.querySelector('a') !== null) {
+    // Clicks the link within the heading to navigate to desired page
+    panel.addEventListener('click', () => {
+      panel.querySelector('a').click();
+    });
+  }
+});
+</script>
 {% endblock %}
