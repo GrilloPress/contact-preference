@@ -1,0 +1,64 @@
+{% set PROTOTYPEURL = "app/covid-status/new-user-flow/login" %}
+{% set serviceName = "NHS login" %}
+{% set contentTitle = "Please wait" %}
+{% set title = contentTitle + " - " + serviceName %}
+
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+      <div class="nhsuk-loader">
+        <h1>Saving your photo</h1>
+        <p class="nhsuk-loader__text_please-wait">Please wait...</p>
+        <span class="nhsuk-loader__spinner"></span>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block pageScripts %}
+
+  <script>
+    $(document).ready(function () {
+        // Handler for .ready() called.
+        window.setTimeout(function () {
+            location.href = "/app/covid-status/new-user-flow/p9/send-photo";
+        }, 2500);
+    });
+  </script>
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

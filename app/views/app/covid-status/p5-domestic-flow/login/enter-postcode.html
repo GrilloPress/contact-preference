@@ -1,0 +1,88 @@
+{% set PROTOTYPEURL = "app/covid-status/new-user-flow/login" %}
+{% set serviceName = "NHS login" %}
+{% set contentTitle = "What is your postcode?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+<header class="app-interruption-header" style="margin-bottom: 0; border-top: none; background-color: #005eb8;">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <a href="/app/v10-p5/clear">
+          <svg class="nhsuk-icon nhsuk-icon__close app-icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style=" fill: #fff;">
+                    <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
+                  </svg>
+                  <span style="color: #fff; position: absolute;padding-top: 18px;padding-left: 4px;"> Close </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+  {{ header({
+    "transactionalService": {
+        "name": "Register for the NHS App",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb_sticky" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+
+      <form action="/app/covid-status/new-user-flow/login/checking-details" method="post">
+
+        {{ input({
+          "label": {
+            "text": "You must enter the postcode you registered with your GP surgery."
+          },
+            "hint": {
+            "text": "For example, LS11 5RU"
+          },
+          "id": "example-with-hint-text",
+          "name": "example-with-hint-text",
+          "classes": "nhsuk-input--width-10"
+        }) }}
+
+
+      <input type="submit" class="nhsuk-button full-width" value="Submit information">
+      </input>
+    </form>
+
+
+
+    </div>
+  </div>
+{% endblock %}

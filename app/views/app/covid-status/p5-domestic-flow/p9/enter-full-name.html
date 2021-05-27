@@ -1,0 +1,139 @@
+{% set PROTOTYPEURL = "app/covid-status/new-user-flow/login" %}
+{% set serviceName = "NHS login" %}
+{% set contentTitle = "Enter your full name" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+
+</header>
+
+  {{ header({
+    "transactionalService": {
+        "name": "",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="page-section">
+
+
+  <div class="first-item">
+
+
+  <div class="first-item">
+
+
+
+
+  	<p><a href="/app/covid-status/new-user-flow/p9/match-record" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Step 3 - Help us match you to your NHS record</a></p>
+
+
+
+
+  	<div class="reading-width">
+
+      <form action="/app/covid-status/new-user-flow/p9/enter-dob" method="post">
+
+
+      <fieldset class="nhsuk-fieldset">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl nhs-app-xl">
+          <h1 class="nhsuk-fieldset__heading">
+            Enter your full name
+          </h1>
+        </legend>
+
+
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label--m nhsuk-u-margin-bottom-2" for="address-town">
+            First name
+          </label>
+          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="address-town" name="address-town" type="text">
+        </div>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label--m nhsuk-u-margin-bottom-2" for="address-town">
+            Middle name (if you have one)
+          </label>
+          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="address-town" name="address-town" type="text">
+        </div>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label--m nhsuk-u-margin-bottom-2" for="address-town">
+           Last name
+          </label>
+          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="address-town" name="address-town" type="text">
+        </div>
+
+
+
+      </fieldset>
+
+
+
+    <input type="submit" class="nhsuk-button full-width" style="font-size: 20px; text-align: center;" value="Continue">
+    </input>
+  </form>
+
+  </div>
+
+
+  </div>
+
+
+      </div>
+
+    </div>
+  </div>
+  {% endblock %}
+
+  {% block footer %}
+
+  <footer role="contentinfo" style="position: relative;">
+  <div class="global-footer">
+    <div class="global-footer__inner__no-logo ">
+      <ul class="link-list">
+
+        <li>
+          <a href="#" target="_blank" title="Terms of use">Terms of use</a>
+        </li>
+        <li>
+          <a href="#" target="_blank" title="Cookies">Cookies</a>
+        </li>
+        <li>
+          <a href="#" title="Accessibility">Accessibility</a>
+        </li>
+        <li>
+          <a href="#" title="Help Centre">Help Centre</a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</footer>
+{% endblock %}

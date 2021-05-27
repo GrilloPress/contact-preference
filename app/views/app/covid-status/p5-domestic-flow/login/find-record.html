@@ -1,0 +1,93 @@
+{% set PROTOTYPEURL = "app/covid-status/new-user-flow/login" %}
+{% set serviceName = "NHS login" %}
+{% set contentTitle = "Help us find your NHS record" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Register for the NHS App",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb_sticky" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+      <div class="app-interruption">
+        <div class="app-interruption__wrapper">
+          <div class="app-interruption__content">
+            <h1 class="app-card__heading nhsuk-heading-xl nhsuk-u-margin-bottom-4">
+              {{ contentTitle }}
+            </h1>
+            <p>
+              We’ll ask for information so we can match you to your NHS record.</p>
+              <p>You’ll need to tell us either:</p>
+              <p>1. your NHS number and date of birth
+              <p>or</p>
+              <p>2. your name, date of birth and postcode</p>
+            </p>
+            <h2>Upcoming steps</p>
+              <details class="nhsuk-details">
+                <summary style="color:#fff" class="nhsuk-details__summary">
+                  <span style="color:#fff" class="nhsuk-details__summary-text">
+                    Prove who you are
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <p>You’ll need to send us a picture of your photo ID.</p>
+                  <p><a href="#">More information about ID types we accept</a></p>
+                  <p>We’ll need to check your face matches the face on your photo ID. We’ll help you do this by recording a short video or face scan.</p>
+                  <p>You’ll need a device with a camera like a smartphone or tablet.</p>
+                  <p>If you do not have suitable photo ID, we’ll help you to prove who you are another way.</p>
+                </div>
+              </details>
+
+            <form action="/{{ PROTOTYPEURL }}/know-nhs-number" method="post">
+              <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
+            </form>
+
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

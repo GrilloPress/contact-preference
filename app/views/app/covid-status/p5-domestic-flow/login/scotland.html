@@ -1,0 +1,77 @@
+{% set PROTOTYPEURL = "app/covid-status/new-user-flow/login" %}
+{% set serviceName = "NHS login" %}
+{% set contentTitle = "The NHS App is not available in Scotland" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Register for the NHS App",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb_sticky_sticky" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Online consultations</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhs-app-xl">
+        {{ contentTitle }}
+      </h1>
+
+      <p>The NHS App is only available to people who are registered with a GP surgery in England.</p>
+
+
+    <h2>Other services available to you</h2>
+
+
+    <ul class="list-menu">
+      <li>
+        <a href="#">
+          <h2 class="nhsuk-heading-s">Get advice about coronavirus</h2>
+            <p>Find advice from NHS Scotland and the Scottish Government</p>
+        </a>
+      </li>
+
+    <li>
+      <a href="#">
+        <h2 class="nhsuk-heading-s">Search symptoms and self-help</h2>
+          <p>Find NHS information on common symptoms and guidance for self-help</p>
+      </a>
+    </li>
+
+  </ul>
+
+
+
+    </div>
+  </div>
+{% endblock %}

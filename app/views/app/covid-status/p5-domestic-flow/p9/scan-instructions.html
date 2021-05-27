@@ -1,0 +1,122 @@
+{% set PROTOTYPEURL = "app/covid-status/new-user-flow/login" %}
+{% set serviceName = "NHS login" %}
+{% set contentTitle = "Scan instructions" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+
+</header>
+
+  {{ header({
+    "transactionalService": {
+        "name": "",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="page-section">
+
+
+
+<p><a href="/app/covid-status/new-user-flow/p9/match-face" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Match your face to your photo I.D.</a></p>
+
+
+  	<div class="reading-width">
+
+
+                <h1 class="nhs-app-xl">Scan instructions</h1>
+
+              <p class="login_p">Follow these steps:</p>
+
+              <ol class="login_p" style="padding-bottom: 16px;">
+                          <li>Turn up the screen brightness on your device.</li>
+
+                          <li>Select 'start scan' and follow the instructions.</li>
+                        </ol>
+
+                        <form action="/app/covid-status/new-user-flow/p9/scan" method="post">
+
+
+
+                  <input type="submit" class="nhsuk-button full-width" style="font-size: 20px; text-align: center;" value="Start scan">
+                  </input>
+                </form>
+
+                <details class="" role="group">
+                              <summary class="summary" role="button" aria-controls="details-content-1" aria-expanded="true">
+                                  <span class="details__summary">What you can do if the scan keeps failing</span>
+                              </summary>
+                              <div class="callout callout--friendly" id="details-content-1" aria-hidden="false">
+                                  <div class="reading-width">
+
+                                      <p class="login_p">If the face scan does not work, you can send us a short video instead.</p>
+                                      <p class="login_p"><a href="service-access-iproov-bail?service=undefined&amp;serviceName=undefined&amp;emailAddress=undefined&amp;mobileNum=undefined&amp;idType=undefined&amp;formerror=undefined&amp;hidehead=undefined&amp;challenge=undefined&amp;devMode=undefined&amp;returnUrl=undefined&amp;genericButton=undefined&amp;uplift=undefined">Try with a video instead</a></p>
+
+                                  </div>
+                              </div>
+                          </details>
+
+                </div>
+
+  </div>
+
+
+  </div>
+
+
+      </div>
+
+    </div>
+  </div>
+  {% endblock %}
+
+  {% block footer %}
+
+  <footer role="contentinfo" style="position: relative;">
+  <div class="global-footer">
+    <div class="global-footer__inner__no-logo ">
+      <ul class="link-list">
+
+        <li>
+          <a href="#" target="_blank" title="Terms of use">Terms of use</a>
+        </li>
+        <li>
+          <a href="#" target="_blank" title="Cookies">Cookies</a>
+        </li>
+        <li>
+          <a href="#" title="Accessibility">Accessibility</a>
+        </li>
+        <li>
+          <a href="#" title="Help Centre">Help Centre</a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</footer>
+{% endblock %}

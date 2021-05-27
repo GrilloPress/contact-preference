@@ -1,0 +1,159 @@
+{% set PROTOTYPEURL = "app/covid-status/new-user-flow/login" %}
+{% set serviceName = "NHS login" %}
+{% set contentTitle = "Do you know your NHS number?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+
+</header>
+
+  {{ header({
+    "transactionalService": {
+        "name": "",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="page-section">
+
+
+  <div class="first-item">
+
+
+  <div class="first-item">
+
+
+    <div class="reading-width">
+
+
+  	<p><a href="/app/covid-status/new-user-flow/p9/enter-postcode" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Enter your postcode</a></p>
+
+    <form action="/app/covid-status/new-user-flow/p9/saving-info" method="post">
+
+
+      <div class="nhsuk-form-group">
+
+        <fieldset class="nhsuk-fieldset">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+          <h1 class="nhsuk-fieldset__heading nhsuk-u-margin-bottom-4">Do you know your NHS number?</h1>
+          <p class="login_p">Your NHS number is a 10 digit number, like 485 777 3456.</p>
+
+                                  <p class="login_p">You can find it:</p>
+
+                                  <ul class="nhsuk-u-margin-bottom-0">
+                                    <li class="login_p">on any letter the NHS has sent you</li>
+                                    <li class="login_p">on a prescription</li>
+                                    <li class="login_p">by logging in to a GP surgery online service</li>
+                                  </ul>
+
+        </legend>
+
+        <div class="nhsuk-radios" data-module="radios">
+
+          <div class="nhsuk-radios__item">
+            <input class="nhsuk-radios__input" id="nhs-1" name="pharmacyType" type="radio" value="community" aria-controls="conditional-nhs-1" aria-expanded="false">
+            <label class="nhsuk-label nhsuk-radios__label" style="font-size:20px;" for="nhs-1">
+            Yes - I know my NHS number
+            </label>
+          </div>
+
+            <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-nhs-1">
+
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label--m nhsuk-u-margin-bottom-2" for="example">
+          NHS number
+        </label>
+        <div class="nhsuk-hint" id="example-with-hint-text-hint">
+            Example: 485 777 3456
+          </div>
+        <input class="nhsuk-input" id="example" name="example" type="text">
+      </div>
+
+            </div>
+
+
+          <div class="nhsuk-radios__item">
+            <input class="nhsuk-radios__input" id="nhs-2" name="pharmacyType" type="radio" value="online" aria-controls="conditional-nhs-2" aria-expanded="false">
+            <label class="nhsuk-label nhsuk-radios__label" style="font-size:20px;" for="nhs-2">
+              No - continue another way
+            </label>
+          </div>
+
+
+        </div>
+        </fieldset>
+
+      </div>
+
+
+      <input type="submit" class="nhsuk-button full-width" style="font-size: 20px; text-align: center;" value="Continue">
+      </input>
+    </form>
+
+  </div>
+
+
+  </div>
+
+
+      </div>
+
+    </div>
+  </div>
+  {% endblock %}
+
+  {% block footer %}
+
+  <footer role="contentinfo" style="position: relative;">
+  <div class="global-footer">
+    <div class="global-footer__inner__no-logo ">
+      <ul class="link-list">
+
+        <li>
+          <a href="#" target="_blank" title="Terms of use">Terms of use</a>
+        </li>
+        <li>
+          <a href="#" target="_blank" title="Cookies">Cookies</a>
+        </li>
+        <li>
+          <a href="#" title="Accessibility">Accessibility</a>
+        </li>
+        <li>
+          <a href="#" title="Help Centre">Help Centre</a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</footer>
+{% endblock %}

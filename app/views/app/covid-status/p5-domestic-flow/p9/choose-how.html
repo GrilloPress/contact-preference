@@ -1,0 +1,133 @@
+{% set PROTOTYPEURL = "app/covid-status/new-user-flow/login" %}
+{% set serviceName = "NHS login" %}
+{% set contentTitle = "Choose how to send a photo of your passport" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+
+</header>
+
+  {{ header({
+    "transactionalService": {
+        "name": "",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="page-section">
+
+
+
+<p><a href="/app/covid-status/new-user-flow/p9/send-photo" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Choose the photo I.D. you want to use</a></p>
+
+
+
+  	<div class="reading-width">
+
+              <form action="/app/covid-status/new-user-flow/p9/photo-guide" method="post">
+
+
+
+
+
+              <div class="nhsuk-form-group">
+
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l nhs-app-xl">
+            <h1 class="nhsuk-fieldset__heading nhs-app-xl nhsuk-heading-l">
+            Choose how to send a photo of your passport
+            </h1>
+          </legend>
+
+          <div class="nhsuk-radios">
+
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="example-1" name="photo-method" type="radio" value="take">
+              <label class="nhsuk-label nhsuk-radios__label" style="font-size: 20px;" for="example-1">
+                Take a photo on this device
+              </label>
+            </div>
+
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="example-2" name="photo-method" type="radio" value="upload">
+              <label class="nhsuk-label nhsuk-radios__label" style="font-size: 20px;" for="example-2">
+                Upload a photo
+              </label>
+            </div>
+
+
+          </div>
+        </fieldset>
+
+      </div>
+
+
+                  <input type="submit" class="nhsuk-button full-width" style="font-size: 20px; text-align: center;" value="Continue">
+                  </input>
+                </form>
+
+                </div>
+
+              </form>
+  </div>
+
+
+  </div>
+
+
+      </div>
+
+    </div>
+  </div>
+  {% endblock %}
+
+  {% block footer %}
+
+  <footer role="contentinfo" style="position: relative;">
+  <div class="global-footer">
+    <div class="global-footer__inner__no-logo ">
+      <ul class="link-list">
+
+        <li>
+          <a href="#" target="_blank" title="Terms of use">Terms of use</a>
+        </li>
+        <li>
+          <a href="#" target="_blank" title="Cookies">Cookies</a>
+        </li>
+        <li>
+          <a href="#" title="Accessibility">Accessibility</a>
+        </li>
+        <li>
+          <a href="#" title="Help Centre">Help Centre</a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</footer>
+{% endblock %}

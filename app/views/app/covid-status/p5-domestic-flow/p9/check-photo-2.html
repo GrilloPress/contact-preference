@@ -1,0 +1,142 @@
+{% set PROTOTYPEURL = "app/covid-status/new-user-flow/login" %}
+{% set serviceName = "NHS login" %}
+{% set contentTitle = "Take a photo of your passport" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Header goes inside this block -->
+{% block header %}
+
+</header>
+
+  {{ header({
+    "transactionalService": {
+        "name": "",
+        "href": headerHref
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <div class="page-section">
+
+
+
+<p><a href="/app/covid-status/new-user-flow/p9/choose-how" class="link-back"><i style="font-weight: normal;font-style: normal;">Back to:</i> Take a photo</a></p>
+
+
+  	<div class="reading-width">
+
+              <form action="/app/covid-status/new-user-flow/p9/match-face" method="post">
+
+                <h1 class="nhs-app-xl">Check your photo</h1>
+
+              <p class="login_p">We will ask you 2 questions to help you check your photo is correct.</p>
+
+                <p class="login-link"><a href="#" id="visually-impaired">What to do if you are blind or partially sighted</a></p>
+
+
+                <img src="/images/passport-image-2.png" alt="Passport image" width="100%" height="auto">
+
+
+                <div class="nhsuk-form-group">
+
+                  <fieldset class="nhsuk-fieldset">
+                    <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+                      <span class="heading-secondary">Question 2</span>
+                      <h2 class="nhsuk-fieldset__heading">
+                          Is there any light reflection or bright spots on your photo?
+                      </h2>
+                    </legend>
+
+                    <div class="nhsuk-radios nhsuk-radios--inline app-radios--inline">
+
+                      <div class="nhsuk-radios__item">
+                        <input class="nhsuk-radios__input" id="example-inline-1" name="example-inline" type="radio" value="yes">
+                        <label class="nhsuk-label nhsuk-radios__label" for="example-inline-1">
+                          Yes
+                        </label>
+                      </div>
+
+                      <div class="nhsuk-radios__item">
+                        <input class="nhsuk-radios__input" id="example-inline-2" name="example-inline" type="radio" value="no">
+                        <label class="nhsuk-label nhsuk-radios__label" for="example-inline-2">
+                          No
+                        </label>
+                      </div>
+
+                    </div>
+                  </fieldset>
+
+                </div>
+                  <input type="submit" class="nhsuk-button full-width" style="font-size: 20px; text-align: center;" value="Continue">
+                  </input>
+                </form>
+
+                <div class="nhsuk-back-link" style="margin-bottom: 16px;">
+                        <a class="nhsuk-back-link__link button--back" href="/app/covid-status/new-user-flow/p9/check-photo" id="backlink-4" style="font-size: 16px;font-size: .875rem;line-height: 1.71429;display: inline-block;padding-left: 16px;position: relative;text-decoration: underline;">
+                            <svg class="nhsuk-icon nhsuk-icon__chevron-left" style="height: 24px;left: -8px;position: absolute;top: -1px;width: 24px;fill: #005eb8;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+                            </svg>
+                            Change answer to question 1</a>
+                    </div>
+                </div>
+
+  </div>
+
+
+  </div>
+
+
+      </div>
+
+    </div>
+  </div>
+  {% endblock %}
+
+  {% block footer %}
+
+  <footer role="contentinfo" style="position: relative;">
+  <div class="global-footer">
+    <div class="global-footer__inner__no-logo ">
+      <ul class="link-list">
+
+        <li>
+          <a href="#" target="_blank" title="Terms of use">Terms of use</a>
+        </li>
+        <li>
+          <a href="#" target="_blank" title="Cookies">Cookies</a>
+        </li>
+        <li>
+          <a href="#" title="Accessibility">Accessibility</a>
+        </li>
+        <li>
+          <a href="#" title="Help Centre">Help Centre</a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</footer>
+{% endblock %}
