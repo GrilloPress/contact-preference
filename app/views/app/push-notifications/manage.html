@@ -64,7 +64,12 @@
     {% if data['Covid_Status'] === 'True' %}
     <form action="/app/covid-status/new-user-flow/index" method="post">
 
+      {% elif data['p5_status'] === 'True' %}
+
+    <form action="/app/covid-status/p5-domestic-flow/index" method="post">
+
       {% else %}
+
 
     <form action="/app/p5/home" method="post">
       

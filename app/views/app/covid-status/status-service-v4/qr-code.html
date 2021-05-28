@@ -1,0 +1,36 @@
+{% set PROTOTYPEURL = "app" %}
+{% set serviceName = "NHS App" %}
+{% set recordActive = "active" %}
+{% set contentTitle = "You can set up fingerprint login anytime in your settings" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-screenshot.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+
+<a href="#" onClick="window.history.go(-1)">
+  <img class="calendar-images" src="/images/qr-code-pdf.png"></a>
+
+
+
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

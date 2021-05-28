@@ -1,0 +1,193 @@
+{% set PROTOTYPEURL = "app/covid-status/status-service-v3" %}
+{% set serviceName = "NHS App" %}
+{% set recordActive = "active" %}
+{% set contentTitle = "Your COVID-19 status" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script>
+$("#showEmail").click(function(){
+ $(".email").toggleClass("show");
+ $(".card-with-chevron-down-expanded").toggleClass("rotate");
+});
+</script>
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new-covid-status.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+      <div class="nhsuk-back-link">
+        <a class="nhsuk-back-link__link" href="javascript: window.history.go(-1)">
+          <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+          </svg>
+          Go back</a>
+      </div>
+
+
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+
+
+      <div class="nhsuk-u-reading-width">
+
+
+          <p class="nhsuk-body">You need to show this when asked by officials.</p>
+
+          {% if data['events'] === 'True' %}
+
+          <p class="nhsuk-body">Before you go to the event you'll need to:</p>
+           <ul class="nhsuk-body">
+             <li>check the entry requirements of the event</li>
+             <li>make sure your information is correct</li>
+           </ul>
+
+           {% else %}
+
+           <p class="nhsuk-body">Before you travel you'll need to:</p>
+            <ul class="nhsuk-body">
+              <li>check the entry requirements for your destination</li>
+              <li>make sure your vaccination information is correct</li>
+            </ul>
+
+           {% endif %}
+
+
+      </div>
+
+
+
+
+        <div class="nhsuk-card_no-bottom-border nhsuk-u-margin-bottom-0">
+          <div class="nhsuk-card__content">
+            <h3 class="nhsuk-card__heading nhsuk-u-margin-bottom-1">Betty Doyle</h3>
+            <p>Date of birth: 20 September 1982</p>
+          </div>
+        </div>
+
+
+        {% if data['vaccinated'] === 'True' %}
+
+
+
+
+          <div class="nhsuk-card_green">
+  <div class="nhsuk-card__content-extra-padding">
+    <div class="covid-green-container covid-green-container--netco">
+        <svg class="covid-status-tick" width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g id="Colour-scheme" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="icon-tick">
+              <circle id="Oval" fill="#FFFFFF" cx="13" cy="13" r="13"></circle>
+              <polyline id="Path" stroke="#007F3B" stroke-width="4" stroke-linecap="round" points="19.8 9 11.3 17.4 7 13.2"></polyline>
+            </g>
+          </g>
+        </svg>
+        <h3 class="nhsuk-card__heading covid-status_heading">COVID-19 records found</h3>
+        <a class="covid-link--arrow" href="/{{ PROTOTYPEURL }}/your-details">Show details
+          <svg class="covid-link--arrow__icon" width="22px" height="32px"  viewBox="0.5 0 2 3" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g id="Colour-scheme" stroke="#FFFFFF" stroke-width="0.5" stroke-linecap="round" fill="#FFFFFF" fill-rule="evenodd">
+                <g id="down-chevron" transform="translate(1.250125, 1.111142)" fill="#FFFFFF" fill-rule="nonzero" stroke="#FFFFFF" stroke-width="0.2">
+                    <g id="icon_arrow_left" transform="translate(0.290000, 0.543750) rotate(360.000000) translate(-0.290000, -0.543750) translate(-0.000000, -0.000000)">
+                        <path d="M0.541768489,1.0875 C0.552025723,1.0875 0.561350482,1.08375 0.568810289,1.07625 C0.583729904,1.06125 0.583729904,1.036875 0.568810289,1.021875 L0.0932475882,0.54375 L0.568810289,0.065625 C0.583729904,0.050625 0.583729904,0.02625 0.568810289,0.01125 C0.553890675,-0.00375 0.529646302,-0.00375 0.514726688,0.01125 L0.0111897106,0.5165625 C-0.00372990353,0.5315625 -0.00372990353,0.5559375 0.0111897106,0.5709375 L0.514726688,1.07625 C0.522186495,1.08375 0.531511254,1.0875 0.541768489,1.0875 Z" id="Shape" transform="translate(0.290000, 0.543750) rotate(180.000000) translate(-0.290000, -0.543750) "></path>
+                    </g>
+                </g>
+            </g>
+          </svg>
+        </a>
+    </div>
+  </div>
+</div>
+
+
+<div class="nhsuk-card nhsuk-u-margin-bottom-2">
+  <div class="nhsuk-card__content_less-padding">
+    <a class="covid-link download-link--netco" href="/{{ PROTOTYPEURL }}/qr-code">
+      <svg class="covid-status-icons" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <title>file_download_blue</title>
+        <g id="Colour-scheme" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="file_download_blue">
+            <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+            <path d="M19,9 L15,9 L15,3 L9,3 L9,9 L5,9 L12,16 L19,9 Z M5,18 L5,20 L19,20 L19,18 L5,18 Z" id="Shape" fill="#005EB8" fill-rule="nonzero"></path>
+          </g>
+        </g>
+      </svg>
+      Download PDF copy</h3>
+    </a>
+  </div>
+</div>
+
+<div class="nhsuk-card nhsuk-u-margin-bottom-2">
+  <div class="nhsuk-card__content_less-padding">
+
+    <a id="showEmail" class="covid-link card-with-chevron-down-expanded card-with-chevron-down-expanded--netco" href="javascript:void(0);" style="text-decoration: none;">
+      <svg class="covid-status-icons" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <title>email-icon</title>
+        <g id="Colour-scheme" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="mail_blue">
+            <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
+            <path d="M20,4 L4,4 C2.9,4 2.01,4.9 2.01,6 L2,18 C2,19.1 2.9,20 4,20 L20,20 C21.1,20 22,19.1 22,18 L22,6 C22,4.9 21.1,4 20,4 Z M20,8 L12,13 L4,8 L4,6 L12,11 L20,6 L20,8 Z" id="Shape" fill="#005EB8" fill-rule="nonzero"></path>
+          </g>
+        </g>
+      </svg>
+      Receive an offline copy by email
+    </a>
+
+    <div class="email nhsuk-u-margin-top-4">
+      <div class="nhsuk-card__description covid-card__description">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label covid-label" for="input-width-20">
+            Please confirm your email address:
+          </label>
+          <input class="nhsuk-input nhsuk-input--width-20" id="input-width-20" name="test-width-20" type="text">
+        </div>
+        <button class="nhsuk-button nhsuk-u-margin-bottom-1" type="submit">
+          Confirm and send email
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+      {% else %}
+
+
+
+      <div class="nhsuk-card_yellow">
+
+
+
+        <div class="nhsuk-card__content-extra-padding">
+
+          <div class="covid-yellow-container">
+<h3 class="nhsuk-card__heading covid-status_heading-black">No COVID-19 <br>records found</h3>
+</div>
+</div>
+
+        </div>
+
+        <p><a href="/{{ PROTOTYPEURL }}/why-no-records">Why am I seeing this message?</a></p>
+
+
+      {% endif %}
+
+
+
+    </div>
+  </div>
+{% endblock %}

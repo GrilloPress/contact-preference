@@ -1,4 +1,4 @@
-{% set PROTOTYPEURL = "app/covid-status/new-user-flow/login" %}
+{% set PROTOTYPEURL = "app/covid-status/p5-domestic-flow/login" %}
 {% set serviceName = "NHS login" %}
 {% set contentTitle = "What is your date of birth?" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -61,11 +61,11 @@
 
       {% if data['knowNHSNumber'] === "yes" %}
 
-      <form action="/app/covid-status/new-user-flow/login/checking-details" method="post">
+      <form action="/app/covid-status/p5-domestic-flow/login/checking-details" method="post">
 
       {% else %}
 
-      <form action="/app/covid-status/new-user-flow/login/enter-postcode" method="post">
+      <form action="/app/covid-status/p5-domestic-flow/login/enter-postcode" method="post">
 
       {% endif %}
 

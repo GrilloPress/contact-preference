@@ -1,4 +1,4 @@
-{% set PROTOTYPEURL = "app/covid-status/new-user-flow/login" %}
+{% set PROTOTYPEURL = "app/covid-status/p5-domestic-flow/login" %}
 {% set serviceName = "NHS login" %}
 {% set contentTitle = "What is your postcode?" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -62,7 +62,7 @@
         {{ contentTitle }}
       </h1>
 
-      <form action="/app/covid-status/new-user-flow/login/checking-details" method="post">
+      <form action="/app/covid-status/p5-domestic-flow/login/checking-details" method="post">
 
         {{ input({
           "label": {
