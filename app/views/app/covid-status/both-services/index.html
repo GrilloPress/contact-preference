@@ -87,6 +87,22 @@
         <ul class="list-menu nhsuk-u-padding-bottom-4">
 
 
+        {% if data['p5_status'] === 'True' %}
+          
+          <li>
+            <a class="desktop" href="/app/covid-status/status-service-v3/agree-to-share">Share your COVID-19 status (Domestic)
+            <p class="home-panel-link-description">View and share proof of your COVID-19 status for events</p>
+            </a>
+          </li>
+          <li>
+            <a class="desktop" href="/app/covid-status/status-service-v3/agree-to-share">Share your COVID-19 status (Travel)
+            <p class="home-panel-link-description">View and share proof of your COVID-19 status for travel</p>
+            </a>
+          </li>
+
+
+        {% else %}
+
           <li>
             <a class="desktop" href="/app/covid-status/status-service-v3/agree-to-share">Share your COVID-19 status
             <p class="home-panel-link-description">View and share proof of your COVID-19 status for travel and events</p>
@@ -99,6 +115,7 @@
             </a>
           </li>
 
+        {% endif %}
 
 
           <li class="nhs-app-message__item--unread-home">

@@ -85,35 +85,32 @@
 
 
 
-                              <li>
-                                <a href="/app/records/v3/manage-your-health">
-                                  <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Manage your health</h2>
-                                  <p>View and monitor your health information or conditions</p>
-                                </a>
-                              </li>
+                      <li>
+                        <a href="/app/records/v3/manage-your-health">
+                          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Manage your health</h2>
+                          <p>View and monitor your health information or conditions</p>
+                        </a>
+                      </li>
 
 
 
-                                    <li>
-                                      <a href="/app/organ-donation/v2/register-decision-2">
-                                        <h2 class="nhsuk-heading-s">Manage your organ donation decision</h2>
-                                        <p>Help save thousands of lives in the UK every year by signing up to become a donor on the NHS Organ Donor Register</p>
-                                      </a>
-                                    </li>
+                      <li>
+                        <a href="/app/organ-donation/v2/register-decision-2">
+                          <h2 class="nhsuk-heading-s">Manage your organ donation decision</h2>
+                          <p>Help save thousands of lives in the UK every year by signing up to become a donor on the NHS Organ Donor Register</p>
+                        </a>
+                      </li>
 
 
-                                    <li>
-                                      <a href="/app/ndop/v3/overview">
-                                        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Choose if data from your health records is shared for research and planning</h2>
-                                        <p>Find out how the NHS uses your confidential patient information and choose whether or not it can be used for research and planning</p>
-                                      </a>
-                                    </li>
+                      <li>
+                        <a href="/app/ndop/v3/overview">
+                          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Choose if data from your health records is shared for research and planning</h2>
+                          <p>Find out how the NHS uses your confidential patient information and choose whether or not it can be used for research and planning</p>
+                        </a>
+                      </li>
 
 
                       {% else %}
-
-
-
 
 
 
@@ -126,36 +123,48 @@
                 </li>
 
 
-                                      {% if data['Covid_Status'] === 'True' %}
+                {% if data['Covid_Status'] === 'True' %}
 
-                                      {% if data['stakeholderDemo'] === 'True' %}
+                {% if data['stakeholderDemo'] === 'True' %}
 
-                                      <li>
-                                        <a href="/app/covid-status/stakeholder-demo/service/dose-details-2-dose">
-                                          <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Check your COVID-19 vaccine record</h2>
-                                          <p>View your vaccination details, like the name and batch number, and report any side effects you have experienced</p>
-                                        </a>
-                                      </li>
+                <li>
+                  <a href="/app/covid-status/stakeholder-demo/service/dose-details-2-dose">
+                    <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Check your COVID-19 vaccine record</h2>
+                    <p>View your vaccination details, like the name and batch number, and report any side effects you have experienced</p>
+                  </a>
+                </li>
 
-                                      {% else %}
+                {% else %}
 
-                                      <li>
-                                        <a href="/app/covid-status/status-service-v3/agree-to-share">
-                                          <h2 class="nhsuk-heading-s">Share your COVID-19 status</h2>
-                                          <p>View and share proof of your COVID-19 status for travel</p>
-                                        </a>
-                                      </li>
+                <li>
+                  <a href="/app/covid-status/status-service-v3/agree-to-share">
+                    <h2 class="nhsuk-heading-s">Share your COVID-19 status</h2>
+                    <p>View and share proof of your COVID-19 status for travel</p>
+                  </a>
+                </li>
 
-                                      <li>
-                                        <a href="/app/covid-status/service/dose-details-2-dose">
-                                          <h2 class="nhsuk-heading-s">Check your COVID-19 vaccine record</h2>
-                                          <p>View your vaccination details, like the name and batch number, and report any side effects you have experienced</p>
-                                        </a>
-                                      </li>
+                <li>
+                  <a href="/app/covid-status/service/dose-details-2-dose">
+                    <h2 class="nhsuk-heading-s">Check your COVID-19 vaccine record</h2>
+                    <p>View your vaccination details, like the name and batch number, and report any side effects you have experienced</p>
+                  </a>
+                </li>
 
 
-                                      {% endif %}
-                                      {% endif %}
+                {% endif %}
+                {% endif %}
+
+
+                {% if data['p5_status'] === 'True' %}
+
+                <li>
+                  <a href="/app/covid-status/stakeholder-demo/service/dose-details-2-dose">
+                    <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-0">Check your COVID-19 vaccine record</h2>
+                    <p>View your vaccination details, like the name and batch number, and report any side effects you have experienced</p>
+                  </a>
+                </li>
+
+                {% endif %}                
 
 
       <li>
