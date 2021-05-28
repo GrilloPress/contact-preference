@@ -3297,29 +3297,30 @@ $nhsuk-checkbox-hover-color: $color_nhsuk-grey-3;
 
 
 
-                  .nhsuk-card_green {
-                    margin-bottom: 40px;
-                    background: #0C7342;
-                    border: 1px solid #0C7342;
-                    border-bottom: none;
-                    position: relative;
-                    width: 100%; }
-                    @media (min-width: 40.0625em) {
-                      .nhsuk-card {
-                        margin-bottom: 48px; } }
+  .nhsuk-card_green {
+    margin-bottom: 40px;
+    background: #0C7342;
+    border: 1px solid #0C7342;
+    border-bottom: none;
+    position: relative;
+    width: 100%; }
+    @media (min-width: 40.0625em) {
+      .nhsuk-card {
+        margin-bottom: 48px; } }
 
 
 
-                .nhsuk-card_yellow {
-                  margin-bottom: 40px;
-                  background: #FFB81D;
-                  border: 1px solid #FFB81D;
-                  border-bottom: none;
-                  position: relative;
-                  width: 100%; }
-                  @media (min-width: 40.0625em) {
-                    .nhsuk-card {
-                      margin-bottom: 48px; } }
+.nhsuk-card_yellow {
+  margin-bottom: 40px;
+  background: #FFB81D;
+  border: 1px solid #FFB81D;
+  border-bottom: none;
+  position: relative;
+  width: 100%; }
+  @media (min-width: 40.0625em) {
+    .nhsuk-card {
+      margin-bottom: 48px; } }
+
 
 .covid-status_heading {
   text-align: center;
@@ -3328,7 +3329,6 @@ $nhsuk-checkbox-hover-color: $color_nhsuk-grey-3;
   &:focus {
    color: #212b32 !important;
   }
-
 }
 
 .covid-status_heading-black {
@@ -3336,6 +3336,17 @@ $nhsuk-checkbox-hover-color: $color_nhsuk-grey-3;
   color: #212b32;
   font-size: 24px;
 }
+
+.covid-status_body {
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 16px;
+  margin-bottom:0px;
+  &:focus {
+   color: #212b32 !important;
+  }
+}
+
 
 
 

@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/covid-status/status-service-v4" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
-{% set contentTitle = "Agree to share your NHS login information" %}
+{% set contentTitle = "Do your pre-event checks" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -32,31 +32,32 @@
           Go back</a>
       </div>
 
-
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
 
 
-      <p>To continue, you need to agree to share your NHS login information with <strong>'NHS COVID-19 Vaccination status'</strong>. This service is provided by the Department of Health and Social Care.</p>
+      <p>To ensure a smooth and quick entry into your event:</p>
 
-      <p><strong>'NHS COVID-19 Vaccination status'</strong> will use your:</p>
-      <ul>
-        <li>NHS number</li>
-        <li>date of birth</li>
-        <li>last name</li>
-        <li>identity level</li>
-        <li>first names</li>
-        <li>email address</li>
-        <li>mobile phone number</li>
+      <ul class="nhsuk-u-padding-bottom-4">
+        <li>check the event's entry requirements</li>
+        <li>make sure your information is correct</li>
+        <li>be sure your COVID-19 status will still be valid by the event date</li>
+        <li>check you have internet connection to access your status</li>
+
       </ul>
 
+    
 
-      <form action="/{{ PROTOTYPEURL }}/start-page" method="get">
-        <input type="submit" class="nhsuk-button full-width" value="I agree">
+      <p><strong>No internet access at your event?</strong></p>
+
+      <p>You can download a PDF version or email yourself a copy.</p>
+
+      <form action="/app/covid-status/status-service-v4/covid-status?p5_status=True" method="get">
+        <input type="submit" class="nhsuk-button" value="View your COVID-19 status">
         </input>
       </form>
 
-      <p><a href="/{{ PROTOTYPEURL }}/do-not-agree">I do not agree to share this information</a></p>
+
 
     </div>
   </div>

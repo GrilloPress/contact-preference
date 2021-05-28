@@ -1,4 +1,4 @@
-{% set PROTOTYPEURL = "app/covid-status/status-service-v3" %}
+{% set PROTOTYPEURL = "app/covid-status/status-service-v4" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
 {% set contentTitle = "Your details" %}
@@ -75,14 +75,20 @@ $("#dose1").click(function(){
 
 
     <h2 class="nhsuk-heading-s covid-qr-expire nhsuk-u-margin-bottom-0">2D barcode expires</h2>
-      <p class="covid-qr-expire">20 June 2021</p>
+
+          {% if data['p5_status'] === 'True' %}
+           
+          <p class="covid-qr-expire">5 June 2021 at 3:10pm</p>
+          
+          {% else %}
+          
+          <p class="covid-qr-expire">20 June 2021</p>
+
+          {% endif %}
 
 
-              {% if data['events'] === 'True' %}
-              <p>Your 2D barcode automatically refreshes every 28 days to protect your data. Check the expiration date before you go to the event.</p>
-               {% else %}
-               <p>Your 2D barcode automatically refreshes every 28 days to protect your data. Check the expiration date before you travel.</p>
-               {% endif %}
+          {% if data['events'] === 'True' %}
+            <p>Your 2D barcode automatically refreshes every 28 days to protect your data. Check the expiration date before you go to the event.</p>
 
 
       <div class="nhsuk-card nhsuk-u-margin-bottom-0">
@@ -200,7 +206,7 @@ $("#dose1").click(function(){
         </div>
       </div>
 
-
+      {% endif %}
 
 
 
