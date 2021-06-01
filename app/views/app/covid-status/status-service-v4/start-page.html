@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/covid-status/status-service-v4" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
-{% set contentTitle = "View your COVID-19 status" %}
+{% set contentTitle = "Thank you" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -36,17 +36,8 @@
 
 
 
-      <p>Share proof of your COVID-19 status for travel and events.</p>
 
-      <h2>Use this service to:</h2>
-
-      <ul>
-        <li>view your COVID-19 vaccinations</li>
-        <li>view your COVID-19 tests</li>
-      </ul>
-
-
-      <p>By clicking to continue, you agree to comply with the <a href="/{{ PROTOTYPEURL }}/terms-of-use">terms of use</a> and <a href="/{{ PROTOTYPEURL }}/privacy-policy">privacy policy</a>.</p>
+      <p>By accessing your COVID-19 status and clicking continue, you're also agreeing to the service's <a href="/{{ PROTOTYPEURL }}/terms-of-use">terms of use</a> and <a href="/{{ PROTOTYPEURL }}/privacy-policy">privacy policy</a>.</p>
 
       <form action="/app/covid-status/travel-hub" method="get">
         <input type="submit" class="nhsuk-button" value="Continue">
@@ -54,11 +45,7 @@
       </form>
 
 
-      {% if data['iFrame'] === 'True' %}
       <p>Find out <a href="/app/nhs-uk-screens/about-share-service">more about this service</a> or read more <a href="/app/nhs-uk-screens/covid-hub">about coronavirus, testing and vaccination on the NHS website.</a></p>
-      {% else %}
-      <p>Find out <a href="https://www.nhs.uk/nhs-services/online-services/nhs-app/nhs-app-help-and-support/about-the-share-your-covid-19-status-service/">more about this service</a> or read more <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">about coronavirus, testing and vaccination on the NHS website.</a></p>
-      {% endif %}
 
     </div>
   </div>

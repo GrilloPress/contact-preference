@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/covid-status" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
-{% set contentTitle = "View your COVID-19 status" %}
+{% set contentTitle = "Access your COVID-19 status" %}
 {% set title = contentTitle + " - " + serviceName %}
 
 
@@ -35,7 +35,7 @@
         {{ contentTitle }}
       </h1>
 
-      <p class="nhsuk-u-margin-bottom-6">Share proof of your status if you're travelling or going to an event.</p>
+      <p class="nhsuk-u-margin-bottom-6">Prove you meet the requirements for attending an event of travelling abroad.</p>
 
 
       {% if data['p5_status'] === 'True' %}
@@ -67,7 +67,7 @@
        <div class="nhsuk-card__content">
         <h2 class="nhsuk-card__heading nhsuk-heading-m">
         <!-- may need to update link here if P9 events screens will look different to P5-->
-          <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/pre-event-checks">Events</a>
+          <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/pre-event-checks">Events (P9)</a>
         </h2>
         <p class="nhsuk-card__description">You may need to share your COVID-19 status when going to an event.</p>
       </div>
@@ -77,7 +77,7 @@
       <div class="nhsuk-card nhsuk-card--clickable">
         <div class="nhsuk-card__content">
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
-            <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/covid-status?vaccinated=True&events=">Travel</a>
+            <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/covid-status?events=">Travel (P9)</a>
           </h2>
           <p class="nhsuk-card__description">You may need to share your COVID-19 status when travelling.</p>
         </div>
