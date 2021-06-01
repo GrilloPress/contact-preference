@@ -74,20 +74,17 @@ $("#dose1").click(function(){
     </div>
 
 
-    <h2 class="nhsuk-heading-s covid-qr-expire nhsuk-u-margin-bottom-0">2D barcode expires</h2>
 
-          {% if data['p5_status'] === 'True' %}
-           
+          {% if data['events'] === 'True' %}
+          <h2 class="nhsuk-heading-s covid-qr-expire nhsuk-u-margin-bottom-0">2D barcode expires</h2>
+
           <p class="covid-qr-expire">5 June 2021 at 3:10pm</p>
           
           {% else %}
-          
+          <h2 class="nhsuk-heading-s covid-qr-expire nhsuk-u-margin-bottom-0">2D barcode expires</h2>
+
           <p class="covid-qr-expire">20 June 2021</p>
 
-          {% endif %}
-
-
-      {% if data['events'] === 'True' %}
       <p>Your 2D barcode automatically refreshes every 28 days to protect your data. Check the expiration date before you go to the event.</p>
 
 
