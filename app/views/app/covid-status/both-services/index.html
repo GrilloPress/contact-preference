@@ -87,10 +87,10 @@
         <ul class="list-menu nhsuk-u-padding-bottom-4">
 
 
-        {% if data['p5_status'] === 'True' %}
+        {% if data['p5_status'] === 'False' %}
           
           <li>
-            <a class="desktop" href="/app/covid-status/status-service-v4/agree-to-share?p9_status=True">Share your COVID-19 status
+            <a class="desktop" href="/app/covid-status/status-service-v4/agree-to-share" onclick="p5_status=False">Share your COVID-19 status
             <p class="home-panel-link-description">View and share proof of your COVID-19 status for travel and events</p>
             </a>
           </li>
