@@ -49,15 +49,6 @@ $("#showEmail").click(function(){
 
 
           {% if data['events'] === 'True' %}
-          <p class="nhsuk-body">You need to show this when asked by officials.</p>
-
-          <p class="nhsuk-body">Before you go to the event you'll need to:</p>
-           <ul class="nhsuk-body">
-             <li>check the entry requirements of the event</li>
-             <li>make sure your information is correct</li>
-           </ul>
-
-           {% elif data['p5_status'] === 'True' %}
 
           <p class="nhsuk-body">Show this to the event stewards or officials.</p>
 
@@ -168,7 +159,7 @@ $("#showEmail").click(function(){
       </div>
 
 
-        {% elif data['p5_status'] === 'True' %}
+        {% elif (data['p5_status'] === 'True') or (data['events'] === 'True') %}
 
 
           <div class="nhsuk-card_green">
@@ -243,7 +234,7 @@ $("#showEmail").click(function(){
       </div>
 
       <p><strong>COVID-19 status expires before your event?</strong></p>
-      <p class="nhsuk-body">Get a new [insert type of] test 48 hours before your event. This will be valid for 72 hours.</p>
+      <p class="nhsuk-body">Get a new PCR test 48 hours before your event. This will be valid for 72 hours.</p>
 
 
       {% else %}

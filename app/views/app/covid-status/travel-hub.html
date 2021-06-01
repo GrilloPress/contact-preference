@@ -35,15 +35,16 @@
         {{ contentTitle }}
       </h1>
 
-      <p class="nhsuk-u-margin-bottom-6">Prove you meet the requirements for attending an event of travelling abroad.</p>
 
 
       {% if data['p5_status'] === 'True' %}
+      <p class="nhsuk-u-margin-bottom-6">Prove you meet the requirements for attending an event.</p>
+
 
       <div class="nhsuk-card nhsuk-card--clickable">
        <div class="nhsuk-card__content">
         <h2 class="nhsuk-card__heading nhsuk-heading-m">
-          <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/pre-event-checks">Events</a>
+          <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/pre-event-checks?events=True">Events</a>
         </h2>
         <p class="nhsuk-card__description">You may need to share your COVID-19 status when going to an event.</p>
       </div>
@@ -52,12 +53,12 @@
 
 
       {% elif data['p5_status'] === 'False' %}
+      <p class="nhsuk-u-margin-bottom-6">Prove you meet the requirements for attending an event or travelling abroad.</p>
 
       <div class="nhsuk-card nhsuk-card--clickable">
        <div class="nhsuk-card__content">
         <h2 class="nhsuk-card__heading nhsuk-heading-m">
-        <!-- may need to update link here if P9 events screens will look different to P5-->
-          <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/pre-event-checks">Events (P9)</a>
+          <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/pre-event-checks?events=True">Events</a>
         </h2>
         <p class="nhsuk-card__description">You may need to share your COVID-19 status when going to an event.</p>
       </div>
@@ -67,7 +68,7 @@
       <div class="nhsuk-card nhsuk-card--clickable">
         <div class="nhsuk-card__content">
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
-            <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/covid-status?events=">Travel (P9)</a>
+            <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/covid-status?events=">Travel</a>
           </h2>
           <p class="nhsuk-card__description">You may need to share your COVID-19 status when travelling.</p>
         </div>
