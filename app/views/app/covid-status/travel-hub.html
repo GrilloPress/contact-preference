@@ -53,12 +53,35 @@
       <div class="nhsuk-card nhsuk-card--clickable">
         <div class="nhsuk-card__content">
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
-            <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/covid-status?vaccinated=True&events=">Travel</a>
+            <a class="nhsuk-card__link" href="/app/covid-status/p5-domestic-flow/p9/prove-you-are">Travel</a>
           </h2>
           <p class="nhsuk-card__description">You may need to share your COVID-19 status when travelling.</p>
         </div>
       </div>
 
+
+
+      {% elif data['p9_status'] === 'True' %}
+
+      <div class="nhsuk-card nhsuk-card--clickable">
+       <div class="nhsuk-card__content">
+        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+        <!-- may need to update link here if P9 events screens will look different to P5-->
+          <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/pre-event-checks">Events</a>
+        </h2>
+        <p class="nhsuk-card__description">You may need to share your COVID-19 status when going to an event.</p>
+      </div>
+      </div>
+
+
+      <div class="nhsuk-card nhsuk-card--clickable">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading nhsuk-heading-m">
+            <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/covid-status?vaccinated=True&events=">Travel</a>
+          </h2>
+          <p class="nhsuk-card__description">You may need to share your COVID-19 status when travelling.</p>
+        </div>
+      </div>
 
       {% else %}
 
