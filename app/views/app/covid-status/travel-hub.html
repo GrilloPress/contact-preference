@@ -68,7 +68,13 @@
       <div class="nhsuk-card nhsuk-card--clickable">
         <div class="nhsuk-card__content">
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
+
+          {% if data['vaccinated_travel'] === 'True'%}
             <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/covid-status?events=&vaccinated_travel=True">Travel</a>
+          {% else %}
+            <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/covid-status?events=">Travel</a>
+          {% endif %}
+          
           </h2>
           <p class="nhsuk-card__description">You may need to share your COVID-19 status when travelling.</p>
         </div>
