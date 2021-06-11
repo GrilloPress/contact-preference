@@ -55,7 +55,7 @@
                       <h2 class="nhsuk-heading-s">Share your COVID-19 status for events in England</h2>
                         <p>View and share proof of your COVID-19 status for events in England</p>
                     </a>
-                  </li> 
+                  </li>
 
 <!--                  <li>
                     <a href="/app/covid-status/p5-domestic-flow/p9/prove-you-are">
@@ -66,7 +66,7 @@
 
 
                 <li class="nhs-app-message__item--unread-home">
-                  <a class="desktop" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/?messagingIcon=False&messageRead1=unread&pkbMessaging=False" }}'>
+                  <a class="desktop" style="font-size: 18px;" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/?messagingIcon=False&messageRead1=unread&pkbMessaging=False" }}'>
                     View your messages
                       {% if (data['messageRead7'] == "unread") %}
                       <span class="nhs-app-message__meta">

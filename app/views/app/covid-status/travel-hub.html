@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/covid-status" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
-{% set contentTitle = "Access your COVID-19 status" %}
+{% set contentTitle = "Get your NHS COVID Pass" %}
 {% set title = contentTitle + " - " + serviceName %}
 
 
@@ -35,32 +35,39 @@
         {{ contentTitle }}
       </h1>
 
+      <p>Use this service to help share proof of your COVID-19 status.</p>
 
 
       {% if data['p5_status'] === 'True' %}
-      <p class="nhsuk-u-margin-bottom-6">Prove you meet the requirements for attending an event.</p>
 
 
       <div class="nhsuk-card nhsuk-card--clickable">
        <div class="nhsuk-card__content">
         <h2 class="nhsuk-card__heading nhsuk-heading-m">
-          <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/pre-event-checks?events=True">Events</a>
+          <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/your-details?events=True">Events</a>
         </h2>
-        <p class="nhsuk-card__description">You may need to share your COVID-19 status when going to an event.</p>
+        <p class="nhsuk-card__description">You may need to share your NHS COVID Pass when going to an event in England.</p>
       </div>
+      </div>
+
+
+
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <h2 class="nhsuk-heading-s">Travelling abroad?</h2>
+        <p>If travelling abroad, you may need to provide additional identity information before sharing your COVID Pass. This process can take up to 7 days. <a href="/app/covid-status/p5-domestic-flow/p9/prove-you-are">Verify your identity now</a>.</p>
       </div>
 
 
 
       {% elif data['p5_status'] === 'False' %}
-      <p class="nhsuk-u-margin-bottom-6">Prove you meet the requirements for attending an event or travelling abroad.</p>
 
       <div class="nhsuk-card nhsuk-card--clickable">
        <div class="nhsuk-card__content">
         <h2 class="nhsuk-card__heading nhsuk-heading-m">
           <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/pre-event-checks?events=True">Events</a>
         </h2>
-        <p class="nhsuk-card__description">You may need to share your COVID-19 status when going to an event.</p>
+        <p class="nhsuk-card__description">You may need to share your NHS COVID Pass when going to an event in England.</p>
       </div>
       </div>
 
@@ -74,9 +81,9 @@
           {% else %}
             <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/covid-status?events=">Travel</a>
           {% endif %}
-          
+
           </h2>
-          <p class="nhsuk-card__description">You may need to share your COVID-19 status when travelling.</p>
+          <p class="nhsuk-card__description">You may need to share your NHS COVID Pass when travelling.</p>
         </div>
       </div>
 
@@ -97,7 +104,7 @@
           <h2 class="nhsuk-card__heading nhsuk-heading-m">
             <a class="nhsuk-card__link" href="/app/covid-status/status-service-v3/covid-status?events=">Travel</a>
           </h2>
-          <p class="nhsuk-card__description">You may need to share your COVID-19 status when travelling.</p>
+          <p class="nhsuk-card__description">You may need to share your NHS COVID Pass when travelling.</p>
         </div>
       </div>
 

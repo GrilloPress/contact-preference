@@ -4008,6 +4008,12 @@ legend {
   background-repeat: no-repeat;
 }
 
+.card-with-chevron-right {
+  background-image: url(../images/icon_arrow_right.svg);
+  background-position: right 0em top -0.3em;
+  background-repeat: no-repeat;
+}
+
 
 .card-with-chevron-down-expanded.rotate {
   background-image: url(../images/icon_arrow_up.svg);
@@ -4216,6 +4222,28 @@ legend {
   text-align: center;
 }
 
+.covid-expire-date {
+  font-weight: bold;
+}
+
+.green-bg {
+  margin: auto;
+  background-color: #007f3b;
+  width: 250px;
+  height: 45px;
+}
+
+.nobr {
+  white-space: nowrap;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.covid-valid-text {
+  color: #ffffff;
+  position: inline-block;
+}
 
 .nhs-app-summary-list-inline_covid-personal {
 
@@ -4328,6 +4356,12 @@ text-decoration: none;
   margin-bottom: 10px;
 }
 
+.covid-status-tick-v4 {
+  margin-top: 8px;
+  margin-left: 12px;
+  margin-right: 8px;
+  margin-bottom: -7px;
+}
 
 .nhsuk-footer__list-item-version {
     font-size: 1rem;
