@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/covid-status/status-service-v4" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
-{% set contentTitle = "Mrs Betty Doyle" %}
+{% set contentTitle = "Details" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 <script>
@@ -52,114 +52,183 @@ $("#showEmail").click(function(){
                 Go back</a>
             </div>
 
-      <h1 class="nhs-app-xl nhsuk-heading-l nhsuk-u-margin-bottom-0">{{ contentTitle }}</h1>
+            <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
-      <p>Date of birth: 20 September 1982</p>
+            {{ summaryList({
+              classes: 'nhsuk-summary-list--no-border nhs-app-summary-list-inline_covid-personal',
+              rows: [
+                {
+                  key: {
+                    text: "Name:"
+                  },
+                  value: {
+                    text: "Mrs Betty Doyle"
+                  }
+                },
+                {
+                  key: {
+                    text: "Date of birth:"
+                  },
+                  value: {
+                    text: "20 September 1982"
+                  }
+                }
+              ]
+            }) }}
 
-      <p class="covid-qr-expire nhsuk-u-margin-bottom-0">You can attend events until</p>
-      <strong><p class="covid-qr-expire nhsuk-body-l covid-expire-date">19 August 2021 5.30pm</p></strong>
+            <div class="white-bg">
+              <p class="covid-qr-expire">Vaccinated against COVID-19</p>
 
 
       <div class="nhsuk-u-margin-bottom-0 nhsuk-u-padding-bottom-0 covid-qr-image">
       <img src="/images/qrcode-white.png" alt="Image of a QR code" width="250" height="250">
     </div>
 
-    <div class="green-bg">
-      <p class="nhsuk-body-s covid-valid-text">Valid for events in England</p>
-    </div>
+
+
+          <strong><p class="covid-qr-expire covid-expire-date nhsuk-u-margin-bottom-0">2D barcode expires</p></strong>
+          <p class="covid-qr-expire">20 June 2021</p>
 
 
 
-    <div class="nhsuk-u-margin-bottom-4 covid-qr-image">
+    <div class=" covid-qr-image">
     <img src="/images/apple-wallet.svg.png" alt="Add to apple wallet" width="50%" height="50%">
   </div>
 
-  <div class="nhsuk-card nhsuk-u-margin-bottom-2">
-    <div class="nhsuk-card__content_less-padding">
-      <a class="covid-link download-link--netco" href="/{{ PROTOTYPEURL }}/qr-code">
-        <svg class="covid-status-icons" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <title>file_download_blue</title>
-          <g id="Colour-scheme" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g id="file_download_blue">
-              <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
-              <path d="M19,9 L15,9 L15,3 L9,3 L9,9 L5,9 L12,16 L19,9 Z M5,18 L5,20 L19,20 L19,18 L5,18 Z" id="Shape" fill="#005EB8" fill-rule="nonzero"></path>
-            </g>
-          </g>
-        </svg>
-        Download PDF copy</h3>
-      </a>
-    </div>
-  </div>
+  <svg height="60" width="150">
+    <circle cx="140" cy="40" r="8" stroke-width="0" fill="#D3D3D3" />
+  </svg>
 
-<div class="nhsuk-card nhsuk-u-margin-bottom-2">
-<div class="nhsuk-card__content_less-padding">
+  <svg height="60" width="150">
+    <circle cx="10" cy="40" r="8" stroke-width="0" fill="#025EB8" />
+  </svg>
 
-  <a id="showEmail" class="covid-link card-with-chevron-down-expanded card-with-chevron-down-expanded--netco" href="javascript:void(0);" style="text-decoration: none;">
-    <svg class="covid-status-icons" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <title>email-icon</title>
-      <g id="Colour-scheme" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="mail_blue">
-          <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
-          <path d="M20,4 L4,4 C2.9,4 2.01,4.9 2.01,6 L2,18 C2,19.1 2.9,20 4,20 L20,20 C21.1,20 22,19.1 22,18 L22,6 C22,4.9 21.1,4 20,4 Z M20,8 L12,13 L4,8 L4,6 L12,11 L20,6 L20,8 Z" id="Shape" fill="#005EB8" fill-rule="nonzero"></path>
-        </g>
-      </g>
-    </svg>
-    Receive a copy by email
-  </a>
 
-  <div class="email nhsuk-u-margin-top-4">
-    <div class="nhsuk-card__description covid-card__description">
-      <div class="nhsuk-form-group">
-        <label class="nhsuk-label covid-label" for="input-width-20">
-          Please confirm your email address:
-        </label>
-        <input class="nhsuk-input nhsuk-input--width-20" id="input-width-20" name="test-width-20" type="text">
+</div>
+
+
+
+<p class="nhsuk-u-margin-top-6">Your barcode automatically refreshes every 28 days to protect your data. Check the expiration date before your travel.</p>
+
+
+
+
+
+
+      <div class="nhsuk-card nhsuk-u-margin-bottom-0">
+        <div class="nhsuk-card__content_less-padding-black">
+          <a id="dose2" class="card-with-chevron-down-expanded nhsuk-link--no-visited-state-black link-block" href="javascript:void(0);" style="display: block;">
+          <h3 class="nhsuk-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-1">COVID-19 Vaccine Moderna vaccine</h3>
+        </a>
+          <p>Dose 2</p>
+
+
+          <div class="dosediv2">
+            <table class="nhsuk-table-covid">
+              <caption class="nhsuk-table__caption">Dose 2</caption>
+
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Manufacturer</strong></td>
+                  <td class="nhsuk-table__cell ">Moderna Biotech Spain S.L</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Disease targeted</strong></td>
+                  <td class="nhsuk-table__cell ">COVID-19</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Vaccine</strong></td>
+                  <td class="nhsuk-table__cell ">SARS Cov-2 mRNA Vaccine</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Vaccine product</strong></td>
+                  <td class="nhsuk-table__cell ">COVID-19 Vaccine Moderna</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Batch number</strong></td>
+                  <td class="nhsuk-table__cell ">AB43421</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Country of vaccination</strong></td>
+                  <td class="nhsuk-table__cell ">GB</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Authority</strong></td>
+                  <td class="nhsuk-table__cell ">NHS Digital</td>
+                </tr>
+              </tbody>
+            </table>
+                  </div>
+
+
+        </div>
       </div>
-      <button class="nhsuk-button nhsuk-u-margin-bottom-1" type="submit">
-        Confirm and send email
-      </button>
-    </div>
-  </div>
 
-</div>
-</div>
-
-{% if data['p5_status'] === 'False' %}
-
-<div class="nhsuk-card nhsuk-u-margin-bottom-6">
-<div class="nhsuk-card__content_less-padding">
-
-  <a id="showEmail" class="covid-link card-with-chevron-right" href="javascript:void(0);" style="text-decoration: none; font-weight: bold;">
-    <svg style="margin-bottom: -6px;" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#005EB8">
-      <g fill="none"><path d="M0 0h24v24H0V0z"/><path d="M0 0h24v24H0V0z" opacity=".87"/></g>
-      <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7zm-4 6h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
-    </svg>
-
-    View COVID-19 records
-  </a>
+      <div class="nhsuk-card nhsuk-u-margin-bottom-4" style="border-top: none;">
+        <div class="nhsuk-card__content_less-padding-black">
+          <p class="nhsuk-u-margin-bottom-0">Date of vaccination: 2 April 2021</p>
+        </div>
+      </div>
 
 
 
-</div>
-</div>
+      <div class="nhsuk-card nhsuk-u-margin-bottom-0">
+        <div class="nhsuk-card__content_less-padding-black">
+          <a id="dose1" class="card-with-chevron-down-expanded-2 nhsuk-link--no-visited-state-black link-block" href="javascript:void(0);">
+            <h3 class="nhsuk-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-1">COVID-19 Vaccine Moderna vaccine</h3>
+        </a>
+          <p>Dose 1</p>
+
+
+          <div class="dosediv1">
 
 
 
-{% endif %}
+                            <table class="nhsuk-table-covid">
+                              <caption class="nhsuk-table__caption">Dose 1</caption>
 
+                              <tbody class="nhsuk-table__body">
+                                <tr role="row" class="nhsuk-table__row">
+                                  <td class="nhsuk-table__cell"><strong>Manufacturer</strong></td>
+                                  <td class="nhsuk-table__cell ">Moderna Biotech Spain S.L</td>
+                                </tr>
+                                <tr role="row" class="nhsuk-table__row">
+                                  <td class="nhsuk-table__cell"><strong>Disease targeted</strong></td>
+                                  <td class="nhsuk-table__cell ">COVID-19</td>
+                                </tr>
+                                <tr role="row" class="nhsuk-table__row">
+                                  <td class="nhsuk-table__cell"><strong>Vaccine</strong></td>
+                                  <td class="nhsuk-table__cell ">SARS Cov-2 mRNA Vaccine</td>
+                                </tr>
+                                <tr role="row" class="nhsuk-table__row">
+                                  <td class="nhsuk-table__cell"><strong>Vaccine product</strong></td>
+                                  <td class="nhsuk-table__cell ">COVID-19 Vaccine Moderna</td>
+                                </tr>
+                                <tr role="row" class="nhsuk-table__row">
+                                  <td class="nhsuk-table__cell"><strong>Batch number</strong></td>
+                                  <td class="nhsuk-table__cell ">AB12434</td>
+                                </tr>
+                                <tr role="row" class="nhsuk-table__row">
+                                  <td class="nhsuk-table__cell"><strong>Country of vaccination</strong></td>
+                                  <td class="nhsuk-table__cell ">GB</td>
+                                </tr>
+                                <tr role="row" class="nhsuk-table__row">
+                                  <td class="nhsuk-table__cell"><strong>Authority</strong></td>
+                                  <td class="nhsuk-table__cell ">NHS Digital</td>
+                                </tr>
+                              </tbody>
+                            </table>
 
-<hr>
+                          </div>
 
-<p>The 2D barcode refreshes every time you log in. If you generate a PDF copy of your pass the barcode will expire 30 days from the date of issue. To get a new one, just log back in.</p>
+        </div>
+      </div>
 
-
-
-
-      {% if data['events'] === 'True' %}
-
-          {% else %}
-
-      {% endif %}
+      <div class="nhsuk-card nhsuk-u-margin-bottom-4" style="border-top: none;">
+        <div class="nhsuk-card__content_less-padding-black">
+          <p class="nhsuk-u-margin-bottom-0">Date of vaccination: 8 February 2021</p>
+        </div>
+      </div>
 
 
 
