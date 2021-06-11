@@ -1,0 +1,64 @@
+{% set PROTOTYPEURL = "app/covid-status/status-service-v4" %}
+{% set serviceName = "NHS App" %}
+{% set recordActive = "active" %}
+{% set contentTitle = "You do not have an NHS COVID Pass" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new-covid-status.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+            <div class="nhsuk-back-link">
+              <a class="nhsuk-back-link__link" href="javascript: window.history.go(-1)">
+                <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+                </svg>
+                Go back</a>
+            </div>
+
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+
+        <div class="nhsuk-u-reading-width">
+        
+          <h2 class="nhsuk-heading-l">How can you get one?</h2>
+          <p class="nhsuk-body">COVID Passes are available if you've been tested, vaccinated, can provide natural immunity after having contracted COVID-19 - or if you fall into one of the exempt categories.</p>
+
+          <h2 class="nhsuk-heading-l">Testing</h2>
+          <p class="nhsuk-body">You have a negative LFT or PCR test taken within 72 hours of reporting. This can be done either at a testing site (where reporting is automatic) or at home and self-reported via the 'Register my test result' service.
+          <br>
+          Once you have registered your LFT test, it can take up to two hours for your result to show but is often a lot quicker.</p>
+
+          <h2 class="nhsuk-heading-l">Vaccination</h2>
+          <p class="nhsuk-body">It's 2 weeks since receiving your second dose of the coronavirus (COVID-19) vaccine.</p>
+          <strong><p>Once you have have been vaccinated, it can take up to 5 days for your records to show.</p></strong>
+          
+          <h2 class="nhsuk-heading-l">Natural immunity</h2>
+          <p class="nhsuk-body">If you've previously tested positive for COVID-19 using a PCR test, and it's been at least 10 days since your positive result, you are eligible for a COVID Pass for up to 180 days from the test date.</p>
+
+          <h2 class="nhsuk-heading-l">Exemptions</h2>
+          <p class="nhsuk-body">You may have taken part in a COVID-19 vaccine clinical trial or you have a clinical exemption</p>
+
+        </div>
+
+
+    </div>
+  </div>
+{% endblock %}
