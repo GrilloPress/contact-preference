@@ -1,0 +1,199 @@
+{% set PROTOTYPEURL = "app/covid-status/status-service-v4" %}
+{% set serviceName = "NHS App" %}
+{% set recordActive = "active" %}
+{% set contentTitle = "Records" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+<script>
+$("#dose2").click(function(){
+ $(".dosediv2").toggleClass("show");
+ $(".card-with-chevron-down-expanded").toggleClass("rotate");
+});
+
+
+$("#dose1").click(function(){
+ $(".dosediv1").toggleClass("show");
+ $(".card-with-chevron-down-expanded-2").toggleClass("rotate");
+});
+</script>
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new-covid-status.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+
+      <div class="nhsuk-back-link">
+        <a class="nhsuk-back-link__link" href="javascript: window.history.go(-1)">
+          <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+          </svg>
+          Go back</a>
+      </div>
+
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+      <div class="nhsuk-card nhsuk-u-margin-bottom-0">
+        <div class="nhsuk-card__content_less-padding-black">
+          <a id="dose2" class="card-with-chevron-down-expanded nhsuk-link--no-visited-state-black link-block" href="javascript:void(0);" style="display: block;">
+          <h3 class="nhsuk-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-1">Pfizer-BioNTech COVID-19 vaccine</h3>
+        </a>
+          <p>Dose 2</p>
+
+
+          <div class="dosediv2">
+            <table class="nhsuk-table-covid">
+              <caption class="nhsuk-table__caption">Dose 2</caption>
+
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Manufacturer</strong></td>
+                  <td class="nhsuk-table__cell ">Pfizer-BioNTech</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Disease targeted</strong></td>
+                  <td class="nhsuk-table__cell ">COVID-19</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Vaccine</strong></td>
+                  <td class="nhsuk-table__cell ">SARS CoV-2 mRNA Vaccine</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Vaccine product</strong></td>
+                  <td class="nhsuk-table__cell ">COVID-19 Vaccine Pfizer</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Batch number</strong></td>
+                  <td class="nhsuk-table__cell ">AB43421</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Country of vaccination</strong></td>
+                  <td class="nhsuk-table__cell ">GB</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Authority</strong></td>
+                  <td class="nhsuk-table__cell ">NHS Digital</td>
+                </tr>
+              </tbody>
+            </table>
+                  </div>
+
+
+        </div>
+      </div>
+
+      <div class="nhsuk-card nhsuk-u-margin-bottom-4" style="border-top: none;">
+        <div class="nhsuk-card__content_less-padding-black">
+          <p class="nhsuk-u-margin-bottom-0">Date of vaccination: 2 April 2021</p>
+        </div>
+      </div>
+
+
+
+      <div class="nhsuk-card nhsuk-u-margin-bottom-0">
+        <div class="nhsuk-card__content_less-padding-black">
+          <a id="dose1" class="card-with-chevron-down-expanded-2 nhsuk-link--no-visited-state-black link-block" href="javascript:void(0);">
+            <h3 class="nhsuk-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-1">Pfizer-BioNTech COVID-19 vaccine</h3>
+        </a>
+          <p>Dose 1</p>
+
+
+          <div class="dosediv1">
+
+            <table class="nhsuk-table-covid">
+              <caption class="nhsuk-table__caption">Dose 1</caption>
+
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Manufacturer</strong></td>
+                  <td class="nhsuk-table__cell ">Pfizer-BioNTech</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Disease targeted</strong></td>
+                  <td class="nhsuk-table__cell ">COVID-19</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Vaccine</strong></td>
+                  <td class="nhsuk-table__cell ">SARS CoV-2 mRNA Vaccine</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Vaccine product</strong></td>
+                  <td class="nhsuk-table__cell ">COVID-19 Vaccine Pfizer</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Batch number</strong></td>
+                  <td class="nhsuk-table__cell ">AB12434</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Country of vaccination</strong></td>
+                  <td class="nhsuk-table__cell ">GB</td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td class="nhsuk-table__cell"><strong>Authority</strong></td>
+                  <td class="nhsuk-table__cell ">NHS Digital</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="nhsuk-card nhsuk-u-margin-bottom-4" style="border-top: none;">
+        <div class="nhsuk-card__content_less-padding-black">
+          <p class="nhsuk-u-margin-bottom-0">Date of vaccination: 8 February 2021</p>
+        </div>
+      </div>
+
+
+      <div class="nhsuk-card nhsuk-u-margin-bottom-0">
+        <div class="nhsuk-card__content_less-padding-black">
+          <a class="nhsuk-link--no-visited-state-black">
+            <h3 class="nhsuk-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-1">LFT test</h3>
+          </a>
+          <p>Negative test (COVID-19 not detected)</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-card nhsuk-u-margin-bottom-4" style="border-top: none;">
+        <div class="nhsuk-card__content_less-padding-black">
+          <p class="nhsuk-u-margin-bottom-0">Tested: 10 February 2021 at midday</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-card nhsuk-u-margin-bottom-0">
+        <div class="nhsuk-card__content_less-padding-black">
+          <a class="nhsuk-link--no-visited-state-black">
+            <h3 class="nhsuk-card__heading nhsuk-heading-xs nhsuk-u-margin-bottom-1">PCR test</h3>
+          </a>
+          <p>Negative test (COVID-19 not detected)</p>
+        </div>
+      </div>
+
+      <div class="nhsuk-card nhsuk-u-margin-bottom-4" style="border-top: none;">
+        <div class="nhsuk-card__content_less-padding-black">
+          <p class="nhsuk-u-margin-bottom-0">Tested: 17 January 2021 at midday</p>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}
