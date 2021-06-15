@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/covid-status/status-service-v4" %}
 {% set serviceName = "NHS App" %}
 {% set recordActive = "active" %}
-{% set contentTitle = "Your COVID-19 status" %}
+{% set contentTitle = "Your NHS COVID Pass" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 <script>
@@ -48,11 +48,7 @@ $("#showEmail").click(function(){
 
 
 
-          {% if data['events'] === 'True' %}
-
-          <p class="nhsuk-body">Show this to the event stewards or officials.</p>
-
-           {% else %}
+          {% if data['vaccinated_travel'] === 'True' %}
           <p class="nhsuk-body">You need to show this when asked by officials.</p>
 
            <p class="nhsuk-body">Before you travel you'll need to:</p>
@@ -60,6 +56,8 @@ $("#showEmail").click(function(){
               <li>check the entry requirements for your destination</li>
               <li>make sure your vaccination information is correct</li>
             </ul>
+           {% else %}
+
 
            {% endif %}
 
@@ -76,86 +74,9 @@ $("#showEmail").click(function(){
           </div>
         </div>
 
-        {% if data['events'] === 'True' %}
 
 
-          <div class="nhsuk-card_green">
-            <div class="nhsuk-card__content-extra-padding">
-              <div class="covid-green-container covid-green-container--netco">
-                <p class="covid-status_body">Your COVID-19 status is valid until</p>
-                  <h3 class="nhsuk-card__heading covid-status_heading">5 June 2021 at 3:10pm</h3>
-                  <a class="covid-link--arrow" href="/{{ PROTOTYPEURL }}/your-details">Show 2d barcode
-                    <svg class="covid-link--arrow__icon" width="22px" height="32px"  viewBox="0.5 0 2 3" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g id="Colour-scheme" stroke="#FFFFFF" stroke-width="0.5" stroke-linecap="round" fill="#FFFFFF" fill-rule="evenodd">
-                          <g id="down-chevron" transform="translate(1.250125, 1.111142)" fill="#FFFFFF" fill-rule="nonzero" stroke="#FFFFFF" stroke-width="0.2">
-                              <g id="icon_arrow_left" transform="translate(0.290000, 0.543750) rotate(360.000000) translate(-0.290000, -0.543750) translate(-0.000000, -0.000000)">
-                                  <path d="M0.541768489,1.0875 C0.552025723,1.0875 0.561350482,1.08375 0.568810289,1.07625 C0.583729904,1.06125 0.583729904,1.036875 0.568810289,1.021875 L0.0932475882,0.54375 L0.568810289,0.065625 C0.583729904,0.050625 0.583729904,0.02625 0.568810289,0.01125 C0.553890675,-0.00375 0.529646302,-0.00375 0.514726688,0.01125 L0.0111897106,0.5165625 C-0.00372990353,0.5315625 -0.00372990353,0.5559375 0.0111897106,0.5709375 L0.514726688,1.07625 C0.522186495,1.08375 0.531511254,1.0875 0.541768489,1.0875 Z" id="Shape" transform="translate(0.290000, 0.543750) rotate(180.000000) translate(-0.290000, -0.543750) "></path>
-                              </g>
-                          </g>
-                      </g>
-                    </svg>
-                  </a>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="nhsuk-card nhsuk-u-margin-bottom-2">
-            <div class="nhsuk-card__content_less-padding">
-              <a class="covid-link download-link--netco" href="/{{ PROTOTYPEURL }}/qr-code">
-                <svg class="covid-status-icons" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <title>file_download_blue</title>
-                  <g id="Colour-scheme" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <g id="file_download_blue">
-                      <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
-                      <path d="M19,9 L15,9 L15,3 L9,3 L9,9 L5,9 L12,16 L19,9 Z M5,18 L5,20 L19,20 L19,18 L5,18 Z" id="Shape" fill="#005EB8" fill-rule="nonzero"></path>
-                    </g>
-                  </g>
-                </svg>
-                Download PDF copy</h3>
-              </a>
-            </div>
-          </div>
-
-      <div class="nhsuk-card nhsuk-u-margin-bottom-6">
-        <div class="nhsuk-card__content_less-padding">
-
-          <a id="showEmail" class="covid-link card-with-chevron-down-expanded card-with-chevron-down-expanded--netco" href="javascript:void(0);" style="text-decoration: none;">
-            <svg class="covid-status-icons" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <title>email-icon</title>
-              <g id="Colour-scheme" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                <g id="mail_blue">
-                  <polygon id="Path" points="0 0 24 0 24 24 0 24"></polygon>
-                  <path d="M20,4 L4,4 C2.9,4 2.01,4.9 2.01,6 L2,18 C2,19.1 2.9,20 4,20 L20,20 C21.1,20 22,19.1 22,18 L22,6 C22,4.9 21.1,4 20,4 Z M20,8 L12,13 L4,8 L4,6 L12,11 L20,6 L20,8 Z" id="Shape" fill="#005EB8" fill-rule="nonzero"></path>
-                </g>
-              </g>
-            </svg>
-            Receive an offline copy by email
-          </a>
-
-          <div class="email nhsuk-u-margin-top-4">
-            <div class="nhsuk-card__description covid-card__description">
-              <div class="nhsuk-form-group">
-                <label class="nhsuk-label covid-label" for="input-width-20">
-                  Please confirm your email address:
-                </label>
-                <input class="nhsuk-input nhsuk-input--width-20" id="input-width-20" name="test-width-20" type="text">
-              </div>
-              <button class="nhsuk-button nhsuk-u-margin-bottom-1" type="submit">
-                Confirm and send email
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <p><strong>COVID-19 status expires before your event?</strong></p>
-      <p class="nhsuk-body">Get a new PCR test 48 hours before your event. This will be valid for 72 hours.</p>
-
-
-
-        {% elif data['vaccinated_travel'] === 'True' %}
+        {% if data['vaccinated_travel'] === 'True' %}
 
 
           <div class="nhsuk-card_green">
@@ -245,13 +166,21 @@ $("#showEmail").click(function(){
         <div class="nhsuk-card__content-extra-padding">
 
           <div class="covid-yellow-container">
-            <h3 class="nhsuk-card__heading covid-status_heading-black">No COVID-19 <br>records found</h3>
+            <h3 class="nhsuk-u-margin-bottom-0" style="text-align: center;">Your COVID-19 status is</h3>
+              <p class="covid-status_heading-black nhsuk-u-margin-bottom-0"><strong>not available</strong></p>
           </div>
 
           </div>
         </div>
 
-        <p><a href="/{{ PROTOTYPEURL }}/why-no-records">Why am I seeing this message?</a></p>
+        <p>To get a valid status for attending an event you need to:</p>
+        <ul>
+          <li>have had your second vaccination at least 21 days ago or</li>
+          <li>have had a negative lateral flow or PCR test in the last 48 hours.</li>
+        </ul>
+
+        <p><strong>Once you have been vaccinated, it can take up to 5 days for your records to show.</strong></p>
+
 
 
       {% endif %}

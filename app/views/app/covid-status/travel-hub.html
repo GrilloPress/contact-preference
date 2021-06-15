@@ -45,22 +45,14 @@
         <h2 class="nhsuk-card__heading nhsuk-heading-m">
           <a class="nhsuk-card__link" href="/app/covid-status/status-service-v4/your-details?events=True">Events</a>
         </h2>
-        <p class="nhsuk-card__description">You may need to share your NHS COVID Pass when going to an event in England.</p>
+        <p class="nhsuk-card__description">You may need to prove your COVID-19 status at settings which have opted in to use the NHS COVID Pass.</p>
       </div>
       </div>
 
-      {% if data['p5_status'] === 'True' %}
-
-
-      <div class="nhsuk-inset-text">
-        <span class="nhsuk-u-visually-hidden">Information: </span>
-        <h2 class="nhsuk-heading-s">Travelling abroad?</h2>
-        <p>If travelling abroad, you may need to provide additional identity information before sharing your COVID Pass. This process can take up to 7 days. <a href="/app/covid-status/p5-domestic-flow/p9/prove-you-are">Verify your identity now</a>.</p>
-      </div>
 
 
 
-      {% elif data['p5_status'] === 'False' %}
+      {% if data['p5_status'] === 'False' %}
 
 
       <div class="nhsuk-card nhsuk-card--clickable">
@@ -80,24 +72,13 @@
 
       {% else %}
 
-      <div class="nhsuk-card nhsuk-card--clickable">
-       <div class="nhsuk-card__content">
-        <h2 class="nhsuk-card__heading nhsuk-heading-m">
-          <a class="nhsuk-card__link" href="/app/covid-status/status-service-v3/covid-status?events=True">Events</a>
-        </h2>
-        <p class="nhsuk-card__description">You will need to share your COVID-19 status when going to an event.</p>
-      </div>
+
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <h2 class="nhsuk-heading-s">Travelling abroad?</h2>
+        <p>If travelling abroad, you may need to provide additional identity information before sharing your COVID Pass. This process can take up to 7 days. <a href="/app/covid-status/p5-domestic-flow/p9/prove-you-are">Verify your identity now</a>.</p>
       </div>
 
-
-      <div class="nhsuk-card nhsuk-card--clickable">
-        <div class="nhsuk-card__content">
-          <h2 class="nhsuk-card__heading nhsuk-heading-m">
-            <a class="nhsuk-card__link" href="/app/covid-status/status-service-v3/covid-status?events=">Travel</a>
-          </h2>
-          <p class="nhsuk-card__description">You may need to share your NHS COVID Pass when travelling.</p>
-        </div>
-      </div>
 
       {% endif %}
 
