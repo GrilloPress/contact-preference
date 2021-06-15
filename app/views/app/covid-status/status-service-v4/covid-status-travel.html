@@ -48,7 +48,6 @@ $("#showEmail").click(function(){
 
 
 
-          {% if data['vaccinated_travel'] === 'True' %}
           <p class="nhsuk-body">You need to show this when asked by officials.</p>
 
            <p class="nhsuk-body">Before you travel you'll need to:</p>
@@ -56,10 +55,6 @@ $("#showEmail").click(function(){
               <li>check the entry requirements for your destination</li>
               <li>make sure your vaccination information is correct</li>
             </ul>
-           {% else %}
-
-
-           {% endif %}
 
 
       </div>
@@ -161,26 +156,20 @@ $("#showEmail").click(function(){
 
       {% else %}
 
-
       <div class="nhsuk-card_yellow">
+
+
+
         <div class="nhsuk-card__content-extra-padding">
 
           <div class="covid-yellow-container">
-            <h3 class="nhsuk-u-margin-bottom-0" style="text-align: center;">Your COVID-19 status is</h3>
-              <p class="covid-status_heading-black nhsuk-u-margin-bottom-0"><strong>not available</strong></p>
-          </div>
+<h3 class="nhsuk-card__heading covid-status_heading-black">No COVID-19 <br>records found</h3>
+</div>
+</div>
 
-          </div>
         </div>
 
-        <p>To get a valid status for attending an event you need to:</p>
-        <ul>
-          <li>have had your second vaccination at least 21 days ago or</li>
-          <li>have had a negative lateral flow or PCR test in the last 48 hours.</li>
-        </ul>
-
-        <p><strong>Once you have been vaccinated, it can take up to 5 days for your records to show.</strong></p>
-
+        <p><a href="/{{ PROTOTYPEURL }}/why-no-records">Why am I seeing this message?</a></p>
 
 
       {% endif %}
