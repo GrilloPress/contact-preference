@@ -47,6 +47,8 @@ $("#dose1").click(function(){
 
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
+      {% if data['vaccinated_travel'] === 'True' %}
+
       <div class="nhsuk-card nhsuk-u-margin-bottom-0">
         <div class="nhsuk-card__content_less-padding-black">
           <a id="dose2" class="card-with-chevron-down-expanded nhsuk-link--no-visited-state-black link-block" href="javascript:void(0);" style="display: block;">
@@ -159,6 +161,8 @@ $("#dose1").click(function(){
           <p class="nhsuk-u-margin-bottom-0"><strong>Date of vaccination:</strong> 8 February 2021</p>
         </div>
       </div>
+
+      {% endif %}
 
 
       <div class="nhsuk-card nhsuk-u-margin-bottom-0">
