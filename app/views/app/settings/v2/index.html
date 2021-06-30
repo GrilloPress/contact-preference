@@ -38,9 +38,12 @@
       	<li>
       		<a class="desktop" href="/{{ PROTOTYPEURL }}/password">Face ID</a>
       	</li>
+        {% if data['contactDetails'] === "show" %}
         <li>
           <a class="desktop" href="/app/contact-details/your-details">Update your contact details</a>
         </li>
+        {% else %}
+        {% endif %}
         <li>
           <a class="desktop" href="/app/settings/v3/nhs-login">NHS login</a>
         </li>
