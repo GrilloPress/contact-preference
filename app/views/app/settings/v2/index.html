@@ -25,24 +25,27 @@
       <ul class="list-menu">
         {% if data['linkedProfiles'] === "True" %}
         <li>
-          <a href="/app/linked-profiles/profiles-list">Linked profiles</a>
+          <a class="desktop" href="/app/linked-profiles/profiles-list">Linked profiles</a>
         </li>
         {% else %}
         <li>
-          <a href="/app/linked-profiles/no-linked-profiles">Linked profiles</a>
+          <a class="desktop" href="/app/linked-profiles/no-linked-profiles">Linked profiles</a>
         </li>
         {% endif %}
         <li>
-          <a href="/{{ PROTOTYPEURL }}/cookies">Cookies</a>
+          <a class="desktop" href="/{{ PROTOTYPEURL }}/cookies">Cookies</a>
         </li>
       	<li>
-      		<a href="/{{ PROTOTYPEURL }}/password">Face ID</a>
+      		<a class="desktop" href="/{{ PROTOTYPEURL }}/password">Face ID</a>
       	</li>
         <li>
-          <a href="/app/settings/v3/nhs-login">NHS login</a>
+          <a class="desktop" href="/app/contact-details/your-details">Update your contact details</a>
+        </li>
+        <li>
+          <a class="desktop" href="/app/settings/v3/nhs-login">NHS login</a>
         </li>
       	<li>
-      		<a href="/{{ PROTOTYPEURL }}/notifications">Notifications</a>
+      		<a class="desktop" href="/{{ PROTOTYPEURL }}/notifications">Notifications</a>
       	</li>
       </ul>
       <form action="/app/v8/clear" method="post">
@@ -52,19 +55,19 @@
       <h2 class="nhsuk-heading-m">About the NHS App</h2>
       <ul class="list-menu">
         <li>
-      		<a href="#">Help and support</a>
+      		<a class="desktop" href="#">Help and support</a>
       	</li>
         <li>
-      		<a href="#">Accessibility statement</a>
+      		<a class="desktop" href="#">Accessibility statement</a>
       	</li>
         <li>
-      		<a href="#">Open source licences</a>
+      		<a class="desktop" href="#">Open source licences</a>
       	</li>
         <li>
-          <a href="#">Privacy policy</a>
+          <a class="desktop" href="#">Privacy policy</a>
         </li>
         <li>
-      		<a href="#">Terms of use</a>
+      		<a class="desktop" href="#">Terms of use</a>
       	</li>
       </ul>
 

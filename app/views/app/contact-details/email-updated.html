@@ -1,10 +1,20 @@
-{% set PROTOTYPEURL = "app/linked-profiles" %}
+{% set PROTOTYPEURL = "app/contact-details" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Linked profiles" %}
+{% set contentTitle = "Your email address has been updated" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
 
+
+{% set changeEmailSet %}
+{% if data['changeEmail'] == 'email1' %}
+     betty.doyle@hotmail.com
+ {% elif data['changeEmail'] == 'email2' %}
+    bdoyle@gmail.co.uk
+{% else %}
+  betty.doyle@hotmail.com
+  {% endif %}
+{% endset %}
 <!-- Extends the layout from /app/views/layouts/layout.html -->
 {% extends 'layouts/layout-app-new.html' %}
 
@@ -30,22 +40,17 @@
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
 
+    <h1 class="nhsuk-heading-xl nhs-app-xl">
+      {{ contentTitle }}
+    </h1>
 
-          <h1 class="nhsuk-heading-xl nhs-app-xl">
-            {{ contentTitle }}
-          </h1>
+          <h2 class="nhsuk-u-margin-bottom-0">Your email address</h2>
+          <p>{{ changeEmailSet }}</p>
 
-          <p>You do not have any linked profiles set up on your account.</p>
-
-          <p>Family members and carers can access health services on behalf of someone else through linked profiles.</p>
-
-          <p>You can book appointments for them, order repeat prescriptions, and view their health record, where appropriate.</p>
-
-          <p><a href="https://www.nhs.uk/nhs-services/online-services/nhs-app/nhs-app-help-and-support/linked-profiles">Find out more about linked profiles</a></p>
-
-          <h2 class="nhsuk-heading-l nhsuk-u-margin-bottom-0">Add a linked profile</h2> 
-
-          <p>Contact the GP surgery of the person you would like to set up a linked profile for, and ask them to register you for proxy access.</p>
+          {{ warningCallout({
+            "heading": "Potential delays",
+            "HTML": "<p>Some NHS services, like your GP, may continue to use your previous contact email address until they update their records.</p>"
+          }) }}
 
     </div>
   </div>
