@@ -34,22 +34,7 @@
 
 <!-- Breadcrumb goes inside this block -->
 {% block beforeContent %}
-<div class="app-corona__container app-corona__container--desktop nhs-app-desktop--show" style="margin-top:0px;">
-  <div class="nhsuk-width-container">
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-two-thirds">
-        <ul class="list-menu">
-          <li>
-              <a class="covid" href="https://www.nhs.uk/conditions/coronavirus-covid-19/">
-                <p class="nhsuk-body-s"><strong>Coronavirus (COVID-19)</strong></p>
-                <p class="nhsuk-body-s">Get information about coronavirus on NHS.UK</p>
-              </a>
-          </li>
-        </ul>
-  </div>
-  </div>
-  </div>
-</div>
+
 {% endblock %}
 
 {% block content %}
@@ -67,11 +52,14 @@
       <p>Use this service to:</p>
 
       <ul>
-        <li>book and manage appointments at your GP surgery</li>
+        <li>get your NHS COVID Pass</li>
         <li>order repeat prescriptions</li>
-        <li>check symptoms and get instant advice</li>
-        <li>view your medical record securely</li>
+        <li>book and manage appointments</li>
+        <li>get health information and advice</li>
+        <li>view your health record securely</li>
+        <li>view your NHS number</li>
       </ul>
+
 
       <h2>Before you start</h2>
 
@@ -89,7 +77,7 @@
       }) }}
 
 
-      <form action="/app/login/enter-email?experiment=True&SJR_PKB=True&cookies=on&routeHome=/app/v8/index&routeSymptoms=/app/symptoms/v4/index&routeAppointments=/app/appointments/v8-econsult/pre-hub&routeMore=/app/more/experimental/index-2&routeMessaging=/app/messaging/v3/index&routePrescriptions=/app/prescriptions/v7/your-prescriptions-11&linkedProfiles=False&organDonationShow=False&routeRecords=/app/records/v3/pre-hub-2&SJR_Engage=&SJR_DoctorLink=&SJR_eConsult=True&econsultHub=index&experimentalHeader=True&experimentalFooter=True&experimentalHeaderDesktop=True&type=fingerprint&messageRead1=read&messageRead2=read" method="post">
+      <form action="/app/login/enter-email" method="post">
         <input class="nhsuk-button nhslogin-button nhs-app-u-button-full" type="submit" value="Continue with NHS login">
       </form>
 
@@ -106,9 +94,7 @@
       <p>Other services you can use without logging in:</p>
 
       <ul>
-        <li><a href="https://111.nhs.uk/service/COVID-19/">Check if you have coronavirus symptoms</a></li>
         <li><a href="https://www.nhs.uk/conditions/">Search conditions and treatments</a></li>
-        <li><a href="https://111.nhs.uk/">Use NHS 111 online to check if you need urgent help</a></li>
       </ul>
 
 
