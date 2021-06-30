@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/settings/v2" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Prototypes" %}
+{% set contentTitle = "More" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -21,7 +21,7 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <h1 class="nhsuk-heading-xl nhs-app-xl">Settings</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">More</h1>
       <ul class="list-menu">
         {% if data['linkedProfiles'] === "True" %}
         <li>
@@ -36,10 +36,10 @@
           <a href="/{{ PROTOTYPEURL }}/cookies">Cookies</a>
         </li>
       	<li>
-      		<a href="/{{ PROTOTYPEURL }}/password">Login options</a>
+      		<a href="/{{ PROTOTYPEURL }}/password">Face ID</a>
       	</li>
         <li>
-          <a href="/{{ PROTOTYPEURL }}/login">NHS login</a>
+          <a href="/app/settings/v3/nhs-login">NHS login</a>
         </li>
       	<li>
       		<a href="/{{ PROTOTYPEURL }}/notifications">Notifications</a>

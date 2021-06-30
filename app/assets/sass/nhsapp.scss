@@ -2842,11 +2842,6 @@ nav.menu ul li b {
         padding-right: 0px;
     }
 
-    .nhsuk-summary-list__key,
-    .nhsuk-summary-list__value,
-    .nhsuk-summary-list__actions {
-      margin: 0; /* [2] */
-      vertical-align: top;
 
       @include mq($from: tablet) {
         border-bottom: 1px solid $nhsuk-border-color;
@@ -2855,7 +2850,7 @@ nav.menu ul li b {
         padding-right: nhsuk-spacing(4);
         padding-top: nhsuk-spacing(2);
       }
-    }
+
 
     .moj-banner {
         border: 5px solid #1d70b8;
