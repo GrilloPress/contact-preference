@@ -1,0 +1,58 @@
+{% set PROTOTYPEURL = "app/contact-details" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "You need to contact your GP surgery to change your address" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+{% set changeEmailSet %}
+{% if data['changeEmail'] == 'email1' %}
+     betty.doyle@hotmail.com
+ {% elif data['changeEmail'] == 'email2' %}
+    bdoyle@gmail.co.uk
+{% else %}
+  betty.doyle@hotmail.com
+  {% endif %}
+{% endset %}
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v8/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/settings/v2">More</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1 class="nhsuk-heading-xl nhs-app-xl">
+      {{ contentTitle }}
+    </h1>
+
+          <p>You cannot change your address using the NHS App.</p>
+
+
+
+    </div>
+  </div>
+
+
+
+
+
+{% endblock %}
