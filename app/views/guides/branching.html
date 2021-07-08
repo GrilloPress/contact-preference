@@ -1,0 +1,109 @@
+{% set PROTOTYPEURL = "guides" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "How to set up a branch" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {{ backLink({
+  "href": "/guides/index",
+  "text": "Go back"
+}) }}
+
+      <h1>
+        {{ contentTitle }}
+      </h1>
+
+      <p>Work on a different branch to avoid conflicts with other code contributors.</p>
+
+      <h2>1. Make sure you're in the right folder</h2>
+
+      <p>If your prototype is called <code>remote-lab</code> for example, use the terminal to navigate to that folder. To do this, run:</p>
+
+      <pre class="app-pre"><code class="app-code">cd remote-lab</code></pre>
+
+
+      <h2>2. Check what branch you're currently working on</h2>
+
+      <p>Run this command:</p>
+
+      <pre class="app-pre"><code class="app-code">git status</code></pre>
+
+      <p>You'll know if you're on the main branch because it will be called <code>master</code> or <code>main</code>. If you're working on either of these you're ok to create a new branch. If you're not, you're already working on another branch.</p>
+
+
+
+      <h2>3. Switch to a new branch</h2>
+
+
+      <p>Run this command:</p>
+
+      <pre class="app-pre"><code class="app-code">git checkout -b branch-name</code></pre>
+
+      <p>Change <code>branch-name</code> to what you want your new branch to be called.</p>
+
+      <p>You're now working from a new branch.</p>
+
+
+      <h2>4. Open your text editor</h2>
+
+      <p>Make your code changes.</p>
+
+
+      <h2>5. Go back to the terminal once you've made your changes</h2>
+
+      <p>Run this command:</p>
+
+      <pre class="app-pre"><code class="app-code">git status</code></pre>
+
+      <p>The terminal can tell that you've made code changes.</p>
+
+
+      <h2>6. Stage your changes</h2>
+
+      <p>Run this command:</p>
+
+      <pre class="app-pre"><code class="app-code">git add .</code></pre>
+
+
+      <h2>7. Commit your changes</h2>
+
+      <p>Run this command:</p>
+
+      <pre class="app-pre"><code class="app-code">git commit -m "Code changes"</code></pre>
+
+      <p>Just change "Code changes" to what you want your commit message to be.</p>
+
+
+      <h2>8. Push your changes</h2>
+
+      <p>Run this command:</p>
+
+      <pre class="app-pre"><code class="app-code">git push --set-upstream origin branch-name</code></pre>
+
+      <p>Just change <code>branch-name</code> to what you named your branch.</p>
+
+      <p>Your changes are now committed and ready to be merged.</p>
+
+      <p><a href="/guides/merging">Merging code into main that's been pushed from a branch</a></p>
+
+    </div>
+  </div>
+{% endblock %}
