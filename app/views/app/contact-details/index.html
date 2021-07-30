@@ -1,0 +1,40 @@
+{% set PROTOTYPEURL = "app/contact-details" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Update your contact details prototypes" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-transactional.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-l nhsuk-caption--top"> {{ serviceName }}</span>
+        {{ contentTitle }}
+      </h1>
+
+      <ul>
+        <li>
+          <a href="/{{ PROTOTYPEURL }}/fitnote/home">Home</a>
+        </li>
+
+
+
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}

@@ -27,6 +27,8 @@ router.use('/', require('./routes/messaging.js'))
 router.use('/', require('./routes/prescriptions.js'))
 router.use('/', require('./routes/login.js'))
 router.use('/', require('./routes/personal-health-records.js'))
+router.use('/', require('./routes/contact-details.js'))
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -159,6 +161,15 @@ router.get('/app/covid-status/clear', function (req, res) {
 
   req.session.data = {}
   res.redirect('/app/covid-status/splash')
+
+});
+
+
+
+router.get('/app/contact-details/clear', function (req, res) {
+
+  req.session.data = {}
+  res.redirect('/app/contact-details/start-screen-new')
 
 });
 // qualtrics message

@@ -1,0 +1,47 @@
+{% set PROTOTYPEURL = "app/contact-details/v2" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Confirm your new email address" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-email.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-heading-l">{{ contentTitle}}</h1>
+      <p>Confirm this email address to finish changing your email address.</p>
+
+      <form action="/{{ PROTOTYPEURL }}/email-updated" method="post">
+
+                  <input type="submit" class="nhsuk-button" value="Confirm email address">
+                  </input>
+                </form>
+
+      <p>If nothing happens when you click the button, try this link instead.</p>
+
+      <p><a href="#">http://login.nhs.uk/create-account/v16/confirm-email</a></p>
+
+      <p>You might need to copy and paste it into your internet browser.</p>
+
+      <p>If you did not try to set up an NHS login using this email address, then ignore this email. We will delete your information after 1 hours.</p>
+
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footerContent %}
+
+{% endblock %}

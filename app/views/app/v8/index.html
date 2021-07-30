@@ -71,10 +71,13 @@
             </a>
           </li>
 
+
+          {% if (data['messageRead8'] == "unread") %}
+
+
           <li class="nhs-app-message__item--unread-home">
-            <a class="desktop" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/?messagingIcon=False&messageRead1=unread&pkbMessaging=False" }}'>
-              View your messages
-                {% if (data['messageRead7'] == "unread") %}
+            <a class="desktop unread-red-heading" href="{{ routeMessaging }}">
+              View your unread messages
                 <span class="nhs-app-message__meta">
                   <span class="nhsuk-u-visually-hidden">You have </span>
                   <span class="nhs-app-message__count-red-home"></span>
@@ -82,10 +85,18 @@
                     unread messages
                   </span>
                 </span>
+              </a>
+            </li>
+
+
+                {% else %}
+
+                <li>
+                  <a class="desktop" href="{{ routeMessaging }}">View your messages</a>
+                </li>
                 {% endif %}
 
-            </a>
-          </li>
+
 
 
                   {% if data['linkedProfiles'] === "True" %}
@@ -100,7 +111,7 @@
 
 
           <li>
-            <a class="desktop" href="/app/records/v1/">View your GP health record</a>
+            <a class="desktop" href="{{ routeRecords }}">View your GP health record</a>
           </li>
 
 
@@ -118,7 +129,7 @@
 
 
                 <li>
-                  <a class="desktop" href="/app/prescriptions/v8-acute-tpp/not-nominated-pharmacy">Order a repeat prescription</a>
+                  <a class="desktop" href="{{ routePrescriptions }}">Order a repeat prescription</a>
                 </li>
 
 
@@ -126,12 +137,6 @@
                 {% endif %}
 
 
-                {% if data['contactDetails'] === "show" %}
-                <li>
-                  <a class="desktop" href="/app/contact-details/your-details">Update your contact details</a>
-                </li>
-                {% else %}
-                {% endif %}
 
 
 

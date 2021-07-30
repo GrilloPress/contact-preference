@@ -28,6 +28,9 @@ $( document ).ready(function() {
           jQuery.post( "/app/password", { messageRead7{{data['id']}}: "read" } );
           });
 
+          $( document ).ready(function() {
+            jQuery.post( "/app/password", { messageRead8{{data['id']}}: "read" } );
+            });
 
 </script>
 {% endblock %}
@@ -84,7 +87,7 @@ $( document ).ready(function() {
 
 
 
-      <div class="nhs-app-chat">
+    <!--   <div class="nhs-app-chat">
         <ul class="nhs-app-chat__thread" id="unread2">
           {% if data['messageRead1'] === "read" %}
           <li class="nhs-app-chat__item">
@@ -120,9 +123,45 @@ $( document ).ready(function() {
               Sent 7:12am, 7 October 2020
             </div>
           </li>
-          {% endif %}
+          {% endif %}-->
 
-          {% if (data['prescriptionConfirmedAcute'] === "True") and (data['acuteMessage'] ==='True') %}
+
+
+                <div class="nhs-app-chat">
+                  <ul class="nhs-app-chat__thread" id="unread8">
+                    {% if data['messageRead8'] === "read" %}
+                    <li class="nhs-app-chat__item">
+                      <div class="nhs-app-chat__sender">
+                        {{ sender }}
+                      </div>
+                      <div class="nhs-app-chat__container">
+                        <p class="nhs-app-chat__body">You do not have a email address on your GP record
+                          <a class="nhs-app-chat__body" href="/app/contact-details/v2/which-email">https://www.nhsapp.service.nhs.uk&#8203;/patient/more/manage-account/update-contact-details</a></p>
+                      </div>
+                      <div class="nhs-app-chat__date">
+                        Sent 10:12am, 4 August 2021
+                      </div>
+                    </li>
+
+                    {% else %}
+                    <div class="nhs-app-chat__read-indicator" id="unread8">
+                      <span class="nhs-app-chat__read-indicator-container"><b>Unread message</b></span>
+                    </div>
+                    <li class="nhs-app-chat__item">
+                      <div class="nhs-app-chat__sender-unread">
+                        {{ sender }}
+                      </div>
+                      <div class="nhs-app-chat__container">
+                        <p class="nhs-app-chat__body">You do not have a email address on your GP record
+                          <a class="nhs-app-chat__body" href="/app/contact-details/v2/which-email">https://www.nhsapp.service.nhs.uk&#8203;/patient/more/manage-account/update-contact-details</a></p>
+                       </div>
+                      <div class="nhs-app-chat__date">
+                        Sent 10:12am, 4 August 2021
+                      </div>
+                    </li>
+                    {% endif %}
+
+        <!--   {% if (data['prescriptionConfirmedAcute'] === "True") and (data['acuteMessage'] ==='True') %}
           {% if data['messageRead7'] === "read" %}
           <li class="nhs-app-chat__item">
             <div class="nhs-app-chat__sender">
@@ -241,7 +280,7 @@ $( document ).ready(function() {
         </ul>
       </div>
 
-      {% endif %}
+      {% endif %}-->
 
 
 

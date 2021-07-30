@@ -1,4 +1,4 @@
-{% set PROTOTYPEURL = "app/settings/v2" %}
+{% set PROTOTYPEURL = "app/contact-details/v2" %}
 {% set serviceName = "NHS App" %}
 {% set contentTitle = "More" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -38,20 +38,14 @@
       	<li>
       		<a class="desktop" href="/{{ PROTOTYPEURL }}/password">Face ID</a>
       	</li>
-        {% if data['contactDetails'] === "True" %}
         <li>
           <a class="desktop" href="/app/contact-details/v2/account-hub">Manage your account</a>
         </li>
-        {% else %}
-        <li>
-          <a class="desktop" href="/app/settings/v3/nhs-login">NHS login</a>
-        </li>
-        {% endif %}
       	<li>
       		<a class="desktop" href="/{{ PROTOTYPEURL }}/notifications">Notifications</a>
       	</li>
       </ul>
-      <form action="/app/v8/clear" method="post">
+      <form action="/app/contact-details/clear" method="post">
         <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Log out">
         </input>
       </form>

@@ -1,0 +1,55 @@
+{% set PROTOTYPEURL = "app/contact-details/v2" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Delete your NHS login" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Delete your NHS login</h1>
+      <div class="nhsuk-warning-callout">
+        <h3 class="nhsuk-warning-callout__label">
+          <span role="text">
+            <span class="nhsuk-u-visually-hidden">Important: </span>
+            When you delete your NHS login
+          </span>
+        </h3>
+        <p>You will no longer be able to use NHS login to access any services.</p>
+        <p>Any services you have used with NHS login may keep some information about you in line with their terms and conditions and privacy notice.</p>
+        <p>We may also keep some information about you in line with NHS login's data retention policy.</p>
+        <p>Our Privacy Notice provides a summary of how we use your information.</p>
+      </div>
+
+
+      <h2>Are you sure you want to delete your NHS login?</h2>
+      <form action="#" method="post">
+        <input type="submit" class="nhsuk-button" value="Delete your NHS login">
+        </input>
+      </form>
+
+      <div class="nhsuk-back-link" style="margin-bottom: 16px;">
+              <a class="nhsuk-back-link__link button--back" href="#" id="backlink-4" style="font-size: 16px;font-size: .875rem;line-height: 1.71429;display: inline-block;padding-left: 16px;position: relative;text-decoration: none;">
+                  <svg class="nhsuk-icon nhsuk-icon__chevron-left" style="height: 24px;left: -8px;position: absolute;top: -1px;width: 24px;fill: #005eb8;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+                  </svg>
+                  I do not want to delete my NHS login</a>
+          </div>
+
+    </div>
+  </div>
+{% endblock %}
