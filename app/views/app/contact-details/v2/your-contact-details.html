@@ -72,7 +72,7 @@
         {{ data['newEmail'] }}
       {% elif data['whichEmail'] === 'loginEmail' %}
         betty.doyle@hotmail.com
-      {% else %}
+      {% elif data['noEmail'] === "True" %}
       <div class="nhsuk-warning-text nhsuk-u-margin-bottom-3 nhsuk-u-margin-top-3">
         <span class="nhsuk-warning-text__icon" aria-hidden="true">!</span>
         <strong class="nhsuk-warning-text__text">
@@ -81,6 +81,8 @@
         </strong>
       </div>
     </dd>
+        {% else %}
+      betty.doyle@hotmail.com
         {% endif %}
 
 

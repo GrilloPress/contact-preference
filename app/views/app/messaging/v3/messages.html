@@ -40,10 +40,6 @@
           <ul class="list-menu nhs-app-message">
 
 
-            {% if data['messageHide'] === "True" %}
-            {% else %}
-
-
             {% if data['pNotification'] == 'True' %}
 
 
@@ -94,9 +90,9 @@
 
 
                             {% endif %}
-                            {% endif %}
+                      {% endif %}
 
-          <!--     {% if data['messageRead6'] == "unread" %}
+          <!--{% if data['messageRead6'] == "unread" %}
 
             <li class="nhs-app-message__item nhs-app-message__item--unread">
               <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread#unread6">
@@ -141,7 +137,6 @@
                     </li>
 
 
-                    {% endif %}
                     {% endif %}
 
 

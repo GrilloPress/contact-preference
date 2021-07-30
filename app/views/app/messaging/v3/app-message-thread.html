@@ -125,6 +125,7 @@ $( document ).ready(function() {
           </li>
           {% endif %}-->
 
+          {% if data['pNotification'] == 'True' %}
 
 
                 <div class="nhs-app-chat">
@@ -160,6 +161,10 @@ $( document ).ready(function() {
                       </div>
                     </li>
                     {% endif %}
+
+                    {% else %}
+                    {% endif %}
+
 
         <!--   {% if (data['prescriptionConfirmedAcute'] === "True") and (data['acuteMessage'] ==='True') %}
           {% if data['messageRead7'] === "read" %}
