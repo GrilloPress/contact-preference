@@ -1,6 +1,7 @@
 {% set PROTOTYPEURL = "app/contact-details/v2" %}
 {% set serviceName = "NHS App" %}
 {% set contentTitle = "Your contact details" %}
+{% set moreActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -34,7 +35,7 @@
   <div class="nhsuk-grid-column-two-thirds">
 
 
-          <h1 class="nhsuk-heading-xl nhs-app-xl">
+          <h1 class="nhsuk-heading-xl">
             {{ contentTitle }}
           </h1>
 
@@ -70,8 +71,28 @@
 
       {% if data['newEmail'] %}
         {{ data['newEmail'] }}
+
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="/{{ PROTOTYPEURL }}/which-email">
+            Change<span class="nhsuk-u-visually-hidden"> email address</span>
+          </a>
+
+        </dd>
       {% elif data['whichEmail'] === 'loginEmail' %}
         betty.doyle@hotmail.com
+
+
+        <dd class="nhsuk-summary-list__actions">
+
+          <a href="/{{ PROTOTYPEURL }}/which-email">
+            Change<span class="nhsuk-u-visually-hidden"> email address</span>
+          </a>
+
+        </dd>
+
+
       {% elif data['noEmail'] === "True" %}
       <div class="nhsuk-warning-text nhsuk-u-margin-bottom-3 nhsuk-u-margin-top-3">
         <span class="nhsuk-warning-text__icon" aria-hidden="true">!</span>
@@ -81,12 +102,6 @@
         </strong>
       </div>
     </dd>
-        {% else %}
-      betty.doyle@hotmail.com
-        {% endif %}
-
-
-
 
     <dd class="nhsuk-summary-list__actions">
 
@@ -95,6 +110,25 @@
       </a>
 
     </dd>
+
+
+        {% else %}
+      betty.doyle@hotmail.com
+
+
+      <dd class="nhsuk-summary-list__actions">
+
+        <a href="/{{ PROTOTYPEURL }}/which-email">
+          Change<span class="nhsuk-u-visually-hidden"> email address</span>
+        </a>
+
+      </dd>
+        {% endif %}
+
+
+
+
+
 
   </div>
 

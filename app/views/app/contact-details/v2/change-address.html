@@ -1,6 +1,7 @@
 {% set PROTOTYPEURL = "app/contact-details/v2" %}
 {% set serviceName = "NHS App" %}
 {% set contentTitle = "You cannot change your address online" %}
+{% set moreActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -41,9 +42,11 @@
 
           <p>Contact your GP surgery to update your address.</p>
 
-          <p><a href="#">Find your GP surgery</a> to get it’s details.</p>
 
-
+          {{ actionLink({
+            "text": "Find your GP surgery",
+            "href": "#"
+          }) }}
 
           <p><a href="/{{ PROTOTYPEURL }}/your-contact-details">Back to your contact details</a></p>
     </div>
