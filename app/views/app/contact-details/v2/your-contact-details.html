@@ -63,15 +63,22 @@
   </div>
 
 
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-      Email address
-    </dt>
-    <dd class="nhsuk-summary-list__value">
 
-      {% if data['newEmail'] %}
-        {{ data['newEmail'] }}
 
+
+
+
+
+      {% if ( data['newEmail'] and data['updateLogin'] === 'yes' ) %}
+
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{ data['newEmail'] }}
+            </dd>
 
         <dd class="nhsuk-summary-list__actions">
 
@@ -80,9 +87,18 @@
           </a>
 
         </dd>
+
+          </div>
       {% elif data['whichEmail'] === 'loginEmail' %}
-        betty.doyle@hotmail.com
 
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              betty.doyle@hotmail.com
+            </dd>
 
         <dd class="nhsuk-summary-list__actions">
 
@@ -92,37 +108,125 @@
 
         </dd>
 
+          </div>
 
-      {% elif data['noEmail'] === "True" %}
-      <div class="nhsuk-warning-text nhsuk-u-margin-bottom-3 nhsuk-u-margin-top-3">
-        <span class="nhsuk-warning-text__icon" aria-hidden="true">!</span>
-        <strong class="nhsuk-warning-text__text">
-          <span class="nhsuk-warning-text__assistive">Important</span>
-          You do not have an email address on your GP record
-        </strong>
-      </div>
-    </dd>
 
-    <dd class="nhsuk-summary-list__actions">
+    {% elif ( data['updateLogin'] === 'no' and data['newEmail'] ) %}
 
-      <a href="/{{ PROTOTYPEURL }}/which-email">
-        Add an email address<span class="nhsuk-u-visually-hidden"></span>
-      </a>
 
-    </dd>
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key nhsuk-u-margin-bottom-4">
+                      Email addresses
+                    </dt>
 
+                    <dt class="nhsuk-summary-list__key nhsuk-u-margin-bottom-4">
+                      NHS login
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+
+                      bettydoyle@hotmail.com
+
+                    </dd>
+
+                <dd class="nhsuk-summary-list__actions">
+
+                  <a href="/{{ PROTOTYPEURL }}/which-email">
+                    Change<span class="nhsuk-u-visually-hidden"> email address</span>
+                  </a>
+
+                </dd>
+
+
+                <dt class="nhsuk-summary-list__key nhsuk-u-margin-bottom-4">
+                 GP record
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+
+                  {{ data['newEmail'] }}
+
+                </dd>
+
+                <dd class="nhsuk-summary-list__actions">
+
+                  <a href="/{{ PROTOTYPEURL }}/which-email">
+                    Change<span class="nhsuk-u-visually-hidden"> email address</span>
+                  </a>
+
+                </dd>
+
+                  </div>
+
+                {% elif data['whichEmail'] === 'noEmail' %}
+
+
+
+                                  <div class="nhsuk-summary-list__row">
+                                    <dt class="nhsuk-summary-list__key nhsuk-u-margin-bottom-4">
+                                      Email addresses
+                                    </dt>
+
+                                    <dt class="nhsuk-summary-list__key nhsuk-u-margin-bottom-4">
+                                      NHS login
+                                    </dt>
+                                    <dd class="nhsuk-summary-list__value">
+
+                                      bettydoyle@hotmail.com
+
+                                    </dd>
+
+                                <dd class="nhsuk-summary-list__actions">
+
+                                  <a href="/{{ PROTOTYPEURL }}/which-email">
+                                    Change<span class="nhsuk-u-visually-hidden"> email address</span>
+                                  </a>
+
+                                </dd>
+
+
+                                <dt class="nhsuk-summary-list__key nhsuk-u-margin-bottom-4">
+                                 GP record
+                                </dt>
+                                <dd class="nhsuk-summary-list__value">
+
+                                  You do not have an email address on your GP record
+
+                                </dd>
+
+                                <dd class="nhsuk-summary-list__actions">
+
+                                  <a href="/{{ PROTOTYPEURL }}/which-email">
+                                    Add an email address<span class="nhsuk-u-visually-hidden"></span>
+                                  </a>
+
+                                </dd>
+
+                                  </div>
 
         {% else %}
-      betty.doyle@hotmail.com
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="nhsuk-summary-list__value">
 
+        <div class="nhsuk-warning-text nhsuk-u-margin-bottom-3 nhsuk-u-margin-top-3">
+          <span class="nhsuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="nhsuk-warning-text__text">
+            <span class="nhsuk-warning-text__assistive">Important</span>
+            You do not have an email address on your GP record
+          </strong>
+        </div>
+      </dd>
 
       <dd class="nhsuk-summary-list__actions">
 
         <a href="/{{ PROTOTYPEURL }}/which-email">
-          Change<span class="nhsuk-u-visually-hidden"> email address</span>
+          Add an email address<span class="nhsuk-u-visually-hidden"></span>
         </a>
 
       </dd>
+
+        </div>
         {% endif %}
 
 
@@ -130,7 +234,6 @@
 
 
 
-  </div>
 
   <div class="nhsuk-summary-list__row">
     <dt class="nhsuk-summary-list__key">

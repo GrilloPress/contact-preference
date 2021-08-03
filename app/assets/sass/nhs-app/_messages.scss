@@ -119,6 +119,16 @@
 }
 
 .nhs-app-message__count-red {
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #DA291C;
+  border-radius: 14px;
+  padding: 3px 10px;
+  color: #ffffff;
+
+}
+
+.nhs-app-message__count-red-live {
   display:inline-block;
   background-color: #DA291C;
   //border-radius: 13px;
@@ -126,6 +136,7 @@
   height:15px;
   width:15px;
   border-radius: 50%;
+  float: right;
 }
 
 .nhs-app-message__count-red-home {
@@ -170,6 +181,10 @@
   @include clearfix;
 }
 
+.nhs-app-chat__item-full-width {
+  @include clearfix;
+}
+
 .nhs-app-chat__item--reply {
   padding-right: 0;
   padding-left: 20%;
@@ -183,6 +198,16 @@
   border-radius: 4px;
   border: 1px solid $color_nhsuk-grey-4;
   margin-bottom: 4px;
+}
+
+.nhs-app-chat__container-full-width {
+
+  background-color: $color_nhsuk-white;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid $color_nhsuk-grey-4;
+  margin-bottom: 4px;
+  width: 100%;
 }
 
 .nhs-app-chat__container--reply {
@@ -301,6 +326,10 @@
 
 .nhs-app-chat__read-indicator-container b {
   color:#DA291C !important ;
+}
+
+.nhs-app-chat__read-indicator-container-grey b {
+  color:#4c6272 !important ;
 }
 
 .nhs-app-navicon-messages--active {

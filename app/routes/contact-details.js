@@ -6,14 +6,19 @@ var moment = require('moment');
 router.post('/app/contact-details/v2/which-email', function (req, res) {
   let answer = req.body.whichEmail;
 
-  if (answer === 'loginEmail') {
+  if (answer === 'differentEmail') {
 
-    res.redirect('/app/contact-details/v2/email-updated')
+    res.redirect('/app/contact-details/v2/update-login')
 
   } else {
-    res.redirect('/app/contact-details/v2/update-login')
+    res.redirect('/app/contact-details/v2/email-updated')
   }
+
+
 });
+
+
+
 
 
 

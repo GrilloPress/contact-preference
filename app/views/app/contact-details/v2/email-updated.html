@@ -1,20 +1,15 @@
 {% set PROTOTYPEURL = "app/contact-details/v2" %}
 {% set serviceName = "NHS App" %}
+{% if data['whichEmail'] === 'noEmail' %}
+{% set contentTitle = "You have not added an email address" %}
+{% else %}
 {% set contentTitle = "Your email address has been updated" %}
+{% endif %}
 {% set moreActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
 
-{% set emailSet %}
-{% if data['newEmail'] %}
-  {{ data['newEmail'] }}
-{% elif data['whichEmail'] === 'loginEmail' %}
-    betty.doyle@hotmail.com
-{% else %}
-    betty.doyle@hotmail.com
-  {% endif %}
-{% endset %}
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -48,9 +43,41 @@
       {{ contentTitle }}
     </h1>
 
+    {% if ( data['newEmail'] and data['updateLogin'] === 'yes' )  %}
+
+    <p>Your new email address is: {{ data['newEmail'] }}.</p>
+
+    {% elif data['whichEmail'] === 'loginEmail' %}
+
+    <p>betty.doyle@hotmail.com</p>
+
+    {% elif ( data['updateLogin'] === 'no' and data['newEmail'] )  %}
 
 
-    <p>Your new email address is: {{ emailSet }}</p>
+    <p>Your new email address on your GP record is: {{ data['newEmail'] }}.</p>
+
+    <p>You have chosen to keep the email address you use to log into NHS services as: betty.doyle@hotmail.com.</p>
+
+
+    {% elif data['whichEmail'] === 'noEmail' %}
+
+    <p>Thank you for confirming you do not want to add an email address to your GP record.</p>
+
+    <p>If you do want to add an email address:</p>
+    <ul>
+      <li><a href="/app/contact-details/account-hub">use the Manage account settings section in the NHS App</a></li>
+      <li><a href="#">visit the Update contact details service via the NHS website</a></li>
+    </ul>
+
+
+    {% else %}
+
+    <p>betty.doyle@hotmail.com</p>
+
+      {% endif %}
+
+
+
 
     <p><a href="/{{ PROTOTYPEURL }}/your-contact-details">Back to your contact details</a></p>
 

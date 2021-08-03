@@ -1,7 +1,7 @@
 {% set PROTOTYPEURL = "app/messaging/v3" %}
 {% set serviceName = "Home" %}
 {% set sender = "NHS App" %}
-{% set contentTitle = "Health information and updates" %}
+{% set contentTitle = "Messages from:" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% set messagingActive = "active" %}
 {% block pageScripts %}
@@ -60,26 +60,21 @@ $( document ).ready(function() {
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+      <span class="nhsuk-caption-m nhsuk-caption--top">  {{ contentTitle }} </span>
 
-      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
+      <h1 class="nhsuk-heading-xl nhs-app-xl">{{ sender }}
+    </h1>
 
-      <h2 class="nhsuk-heading-l">
-        <span class="nhsuk-caption-m nhsuk-caption--top">Messages from: </span>
-        {{ sender }}
-      </h2>
 
 
       <div class="nhs-app-chat">
         <ul class="nhs-app-chat__thread">
-          <li class="nhs-app-chat__item">
-            <div class="nhs-app-chat__sender">
-              {{ sender }}
-            </div>
+          <li class="nhs-app-chat__item-full-width">
             <div class="nhs-app-chat__container">
               <p class="nhs-app-chat__body">Welcome to the NHS App</p>
             </div>
             <div class="nhs-app-chat__date">
-              Sent 10:17am, 13 September 2020
+              Sent 13 September 2020 at 10:17am
             </div>
           </li>
         </ul>
@@ -131,33 +126,27 @@ $( document ).ready(function() {
                 <div class="nhs-app-chat">
                   <ul class="nhs-app-chat__thread" id="unread8">
                     {% if data['messageRead8'] === "read" %}
-                    <li class="nhs-app-chat__item">
-                      <div class="nhs-app-chat__sender">
-                        {{ sender }}
-                      </div>
+                    <li class="nhs-app-chat__item-full-width">
                       <div class="nhs-app-chat__container">
-                        <p class="nhs-app-chat__body">You do not have a email address on your GP record
+                        <p class="nhs-app-chat__body">You do not have an email address on your GP record. To add an email address to your GP record visit:
                           <a class="nhs-app-chat__body" href="/app/contact-details/v2/which-email">https://www.nhsapp.service.nhs.uk&#8203;/patient/more/manage-account/update-contact-details</a></p>
                       </div>
                       <div class="nhs-app-chat__date">
-                        Sent 10:12am, 4 August 2021
+                        Sent 4 August 2021 at 10:12am
                       </div>
                     </li>
 
                     {% else %}
                     <div class="nhs-app-chat__read-indicator" id="unread8">
-                      <span class="nhs-app-chat__read-indicator-container"><b>Unread message</b></span>
+                      <span class="nhs-app-chat__read-indicator-container nhs-app-chat__read-indicator-container-grey"><b>Unread messages</b></span>
                     </div>
-                    <li class="nhs-app-chat__item">
-                      <div class="nhs-app-chat__sender-unread">
-                        {{ sender }}
-                      </div>
+                    <li class="nhs-app-chat__item-full-width">
                       <div class="nhs-app-chat__container">
-                        <p class="nhs-app-chat__body">You do not have a email address on your GP record
+                        <p class="nhs-app-chat__body">You do not have an email address on your GP record. To add an email address to your GP record visit:
                           <a class="nhs-app-chat__body" href="/app/contact-details/v2/which-email">https://www.nhsapp.service.nhs.uk&#8203;/patient/more/manage-account/update-contact-details</a></p>
                        </div>
                       <div class="nhs-app-chat__date">
-                        Sent 10:12am, 4 August 2021
+                        Sent 4 August 2021 at 10:12am
                       </div>
                     </li>
                     {% endif %}

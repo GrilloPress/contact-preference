@@ -34,9 +34,7 @@
       <h1 class="nhsuk-heading-xl nhs-app-xl">{{ contentTitle }}</h1>
 
 
-          <div class="nhs-app-panel-heading">
             <h2 class="nhsuk-heading-m">Your messages</h2>
-          </div>
           <ul class="list-menu nhs-app-message">
 
 
@@ -45,20 +43,20 @@
 
                     {% if data['messageRead8'] == "unread" %}
 
-                    <li class="nhs-app-message__item nhs-app-message__item--unread">
+                    <li class="nhs-app-message__item nhs-app-message__item--read">
                       <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread#unread8">
-                        <h2 class="nhsuk-heading-xs">
+                        <h2 class="nhsuk-heading-xs" style="color:#005eb8;">
                           <span class="nhsuk-u-visually-hidden">Conversation with:</span>
                           NHS App
                           <span class="nhsuk-u-visually-hidden">The last message was sent </span>
-                          <span class="nhs-app-message__date nhs-app-message__date--unread">04/08/2021</span>
+                          <span class="nhs-app-message__date nhs-app-message__date--unread">4 August 2021</span>
                         </h2>
                         <p class="nhs-app-message__subject-line nhs-app-message__subject-line--bold">
                           <span class="nhsuk-u-visually-hidden">Subject: </span>
-                           You do not have a email address on your GP record
+                           You do not have an email address on your GP record
                         <span class="nhs-app-message__meta panel-link_thin">
                           <span class="nhsuk-u-visually-hidden">You have </span>
-                          <span class="unread-red"><b>Unread</b></span>
+                          <span class="nhs-app-message__count-red">1</span>
                           <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
                             unread messages from NHS App
                           </span>
@@ -75,15 +73,15 @@
 
                                     <li class="nhs-app-message__item nhs-app-message__item--read">
                                       <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread">
-                                        <h2 class="nhsuk-heading-xs">
+                                        <h2 class="nhsuk-heading-xs" style="color:#005eb8;">
                                           <span class="nhsuk-u-visually-hidden">Conversation with:</span>
                                           NHS App
                                           <span class="nhsuk-u-visually-hidden">The last message was sent </span>
-                                          <span class="nhs-app-message__date nhs-app-message__date--read">04/08/2021</span>
+                                          <span class="nhs-app-message__date nhs-app-message__date--read">4 August 2021</span>
                                         </h2>
                                         <p class="nhs-app-message__subject-line nhs-app-message__subject-line">
                                           <span class="nhsuk-u-visually-hidden">Subject: </span>
-                                          You do not have a email address on your GP record
+                                          You do not have an email address on your GP record
                                       </p>
                                       </a>
                                     </li>
@@ -236,20 +234,6 @@
 
                     {% endif %}-->
 
-                    <li class="nhs-app-message__item nhs-app-message__item--read">
-                      <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread">
-                        <h2 class="nhsuk-heading-xs">
-                          <span class="nhsuk-u-visually-hidden">Conversation with:</span>
-                          NHS App
-                          <span class="nhsuk-u-visually-hidden">The last message was sent </span>
-                          <span class="nhs-app-message__date nhs-app-message__date--read">13/09/2020</span>
-                        </h2>
-                        <p class="nhs-app-message__subject-line nhs-app-message__subject-line">
-                          <span class="nhsuk-u-visually-hidden">Subject: </span>
-                          Welcome to the NHS App
-                      </p>
-                      </a>
-                    </li>
 
 
 
