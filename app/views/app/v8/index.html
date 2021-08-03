@@ -72,6 +72,7 @@
           </li>
 
 
+
           {% if (data['messageRead8'] == "unread") %}
 
 
@@ -88,6 +89,12 @@
               </a>
             </li>
 
+
+                {% elif (data['messageRead8'] == "read") %}
+
+                <li>
+                  <a class="desktop" href="{{ routeMessaging }}">View your messages</a>
+                </li>
 
                 {% else %}
 

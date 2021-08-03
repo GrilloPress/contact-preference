@@ -38,8 +38,6 @@
           <ul class="list-menu nhs-app-message">
 
 
-            {% if data['pNotification'] == 'True' %}
-
 
                     {% if data['messageRead8'] == "unread" %}
 
@@ -65,9 +63,8 @@
                       </a>
                     </li>
 
-                    {% endif %}
+                    {% elif data['messageRead8'] == "read" %}
 
-                    {% if data['messageRead8'] == "read" %}
 
 
 
@@ -87,7 +84,23 @@
                                     </li>
 
 
-                            {% endif %}
+                                    {% else %}
+
+
+                                                                <li class="nhs-app-message__item nhs-app-message__item--read">
+                                                                  <a class="nhs-app-message__link" href="/{{ PROTOTYPEURL }}/v3/app-message-thread">
+                                                                    <h2 class="nhsuk-heading-xs" style="color:#005eb8;">
+                                                                      <span class="nhsuk-u-visually-hidden">Conversation with:</span>
+                                                                      NHS App
+                                                                      <span class="nhsuk-u-visually-hidden">The last message was sent </span>
+                                                                      <span class="nhs-app-message__date nhs-app-message__date--read">13 September 2020</span>
+                                                                    </h2>
+                                                                    <p class="nhs-app-message__subject-line nhs-app-message__subject-line">
+                                                                      <span class="nhsuk-u-visually-hidden">Subject: </span>
+                                                                      Welcome to the NHS App
+                                                                  </p>
+                                                                  </a>
+                                                                </li>
                       {% endif %}
 
           <!--{% if data['messageRead6'] == "unread" %}
