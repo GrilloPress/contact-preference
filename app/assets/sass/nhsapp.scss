@@ -4430,3 +4430,30 @@ $nhsuk-focus-text-color: $color_nhsuk-black;
     bottom: - $card-border-width; /* [3] */
   }
 }
+
+
+.summary-list-heading {
+  font-size: 16px;
+  @media (min-width: 40.0625em) {
+    font-size: 19px;
+
+}
+}
+
+.nhsuk-summary-list__key-no-border, .nhsuk-summary-list__value-no-border, .nhsuk-summary-list__actions-no-border {
+    border-bottom: none!important;
+}
+
+
+.summary-list-contact-details-margin-bottom {
+    margin-bottom: 8px;
+  @media (min-width: 40.0625em) {
+    margin-bottom: 4px;
+}
+}
+
+.nhsuk-summary-list__row-no-border {
+@media (max-width: 40.0625em) {
+  border-bottom: none!important;
+}
+}

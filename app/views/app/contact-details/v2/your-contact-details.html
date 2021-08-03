@@ -42,34 +42,30 @@
 
 
 
-<dl class="nhsuk-summary-list">
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-      Mobile phone number
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-    07890345746
-    </dd>
-
-    <dd class="nhsuk-summary-list__actions">
-
-      <a href="#">
-        Change<span class="nhsuk-u-visually-hidden"> mobile phone number</span>
-      </a>
-
-    </dd>
-
-  </div>
-
-
-
-
-
-
 
 
       {% if ( data['newEmail'] and data['updateLogin'] === 'yes' ) %}
+
+
+      <dl class="nhsuk-summary-list">
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Mobile phone number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+          07890345746
+          </dd>
+
+          <dd class="nhsuk-summary-list__actions">
+
+            <a href="#">
+              Change<span class="nhsuk-u-visually-hidden"> mobile phone number</span>
+            </a>
+
+          </dd>
+
+        </div>
 
 
           <div class="nhsuk-summary-list__row">
@@ -89,8 +85,50 @@
         </dd>
 
           </div>
+
+
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Address
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                <p>4 Privet Drive<br> Little Whinging<br> England<br> HP3 7TR</p>
+              </dd>
+
+              <dd class="nhsuk-summary-list__actions">
+
+                <a href="/{{ PROTOTYPEURL }}/change-address">
+                  Change<span class="nhsuk-u-visually-hidden"> address</span>
+                </a>
+
+              </dd>
+
+            </div>
+
+          </dl>
+
       {% elif data['whichEmail'] === 'loginEmail' %}
 
+      <dl class="nhsuk-summary-list">
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Mobile phone number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+          07890345746
+          </dd>
+
+          <dd class="nhsuk-summary-list__actions">
+
+            <a href="#">
+              Change<span class="nhsuk-u-visually-hidden"> mobile phone number</span>
+            </a>
+
+          </dd>
+
+        </div>
 
           <div class="nhsuk-summary-list__row">
             <dt class="nhsuk-summary-list__key">
@@ -111,98 +149,218 @@
           </div>
 
 
+                      <div class="nhsuk-summary-list__row">
+                        <dt class="nhsuk-summary-list__key">
+                          Address
+                        </dt>
+                        <dd class="nhsuk-summary-list__value">
+                          <p>4 Privet Drive<br> Little Whinging<br> England<br> HP3 7TR</p>
+                        </dd>
+
+                        <dd class="nhsuk-summary-list__actions">
+
+                          <a href="/{{ PROTOTYPEURL }}/change-address">
+                            Change<span class="nhsuk-u-visually-hidden"> address</span>
+                          </a>
+
+                        </dd>
+
+                      </div>
+
+                    </dl>
+
     {% elif ( data['updateLogin'] === 'no' and data['newEmail'] ) %}
 
 
-                  <div class="nhsuk-summary-list__row">
-                    <dt class="nhsuk-summary-list__key nhsuk-u-margin-bottom-4">
-                      Email addresses
-                    </dt>
+                    <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-2">
 
-                    <dt class="nhsuk-summary-list__key nhsuk-u-margin-bottom-4">
-                      NHS login
-                    </dt>
-                    <dd class="nhsuk-summary-list__value">
+                      <div class="nhsuk-summary-list__row">
+                        <dt class="nhsuk-summary-list__key">
+                          Mobile phone number
+                        </dt>
+                        <dd class="nhsuk-summary-list__value">
+                        07890345746
+                        </dd>
 
-                      bettydoyle@hotmail.com
+                        <dd class="nhsuk-summary-list__actions">
 
-                    </dd>
+                          <a href="#">
+                            Change<span class="nhsuk-u-visually-hidden"> mobile phone number</span>
+                          </a>
 
-                <dd class="nhsuk-summary-list__actions">
+                        </dd>
 
-                  <a href="/{{ PROTOTYPEURL }}/which-email">
-                    Change<span class="nhsuk-u-visually-hidden"> email address</span>
-                  </a>
+                      </div>
 
-                </dd>
+                    </dl>
+
+                      <h2 class="summary-list-heading summary-list-contact-details-margin-bottom">Email addresses</h2>
+
+                      <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-1">
+
+                            <div class="nhsuk-summary-list__row nhsuk-summary-list__row-no-border">
 
 
-                <dt class="nhsuk-summary-list__key nhsuk-u-margin-bottom-4">
-                 GP record
-                </dt>
-                <dd class="nhsuk-summary-list__value">
 
-                  {{ data['newEmail'] }}
+                                                                        <dt class="nhsuk-summary-list__key nhsuk-summary-list__key-no-border nhsuk-u-margin-bottom-2">
+                                                                          For NHS services
+                                                                        </dt>
+                                                                        <dd class="nhsuk-summary-list__value nhsuk-summary-list__value-no-border nhsuk-u-margin-bottom-2">
+                                                                          betty.doyle@hotmail.com
+                                                                        </dd>
+                                                                    <dd class="nhsuk-summary-list__actions nhsuk-summary-list__actions-no-border">
+                                                                      <a href="/{{ PROTOTYPEURL }}/which-email">
+                                                                        Change<span class="nhsuk-u-visually-hidden"> email address</span>
+                                                                      </a>
+                                                                    </dd>
+                                                                  </div>
+                                                                    <div class="nhsuk-summary-list__row">
 
-                </dd>
+                                                                    <dt class="nhsuk-summary-list__key nhsuk-u-margin-bottom-2">
+                                                                     On GP record
+                                                                    </dt>
+                                                                    <dd class="nhsuk-summary-list__value nhsuk-u-margin-bottom-2">
+                                                                        {{ data['newEmail'] }}
+                                                                    </dd>
+                                                                    <dd class="nhsuk-summary-list__actions">
+                                                                      <a href="/{{ PROTOTYPEURL }}/which-email">
+                                                                        Change<span class="nhsuk-u-visually-hidden"> email address</span>
+                                                                      </a>
+                                                                    </dd>
+                                                                      </div>
 
-                <dd class="nhsuk-summary-list__actions">
 
-                  <a href="/{{ PROTOTYPEURL }}/which-email">
-                    Change<span class="nhsuk-u-visually-hidden"> email address</span>
-                  </a>
 
-                </dd>
+                                      <div class="nhsuk-summary-list__row">
+                                        <dt class="nhsuk-summary-list__key">
+                                          Address
+                                        </dt>
+                                        <dd class="nhsuk-summary-list__value">
+                                          <p>4 Privet Drive<br> Little Whinging<br> England<br> HP3 7TR</p>
+                                        </dd>
 
-                  </div>
+                                        <dd class="nhsuk-summary-list__actions">
+
+                                          <a href="/{{ PROTOTYPEURL }}/change-address">
+                                            Change<span class="nhsuk-u-visually-hidden"> address</span>
+                                          </a>
+
+                                        </dd>
+
+                                      </div>
+
+                                    </dl>
+
+
 
                 {% elif data['whichEmail'] === 'noEmail' %}
 
 
 
-                                  <div class="nhsuk-summary-list__row">
-                                    <dt class="nhsuk-summary-list__key nhsuk-u-margin-bottom-4">
-                                      Email addresses
-                                    </dt>
+                <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-2">
 
-                                    <dt class="nhsuk-summary-list__key nhsuk-u-margin-bottom-4">
-                                      NHS login
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                      Mobile phone number
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                    07890345746
+                    </dd>
+
+                    <dd class="nhsuk-summary-list__actions">
+
+                      <a href="#">
+                        Change<span class="nhsuk-u-visually-hidden"> mobile phone number</span>
+                      </a>
+
+                    </dd>
+
+                  </div>
+
+                </dl>
+
+                  <h2 class="summary-list-heading summary-list-contact-details-margin-bottom">Email addresses</h2>
+
+                  <dl class="nhsuk-summary-list nhsuk-u-margin-bottom-1">
+
+                        <div class="nhsuk-summary-list__row nhsuk-summary-list__row-no-border">
+
+
+
+                                                                    <dt class="nhsuk-summary-list__key nhsuk-summary-list__key-no-border nhsuk-u-margin-bottom-2">
+                                                                      For NHS services
+                                                                    </dt>
+                                                                    <dd class="nhsuk-summary-list__value nhsuk-summary-list__value-no-border nhsuk-u-margin-bottom-2">
+                                                                      betty.doyle@hotmail.com
+                                                                    </dd>
+                                                                <dd class="nhsuk-summary-list__actions nhsuk-summary-list__actions-no-border">
+                                                                  <a href="/{{ PROTOTYPEURL }}/which-email">
+                                                                    Change<span class="nhsuk-u-visually-hidden"> email address</span>
+                                                                  </a>
+                                                                </dd>
+                                                              </div>
+                                                                <div class="nhsuk-summary-list__row">
+
+                                                                <dt class="nhsuk-summary-list__key nhsuk-u-margin-bottom-2">
+                                                                 On GP record
+                                                                </dt>
+                                                                <dd class="nhsuk-summary-list__value nhsuk-u-margin-bottom-2">
+                                                                  You do not have an email address on your GP record
+                                                                </dd>
+                                                                <dd class="nhsuk-summary-list__actions">
+                                                                  <a href="/{{ PROTOTYPEURL }}/which-email">
+                                                                    Add an email address<span class="nhsuk-u-visually-hidden"></span>
+                                                                  </a>
+                                                                </dd>
+                                                                  </div>
+
+
+
+                                  <div class="nhsuk-summary-list__row">
+                                    <dt class="nhsuk-summary-list__key">
+                                      Address
                                     </dt>
                                     <dd class="nhsuk-summary-list__value">
+                                      <p>4 Privet Drive<br> Little Whinging<br> England<br> HP3 7TR</p>
+                                    </dd>
 
-                                      bettydoyle@hotmail.com
+                                    <dd class="nhsuk-summary-list__actions">
+
+                                      <a href="/{{ PROTOTYPEURL }}/change-address">
+                                        Change<span class="nhsuk-u-visually-hidden"> address</span>
+                                      </a>
 
                                     </dd>
 
-                                <dd class="nhsuk-summary-list__actions">
-
-                                  <a href="/{{ PROTOTYPEURL }}/which-email">
-                                    Change<span class="nhsuk-u-visually-hidden"> email address</span>
-                                  </a>
-
-                                </dd>
-
-
-                                <dt class="nhsuk-summary-list__key nhsuk-u-margin-bottom-4">
-                                 GP record
-                                </dt>
-                                <dd class="nhsuk-summary-list__value">
-
-                                  You do not have an email address on your GP record
-
-                                </dd>
-
-                                <dd class="nhsuk-summary-list__actions">
-
-                                  <a href="/{{ PROTOTYPEURL }}/which-email">
-                                    Add an email address<span class="nhsuk-u-visually-hidden"></span>
-                                  </a>
-
-                                </dd>
-
                                   </div>
 
+                                </dl>
+
+
         {% else %}
+
+
+
+              <dl class="nhsuk-summary-list">
+
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Mobile phone number
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                  07890345746
+                  </dd>
+
+                  <dd class="nhsuk-summary-list__actions">
+
+                    <a href="#">
+                      Change<span class="nhsuk-u-visually-hidden"> mobile phone number</span>
+                    </a>
+
+                  </dd>
+
+                </div>
+
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
             Email address
@@ -227,33 +385,32 @@
       </dd>
 
         </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            <p>4 Privet Drive<br> Little Whinging<br> England<br> HP3 7TR</p>
+          </dd>
+
+          <dd class="nhsuk-summary-list__actions">
+
+            <a href="/{{ PROTOTYPEURL }}/change-address">
+              Change<span class="nhsuk-u-visually-hidden"> address</span>
+            </a>
+
+          </dd>
+
+        </div>
+
+      </dl>
         {% endif %}
 
 
 
 
 
-
-
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
-      Address
-    </dt>
-    <dd class="nhsuk-summary-list__value">
-      <p>4 Privet Drive<br> Little Whinging<br> England<br> HP3 7TR</p>
-    </dd>
-
-    <dd class="nhsuk-summary-list__actions">
-
-      <a href="/{{ PROTOTYPEURL }}/change-address">
-        Change<span class="nhsuk-u-visually-hidden"> address</span>
-      </a>
-
-    </dd>
-
-  </div>
-
-</dl>
 
     </div>
   </div>
