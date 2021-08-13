@@ -1,10 +1,11 @@
-{% set PROTOTYPEURL = "app/contact-details/round-2/scenario-1" %}
+{% set PROTOTYPEURL = "app/contact-details/round-2/scenario-2" %}
 {% set serviceName = "NHS App" %}
+{% set contentTitle = "Which mobile phone number do you want to update?" %}
 {% set moreActive = "active" %}
-{% set contentTitle = "Do you also want to update the email address you use to log into health websites and apps?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
+
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -34,8 +35,8 @@
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
 
-    <form action="/{{ PROTOTYPEURL }}/enter-new-email" method="post">
 
+    <form action="/{{ PROTOTYPEURL }}/enter-password" method="post">
 
           <div class="nhsuk-form-group">
 
@@ -46,19 +47,20 @@
                 </h1>
               </legend>
 
+
               <div class="nhsuk-radios">
 
                 <div class="nhsuk-radios__item">
-                  <input class="nhsuk-radios__input" id="example-1" name="updateLogin" type="radio" value="yes">
+                  <input class="nhsuk-radios__input" id="example-1" name="whichMobile" type="radio" value="GPMobile">
                   <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                    Yes
+                    The number my GP has for me
                   </label>
                 </div>
 
                 <div class="nhsuk-radios__item">
-                  <input class="nhsuk-radios__input" id="example-2" name="updateLogin" type="radio" value="no">
+                  <input class="nhsuk-radios__input" id="example-2" name="whichMobile" type="radio" value="LogInMobile">
                   <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-                  No, I want to keep using betty.doyle@hotmail.com
+                    The number I use to log into health websites and apps
                   </label>
                 </div>
 
@@ -67,17 +69,11 @@
 
           </div>
 
-                      <input type="submit" class="nhsuk-button" value="Continue">
-                      </input>
-                    </form>
 
+                <input type="submit" class="nhsuk-button" value="Continue">
+                </input>
+              </form>
 
-                                  {{ details({
-                                    "text": "What is NHS login?",
-                                    "HTML": "
-                                    <p>NHS login makes it easier and quicker for you to securely access digital health and care services with 1 username and password.</p>
-                                    "
-                                  }) }}
 
 
 

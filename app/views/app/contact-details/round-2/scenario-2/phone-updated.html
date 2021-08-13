@@ -1,6 +1,16 @@
-{% set PROTOTYPEURL = "app/contact-details/round-2/scenario-3" %}
+{% set PROTOTYPEURL = "app/contact-details/round-2/scenario-2" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "You have updated your email address" %}
+{% if data['whichPhone'] === 'differentPhone' %}
+{% set contentTitle = "You have changed the mobile phone number on your GP record" %}
+{% elif data['whichMobile'] === 'GPMobile' %}
+{% set contentTitle = "You have changed the mobile phone number on your GP record" %}
+{% elif data['whichMobile'] === 'LogInMobile' %}
+{% set contentTitle = "You have updated the mobile phone number you use to log in" %}
+{% elif data['whichPhone'] === 'PDSPhone' %}
+{% set contentTitle = "You have changed the mobile phone number on your GP record" %}
+{% else %}
+{% set contentTitle = "You have updated your mobile phone number" %}
+{% endif %}
 {% set moreActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -39,18 +49,29 @@
       {{ contentTitle }}
     </h1>
 
+    {% if data['whichPhone'] === 'loginPhone' %}
+    <p>Your new mobile phone number is: 07700000000.</p>
 
-      {% if data['whichEmail'] === 'gp' %}
-      <p>The email address on your GP record is: {{ data['newGPEmail'] }}.</p>
+    {% elif data['whichPhone'] === 'PDSPhone' %}
 
-      {% elif data['whichEmail'] === 'login' %}
-      <p>The email address that you use to log into health websites and apps is: {{ data['newLoginEmail'] }}.</p>
+    <p>The mobile phone number on your GP record is: 07811111111.</p>
 
-      {% else %}
-      <p>The email address on your GP record and that you use for logging into health websites and apps is: {{ data['newEmail'] }}.</p>
-      {% endif %}
+    {% elif data['whichPhone'] === 'differentPhone' %}
 
+    <p>The mobile phone number on your GP record is: {{ data['newPhone']}}.</p>
 
+    {% elif data['whichMobile'] === 'GPMobile' %}
+
+    <p>The mobile phone number on your GP record is: {{ data['newPhone']}}.</p>
+
+    {% elif data['whichMobile'] === 'LogInMobile' %}
+
+    <p>The mobile phone number you use for logging into health websites and apps is: {{ data['newPhone']}}.</p>
+
+    {% else %}
+    <p>Your new mobile phone number is: {{ data['newPhone']}}.</p>
+
+    {% endif %}
 
     <p><a href="/{{ PROTOTYPEURL }}/your-contact-details">Back to your contact details</a></p>
 
