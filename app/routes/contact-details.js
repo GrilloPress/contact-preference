@@ -18,6 +18,22 @@ router.post('/app/contact-details/v2/which-email', function (req, res) {
 });
 
 
+router.post('/app/contact-details/round-2/scenario-1/which-email', function (req, res) {
+  let answer = req.body.whichEmail;
+
+  if (answer === 'differentEmail') {
+
+    res.redirect('/app/contact-details/round-2/scenario-1/enter-new-email')
+
+  } else {
+    res.redirect('/app/contact-details/round-2/scenario-1/email-updated')
+  }
+
+
+});
+
+
+
 
 
 
