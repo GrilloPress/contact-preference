@@ -1,11 +1,9 @@
-{% set PROTOTYPEURL = "app/contact-details/round-2/scenario-1" %}
+{% set PROTOTYPEURL = "app/contact-details/round-2/scenario-3" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "You have added an email address" %}
-{% set moreActive = "active" %}
+{% set contentTitle = "Enter your new email address for logging in" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
-
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -35,24 +33,28 @@
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
 
-    <h1 class="nhsuk-heading-xl nhs-app-xl">
-      {{ contentTitle }}
-    </h1>
-
-    {% if ( data['newEmail'] ) %}
-
-    <p>The email address on your GP record is: {{ data['newEmail'] }}.</p>
-
-    {% else %}
-
-    <p>The email address on your GP record is: betty.doyle@hotmail.com.</p>
-
-      {% endif %}
+    <form action="/{{ PROTOTYPEURL }}/enter-password" method="post">
 
 
 
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label--xl" for="example-with-hint-text">
+          {{ contentTitle }}
+        </label>
+        <div class="nhsuk-hint" id="example-with-hint-text-hint">
+          We will send a link to your new email address. You will need to follow this link to confirm the email change.
+        </div>
+        <label class="nhsuk-label" for="example">
+          New email address
+        </label>
+        <input class="nhsuk-input" id="example" name="newLoginEmail" type="text">
+      </div>
 
-    <p><a href="/{{ PROTOTYPEURL }}/your-contact-details">Back to your contact details</a></p>
+
+
+                <input type="submit" class="nhsuk-button" value="Continue">
+                </input>
+              </form>
 
 
 

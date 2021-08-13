@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/contact-details/round-2/scenario-3" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Do you want to add your email address to your GP record?" %}
+{% set contentTitle = "Which email address do you want to update?" %}
 {% set moreActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -50,17 +50,17 @@
               <div class="nhsuk-radios">
 
                 <div class="nhsuk-radios__item">
-                  <input class="nhsuk-radios__input" id="example-1" name="whichEmail" type="radio" value="loginEmail">
+                  <input class="nhsuk-radios__input" id="example-1" name="whichEmail" type="radio" value="gp">
                   <label class="nhsuk-label nhsuk-radios__label" for="example-1">
-                    Yes, add betty.doyle@hotmail.com
+                    The email address my GP has for me
                   </label>
                 </div>
 
                 <div class="nhsuk-radios__item">
-                  <input class="nhsuk-radios__input" id="example-2" name="whichEmail" type="radio" value="differentEmail">
+                  <input class="nhsuk-radios__input" id="example-2" name="whichEmail" type="radio" value="login">
                   <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-                    No, I want to add a different email address
-                  </label>
+                      The email address I use to log into health websites and apps
+                    </label>
                 </div>
 
               </div>

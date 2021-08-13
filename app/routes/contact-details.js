@@ -34,6 +34,23 @@ router.post('/app/contact-details/round-2/scenario-1/which-email', function (req
 
 
 
+router.post('/app/contact-details/round-2/scenario-3/which-email', function (req, res) {
+  let answer = req.body.whichEmail;
+
+  if (answer === 'gp') {
+
+    res.redirect('/app/contact-details/round-2/scenario-3/enter-new-gp-email')
+
+  } else {
+    res.redirect('/app/contact-details/round-2/scenario-3/enter-new-login-email')
+  }
+
+
+});
+
+
+
+
 
 
 

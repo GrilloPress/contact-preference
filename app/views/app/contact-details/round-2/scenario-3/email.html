@@ -1,4 +1,4 @@
-{% set PROTOTYPEURL = "app/contact-details/round-2/scenario-1" %}
+{% set PROTOTYPEURL = "app/contact-details/round-2/scenario-3" %}
 {% set serviceName = "NHS App" %}
 {% set contentTitle = "Confirm your new email address" %}
 {% set title = contentTitle + " - " + serviceName %}
@@ -22,11 +22,18 @@
     <div class="nhsuk-grid-column-full">
       <h1 class="nhsuk-heading-l">{{ contentTitle}}</h1>
 
-
+      {% if data['whichEmail'] === 'gp' %}
       <p>You are updating the email address your GP has for you.</p>
 
+      {% elif data['whichEmail'] === 'login' %}
+      <p>You are updating the email address that you use to log into health websites and apps.</p>
 
-      <p>Click Confirm your new email address to finish updating it.</p>
+      {% else %}
+      <p>You are updating the email address your GP has for you and that you use to log into health websites and apps.</p>
+      {% endif %}
+
+
+      <p>Click Confirm email address to finish updating it.</p>
 
 
       <form action="/{{ PROTOTYPEURL }}/email-updated" method="post">
