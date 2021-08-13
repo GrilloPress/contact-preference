@@ -645,3 +645,100 @@ $callout-border-bottom-width: 1px;
     margin-top: -5px;
   }
 }
+
+
+/* ==========================================================================
+   COMPONENTS/ #CHECKBOXES
+   ========================================================================== */
+/**
+ * 1. remove 300ms pause on mobile.
+ * 2. Fix bug in IE11 caused by transform rotate (-45deg).
+ */
+ .nhsuk-checkboxes__item {
+  font-weight: 400;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  clear: left;
+  display: block;
+  margin-bottom: 8px;
+  min-height: 40px;
+  padding: 0 0 0 40px;
+  position: relative;
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-checkboxes__item {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    line-height: 1.47368;
+  }
+}
+@media print {
+  .nhsuk-checkboxes__item {
+    font-size: 14pt;
+    line-height: 1.15;
+  }
+}
+​
+.nhsuk-checkboxes__item:last-child,
+.nhsuk-checkboxes__item:last-of-type {
+  margin-bottom: 0;
+}
+​
+.nhsuk-checkboxes__input {
+  cursor: pointer;
+  height: 40px;
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 40px;
+  z-index: 1;
+}
+​
+.nhsuk-checkboxes__label {
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 8px 12px 4px;
+  -ms-touch-action: manipulation;
+  /* 1 */
+  touch-action: manipulation;
+}
+​
+.nhsuk-checkboxes__hint {
+  display: block;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+​
+.nhsuk-checkboxes__input + .nhsuk-checkboxes__label::before {
+  background: #ffffff;
+  border: 2px solid #4c6272;
+  box-sizing: border-box;
+  content: "";
+  height: 40px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 40px;
+}
+​
+.nhsuk-checkboxes__input + .nhsuk-checkboxes__label::after {
+  background: transparent;
+  border: solid;
+  border-top-color: transparent;
+  border-width: 0 0 4px 4px;
+  content: "";
+  height: 10px;
+  left: 10px;
+  opacity: 0;
+  /* 2 */
+  position: absolute;
+  top: 13px;
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  width: 22px;
+}
