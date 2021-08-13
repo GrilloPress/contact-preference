@@ -1,0 +1,50 @@
+{% set PROTOTYPEURL = "app/contact-details/v2" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Delete your NHS login" %}
+{% set moreActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Delete your NHS login</h1>
+      <div class="nhsuk-warning-callout">
+        <h3 class="nhsuk-warning-callout__label">
+          <span role="text">
+            <span class="nhsuk-u-visually-hidden">Important: </span>
+            When you delete your NHS login
+          </span>
+        </h3>
+        <p>You will no longer be able to use NHS login to access any services.</p>
+        <p>Any services you have used with NHS login may keep some information about you in line with their terms and conditions and privacy notice.</p>
+        <p>We may also keep some information about you in line with NHS login's data retention policy.</p>
+        <p>Our Privacy Notice provides a summary of how we use your information.</p>
+      </div>
+
+
+      <h2>Are you sure you want to delete your NHS login?</h2>
+      <form action="#" method="post">
+        <input type="submit" class="nhsuk-button" value="Delete your NHS login">
+        </input>
+      </form>
+
+
+
+    </div>
+  </div>
+{% endblock %}
