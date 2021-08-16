@@ -2,6 +2,8 @@
 {% set serviceName = "NHS App" %}
 {% if data['whichPhone'] === 'differentPhone' %}
 {% set contentTitle = "You have changed the mobile phone number on your GP record" %}
+{% elif data['whichPhone'] === 'loginPhone' %}
+{% set contentTitle = "You have updated the mobile phone number on your GP record" %}
 {% elif data['whichMobile'] === 'GPMobile' %}
 {% set contentTitle = "You have changed the mobile phone number on your GP record" %}
 {% elif data['whichMobile'] === 'LogInMobile' %}
@@ -50,7 +52,7 @@
     </h1>
 
     {% if data['whichPhone'] === 'loginPhone' %}
-    <p>Your new mobile phone number is: 07700000000.</p>
+    <p>The mobile phone number on your GP record is: 07700000000.</p>
 
     {% elif data['whichPhone'] === 'PDSPhone' %}
 
