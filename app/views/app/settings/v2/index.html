@@ -40,9 +40,17 @@
       		<a class="desktop" href="/{{ PROTOTYPEURL }}/password">Face ID</a>
       	</li>
         {% if data['contactDetails'] === "True" %}
+
+        {% if data['round1'] === "True" %}
+        <li>
+          <a class="desktop" href="/app/contact-details/v2/account-hub">Manage your account</a>
+        </li>
+        {% else %}
         <li>
           <a class="desktop" href="/app/contact-details/round-2/scenario-1/account-hub">Manage your account</a>
         </li>
+        {% endif %}
+
         {% else %}
         <li>
           <a class="desktop" href="/app/settings/v3/nhs-login">NHS login</a>
