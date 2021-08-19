@@ -1,0 +1,85 @@
+{% set PROTOTYPEURL = "app/contact-details/round-3/scenario-2" %}
+{% set serviceName = "NHS App" %}
+{% if data['whichPhone'] === 'differentPhone' %}
+{% set contentTitle = "You have changed the mobile phone number on your GP record" %}
+{% elif data['whichPhone'] === 'loginPhone' %}
+{% set contentTitle = "You have updated the mobile phone number on your GP record" %}
+{% elif data['whichMobile'] === 'GPMobile' %}
+{% set contentTitle = "You have changed the mobile phone number on your GP record" %}
+{% elif data['whichMobile'] === 'LogInMobile' %}
+{% set contentTitle = "You have updated your NHS login mobile phone number" %}
+{% elif data['whichPhone'] === 'PDSPhone' %}
+{% set contentTitle = "You have changed the mobile phone number on your GP record" %}
+{% else %}
+{% set contentTitle = "You have updated your mobile phone number" %}
+{% endif %}
+{% set moreActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v8/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/contact-details/v2/more-hub">More</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/contact-details/v2/account-hub">Manage your account</a></li>
+
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1 class="nhsuk-heading-xl nhs-app-xl">
+      {{ contentTitle }}
+    </h1>
+
+    {% if data['whichPhone'] === 'loginPhone' %}
+    <p>The mobile phone number on your GP record is: 07700000000.</p>
+
+    {% elif data['whichPhone'] === 'PDSPhone' %}
+
+    <p>The mobile phone number on your GP record is: 07811111111.</p>
+
+    {% elif data['whichPhone'] === 'differentPhone' %}
+
+    <p>The mobile phone number on your GP record is: {{ data['newPhone']}}.</p>
+
+    {% elif data['whichMobile'] === 'GPMobile' %}
+
+    <p>The mobile phone number on your GP record is: {{ data['newPhone']}}.</p>
+
+    {% elif data['whichMobile'] === 'LogInMobile' %}
+
+    <p>The mobile phone number you use for NHS login is: {{ data['newPhone']}}.</p>
+
+    {% else %}
+    <p>Your new mobile phone number is: {{ data['newPhone']}}.</p>
+
+    {% endif %}
+
+    <p><a href="/{{ PROTOTYPEURL }}/your-contact-details">Back to your contact details</a></p>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

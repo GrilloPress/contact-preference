@@ -1,0 +1,71 @@
+{% set PROTOTYPEURL = "app/contact-details/round-3/scenario-2" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Enter the security code" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v8/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/contact-details/v2/more-hub">More</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/contact-details/v2/account-hub">Manage your account</a></li>
+
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <form action="/{{ PROTOTYPEURL }}/phone-updated" method="post">
+
+
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label--xl" for="example-with-hint-text">
+          {{ contentTitle }}
+        </label>
+
+        {% if data['newPhone'] %}
+        <p>Enter the security code we’ve sent to  {{ data['newPhone']}}.</p>
+        {% else %}
+        <p>Enter the security code we’ve sent to  07599999999.</p>
+        {% endif %}
+
+        <label class="nhsuk-label" for="example">
+          Security Code
+        </label>
+        <div class="nhsuk-hint" id="example-with-hint-text-hint">
+          The code is 6 numbers
+        </div>
+        <input class="nhsuk-input  nhsuk-input--width-10" id="example" name="newEmail" type="text">
+      </div>
+
+
+
+                <input type="submit" class="nhsuk-button" value="Continue">
+                </input>
+              </form>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

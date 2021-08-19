@@ -1,0 +1,96 @@
+{% set PROTOTYPEURL = "app/contact-details/round-3/scenario-2" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Which mobile phone number do you want on your GP record?" %}
+{% set moreActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v8/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/contact-details/v2/more-hub">More</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/contact-details/v2/account-hub">Manage your account</a></li>
+
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+
+    <form action="/{{ PROTOTYPEURL }}/which-phone" method="post">
+
+          <div class="nhsuk-form-group">
+
+            <fieldset class="nhsuk-fieldset">
+              <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl nhs-app-xl">
+                <h1 class="nhsuk-fieldset__heading">
+                  {{ contentTitle }}
+                </h1>
+              </legend>
+
+
+    <div class="nhsuk-hint" id="contact-hint">
+      Any mobile phone numbers you do not choose will be removed from your GP record.
+    </div>
+
+
+              <div class="nhsuk-radios">
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-1" name="whichPhone" type="radio" value="loginPhone">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                    07700000000
+                  </label>
+                </div>
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-2" name="whichPhone" type="radio" value="PDSPhone">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                    07811111111
+                  </label>
+                </div>
+
+
+                                <div class="nhsuk-radios__item">
+                                  <input class="nhsuk-radios__input" id="example-2" name="whichPhone" type="radio" value="differentPhone">
+                                  <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                                    I want to use a different mobile phone number
+                                  </label>
+                                </div>
+
+              </div>
+            </fieldset>
+
+          </div>
+
+
+                <input type="submit" class="nhsuk-button" value="Continue">
+                </input>
+              </form>
+
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

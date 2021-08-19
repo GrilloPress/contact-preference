@@ -1,0 +1,182 @@
+{% set PROTOTYPEURL = "app/contact-details/round-3/scenario-2" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Enter your new mobile phone number" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v8/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/contact-details/v2/more-hub">More</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/contact-details/v2/account-hub">Manage your account</a></li>
+
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <form action="/{{ PROTOTYPEURL }}/enter-code" method="post">
+
+
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label--xl" for="example-with-hint-text">
+          {{ contentTitle }}
+        </label>
+
+        <div class="nhsuk-hint" id="example-with-hint-text-hint">
+          We will send you a 6 digit security code.
+        </div>
+        <label class="nhsuk-label" for="example">
+          UK mobile phone number
+        </label>
+        <input class="nhsuk-input" id="example" name="newPhone" type="text">
+      </div>
+
+            <div class="nhsuk-form-group">
+
+              <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
+                <div class="nhsuk-checkboxes nhsuk-checkboxes--conditional">
+
+                  <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="int-number" name="int-number" type="checkbox" aria-controls="conditional-contact-1" aria-expanded="false">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="int-mobile">
+                      I have an international mobile phone number
+                    </label>
+
+                  </div>
+                  </div>
+
+                  <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="conditional-contact-1">
+
+                    <div class="nhsuk-form-group">
+                      <label class="nhsuk-label" for="email">
+
+                        Please enter + and then your country code before your phone number. For example +44 6789012345
+                      </label>
+                      <input class="nhsuk-input nhsuk-u-width-two-thirds" id="int-mobile" name="int-mobile" type="text">
+                    </div>
+                  </div>
+              </fieldset>
+              </div>
+
+
+                <input type="submit" class="nhsuk-button" value="Continue">
+                </input>
+              </form>
+
+
+
+
+    </div>
+  </div>
+
+  <script>
+  !(function (e) {
+    var t = {};
+    function n(r) {
+      if (t[r]) return t[r].exports;
+      var o = (t[r] = { i: r, l: !1, exports: {} });
+      return e[r].call(o.exports, o, o.exports, n), (o.l = !0), o.exports;
+    }
+    (n.m = e),
+      (n.c = t),
+      (n.d = function (e, t, r) {
+        n.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: r });
+      }),
+      (n.r = function (e) {
+        "undefined" != typeof Symbol &&
+          Symbol.toStringTag &&
+          Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
+          Object.defineProperty(e, "__esModule", { value: !0 });
+      }),
+      (n.t = function (e, t) {
+        if ((1 & t && (e = n(e)), 8 & t)) return e;
+        if (4 & t && "object" == typeof e && e && e.__esModule) return e;
+        var r = Object.create(null);
+        if (
+          (n.r(r),
+          Object.defineProperty(r, "default", { enumerable: !0, value: e }),
+          2 & t && "string" != typeof e)
+        )
+          for (var o in e)
+            n.d(
+              r,
+              o,
+              function (t) {
+                return e[t];
+              }.bind(null, o)
+            );
+        return r;
+      }),
+      (n.n = function (e) {
+        var t =
+          e && e.__esModule
+            ? function () {
+                return e.default;
+              }
+            : function () {
+                return e;
+              };
+        return n.d(t, "a", t), t;
+      }),
+      (n.o = function (e, t) {
+        return Object.prototype.hasOwnProperty.call(e, t);
+      }),
+      (n.p = ""),
+      n((n.s = 0));
+  })([
+    function (e, t, n) {
+      "use strict";
+      n.r(t);
+      var r = function () {
+        var e = document.querySelectorAll(
+            ".nhsuk-checkboxes--conditional .nhsuk-checkboxes__input"
+          ),
+          t = function (e) {
+            !(function (e, t) {
+              if (e && t) {
+                var n = e.getAttribute("aria-controls");
+                if (n) {
+                  var r = document.getElementById(n);
+                  r &&
+                    (r.classList.toggle(t),
+                    (function (e, t) {
+                      if (e && t) {
+                        var n = "true" === e.getAttribute(t) ? "false" : "true";
+                        e.setAttribute(t, n);
+                      }
+                    })(e, "aria-expanded"));
+                }
+              }
+            })(e.target, "nhsuk-checkboxes__conditional--hidden");
+          };
+        e.forEach(function (e) {
+          e.addEventListener("change", t);
+        });
+      };
+      document.addEventListener("DOMContentLoaded", function () {
+        r();
+      });
+    },
+  ]);
+  </script>
+{% endblock %}
