@@ -1,0 +1,81 @@
+{% set PROTOTYPEURL = "app/contact-details/option-b/scenario-1" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Your NHS record is missing a contact email address" %}
+{% set moreActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v8/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/contact-details/v2/more-hub">More</a></li>
+
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <form action="/{{ PROTOTYPEURL }}/check-details" method="post">
+
+      <h1 class="nhs-app-xl">{{contentTitle}}</h1>
+          <div class="nhsuk-form-group">
+
+            <fieldset class="nhsuk-fieldset">
+              <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--m nhs-app-xl">
+                <h2 class="nhsuk-fieldset__heading">
+                  Would you like to add betty.doyle@hotmail.co.uk?
+                </h2>
+              </legend>
+
+              <div class="nhsuk-radios">
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-1" name="missingEmail" type="radio" value="yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                      Yes
+                  </label>
+                </div>
+
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-2" name="missingEmail" type="radio" value="no">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                    No
+                  </label>
+                </div>
+
+              </div>
+            </fieldset>
+
+          </div>
+
+
+                <input type="submit" class="nhsuk-button" value="Continue">
+                </input>
+              </form>
+
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

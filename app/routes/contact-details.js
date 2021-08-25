@@ -114,6 +114,37 @@ router.post('/app/contact-details/round-3/scenario-3/which-email', function (req
 
 
 
+router.post('/app/contact-details/option-c/scenario-1/which-email', function (req, res) {
+  let answer = req.body.whichEmail;
+
+  if (answer === 'differentEmail') {
+
+    res.redirect('/app/contact-details/option-c/scenario-1/enter-new-email')
+
+  } else {
+    res.redirect('/app/contact-details/option-c/scenario-1/email-updated')
+  }
+
+
+});
+
+
+
+router.post('/app/contact-details/option-c/scenario-2/which-phone', function (req, res) {
+  let answer = req.body.whichPhone;
+
+  if (answer === 'differentPhone') {
+
+    res.redirect('/app/contact-details/option-c/scenario-2/enter-password')
+
+  } else {
+    res.redirect('/app/contact-details/option-c/scenario-2/phone-updated')
+  }
+
+
+});
+
+
 
 
 

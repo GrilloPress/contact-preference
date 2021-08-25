@@ -1,6 +1,6 @@
-{% set PROTOTYPEURL = "app/contact-details/round-3/scenario-2" %}
+{% set PROTOTYPEURL = "app/contact-details/option-c/scenario-2" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Enter your password" %}
+{% set contentTitle = "We've got your new mobile phone number" %}
 {% set moreActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -35,30 +35,21 @@
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
 
-    <form action="/{{ PROTOTYPEURL }}/enter-new-phone" method="post">
+    <h1 class="nhsuk-heading-xl nhs-app-xl">
+      {{ contentTitle }}
+    </h1>
 
 
 
-      <div class="nhsuk-form-group">
-        <label class="nhsuk-label--xl" for="example-with-hint-text">
-          {{ contentTitle }}
-        </label>
-        <div class="nhsuk-hint" id="example-with-hint-text-hint">
-          We need to make sure it’s you before you can change your mobile phone number.
-        </div>
-        <label class="nhsuk-label" for="example">
-          Password
-        </label>
-        <input class="nhsuk-input" id="example" name="example" type="text">
-      </div>
+            <p>Some NHS services, such as your GP surgery, may continue to use your old details.</p>
+
+            <p>This is because there may be a delay before they check your updated NHS record. Or some NHS services might not accept the update.</p>
+
+            <p>If you're worried, you can contact your GP surgery to check they've got your new mobile phone number.</p>
 
 
 
-                <input type="submit" class="nhsuk-button" value="Continue">
-                </input>
-              </form>
-
-
+    <p><a href="/{{ PROTOTYPEURL }}/your-contact-details">Back to your contact details</a></p>
 
 
 

@@ -34,62 +34,18 @@
         </li>
         {% endif %}
         <li>
-          <a class="desktop" href="/{{ PROTOTYPEURL }}/cookies">Cookies</a>
-        </li>
-      	<li>
-      		<a class="desktop" href="/{{ PROTOTYPEURL }}/password">Face ID</a>
+      		<a class="desktop" href="/{{ PROTOTYPEURL }}/account-and-settings">Account and settings</a>
       	</li>
-        {% if data['contactDetails'] === "True" %}
-
-        {% if data['round1'] === "True" %}
-        <li>
-          <a class="desktop" href="/app/contact-details/v2/account-hub">Manage your account</a>
-        </li>
-        {% elif data['round2'] === "True" %}
-        <li>
-          <a class="desktop" href="/app/contact-details/round-2/scenario-1/account-hub">Manage your account</a>
-        </li>
-
-        {% else %}
-
-        <li>
-          <a class="desktop" href="/app/contact-details/round-3/scenario-1/your-contact-details">Manage your account</a>
-        </li>
-
-        {% endif %}
-
-        {% else %}
-        <li>
-          <a class="desktop" href="/app/settings/v3/nhs-login">NHS login</a>
-        </li>
-        {% endif %}
       	<li>
-      		<a class="desktop" href="/{{ PROTOTYPEURL }}/notifications">Notifications</a>
+      		<a class="desktop" href="https://www.nhs.uk/nhs-app/nhs-app-help-and-support/">Help and support</a>
       	</li>
       </ul>
       <form action="/app/v8/clear" method="post">
         <input type="submit" class="nhsuk-button nhsuk-button--secondary" value="Log out">
         </input>
       </form>
-      <h2 class="nhsuk-heading-m">About the NHS App</h2>
-      <ul class="list-menu">
-        <li>
-      		<a class="desktop" href="#">Help and support</a>
-      	</li>
-        <li>
-      		<a class="desktop" href="#">Accessibility statement</a>
-      	</li>
-        <li>
-      		<a class="desktop" href="#">Open source licences</a>
-      	</li>
-        <li>
-          <a class="desktop" href="#">Privacy policy</a>
-        </li>
-        <li>
-      		<a class="desktop" href="#">Terms of use</a>
-      	</li>
-      </ul>
 
+      <p>Version 1.56.2 (1.55.0)</p>
     </div>
   </div>
 {% endblock %}

@@ -1,0 +1,97 @@
+{% set PROTOTYPEURL = "app/settings/v2" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Account and settings" %}
+{% set moreActive = "active" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/v8/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/settings/v2">More</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl nhs-app-xl">Account and settings</h1>
+      <ul class="list-menu">
+        <li>
+      		<a class="desktop" href="/{{ PROTOTYPEURL }}/password">Face ID</a>
+      	</li>
+
+        {% if data['contactDetails'] === "True" %}
+
+        {% if data['round1'] === "True" %}
+        <li>
+          <a class="desktop" href="/app/contact-details/v2/account-hub">Manage your account</a>
+        </li>
+        {% elif data['round2'] === "True" %}
+        <li>
+          <a class="desktop" href="/app/contact-details/round-2/scenario-1/account-hub">Manage your account</a>
+        </li>
+
+        {% elif data['round3'] === "True" %}
+        <li>
+          <a class="desktop" href="/app/contact-details/round-3/scenario-1/your-contact-details">Manage your account</a>
+        </li>
+
+        {% elif data['optionB'] === "True" %}
+
+        <li>
+          <a class="desktop" href="/app/contact-details/option-b/scenario-1/manage-nhs-login">Manage NHS login account</a>
+        </li>
+
+        <li>
+          <a class="desktop" href="/app/contact-details/option-b/scenario-1/multiple-mobile">Check your NHS record contact details</a>
+        </li>
+
+        {% elif data['optionC'] === "True" %}
+
+        <li>
+          <a class="desktop" href="/app/contact-details/option-c/scenario-1/manage-nhs-login">Manage NHS login account</a>
+        </li>
+
+        <li>
+          <a class="desktop" href="/app/contact-details/option-c/scenario-1/your-contact-details">Manage your NHS record contact details</a>
+        </li>
+
+
+        {% endif %}
+
+        {% else %}
+        <li>
+          <a class="desktop" href="/app/settings/v3/nhs-login">NHS login</a>
+        </li>
+        {% endif %}
+
+
+      	<li>
+      		<a class="desktop" href="/{{ PROTOTYPEURL }}/notifications">Manage notifications</a>
+      	</li>
+
+        <li>
+          <a class="desktop" href="#">Legal and cookies</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}

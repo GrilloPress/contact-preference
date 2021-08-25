@@ -1,11 +1,9 @@
-{% set PROTOTYPEURL = "app/contact-details/round-3/scenario-2" %}
+{% set PROTOTYPEURL = "app/contact-details/option-c/scenario-2" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Enter your password" %}
-{% set moreActive = "active" %}
+{% set contentTitle = "Enter the security code" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
-
 
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
@@ -35,7 +33,7 @@
 <div class="nhsuk-grid-row">
   <div class="nhsuk-grid-column-two-thirds">
 
-    <form action="/{{ PROTOTYPEURL }}/enter-new-phone" method="post">
+    <form action="/{{ PROTOTYPEURL }}/phone-updated" method="post">
 
 
 
@@ -43,13 +41,20 @@
         <label class="nhsuk-label--xl" for="example-with-hint-text">
           {{ contentTitle }}
         </label>
-        <div class="nhsuk-hint" id="example-with-hint-text-hint">
-          We need to make sure it’s you before you can change your mobile phone number.
-        </div>
+
+        {% if data['newPhone'] %}
+        <p>Enter the security code we’ve sent to  {{ data['newPhone']}}.</p>
+        {% else %}
+        <p>Enter the security code we’ve sent to  07599999999.</p>
+        {% endif %}
+
         <label class="nhsuk-label" for="example">
-          Password
+          Security Code
         </label>
-        <input class="nhsuk-input" id="example" name="example" type="text">
+        <div class="nhsuk-hint" id="example-with-hint-text-hint">
+          The code is 6 numbers
+        </div>
+        <input class="nhsuk-input  nhsuk-input--width-10" id="example" name="newEmail" type="text">
       </div>
 
 
@@ -57,8 +62,6 @@
                 <input type="submit" class="nhsuk-button" value="Continue">
                 </input>
               </form>
-
-
 
 
 
