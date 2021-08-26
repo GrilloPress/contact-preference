@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/contact-details/option-c/scenario-1" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Some NHS services, such as your GP surgery, may continue to use your old details" %}
+{% set contentTitle = "You are updating your email address" %}
 {% set moreActive = "active" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
@@ -41,11 +41,14 @@
       {{ contentTitle }}
     </h1>
 
+    <p>Some NHS services, such as your GP surgery, may continue to use your old email address even if you update your NHS record.</p>
+
+    <p>Click Continue if you still want to update your NHS record.</p>
+
     <form action="/{{ PROTOTYPEURL }}/which-email" method="get">
                 <input type="submit" class="nhsuk-button" value="Continue">
                 </input>
               </form>
-
 
 
 
