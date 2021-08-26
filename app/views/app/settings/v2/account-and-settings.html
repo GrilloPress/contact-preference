@@ -49,9 +49,21 @@
         </li>
 
         {% elif data['round3'] === "True" %}
+
+        {% if data['round3scenario2'] === "True" %}
+
+        <li>
+          <a class="desktop" href="/app/contact-details/round-3/scenario-2/your-contact-details">Manage your account</a>
+        </li>
+
+        {% else %}
+
         <li>
           <a class="desktop" href="/app/contact-details/round-3/scenario-1/your-contact-details">Manage your account</a>
         </li>
+
+        {% endif %}
+
 
         {% elif data['optionB'] === "True" %}
 
@@ -65,13 +77,24 @@
 
         {% elif data['optionC'] === "True" %}
 
+
+
         <li>
           <a class="desktop" href="/app/contact-details/option-c/scenario-1/manage-nhs-login">Manage NHS login account</a>
         </li>
 
+        {% if data['optionCscenario2'] === "True" %}
+
+        <li>
+          <a class="desktop" href="/app/contact-details/option-c/scenario-2/your-contact-details">Manage your NHS record contact details</a>
+        </li>
+
+        {% else %}
+
         <li>
           <a class="desktop" href="/app/contact-details/option-c/scenario-1/your-contact-details">Manage your NHS record contact details</a>
         </li>
+        {% endif %}
 
 
         {% endif %}
